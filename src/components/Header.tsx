@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid } from "lucide-react";
+import KenseiLogo from "./KenseiLogo";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -26,28 +27,8 @@ export default function Header({
       <header className="sticky top-3 z-40 w-full bg-white/90 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 transition-all duration-300">
         
         {/* Left: Brand Logo & Title */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActivePage("simulator")}>
-          <div className="w-11 h-11 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022]">
-            <img
-              src="./kensei_logo.jpg"
-              alt="KENSEI SPEC LOGO"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-          </div>
-          <div>
-            <h2 className="text-base sm:text-lg font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-2">
-              KENSEI SPEC
-              <span className="text-[10px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
-                剣聖スペック
-              </span>
-            </h2>
-            <p className="text-[11px] text-gray-500 dark:text-gray-400 font-extrabold hidden sm:block">
-              Hardware Physics & Telemetry Simulator
-            </p>
-          </div>
+        <div className="flex items-center cursor-pointer" onClick={() => setActivePage("simulator")}>
+          <KenseiLogo size={42} showText={true} />
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
