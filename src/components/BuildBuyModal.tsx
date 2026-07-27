@@ -221,6 +221,43 @@ export default function BuildBuyModal({
           </button>
         </div>
 
+        {/* ACTIVE CALCULATOR SELECTION STATUS BANNER */}
+        {selectedCpu && selectedGpu && selectedRam ? (
+          <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <Check className="w-5 h-5 text-emerald-500 shrink-0" />
+              <div>
+                <span className="text-xs font-black text-emerald-900 dark:text-emerald-300 block">
+                  Active Calculator Configuration Loaded:
+                </span>
+                <span className="text-[11px] font-extrabold text-emerald-700 dark:text-emerald-400">
+                  {selectedCpu.name} • {selectedGpu.name} • {ramCapacityGB}GB {selectedRam.generation}
+                </span>
+              </div>
+            </div>
+            <span className="text-[10px] font-black bg-emerald-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+              ✓ Calculator Synced
+            </span>
+          </div>
+        ) : (
+          <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <Sparkles className="w-5 h-5 text-amber-500 shrink-0" />
+              <div>
+                <span className="text-xs font-black text-amber-900 dark:text-amber-300 block">
+                  No Custom Hardware Selected in Calculator Yet:
+                </span>
+                <span className="text-[11px] font-extrabold text-amber-700 dark:text-amber-400">
+                  Showing default High-End Gaming Preset. Configure CPU/GPU in Step 1 or Catalog to sync your exact build!
+                </span>
+              </div>
+            </div>
+            <span className="text-[10px] font-black bg-amber-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+              Default Preset
+            </span>
+          </div>
+        )}
+
         {/* BUILD TIER SELECTOR (Value / Premium / Extreme) */}
         <div className="flex flex-col gap-2">
           <div className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
