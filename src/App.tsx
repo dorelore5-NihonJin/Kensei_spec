@@ -18,6 +18,7 @@ import BuildBuyModal from "./components/BuildBuyModal";
 import { ShoppingCart, ArrowRight } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
+import Footer from "./components/Footer";
 
 // Safe casting seed data
 const cpus = cpuData as CPU[];
@@ -600,10 +601,12 @@ export default function App() {
           psuRecommendationW={compatibilityReport.psuRecommendationW}
         />
 
-        {/* Footer */}
-        <footer className="mt-20 pt-8 border-t border-black/[0.08] dark:border-white/[0.08] text-center text-xs text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider">
-          Kensei Spec PC Simulator • 2026 Edition. Designed with Soft Japanese Minimalism.
-        </footer>
+        {/* Rich Multi-Column Footer */}
+        <Footer
+          setActivePage={setActivePage}
+          onOpenBuyModal={() => setIsBuyModalOpen(true)}
+          onResetBuild={handleResetBuild}
+        />
       </div>
     </div>
   );

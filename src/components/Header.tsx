@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity } from "lucide-react";
+import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid } from "lucide-react";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -21,46 +21,13 @@ export default function Header({
   const [showAboutModal, setShowAboutModal] = useState(false);
 
   return (
-    <div className="w-full">
-      {/* 3D Cyberpunk Minimalist Hero Banner */}
-      <div className="relative w-full h-48 sm:h-60 md:h-72 rounded-3xl overflow-hidden mb-6 shadow-2xl border border-black/10 dark:border-white/10 group">
-        <img
-          src="./kensei_hero_banner.jpg"
-          alt="KENSEI SPEC HERO BANNER"
-          className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out"
-          onError={(e) => {
-            e.currentTarget.src = "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&auto=format&fit=crop&q=80";
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-10">
-          <div className="flex items-center gap-2 mb-3 flex-wrap">
-            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
-              Neo-Tokyo Engine v2.6
-            </span>
-            <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              Real-Time Physics Simulator
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
-            KENSEI SPEC
-            <span className="text-xs sm:text-sm font-black bg-[#8A9A86] text-white px-3 py-1 rounded-full tracking-normal border border-white/20">
-              PC構成シミュレーター
-            </span>
-          </h1>
-
-          <p className="text-xs sm:text-base text-gray-200 font-extrabold mt-3 max-w-xl leading-relaxed drop-shadow">
-            Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism.
-          </p>
-        </div>
-      </div>
-
-      {/* Brand Header Bar & Site Navigation */}
-      <header className="max-w-7xl mx-auto py-3 mb-6 border-b border-black/10 dark:border-white/10 flex flex-col lg:flex-row justify-between items-center gap-4">
-        {/* Brand Logo & Title */}
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022]">
+    <div className="w-full flex flex-col gap-6">
+      {/* 1. STICKY TOP PROMINENT HEADER NAVBAR */}
+      <header className="sticky top-3 z-40 w-full bg-white/90 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 transition-all duration-300">
+        
+        {/* Left: Brand Logo & Title */}
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActivePage("simulator")}>
+          <div className="w-11 h-11 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022]">
             <img
               src="./kensei_logo.jpg"
               alt="KENSEI SPEC LOGO"
@@ -71,60 +38,75 @@ export default function Header({
             />
           </div>
           <div>
-            <h2 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-2">
-              KENSEI SPEC <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider bg-[#E88D9F]/10 px-2 py-0.5 rounded">Pro Hardware Diagnostics</span>
+            <h2 className="text-base sm:text-lg font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-2">
+              KENSEI SPEC
+              <span className="text-[10px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
+                剣聖スペック
+              </span>
             </h2>
-            <p className="text-xs text-gray-600 dark:text-gray-300 font-extrabold">Next-Gen Framerate & Bottleneck Telemetry Simulator</p>
+            <p className="text-[11px] text-gray-500 dark:text-gray-400 font-extrabold hidden sm:block">
+              Hardware Physics & Telemetry Simulator
+            </p>
           </div>
         </div>
 
-        {/* SITE NAVIGATION TABS (Simulator vs Game Builds vs Store) */}
-        <div className="flex items-center gap-2 bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-black/10 dark:border-white/10">
+        {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
+        <div className="flex items-center gap-1.5 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner w-full lg:w-auto justify-center">
+          
+          {/* TAB 1: SIMULATOR */}
           <button
             onClick={() => setActivePage("simulator")}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "simulator"
-                ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-xs"
-                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022]"
+                ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-md scale-102"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            ⚙️ Simulator / シミュレーター
+            <Layers className="w-4 h-4 text-[#E88D9F]" />
+            <span>⚙️ 1. Simulator & Calculator</span>
           </button>
 
+          {/* TAB 2: GAME BUILDS CATALOG */}
           <button
             onClick={() => setActivePage("catalog")}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "catalog"
-                ? "bg-[#8A9A86] text-white shadow-xs"
-                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022]"
+                ? "bg-[#8A9A86] text-white shadow-md scale-102"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            📦 Game Builds / ゲーム別推奨構成
+            <LayoutGrid className="w-4 h-4 text-[#8A9A86]" />
+            <span>📦 2. Game Builds Catalog</span>
           </button>
 
+          {/* TAB 3: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
-            className="px-4 py-2 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-xs"
+            className="px-4 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
           >
-            🛒 Store / 構成購入
+            <ShoppingCart className="w-4 h-4" />
+            <span>🛒 3. Buy PC Store</span>
           </button>
         </div>
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-2 flex-wrap justify-end">
-          {/* About Modal Trigger */}
+        {/* Right: Quick Action Controls */}
+        <div className="flex items-center gap-2 shrink-0">
+          {/* About Modal */}
           <button
             onClick={() => setShowAboutModal(true)}
-            className="flex items-center gap-2 px-3 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition shadow-xs"
+            className="p-2.5 sm:px-3.5 sm:py-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-xl transition flex items-center gap-1.5"
+            title="About Engine"
           >
-            <Info className="w-3.5 h-3.5 text-[#E88D9F]" /> About
+            <Info className="w-4 h-4 text-[#E88D9F]" />
+            <span className="hidden sm:inline">About</span>
           </button>
 
-          {/* Light / Dark mode Toggle */}
+          {/* Light / Dark Mode Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition duration-200 shadow-xs"
+            className="p-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition"
             aria-label="Toggle Dark Mode"
+            title="Toggle Light/Dark Theme"
           >
             {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-500" />}
           </button>
@@ -132,12 +114,45 @@ export default function Header({
           {/* Reset Build */}
           <button
             onClick={onReset}
-            className="flex items-center gap-2 px-3 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:text-red-500 dark:hover:text-red-400 rounded-xl transition duration-200 shadow-xs"
+            className="p-2.5 sm:px-3 sm:py-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 rounded-xl transition flex items-center gap-1.5"
+            title="Reset All Selections"
           >
-            <RotateCcw className="w-3.5 h-3.5" /> Reset Build
+            <RotateCcw className="w-4 h-4" />
+            <span className="hidden md:inline">Reset</span>
           </button>
         </div>
       </header>
+
+      {/* 2. HERO SHOWCASE BANNER */}
+      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group">
+        <img
+          src="./kensei_hero_banner.jpg"
+          alt="KENSEI SPEC HERO BANNER"
+          className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out"
+          onError={(e) => {
+            e.currentTarget.src = "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&auto=format&fit=crop&q=80";
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-sm">
+              Neo-Tokyo Engine v2.6
+            </span>
+            <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              Real-Time Physics Simulator
+            </span>
+          </div>
+
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
+            KENSEI SPEC HARDWARE SIMULATOR
+          </h1>
+
+          <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
+            Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism.
+          </p>
+        </div>
+      </div>
 
       {/* BRAND STORY & ALGORITHM MODAL */}
       {showAboutModal && (
