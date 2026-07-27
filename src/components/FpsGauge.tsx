@@ -70,15 +70,15 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
   }
 
   return (
-    <div className="rounded-3xl p-6 sm:p-8 bg-[#1A1C1E] dark:bg-[#111214] text-white overflow-hidden relative shadow-2xl border border-white/5 flex flex-col gap-5">
+    <div className="rounded-3xl p-6 sm:p-8 bg-[#1A1C1E] dark:bg-[#111214] text-white overflow-hidden relative shadow-2xl border border-white/10 flex flex-col gap-5">
       {/* Kanji Watermark */}
-      <div className="absolute top-2 right-2 text-6xl font-black text-white/[0.02] kanji-watermark select-none pointer-events-none">
+      <div className="absolute top-2 right-2 text-6xl font-black text-white/[0.03] kanji-watermark select-none pointer-events-none">
         性能
       </div>
 
       <div className="flex items-center justify-between mb-2">
-        <h3 className="text-base font-extrabold tracking-tight flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-sakura-pink" />
+        <h3 className="text-base font-black tracking-tight flex items-center gap-2 text-white">
+          <Sparkles className="w-5 h-5 text-[#E88D9F]" />
           3. Estimated Performance / 性能予測
         </h3>
         <span className="text-[10px] bg-white/10 text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">
@@ -115,7 +115,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
               cx="88"
               cy="88"
               r={radius}
-              className="stroke-white/5 fill-transparent"
+              className="stroke-white/10 fill-transparent"
               strokeWidth="8"
             />
 
@@ -135,38 +135,38 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
           {/* Inner Counter Labels */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-5xl font-black tracking-tight select-all">
+            <span className="text-5xl font-black tracking-tight text-white select-all">
               {isComplete ? animatedAvgFps : "--"}
             </span>
-            <span className="text-[9px] uppercase tracking-widest text-white/40 font-black mt-0.5">AVG FPS</span>
+            <span className="text-[10px] uppercase tracking-widest text-white/60 font-black mt-0.5">AVG FPS</span>
           </div>
         </div>
 
         {/* Verdict Badge */}
         {isComplete ? (
-          <div className={`px-4 py-1 rounded-full text-[10px] font-black border flex items-center gap-2 mt-4 ${report.verdict.colorClass}`}>
+          <div className={`px-4 py-1 rounded-full text-xs font-black border flex items-center gap-2 mt-4 ${report.verdict.colorClass}`}>
             <span>{report.verdict.badge}</span>
             <span className="opacity-70">/</span>
             <span>{report.verdict.japaneseBadge}</span>
           </div>
         ) : (
-          <div className="px-4 py-1 rounded-full text-[10px] font-black border border-white/10 text-white/50 bg-white/5 mt-4">
+          <div className="px-4 py-1.5 rounded-full text-xs font-black border border-white/15 text-gray-300 bg-white/5 mt-4">
             Awaiting Component Selection
           </div>
         )}
       </div>
 
       {/* FPS Details Grid */}
-      <div className="grid grid-cols-2 gap-4 border-y border-white/5 py-4 text-center text-xs">
+      <div className="grid grid-cols-2 gap-4 border-y border-white/10 py-4 text-center text-xs">
         <div>
-          <span className="text-white/40 block font-bold uppercase tracking-wider text-[10px] mb-1">1% Low (Stutter)</span>
+          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">1% Low (Stutter)</span>
           <span className="text-lg font-black text-rose-300">
             {isComplete ? `${animatedLowFps} FPS` : "--"}
           </span>
         </div>
-        <div className="border-r border-white/5" />
+        <div className="border-r border-white/10" />
         <div>
-          <span className="text-white/40 block font-bold uppercase tracking-wider text-[10px] mb-1">Bottleneck Factor</span>
+          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">Bottleneck Factor</span>
           <span className="text-lg font-black text-amber-300 uppercase tracking-wide">
             {isComplete ? (report.bottleneckType === "None" ? "Balanced" : report.bottleneckType) : "--"}
           </span>
@@ -175,20 +175,20 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
       {/* Workload balancing meter */}
       <div>
-        <h4 className="text-[10px] font-black text-white/40 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-          <Info className="w-3.5 h-3.5 text-matcha-sage" /> Workload Balance (CPU vs GPU Load)
+        <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+          <Info className="w-3.5 h-3.5 text-[#8A9A86]" /> Workload Balance (CPU vs GPU Load)
         </h4>
 
         <div className="flex flex-col gap-3">
           {/* CPU Load */}
           <div>
-            <div className="flex justify-between text-[10px] font-bold text-white/60 mb-1">
+            <div className="flex justify-between text-xs font-black text-gray-300 mb-1">
               <span>CPU Load</span>
-              <span>{isComplete ? `${report.cpuLoadPercentage}%` : "0%"}</span>
+              <span className="font-mono">{isComplete ? `${report.cpuLoadPercentage}%` : "0%"}</span>
             </div>
-            <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
               <div
-                className="bg-matcha-sage h-full transition-all duration-500 rounded-full"
+                className="bg-[#8A9A86] h-full transition-all duration-500 rounded-full"
                 style={{ width: `${isComplete ? report.cpuLoadPercentage : 0}%` }}
               />
             </div>
@@ -196,13 +196,13 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
           {/* GPU Load */}
           <div>
-            <div className="flex justify-between text-[10px] font-bold text-white/60 mb-1">
+            <div className="flex justify-between text-xs font-black text-gray-300 mb-1">
               <span>GPU Load</span>
-              <span>{isComplete ? `${report.gpuLoadPercentage}%` : "0%"}</span>
+              <span className="font-mono">{isComplete ? `${report.gpuLoadPercentage}%` : "0%"}</span>
             </div>
-            <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
               <div
-                className="bg-sakura-pink h-full transition-all duration-500 rounded-full"
+                className="bg-[#E88D9F] h-full transition-all duration-500 rounded-full"
                 style={{ width: `${isComplete ? report.gpuLoadPercentage : 0}%` }}
               />
             </div>
@@ -212,7 +212,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
       {/* Frame Generation disclaimer tag */}
       {frameGen && isComplete && (
-        <div className="text-[10px] text-gray-400 font-bold bg-white/5 p-2 rounded-xl text-center leading-normal border border-white/5">
+        <div className="text-[10px] text-gray-300 font-extrabold bg-white/5 p-2 rounded-xl text-center leading-normal border border-white/10">
           *Input Latency is determined by Base FPS, not Frame Gen FPS.*
         </div>
       )}

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-/* Neo-Tokyo Soft Minimal Theme */
+/* Force class-based dark mode selector in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-bg-soft: #FBF9F5;
   --color-dark-accent: #1E2022;
@@ -17,18 +19,34 @@ body {
   overflow-x: hidden;
 }
 
+.dark body {
+  background-color: #121315;
+  color: #FFFFFF;
+}
+
 /* Glassmorphism card effect */
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.25s ease;
 }
 
+.dark .glass-card {
+  background: rgba(26, 28, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .glass-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.dark .glass-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Kanji watermarks */
@@ -47,9 +65,15 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 99px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
