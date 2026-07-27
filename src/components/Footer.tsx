@@ -1,5 +1,4 @@
 import { Cpu, Gamepad2, ShoppingCart, Zap, ShieldCheck } from "lucide-react";
-import KenseiLogo from "./KenseiLogo";
 
 interface FooterProps {
   setActivePage: (page: "simulator" | "catalog") => void;
@@ -14,8 +13,20 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
         
         {/* Col 1: Brand Info */}
         <div className="lg:col-span-2 flex flex-col gap-4">
-          <div className="flex items-center">
-            <KenseiLogo size={42} showText={true} />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md bg-[#1E2022] shrink-0">
+              <img
+                src="./kensei_logo.png"
+                alt="KENSEI SPEC LOGO"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h3 className="text-base font-black text-[#1E2022] dark:text-white flex items-center gap-2">
+                KENSEI SPEC <span className="text-[10px] bg-[#E88D9F] text-white px-2 py-0.5 rounded font-black tracking-wider uppercase">剣聖スペック</span>
+              </h3>
+              <p className="text-[11px] text-gray-500 font-extrabold">Next-Gen Real-Time PC Hardware Telemetry & FPS Simulator</p>
+            </div>
           </div>
 
           <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400 font-bold max-w-md">
