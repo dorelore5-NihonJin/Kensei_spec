@@ -120,33 +120,42 @@ export default function Header({
         </div>
       </header>
 
-      {/* 2. HERO SHOWCASE BANNER */}
+      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Differs per Page) */}
       <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group">
-        <img
-          src="./kensei_hero_banner.jpg"
-          alt="KENSEI SPEC HERO BANNER"
-          className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out"
-          onError={(e) => {
-            e.currentTarget.src = "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&auto=format&fit=crop&q=80";
-          }}
-        />
+        <video
+          key={activePage}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="./kensei_hero_banner.jpg"
+          className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out pointer-events-none"
+        >
+          <source
+            src={activePage === "catalog" ? "./gif_banner_catalog.mp4" : "./gif_banner_calculator.mp4"}
+            type="video/mp4"
+          />
+        </video>
+
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-sm">
-              Neo-Tokyo Engine v2.6
+              {activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
             </span>
             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              Real-Time Physics Simulator
+              {activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
             </span>
           </div>
 
           <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
-            KENSEI SPEC HARDWARE SIMULATOR
+            {activePage === "catalog" ? "KENSEI GAME BUILDS CATALOG" : "KENSEI SPEC HARDWARE SIMULATOR"}
           </h1>
 
           <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
-            Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism.
+            {activePage === "catalog"
+              ? "Browse 250 verified PC configurations across Esports Gaming, AI LLM Inference, 3D Rendering & Workstations."
+              : "Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism."}
           </p>
         </div>
       </div>
