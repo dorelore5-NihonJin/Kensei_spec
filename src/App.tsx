@@ -57,14 +57,29 @@ export default function App() {
   const [frameGen, setFrameGen] = useState<boolean>(false);
 
   // Handler for loading preset build from catalog into simulator
-  const handleSelectCatalogBuild = (cpu: CPU, gpu: GPU, ram: RAMProfile, ramCap: number, game: Game) => {
+  const handleSelectCatalogBuild = (
+    cpu: CPU,
+    gpu: GPU,
+    ram: RAMProfile,
+    ramCap: number,
+    game: Game,
+    targetResolution?: "1080p" | "1440p" | "4K"
+  ) => {
     setSelectedCpu(cpu);
     setSelectedGpu(gpu);
     setSelectedRam(ram);
     setRamCapacityGB(ramCap);
     setSelectedGame(game);
+    if (targetResolution) {
+      setSelectedResolution(targetResolution);
+    }
     setCurrentStep(3);
     setActivePage("simulator");
+
+    // Smoothly scroll down to Step 3 Telemetry Dashboard so calculation results are immediately visible!
+    setTimeout(() => {
+      window.scrollTo({ top: 380, behavior: "smooth" });
+    }, 100);
   };
 
   // --- PARALLAX EFFECT STATE ---

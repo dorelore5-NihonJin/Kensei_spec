@@ -7,7 +7,7 @@ interface GameBuildsCatalogProps {
   cpus: CPU[];
   gpus: GPU[];
   ramProfiles: RAMProfile[];
-  onSelectBuild: (cpu: CPU, gpu: GPU, ram: RAMProfile, ramCap: number, game: Game) => void;
+  onSelectBuild: (cpu: CPU, gpu: GPU, ram: RAMProfile, ramCap: number, game: Game, targetResolution?: "1080p" | "1440p" | "4K") => void;
   onOpenBuyModal: () => void;
 }
 
@@ -434,7 +434,7 @@ export default function GameBuildsCatalog({
     const ramCap = build.ramText.includes("128GB") ? 128 : build.ramText.includes("64GB") ? 64 : build.ramText.includes("32GB") ? 32 : 16;
     const matchedRam = ramProfiles.find((r) => r.generation === (build.ramText.includes("DDR5") ? "DDR5" : "DDR4")) || ramProfiles[0];
 
-    onSelectBuild(matchedCpu, matchedGpu, matchedRam, ramCap, matchedGame);
+    onSelectBuild(matchedCpu, matchedGpu, matchedRam, ramCap, matchedGame, build.targetResolution);
   };
 
   const displayedBuilds = filteredBuilds.slice(0, visibleCount);
