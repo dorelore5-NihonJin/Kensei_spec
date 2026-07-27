@@ -142,7 +142,7 @@
   {
     "id": "game-alanwake2",
     "title": "Alan Wake 2",
-    "coverImage": "/games/cyberpunk.jpg",
+    "coverImage": "/games/alanwake2.jpg",
     "cpuDependence": 0.6,
     "gpuDependence": 1,
     "ramMinRequirementGB": 16,
@@ -170,7 +170,7 @@
   {
     "id": "game-gtavi",
     "title": "Grand Theft Auto VI",
-    "coverImage": "/games/gtav.jpg",
+    "coverImage": "/games/gtavi.jpg",
     "cpuDependence": 0.8,
     "gpuDependence": 1,
     "ramMinRequirementGB": 16,
@@ -198,7 +198,7 @@
   {
     "id": "game-wukong",
     "title": "Black Myth: Wukong",
-    "coverImage": "/games/eldenring.jpg",
+    "coverImage": "/games/wukong.jpg",
     "cpuDependence": 0.6,
     "gpuDependence": 1,
     "ramMinRequirementGB": 16,
@@ -226,7 +226,7 @@
   {
     "id": "game-dota2",
     "title": "Dota 2",
-    "coverImage": "/games/valorant.jpg",
+    "coverImage": "/games/dota2.jpg",
     "cpuDependence": 0.9,
     "gpuDependence": 0.5,
     "ramMinRequirementGB": 8,
@@ -254,7 +254,7 @@
   {
     "id": "game-apex",
     "title": "Apex Legends",
-    "coverImage": "/games/cs2.jpg",
+    "coverImage": "/games/apex.jpg",
     "cpuDependence": 0.6,
     "gpuDependence": 0.8,
     "ramMinRequirementGB": 8,
@@ -310,7 +310,7 @@
   {
     "id": "game-forza5",
     "title": "Forza Horizon 5",
-    "coverImage": "/games/gtav.jpg",
+    "coverImage": "/games/forza5.jpg",
     "cpuDependence": 0.5,
     "gpuDependence": 0.9,
     "ramMinRequirementGB": 8,
@@ -366,7 +366,7 @@
   {
     "id": "game-minecraft",
     "title": "Minecraft (with Shaders)",
-    "coverImage": "/games/fortnite.jpg",
+    "coverImage": "/games/minecraft.jpg",
     "cpuDependence": 0.9,
     "gpuDependence": 0.6,
     "ramMinRequirementGB": 4,
@@ -394,7 +394,7 @@
   {
     "id": "game-rdr2",
     "title": "Red Dead Redemption 2",
-    "coverImage": "/games/witcher3.jpg",
+    "coverImage": "/games/rdr2.jpg",
     "cpuDependence": 0.6,
     "gpuDependence": 1,
     "ramMinRequirementGB": 12,
@@ -422,7 +422,7 @@
   {
     "id": "game-codwarzone",
     "title": "Call of Duty: Warzone",
-    "coverImage": "/games/cs2.jpg",
+    "coverImage": "/games/codwarzone.jpg",
     "cpuDependence": 0.8,
     "gpuDependence": 0.8,
     "ramMinRequirementGB": 12,
@@ -450,7 +450,7 @@
   {
     "id": "game-hogwarts",
     "title": "Hogwarts Legacy",
-    "coverImage": "/games/cyberpunk.jpg",
+    "coverImage": "/games/hogwarts.jpg",
     "cpuDependence": 0.7,
     "gpuDependence": 0.9,
     "ramMinRequirementGB": 16,
@@ -478,7 +478,7 @@
   {
     "id": "game-spider2",
     "title": "Marvel's Spider-Man 2",
-    "coverImage": "/games/cyberpunk.jpg",
+    "coverImage": "/games/spider2.jpg",
     "cpuDependence": 0.8,
     "gpuDependence": 0.9,
     "ramMinRequirementGB": 16,
@@ -506,7 +506,7 @@
   {
     "id": "game-helldivers2",
     "title": "Helldivers 2",
-    "coverImage": "/games/cs2.jpg",
+    "coverImage": "/games/helldivers2.jpg",
     "cpuDependence": 0.9,
     "gpuDependence": 0.8,
     "ramMinRequirementGB": 12,
@@ -534,7 +534,7 @@
   {
     "id": "game-starfield",
     "title": "Starfield",
-    "coverImage": "/games/cyberpunk.jpg",
+    "coverImage": "/games/starfield.jpg",
     "cpuDependence": 0.8,
     "gpuDependence": 1,
     "ramMinRequirementGB": 16,
@@ -562,7 +562,7 @@
   {
     "id": "game-sims4",
     "title": "The Sims 4",
-    "coverImage": "/games/gtav.jpg",
+    "coverImage": "/games/sims4.jpg",
     "cpuDependence": 0.6,
     "gpuDependence": 0.4,
     "ramMinRequirementGB": 4,

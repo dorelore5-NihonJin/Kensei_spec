@@ -18,6 +18,24 @@ interface GameSelectorProps {
   setFrameGen: (val: boolean) => void;
 }
 
+// Custom theme badges for each game
+const GAME_THEMES: Record<string, { gradient: string; label: string }> = {
+  "game-wukong": { gradient: "from-amber-600 to-red-800", label: "🐒 WUKONG" },
+  "game-alanwake2": { gradient: "from-slate-900 to-purple-900", label: "🔦 AW2" },
+  "game-gtavi": { gradient: "from-fuchsia-600 to-pink-500", label: "🌴 GTA VI" },
+  "game-dota2": { gradient: "from-red-700 to-amber-700", label: "⚔️ DOTA 2" },
+  "game-apex": { gradient: "from-orange-600 to-[#1E2022]", label: "🚀 APEX" },
+  "game-forza5": { gradient: "from-[#8A9A86] to-emerald-800", label: "🏎️ FORZA 5" },
+  "game-minecraft": { gradient: "from-emerald-600 to-green-800", label: "🧊 MINECRAFT" },
+  "game-rdr2": { gradient: "from-amber-700 to-stone-900", label: "🤠 RDR 2" },
+  "game-codwarzone": { gradient: "from-[#1E2022] to-yellow-700", label: "🪖 WARZONE" },
+  "game-hogwarts": { gradient: "from-amber-500 to-indigo-900", label: "🪄 HOGWARTS" },
+  "game-spider2": { gradient: "from-red-600 to-blue-800", label: "🕷️ SPIDER-MAN" },
+  "game-helldivers2": { gradient: "from-yellow-500 to-zinc-900", label: "🚀 HELLDIVERS" },
+  "game-starfield": { gradient: "from-indigo-900 to-sky-600", label: "🌌 STARFIELD" },
+  "game-sims4": { gradient: "from-teal-500 to-emerald-600", label: "💎 SIMS 4" },
+};
+
 // Helper for resolving relative image paths under subfolder deployments (e.g. XAMPP http://localhost/Kensei_spec/dist/)
 function resolveCoverUrl(path: string): string {
   if (!path) return "./games/cs2.jpg";
@@ -119,6 +137,10 @@ export default function GameSelector({
           const isSelected = selectedGame.id === game.id;
           const hasImageError = failedImages[game.id];
           const initial = game.title.split(" ").map(w => w[0]).join("").slice(0, 3).toUpperCase();
+          const customTheme = GAME_THEMES[game.id] || {
+            gradient: "from-[#E88D9F] to-[#8A9A86]",
+            label: initial
+          };
 
           return (
             <button
@@ -140,8 +162,8 @@ export default function GameSelector({
                     onError={() => handleImageError(game.id)}
                   />
                 ) : (
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#E88D9F] to-[#8A9A86] text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
-                    {initial}
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${customTheme.gradient} text-white font-black text-[9px] flex items-center justify-center shrink-0 shadow-xs text-center p-1 leading-none uppercase`}>
+                    {customTheme.label}
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
