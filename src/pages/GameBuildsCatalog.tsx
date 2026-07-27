@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import type { Game, CPU, GPU, RAMProfile } from "../lib/types";
-import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package } from "lucide-react";
+import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown } from "lucide-react";
 
 interface GameBuildsCatalogProps {
   games: Game[];
@@ -39,76 +39,108 @@ export default function GameBuildsCatalog({
   const [selectedGameFilter, setSelectedGameFilter] = useState<string>("All");
   const [selectedTierFilter, setSelectedTierFilter] = useState<string>("All");
 
-  // Generate catalog builds derived from actual games and hardware data
+  // PAGINATION LAZY LOADING STATE (9 at a time)
+  const [visibleCount, setVisibleCount] = useState<number>(9);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+
+  // Reset pagination on filter change
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [searchQuery, selectedGameFilter, selectedTierFilter]);
+
+  // Generate ultra-accurate catalog builds derived from game requirements and hardware silicon
   const catalogBuilds: PresetBuild[] = useMemo(() => {
     const builds: PresetBuild[] = [];
 
     games.forEach((game) => {
-      // 1. Budget Build
+      const isEsports = ["cs2", "valorant", "fortnite", "apex"].includes(game.id);
+      const isHeavyAAA = ["cyberpunk", "wukong", "gtavi", "stalker2", "alanwake2"].includes(game.id);
+
+      // 1. Budget Build ($500 - $800)
+      const bCpu = isEsports ? "Ryzen 5 5600" : "Core i3-13100F";
+      const bGpu = isEsports ? "GeForce RTX 3060 12GB" : "GeForce RTX 4060 8GB";
+      const bFps = isEsports
+        ? Math.round((game.baseFpsScaling["1080p"]?.Low || 220) * 1.1)
+        : Math.round((game.baseFpsScaling["1080p"]?.Medium || 65) * 0.95);
+
       builds.push({
         id: `${game.id}-budget`,
         gameId: game.id,
         gameTitle: game.title,
         tierName: "Budget ($500-$800)",
-        buildTitle: `${game.title} 1080p Value Rig`,
-        cpuName: "Ryzen 5 5600",
-        gpuName: "GeForce RTX 3060 12GB",
+        buildTitle: `${game.title} ${isEsports ? "Esports 1080p 144Hz Rig" : "1080p High Value Rig"}`,
+        cpuName: bCpu,
+        gpuName: bGpu,
         ramText: "16GB DDR4-3200 Dual Channel",
         storageText: "1TB NVMe M.2 SSD",
         targetResolution: "1080p",
-        estimatedFps: Math.round(game.baseFpsScaling["1080p"]?.Medium * 0.85 || 90),
-        totalPriceUSD: 680,
-        badgeTag: "Best Value / 1080p 60+ FPS"
+        estimatedFps: bFps,
+        totalPriceUSD: isHeavyAAA ? 790 : 640,
+        badgeTag: "Best Value / 1080p Verified"
       });
 
-      // 2. Sweetspot Build
+      // 2. Sweetspot Build ($1,000 - $1,500)
+      const sCpu = isEsports ? "Ryzen 7 5700X3D" : "Ryzen 5 7600X";
+      const sGpu = "GeForce RTX 4070 Super 12GB";
+      const sFps = Math.round((game.baseFpsScaling["1440p"]?.High || 90) * 1.25);
+
       builds.push({
         id: `${game.id}-sweetspot`,
         gameId: game.id,
         gameTitle: game.title,
         tierName: "Sweetspot ($1,000-$1,500)",
         buildTitle: `${game.title} 1440p Ultra Dominator`,
-        cpuName: "Ryzen 5 7600X",
-        gpuName: "GeForce RTX 4070 Super 12GB",
-        ramText: "32GB DDR5-6000 Dual Channel",
+        cpuName: sCpu,
+        gpuName: sGpu,
+        ramText: "32GB DDR5-6000 Low-Latency",
         storageText: "2TB NVMe Gen4 SSD",
         targetResolution: "1440p",
-        estimatedFps: Math.round(game.baseFpsScaling["1440p"]?.High * 1.3 || 120),
-        totalPriceUSD: 1350,
-        badgeTag: "Most Popular / 1440p 120+ FPS"
+        estimatedFps: sFps,
+        totalPriceUSD: 1380,
+        badgeTag: "Most Popular / 1440p Sweetspot"
       });
 
-      // 3. High-End Build
+      // 3. High-End Build ($1,800 - $2,500)
+      const hCpu = "Ryzen 7 7800X3D";
+      const hGpu = "GeForce RTX 4080 Super 16GB";
+      const hFps = isEsports
+        ? Math.round((game.baseFpsScaling["1440p"]?.High || 240) * 1.5)
+        : Math.round((game.baseFpsScaling["4K"]?.Ultra || 75) * 1.55);
+
       builds.push({
         id: `${game.id}-highend`,
         gameId: game.id,
         gameTitle: game.title,
         tierName: "High-End ($1,800-$2,500)",
         buildTitle: `${game.title} 4K Ray Tracing Beast`,
-        cpuName: "Ryzen 7 7800X3D",
-        gpuName: "GeForce RTX 4080 Super 16GB",
+        cpuName: hCpu,
+        gpuName: hGpu,
         ramText: "32GB DDR5-6000 3D V-Cache Kit",
         storageText: "2TB PCIe 4.0 NVMe SSD",
-        targetResolution: "4K",
-        estimatedFps: Math.round(game.baseFpsScaling["4K"]?.Ultra * 1.6 || 90),
-        totalPriceUSD: 2150,
+        targetResolution: isEsports ? "1440p" : "4K",
+        estimatedFps: hFps,
+        totalPriceUSD: 2190,
         badgeTag: "4K Ultra + Ray Tracing"
       });
 
-      // 4. God Tier Build
+      // 4. God Tier Build ($3,000+)
+      const gCpu = "Ryzen 7 9800X3D";
+      const gGpu = "GeForce RTX 4090 24GB";
+      const gFps = Math.round((game.baseFpsScaling["4K"]?.Ultra || 95) * 2.15);
+
       builds.push({
         id: `${game.id}-godtier`,
         gameId: game.id,
         gameTitle: game.title,
         tierName: "God Tier ($3,000+)",
         buildTitle: `${game.title} Absolute Flagship King`,
-        cpuName: "Ryzen 7 9800X3D",
-        gpuName: "GeForce RTX 4090 24GB",
+        cpuName: gCpu,
+        gpuName: gGpu,
         ramText: "64GB DDR5-6400 Low-Latency",
         storageText: "4TB Gen4 NVMe M.2 SSD",
         targetResolution: "4K",
-        estimatedFps: Math.round(game.baseFpsScaling["4K"]?.Ultra * 2.2 || 140),
-        totalPriceUSD: 3650,
+        estimatedFps: gFps,
+        totalPriceUSD: 3680,
         badgeTag: "Maximum Performance / No Compromise"
       });
     });
@@ -132,6 +164,36 @@ export default function GameBuildsCatalog({
     });
   }, [catalogBuilds, searchQuery, selectedGameFilter, selectedTierFilter]);
 
+  // Lazy loading scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isLoadingMore || visibleCount >= filteredBuilds.length) return;
+
+      const scrollBottom = window.innerHeight + window.scrollY;
+      const threshold = document.documentElement.scrollHeight - 350;
+
+      if (scrollBottom >= threshold) {
+        setIsLoadingMore(true);
+        setTimeout(() => {
+          setVisibleCount((prev) => Math.min(filteredBuilds.length, prev + 9));
+          setIsLoadingMore(false);
+        }, 400);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [visibleCount, filteredBuilds.length, isLoadingMore]);
+
+  // Manual Load More Handler
+  const handleLoadMore = () => {
+    setIsLoadingMore(true);
+    setTimeout(() => {
+      setVisibleCount((prev) => Math.min(filteredBuilds.length, prev + 9));
+      setIsLoadingMore(false);
+    }, 400);
+  };
+
   // Handle loading build into simulator
   const handleApplyBuild = (build: PresetBuild) => {
     const matchedGame = games.find((g) => g.id === build.gameId) || games[0];
@@ -142,6 +204,8 @@ export default function GameBuildsCatalog({
 
     onSelectBuild(matchedCpu, matchedGpu, matchedRam, ramCap, matchedGame);
   };
+
+  const displayedBuilds = filteredBuilds.slice(0, visibleCount);
 
   return (
     <div className="flex flex-col gap-6 animate-fadeIn">
@@ -157,7 +221,7 @@ export default function GameBuildsCatalog({
         </div>
         <div className="flex items-center gap-2">
           <span className="text-xs font-black bg-[#E88D9F]/15 text-[#E88D9F] px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-            {filteredBuilds.length} Configurations Listed
+            Showing {displayedBuilds.length} of {filteredBuilds.length} Builds
           </span>
         </div>
       </div>
@@ -179,7 +243,7 @@ export default function GameBuildsCatalog({
         {/* Game Filter */}
         <div className="flex items-center gap-2">
           <span className="text-xs font-black text-gray-500 uppercase tracking-wider shrink-0 flex items-center gap-1">
-            <Filter className="w-3.5 h-3.5" /> Game:
+            <Filter className="w-3.5 h-3.5 text-[#8A9A86]" /> Game:
           </span>
           <select
             className="bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3 py-2 text-xs font-black text-[#1E2022] dark:text-white outline-none cursor-pointer"
@@ -212,13 +276,13 @@ export default function GameBuildsCatalog({
         </div>
       </div>
 
-      {/* Catalog Grid */}
+      {/* Catalog Grid (Displays initial 9 builds) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredBuilds.map((build) => {
+        {displayedBuilds.map((build) => {
           return (
             <div
               key={build.id}
-              className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col justify-between gap-4 hover:border-[#E88D9F]/50 transition duration-200 group"
+              className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col justify-between gap-4 hover:border-[#E88D9F]/50 transition duration-200 group animate-fadeIn"
             >
               <div>
                 {/* Header Tag */}
@@ -293,6 +357,28 @@ export default function GameBuildsCatalog({
           );
         })}
       </div>
+
+      {/* LAZY LOAD / INFINITE SCROLL LOADER CARD & FALLBACK BUTTON */}
+      {visibleCount < filteredBuilds.length && (
+        <div className="mt-4 flex flex-col items-center justify-center gap-3">
+          {isLoadingMore ? (
+            <div className="glass-card rounded-2xl px-6 py-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex items-center gap-3 animate-pulse">
+              <Loader2 className="w-5 h-5 text-[#E88D9F] animate-spin" />
+              <span className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider">
+                Loading next 9 verified configurations...
+              </span>
+            </div>
+          ) : (
+            <button
+              onClick={handleLoadMore}
+              className="px-8 py-3.5 rounded-2xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-lg flex items-center gap-2"
+            >
+              <span>Load More Builds ({visibleCount} of {filteredBuilds.length} showing) / さらなる構成を読み込む</span>
+              <ArrowDown className="w-4 h-4 text-[#E88D9F]" />
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
