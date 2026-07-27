@@ -7,6 +7,8 @@ export interface GPU {
   vramGB: number;
   architecture: string;
   recommendedPsuW: number;
+  tdpW: number;
+  rayTracingPowerScore: number;
 }
 
 export interface CPU {
@@ -19,6 +21,10 @@ export interface CPU {
   supportedDdr: ("DDR" | "DDR2" | "DDR3" | "DDR4" | "DDR5")[];
   singleCoreScore: number;
   multiCoreScore: number;
+  tdpW: number;
+  socket: string;
+  l3CacheMB: number;
+  is3DVCache: boolean;
 }
 
 export interface RAMProfile {

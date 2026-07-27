@@ -10,7 +10,11 @@
       "DDR2"
     ],
     "singleCoreScore": 10,
-    "multiCoreScore": 12
+    "multiCoreScore": 12,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-002",
@@ -23,7 +27,11 @@
       "DDR2"
     ],
     "singleCoreScore": 12,
-    "multiCoreScore": 20
+    "multiCoreScore": 20,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-003",
@@ -36,7 +44,11 @@
       "DDR2"
     ],
     "singleCoreScore": 25,
-    "multiCoreScore": 38
+    "multiCoreScore": 38,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-004",
@@ -49,7 +61,11 @@
       "DDR2"
     ],
     "singleCoreScore": 28,
-    "multiCoreScore": 42
+    "multiCoreScore": 42,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-005",
@@ -62,7 +78,11 @@
       "DDR2"
     ],
     "singleCoreScore": 28,
-    "multiCoreScore": 68
+    "multiCoreScore": 68,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-006",
@@ -76,7 +96,11 @@
       "DDR3"
     ],
     "singleCoreScore": 30,
-    "multiCoreScore": 72
+    "multiCoreScore": 72,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-007",
@@ -90,7 +114,11 @@
       "DDR3"
     ],
     "singleCoreScore": 38,
-    "multiCoreScore": 56
+    "multiCoreScore": 56,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-008",
@@ -104,7 +132,11 @@
       "DDR3"
     ],
     "singleCoreScore": 42,
-    "multiCoreScore": 110
+    "multiCoreScore": 110,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-009",
@@ -117,7 +149,11 @@
       "DDR3"
     ],
     "singleCoreScore": 54,
-    "multiCoreScore": 160
+    "multiCoreScore": 160,
+    "tdpW": 105,
+    "socket": "LGA775",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-010",
@@ -130,7 +166,11 @@
       "DDR3"
     ],
     "singleCoreScore": 64,
-    "multiCoreScore": 195
+    "multiCoreScore": 195,
+    "tdpW": 105,
+    "socket": "LGA775",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-011",
@@ -143,7 +183,11 @@
       "DDR3"
     ],
     "singleCoreScore": 62,
-    "multiCoreScore": 115
+    "multiCoreScore": 115,
+    "tdpW": 58,
+    "socket": "LGA1155",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-012",
@@ -156,7 +200,11 @@
       "DDR3"
     ],
     "singleCoreScore": 82,
-    "multiCoreScore": 210
+    "multiCoreScore": 210,
+    "tdpW": 65,
+    "socket": "LGA1155",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-013",
@@ -169,7 +217,11 @@
       "DDR3"
     ],
     "singleCoreScore": 88,
-    "multiCoreScore": 265
+    "multiCoreScore": 265,
+    "tdpW": 105,
+    "socket": "LGA1155",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-014",
@@ -182,7 +234,11 @@
       "DDR3"
     ],
     "singleCoreScore": 92,
-    "multiCoreScore": 380
+    "multiCoreScore": 380,
+    "tdpW": 105,
+    "socket": "LGA1155",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-015",
@@ -195,7 +251,11 @@
       "DDR3"
     ],
     "singleCoreScore": 94,
-    "multiCoreScore": 245
+    "multiCoreScore": 245,
+    "tdpW": 65,
+    "socket": "LGA1155",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-016",
@@ -208,7 +268,11 @@
       "DDR3"
     ],
     "singleCoreScore": 102,
-    "multiCoreScore": 310
+    "multiCoreScore": 310,
+    "tdpW": 105,
+    "socket": "LGA1155",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-017",
@@ -221,7 +285,11 @@
       "DDR3"
     ],
     "singleCoreScore": 88,
-    "multiCoreScore": 145
+    "multiCoreScore": 145,
+    "tdpW": 58,
+    "socket": "LGA1150",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-018",
@@ -234,7 +302,11 @@
       "DDR3"
     ],
     "singleCoreScore": 112,
-    "multiCoreScore": 290
+    "multiCoreScore": 290,
+    "tdpW": 65,
+    "socket": "LGA1150",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-019",
@@ -247,7 +319,11 @@
       "DDR3"
     ],
     "singleCoreScore": 118,
-    "multiCoreScore": 360
+    "multiCoreScore": 360,
+    "tdpW": 105,
+    "socket": "LGA1150",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-020",
@@ -260,7 +336,11 @@
       "DDR3"
     ],
     "singleCoreScore": 130,
-    "multiCoreScore": 410
+    "multiCoreScore": 410,
+    "tdpW": 105,
+    "socket": "LGA1150",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-021",
@@ -273,7 +353,11 @@
       "DDR4"
     ],
     "singleCoreScore": 122,
-    "multiCoreScore": 490
+    "multiCoreScore": 490,
+    "tdpW": 105,
+    "socket": "LGA1150",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-022",
@@ -286,7 +370,11 @@
       "DDR4"
     ],
     "singleCoreScore": 124,
-    "multiCoreScore": 610
+    "multiCoreScore": 610,
+    "tdpW": 105,
+    "socket": "LGA1150",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-023",
@@ -300,7 +388,11 @@
       "DDR4"
     ],
     "singleCoreScore": 114,
-    "multiCoreScore": 210
+    "multiCoreScore": 210,
+    "tdpW": 58,
+    "socket": "LGA1151",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-024",
@@ -313,7 +405,11 @@
       "DDR4"
     ],
     "singleCoreScore": 136,
-    "multiCoreScore": 380
+    "multiCoreScore": 380,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-025",
@@ -326,7 +422,11 @@
       "DDR4"
     ],
     "singleCoreScore": 148,
-    "multiCoreScore": 495
+    "multiCoreScore": 495,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-026",
@@ -339,7 +439,11 @@
       "DDR4"
     ],
     "singleCoreScore": 124,
-    "multiCoreScore": 230
+    "multiCoreScore": 230,
+    "tdpW": 58,
+    "socket": "LGA1151",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-027",
@@ -352,7 +456,11 @@
       "DDR4"
     ],
     "singleCoreScore": 152,
-    "multiCoreScore": 430
+    "multiCoreScore": 430,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-028",
@@ -365,7 +473,11 @@
       "DDR4"
     ],
     "singleCoreScore": 168,
-    "multiCoreScore": 565
+    "multiCoreScore": 565,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-029",
@@ -378,7 +490,11 @@
       "DDR4"
     ],
     "singleCoreScore": 128,
-    "multiCoreScore": 345
+    "multiCoreScore": 345,
+    "tdpW": 58,
+    "socket": "LGA1151",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-030",
@@ -391,7 +507,11 @@
       "DDR4"
     ],
     "singleCoreScore": 142,
-    "multiCoreScore": 530
+    "multiCoreScore": 530,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-031",
@@ -404,7 +524,11 @@
       "DDR4"
     ],
     "singleCoreScore": 160,
-    "multiCoreScore": 590
+    "multiCoreScore": 590,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-032",
@@ -417,7 +541,11 @@
       "DDR4"
     ],
     "singleCoreScore": 174,
-    "multiCoreScore": 780
+    "multiCoreScore": 780,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-033",
@@ -430,7 +558,11 @@
       "DDR4"
     ],
     "singleCoreScore": 170,
-    "multiCoreScore": 630
+    "multiCoreScore": 630,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-034",
@@ -443,7 +575,11 @@
       "DDR4"
     ],
     "singleCoreScore": 185,
-    "multiCoreScore": 820
+    "multiCoreScore": 820,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-035",
@@ -456,7 +592,11 @@
       "DDR4"
     ],
     "singleCoreScore": 195,
-    "multiCoreScore": 940
+    "multiCoreScore": 940,
+    "tdpW": 125,
+    "socket": "LGA1151",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-036",
@@ -469,7 +609,11 @@
       "DDR4"
     ],
     "singleCoreScore": 154,
-    "multiCoreScore": 510
+    "multiCoreScore": 510,
+    "tdpW": 58,
+    "socket": "LGA1200",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-037",
@@ -482,7 +626,11 @@
       "DDR4"
     ],
     "singleCoreScore": 158,
-    "multiCoreScore": 680
+    "multiCoreScore": 680,
+    "tdpW": 65,
+    "socket": "LGA1200",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-038",
@@ -495,7 +643,11 @@
       "DDR4"
     ],
     "singleCoreScore": 196,
-    "multiCoreScore": 960
+    "multiCoreScore": 960,
+    "tdpW": 105,
+    "socket": "LGA1200",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-039",
@@ -508,7 +660,11 @@
       "DDR4"
     ],
     "singleCoreScore": 210,
-    "multiCoreScore": 1100
+    "multiCoreScore": 1100,
+    "tdpW": 125,
+    "socket": "LGA1200",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-040",
@@ -521,7 +677,11 @@
       "DDR4"
     ],
     "singleCoreScore": 188,
-    "multiCoreScore": 790
+    "multiCoreScore": 790,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-041",
@@ -534,7 +694,11 @@
       "DDR4"
     ],
     "singleCoreScore": 215,
-    "multiCoreScore": 880
+    "multiCoreScore": 880,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-042",
@@ -547,7 +711,11 @@
       "DDR4"
     ],
     "singleCoreScore": 232,
-    "multiCoreScore": 1120
+    "multiCoreScore": 1120,
+    "tdpW": 105,
+    "socket": "LGA1700",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-043",
@@ -560,7 +728,11 @@
       "DDR4"
     ],
     "singleCoreScore": 248,
-    "multiCoreScore": 1220
+    "multiCoreScore": 1220,
+    "tdpW": 125,
+    "socket": "LGA1700",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-044",
@@ -574,7 +746,11 @@
       "DDR5"
     ],
     "singleCoreScore": 235,
-    "multiCoreScore": 720
+    "multiCoreScore": 720,
+    "tdpW": 58,
+    "socket": "LGA1700",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-045",
@@ -588,7 +764,11 @@
       "DDR5"
     ],
     "singleCoreScore": 245,
-    "multiCoreScore": 990
+    "multiCoreScore": 990,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-046",
@@ -602,7 +782,11 @@
       "DDR5"
     ],
     "singleCoreScore": 275,
-    "multiCoreScore": 1450
+    "multiCoreScore": 1450,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-047",
@@ -616,7 +800,11 @@
       "DDR5"
     ],
     "singleCoreScore": 295,
-    "multiCoreScore": 1880
+    "multiCoreScore": 1880,
+    "tdpW": 105,
+    "socket": "LGA1700",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-048",
@@ -630,7 +818,11 @@
       "DDR5"
     ],
     "singleCoreScore": 315,
-    "multiCoreScore": 2450
+    "multiCoreScore": 2450,
+    "tdpW": 125,
+    "socket": "LGA1700",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-049",
@@ -644,7 +836,11 @@
       "DDR5"
     ],
     "singleCoreScore": 250,
-    "multiCoreScore": 790
+    "multiCoreScore": 790,
+    "tdpW": 58,
+    "socket": "LGA1700",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-050",
@@ -658,7 +854,11 @@
       "DDR5"
     ],
     "singleCoreScore": 260,
-    "multiCoreScore": 1380
+    "multiCoreScore": 1380,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-051",
@@ -672,7 +872,11 @@
       "DDR5"
     ],
     "singleCoreScore": 320,
-    "multiCoreScore": 2150
+    "multiCoreScore": 2150,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-052",
@@ -686,7 +890,11 @@
       "DDR5"
     ],
     "singleCoreScore": 345,
-    "multiCoreScore": 2850
+    "multiCoreScore": 2850,
+    "tdpW": 105,
+    "socket": "LGA1700",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-053",
@@ -700,7 +908,11 @@
       "DDR5"
     ],
     "singleCoreScore": 375,
-    "multiCoreScore": 3650
+    "multiCoreScore": 3650,
+    "tdpW": 125,
+    "socket": "LGA1700",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-054",
@@ -714,7 +926,11 @@
       "DDR5"
     ],
     "singleCoreScore": 335,
-    "multiCoreScore": 2280
+    "multiCoreScore": 2280,
+    "tdpW": 65,
+    "socket": "LGA1700",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-055",
@@ -728,7 +944,11 @@
       "DDR5"
     ],
     "singleCoreScore": 360,
-    "multiCoreScore": 3250
+    "multiCoreScore": 3250,
+    "tdpW": 105,
+    "socket": "LGA1700",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-056",
@@ -742,7 +962,11 @@
       "DDR5"
     ],
     "singleCoreScore": 395,
-    "multiCoreScore": 3980
+    "multiCoreScore": 3980,
+    "tdpW": 125,
+    "socket": "LGA1700",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-057",
@@ -755,7 +979,11 @@
       "DDR5"
     ],
     "singleCoreScore": 385,
-    "multiCoreScore": 2650
+    "multiCoreScore": 2650,
+    "tdpW": 65,
+    "socket": "LGA1851",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-058",
@@ -768,7 +996,11 @@
       "DDR5"
     ],
     "singleCoreScore": 420,
-    "multiCoreScore": 3550
+    "multiCoreScore": 3550,
+    "tdpW": 105,
+    "socket": "LGA1851",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-059",
@@ -781,7 +1013,11 @@
       "DDR5"
     ],
     "singleCoreScore": 450,
-    "multiCoreScore": 4200
+    "multiCoreScore": 4200,
+    "tdpW": 125,
+    "socket": "LGA1851",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-060",
@@ -794,7 +1030,11 @@
       "DDR5"
     ],
     "singleCoreScore": 400,
-    "multiCoreScore": 2800
+    "multiCoreScore": 2800,
+    "tdpW": 65,
+    "socket": "LGA1851",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-061",
@@ -807,7 +1047,11 @@
       "DDR5"
     ],
     "singleCoreScore": 440,
-    "multiCoreScore": 3800
+    "multiCoreScore": 3800,
+    "tdpW": 105,
+    "socket": "LGA1851",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-062",
@@ -820,7 +1064,11 @@
       "DDR5"
     ],
     "singleCoreScore": 500,
-    "multiCoreScore": 4700
+    "multiCoreScore": 4700,
+    "tdpW": 125,
+    "socket": "LGA1851",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-063",
@@ -833,7 +1081,11 @@
       "DDR"
     ],
     "singleCoreScore": 10,
-    "multiCoreScore": 14
+    "multiCoreScore": 14,
+    "tdpW": 45,
+    "socket": "AM2+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-064",
@@ -846,7 +1098,11 @@
       "DDR2"
     ],
     "singleCoreScore": 14,
-    "multiCoreScore": 22
+    "multiCoreScore": 22,
+    "tdpW": 45,
+    "socket": "AM2+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-065",
@@ -859,7 +1115,11 @@
       "DDR2"
     ],
     "singleCoreScore": 18,
-    "multiCoreScore": 28
+    "multiCoreScore": 28,
+    "tdpW": 45,
+    "socket": "AM2+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-066",
@@ -872,7 +1132,11 @@
       "DDR2"
     ],
     "singleCoreScore": 22,
-    "multiCoreScore": 58
+    "multiCoreScore": 58,
+    "tdpW": 45,
+    "socket": "AM2+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-067",
@@ -886,7 +1150,11 @@
       "DDR3"
     ],
     "singleCoreScore": 38,
-    "multiCoreScore": 98
+    "multiCoreScore": 98,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-068",
@@ -900,7 +1168,11 @@
       "DDR3"
     ],
     "singleCoreScore": 44,
-    "multiCoreScore": 175
+    "multiCoreScore": 175,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-069",
@@ -913,7 +1185,11 @@
       "DDR3"
     ],
     "singleCoreScore": 41,
-    "multiCoreScore": 110
+    "multiCoreScore": 110,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-070",
@@ -926,7 +1202,11 @@
       "DDR3"
     ],
     "singleCoreScore": 48,
-    "multiCoreScore": 185
+    "multiCoreScore": 185,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-071",
@@ -939,7 +1219,11 @@
       "DDR3"
     ],
     "singleCoreScore": 56,
-    "multiCoreScore": 290
+    "multiCoreScore": 290,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-072",
@@ -952,7 +1236,11 @@
       "DDR3"
     ],
     "singleCoreScore": 68,
-    "multiCoreScore": 340
+    "multiCoreScore": 340,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-073",
@@ -965,7 +1253,11 @@
       "DDR4"
     ],
     "singleCoreScore": 102,
-    "multiCoreScore": 290
+    "multiCoreScore": 290,
+    "tdpW": 58,
+    "socket": "AM4",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-074",
@@ -978,7 +1270,11 @@
       "DDR4"
     ],
     "singleCoreScore": 112,
-    "multiCoreScore": 580
+    "multiCoreScore": 580,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-075",
@@ -991,7 +1287,11 @@
       "DDR4"
     ],
     "singleCoreScore": 122,
-    "multiCoreScore": 640
+    "multiCoreScore": 640,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-076",
@@ -1004,7 +1304,11 @@
       "DDR4"
     ],
     "singleCoreScore": 115,
-    "multiCoreScore": 780
+    "multiCoreScore": 780,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-077",
@@ -1017,7 +1321,11 @@
       "DDR4"
     ],
     "singleCoreScore": 130,
-    "multiCoreScore": 890
+    "multiCoreScore": 890,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-078",
@@ -1030,7 +1338,11 @@
       "DDR4"
     ],
     "singleCoreScore": 110,
-    "multiCoreScore": 310
+    "multiCoreScore": 310,
+    "tdpW": 58,
+    "socket": "AM4",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-079",
@@ -1043,7 +1355,11 @@
       "DDR4"
     ],
     "singleCoreScore": 128,
-    "multiCoreScore": 710
+    "multiCoreScore": 710,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-080",
@@ -1056,7 +1372,11 @@
       "DDR4"
     ],
     "singleCoreScore": 138,
-    "multiCoreScore": 780
+    "multiCoreScore": 780,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-081",
@@ -1069,7 +1389,11 @@
       "DDR4"
     ],
     "singleCoreScore": 145,
-    "multiCoreScore": 1040
+    "multiCoreScore": 1040,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-082",
@@ -1082,7 +1406,11 @@
       "DDR4"
     ],
     "singleCoreScore": 132,
-    "multiCoreScore": 510
+    "multiCoreScore": 510,
+    "tdpW": 58,
+    "socket": "AM4",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-083",
@@ -1095,7 +1423,11 @@
       "DDR4"
     ],
     "singleCoreScore": 146,
-    "multiCoreScore": 590
+    "multiCoreScore": 590,
+    "tdpW": 58,
+    "socket": "AM4",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-084",
@@ -1108,7 +1440,11 @@
       "DDR4"
     ],
     "singleCoreScore": 154,
-    "multiCoreScore": 880
+    "multiCoreScore": 880,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-085",
@@ -1121,7 +1457,11 @@
       "DDR4"
     ],
     "singleCoreScore": 162,
-    "multiCoreScore": 940
+    "multiCoreScore": 940,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-086",
@@ -1134,7 +1474,11 @@
       "DDR4"
     ],
     "singleCoreScore": 170,
-    "multiCoreScore": 1250
+    "multiCoreScore": 1250,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-087",
@@ -1147,7 +1491,11 @@
       "DDR4"
     ],
     "singleCoreScore": 176,
-    "multiCoreScore": 1320
+    "multiCoreScore": 1320,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-088",
@@ -1160,7 +1508,11 @@
       "DDR4"
     ],
     "singleCoreScore": 178,
-    "multiCoreScore": 1950
+    "multiCoreScore": 1950,
+    "tdpW": 125,
+    "socket": "AM4",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-089",
@@ -1173,7 +1525,11 @@
       "DDR4"
     ],
     "singleCoreScore": 182,
-    "multiCoreScore": 2580
+    "multiCoreScore": 2580,
+    "tdpW": 125,
+    "socket": "AM4",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-090",
@@ -1186,7 +1542,11 @@
       "DDR4"
     ],
     "singleCoreScore": 192,
-    "multiCoreScore": 1050
+    "multiCoreScore": 1050,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-091",
@@ -1199,7 +1559,11 @@
       "DDR4"
     ],
     "singleCoreScore": 198,
-    "multiCoreScore": 1100
+    "multiCoreScore": 1100,
+    "tdpW": 65,
+    "socket": "AM5",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-092",
@@ -1212,7 +1576,11 @@
       "DDR4"
     ],
     "singleCoreScore": 212,
-    "multiCoreScore": 1190
+    "multiCoreScore": 1190,
+    "tdpW": 65,
+    "socket": "AM4",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-093",
@@ -1225,7 +1593,11 @@
       "DDR4"
     ],
     "singleCoreScore": 215,
-    "multiCoreScore": 1540
+    "multiCoreScore": 1540,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-094",
@@ -1238,7 +1610,11 @@
       "DDR4"
     ],
     "singleCoreScore": 228,
-    "multiCoreScore": 1680
+    "multiCoreScore": 1680,
+    "tdpW": 105,
+    "socket": "AM4",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-095",
@@ -1251,7 +1627,11 @@
       "DDR4"
     ],
     "singleCoreScore": 232,
-    "multiCoreScore": 1720
+    "multiCoreScore": 1720,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 96,
+    "is3DVCache": true
   },
   {
     "id": "cpu-096",
@@ -1264,7 +1644,11 @@
       "DDR4"
     ],
     "singleCoreScore": 245,
-    "multiCoreScore": 2450
+    "multiCoreScore": 2450,
+    "tdpW": 125,
+    "socket": "AM4",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-097",
@@ -1277,7 +1661,11 @@
       "DDR4"
     ],
     "singleCoreScore": 250,
-    "multiCoreScore": 3100
+    "multiCoreScore": 3100,
+    "tdpW": 125,
+    "socket": "AM4",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-098",
@@ -1290,7 +1678,11 @@
       "DDR5"
     ],
     "singleCoreScore": 285,
-    "multiCoreScore": 1580
+    "multiCoreScore": 1580,
+    "tdpW": 65,
+    "socket": "AM5",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-099",
@@ -1303,7 +1695,11 @@
       "DDR5"
     ],
     "singleCoreScore": 305,
-    "multiCoreScore": 1680
+    "multiCoreScore": 1680,
+    "tdpW": 65,
+    "socket": "AM5",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-100",
@@ -1316,7 +1712,11 @@
       "DDR5"
     ],
     "singleCoreScore": 322,
-    "multiCoreScore": 2180
+    "multiCoreScore": 2180,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-101",
@@ -1329,7 +1729,11 @@
       "DDR5"
     ],
     "singleCoreScore": 325,
-    "multiCoreScore": 2280
+    "multiCoreScore": 2280,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 96,
+    "is3DVCache": true
   },
   {
     "id": "cpu-102",
@@ -1342,7 +1746,11 @@
       "DDR5"
     ],
     "singleCoreScore": 338,
-    "multiCoreScore": 3150
+    "multiCoreScore": 3150,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-103",
@@ -1355,7 +1763,11 @@
       "DDR5"
     ],
     "singleCoreScore": 350,
-    "multiCoreScore": 4100
+    "multiCoreScore": 4100,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-104",
@@ -1368,7 +1780,11 @@
       "DDR5"
     ],
     "singleCoreScore": 348,
-    "multiCoreScore": 4050
+    "multiCoreScore": 4050,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 128,
+    "is3DVCache": true
   },
   {
     "id": "cpu-105",
@@ -1381,7 +1797,11 @@
       "DDR5"
     ],
     "singleCoreScore": 360,
-    "multiCoreScore": 1980
+    "multiCoreScore": 1980,
+    "tdpW": 65,
+    "socket": "AM5",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-106",
@@ -1394,7 +1814,11 @@
       "DDR5"
     ],
     "singleCoreScore": 385,
-    "multiCoreScore": 2650
+    "multiCoreScore": 2650,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-107",
@@ -1407,7 +1831,11 @@
       "DDR5"
     ],
     "singleCoreScore": 395,
-    "multiCoreScore": 2780
+    "multiCoreScore": 2780,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 96,
+    "is3DVCache": true
   },
   {
     "id": "cpu-108",
@@ -1420,7 +1848,11 @@
       "DDR5"
     ],
     "singleCoreScore": 410,
-    "multiCoreScore": 3880
+    "multiCoreScore": 3880,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-109",
@@ -1433,7 +1865,11 @@
       "DDR5"
     ],
     "singleCoreScore": 435,
-    "multiCoreScore": 4850
+    "multiCoreScore": 4850,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 36,
+    "is3DVCache": false
   },
   {
     "id": "cpu-110",
@@ -1446,7 +1882,11 @@
       "DDR5"
     ],
     "singleCoreScore": 370,
-    "multiCoreScore": 2100
+    "multiCoreScore": 2100,
+    "tdpW": 65,
+    "socket": "AM5",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-111",
@@ -1459,7 +1899,11 @@
       "DDR5"
     ],
     "singleCoreScore": 400,
-    "multiCoreScore": 2900
+    "multiCoreScore": 2900,
+    "tdpW": 105,
+    "socket": "AM5",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-112",
@@ -1472,7 +1916,11 @@
       "DDR5"
     ],
     "singleCoreScore": 440,
-    "multiCoreScore": 4950
+    "multiCoreScore": 4950,
+    "tdpW": 125,
+    "socket": "AM5",
+    "l3CacheMB": 128,
+    "is3DVCache": true
   },
   {
     "id": "cpu-113",
@@ -1485,7 +1933,11 @@
       "DDR2"
     ],
     "singleCoreScore": 16,
-    "multiCoreScore": 24
+    "multiCoreScore": 24,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-114",
@@ -1498,7 +1950,11 @@
       "DDR2"
     ],
     "singleCoreScore": 19,
-    "multiCoreScore": 28
+    "multiCoreScore": 28,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-115",
@@ -1511,7 +1967,11 @@
       "DDR2"
     ],
     "singleCoreScore": 20,
-    "multiCoreScore": 30
+    "multiCoreScore": 30,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-116",
@@ -1524,7 +1984,11 @@
       "DDR2"
     ],
     "singleCoreScore": 22,
-    "multiCoreScore": 33
+    "multiCoreScore": 33,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-117",
@@ -1537,7 +2001,11 @@
       "DDR2"
     ],
     "singleCoreScore": 24,
-    "multiCoreScore": 36
+    "multiCoreScore": 36,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-118",
@@ -1551,7 +2019,11 @@
       "DDR3"
     ],
     "singleCoreScore": 28,
-    "multiCoreScore": 42
+    "multiCoreScore": 42,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-119",
@@ -1565,7 +2037,11 @@
       "DDR3"
     ],
     "singleCoreScore": 31,
-    "multiCoreScore": 46
+    "multiCoreScore": 46,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-120",
@@ -1579,7 +2055,11 @@
       "DDR3"
     ],
     "singleCoreScore": 33,
-    "multiCoreScore": 49
+    "multiCoreScore": 49,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-121",
@@ -1593,7 +2073,11 @@
       "DDR3"
     ],
     "singleCoreScore": 35,
-    "multiCoreScore": 52
+    "multiCoreScore": 52,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-122",
@@ -1607,7 +2091,11 @@
       "DDR3"
     ],
     "singleCoreScore": 40,
-    "multiCoreScore": 59
+    "multiCoreScore": 59,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-123",
@@ -1621,7 +2109,11 @@
       "DDR3"
     ],
     "singleCoreScore": 42,
-    "multiCoreScore": 62
+    "multiCoreScore": 62,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-124",
@@ -1635,7 +2127,11 @@
       "DDR3"
     ],
     "singleCoreScore": 32,
-    "multiCoreScore": 78
+    "multiCoreScore": 78,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-125",
@@ -1649,7 +2145,11 @@
       "DDR3"
     ],
     "singleCoreScore": 30,
-    "multiCoreScore": 82
+    "multiCoreScore": 82,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-126",
@@ -1663,7 +2163,11 @@
       "DDR3"
     ],
     "singleCoreScore": 32,
-    "multiCoreScore": 86
+    "multiCoreScore": 86,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-127",
@@ -1677,7 +2181,11 @@
       "DDR3"
     ],
     "singleCoreScore": 34,
-    "multiCoreScore": 92
+    "multiCoreScore": 92,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-128",
@@ -1691,7 +2199,11 @@
       "DDR3"
     ],
     "singleCoreScore": 38,
-    "multiCoreScore": 100
+    "multiCoreScore": 100,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-129",
@@ -1705,7 +2217,11 @@
       "DDR3"
     ],
     "singleCoreScore": 40,
-    "multiCoreScore": 105
+    "multiCoreScore": 105,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-130",
@@ -1719,7 +2235,11 @@
       "DDR3"
     ],
     "singleCoreScore": 41,
-    "multiCoreScore": 108
+    "multiCoreScore": 108,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-131",
@@ -1733,7 +2253,11 @@
       "DDR3"
     ],
     "singleCoreScore": 45,
-    "multiCoreScore": 120
+    "multiCoreScore": 120,
+    "tdpW": 45,
+    "socket": "LGA775",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-132",
@@ -1747,7 +2271,11 @@
       "DDR3"
     ],
     "singleCoreScore": 24,
-    "multiCoreScore": 38
+    "multiCoreScore": 38,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-133",
@@ -1761,7 +2289,11 @@
       "DDR3"
     ],
     "singleCoreScore": 26,
-    "multiCoreScore": 62
+    "multiCoreScore": 62,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-134",
@@ -1775,7 +2307,11 @@
       "DDR3"
     ],
     "singleCoreScore": 28,
-    "multiCoreScore": 85
+    "multiCoreScore": 85,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-135",
@@ -1789,7 +2325,11 @@
       "DDR3"
     ],
     "singleCoreScore": 34,
-    "multiCoreScore": 52
+    "multiCoreScore": 52,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-136",
@@ -1803,7 +2343,11 @@
       "DDR3"
     ],
     "singleCoreScore": 32,
-    "multiCoreScore": 72
+    "multiCoreScore": 72,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-137",
@@ -1817,7 +2361,11 @@
       "DDR3"
     ],
     "singleCoreScore": 34,
-    "multiCoreScore": 90
+    "multiCoreScore": 90,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-138",
@@ -1831,7 +2379,11 @@
       "DDR3"
     ],
     "singleCoreScore": 36,
-    "multiCoreScore": 94
+    "multiCoreScore": 94,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-139",
@@ -1845,7 +2397,11 @@
       "DDR3"
     ],
     "singleCoreScore": 40,
-    "multiCoreScore": 102
+    "multiCoreScore": 102,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-140",
@@ -1859,7 +2415,11 @@
       "DDR3"
     ],
     "singleCoreScore": 41,
-    "multiCoreScore": 105
+    "multiCoreScore": 105,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-141",
@@ -1873,7 +2433,11 @@
       "DDR3"
     ],
     "singleCoreScore": 43,
-    "multiCoreScore": 110
+    "multiCoreScore": 110,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-142",
@@ -1887,7 +2451,11 @@
       "DDR3"
     ],
     "singleCoreScore": 38,
-    "multiCoreScore": 150
+    "multiCoreScore": 150,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-143",
@@ -1901,7 +2469,11 @@
       "DDR3"
     ],
     "singleCoreScore": 41,
-    "multiCoreScore": 162
+    "multiCoreScore": 162,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-144",
@@ -1915,7 +2487,11 @@
       "DDR3"
     ],
     "singleCoreScore": 45,
-    "multiCoreScore": 180
+    "multiCoreScore": 180,
+    "tdpW": 45,
+    "socket": "AM3",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-145",
@@ -1928,7 +2504,11 @@
       "DDR3"
     ],
     "singleCoreScore": 44,
-    "multiCoreScore": 120
+    "multiCoreScore": 120,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-146",
@@ -1941,7 +2521,11 @@
       "DDR3"
     ],
     "singleCoreScore": 40,
-    "multiCoreScore": 160
+    "multiCoreScore": 160,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-147",
@@ -1954,7 +2538,11 @@
       "DDR3"
     ],
     "singleCoreScore": 42,
-    "multiCoreScore": 230
+    "multiCoreScore": 230,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-148",
@@ -1967,7 +2555,11 @@
       "DDR3"
     ],
     "singleCoreScore": 46,
-    "multiCoreScore": 250
+    "multiCoreScore": 250,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-149",
@@ -1980,7 +2572,11 @@
       "DDR3"
     ],
     "singleCoreScore": 50,
-    "multiCoreScore": 270
+    "multiCoreScore": 270,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-150",
@@ -1993,7 +2589,11 @@
       "DDR3"
     ],
     "singleCoreScore": 58,
-    "multiCoreScore": 305
+    "multiCoreScore": 305,
+    "tdpW": 45,
+    "socket": "AM3+",
+    "l3CacheMB": 2,
+    "is3DVCache": false
   },
   {
     "id": "cpu-151",
@@ -2006,7 +2606,11 @@
       "DDR3"
     ],
     "singleCoreScore": 78,
-    "multiCoreScore": 130
+    "multiCoreScore": 130,
+    "tdpW": 58,
+    "socket": "LGA1155",
+    "l3CacheMB": 8,
+    "is3DVCache": false
   },
   {
     "id": "cpu-152",
@@ -2019,7 +2623,11 @@
       "DDR3"
     ],
     "singleCoreScore": 84,
-    "multiCoreScore": 215
+    "multiCoreScore": 215,
+    "tdpW": 65,
+    "socket": "LGA1155",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-153",
@@ -2032,7 +2640,11 @@
       "DDR3"
     ],
     "singleCoreScore": 90,
-    "multiCoreScore": 230
+    "multiCoreScore": 230,
+    "tdpW": 65,
+    "socket": "LGA1155",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-154",
@@ -2045,7 +2657,11 @@
       "DDR3"
     ],
     "singleCoreScore": 98,
-    "multiCoreScore": 295
+    "multiCoreScore": 295,
+    "tdpW": 105,
+    "socket": "LGA1155",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-155",
@@ -2058,7 +2674,11 @@
       "DDR3"
     ],
     "singleCoreScore": 98,
-    "multiCoreScore": 255
+    "multiCoreScore": 255,
+    "tdpW": 65,
+    "socket": "LGA1150",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-156",
@@ -2071,7 +2691,11 @@
       "DDR3"
     ],
     "singleCoreScore": 104,
-    "multiCoreScore": 275
+    "multiCoreScore": 275,
+    "tdpW": 65,
+    "socket": "LGA1150",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-157",
@@ -2084,7 +2708,11 @@
       "DDR3"
     ],
     "singleCoreScore": 118,
-    "multiCoreScore": 375
+    "multiCoreScore": 375,
+    "tdpW": 105,
+    "socket": "LGA1150",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-158",
@@ -2097,7 +2725,11 @@
       "DDR4"
     ],
     "singleCoreScore": 118,
-    "multiCoreScore": 310
+    "multiCoreScore": 310,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-159",
@@ -2110,7 +2742,11 @@
       "DDR4"
     ],
     "singleCoreScore": 125,
-    "multiCoreScore": 340
+    "multiCoreScore": 340,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-160",
@@ -2123,7 +2759,11 @@
       "DDR4"
     ],
     "singleCoreScore": 130,
-    "multiCoreScore": 360
+    "multiCoreScore": 360,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-161",
@@ -2136,7 +2776,11 @@
       "DDR4"
     ],
     "singleCoreScore": 138,
-    "multiCoreScore": 395
+    "multiCoreScore": 395,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-162",
@@ -2149,7 +2793,11 @@
       "DDR4"
     ],
     "singleCoreScore": 154,
-    "multiCoreScore": 510
+    "multiCoreScore": 510,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-163",
@@ -2162,7 +2810,11 @@
       "DDR4"
     ],
     "singleCoreScore": 148,
-    "multiCoreScore": 560
+    "multiCoreScore": 560,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-164",
@@ -2175,7 +2827,11 @@
       "DDR4"
     ],
     "singleCoreScore": 165,
-    "multiCoreScore": 730
+    "multiCoreScore": 730,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   },
   {
     "id": "cpu-165",
@@ -2188,7 +2844,11 @@
       "DDR4"
     ],
     "singleCoreScore": 146,
-    "multiCoreScore": 540
+    "multiCoreScore": 540,
+    "tdpW": 65,
+    "socket": "LGA1151",
+    "l3CacheMB": 16,
+    "is3DVCache": false
   },
   {
     "id": "cpu-166",
@@ -2201,6 +2861,10 @@
       "DDR4"
     ],
     "singleCoreScore": 178,
-    "multiCoreScore": 770
+    "multiCoreScore": 770,
+    "tdpW": 105,
+    "socket": "LGA1151",
+    "l3CacheMB": 24,
+    "is3DVCache": false
   }
 ]

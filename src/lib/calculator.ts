@@ -26,8 +26,9 @@ export function getCompatibilityReport(
       );
     }
 
-    // PSU recommendation
-    psuRecommendationW = Math.max(gpu.recommendedPsuW + 100, 450);
+    // PSU recommendation: CPU TDP + GPU TDP + 75W (Motherboard/RAM/Storage) plus 25% safety headroom, rounded to nearest 50W
+    const totalTdp = cpu.tdpW + gpu.tdpW + 75;
+    psuRecommendationW = Math.max(Math.ceil((totalTdp * 1.25) / 50) * 50, 450);
   }
 
   if (cpu && ramProfile) {
@@ -67,7 +68,10 @@ export function calculatePerformance(
   game: Game,
   resolution: "1080p" | "1440p" | "4K",
   preset: "Low" | "Medium" | "High" | "Ultra",
-  dlssFsr: "Off" | "Quality" | "Performance"
+  dlssFsr: "Off" | "Quality" | "Performance",
+  rayTracing: "Off" | "Medium" | "Ultra",
+  frameGen: boolean,
+  ramChannel: "Single" | "Dual"
 ): CalculationResult {
   const warnings: string[] = [];
 
@@ -89,12 +93,6 @@ export function calculatePerformance(
   let baseFps = game.baseFpsScaling[resolution]?.[preset] ?? 60;
 
   // --- 2. Calculate Hardware Modifiers ---
-  // Reference specs:
-  // Let's assume a "Perfect modern build" matches the game's developer targets.
-  // Reference CPU: 100% capacity has singleCoreScore of ~250 and multiCoreScore of ~1200.
-  // Reference GPU: 100% capacity has relativePowerScore of ~300.
-  // Reference RAM: 16GB DDR4 (multiplier 1.0)
-  
   // CPU Scaling
   const cpuPower = (cpu.singleCoreScore * 0.6) + ((cpu.multiCoreScore / 10) * 0.4);
   const refCpuPower = (250 * 0.6) + (120 * 0.4); // 150 + 48 = 198
@@ -107,6 +105,18 @@ export function calculatePerformance(
 
   // RAM Speed & Capacity Scaling
   let ramFactor = ramProfile.speedMultiplier;
+
+  // DDR5 Bandwidth Scaling at 1440p / 4K
+  if (ramProfile.generation === "DDR5" && (resolution === "1440p" || resolution === "4K")) {
+    ramFactor *= 1.06; // 6% bandwidth boost
+  } else if (ramProfile.generation === "DDR3") {
+    ramFactor *= 0.9;
+  } else if (ramProfile.generation === "DDR2") {
+    ramFactor *= 0.8;
+  } else if (ramProfile.generation === "DDR") {
+    ramFactor *= 0.7;
+  }
+
   if (ramProfile.capacityGB < game.ramMinRequirementGB) {
     const penalty = 1 - Math.min(0.5, (game.ramMinRequirementGB - ramProfile.capacityGB) * 0.08);
     ramFactor *= penalty;
@@ -128,9 +138,8 @@ export function calculatePerformance(
   }
 
   // --- 3. Compute FPS ---
-  // A weighted combination of cpuFactor and gpuFactor, based on the game's dependencies.
-  const gameCpuDep = game.cpuDependence; // e.g. 0.8
-  const gameGpuDep = game.gpuDependence; // e.g. 1.0
+  const gameCpuDep = game.cpuDependence;
+  const gameGpuDep = game.gpuDependence;
   const totalDep = gameCpuDep + gameGpuDep;
 
   const combinedHwFactor = ((cpuFactor * gameCpuDep) + (gpuFactor * gameGpuDep)) / totalDep;
@@ -138,29 +147,70 @@ export function calculatePerformance(
 
   // Apply DLSS / FSR Toggles
   if (dlssFsr === "Quality") {
-    // Quality boosts FPS by ~25%
     estimatedFps *= 1.25;
   } else if (dlssFsr === "Performance") {
-    // Performance boosts FPS by ~50%
     estimatedFps *= 1.5;
   }
 
-  // Cap FPS logically (no negative, max 1000 for realistic UI constraints)
+  // Apply Ray Tracing Toggles & GPU Ray Tracing Power Score Scaling
+  if (rayTracing !== "Off") {
+    const rtBase = rayTracing === "Medium" ? 0.7 : 0.45;
+    // NVIDIA and newer architectures retain more performance
+    const rtCapability = Math.min(1.2, 0.4 + (gpu.rayTracingPowerScore / 400));
+    const rtMultiplier = rtBase * rtCapability;
+    estimatedFps *= rtMultiplier;
+  }
+
+  // Apply Frame Generation (DLSS 3 / FSR 3)
+  if (frameGen) {
+    estimatedFps *= 1.7;
+    warnings.push(
+      `💡 Frame Generation is active: Note that Input Latency is determined by Base FPS, not Frame Gen FPS.`
+    );
+  }
+
+  // Cap FPS logically (no negative, max 1000)
   estimatedFps = Math.max(1, Math.round(estimatedFps));
 
-  // 1% Low is lower on HDD, lower when RAM capacity is breached, and generally is ~75% of average FPS
+  // --- 4. 1% Low FPS Calculation ---
   let onePercentFactor = 0.75;
-  if (storage === "HDD") onePercentFactor -= 0.15; // severe stutter
+  if (storage === "HDD") onePercentFactor -= 0.15;
   if (ramProfile.capacityGB < game.ramMinRequirementGB) onePercentFactor -= 0.12;
 
-  const averageFps = Math.round(estimatedFps);
-  const onePercentLowFps = Math.max(1, Math.round(estimatedFps * onePercentFactor));
+  let averageFps = Math.round(estimatedFps);
+  let onePercentLowFps = Math.max(1, Math.round(estimatedFps * onePercentFactor));
 
-  // --- 4. Bottleneck Calculations ---
-  // Let's analyze CPU vs GPU power disparity
-  // "CPU-GPU Bottleneck Check: Calculate difference ratio between CPU singleCoreScore/multiCoreScore and GPU relativePowerScore."
-  // If GPU score is > 2.5x CPU score: Significant CPU Bottleneck.
-  // CPU score metric = (singleCoreScore * 0.7 + multiCoreScore * 0.3)
+  // Single Channel 1% Lows Penalty (0.85x)
+  if (ramChannel === "Single") {
+    onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 0.85));
+  }
+
+  // CPU 3D V-Cache Simulation (+18% 1% Low FPS boost in CPU-bound games)
+  const isCpuBoundGame = game.cpuDependence >= 0.8 || ["game-codwarzone", "game-fortnite", "game-cs2", "game-valorant"].includes(game.id);
+  if (cpu.is3DVCache && isCpuBoundGame) {
+    onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 1.18));
+  }
+
+  // --- 5. VRAM Bottleneck & Overdraw Penalty ---
+  const resMultiplier = resolution === "1080p" ? 1.0 : resolution === "1440p" ? 1.35 : 1.85;
+  const presetMultiplier = preset === "Low" ? 0.8 : preset === "Medium" ? 0.95 : preset === "High" ? 1.1 : 1.3;
+  const GameBaseVRAM = Math.max(2.0, game.ramMinRequirementGB * 0.45);
+  const VRAM_used = Number((GameBaseVRAM * resMultiplier * presetMultiplier).toFixed(2));
+
+  if (VRAM_used > gpu.vramGB) {
+    // VRAM Thrashing Penalty: Reduce 1% Low FPS by 40% to 65% (we use 50% penalty)
+    onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 0.5));
+    warnings.push(
+      `🚨 VRAM Limit Exceeded: Game requires ${VRAM_used}GB VRAM, but your ${gpu.name} only has ${gpu.vramGB}GB. Expect severe micro-stuttering.`
+    );
+  }
+
+  // Make sure 1% Lows never exceed average FPS
+  if (onePercentLowFps > averageFps) {
+    onePercentLowFps = averageFps;
+  }
+
+  // --- 6. Bottleneck Calculations ---
   const cpuMetric = (cpu.singleCoreScore * 0.7) + (cpu.multiCoreScore * 0.3);
   const gpuMetric = gpu.relativePowerScore;
 
@@ -173,7 +223,6 @@ export function calculatePerformance(
     bottleneckType = "CPU";
     const ratio = gpuMetric / cpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 2.5) * 15));
-    // CPU bottleneck means CPU load is 100%, GPU load is throttled down
     cpuLoadPercentage = 100;
     gpuLoadPercentage = Math.max(20, Math.round(100 - bottleneckPercentage));
     warnings.push(
@@ -183,33 +232,29 @@ export function calculatePerformance(
     bottleneckType = "GPU";
     const ratio = cpuMetric / gpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 3.0) * 12));
-    // GPU bottleneck means GPU load is 100%, CPU load is low
     gpuLoadPercentage = 100;
     cpuLoadPercentage = Math.max(30, Math.round(100 - bottleneckPercentage));
     warnings.push(
       `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
   } else {
-    // Balanced or normal GPU-bound situation typical in gaming
     gpuLoadPercentage = 95;
     cpuLoadPercentage = Math.min(90, Math.round(40 + (game.cpuDependence * 40)));
   }
 
-  // If RAM capacity is too low, override bottleneck info to alert RAM throttling
   if (ramProfile.capacityGB < game.ramMinRequirementGB) {
     bottleneckType = "RAM";
     const deficit = game.ramMinRequirementGB - ramProfile.capacityGB;
     bottleneckPercentage = Math.max(bottleneckPercentage, Math.min(60, deficit * 10));
   }
 
-  // Storage-based stutter warnings
   if (storage === "HDD") {
     warnings.push(
       `⚠️ Storage warning: An HDD can cause severe FPS drops (1% Lows) and micro-stuttering.`
     );
   }
 
-  // --- 5. Verdict Badges ---
+  // --- 7. Verdict Badges ---
   let verdict = { badge: "Playable", japaneseBadge: "プレイ可能", colorClass: "text-yellow-700 bg-yellow-50 border-yellow-200" };
   if (averageFps < 30) {
     verdict = { badge: "Unplayable", japaneseBadge: "厳しい", colorClass: "text-red-700 bg-red-50 border-red-200 animate-pulse" };
