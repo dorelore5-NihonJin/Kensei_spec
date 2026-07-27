@@ -19,6 +19,7 @@ import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import Footer from "./components/Footer";
+import QuickGameSwitcher from "./components/QuickGameSwitcher";
 
 // Safe casting seed data
 const cpus = cpuData as CPU[];
@@ -550,6 +551,16 @@ export default function App() {
                   </div>
                 ) : (
                   <div className="flex flex-col gap-6">
+                    <QuickGameSwitcher
+                      games={games}
+                      selectedGame={selectedGame}
+                      onSelectGame={setSelectedGame}
+                      selectedResolution={selectedResolution}
+                      onSelectResolution={setSelectedResolution}
+                      selectedPreset={selectedPreset}
+                      onSelectPreset={setSelectedPreset}
+                    />
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-6">
                         <FpsGauge
