@@ -53,7 +53,7 @@ export default function GameSelector({
 
   // Category classifier helper
   const getGameCategory = (id: string): "Esports" | "AAA" | "Simulation" => {
-    const esportsIds = ["game-cs2", "game-valorant", "game-dota2", "game-apex", "game-fortnite"];
+    const esportsIds = ["game-cs2", "game-valorant", "game-dota2", "game-apex", "game-fortnite", "game-codwarzone", "game-helldivers2"];
     const simulationIds = ["game-minecraft", "game-forza5", "game-gtav", "game-sims4"];
     if (esportsIds.includes(id)) return "Esports";
     if (simulationIds.includes(id)) return "Simulation";

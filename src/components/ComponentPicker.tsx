@@ -206,40 +206,51 @@ export default function ComponentPicker({
               </div>
             </div>
 
-            {/* Suggestions list */}
-            {isCpuFocused && (
-              <div className="absolute z-30 left-0 right-0 mt-2 max-h-60 overflow-y-auto bg-white dark:bg-[#1A1C1E] border border-black/15 dark:border-white/15 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5">
-                <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black px-3 py-1.5 uppercase border-b border-black/10 dark:border-white/10 flex justify-between">
-                  <span>Suggestions ({filteredCpus.length} matches)</span>
-                  <button onClick={() => setIsCpuFocused(false)} className="text-red-500 hover:text-red-700 font-black">✕ Close</button>
-                </div>
-                {filteredCpus.length === 0 ? (
-                  <div className="text-xs text-gray-500 dark:text-gray-400 py-4 text-center font-bold">No match. Adjust filters.</div>
-                ) : (
-                  filteredCpus.slice(0, 15).map((cpu) => (
-                    <button
-                      key={cpu.id}
-                      type="button"
-                      onClick={() => {
-                        setSelectedCpu(cpu);
-                        setIsCpuFocused(false);
-                      }}
-                      className="text-left w-full px-3 py-2 hover:bg-[#E88D9F]/10 hover:text-[#E88D9F] rounded-xl transition text-xs flex justify-between items-center font-bold"
-                    >
-                      <div>
-                        <span className="font-black text-[#1E2022] dark:text-white">{cpu.name}</span>
-                        <span className="text-[10px] text-gray-500 dark:text-gray-400 ml-2">
-                          ({cpu.cores}C/{cpu.threads}T • {cpu.releaseYear} • {cpu.socket})
+              {/* Click-away backdrop overlay */}
+              <div
+                className="fixed inset-0 z-20"
+                onClick={() => setIsCpuFocused(false)}
+              />
+
+              {/* Suggestions list */}
+              {isCpuFocused && (
+                <div className="absolute z-30 left-0 right-0 mt-2 max-h-60 overflow-y-auto bg-white dark:bg-[#1A1C1E] border border-black/15 dark:border-white/15 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5">
+                  <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black px-3 py-1.5 uppercase border-b border-black/10 dark:border-white/10 flex justify-between">
+                    <span>Suggestions ({filteredCpus.length} matches)</span>
+                    <button onClick={() => setIsCpuFocused(false)} className="text-red-500 hover:text-red-700 font-black">✕ Close</button>
+                  </div>
+                  {filteredCpus.length === 0 ? (
+                    <div className="text-xs text-gray-500 dark:text-gray-400 py-4 text-center font-bold">No match. Adjust filters.</div>
+                  ) : (
+                    filteredCpus.slice(0, 15).map((cpu) => (
+                      <button
+                        key={cpu.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedCpu(cpu);
+                          setIsCpuFocused(false);
+                          // Auto select first compatible RAM profile if none selected
+                          const compatibleRams = ramProfiles.filter((r) => cpu.supportedDdr.includes(r.generation));
+                          if (compatibleRams.length > 0 && (!selectedRam || !cpu.supportedDdr.includes(selectedRam.generation))) {
+                            setSelectedRam(compatibleRams[0]);
+                          }
+                        }}
+                        className="text-left w-full px-3 py-2 hover:bg-[#E88D9F]/10 hover:text-[#E88D9F] rounded-xl transition text-xs flex justify-between items-center font-bold"
+                      >
+                        <div>
+                          <span className="font-black text-[#1E2022] dark:text-white">{cpu.name}</span>
+                          <span className="text-[10px] text-gray-500 dark:text-gray-400 ml-2">
+                            ({cpu.cores}C/{cpu.threads}T • {cpu.releaseYear} • {cpu.socket})
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-mono text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded font-bold">
+                          {cpu.singleCoreScore} SC / {cpu.multiCoreScore} MC
                         </span>
-                      </div>
-                      <span className="text-[10px] font-mono text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded font-bold">
-                        {cpu.singleCoreScore} SC / {cpu.multiCoreScore} MC
-                      </span>
-                    </button>
-                  ))
-                )}
-              </div>
-            )}
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
           </div>
         )}
       </div>
@@ -428,6 +439,12 @@ export default function ComponentPicker({
                 </select>
               </div>
             </div>
+
+            {/* Click-away backdrop overlay */}
+            <div
+              className="fixed inset-0 z-10"
+              onClick={() => setIsGpuFocused(false)}
+            />
 
             {/* Suggestions list */}
             {isGpuFocused && (

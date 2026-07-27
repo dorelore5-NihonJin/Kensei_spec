@@ -158,14 +158,13 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
       {/* FPS Details Grid */}
       <div className="grid grid-cols-2 gap-4 border-y border-white/10 py-4 text-center text-xs">
-        <div>
+        <div className="border-r border-white/10 pr-2">
           <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">1% Low (Stutter)</span>
           <span className="text-lg font-black text-rose-300">
             {isComplete ? `${animatedLowFps} FPS` : "--"}
           </span>
         </div>
-        <div className="border-r border-white/10" />
-        <div>
+        <div className="pl-2">
           <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">Bottleneck Factor</span>
           <span className="text-lg font-black text-amber-300 uppercase tracking-wide">
             {isComplete ? (report.bottleneckType === "None" ? "Balanced" : report.bottleneckType) : "--"}

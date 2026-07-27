@@ -32,9 +32,9 @@ export default function SystemDiagnostics({
       {/* Silicon CPU/GPU Die Artwork Badge - Custom Visual Asset */}
       <div className="relative w-full h-24 rounded-2xl overflow-hidden shadow-inner border border-black/10 dark:border-white/10">
         <img
-          src="/hardware_silicon_badge.jpg"
+          src="./hardware_silicon_badge.jpg"
           alt="Silicon Hardware Badge"
-          className="w-full h-full object-cover brightness-90 dark:brightness-60"
+          className="w-full h-full object-cover brightness-95 dark:brightness-70"
           onError={(e) => {
             // fallback if artwork not present
             e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60";
