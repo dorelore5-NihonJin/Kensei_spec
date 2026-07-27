@@ -371,11 +371,64 @@ export default function GameBuildsCatalog({
     }, 400);
   };
 
-  // Handle loading build into simulator
+  // Handle loading build into simulator (FIXED CPU & GPU MATCHING BUG)
   const handleApplyBuild = (build: PresetBuild) => {
     const matchedGame = games.find((g) => g.id === build.gameId) || games[0];
-    const matchedCpu = cpus.find((c) => c.name.includes(build.cpuName.split(" ")[1])) || cpus[0];
-    const matchedGpu = gpus.find((g) => g.name.includes(build.gpuName.split(" ")[1])) || gpus[0];
+
+    // Robust CPU Matching: match specific model identifiers
+    const cpuTarget = build.cpuName.toLowerCase();
+    const matchedCpu = cpus.find((c) => {
+      const name = c.name.toLowerCase();
+      if (cpuTarget.includes("9800x3d") && name.includes("9800x3d")) return true;
+      if (cpuTarget.includes("7800x3d") && name.includes("7800x3d")) return true;
+      if (cpuTarget.includes("5700x3d") && name.includes("5700x3d")) return true;
+      if (cpuTarget.includes("7950x") && name.includes("7950x")) return true;
+      if (cpuTarget.includes("9950x") && name.includes("9950x")) return true;
+      if (cpuTarget.includes("7600x") && name.includes("7600x")) return true;
+      if (cpuTarget.includes("7700x") && name.includes("7700x")) return true;
+      if (cpuTarget.includes("5600x") && name.includes("5600x")) return true;
+      if (cpuTarget.includes("5600") && name.includes("5600") && !name.includes("5600x")) return true;
+      if (cpuTarget.includes("5500") && name.includes("5500")) return true;
+      if (cpuTarget.includes("14900k") && name.includes("14900k")) return true;
+      if (cpuTarget.includes("14700k") && name.includes("14700k")) return true;
+      if (cpuTarget.includes("13600k") && name.includes("13600k")) return true;
+      if (cpuTarget.includes("13400f") && name.includes("13400f")) return true;
+      if (cpuTarget.includes("13300f") || (cpuTarget.includes("13100f") && name.includes("13100f"))) return true;
+      if (cpuTarget.includes("285k") && name.includes("285k")) return true;
+      if (cpuTarget.includes("265k") && name.includes("265k")) return true;
+      if (cpuTarget.includes("245k") && name.includes("245k")) return true;
+      if (cpuTarget.includes("pentium 4") && name.includes("pentium 4")) return true;
+      if (cpuTarget.includes("q6600") && name.includes("q6600")) return true;
+      return name.includes(cpuTarget);
+    }) || cpus[0];
+
+    // Robust GPU Matching: match specific GPU model identifiers
+    const gpuTarget = build.gpuName.toLowerCase();
+    const matchedGpu = gpus.find((g) => {
+      const name = g.name.toLowerCase();
+      if (gpuTarget.includes("4090") && name.includes("4090")) return true;
+      if (gpuTarget.includes("4080 super") && name.includes("4080 super")) return true;
+      if (gpuTarget.includes("4080") && name.includes("4080")) return true;
+      if (gpuTarget.includes("4070 ti super") && name.includes("4070 ti super")) return true;
+      if (gpuTarget.includes("4070 super") && name.includes("4070 super")) return true;
+      if (gpuTarget.includes("4070 ti") && name.includes("4070 ti")) return true;
+      if (gpuTarget.includes("4070") && name.includes("4070")) return true;
+      if (gpuTarget.includes("4060 ti") && name.includes("4060 ti")) return true;
+      if (gpuTarget.includes("4060") && name.includes("4060")) return true;
+      if (gpuTarget.includes("3060") && name.includes("3060")) return true;
+      if (gpuTarget.includes("3050") && name.includes("3050")) return true;
+      if (gpuTarget.includes("7900 xtx") && name.includes("7900 xtx")) return true;
+      if (gpuTarget.includes("7900 xt") && name.includes("7900 xt")) return true;
+      if (gpuTarget.includes("7800 xt") && name.includes("7800 xt")) return true;
+      if (gpuTarget.includes("7700 xt") && name.includes("7700 xt")) return true;
+      if (gpuTarget.includes("7600") && name.includes("7600")) return true;
+      if (gpuTarget.includes("6600") && name.includes("6600")) return true;
+      if (gpuTarget.includes("a770") && name.includes("a770")) return true;
+      if (gpuTarget.includes("1060") && name.includes("1060")) return true;
+      if (gpuTarget.includes("750 ti") && name.includes("750 ti")) return true;
+      return name.includes(gpuTarget);
+    }) || gpus[0];
+
     const ramCap = build.ramText.includes("128GB") ? 128 : build.ramText.includes("64GB") ? 64 : build.ramText.includes("32GB") ? 32 : 16;
     const matchedRam = ramProfiles.find((r) => r.generation === (build.ramText.includes("DDR5") ? "DDR5" : "DDR4")) || ramProfiles[0];
 
