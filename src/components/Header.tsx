@@ -5,9 +5,19 @@ interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   onReset: () => void;
+  activePage: "simulator" | "catalog";
+  setActivePage: (page: "simulator" | "catalog") => void;
+  onOpenBuyModal: () => void;
 }
 
-export default function Header({ darkMode, setDarkMode, onReset }: HeaderProps) {
+export default function Header({
+  darkMode,
+  setDarkMode,
+  onReset,
+  activePage,
+  setActivePage,
+  onOpenBuyModal
+}: HeaderProps) {
   const [showAboutModal, setShowAboutModal] = useState(false);
 
   return (
@@ -46,8 +56,8 @@ export default function Header({ darkMode, setDarkMode, onReset }: HeaderProps) 
         </div>
       </div>
 
-      {/* Brand Header Bar */}
-      <header className="max-w-7xl mx-auto py-3 mb-6 border-b border-black/10 dark:border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      {/* Brand Header Bar & Site Navigation */}
+      <header className="max-w-7xl mx-auto py-3 mb-6 border-b border-black/10 dark:border-white/10 flex flex-col lg:flex-row justify-between items-center gap-4">
         {/* Brand Logo & Title */}
         <div className="flex items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022]">
@@ -68,20 +78,52 @@ export default function Header({ darkMode, setDarkMode, onReset }: HeaderProps) 
           </div>
         </div>
 
+        {/* SITE NAVIGATION TABS (Simulator vs Game Builds vs Store) */}
+        <div className="flex items-center gap-2 bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-black/10 dark:border-white/10">
+          <button
+            onClick={() => setActivePage("simulator")}
+            className={`px-4 py-2 rounded-xl text-xs font-black transition ${
+              activePage === "simulator"
+                ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-xs"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022]"
+            }`}
+          >
+            ⚙️ Simulator / シミュレーター
+          </button>
+
+          <button
+            onClick={() => setActivePage("catalog")}
+            className={`px-4 py-2 rounded-xl text-xs font-black transition ${
+              activePage === "catalog"
+                ? "bg-[#8A9A86] text-white shadow-xs"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022]"
+            }`}
+          >
+            📦 Game Builds / ゲーム別推奨構成
+          </button>
+
+          <button
+            onClick={onOpenBuyModal}
+            className="px-4 py-2 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-xs"
+          >
+            🛒 Store / 構成購入
+          </button>
+        </div>
+
         {/* Action Controls */}
-        <div className="flex items-center gap-2.5 flex-wrap justify-end">
+        <div className="flex items-center gap-2 flex-wrap justify-end">
           {/* About Modal Trigger */}
           <button
             onClick={() => setShowAboutModal(true)}
-            className="flex items-center gap-2 px-3.5 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition shadow-xs"
+            className="flex items-center gap-2 px-3 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition shadow-xs"
           >
-            <Info className="w-3.5 h-3.5 text-[#E88D9F]" /> About KENSEI / 概要
+            <Info className="w-3.5 h-3.5 text-[#E88D9F]" /> About
           </button>
 
           {/* Light / Dark mode Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition duration-200 shadow-xs"
+            className="p-2 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition duration-200 shadow-xs"
             aria-label="Toggle Dark Mode"
           >
             {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-500" />}
@@ -90,9 +132,9 @@ export default function Header({ darkMode, setDarkMode, onReset }: HeaderProps) 
           {/* Reset Build */}
           <button
             onClick={onReset}
-            className="flex items-center gap-2 px-3.5 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:text-red-500 dark:hover:text-red-400 rounded-xl transition duration-200 shadow-xs"
+            className="flex items-center gap-2 px-3 py-2 text-xs font-black bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:text-red-500 dark:hover:text-red-400 rounded-xl transition duration-200 shadow-xs"
           >
-            <RotateCcw className="w-3.5 h-3.5" /> Reset Build / 構成クリア
+            <RotateCcw className="w-3.5 h-3.5" /> Reset Build
           </button>
         </div>
       </header>

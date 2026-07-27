@@ -17,6 +17,8 @@ import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
 import { ShoppingCart, ArrowRight } from "lucide-react";
 
+import GameBuildsCatalog from "./pages/GameBuildsCatalog";
+
 // Safe casting seed data
 const cpus = cpuData as CPU[];
 const gpus = gpuData as GPU[];
@@ -26,6 +28,9 @@ const games = gameData as Game[];
 export default function App() {
   // --- DARK MODE ---
   const [darkMode, setDarkMode] = useState<boolean>(false);
+
+  // --- SITE PAGE ROUTING ---
+  const [activePage, setActivePage] = useState<"simulator" | "catalog">("simulator");
 
   // --- STEPPER WIZARD STATE ---
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
@@ -49,6 +54,17 @@ export default function App() {
   const [selectedDlss, setSelectedDlss] = useState<"Off" | "Quality" | "Performance">("Off");
   const [rayTracing, setRayTracing] = useState<"Off" | "Medium" | "Ultra">("Off");
   const [frameGen, setFrameGen] = useState<boolean>(false);
+
+  // Handler for loading preset build from catalog into simulator
+  const handleSelectCatalogBuild = (cpu: CPU, gpu: GPU, ram: RAMProfile, ramCap: number, game: Game) => {
+    setSelectedCpu(cpu);
+    setSelectedGpu(gpu);
+    setSelectedRam(ram);
+    setRamCapacityGB(ramCap);
+    setSelectedGame(game);
+    setCurrentStep(3);
+    setActivePage("simulator");
+  };
 
   // --- PARALLAX EFFECT STATE ---
   const [scrollY, setScrollY] = useState(0);
@@ -185,10 +201,29 @@ export default function App() {
       </div>
 
       <div className="max-w-7xl mx-auto flex flex-col gap-6">
-        {/* Header Component */}
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} onReset={handleResetBuild} />
+        {/* Header Component with Navigation */}
+        <Header
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          onReset={handleResetBuild}
+          activePage={activePage}
+          setActivePage={setActivePage}
+          onOpenBuyModal={() => setIsBuyModalOpen(true)}
+        />
 
-        {/* WORKFLOW STEPPER CONTROLLER */}
+        {/* PAGE SWITCH: CATALOG PAGE vs SIMULATOR PAGE */}
+        {activePage === "catalog" ? (
+          <GameBuildsCatalog
+            games={games}
+            cpus={cpus}
+            gpus={gpus}
+            ramProfiles={ramProfiles}
+            onSelectBuild={handleSelectCatalogBuild}
+            onOpenBuyModal={() => setIsBuyModalOpen(true)}
+          />
+        ) : (
+          <>
+            {/* WORKFLOW STEPPER CONTROLLER */}
         <div className="glass-card rounded-2xl p-3 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           
           {/* Steps Indicator Buttons */}
@@ -550,6 +585,8 @@ export default function App() {
             )}
           </main>
         )}
+      </>
+    )}
 
         {/* BUILD BUY STORE MODAL */}
         <BuildBuyModal

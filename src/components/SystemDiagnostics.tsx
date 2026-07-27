@@ -1,5 +1,6 @@
+import { useState } from "react";
 import type { CPU, GPU, RAMProfile, CompatibilityReport } from "../lib/types";
-import { AlertTriangle, CheckCircle, Zap, ShieldAlert } from "lucide-react";
+import { AlertTriangle, CheckCircle, Zap, ShieldAlert, ChevronDown, ChevronUp, Cpu, Activity, HardDrive } from "lucide-react";
 
 interface SystemDiagnosticsProps {
   selectedCpu: CPU | null;
@@ -14,6 +15,7 @@ export default function SystemDiagnostics({
   selectedRam,
   compatibilityReport
 }: SystemDiagnosticsProps) {
+  const [showProMode, setShowProMode] = useState(false);
   const isComplete = selectedCpu && selectedGpu && selectedRam;
 
   // Calculate total system TDP
@@ -26,6 +28,11 @@ export default function SystemDiagnostics({
   const headroomPct = recommendedPsu > 0 ? Math.max(0, Math.round(((recommendedPsu - systemTdp) / recommendedPsu) * 100)) : 0;
   const isOverloaded = systemTdp > recommendedPsu;
 
+  // Pro Telemetry Calculations
+  const estCpuTempC = Math.min(88, Math.max(45, Math.round(50 + (cpuTdp / 10))));
+  const l3CacheText = selectedCpu?.is3DVCache ? "96MB+ 3D V-Cache (99% Hit Ratio)" : `${selectedCpu?.l3CacheMB || 32}MB Standard L3 Cache`;
+  const pcieBandwidth = selectedGpu?.architecture?.includes("Ada") || selectedGpu?.architecture?.includes("RDNA") ? "PCIe 4.0 x16 (31.5 GB/s)" : "PCIe 3.0 x16 (15.8 GB/s)";
+
   return (
     <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col gap-6">
 
@@ -36,7 +43,6 @@ export default function SystemDiagnostics({
           alt="Silicon Hardware Badge"
           className="w-full h-full object-cover brightness-95 dark:brightness-70"
           onError={(e) => {
-            // fallback if artwork not present
             e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60";
           }}
         />
@@ -126,6 +132,56 @@ export default function SystemDiagnostics({
                 {isOverloaded ? "🚨 OVERLOADED" : `✅ ${headroomPct}% Safety Headroom`}
               </span>
             </div>
+          </div>
+
+          {/* PRO ADVANCED TELEMETRY EXPANDABLE DRAWER */}
+          <div className="border-t border-black/5 dark:border-white/5 pt-3 mt-1">
+            <button
+              onClick={() => setShowProMode(!showProMode)}
+              className="w-full py-2 px-3 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-black/10 text-xs font-black text-[#1E2022] dark:text-white flex items-center justify-between transition"
+            >
+              <span className="flex items-center gap-1.5">
+                <Activity className="w-3.5 h-3.5 text-[#E88D9F]" />
+                {showProMode ? "Hide Advanced Telemetry" : "Show Advanced Telemetry & Deep Specs / 詳しいスペック"}
+              </span>
+              {showProMode ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+
+            {showProMode && (
+              <div className="mt-3 p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-extrabold animate-fadeIn">
+                <div className="flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-[#8A9A86] shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-gray-500 block uppercase">L3 Cache Subsystem</span>
+                    <span className="text-[#1E2022] dark:text-white">{l3CacheText}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-rose-500 shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-gray-500 block uppercase">Thermal Peak Load</span>
+                    <span className="text-[#1E2022] dark:text-white">~{estCpuTempC}°C under 100% Gaming Load</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <HardDrive className="w-4 h-4 text-indigo-500 shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-gray-500 block uppercase">PCIe Bus Bandwidth</span>
+                    <span className="text-[#1E2022] dark:text-white">{pcieBandwidth}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-amber-500 shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-gray-500 block uppercase">Memory Throughput</span>
+                    <span className="text-[#1E2022] dark:text-white">Dual Channel • {selectedRam?.speedMhz || 6000} MT/s</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
