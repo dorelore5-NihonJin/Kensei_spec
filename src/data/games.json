@@ -1,0 +1,590 @@
+[
+  {
+    "id": "game-cs2",
+    "title": "Counter-Strike 2",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.9,
+    "gpuDependence": 0.6,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 320,
+        "Medium": 280,
+        "High": 240,
+        "Ultra": 200
+      },
+      "1440p": {
+        "Low": 260,
+        "Medium": 220,
+        "High": 180,
+        "Ultra": 150
+      },
+      "4K": {
+        "Low": 150,
+        "Medium": 120,
+        "High": 100,
+        "Ultra": 80
+      }
+    }
+  },
+  {
+    "id": "game-valorant",
+    "title": "Valorant",
+    "coverImage": "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 1,
+    "gpuDependence": 0.4,
+    "ramMinRequirementGB": 4,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 400,
+        "Medium": 350,
+        "High": 300,
+        "Ultra": 260
+      },
+      "1440p": {
+        "Low": 320,
+        "Medium": 270,
+        "High": 220,
+        "Ultra": 190
+      },
+      "4K": {
+        "Low": 180,
+        "Medium": 150,
+        "High": 120,
+        "Ultra": 100
+      }
+    }
+  },
+  {
+    "id": "game-cyberpunk",
+    "title": "Cyberpunk 2077",
+    "coverImage": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.7,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 12,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 90,
+        "Medium": 75,
+        "High": 60,
+        "Ultra": 45
+      },
+      "1440p": {
+        "Low": 65,
+        "Medium": 55,
+        "High": 45,
+        "Ultra": 30
+      },
+      "4K": {
+        "Low": 35,
+        "Medium": 28,
+        "High": 22,
+        "Ultra": 15
+      }
+    }
+  },
+  {
+    "id": "game-witcher3",
+    "title": "The Witcher 3: Wild Hunt",
+    "coverImage": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.5,
+    "gpuDependence": 0.8,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 130,
+        "Medium": 110,
+        "High": 90,
+        "Ultra": 70
+      },
+      "1440p": {
+        "Low": 95,
+        "Medium": 80,
+        "High": 65,
+        "Ultra": 50
+      },
+      "4K": {
+        "Low": 50,
+        "Medium": 40,
+        "High": 32,
+        "Ultra": 24
+      }
+    }
+  },
+  {
+    "id": "game-gtav",
+    "title": "Grand Theft Auto V",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.7,
+    "gpuDependence": 0.7,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 180,
+        "Medium": 150,
+        "High": 120,
+        "Ultra": 90
+      },
+      "1440p": {
+        "Low": 135,
+        "Medium": 110,
+        "High": 90,
+        "Ultra": 70
+      },
+      "4K": {
+        "Low": 75,
+        "Medium": 60,
+        "High": 50,
+        "Ultra": 40
+      }
+    }
+  },
+  {
+    "id": "game-alanwake2",
+    "title": "Alan Wake 2",
+    "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.6,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 70,
+        "Medium": 55,
+        "High": 45,
+        "Ultra": 35
+      },
+      "1440p": {
+        "Low": 50,
+        "Medium": 40,
+        "High": 32,
+        "Ultra": 24
+      },
+      "4K": {
+        "Low": 25,
+        "Medium": 18,
+        "High": 14,
+        "Ultra": 10
+      }
+    }
+  },
+  {
+    "id": "game-gtavi",
+    "title": "Grand Theft Auto VI",
+    "coverImage": "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.8,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 55,
+        "Medium": 45,
+        "High": 35,
+        "Ultra": 28
+      },
+      "1440p": {
+        "Low": 40,
+        "Medium": 32,
+        "High": 24,
+        "Ultra": 18
+      },
+      "4K": {
+        "Low": 20,
+        "Medium": 15,
+        "High": 11,
+        "Ultra": 8
+      }
+    }
+  },
+  {
+    "id": "game-wukong",
+    "title": "Black Myth: Wukong",
+    "coverImage": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.6,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 85,
+        "Medium": 70,
+        "High": 55,
+        "Ultra": 42
+      },
+      "1440p": {
+        "Low": 60,
+        "Medium": 48,
+        "High": 38,
+        "Ultra": 28
+      },
+      "4K": {
+        "Low": 30,
+        "Medium": 22,
+        "High": 16,
+        "Ultra": 12
+      }
+    }
+  },
+  {
+    "id": "game-dota2",
+    "title": "Dota 2",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.9,
+    "gpuDependence": 0.5,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 280,
+        "Medium": 240,
+        "High": 200,
+        "Ultra": 160
+      },
+      "1440p": {
+        "Low": 210,
+        "Medium": 180,
+        "High": 150,
+        "Ultra": 120
+      },
+      "4K": {
+        "Low": 120,
+        "Medium": 100,
+        "High": 80,
+        "Ultra": 60
+      }
+    }
+  },
+  {
+    "id": "game-apex",
+    "title": "Apex Legends",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.6,
+    "gpuDependence": 0.8,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 220,
+        "Medium": 190,
+        "High": 160,
+        "Ultra": 130
+      },
+      "1440p": {
+        "Low": 170,
+        "Medium": 140,
+        "High": 120,
+        "Ultra": 95
+      },
+      "4K": {
+        "Low": 90,
+        "Medium": 75,
+        "High": 60,
+        "Ultra": 45
+      }
+    }
+  },
+  {
+    "id": "game-eldenring",
+    "title": "Elden Ring",
+    "coverImage": "https://images.unsplash.com/photo-1656077218714-2775f0f644a5?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.7,
+    "gpuDependence": 0.9,
+    "ramMinRequirementGB": 12,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 110,
+        "Medium": 90,
+        "High": 75,
+        "Ultra": 60
+      },
+      "1440p": {
+        "Low": 85,
+        "Medium": 70,
+        "High": 55,
+        "Ultra": 45
+      },
+      "4K": {
+        "Low": 45,
+        "Medium": 35,
+        "High": 28,
+        "Ultra": 22
+      }
+    }
+  },
+  {
+    "id": "game-forza5",
+    "title": "Forza Horizon 5",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.5,
+    "gpuDependence": 0.9,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 160,
+        "Medium": 135,
+        "High": 110,
+        "Ultra": 85
+      },
+      "1440p": {
+        "Low": 120,
+        "Medium": 100,
+        "High": 82,
+        "Ultra": 62
+      },
+      "4K": {
+        "Low": 65,
+        "Medium": 54,
+        "High": 44,
+        "Ultra": 32
+      }
+    }
+  },
+  {
+    "id": "game-fortnite",
+    "title": "Fortnite",
+    "coverImage": "https://images.unsplash.com/photo-1589241062272-c0a000072dfa?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.8,
+    "gpuDependence": 0.7,
+    "ramMinRequirementGB": 8,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 260,
+        "Medium": 200,
+        "High": 150,
+        "Ultra": 110
+      },
+      "1440p": {
+        "Low": 190,
+        "Medium": 145,
+        "High": 110,
+        "Ultra": 80
+      },
+      "4K": {
+        "Low": 100,
+        "Medium": 75,
+        "High": 55,
+        "Ultra": 40
+      }
+    }
+  },
+  {
+    "id": "game-minecraft",
+    "title": "Minecraft (with Shaders)",
+    "coverImage": "https://images.unsplash.com/photo-1605901309584-818e25960a8f?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.9,
+    "gpuDependence": 0.6,
+    "ramMinRequirementGB": 4,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 240,
+        "Medium": 180,
+        "High": 140,
+        "Ultra": 100
+      },
+      "1440p": {
+        "Low": 180,
+        "Medium": 135,
+        "High": 100,
+        "Ultra": 75
+      },
+      "4K": {
+        "Low": 90,
+        "Medium": 68,
+        "High": 50,
+        "Ultra": 38
+      }
+    }
+  },
+  {
+    "id": "game-rdr2",
+    "title": "Red Dead Redemption 2",
+    "coverImage": "https://images.unsplash.com/photo-1533130061792-64b345e4e837?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.6,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 12,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 115,
+        "Medium": 95,
+        "High": 80,
+        "Ultra": 60
+      },
+      "1440p": {
+        "Low": 85,
+        "Medium": 70,
+        "High": 58,
+        "Ultra": 42
+      },
+      "4K": {
+        "Low": 45,
+        "Medium": 36,
+        "High": 30,
+        "Ultra": 20
+      }
+    }
+  },
+  {
+    "id": "game-codwarzone",
+    "title": "Call of Duty: Warzone",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.8,
+    "gpuDependence": 0.8,
+    "ramMinRequirementGB": 12,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 160,
+        "Medium": 130,
+        "High": 110,
+        "Ultra": 90
+      },
+      "1440p": {
+        "Low": 120,
+        "Medium": 98,
+        "High": 82,
+        "Ultra": 68
+      },
+      "4K": {
+        "Low": 65,
+        "Medium": 52,
+        "High": 44,
+        "Ultra": 35
+      }
+    }
+  },
+  {
+    "id": "game-hogwarts",
+    "title": "Hogwarts Legacy",
+    "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.7,
+    "gpuDependence": 0.9,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 105,
+        "Medium": 85,
+        "High": 70,
+        "Ultra": 55
+      },
+      "1440p": {
+        "Low": 78,
+        "Medium": 62,
+        "High": 50,
+        "Ultra": 38
+      },
+      "4K": {
+        "Low": 40,
+        "Medium": 30,
+        "High": 24,
+        "Ultra": 18
+      }
+    }
+  },
+  {
+    "id": "game-spider2",
+    "title": "Marvel's Spider-Man 2",
+    "coverImage": "https://images.unsplash.com/photo-1608889175123-8ec330b86f84?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.8,
+    "gpuDependence": 0.9,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 120,
+        "Medium": 100,
+        "High": 80,
+        "Ultra": 65
+      },
+      "1440p": {
+        "Low": 90,
+        "Medium": 75,
+        "High": 60,
+        "Ultra": 48
+      },
+      "4K": {
+        "Low": 48,
+        "Medium": 38,
+        "High": 30,
+        "Ultra": 24
+      }
+    }
+  },
+  {
+    "id": "game-helldivers2",
+    "title": "Helldivers 2",
+    "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.9,
+    "gpuDependence": 0.8,
+    "ramMinRequirementGB": 12,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 130,
+        "Medium": 110,
+        "High": 90,
+        "Ultra": 70
+      },
+      "1440p": {
+        "Low": 95,
+        "Medium": 80,
+        "High": 65,
+        "Ultra": 50
+      },
+      "4K": {
+        "Low": 50,
+        "Medium": 40,
+        "High": 32,
+        "Ultra": 24
+      }
+    }
+  },
+  {
+    "id": "game-starfield",
+    "title": "Starfield",
+    "coverImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.8,
+    "gpuDependence": 1,
+    "ramMinRequirementGB": 16,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 75,
+        "Medium": 60,
+        "High": 48,
+        "Ultra": 35
+      },
+      "1440p": {
+        "Low": 55,
+        "Medium": 44,
+        "High": 35,
+        "Ultra": 25
+      },
+      "4K": {
+        "Low": 28,
+        "Medium": 22,
+        "High": 16,
+        "Ultra": 12
+      }
+    }
+  },
+  {
+    "id": "game-sims4",
+    "title": "The Sims 4",
+    "coverImage": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=60",
+    "cpuDependence": 0.6,
+    "gpuDependence": 0.4,
+    "ramMinRequirementGB": 4,
+    "baseFpsScaling": {
+      "1080p": {
+        "Low": 250,
+        "Medium": 200,
+        "High": 160,
+        "Ultra": 120
+      },
+      "1440p": {
+        "Low": 190,
+        "Medium": 150,
+        "High": 120,
+        "Ultra": 90
+      },
+      "4K": {
+        "Low": 100,
+        "Medium": 80,
+        "High": 60,
+        "Ultra": 45
+      }
+    }
+  }
+]

@@ -1,0 +1,2206 @@
+[
+  {
+    "id": "cpu-001",
+    "name": "Pentium 4 630",
+    "manufacturer": "Intel",
+    "releaseYear": 2005,
+    "cores": 1,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 10,
+    "multiCoreScore": 12
+  },
+  {
+    "id": "cpu-002",
+    "name": "Pentium D 820",
+    "manufacturer": "Intel",
+    "releaseYear": 2005,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 12,
+    "multiCoreScore": 20
+  },
+  {
+    "id": "cpu-003",
+    "name": "Core 2 Duo E6600",
+    "manufacturer": "Intel",
+    "releaseYear": 2006,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 25,
+    "multiCoreScore": 38
+  },
+  {
+    "id": "cpu-004",
+    "name": "Core 2 Duo E6700",
+    "manufacturer": "Intel",
+    "releaseYear": 2006,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 28,
+    "multiCoreScore": 42
+  },
+  {
+    "id": "cpu-005",
+    "name": "Core 2 Extreme QX6700",
+    "manufacturer": "Intel",
+    "releaseYear": 2006,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 28,
+    "multiCoreScore": 68
+  },
+  {
+    "id": "cpu-006",
+    "name": "Core 2 Quad Q6600",
+    "manufacturer": "Intel",
+    "releaseYear": 2007,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 30,
+    "multiCoreScore": 72
+  },
+  {
+    "id": "cpu-007",
+    "name": "Core 2 Duo E8400",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 38,
+    "multiCoreScore": 56
+  },
+  {
+    "id": "cpu-008",
+    "name": "Core 2 Quad Q9550",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 42,
+    "multiCoreScore": 110
+  },
+  {
+    "id": "cpu-009",
+    "name": "Core i7-920",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 54,
+    "multiCoreScore": 160
+  },
+  {
+    "id": "cpu-010",
+    "name": "Core i7-975 Extreme",
+    "manufacturer": "Intel",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 64,
+    "multiCoreScore": 195
+  },
+  {
+    "id": "cpu-011",
+    "name": "Core i3-2100",
+    "manufacturer": "Intel",
+    "releaseYear": 2011,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 62,
+    "multiCoreScore": 115
+  },
+  {
+    "id": "cpu-012",
+    "name": "Core i5-2500K",
+    "manufacturer": "Intel",
+    "releaseYear": 2011,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 82,
+    "multiCoreScore": 210
+  },
+  {
+    "id": "cpu-013",
+    "name": "Core i7-2600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2011,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 88,
+    "multiCoreScore": 265
+  },
+  {
+    "id": "cpu-014",
+    "name": "Core i7-3930K",
+    "manufacturer": "Intel",
+    "releaseYear": 2011,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 92,
+    "multiCoreScore": 380
+  },
+  {
+    "id": "cpu-015",
+    "name": "Core i5-3570K",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 94,
+    "multiCoreScore": 245
+  },
+  {
+    "id": "cpu-016",
+    "name": "Core i7-3770K",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 102,
+    "multiCoreScore": 310
+  },
+  {
+    "id": "cpu-017",
+    "name": "Core i3-4130",
+    "manufacturer": "Intel",
+    "releaseYear": 2013,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 88,
+    "multiCoreScore": 145
+  },
+  {
+    "id": "cpu-018",
+    "name": "Core i5-4670K",
+    "manufacturer": "Intel",
+    "releaseYear": 2013,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 112,
+    "multiCoreScore": 290
+  },
+  {
+    "id": "cpu-019",
+    "name": "Core i7-4770K",
+    "manufacturer": "Intel",
+    "releaseYear": 2013,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 118,
+    "multiCoreScore": 360
+  },
+  {
+    "id": "cpu-020",
+    "name": "Core i7-4790K",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 130,
+    "multiCoreScore": 410
+  },
+  {
+    "id": "cpu-021",
+    "name": "Core i7-5820K",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 122,
+    "multiCoreScore": 490
+  },
+  {
+    "id": "cpu-022",
+    "name": "Core i7-5960X",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 124,
+    "multiCoreScore": 610
+  },
+  {
+    "id": "cpu-023",
+    "name": "Core i3-6100",
+    "manufacturer": "Intel",
+    "releaseYear": 2015,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3",
+      "DDR4"
+    ],
+    "singleCoreScore": 114,
+    "multiCoreScore": 210
+  },
+  {
+    "id": "cpu-024",
+    "name": "Core i5-6600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2015,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 136,
+    "multiCoreScore": 380
+  },
+  {
+    "id": "cpu-025",
+    "name": "Core i7-6700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2015,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 148,
+    "multiCoreScore": 495
+  },
+  {
+    "id": "cpu-026",
+    "name": "Core i3-7100",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 124,
+    "multiCoreScore": 230
+  },
+  {
+    "id": "cpu-027",
+    "name": "Core i5-7600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 152,
+    "multiCoreScore": 430
+  },
+  {
+    "id": "cpu-028",
+    "name": "Core i7-7700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 168,
+    "multiCoreScore": 565
+  },
+  {
+    "id": "cpu-029",
+    "name": "Core i3-8100",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 128,
+    "multiCoreScore": 345
+  },
+  {
+    "id": "cpu-030",
+    "name": "Core i5-8400",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 142,
+    "multiCoreScore": 530
+  },
+  {
+    "id": "cpu-031",
+    "name": "Core i5-8600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 160,
+    "multiCoreScore": 590
+  },
+  {
+    "id": "cpu-032",
+    "name": "Core i7-8700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 174,
+    "multiCoreScore": 780
+  },
+  {
+    "id": "cpu-033",
+    "name": "Core i5-9600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2018,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 170,
+    "multiCoreScore": 630
+  },
+  {
+    "id": "cpu-034",
+    "name": "Core i7-9700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2018,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 185,
+    "multiCoreScore": 820
+  },
+  {
+    "id": "cpu-035",
+    "name": "Core i9-9900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2018,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 195,
+    "multiCoreScore": 940
+  },
+  {
+    "id": "cpu-036",
+    "name": "Core i3-10100",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 154,
+    "multiCoreScore": 510
+  },
+  {
+    "id": "cpu-037",
+    "name": "Core i5-10400",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 158,
+    "multiCoreScore": 680
+  },
+  {
+    "id": "cpu-038",
+    "name": "Core i7-10700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 196,
+    "multiCoreScore": 960
+  },
+  {
+    "id": "cpu-039",
+    "name": "Core i9-10900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 10,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 210,
+    "multiCoreScore": 1100
+  },
+  {
+    "id": "cpu-040",
+    "name": "Core i5-11400",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 188,
+    "multiCoreScore": 790
+  },
+  {
+    "id": "cpu-041",
+    "name": "Core i5-11600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 215,
+    "multiCoreScore": 880
+  },
+  {
+    "id": "cpu-042",
+    "name": "Core i7-11700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 232,
+    "multiCoreScore": 1120
+  },
+  {
+    "id": "cpu-043",
+    "name": "Core i9-11900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 248,
+    "multiCoreScore": 1220
+  },
+  {
+    "id": "cpu-044",
+    "name": "Core i3-12100",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 235,
+    "multiCoreScore": 720
+  },
+  {
+    "id": "cpu-045",
+    "name": "Core i5-12400",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 245,
+    "multiCoreScore": 990
+  },
+  {
+    "id": "cpu-046",
+    "name": "Core i5-12600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 10,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 275,
+    "multiCoreScore": 1450
+  },
+  {
+    "id": "cpu-047",
+    "name": "Core i7-12700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 12,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 295,
+    "multiCoreScore": 1880
+  },
+  {
+    "id": "cpu-048",
+    "name": "Core i9-12900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 16,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 315,
+    "multiCoreScore": 2450
+  },
+  {
+    "id": "cpu-049",
+    "name": "Core i3-13100",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 250,
+    "multiCoreScore": 790
+  },
+  {
+    "id": "cpu-050",
+    "name": "Core i5-13400",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 10,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 260,
+    "multiCoreScore": 1380
+  },
+  {
+    "id": "cpu-051",
+    "name": "Core i5-13600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 320,
+    "multiCoreScore": 2150
+  },
+  {
+    "id": "cpu-052",
+    "name": "Core i7-13700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 16,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 345,
+    "multiCoreScore": 2850
+  },
+  {
+    "id": "cpu-053",
+    "name": "Core i9-13900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 24,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 375,
+    "multiCoreScore": 3650
+  },
+  {
+    "id": "cpu-054",
+    "name": "Core i5-14600K",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 335,
+    "multiCoreScore": 2280
+  },
+  {
+    "id": "cpu-055",
+    "name": "Core i7-14700K",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 20,
+    "threads": 28,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 360,
+    "multiCoreScore": 3250
+  },
+  {
+    "id": "cpu-056",
+    "name": "Core i9-14900K",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 24,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 395,
+    "multiCoreScore": 3980
+  },
+  {
+    "id": "cpu-057",
+    "name": "Core Ultra 5 245K",
+    "manufacturer": "Intel",
+    "releaseYear": 2024,
+    "cores": 14,
+    "threads": 14,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 385,
+    "multiCoreScore": 2650
+  },
+  {
+    "id": "cpu-058",
+    "name": "Core Ultra 7 265K",
+    "manufacturer": "Intel",
+    "releaseYear": 2024,
+    "cores": 20,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 420,
+    "multiCoreScore": 3550
+  },
+  {
+    "id": "cpu-059",
+    "name": "Core Ultra 9 285K",
+    "manufacturer": "Intel",
+    "releaseYear": 2024,
+    "cores": 24,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 450,
+    "multiCoreScore": 4200
+  },
+  {
+    "id": "cpu-060",
+    "name": "Core Ultra 5 255F",
+    "manufacturer": "Intel",
+    "releaseYear": 2025,
+    "cores": 14,
+    "threads": 14,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 400,
+    "multiCoreScore": 2800
+  },
+  {
+    "id": "cpu-061",
+    "name": "Core Ultra 7 275KF",
+    "manufacturer": "Intel",
+    "releaseYear": 2025,
+    "cores": 20,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 440,
+    "multiCoreScore": 3800
+  },
+  {
+    "id": "cpu-062",
+    "name": "Core Ultra 9 295K",
+    "manufacturer": "Intel",
+    "releaseYear": 2026,
+    "cores": 24,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 500,
+    "multiCoreScore": 4700
+  },
+  {
+    "id": "cpu-063",
+    "name": "Athlon 64 X2 3800+",
+    "manufacturer": "AMD",
+    "releaseYear": 2005,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR"
+    ],
+    "singleCoreScore": 10,
+    "multiCoreScore": 14
+  },
+  {
+    "id": "cpu-064",
+    "name": "Athlon 64 X2 5000+",
+    "manufacturer": "AMD",
+    "releaseYear": 2006,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 14,
+    "multiCoreScore": 22
+  },
+  {
+    "id": "cpu-065",
+    "name": "Athlon 64 X2 6000+",
+    "manufacturer": "AMD",
+    "releaseYear": 2007,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 18,
+    "multiCoreScore": 28
+  },
+  {
+    "id": "cpu-066",
+    "name": "Phenom X4 9850",
+    "manufacturer": "AMD",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 22,
+    "multiCoreScore": 58
+  },
+  {
+    "id": "cpu-067",
+    "name": "Phenom II X4 955",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 38,
+    "multiCoreScore": 98
+  },
+  {
+    "id": "cpu-068",
+    "name": "Phenom II X6 1090T",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 44,
+    "multiCoreScore": 175
+  },
+  {
+    "id": "cpu-069",
+    "name": "FX-4100",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 41,
+    "multiCoreScore": 110
+  },
+  {
+    "id": "cpu-070",
+    "name": "FX-6300",
+    "manufacturer": "AMD",
+    "releaseYear": 2012,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 48,
+    "multiCoreScore": 185
+  },
+  {
+    "id": "cpu-071",
+    "name": "FX-8350",
+    "manufacturer": "AMD",
+    "releaseYear": 2012,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 56,
+    "multiCoreScore": 290
+  },
+  {
+    "id": "cpu-072",
+    "name": "FX-9590",
+    "manufacturer": "AMD",
+    "releaseYear": 2013,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 68,
+    "multiCoreScore": 340
+  },
+  {
+    "id": "cpu-073",
+    "name": "Ryzen 3 1200",
+    "manufacturer": "AMD",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 102,
+    "multiCoreScore": 290
+  },
+  {
+    "id": "cpu-074",
+    "name": "Ryzen 5 1600",
+    "manufacturer": "AMD",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 112,
+    "multiCoreScore": 580
+  },
+  {
+    "id": "cpu-075",
+    "name": "Ryzen 5 1600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 122,
+    "multiCoreScore": 640
+  },
+  {
+    "id": "cpu-076",
+    "name": "Ryzen 7 1700",
+    "manufacturer": "AMD",
+    "releaseYear": 2017,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 115,
+    "multiCoreScore": 780
+  },
+  {
+    "id": "cpu-077",
+    "name": "Ryzen 7 1800X",
+    "manufacturer": "AMD",
+    "releaseYear": 2017,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 130,
+    "multiCoreScore": 890
+  },
+  {
+    "id": "cpu-078",
+    "name": "Ryzen 3 2200G",
+    "manufacturer": "AMD",
+    "releaseYear": 2018,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 110,
+    "multiCoreScore": 310
+  },
+  {
+    "id": "cpu-079",
+    "name": "Ryzen 5 2600",
+    "manufacturer": "AMD",
+    "releaseYear": 2018,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 128,
+    "multiCoreScore": 710
+  },
+  {
+    "id": "cpu-080",
+    "name": "Ryzen 5 2600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2018,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 138,
+    "multiCoreScore": 780
+  },
+  {
+    "id": "cpu-081",
+    "name": "Ryzen 7 2700X",
+    "manufacturer": "AMD",
+    "releaseYear": 2018,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 145,
+    "multiCoreScore": 1040
+  },
+  {
+    "id": "cpu-082",
+    "name": "Ryzen 3 3100",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 132,
+    "multiCoreScore": 510
+  },
+  {
+    "id": "cpu-083",
+    "name": "Ryzen 3 3300X",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 146,
+    "multiCoreScore": 590
+  },
+  {
+    "id": "cpu-084",
+    "name": "Ryzen 5 3600",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 154,
+    "multiCoreScore": 880
+  },
+  {
+    "id": "cpu-085",
+    "name": "Ryzen 5 3600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 162,
+    "multiCoreScore": 940
+  },
+  {
+    "id": "cpu-086",
+    "name": "Ryzen 7 3700X",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 170,
+    "multiCoreScore": 1250
+  },
+  {
+    "id": "cpu-087",
+    "name": "Ryzen 7 3800X",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 176,
+    "multiCoreScore": 1320
+  },
+  {
+    "id": "cpu-088",
+    "name": "Ryzen 9 3900X",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 178,
+    "multiCoreScore": 1950
+  },
+  {
+    "id": "cpu-089",
+    "name": "Ryzen 9 3950X",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 182,
+    "multiCoreScore": 2580
+  },
+  {
+    "id": "cpu-090",
+    "name": "Ryzen 5 5600G",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 192,
+    "multiCoreScore": 1050
+  },
+  {
+    "id": "cpu-091",
+    "name": "Ryzen 5 5600",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 198,
+    "multiCoreScore": 1100
+  },
+  {
+    "id": "cpu-092",
+    "name": "Ryzen 5 5600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 212,
+    "multiCoreScore": 1190
+  },
+  {
+    "id": "cpu-093",
+    "name": "Ryzen 7 5700X",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 215,
+    "multiCoreScore": 1540
+  },
+  {
+    "id": "cpu-094",
+    "name": "Ryzen 7 5800X",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 228,
+    "multiCoreScore": 1680
+  },
+  {
+    "id": "cpu-095",
+    "name": "Ryzen 7 5800X3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 232,
+    "multiCoreScore": 1720
+  },
+  {
+    "id": "cpu-096",
+    "name": "Ryzen 9 5900X",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 245,
+    "multiCoreScore": 2450
+  },
+  {
+    "id": "cpu-097",
+    "name": "Ryzen 9 5950X",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 250,
+    "multiCoreScore": 3100
+  },
+  {
+    "id": "cpu-098",
+    "name": "Ryzen 5 7600",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 285,
+    "multiCoreScore": 1580
+  },
+  {
+    "id": "cpu-099",
+    "name": "Ryzen 5 7600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 305,
+    "multiCoreScore": 1680
+  },
+  {
+    "id": "cpu-100",
+    "name": "Ryzen 7 7700X",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 322,
+    "multiCoreScore": 2180
+  },
+  {
+    "id": "cpu-101",
+    "name": "Ryzen 7 7800X3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 325,
+    "multiCoreScore": 2280
+  },
+  {
+    "id": "cpu-102",
+    "name": "Ryzen 9 7900X",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 338,
+    "multiCoreScore": 3150
+  },
+  {
+    "id": "cpu-103",
+    "name": "Ryzen 9 7950X",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 350,
+    "multiCoreScore": 4100
+  },
+  {
+    "id": "cpu-104",
+    "name": "Ryzen 9 7950X3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 348,
+    "multiCoreScore": 4050
+  },
+  {
+    "id": "cpu-105",
+    "name": "Ryzen 5 9600X",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 360,
+    "multiCoreScore": 1980
+  },
+  {
+    "id": "cpu-106",
+    "name": "Ryzen 7 9700X",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 385,
+    "multiCoreScore": 2650
+  },
+  {
+    "id": "cpu-107",
+    "name": "Ryzen 7 9800X3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 395,
+    "multiCoreScore": 2780
+  },
+  {
+    "id": "cpu-108",
+    "name": "Ryzen 9 9900X",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 410,
+    "multiCoreScore": 3880
+  },
+  {
+    "id": "cpu-109",
+    "name": "Ryzen 9 9950X",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 435,
+    "multiCoreScore": 4850
+  },
+  {
+    "id": "cpu-110",
+    "name": "Ryzen 5 9500X",
+    "manufacturer": "AMD",
+    "releaseYear": 2025,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 370,
+    "multiCoreScore": 2100
+  },
+  {
+    "id": "cpu-111",
+    "name": "Ryzen 7 9800X",
+    "manufacturer": "AMD",
+    "releaseYear": 2025,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 400,
+    "multiCoreScore": 2900
+  },
+  {
+    "id": "cpu-112",
+    "name": "Ryzen 9 9950X3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2025,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 440,
+    "multiCoreScore": 4950
+  },
+  {
+    "id": "cpu-113",
+    "name": "Core 2 Duo E4300",
+    "manufacturer": "Intel",
+    "releaseYear": 2007,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 16,
+    "multiCoreScore": 24
+  },
+  {
+    "id": "cpu-114",
+    "name": "Core 2 Duo E4500",
+    "manufacturer": "Intel",
+    "releaseYear": 2007,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 19,
+    "multiCoreScore": 28
+  },
+  {
+    "id": "cpu-115",
+    "name": "Core 2 Duo E6300",
+    "manufacturer": "Intel",
+    "releaseYear": 2006,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 20,
+    "multiCoreScore": 30
+  },
+  {
+    "id": "cpu-116",
+    "name": "Core 2 Duo E6400",
+    "manufacturer": "Intel",
+    "releaseYear": 2006,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 22,
+    "multiCoreScore": 33
+  },
+  {
+    "id": "cpu-117",
+    "name": "Core 2 Duo E6550",
+    "manufacturer": "Intel",
+    "releaseYear": 2007,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2"
+    ],
+    "singleCoreScore": 24,
+    "multiCoreScore": 36
+  },
+  {
+    "id": "cpu-118",
+    "name": "Core 2 Duo E7200",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 28,
+    "multiCoreScore": 42
+  },
+  {
+    "id": "cpu-119",
+    "name": "Core 2 Duo E7400",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 31,
+    "multiCoreScore": 46
+  },
+  {
+    "id": "cpu-120",
+    "name": "Core 2 Duo E7500",
+    "manufacturer": "Intel",
+    "releaseYear": 2009,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 33,
+    "multiCoreScore": 49
+  },
+  {
+    "id": "cpu-121",
+    "name": "Core 2 Duo E8200",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 35,
+    "multiCoreScore": 52
+  },
+  {
+    "id": "cpu-122",
+    "name": "Core 2 Duo E8500",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 40,
+    "multiCoreScore": 59
+  },
+  {
+    "id": "cpu-123",
+    "name": "Core 2 Duo E8600",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 42,
+    "multiCoreScore": 62
+  },
+  {
+    "id": "cpu-124",
+    "name": "Core 2 Quad Q6700",
+    "manufacturer": "Intel",
+    "releaseYear": 2007,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 32,
+    "multiCoreScore": 78
+  },
+  {
+    "id": "cpu-125",
+    "name": "Core 2 Quad Q8200",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 30,
+    "multiCoreScore": 82
+  },
+  {
+    "id": "cpu-126",
+    "name": "Core 2 Quad Q8300",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 32,
+    "multiCoreScore": 86
+  },
+  {
+    "id": "cpu-127",
+    "name": "Core 2 Quad Q8400",
+    "manufacturer": "Intel",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 34,
+    "multiCoreScore": 92
+  },
+  {
+    "id": "cpu-128",
+    "name": "Core 2 Quad Q9300",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 38,
+    "multiCoreScore": 100
+  },
+  {
+    "id": "cpu-129",
+    "name": "Core 2 Quad Q9400",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 40,
+    "multiCoreScore": 105
+  },
+  {
+    "id": "cpu-130",
+    "name": "Core 2 Quad Q9450",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 41,
+    "multiCoreScore": 108
+  },
+  {
+    "id": "cpu-131",
+    "name": "Core 2 Quad Q9650",
+    "manufacturer": "Intel",
+    "releaseYear": 2008,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 45,
+    "multiCoreScore": 120
+  },
+  {
+    "id": "cpu-132",
+    "name": "Athlon II X2 250",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 24,
+    "multiCoreScore": 38
+  },
+  {
+    "id": "cpu-133",
+    "name": "Athlon II X3 450",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 3,
+    "threads": 3,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 26,
+    "multiCoreScore": 62
+  },
+  {
+    "id": "cpu-134",
+    "name": "Athlon II X4 640",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 28,
+    "multiCoreScore": 85
+  },
+  {
+    "id": "cpu-135",
+    "name": "Phenom II X2 555",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 2,
+    "threads": 2,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 34,
+    "multiCoreScore": 52
+  },
+  {
+    "id": "cpu-136",
+    "name": "Phenom II X3 720",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 3,
+    "threads": 3,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 32,
+    "multiCoreScore": 72
+  },
+  {
+    "id": "cpu-137",
+    "name": "Phenom II X4 925",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 34,
+    "multiCoreScore": 90
+  },
+  {
+    "id": "cpu-138",
+    "name": "Phenom II X4 945",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 36,
+    "multiCoreScore": 94
+  },
+  {
+    "id": "cpu-139",
+    "name": "Phenom II X4 965",
+    "manufacturer": "AMD",
+    "releaseYear": 2009,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 40,
+    "multiCoreScore": 102
+  },
+  {
+    "id": "cpu-140",
+    "name": "Phenom II X4 970",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 41,
+    "multiCoreScore": 105
+  },
+  {
+    "id": "cpu-141",
+    "name": "Phenom II X4 980",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 43,
+    "multiCoreScore": 110
+  },
+  {
+    "id": "cpu-142",
+    "name": "Phenom II X6 1055T",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 38,
+    "multiCoreScore": 150
+  },
+  {
+    "id": "cpu-143",
+    "name": "Phenom II X6 1075T",
+    "manufacturer": "AMD",
+    "releaseYear": 2010,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 41,
+    "multiCoreScore": 162
+  },
+  {
+    "id": "cpu-144",
+    "name": "Phenom II X6 1100T",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR2",
+      "DDR3"
+    ],
+    "singleCoreScore": 45,
+    "multiCoreScore": 180
+  },
+  {
+    "id": "cpu-145",
+    "name": "FX-4300",
+    "manufacturer": "AMD",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 44,
+    "multiCoreScore": 120
+  },
+  {
+    "id": "cpu-146",
+    "name": "FX-6100",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 40,
+    "multiCoreScore": 160
+  },
+  {
+    "id": "cpu-147",
+    "name": "FX-8120",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 42,
+    "multiCoreScore": 230
+  },
+  {
+    "id": "cpu-148",
+    "name": "FX-8150",
+    "manufacturer": "AMD",
+    "releaseYear": 2011,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 46,
+    "multiCoreScore": 250
+  },
+  {
+    "id": "cpu-149",
+    "name": "FX-8320",
+    "manufacturer": "AMD",
+    "releaseYear": 2012,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 50,
+    "multiCoreScore": 270
+  },
+  {
+    "id": "cpu-150",
+    "name": "FX-8370",
+    "manufacturer": "AMD",
+    "releaseYear": 2014,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 58,
+    "multiCoreScore": 305
+  },
+  {
+    "id": "cpu-151",
+    "name": "Core i3-3220",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 78,
+    "multiCoreScore": 130
+  },
+  {
+    "id": "cpu-152",
+    "name": "Core i5-3330",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 84,
+    "multiCoreScore": 215
+  },
+  {
+    "id": "cpu-153",
+    "name": "Core i5-3470",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 90,
+    "multiCoreScore": 230
+  },
+  {
+    "id": "cpu-154",
+    "name": "Core i7-3770",
+    "manufacturer": "Intel",
+    "releaseYear": 2012,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 98,
+    "multiCoreScore": 295
+  },
+  {
+    "id": "cpu-155",
+    "name": "Core i5-4460",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 98,
+    "multiCoreScore": 255
+  },
+  {
+    "id": "cpu-156",
+    "name": "Core i5-4590",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 104,
+    "multiCoreScore": 275
+  },
+  {
+    "id": "cpu-157",
+    "name": "Core i7-4790",
+    "manufacturer": "Intel",
+    "releaseYear": 2014,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR3"
+    ],
+    "singleCoreScore": 118,
+    "multiCoreScore": 375
+  },
+  {
+    "id": "cpu-158",
+    "name": "Core i5-6400",
+    "manufacturer": "Intel",
+    "releaseYear": 2015,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 118,
+    "multiCoreScore": 310
+  },
+  {
+    "id": "cpu-159",
+    "name": "Core i5-6500",
+    "manufacturer": "Intel",
+    "releaseYear": 2015,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 125,
+    "multiCoreScore": 340
+  },
+  {
+    "id": "cpu-160",
+    "name": "Core i5-7400",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 130,
+    "multiCoreScore": 360
+  },
+  {
+    "id": "cpu-161",
+    "name": "Core i5-7500",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 138,
+    "multiCoreScore": 395
+  },
+  {
+    "id": "cpu-162",
+    "name": "Core i7-7700",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 154,
+    "multiCoreScore": 510
+  },
+  {
+    "id": "cpu-163",
+    "name": "Core i5-8500",
+    "manufacturer": "Intel",
+    "releaseYear": 2018,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 148,
+    "multiCoreScore": 560
+  },
+  {
+    "id": "cpu-164",
+    "name": "Core i7-8700",
+    "manufacturer": "Intel",
+    "releaseYear": 2017,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 165,
+    "multiCoreScore": 730
+  },
+  {
+    "id": "cpu-165",
+    "name": "Core i5-9400F",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 146,
+    "multiCoreScore": 540
+  },
+  {
+    "id": "cpu-166",
+    "name": "Core i7-9700",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 178,
+    "multiCoreScore": 770
+  }
+]

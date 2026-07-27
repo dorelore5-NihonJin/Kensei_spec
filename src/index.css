@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Neo-Tokyo Soft Minimal Theme */
+@theme {
+  --color-bg-soft: #FBF9F5;
+  --color-dark-accent: #1E2022;
+  --color-sakura-pink: #E88D9F;
+  --color-sakura-pink-light: #F3A5B5;
+  --color-matcha-sage: #8A9A86;
+  --color-matcha-sage-light: #738A6E;
+}
+
+body {
+  background-color: #FBF9F5;
+  color: #1E2022;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Kanji watermarks */
+.kanji-watermark {
+  user-select: none;
+  pointer-events: none;
+  font-family: 'MS Mincho', 'Yu Mincho', serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}

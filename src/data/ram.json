@@ -1,0 +1,93 @@
+[
+  {
+    "id": "ram-ddr2-4gb",
+    "generation": "DDR2",
+    "capacityGB": 4,
+    "speedMultiplier": 0.5,
+    "speedMhz": 800
+  },
+  {
+    "id": "ram-ddr2-8gb",
+    "generation": "DDR2",
+    "capacityGB": 8,
+    "speedMultiplier": 0.52,
+    "speedMhz": 1066
+  },
+  {
+    "id": "ram-ddr3-4gb",
+    "generation": "DDR3",
+    "capacityGB": 4,
+    "speedMultiplier": 0.7,
+    "speedMhz": 1333
+  },
+  {
+    "id": "ram-ddr3-8gb",
+    "generation": "DDR3",
+    "capacityGB": 8,
+    "speedMultiplier": 0.72,
+    "speedMhz": 1600
+  },
+  {
+    "id": "ram-ddr3-16gb",
+    "generation": "DDR3",
+    "capacityGB": 16,
+    "speedMultiplier": 0.75,
+    "speedMhz": 1866
+  },
+  {
+    "id": "ram-ddr3-32gb",
+    "generation": "DDR3",
+    "capacityGB": 32,
+    "speedMultiplier": 0.78,
+    "speedMhz": 2133
+  },
+  {
+    "id": "ram-ddr4-8gb",
+    "generation": "DDR4",
+    "capacityGB": 8,
+    "speedMultiplier": 1,
+    "speedMhz": 3200
+  },
+  {
+    "id": "ram-ddr4-16gb",
+    "generation": "DDR4",
+    "capacityGB": 16,
+    "speedMultiplier": 1.05,
+    "speedMhz": 3600
+  },
+  {
+    "id": "ram-ddr4-32gb",
+    "generation": "DDR4",
+    "capacityGB": 32,
+    "speedMultiplier": 1.1,
+    "speedMhz": 4000
+  },
+  {
+    "id": "ram-ddr4-64gb",
+    "generation": "DDR4",
+    "capacityGB": 64,
+    "speedMultiplier": 1.15,
+    "speedMhz": 4400
+  },
+  {
+    "id": "ram-ddr5-16gb",
+    "generation": "DDR5",
+    "capacityGB": 16,
+    "speedMultiplier": 1.35,
+    "speedMhz": 5200
+  },
+  {
+    "id": "ram-ddr5-32gb",
+    "generation": "DDR5",
+    "capacityGB": 32,
+    "speedMultiplier": 1.4,
+    "speedMhz": 6000
+  },
+  {
+    "id": "ram-ddr5-64gb",
+    "generation": "DDR5",
+    "capacityGB": 64,
+    "speedMultiplier": 1.45,
+    "speedMhz": 6400
+  }
+]
