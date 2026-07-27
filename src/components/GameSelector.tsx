@@ -18,6 +18,14 @@ interface GameSelectorProps {
   setFrameGen: (val: boolean) => void;
 }
 
+// Helper for resolving relative image paths under subfolder deployments (e.g. XAMPP http://localhost/Kensei_spec/dist/)
+function resolveCoverUrl(path: string): string {
+  if (!path) return "./games/cs2.jpg";
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  const clean = path.replace(/^\//, "");
+  return `./${clean}`;
+}
+
 export default function GameSelector({
   games,
   selectedGame,
@@ -35,6 +43,13 @@ export default function GameSelector({
 }: GameSelectorProps) {
   const [searchGameQuery, setSearchGameQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<"All" | "Esports" | "AAA" | "Simulation">("All");
+
+  // Track failed image URLs to cleanly render SVG badges instead of broken boxes
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (id: string) => {
+    setFailedImages((prev) => ({ ...prev, [id]: true }));
+  };
 
   // Category classifier helper
   const getGameCategory = (id: string): "Esports" | "AAA" | "Simulation" => {
@@ -98,30 +113,37 @@ export default function GameSelector({
         </div>
       </div>
 
-      {/* Game selector cards scrollbox */}
-      <div className="grid grid-cols-2 gap-2.5 max-h-[220px] overflow-y-auto pr-1">
+      {/* Game selector cards grid - smooth scroll without jitter */}
+      <div className="grid grid-cols-2 gap-3 max-h-[260px] overflow-y-auto pr-1">
         {filteredGames.map((game) => {
           const isSelected = selectedGame.id === game.id;
+          const hasImageError = failedImages[game.id];
+          const initial = game.title.split(" ").map(w => w[0]).join("").slice(0, 3).toUpperCase();
+
           return (
             <button
               key={game.id}
               type="button"
               onClick={() => setSelectedGame(game)}
-              className={`relative overflow-hidden rounded-2xl border text-left p-2.5 transition group flex flex-col justify-between min-h-[90px] ${
+              className={`overflow-hidden rounded-2xl border text-left p-3 transition flex flex-col justify-between h-[105px] box-border ${
                 isSelected
                   ? "border-[#E88D9F] bg-[#E88D9F]/10 ring-2 ring-[#E88D9F]/30"
                   : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] hover:border-black/20"
               }`}
             >
               <div className="flex items-center gap-3">
-                <img
-                  src={game.coverImage}
-                  alt={game.title}
-                  className="w-11 h-11 object-cover rounded-xl group-hover:scale-105 transition duration-300 shrink-0 border border-black/10 dark:border-white/10 shadow-xs"
-                  onError={(e) => {
-                    e.currentTarget.src = "/games/cs2.jpg";
-                  }}
-                />
+                {!hasImageError ? (
+                  <img
+                    src={resolveCoverUrl(game.coverImage)}
+                    alt={game.title}
+                    className="w-11 h-11 object-cover rounded-xl shrink-0 border border-black/10 dark:border-white/10 shadow-xs bg-gray-100 dark:bg-neutral-800"
+                    onError={() => handleImageError(game.id)}
+                  />
+                ) : (
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#E88D9F] to-[#8A9A86] text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
+                    {initial}
+                  </div>
+                )}
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-black truncate text-[#1E2022] dark:text-white leading-tight">{game.title}</div>
                   <div className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold uppercase tracking-wide mt-0.5">
@@ -131,7 +153,7 @@ export default function GameSelector({
               </div>
 
               {/* Requirement details */}
-              <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-600 dark:text-gray-300 mt-2 pt-1 border-t border-black/5 dark:border-white/5">
+              <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-600 dark:text-gray-300 border-t border-black/5 dark:border-white/5 pt-1.5 mt-auto">
                 <span>Min RAM: <strong className="text-[#1E2022] dark:text-white">{game.ramMinRequirementGB}GB</strong></span>
                 <span className="text-[#E88D9F] font-black bg-[#E88D9F]/10 px-1.5 py-0.5 rounded">RT Capable</span>
               </div>
