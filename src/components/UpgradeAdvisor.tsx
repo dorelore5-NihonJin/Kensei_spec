@@ -227,8 +227,9 @@ export default function UpgradeAdvisor({
       </div>
 
       {!isComplete ? (
-        <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-8">
-          💡 Setup your current hardware configuration to unlock upgrade predictions.
+        <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-8 flex items-center justify-center gap-2">
+          <Sparkles className="w-4 h-4 text-[#8A9A86]" />
+          <span>Setup your current hardware configuration to unlock upgrade predictions.</span>
         </div>
       ) : bottleneckType === "None" ? (
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-center gap-3">

@@ -15,7 +15,7 @@ import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
-import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap } from "lucide-react";
+import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap, Check } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import Footer from "./components/Footer";
@@ -257,7 +257,7 @@ export default function App() {
               <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
                 isHardwareSelected ? "bg-emerald-500 text-white" : "bg-[#E88D9F] text-white"
               }`}>
-                {isHardwareSelected ? "✓" : "1"}
+                {isHardwareSelected ? <Check className="w-3 h-3 text-white" /> : "1"}
               </span>
               <span>1. Pick Components / 構成選択</span>
             </button>
