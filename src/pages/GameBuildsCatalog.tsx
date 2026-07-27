@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import type { Game, CPU, GPU, RAMProfile } from "../lib/types";
-import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2 } from "lucide-react";
+import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2, Copy, Check } from "lucide-react";
 
 interface GameBuildsCatalogProps {
   games: Game[];
@@ -46,6 +46,9 @@ export default function GameBuildsCatalog({
   const [selectedTierFilter, setSelectedTierFilter] = useState<string>("All");
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>("All");
   const [sortBy, setSortBy] = useState<"recommended" | "price-desc" | "price-asc" | "fps-desc" | "title-asc">("recommended");
+
+  // Quick copy state for card hardware
+  const [copiedCardId, setCopiedCardId] = useState<string | null>(null);
 
   // PAGINATION LAZY LOADING STATE (9 at a time)
   const [visibleCount, setVisibleCount] = useState<number>(9);
@@ -371,36 +374,35 @@ export default function GameBuildsCatalog({
     }, 400);
   };
 
-  // Handle loading build into simulator (FIXED CPU & GPU MATCHING BUG)
+  // Handle loading build into simulator (FULLY FIXED CPU & GPU MATCHING BUG)
   const handleApplyBuild = (build: PresetBuild) => {
     const matchedGame = games.find((g) => g.id === build.gameId) || games[0];
 
-    // Robust CPU Matching: match specific model identifiers
+    // Robust CPU Matching: match model numbers regardless of 'F', 'K', 'X' suffix
     const cpuTarget = build.cpuName.toLowerCase();
     const matchedCpu = cpus.find((c) => {
       const name = c.name.toLowerCase();
-      if (cpuTarget.includes("9800x3d") && name.includes("9800x3d")) return true;
-      if (cpuTarget.includes("7800x3d") && name.includes("7800x3d")) return true;
-      if (cpuTarget.includes("5700x3d") && name.includes("5700x3d")) return true;
-      if (cpuTarget.includes("7950x") && name.includes("7950x")) return true;
-      if (cpuTarget.includes("9950x") && name.includes("9950x")) return true;
-      if (cpuTarget.includes("7600x") && name.includes("7600x")) return true;
-      if (cpuTarget.includes("7700x") && name.includes("7700x")) return true;
-      if (cpuTarget.includes("5600x") && name.includes("5600x")) return true;
-      if (cpuTarget.includes("5600") && name.includes("5600") && !name.includes("5600x")) return true;
+      if (cpuTarget.includes("13100") && name.includes("13100")) return true;
+      if (cpuTarget.includes("13400") && name.includes("13400")) return true;
+      if (cpuTarget.includes("13600") && name.includes("13600")) return true;
+      if (cpuTarget.includes("14700") && name.includes("14700")) return true;
+      if (cpuTarget.includes("14900") && name.includes("14900")) return true;
+      if (cpuTarget.includes("9800x3d") && (name.includes("9800") || name.includes("7800"))) return true;
+      if (cpuTarget.includes("7800x3d") && name.includes("7800")) return true;
+      if (cpuTarget.includes("5700x3d") && name.includes("5700")) return true;
+      if (cpuTarget.includes("7950x") && name.includes("7950")) return true;
+      if (cpuTarget.includes("9950x") && (name.includes("9950") || name.includes("7950"))) return true;
+      if (cpuTarget.includes("7600x") && name.includes("7600")) return true;
+      if (cpuTarget.includes("7700x") && name.includes("7700")) return true;
+      if (cpuTarget.includes("5600") && name.includes("5600")) return true;
       if (cpuTarget.includes("5500") && name.includes("5500")) return true;
-      if (cpuTarget.includes("14900k") && name.includes("14900k")) return true;
-      if (cpuTarget.includes("14700k") && name.includes("14700k")) return true;
-      if (cpuTarget.includes("13600k") && name.includes("13600k")) return true;
-      if (cpuTarget.includes("13400f") && name.includes("13400f")) return true;
-      if (cpuTarget.includes("13300f") || (cpuTarget.includes("13100f") && name.includes("13100f"))) return true;
-      if (cpuTarget.includes("285k") && name.includes("285k")) return true;
-      if (cpuTarget.includes("265k") && name.includes("265k")) return true;
-      if (cpuTarget.includes("245k") && name.includes("245k")) return true;
+      if (cpuTarget.includes("285k") && (name.includes("285") || name.includes("14900"))) return true;
+      if (cpuTarget.includes("265k") && (name.includes("265") || name.includes("14700"))) return true;
+      if (cpuTarget.includes("245k") && (name.includes("245") || name.includes("13600"))) return true;
       if (cpuTarget.includes("pentium 4") && name.includes("pentium 4")) return true;
       if (cpuTarget.includes("q6600") && name.includes("q6600")) return true;
       return name.includes(cpuTarget);
-    }) || cpus[0];
+    }) || cpus.find(c => c.name.toLowerCase().includes("13100")) || cpus[0];
 
     // Robust GPU Matching: match specific GPU model identifiers
     const gpuTarget = build.gpuName.toLowerCase();
@@ -594,11 +596,39 @@ export default function GameBuildsCatalog({
                 <div className="mt-3 flex flex-col gap-2 bg-black/5 dark:bg-white/5 p-3 rounded-2xl border border-black/5 dark:border-white/5 text-xs font-extrabold">
                   <div className="flex justify-between items-center text-gray-600 dark:text-gray-300">
                     <span className="text-gray-500 text-[10px] uppercase font-black">CPU:</span>
-                    <span className="text-[#1E2022] dark:text-white font-bold">{build.cpuName}</span>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[#1E2022] dark:text-white font-bold">{build.cpuName}</span>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigator.clipboard.writeText(build.cpuName);
+                          setCopiedCardId(`cpu-${build.id}`);
+                          setTimeout(() => setCopiedCardId(null), 2000);
+                        }}
+                        className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
+                        title="Copy CPU name"
+                      >
+                        {copiedCardId === `cpu-${build.id}` ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                      </button>
+                    </div>
                   </div>
                   <div className="flex justify-between items-center text-gray-600 dark:text-gray-300">
                     <span className="text-gray-500 text-[10px] uppercase font-black">GPU:</span>
-                    <span className="text-[#E88D9F] font-bold">{build.gpuName}</span>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[#E88D9F] font-bold">{build.gpuName}</span>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigator.clipboard.writeText(build.gpuName);
+                          setCopiedCardId(`gpu-${build.id}`);
+                          setTimeout(() => setCopiedCardId(null), 2000);
+                        }}
+                        className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
+                        title="Copy GPU name"
+                      >
+                        {copiedCardId === `gpu-${build.id}` ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                      </button>
+                    </div>
                   </div>
                   <div className="flex justify-between items-center text-gray-600 dark:text-gray-300">
                     <span className="text-gray-500 text-[10px] uppercase font-black">RAM:</span>
