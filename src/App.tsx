@@ -87,9 +87,13 @@ export default function App() {
 
   // Quick Preset Helper for users testing Step 3 directly
   const handleSelectHighEndPreset = () => {
-    setSelectedCpu(cpus[0]); // Ryzen 7 9800X3D
-    setSelectedGpu(gpus[0]); // RTX 4080 Super
-    setSelectedRam(ramProfiles[0]); // DDR5-6000
+    const highEndCpu = cpus.find(c => c.name.includes("9800X3D") || c.name.includes("7800X3D") || c.name.includes("14900K")) || cpus[cpus.length - 1];
+    const highEndGpu = gpus.find(g => g.name.includes("4080 Super") || g.name.includes("4090") || g.name.includes("4070 Super")) || gpus[gpus.length - 1];
+    const highEndRam = ramProfiles.find(r => r.generation === "DDR5" && r.speedMhz >= 6000) || ramProfiles[0];
+
+    setSelectedCpu(highEndCpu);
+    setSelectedGpu(highEndGpu);
+    setSelectedRam(highEndRam);
     setRamCapacityGB(32);
     setSelectedStorage("NVMe Gen4");
     setRamChannel("Dual");
