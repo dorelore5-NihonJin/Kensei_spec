@@ -25,6 +25,10 @@ export default function App() {
   // --- DARK MODE ---
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
+  // --- STEPPER WIZARD STATE ---
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
+  const [viewMode, setViewMode] = useState<"wizard" | "overview">("wizard");
+
   // --- BUILD STATE ---
   const [selectedCpu, setSelectedCpu] = useState<CPU | null>(null);
   const [selectedGpu, setSelectedGpu] = useState<GPU | null>(null);
@@ -72,6 +76,16 @@ export default function App() {
     };
   }, []);
 
+  // Completion check
+  const isHardwareSelected = Boolean(selectedCpu && selectedGpu && selectedRam);
+
+  // Auto advance to step 2 once hardware is picked if user is on step 1
+  useEffect(() => {
+    if (isHardwareSelected && currentStep === 1) {
+      // Optional slight delay or let user click next
+    }
+  }, [isHardwareSelected, currentStep]);
+
   // --- RESET ALL STATE ---
   const handleResetBuild = () => {
     setSelectedCpu(null);
@@ -81,13 +95,13 @@ export default function App() {
     setRamChannel("Dual");
     setRayTracing("Off");
     setFrameGen(false);
+    setCurrentStep(1);
   };
 
   // Auto-detect RAM compatibility when CPU changes
   useEffect(() => {
     if (selectedCpu) {
       if (selectedRam && !selectedCpu.supportedDdr.includes(selectedRam.generation)) {
-        // Clear ram selection to force strict compliance
         setSelectedRam(null);
       }
     }
@@ -128,7 +142,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark bg-[#121315] text-white" : "bg-[#FBF9F5] text-[#1E2022]"} pb-20 relative px-4 sm:px-6 lg:px-8 overflow-hidden`}>
-      {/* Background Watermarks - Reactive to Scroll and Mouse Parallax */}
+      {/* Background Watermarks */}
       <div
         className="absolute top-24 left-10 text-[10rem] font-black text-black/[0.012] dark:text-white/[0.006] kanji-watermark select-none hidden md:block transition-transform duration-100 ease-out"
         style={{
@@ -158,92 +172,283 @@ export default function App() {
         {/* Header Component */}
         <Header darkMode={darkMode} setDarkMode={setDarkMode} onReset={handleResetBuild} />
 
-        <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* WORKFLOW STEPPER CONTROLLER */}
+        <div className="glass-card rounded-2xl p-3 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           
-          {/* LEFT COLUMN: THE BUILD STEP (7 cols) */}
-          <section className="lg:col-span-7 flex flex-col gap-6">
+          {/* Steps Indicator Buttons */}
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            {/* STEP 1 */}
+            <button
+              onClick={() => setCurrentStep(1)}
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+                currentStep === 1
+                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+              }`}
+            >
+              <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
+                isHardwareSelected ? "bg-emerald-500 text-white" : "bg-[#E88D9F] text-white"
+              }`}>
+                {isHardwareSelected ? "✓" : "1"}
+              </span>
+              <span>1. Pick Components / 構成選択</span>
+            </button>
 
-            {/* Component Picker Card */}
-            <ComponentPicker
-              cpus={cpus}
-              gpus={gpus}
-              ramProfiles={ramProfiles}
-              selectedCpu={selectedCpu}
-              setSelectedCpu={setSelectedCpu}
-              selectedGpu={selectedGpu}
-              setSelectedGpu={setSelectedGpu}
-              selectedRam={selectedRam}
-              setSelectedRam={setSelectedRam}
-              selectedStorage={selectedStorage}
-              setSelectedStorage={setSelectedStorage}
-              ramChannel={ramChannel}
-              setRamChannel={setRamChannel}
-            />
+            <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
 
-            {/* System Diagnostics */}
-            <SystemDiagnostics
-              selectedCpu={selectedCpu}
-              selectedGpu={selectedGpu}
-              selectedRam={selectedRam}
-              compatibilityReport={compatibilityReport}
-            />
+            {/* STEP 2 */}
+            <button
+              onClick={() => setCurrentStep(2)}
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+                currentStep === 2
+                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+              }`}
+            >
+              <span className="w-5 h-5 rounded-full text-[10px] bg-[#8A9A86] text-white flex items-center justify-center font-black">
+                2
+              </span>
+              <span>2. Select Game / ゲーム選択</span>
+            </button>
 
-          </section>
+            <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
 
-          {/* RIGHT COLUMN: TESTING ENVIRONMENT & ESTIMATIONS (5 cols) */}
-          <section className="lg:col-span-5 flex flex-col gap-6">
+            {/* STEP 3 */}
+            <button
+              onClick={() => setCurrentStep(3)}
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+                currentStep === 3
+                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+              }`}
+            >
+              <span className="w-5 h-5 rounded-full text-[10px] bg-[#E88D9F] text-white flex items-center justify-center font-black">
+                3
+              </span>
+              <span>3. Benchmark & Diagnostics / 性能・診断</span>
+            </button>
+          </div>
 
-            {/* Game Selector & Graphics Settings */}
-            <GameSelector
-              games={games}
-              selectedGame={selectedGame}
-              setSelectedGame={setSelectedGame}
-              selectedResolution={selectedResolution}
-              setSelectedResolution={setSelectedResolution}
-              selectedPreset={selectedPreset}
-              setSelectedPreset={setSelectedPreset}
-              selectedDlss={selectedDlss}
-              setSelectedDlss={setSelectedDlss}
-              rayTracing={rayTracing}
-              setRayTracing={setRayTracing}
-              frameGen={frameGen}
-              setFrameGen={setFrameGen}
-            />
+          {/* View Mode Switch (Wizard vs Full Overview) */}
+          <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/10 dark:border-white/10 text-[11px] font-black shrink-0">
+            <button
+              onClick={() => setViewMode("wizard")}
+              className={`px-3 py-1 rounded-lg transition ${
+                viewMode === "wizard"
+                  ? "bg-[#8A9A86] text-white shadow-xs"
+                  : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+              }`}
+            >
+              Step-by-Step
+            </button>
+            <button
+              onClick={() => setViewMode("overview")}
+              className={`px-3 py-1 rounded-lg transition ${
+                viewMode === "overview"
+                  ? "bg-[#8A9A86] text-white shadow-xs"
+                  : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+              }`}
+            >
+              Full Overview
+            </button>
+          </div>
+        </div>
 
-            {/* Fps Performance Gauge */}
-            <FpsGauge
-              report={performanceReport}
-              selectedCpu={!!selectedCpu}
-              selectedGpu={!!selectedGpu}
-              selectedRam={!!selectedRam}
-              frameGen={frameGen}
-            />
+        {/* MAIN DISPLAY AREA */}
+        {viewMode === "overview" ? (
+          /* FULL OVERVIEW MODE (All Cards Visible) */
+          <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <section className="lg:col-span-7 flex flex-col gap-6">
+              <ComponentPicker
+                cpus={cpus}
+                gpus={gpus}
+                ramProfiles={ramProfiles}
+                selectedCpu={selectedCpu}
+                setSelectedCpu={setSelectedCpu}
+                selectedGpu={selectedGpu}
+                setSelectedGpu={setSelectedGpu}
+                selectedRam={selectedRam}
+                setSelectedRam={setSelectedRam}
+                selectedStorage={selectedStorage}
+                setSelectedStorage={setSelectedStorage}
+                ramChannel={ramChannel}
+                setRamChannel={setRamChannel}
+              />
+              <SystemDiagnostics
+                selectedCpu={selectedCpu}
+                selectedGpu={selectedGpu}
+                selectedRam={selectedRam}
+                compatibilityReport={compatibilityReport}
+              />
+            </section>
 
-            {/* Optimal Upgrade Advisor */}
-            <UpgradeAdvisor
-              selectedCpu={selectedCpu}
-              selectedGpu={selectedGpu}
-              selectedRam={selectedRam}
-              selectedStorage={selectedStorage}
-              selectedGame={selectedGame}
-              selectedResolution={selectedResolution}
-              selectedPreset={selectedPreset}
-              selectedDlss={selectedDlss}
-              rayTracing={rayTracing}
-              frameGen={frameGen}
-              ramChannel={ramChannel}
-              bottleneckType={performanceReport.bottleneckType}
-              currentFps={performanceReport.averageFps}
-              cpus={cpus}
-              gpus={gpus}
-            />
+            <section className="lg:col-span-5 flex flex-col gap-6">
+              <GameSelector
+                games={games}
+                selectedGame={selectedGame}
+                setSelectedGame={setSelectedGame}
+                selectedResolution={selectedResolution}
+                setSelectedResolution={setSelectedResolution}
+                selectedPreset={selectedPreset}
+                setSelectedPreset={setSelectedPreset}
+                selectedDlss={selectedDlss}
+                setSelectedDlss={setSelectedDlss}
+                rayTracing={rayTracing}
+                setRayTracing={setRayTracing}
+                frameGen={frameGen}
+                setFrameGen={setFrameGen}
+              />
+              <FpsGauge
+                report={performanceReport}
+                selectedCpu={!!selectedCpu}
+                selectedGpu={!!selectedGpu}
+                selectedRam={!!selectedRam}
+                frameGen={frameGen}
+              />
+              <UpgradeAdvisor
+                selectedCpu={selectedCpu}
+                selectedGpu={selectedGpu}
+                selectedRam={selectedRam}
+                selectedStorage={selectedStorage}
+                selectedGame={selectedGame}
+                selectedResolution={selectedResolution}
+                selectedPreset={selectedPreset}
+                selectedDlss={selectedDlss}
+                rayTracing={rayTracing}
+                frameGen={frameGen}
+                ramChannel={ramChannel}
+                bottleneckType={performanceReport.bottleneckType}
+                currentFps={performanceReport.averageFps}
+                cpus={cpus}
+                gpus={gpus}
+              />
+            </section>
+          </main>
+        ) : (
+          /* STEP-BY-STEP WIZARD MODE */
+          <main className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
+            {currentStep === 1 && (
+              <div className="flex flex-col gap-6 animate-fadeIn">
+                <ComponentPicker
+                  cpus={cpus}
+                  gpus={gpus}
+                  ramProfiles={ramProfiles}
+                  selectedCpu={selectedCpu}
+                  setSelectedCpu={setSelectedCpu}
+                  selectedGpu={selectedGpu}
+                  setSelectedGpu={setSelectedGpu}
+                  selectedRam={selectedRam}
+                  setSelectedRam={setSelectedRam}
+                  selectedStorage={selectedStorage}
+                  setSelectedStorage={setSelectedStorage}
+                  ramChannel={ramChannel}
+                  setRamChannel={setRamChannel}
+                />
 
-          </section>
+                {/* Progressive Action Banner for Step 1 */}
+                <div className="p-5 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
+                  <div>
+                    <h4 className="text-sm font-black flex items-center gap-2">
+                      {isHardwareSelected ? "✨ Step 1 Complete!" : "⚙️ Step 1: Select Hardware"}
+                    </h4>
+                    <p className="text-xs text-gray-300 font-extrabold mt-0.5">
+                      {isHardwareSelected
+                        ? "CPU, GPU, and RAM selected. Ready for target game benchmarking."
+                        : "Please select a CPU, GPU, and RAM to enable full performance testing."}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setCurrentStep(2)}
+                    className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md shrink-0"
+                  >
+                    Proceed to Step 2: Choose Game →
+                  </button>
+                </div>
+              </div>
+            )}
 
-        </main>
+            {currentStep === 2 && (
+              <div className="flex flex-col gap-6 animate-fadeIn">
+                <GameSelector
+                  games={games}
+                  selectedGame={selectedGame}
+                  setSelectedGame={setSelectedGame}
+                  selectedResolution={selectedResolution}
+                  setSelectedResolution={setSelectedResolution}
+                  selectedPreset={selectedPreset}
+                  setSelectedPreset={setSelectedPreset}
+                  selectedDlss={selectedDlss}
+                  setSelectedDlss={setSelectedDlss}
+                  rayTracing={rayTracing}
+                  setRayTracing={setRayTracing}
+                  frameGen={frameGen}
+                  setFrameGen={setFrameGen}
+                />
+
+                {/* Progressive Action Banner for Step 2 */}
+                <div className="p-5 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
+                  <div>
+                    <h4 className="text-sm font-black flex items-center gap-2">
+                      🎮 Target Game Selected: {selectedGame.title}
+                    </h4>
+                    <p className="text-xs text-gray-300 font-extrabold mt-0.5">
+                      Resolution: {selectedResolution} • Preset: {selectedPreset} • RT: {rayTracing}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setCurrentStep(3)}
+                    className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-md shrink-0"
+                  >
+                    View Benchmark & Diagnostics →
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 3 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
+                <div className="flex flex-col gap-6">
+                  <FpsGauge
+                    report={performanceReport}
+                    selectedCpu={!!selectedCpu}
+                    selectedGpu={!!selectedGpu}
+                    selectedRam={!!selectedRam}
+                    frameGen={frameGen}
+                  />
+                  <SystemDiagnostics
+                    selectedCpu={selectedCpu}
+                    selectedGpu={selectedGpu}
+                    selectedRam={selectedRam}
+                    compatibilityReport={compatibilityReport}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-6">
+                  <UpgradeAdvisor
+                    selectedCpu={selectedCpu}
+                    selectedGpu={selectedGpu}
+                    selectedRam={selectedRam}
+                    selectedStorage={selectedStorage}
+                    selectedGame={selectedGame}
+                    selectedResolution={selectedResolution}
+                    selectedPreset={selectedPreset}
+                    selectedDlss={selectedDlss}
+                    rayTracing={rayTracing}
+                    frameGen={frameGen}
+                    ramChannel={ramChannel}
+                    bottleneckType={performanceReport.bottleneckType}
+                    currentFps={performanceReport.averageFps}
+                    cpus={cpus}
+                    gpus={gpus}
+                  />
+                </div>
+              </div>
+            )}
+          </main>
+        )}
 
         {/* Footer */}
-        <footer className="mt-20 pt-8 border-t border-black/[0.04] dark:border-white/[0.04] text-center text-xs text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider">
+        <footer className="mt-20 pt-8 border-t border-black/[0.08] dark:border-white/[0.08] text-center text-xs text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider">
           Kensei Spec PC Simulator • 2026 Edition. Designed with Soft Japanese Minimalism.
         </footer>
       </div>

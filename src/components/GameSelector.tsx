@@ -113,27 +113,27 @@ export default function GameSelector({
                   : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] hover:border-black/20"
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <img
                   src={game.coverImage}
                   alt={game.title}
-                  className="w-8 h-8 object-cover rounded-lg group-hover:scale-110 transition duration-300 shrink-0"
+                  className="w-11 h-11 object-cover rounded-xl group-hover:scale-105 transition duration-300 shrink-0 border border-black/10 dark:border-white/10 shadow-xs"
                   onError={(e) => {
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=150";
+                    e.currentTarget.src = "/games/cs2.jpg";
                   }}
                 />
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-black truncate text-[#1E2022] dark:text-white leading-tight">{game.title}</div>
-                  <div className="text-[9px] text-gray-600 dark:text-gray-400 font-extrabold uppercase tracking-wide mt-0.5">
+                  <div className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold uppercase tracking-wide mt-0.5">
                     {getGameCategory(game.id)}
                   </div>
                 </div>
               </div>
 
               {/* Requirement details */}
-              <div className="flex justify-between items-center text-[9px] font-extrabold text-gray-600 dark:text-gray-300 mt-1">
-                <span>Min RAM: {game.ramMinRequirementGB}GB</span>
-                <span className="text-[#E88D9F] font-black">RT Tag</span>
+              <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-600 dark:text-gray-300 mt-2 pt-1 border-t border-black/5 dark:border-white/5">
+                <span>Min RAM: <strong className="text-[#1E2022] dark:text-white">{game.ramMinRequirementGB}GB</strong></span>
+                <span className="text-[#E88D9F] font-black bg-[#E88D9F]/10 px-1.5 py-0.5 rounded">RT Capable</span>
               </div>
             </button>
           );
