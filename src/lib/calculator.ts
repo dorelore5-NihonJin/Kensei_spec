@@ -144,7 +144,12 @@ export function calculatePerformance(
   const gameGpuDep = game.gpuDependence;
   const totalDep = gameCpuDep + gameGpuDep;
 
-  const combinedHwFactor = ((cpuFactor * gameCpuDep) + (gpuFactor * gameGpuDep)) / totalDep;
+  // Bottleneck Law: The slowest component strictly constrains peak framerate
+  // We use min(cpuFactor, gpuFactor) with a 85% weight and weighted average with 15% weight
+  const minHwFactor = Math.min(cpuFactor, gpuFactor);
+  const weightedAvgHwFactor = ((cpuFactor * gameCpuDep) + (gpuFactor * gameGpuDep)) / totalDep;
+  const combinedHwFactor = (minHwFactor * 0.85) + (weightedAvgHwFactor * 0.15);
+
   let estimatedFps = baseFps * combinedHwFactor * ramFactor * storageFactor;
 
   // Apply DLSS / FSR Toggles

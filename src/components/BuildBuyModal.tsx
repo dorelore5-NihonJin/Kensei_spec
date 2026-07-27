@@ -1,4 +1,5 @@
-import { ShoppingCart, X, ExternalLink, ShieldCheck, Fan, Flame } from "lucide-react";
+import { useState } from "react";
+import { ShoppingCart, X, ExternalLink, ShieldCheck, Fan, Flame, Sparkles, Award } from "lucide-react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
 
 interface BuildBuyModalProps {
@@ -12,52 +13,123 @@ interface BuildBuyModalProps {
   psuRecommendationW: number;
 }
 
-// Vendor generator helpers for realistic gaming hardware matching
-function getMotherboardForCpu(cpu: CPU | null) {
-  if (!cpu) return { name: "ASUS ROG Strix Gaming Motherboard", socket: "Universal", price: 220, vendor: "ASUS ROG" };
-  if (cpu.socket === "AM5") {
-    return { name: "ASUS ROG Strix X670E-F Gaming WiFi", socket: "AM5", price: 340, vendor: "ASUS ROG" };
-  } else if (cpu.socket === "AM4") {
-    return { name: "Gigabyte B550 AORUS Elite V2", socket: "AM4", price: 140, vendor: "Gigabyte AORUS" };
-  } else if (cpu.socket === "LGA1700") {
-    return { name: "MSI MAG Z790 Tomahawk WiFi", socket: "LGA1700", price: 280, vendor: "MSI MAG" };
-  } else {
-    return { name: "ASUS TUF Gaming B560-Plus WiFi", socket: cpu.socket, price: 160, vendor: "ASUS TUF" };
+export type BuildTier = "budget" | "premium" | "extreme";
+
+// Accurate Socket to Motherboard Matcher
+function getMotherboardForCpu(cpu: CPU | null, tier: BuildTier) {
+  const socket = cpu?.socket || "AM5";
+
+  if (socket === "AM5") {
+    if (tier === "extreme") return { name: "ASUS ROG Crosshair X670E Hero WiFi 7", socket: "AM5", price: 620, vendor: "ASUS ROG" };
+    if (tier === "premium") return { name: "ASUS ROG Strix X670E-F Gaming WiFi", socket: "AM5", price: 360, vendor: "ASUS ROG" };
+    return { name: "MSI PRO B650M-A WiFi", socket: "AM5", price: 140, vendor: "MSI PRO" };
   }
+  if (socket === "LGA1851") {
+    if (tier === "extreme") return { name: "ASUS ROG Maximus Z890 Hero WiFi 7", socket: "LGA1851", price: 680, vendor: "ASUS ROG" };
+    if (tier === "premium") return { name: "MSI MAG Z890 Tomahawk WiFi", socket: "LGA1851", price: 320, vendor: "MSI MAG" };
+    return { name: "GIGABYTE Z890 EAGLE AX", socket: "LGA1851", price: 220, vendor: "Gigabyte" };
+  }
+  if (socket === "LGA1700") {
+    if (tier === "extreme") return { name: "ASUS ROG Maximus Z790 Dark Hero", socket: "LGA1700", price: 590, vendor: "ASUS ROG" };
+    if (tier === "premium") return { name: "MSI MAG Z790 Tomahawk WiFi", socket: "LGA1700", price: 260, vendor: "MSI MAG" };
+    return { name: "ASRock B760M Pro RS WiFi", socket: "LGA1700", price: 120, vendor: "ASRock" };
+  }
+  if (socket === "AM4") {
+    if (tier === "extreme") return { name: "ASUS ROG Strix X570-E Gaming WiFi", socket: "AM4", price: 290, vendor: "ASUS ROG" };
+    if (tier === "premium") return { name: "Gigabyte B550 AORUS Elite V2", socket: "AM4", price: 150, vendor: "Gigabyte AORUS" };
+    return { name: "MSI B450M PRO-VDH MAX", socket: "AM4", price: 75, vendor: "MSI PRO" };
+  }
+  if (socket === "LGA1200") {
+    if (tier === "extreme") return { name: "ASUS ROG Maximus XII Hero WiFi", socket: "LGA1200", price: 280, vendor: "ASUS ROG" };
+    return { name: "ASUS TUF Gaming Z590-Plus WiFi", socket: "LGA1200", price: 150, vendor: "ASUS TUF" };
+  }
+  if (socket === "LGA1151") {
+    return { name: "ASUS ROG Strix Z390-F Gaming", socket: "LGA1151", price: 130, vendor: "ASUS ROG" };
+  }
+  if (socket === "LGA1150" || socket === "LGA1155") {
+    return { name: "Gigabyte GA-Z97X-Gaming 5", socket, price: 80, vendor: "Gigabyte" };
+  }
+  if (socket === "LGA775") {
+    return { name: "ASUS P5Q Deluxe (LGA775 Legacy Chipset)", socket: "LGA775", price: 45, vendor: "ASUS Legacy" };
+  }
+  if (socket === "AM3+" || socket === "AM2+") {
+    return { name: "ASUS M5A97 R2.0 (AM3+ Legacy)", socket, price: 50, vendor: "ASUS Legacy" };
+  }
+  return { name: `Gigabyte Ultra Durable ${socket} Motherboard`, socket, price: 90, vendor: "Gigabyte" };
 }
 
-function getCoolingForCpu(cpu: CPU | null) {
+// Accurate Cooler Matcher based on TDP and Tier
+function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
   const tdp = cpu?.tdpW || 105;
-  if (tdp >= 170) {
+
+  if (tier === "extreme") {
     return {
-      type: "Liquid AIO 360mm",
-      name: "Corsair iCUE H150i Elite LCD XT 360mm AIO",
-      price: 240,
-      vendor: "Corsair",
-      recommendationNote: "🔥 High CPU TDP (170W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling during gaming bursts.",
+      type: "Custom 360mm LCD Liquid AIO",
+      name: "Corsair iCUE LINK H150i LCD 360mm Liquid AIO",
+      price: 290,
+      vendor: "Corsair iCUE LINK",
+      recommendationNote: "👑 Extreme Tier: Features a 2.1\" IPS LCD display and iCUE LINK magnetic daisy-chain cables for ultimate cooling and zero noise.",
       isLiquid: true
     };
-  } else {
+  }
+
+  if (tdp >= 160 || tier === "premium") {
     return {
-      type: "Dual Tower Air Cooler",
-      name: "Thermalright Peerless Assassin 120 SE ARGB",
-      price: 45,
-      vendor: "Thermalright",
-      recommendationNote: "💡 High-efficiency dual-tower air cooler offers maximum silence and zero pump maintenance for mid-TDP CPUs.",
-      isLiquid: false
+      type: "Liquid AIO 360mm",
+      name: "DeepCool LT720 360mm ARGB Liquid AIO",
+      price: 140,
+      vendor: "DeepCool",
+      recommendationNote: "🔥 High CPU TDP (160W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling under load.",
+      isLiquid: true
     };
   }
+
+  return {
+    type: "Dual Tower Air Cooler",
+    name: "Thermalright Peerless Assassin 120 SE ARGB",
+    price: 40,
+    vendor: "Thermalright",
+    recommendationNote: "💡 High-efficiency dual-tower air cooler offers maximum silence and zero pump leak risk for mid-TDP CPUs.",
+    isLiquid: false
+  };
 }
 
-function getGpuVendorName(gpu: GPU | null) {
-  if (!gpu) return "MSI Gaming X";
-  if (gpu.manufacturer === "NVIDIA") {
-    return `ASUS ROG Strix ${gpu.name} OC Edition`;
-  } else if (gpu.manufacturer === "AMD") {
-    return `SAPPHIRE NITRO+ ${gpu.name} 16GB`;
-  } else {
-    return `Intel Arc Custom Edition ${gpu.name}`;
-  }
+// Realistic Price Estimators based on Hardware Year and MSRP
+function getCpuPrice(cpu: CPU | null): number {
+  if (!cpu) return 300;
+  if (cpu.releaseYear < 2015) return Math.min(40, Math.max(10, Math.round(cpu.multiCoreScore * 0.15)));
+  if (cpu.releaseYear < 2020) return Math.min(120, Math.max(40, Math.round(cpu.multiCoreScore * 0.12)));
+
+  // Modern CPUs (2020+)
+  if (cpu.is3DVCache) return 440; // Ryzen 7 7800X3D / 9800X3D MSRP
+  if (cpu.multiCoreScore >= 3500) return 550; // Core i9 / Ryzen 9
+  if (cpu.multiCoreScore >= 2000) return 300; // Core i7 / Ryzen 7
+  if (cpu.multiCoreScore >= 1200) return 190; // Core i5 / Ryzen 5
+  return 120; // Core i3
+}
+
+function getGpuPrice(gpu: GPU | null): number {
+  if (!gpu) return 600;
+  if (gpu.releaseYear < 2015) return Math.min(50, Math.max(15, Math.round(gpu.relativePowerScore * 0.8)));
+  if (gpu.releaseYear < 2020) return Math.min(180, Math.max(60, Math.round(gpu.relativePowerScore * 0.9)));
+
+  // Modern GPUs (RTX 40 / RX 7000 / Arc)
+  const name = gpu.name.toLowerCase();
+  if (name.includes("4090")) return 1790;
+  if (name.includes("4080")) return 980;
+  if (name.includes("4070 ti")) return 760;
+  if (name.includes("4070 super")) return 590;
+  if (name.includes("4070")) return 530;
+  if (name.includes("4060 ti")) return 380;
+  if (name.includes("4060")) return 295;
+  if (name.includes("3050")) return 185; // Fixed RTX 3050 MSRP!
+  if (name.includes("7900 xtx")) return 940;
+  if (name.includes("7900 xt")) return 690;
+  if (name.includes("7800 xt")) return 490;
+  if (name.includes("7700 xt")) return 390;
+  if (name.includes("7600")) return 250;
+
+  return Math.min(1200, Math.max(150, Math.round(gpu.relativePowerScore * 1.4)));
 }
 
 export default function BuildBuyModal({
@@ -70,19 +142,32 @@ export default function BuildBuyModal({
   selectedStorage,
   psuRecommendationW
 }: BuildBuyModalProps) {
+  const [tier, setTier] = useState<BuildTier>("premium");
+
   if (!isOpen) return null;
 
-  const mobo = getMotherboardForCpu(selectedCpu);
-  const cooler = getCoolingForCpu(selectedCpu);
-  const gpuPartnerName = getGpuVendorName(selectedGpu);
+  const mobo = getMotherboardForCpu(selectedCpu, tier);
+  const cooler = getCoolingForCpu(selectedCpu, tier);
 
   // Price calculations
-  const cpuPrice = selectedCpu ? Math.round(selectedCpu.singleCoreScore * 0.9 + selectedCpu.multiCoreScore * 0.08) : 300;
-  const gpuPrice = selectedGpu ? Math.round(selectedGpu.relativePowerScore * 2.8 + selectedGpu.vramGB * 15) : 600;
-  const ramPrice = Math.round(ramCapacityGB * 3.5 + (selectedRam?.speedMhz || 6000) * 0.015);
-  const storagePrice = selectedStorage === "NVMe Gen4" ? 140 : selectedStorage === "NVMe Gen3" ? 90 : selectedStorage === "SATA SSD" ? 60 : 40;
-  const psuPrice = Math.round(psuRecommendationW * 0.18);
-  const casePrice = 120;
+  const cpuPrice = getCpuPrice(selectedCpu);
+  const gpuPrice = getGpuPrice(selectedGpu);
+
+  // RAM Price
+  let ramPrice = Math.round(ramCapacityGB * 2.8 + (selectedRam?.speedMhz || 6000) * 0.012);
+  if (selectedRam?.generation === "DDR2" || selectedRam?.generation === "DDR3") {
+    ramPrice = Math.min(45, Math.round(ramCapacityGB * 1.5));
+  }
+  if (tier === "extreme") ramPrice += 60; // RGB Link premium
+
+  // Storage Price
+  let storagePrice = selectedStorage === "NVMe Gen4" ? 130 : selectedStorage === "NVMe Gen3" ? 85 : selectedStorage === "SATA SSD" ? 55 : 35;
+  if (tier === "extreme") storagePrice += 70; // 4TB Upgrade
+
+  // PSU Price & Case
+  let psuPrice = Math.round(psuRecommendationW * 0.16);
+  let casePrice = tier === "extreme" ? 220 : tier === "premium" ? 130 : 75;
+  let caseName = tier === "extreme" ? "Lian Li O11 Dynamic EVO XL Full-Tower" : tier === "premium" ? "NZXT H7 Flow RGB Mid-Tower" : "Montech AIR 903 MAX Mesh Case";
 
   const totalPriceUSD = cpuPrice + gpuPrice + ramPrice + storagePrice + mobo.price + cooler.price + psuPrice + casePrice;
   const totalPriceRUB = Math.round(totalPriceUSD * 92);
@@ -102,7 +187,7 @@ export default function BuildBuyModal({
                 Buy Complete PC Build / 構成購入
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold">
-                Auto-matched motherboard, liquid cooling, PSU headroom, and component vendors
+                Auto-matched motherboard socket, cooling TDP, and price tier configurator
               </p>
             </div>
           </div>
@@ -114,20 +199,64 @@ export default function BuildBuyModal({
           </button>
         </div>
 
+        {/* BUILD TIER SELECTOR (Value / Premium / Extreme) */}
+        <div className="flex flex-col gap-2">
+          <div className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
+            <span>Select Component Quality Tier</span>
+            <span className="text-[10px] text-[#E88D9F] font-black uppercase">
+              Current Tier: {tier.toUpperCase()}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-black/10 dark:border-white/10">
+            <button
+              onClick={() => setTier("budget")}
+              className={`py-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition ${
+                tier === "budget"
+                  ? "bg-emerald-600 text-white shadow-xs"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
+              }`}
+            >
+              <span className="flex items-center gap-1">🟢 Value / Budget</span>
+              <span className="text-[9px] opacity-80">Best FPS per Dollar</span>
+            </button>
+
+            <button
+              onClick={() => setTier("premium")}
+              className={`py-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition ${
+                tier === "premium"
+                  ? "bg-[#E88D9F] text-white shadow-xs"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
+              }`}
+            >
+              <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> High / Premium</span>
+              <span className="text-[9px] opacity-80">AIO Cooling & WiFi 6E</span>
+            </button>
+
+            <button
+              onClick={() => setTier("extreme")}
+              className={`py-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition ${
+                tier === "extreme"
+                  ? "bg-purple-600 text-white shadow-xs"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
+              }`}
+            >
+              <span className="flex items-center gap-1"><Award className="w-3 h-3 text-amber-300" /> Extreme / Max</span>
+              <span className="text-[9px] opacity-80">LCD Screen & WiFi 7</span>
+            </button>
+          </div>
+        </div>
+
         {/* Compatibility Certification Banner */}
-        <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 flex items-center gap-3">
+        <div className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 flex items-center gap-3">
           <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <div className="text-xs text-emerald-900 dark:text-emerald-300 font-extrabold">
-            <strong>100% Certified Physical & Power Compatibility:</strong> All socket types, memory channels, and PSU wattage limits have been validated.
+            <strong>100% Socket & Power Verified:</strong> Socket <span className="underline">{mobo.socket}</span> motherboard verified for {selectedCpu?.name || "CPU"}.
           </div>
         </div>
 
         {/* Component Buying Breakdown */}
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-            Selected Parts & Auto-Matched Components
-          </h4>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-extrabold">
             
             {/* 1. CPU */}
@@ -135,17 +264,17 @@ export default function BuildBuyModal({
               <div>
                 <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">1. CPU Processor</span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{selectedCpu?.name || "AMD Ryzen 7 7800X3D"}</span>
-                <span className="text-[10px] text-gray-500">Socket {selectedCpu?.socket || "AM5"} • TDP {selectedCpu?.tdpW || 120}W</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">Socket {selectedCpu?.socket || "AM5"} • TDP {selectedCpu?.tdpW || 120}W</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${cpuPrice}</span>
             </div>
 
-            {/* 2. Motherboard (Auto Matched) */}
+            {/* 2. Motherboard (Exact Socket Matched) */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
-                <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">2. Motherboard (Auto Matched)</span>
+                <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">2. Motherboard (Socket {mobo.socket})</span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{mobo.name}</span>
-                <span className="text-[10px] text-gray-500">Chipset {mobo.socket} • {mobo.vendor}</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">Socket {mobo.socket} • {mobo.vendor}</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${mobo.price}</span>
             </div>
@@ -154,13 +283,13 @@ export default function BuildBuyModal({
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <span className="text-[10px] text-[#E88D9F] block uppercase tracking-wider font-black">3. GPU Graphics Card</span>
-                <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{gpuPartnerName}</span>
-                <span className="text-[10px] text-gray-500">{selectedGpu?.vramGB || 16}GB VRAM • {selectedGpu?.tdpW || 280}W</span>
+                <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{selectedGpu?.name || "GeForce RTX 4070 Super"}</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{selectedGpu?.vramGB || 12}GB VRAM • {selectedGpu?.architecture || "Ada Lovelace"}</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${gpuPrice}</span>
             </div>
 
-            {/* 4. CPU Cooling (Liquid vs Air with Warning) */}
+            {/* 4. CPU Cooling */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black flex items-center gap-1">
@@ -168,7 +297,7 @@ export default function BuildBuyModal({
                   4. CPU Cooler ({cooler.type})
                 </span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{cooler.name}</span>
-                <span className="text-[10px] text-gray-500">{cooler.vendor} Thermal Tech</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{cooler.vendor} Thermal System</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${cooler.price}</span>
             </div>
@@ -178,7 +307,7 @@ export default function BuildBuyModal({
               <div>
                 <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">5. System RAM Memory</span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{ramCapacityGB}GB {selectedRam?.generation || "DDR5"} Kit</span>
-                <span className="text-[10px] text-gray-500">Speed: {selectedRam?.speedMhz || 6000} MHz Dual Channel</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">Speed: {selectedRam?.speedMhz || 6000} MHz Dual Channel</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${ramPrice}</span>
             </div>
@@ -188,7 +317,7 @@ export default function BuildBuyModal({
               <div>
                 <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">6. Solid State Drive</span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">2TB {selectedStorage} M.2 SSD</span>
-                <span className="text-[10px] text-gray-500">PCIe High-Speed Drive</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">High Speed NVMe Storage</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${storagePrice}</span>
             </div>
@@ -198,7 +327,7 @@ export default function BuildBuyModal({
               <div>
                 <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">7. Power Supply (PSU)</span>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{psuRecommendationW}W 80+ Gold Modular</span>
-                <span className="text-[10px] text-gray-500">ATX 3.0 PCIe 5.0 Ready</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">ATX 3.0 PCIe 5.0 Compliant</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${psuPrice}</span>
             </div>
@@ -206,9 +335,9 @@ export default function BuildBuyModal({
             {/* 8. Chassis */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
-                <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">8. PC Gaming Case</span>
-                <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">Lian Li O11 Dynamic EVO Mid-Tower</span>
-                <span className="text-[10px] text-gray-500">Tempered Glass Airflow Chassis</span>
+                <span className="text-[10px] text-[#8A9A86] block uppercase tracking-wider font-black">8. PC Gaming Chassis</span>
+                <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{caseName}</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">Tempered Glass Airflow Tower</span>
               </div>
               <span className="font-mono text-xs font-black text-[#E88D9F]">${casePrice}</span>
             </div>
