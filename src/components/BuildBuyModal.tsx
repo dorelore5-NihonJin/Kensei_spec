@@ -68,7 +68,7 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
       name: "Corsair iCUE LINK H150i LCD 360mm Liquid AIO",
       price: 290,
       vendor: "Corsair iCUE LINK",
-      recommendationNote: "👑 Extreme Tier: Features a 2.1\" IPS LCD display and iCUE LINK magnetic daisy-chain cables for ultimate cooling and zero noise.",
+      recommendationNote: "Extreme Tier: Features a 2.1\" IPS LCD display and iCUE LINK magnetic daisy-chain cables for ultimate cooling and zero noise.",
       isLiquid: true
     };
   }
@@ -79,7 +79,7 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
       name: "DeepCool LT720 360mm ARGB Liquid AIO",
       price: 140,
       vendor: "DeepCool",
-      recommendationNote: "🔥 High CPU TDP (160W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling under load.",
+      recommendationNote: "High CPU TDP (160W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling under load.",
       isLiquid: true
     };
   }
@@ -89,7 +89,7 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
     name: "Thermalright Peerless Assassin 120 SE ARGB",
     price: 40,
     vendor: "Thermalright",
-    recommendationNote: "💡 High-efficiency dual-tower air cooler offers maximum silence and zero pump leak risk for mid-TDP CPUs.",
+    recommendationNote: "High-efficiency dual-tower air cooler offers maximum silence and zero pump leak risk for mid-TDP CPUs.",
     isLiquid: false
   };
 }
@@ -180,7 +180,7 @@ export default function BuildBuyModal({
         <div className="flex items-start justify-between border-b border-black/10 dark:border-white/10 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-[#E88D9F] text-white flex items-center justify-center font-black text-xl shadow-md">
-              🛒
+              <ShoppingCart className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-black flex items-center gap-2">
@@ -217,7 +217,7 @@ export default function BuildBuyModal({
                   : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
               }`}
             >
-              <span className="flex items-center gap-1">🟢 Value / Budget</span>
+              <span className="flex items-center gap-1">Value / Budget</span>
               <span className="text-[9px] opacity-80">Best FPS per Dollar</span>
             </button>
 

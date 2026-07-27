@@ -15,7 +15,7 @@ import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
-import { ShoppingCart, ArrowRight } from "lucide-react";
+import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import Footer from "./components/Footer";
@@ -415,7 +415,17 @@ export default function App() {
                 <div className="p-5 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
                   <div>
                     <h4 className="text-sm font-black flex items-center gap-2">
-                      {isHardwareSelected ? "✨ Step 1 Complete!" : "⚙️ Step 1: Select Hardware"}
+                      {isHardwareSelected ? (
+                        <>
+                          <Sparkles className="w-4 h-4 text-emerald-400" />
+                          <span>Step 1 Complete!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Cpu className="w-4 h-4 text-[#E88D9F]" />
+                          <span>Step 1: Select Hardware</span>
+                        </>
+                      )}
                     </h4>
                     <p className="text-xs text-gray-300 font-extrabold mt-0.5">
                       {isHardwareSelected
@@ -466,7 +476,7 @@ export default function App() {
                 <div className="p-5 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
                   <div>
                     <h4 className="text-sm font-black flex items-center gap-2">
-                      🎮 Target Game Selected: {selectedGame.title}
+                      <Sparkles className="w-4 h-4 text-[#8A9A86]" /> Target Workload Selected: {selectedGame.title}
                     </h4>
                     <p className="text-xs text-gray-300 font-extrabold mt-0.5">
                       Resolution: {selectedResolution} • Preset: {selectedPreset} • RT: {rayTracing}
@@ -498,7 +508,7 @@ export default function App() {
                 {!isHardwareSelected ? (
                   <div className="p-8 rounded-3xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-center flex flex-col items-center gap-4 shadow-lg">
                     <div className="w-12 h-12 rounded-2xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black text-2xl">
-                      ⚙️
+                      <Cpu className="w-6 h-6 text-[#E88D9F]" />
                     </div>
                     <div>
                       <h4 className="text-base font-black text-[#1E2022] dark:text-white">
@@ -517,9 +527,9 @@ export default function App() {
                       </button>
                       <button
                         onClick={handleSelectHighEndPreset}
-                        className="px-6 py-2.5 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-xs"
+                        className="px-6 py-2.5 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-xs flex items-center gap-1.5"
                       >
-                        ⚡ Load High-End Gaming Rig
+                        <Zap className="w-3.5 h-3.5" /> Load High-End Gaming Rig
                       </button>
                     </div>
                   </div>

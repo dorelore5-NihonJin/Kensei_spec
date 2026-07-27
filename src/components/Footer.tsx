@@ -58,7 +58,7 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
                 onClick={() => setActivePage("simulator")}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                ⚙️ Hardware Simulator (3-Step Wizard)
+                Hardware Simulator (3-Step Wizard)
               </button>
             </li>
             <li>
@@ -66,7 +66,7 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
                 onClick={() => setActivePage("catalog")}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                📦 Recommended Game Builds ($500-$3,500)
+                Recommended Game Builds ($500-$3,500)
               </button>
             </li>
             <li>
@@ -74,7 +74,7 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
                 onClick={onOpenBuyModal}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                🛒 PC Configurator Store & Checkout
+                PC Configurator Store & Checkout
               </button>
             </li>
           </ul>

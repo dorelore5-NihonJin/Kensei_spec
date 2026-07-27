@@ -63,7 +63,7 @@ export default function Header({
             }`}
           >
             <Layers className="w-4 h-4 text-[#E88D9F]" />
-            <span>⚙️ 1. Simulator & Calculator</span>
+            <span>1. Simulator & Calculator</span>
           </button>
 
           {/* TAB 2: GAME BUILDS CATALOG */}
@@ -76,7 +76,7 @@ export default function Header({
             }`}
           >
             <LayoutGrid className="w-4 h-4 text-[#8A9A86]" />
-            <span>📦 2. Game Builds Catalog</span>
+            <span>2. Game Builds Catalog</span>
           </button>
 
           {/* TAB 3: PC CONFIGURATOR STORE */}
@@ -85,7 +85,7 @@ export default function Header({
             className="px-4 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
           >
             <ShoppingCart className="w-4 h-4" />
-            <span>🛒 3. Buy PC Store</span>
+            <span>3. Buy PC Store</span>
           </button>
         </div>
 
