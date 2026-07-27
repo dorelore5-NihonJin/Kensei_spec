@@ -71,7 +71,8 @@ export function calculatePerformance(
   dlssFsr: "Off" | "Quality" | "Performance",
   rayTracing: "Off" | "Medium" | "Ultra",
   frameGen: boolean,
-  ramChannel: "Single" | "Dual"
+  ramChannel: "Single" | "Dual",
+  ramCapacityGB: number = 16
 ): CalculationResult {
   const warnings: string[] = [];
 
@@ -117,11 +118,12 @@ export function calculatePerformance(
     ramFactor *= 0.7;
   }
 
-  if (ramProfile.capacityGB < game.ramMinRequirementGB) {
-    const penalty = 1 - Math.min(0.5, (game.ramMinRequirementGB - ramProfile.capacityGB) * 0.08);
+  if (ramCapacityGB < game.ramMinRequirementGB) {
+    const deficit = game.ramMinRequirementGB - ramCapacityGB;
+    const penalty = 1 - Math.min(0.5, deficit * 0.08);
     ramFactor *= penalty;
     warnings.push(
-      `⚠️ Low RAM capacity: Choosing ${ramProfile.capacityGB}GB RAM for ${game.title} (recommends ${game.ramMinRequirementGB}GB) triggers performance throttling.`
+      `⚠️ Low RAM capacity: Choosing ${ramCapacityGB}GB RAM for ${game.title} (recommends ${game.ramMinRequirementGB}GB) triggers performance throttling.`
     );
   }
 

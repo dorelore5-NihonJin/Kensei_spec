@@ -12,6 +12,8 @@ interface ComponentPickerProps {
   setSelectedGpu: (val: GPU | null) => void;
   selectedRam: RAMProfile | null;
   setSelectedRam: (val: RAMProfile | null) => void;
+  ramCapacityGB: number;
+  setRamCapacityGB: (val: number) => void;
   selectedStorage: StorageType;
   setSelectedStorage: (val: StorageType) => void;
   ramChannel: "Single" | "Dual";
@@ -28,6 +30,8 @@ export default function ComponentPicker({
   setSelectedGpu,
   selectedRam,
   setSelectedRam,
+  ramCapacityGB,
+  setRamCapacityGB,
   selectedStorage,
   setSelectedStorage,
   ramChannel,
@@ -241,11 +245,34 @@ export default function ComponentPicker({
       </div>
 
       {/* ----------------- RAM SELECTOR ----------------- */}
-      <div>
-        <label className="block text-xs font-black text-[#1E2022] dark:text-white mb-2 uppercase tracking-wider flex items-center justify-between">
-          <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-[#8A9A86]" /> RAM Speed & Channel Config</span>
+      <div className="flex flex-col gap-3">
+        <label className="block text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
+          <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-[#8A9A86]" /> RAM Speed, Capacity & Channel Config</span>
           {!selectedCpu && <span className="text-xs text-amber-600 dark:text-amber-400 font-black">⚠️ Choose a CPU first</span>}
         </label>
+
+        {/* RAM Capacity Picker (Exact GB) */}
+        <div>
+          <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1">
+            Total RAM Capacity: <span className="text-[#E88D9F] font-mono font-black">{ramCapacityGB} GB</span>
+          </div>
+          <div className="grid grid-cols-5 gap-1.5">
+            {[8, 16, 32, 64, 128].map((cap) => (
+              <button
+                key={cap}
+                type="button"
+                onClick={() => setRamCapacityGB(cap)}
+                className={`py-1.5 text-xs font-black rounded-xl border transition ${
+                  ramCapacityGB === cap
+                    ? "border-[#E88D9F] bg-[#E88D9F] text-white shadow-xs"
+                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-300 hover:bg-black/5"
+                }`}
+              >
+                {cap} GB
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
           {/* Profile choose */}
@@ -259,10 +286,10 @@ export default function ComponentPicker({
               }}
               className="w-full text-xs font-extrabold outline-none bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3.5 py-2.5 shadow-xs disabled:opacity-50 text-[#1E2022] dark:text-white cursor-pointer"
             >
-              <option value="" className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">-- Choose RAM Profile --</option>
+              <option value="" className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">-- Choose RAM Speed Profile --</option>
               {filteredRamProfiles.map((ram) => (
                 <option key={ram.id} value={ram.id} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">
-                  {ram.generation} {ram.capacityGB}GB @ {ram.speedMhz}MHz ({ram.speedMultiplier}x)
+                  {ram.generation} @ {ram.speedMhz}MHz ({ram.speedMultiplier}x speed factor)
                 </option>
               ))}
             </select>

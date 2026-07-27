@@ -14,6 +14,8 @@ import GameSelector from "./components/GameSelector";
 import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
+import BuildBuyModal from "./components/BuildBuyModal";
+import { ShoppingCart, ArrowRight } from "lucide-react";
 
 // Safe casting seed data
 const cpus = cpuData as CPU[];
@@ -29,10 +31,14 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [viewMode, setViewMode] = useState<"wizard" | "overview">("wizard");
 
+  // --- BUY STORE MODAL STATE ---
+  const [isBuyModalOpen, setIsBuyModalOpen] = useState<boolean>(false);
+
   // --- BUILD STATE ---
   const [selectedCpu, setSelectedCpu] = useState<CPU | null>(null);
   const [selectedGpu, setSelectedGpu] = useState<GPU | null>(null);
   const [selectedRam, setSelectedRam] = useState<RAMProfile | null>(null);
+  const [ramCapacityGB, setRamCapacityGB] = useState<number>(32);
   const [selectedStorage, setSelectedStorage] = useState<StorageType>("NVMe Gen3");
   const [ramChannel, setRamChannel] = useState<"Single" | "Dual">("Dual");
 
@@ -79,18 +85,22 @@ export default function App() {
   // Completion check
   const isHardwareSelected = Boolean(selectedCpu && selectedGpu && selectedRam);
 
-  // Auto advance to step 2 once hardware is picked if user is on step 1
-  useEffect(() => {
-    if (isHardwareSelected && currentStep === 1) {
-      // Optional slight delay or let user click next
-    }
-  }, [isHardwareSelected, currentStep]);
+  // Quick Preset Helper for users testing Step 3 directly
+  const handleSelectHighEndPreset = () => {
+    setSelectedCpu(cpus[0]); // Ryzen 7 9800X3D
+    setSelectedGpu(gpus[0]); // RTX 4080 Super
+    setSelectedRam(ramProfiles[0]); // DDR5-6000
+    setRamCapacityGB(32);
+    setSelectedStorage("NVMe Gen4");
+    setRamChannel("Dual");
+  };
 
   // --- RESET ALL STATE ---
   const handleResetBuild = () => {
     setSelectedCpu(null);
     setSelectedGpu(null);
     setSelectedRam(null);
+    setRamCapacityGB(32);
     setSelectedStorage("NVMe Gen3");
     setRamChannel("Dual");
     setRayTracing("Off");
@@ -120,7 +130,8 @@ export default function App() {
       selectedDlss,
       rayTracing,
       frameGen,
-      ramChannel
+      ramChannel,
+      ramCapacityGB
     );
   }, [
     selectedCpu,
@@ -133,7 +144,8 @@ export default function App() {
     selectedDlss,
     rayTracing,
     frameGen,
-    ramChannel
+    ramChannel,
+    ramCapacityGB
   ]);
 
   const compatibilityReport = useMemo(() => {
@@ -176,11 +188,11 @@ export default function App() {
         <div className="glass-card rounded-2xl p-3 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           
           {/* Steps Indicator Buttons */}
-          <div className="flex items-center gap-2 w-full md:w-auto">
+          <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
             {/* STEP 1 */}
             <button
               onClick={() => setCurrentStep(1)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
                 currentStep === 1
                   ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
@@ -199,7 +211,7 @@ export default function App() {
             {/* STEP 2 */}
             <button
               onClick={() => setCurrentStep(2)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
                 currentStep === 2
                   ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
@@ -216,7 +228,7 @@ export default function App() {
             {/* STEP 3 */}
             <button
               onClick={() => setCurrentStep(3)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 ${
+              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
                 currentStep === 3
                   ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
@@ -229,28 +241,38 @@ export default function App() {
             </button>
           </div>
 
-          {/* View Mode Switch (Wizard vs Full Overview) */}
-          <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/10 dark:border-white/10 text-[11px] font-black shrink-0">
+          {/* Right Action Bar (Buy Modal Trigger & View Mode) */}
+          <div className="flex items-center gap-2 w-full md:w-auto justify-end">
             <button
-              onClick={() => setViewMode("wizard")}
-              className={`px-3 py-1 rounded-lg transition ${
-                viewMode === "wizard"
-                  ? "bg-[#8A9A86] text-white shadow-xs"
-                  : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
-              }`}
+              onClick={() => setIsBuyModalOpen(true)}
+              className="px-4 py-2 rounded-xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1.5 shrink-0"
             >
-              Step-by-Step
+              <ShoppingCart className="w-3.5 h-3.5" /> Buy Build / 買います
             </button>
-            <button
-              onClick={() => setViewMode("overview")}
-              className={`px-3 py-1 rounded-lg transition ${
-                viewMode === "overview"
-                  ? "bg-[#8A9A86] text-white shadow-xs"
-                  : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
-              }`}
-            >
-              Full Overview
-            </button>
+
+            {/* View Mode Switch (Wizard vs Full Overview) */}
+            <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/10 dark:border-white/10 text-[11px] font-black shrink-0">
+              <button
+                onClick={() => setViewMode("wizard")}
+                className={`px-3 py-1 rounded-lg transition ${
+                  viewMode === "wizard"
+                    ? "bg-[#8A9A86] text-white shadow-xs"
+                    : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+                }`}
+              >
+                Step-by-Step
+              </button>
+              <button
+                onClick={() => setViewMode("overview")}
+                className={`px-3 py-1 rounded-lg transition ${
+                  viewMode === "overview"
+                    ? "bg-[#8A9A86] text-white shadow-xs"
+                    : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+                }`}
+              >
+                Full Overview
+              </button>
+            </div>
           </div>
         </div>
 
@@ -269,6 +291,8 @@ export default function App() {
                 setSelectedGpu={setSelectedGpu}
                 selectedRam={selectedRam}
                 setSelectedRam={setSelectedRam}
+                ramCapacityGB={ramCapacityGB}
+                setRamCapacityGB={setRamCapacityGB}
                 selectedStorage={selectedStorage}
                 setSelectedStorage={setSelectedStorage}
                 ramChannel={ramChannel}
@@ -339,6 +363,8 @@ export default function App() {
                   setSelectedGpu={setSelectedGpu}
                   selectedRam={selectedRam}
                   setSelectedRam={setSelectedRam}
+                  ramCapacityGB={ramCapacityGB}
+                  setRamCapacityGB={setRamCapacityGB}
                   selectedStorage={selectedStorage}
                   setSelectedStorage={setSelectedStorage}
                   ramChannel={ramChannel}
@@ -357,12 +383,23 @@ export default function App() {
                         : "Please select a CPU, GPU, and RAM to enable full performance testing."}
                     </p>
                   </div>
-                  <button
-                    onClick={() => setCurrentStep(2)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md shrink-0"
-                  >
-                    Proceed to Step 2: Choose Game →
-                  </button>
+
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    {isHardwareSelected && (
+                      <button
+                        onClick={() => setIsBuyModalOpen(true)}
+                        className="flex-1 sm:flex-initial px-4 py-3 rounded-2xl bg-white/10 text-white font-black text-xs hover:bg-white/20 transition shrink-0 flex items-center justify-center gap-1.5"
+                      >
+                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> Buy Build
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setCurrentStep(2)}
+                      className="flex-1 sm:flex-initial px-6 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md shrink-0 flex items-center justify-center gap-1.5"
+                    >
+                      Proceed to Step 2 <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -395,57 +432,132 @@ export default function App() {
                       Resolution: {selectedResolution} • Preset: {selectedPreset} • RT: {rayTracing}
                     </p>
                   </div>
-                  <button
-                    onClick={() => setCurrentStep(3)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-md shrink-0"
-                  >
-                    View Benchmark & Diagnostics →
-                  </button>
+
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    {isHardwareSelected && (
+                      <button
+                        onClick={() => setIsBuyModalOpen(true)}
+                        className="flex-1 sm:flex-initial px-4 py-3 rounded-2xl bg-white/10 text-white font-black text-xs hover:bg-white/20 transition shrink-0 flex items-center justify-center gap-1.5"
+                      >
+                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> Buy Build
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setCurrentStep(3)}
+                      className="flex-1 sm:flex-initial px-6 py-3 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-md shrink-0 flex items-center justify-center gap-1.5"
+                    >
+                      View Benchmark Results <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
 
             {currentStep === 3 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
-                <div className="flex flex-col gap-6">
-                  <FpsGauge
-                    report={performanceReport}
-                    selectedCpu={!!selectedCpu}
-                    selectedGpu={!!selectedGpu}
-                    selectedRam={!!selectedRam}
-                    frameGen={frameGen}
-                  />
-                  <SystemDiagnostics
-                    selectedCpu={selectedCpu}
-                    selectedGpu={selectedGpu}
-                    selectedRam={selectedRam}
-                    compatibilityReport={compatibilityReport}
-                  />
-                </div>
+              <div className="flex flex-col gap-6 animate-fadeIn">
+                {!isHardwareSelected ? (
+                  <div className="p-8 rounded-3xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-center flex flex-col items-center gap-4 shadow-lg">
+                    <div className="w-12 h-12 rounded-2xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black text-2xl">
+                      ⚙️
+                    </div>
+                    <div>
+                      <h4 className="text-base font-black text-[#1E2022] dark:text-white">
+                        Select Hardware Components First
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-1 max-w-md">
+                        To generate live SVG benchmark gauges, workload balance telemetry, and upgrade advice, please configure your CPU, GPU, and RAM in Step 1.
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => setCurrentStep(1)}
+                        className="px-6 py-2.5 rounded-2xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-xs"
+                      >
+                        Go to Step 1: Pick Hardware →
+                      </button>
+                      <button
+                        onClick={handleSelectHighEndPreset}
+                        className="px-6 py-2.5 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-xs"
+                      >
+                        ⚡ Load High-End Gaming Rig
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="flex flex-col gap-6">
+                        <FpsGauge
+                          report={performanceReport}
+                          selectedCpu={!!selectedCpu}
+                          selectedGpu={!!selectedGpu}
+                          selectedRam={!!selectedRam}
+                          frameGen={frameGen}
+                        />
+                        <SystemDiagnostics
+                          selectedCpu={selectedCpu}
+                          selectedGpu={selectedGpu}
+                          selectedRam={selectedRam}
+                          compatibilityReport={compatibilityReport}
+                        />
+                      </div>
 
-                <div className="flex flex-col gap-6">
-                  <UpgradeAdvisor
-                    selectedCpu={selectedCpu}
-                    selectedGpu={selectedGpu}
-                    selectedRam={selectedRam}
-                    selectedStorage={selectedStorage}
-                    selectedGame={selectedGame}
-                    selectedResolution={selectedResolution}
-                    selectedPreset={selectedPreset}
-                    selectedDlss={selectedDlss}
-                    rayTracing={rayTracing}
-                    frameGen={frameGen}
-                    ramChannel={ramChannel}
-                    bottleneckType={performanceReport.bottleneckType}
-                    currentFps={performanceReport.averageFps}
-                    cpus={cpus}
-                    gpus={gpus}
-                  />
-                </div>
+                      <div className="flex flex-col gap-6">
+                        <UpgradeAdvisor
+                          selectedCpu={selectedCpu}
+                          selectedGpu={selectedGpu}
+                          selectedRam={selectedRam}
+                          selectedStorage={selectedStorage}
+                          selectedGame={selectedGame}
+                          selectedResolution={selectedResolution}
+                          selectedPreset={selectedPreset}
+                          selectedDlss={selectedDlss}
+                          rayTracing={rayTracing}
+                          frameGen={frameGen}
+                          ramChannel={ramChannel}
+                          bottleneckType={performanceReport.bottleneckType}
+                          currentFps={performanceReport.averageFps}
+                          cpus={cpus}
+                          gpus={gpus}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Final Checkout Card */}
+                    <div className="p-6 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
+                      <div>
+                        <h4 className="text-base font-black flex items-center gap-2">
+                          Ready to build this setup? / 構成を注文する
+                        </h4>
+                        <p className="text-xs text-gray-300 font-extrabold mt-0.5">
+                          View auto-matched motherboards, coolers, PSU wattage, and price comparisons across stores.
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setIsBuyModalOpen(true)}
+                        className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#E88D9F] text-white font-black text-sm hover:bg-[#E88D9F]/90 transition shadow-lg flex items-center justify-center gap-2 shrink-0"
+                      >
+                        <ShoppingCart className="w-4 h-4" /> Buy Complete Build / 買います 🛒
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </main>
         )}
+
+        {/* BUILD BUY STORE MODAL */}
+        <BuildBuyModal
+          isOpen={isBuyModalOpen}
+          onClose={() => setIsBuyModalOpen(false)}
+          selectedCpu={selectedCpu}
+          selectedGpu={selectedGpu}
+          selectedRam={selectedRam}
+          ramCapacityGB={ramCapacityGB}
+          selectedStorage={selectedStorage}
+          psuRecommendationW={compatibilityReport.psuRecommendationW}
+        />
 
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t border-black/[0.08] dark:border-white/[0.08] text-center text-xs text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider">
