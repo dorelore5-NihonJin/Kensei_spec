@@ -201,7 +201,7 @@ export function calculatePerformance(
   if (isX8orX4Gpu && cpu.releaseYear <= 2020) {
     estimatedFps *= 0.96;
     warnings.push(
-      `💡 PCIe 3.0 Bus Limit: Running a x8/x4 lane GPU (${gpu.name}) on a pre-2021 CPU platform causes minor bus throttling.`
+      `PCIe 3.0 Bus Limit: Running a x8/x4 lane GPU (${gpu.name}) on a pre-2021 CPU platform causes minor bus throttling.`
     );
   }
 
@@ -225,7 +225,7 @@ export function calculatePerformance(
   // Thermal TDP Warning
   if (cpu.tdpW >= 170 && cpu.multiCoreScore > 2500) {
     warnings.push(
-      `🔥 Thermal TDP Warning: ${cpu.name} (${cpu.tdpW}W TDP) requires high-end liquid or dual-tower cooling to avoid thermal clock throttling.`
+      `Thermal TDP Warning: ${cpu.name} (${cpu.tdpW}W TDP) requires high-end liquid or dual-tower cooling to avoid thermal clock throttling.`
     );
   }
 
@@ -233,7 +233,7 @@ export function calculatePerformance(
   if (frameGen) {
     estimatedFps *= 1.65;
     warnings.push(
-      `💡 Frame Generation is active: Note that Input Latency is determined by Base FPS, not Frame Gen FPS.`
+      `Frame Generation is active: Note that Input Latency is determined by Base FPS, not Frame Gen FPS.`
     );
   }
 
@@ -258,7 +258,7 @@ export function calculatePerformance(
     onePercentFactor -= 0.14;
     estimatedFps *= 0.94; // Single channel memory bandwidth bottleneck
     warnings.push(
-      `⚠️ Single-Channel RAM: Running 1 RAM stick halves memory bandwidth, dropping 1% Low FPS stability.`
+      `Single-Channel RAM: Running 1 RAM stick halves memory bandwidth, dropping 1% Low FPS stability.`
     );
   }
   if (storage === "HDD") onePercentFactor -= 0.15;
