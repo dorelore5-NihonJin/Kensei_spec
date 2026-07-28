@@ -18,11 +18,11 @@ export function getCompatibilityReport(
     const yearDiff = Math.abs(cpu.releaseYear - gpu.releaseYear);
     if (yearDiff >= 10) {
       mismatches.push(
-        `⚠️ Generational Mismatch: Pairing a ${cpu.releaseYear} CPU (${cpu.name}) with a ${gpu.releaseYear} GPU (${gpu.name}) may result in highly unbalanced performance.`
+        `Generational Mismatch: Pairing a ${cpu.releaseYear} CPU (${cpu.name}) with a ${gpu.releaseYear} GPU (${gpu.name}) may result in highly unbalanced performance.`
       );
     } else if (yearDiff >= 6) {
       warnings.push(
-        `💡 Generational Unbalance: There is a ${yearDiff}-year difference between your CPU (${cpu.releaseYear}) and GPU (${gpu.releaseYear}).`
+        `Generational Unbalance: There is a ${yearDiff}-year difference between your CPU (${cpu.releaseYear}) and GPU (${gpu.releaseYear}).`
       );
     }
 
@@ -35,7 +35,7 @@ export function getCompatibilityReport(
     // RAM generation strictly filtered by CPU support
     if (!cpu.supportedDdr.includes(ramProfile.generation)) {
       mismatches.push(
-        `❌ RAM Compatibility Error: ${cpu.name} does not support ${ramProfile.generation}. Supported: ${cpu.supportedDdr.join(", ")}.`
+        `RAM Compatibility Error: ${cpu.name} does not support ${ramProfile.generation}. Supported: ${cpu.supportedDdr.join(", ")}.`
       );
     }
   }
@@ -43,14 +43,14 @@ export function getCompatibilityReport(
   if (ramProfile) {
     if (ramProfile.capacityGB < 8) {
       warnings.push(
-        `⚠️ Low RAM capacity: ${ramProfile.capacityGB}GB is extremely low for any modern workload. Consider upgrading to at least 16GB.`
+        `Low RAM capacity: ${ramProfile.capacityGB}GB is extremely low for any modern workload. Consider upgrading to at least 16GB.`
       );
     }
   }
 
   if (storage === "HDD") {
     warnings.push(
-      `⚠️ Mechanical Storage Alert: Using an HDD as your primary drive will cause severe micro-stuttering and extremely long loading times in modern games.`
+      `Mechanical Storage Alert: Using an HDD as your primary drive will cause severe micro-stuttering and extremely long loading times in modern games.`
     );
   }
 
@@ -135,7 +135,7 @@ export function calculatePerformance(
     const penalty = 1 - Math.min(0.35, deficit * 0.07);
     ramFactor *= penalty;
     warnings.push(
-      `⚠️ Low RAM capacity: Choosing ${ramCapacityGB}GB RAM for ${game.title} (recommends ${game.ramMinRequirementGB}GB) triggers performance throttling.`
+      `Low RAM capacity: Choosing ${ramCapacityGB}GB RAM for ${game.title} (recommends ${game.ramMinRequirementGB}GB) triggers performance throttling.`
     );
   }
 
