@@ -130,16 +130,18 @@ export function calculatePerformance(
     );
   }
 
-  // Storage Speed Throttling & Micro-stuttering
+  // Storage Speed Throttling & DirectStorage Open-World Traversal Streaming
   let storageFactor = 1.0;
+  const isOpenWorldTraversalGame = ["game-spider2", "game-cyberpunk", "game-rdr2", "game-hogwarts", "game-starfield", "game-wukong"].includes(game.id);
+
   if (storage === "HDD") {
-    storageFactor = 0.88;
+    storageFactor = isOpenWorldTraversalGame ? 0.78 : 0.88;
   } else if (storage === "SATA SSD") {
-    storageFactor = 0.97;
+    storageFactor = isOpenWorldTraversalGame ? 0.94 : 0.97;
   } else if (storage === "NVMe Gen3") {
     storageFactor = 1.0;
   } else if (storage === "NVMe Gen4") {
-    storageFactor = 1.02;
+    storageFactor = isOpenWorldTraversalGame ? 1.03 : 1.02;
   }
 
   // --- 3. Dynamic Resolution-Aware & Asymmetric Bottleneck Calculation ---
@@ -184,6 +186,15 @@ export function calculatePerformance(
 
   let estimatedFps = baseFps * combinedHwFactor * ramFactor * storageFactor;
 
+  // PCIe 3.0 x8/x4 Lane Bottleneck Check
+  const isX8orX4Gpu = gpu.vramGB <= 8 && ["4060", "3060 8GB", "7600", "6600", "6500"].some(name => gpu.name.includes(name));
+  if (isX8orX4Gpu && cpu.releaseYear <= 2020) {
+    estimatedFps *= 0.96;
+    warnings.push(
+      `💡 PCIe 3.0 Bus Limit: Running a x8/x4 lane GPU (${gpu.name}) on a pre-2021 CPU platform causes minor bus throttling.`
+    );
+  }
+
   // Apply Resolution-Calibrated DLSS / FSR Toggles
   if (dlssFsr === "Quality") {
     estimatedFps *= resolution === "1440p" ? 1.32 : resolution === "4K" ? 1.45 : 1.22;
@@ -191,12 +202,21 @@ export function calculatePerformance(
     estimatedFps *= resolution === "1440p" ? 1.60 : resolution === "4K" ? 1.80 : 1.40;
   }
 
-  // Apply Ray Tracing Toggles & GPU Ray Tracing Power Score Scaling
+  // Apply Ray Tracing Toggles & Hardware SER Architecture Bonus
   if (rayTracing !== "Off") {
+    const isNvidia = gpu.name.includes("RTX") || gpu.name.includes("GeForce");
+    const archRtBonus = isNvidia ? 1.08 : 0.88; // NVIDIA SER hardware BVH traversal vs AMD/Intel DXR
     const rtBase = rayTracing === "Medium" ? 0.70 : 0.45;
     const rtCapability = Math.min(1.25, 0.45 + (gpu.rayTracingPowerScore / 400));
-    const rtMultiplier = rtBase * rtCapability;
+    const rtMultiplier = rtBase * rtCapability * archRtBonus;
     estimatedFps *= rtMultiplier;
+  }
+
+  // Thermal TDP Warning
+  if (cpu.tdpW >= 170 && cpu.multiCoreScore > 2500) {
+    warnings.push(
+      `🔥 Thermal TDP Warning: ${cpu.name} (${cpu.tdpW}W TDP) requires high-end liquid or dual-tower cooling to avoid thermal clock throttling.`
+    );
   }
 
   // Apply Frame Generation (DLSS 3 / FSR 3)
