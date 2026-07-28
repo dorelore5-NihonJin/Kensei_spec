@@ -69,8 +69,9 @@ export default function SystemDiagnostics({
 
       {/* Warnings & Errors */}
       {!isComplete ? (
-        <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-6">
-          🚨 Select CPU, GPU, and RAM to activate telemetry report.
+        <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-6 flex items-center justify-center gap-2">
+          <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
+          <span>Select CPU, GPU, and RAM to activate telemetry report.</span>
         </div>
       ) : compatibilityReport.warnings.length === 0 && compatibilityReport.mismatches.length === 0 ? (
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-start gap-3">
@@ -128,8 +129,16 @@ export default function SystemDiagnostics({
             </div>
             <div className="flex justify-between items-center mt-1.5 text-xs font-black">
               <span className="text-gray-600 dark:text-gray-400">TDP: {systemTdp}W / Capacity: {recommendedPsu}W</span>
-              <span className={`${isOverloaded || headroomPct < 15 ? "text-rose-600 dark:text-rose-400" : "text-emerald-600 dark:text-emerald-400"}`}>
-                {isOverloaded ? "🚨 OVERLOADED" : `✅ ${headroomPct}% Safety Headroom`}
+              <span className={`flex items-center gap-1 ${isOverloaded || headroomPct < 15 ? "text-rose-600 dark:text-rose-400" : "text-emerald-600 dark:text-emerald-400"}`}>
+                {isOverloaded ? (
+                  <>
+                    <AlertTriangle className="w-3.5 h-3.5 text-rose-500" /> OVERLOADED
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500" /> {headroomPct}% Safety Headroom
+                  </>
+                )}
               </span>
             </div>
           </div>
