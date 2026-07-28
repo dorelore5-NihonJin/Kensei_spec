@@ -364,7 +364,16 @@ export function calculatePerformance(
     const ratioInv = 1.0 / totalPowerRatio;
     bottleneckPercentage = Math.min(85, Math.round((ratioInv - 2.5) * 12));
     gpuLoadPercentage = 99;
-    cpuLoadPercentage = Math.max(8, Math.min(45, Math.round(baseCpuLoad * (totalPowerRatio / 0.38))));
+
+    // Dynamic game-dependent CPU load profile based on game CPU reliance & resolution
+    let dynamicCpuLoad = 16 + (game.cpuDependence * 22);
+    if (resolution === "1080p") dynamicCpuLoad += 6;
+    else if (resolution === "4K") dynamicCpuLoad -= 4;
+
+    if (cpu.multiCoreScore > 3500) dynamicCpuLoad *= 0.65;
+    else if (cpu.multiCoreScore > 2500) dynamicCpuLoad *= 0.80;
+
+    cpuLoadPercentage = Math.min(55, Math.max(12, Math.round(dynamicCpuLoad)));
     warnings.push(
       `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );

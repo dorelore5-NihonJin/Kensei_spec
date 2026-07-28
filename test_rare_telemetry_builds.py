@@ -144,7 +144,18 @@ def simulate_kensei_load(t):
     elif total_power_ratio < 0.38:
         # Severe GPU Bottleneck (Top CPU + Weak/Legacy GPU)
         gpu_load = 99
-        cpu_load = max(6, min(40, round(base_cpu * (total_power_ratio / 0.38))))
+        dyn_cpu = 16.0 + (game_cpu_dep * 22.0)
+        if t["res"] == "1080p":
+            dyn_cpu += 6.0
+        elif t["res"] == "4K":
+            dyn_cpu -= 4.0
+
+        if t["cpu_mc"] > 3500:
+            dyn_cpu *= 0.65
+        elif t["cpu_mc"] > 2500:
+            dyn_cpu *= 0.80
+
+        cpu_load = min(55, max(12, round(dyn_cpu)))
     else:
         gpu_load = min(99, max(20, round(base_gpu)))
         cpu_load = min(98, max(15, round(base_cpu)))
