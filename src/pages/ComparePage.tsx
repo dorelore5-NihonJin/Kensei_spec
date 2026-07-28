@@ -199,10 +199,14 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8 animate-fadeIn">
       {/* 1. PAGE HEADER & MODE TOGGLE */}
       <div className="relative overflow-hidden bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-        {/* Background Decorative Banner Overlay */}
-        <div
-          className="absolute inset-0 opacity-15 dark:opacity-25 bg-cover bg-center pointer-events-none transition-opacity duration-500"
-          style={{ backgroundImage: `url('/compare_banner_gif.gif'), url('/compare_hero_banner.jpg'), url('file:///C:/Users/dorel/.gemini/antigravity/brain/ad50f79c-bd42-4505-9c5f-2d790b6a091e/compare_hero_banner_1785274601218.jpg')` }}
+        {/* Background Live Video Banner Overlay */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-35 pointer-events-none transition-opacity duration-500"
+          src="/gif_banner_vs.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#1A1C1E] dark:via-[#1A1C1E]/80 dark:to-transparent pointer-events-none" />
 
