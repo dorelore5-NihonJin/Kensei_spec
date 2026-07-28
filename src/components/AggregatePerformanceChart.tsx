@@ -20,7 +20,6 @@ const GPU_MILESTONES = [
   { name: "RTX 2060", score: 185 },
   { name: "RTX 3070", score: 310 },
   { name: "RTX 4080", score: 520 },
-  { name: "RTX 5090", score: 980 },
 ];
 
 const CPU_MILESTONES = [
@@ -30,14 +29,14 @@ const CPU_MILESTONES = [
   { name: "i5-10400", score: 125 },
   { name: "Ryzen 5600", score: 185 },
   { name: "i5-13600K", score: 250 },
-  { name: "7800X3D", score: 310 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-  const maxScore = milestones[milestones.length - 1].score;
+  // Maximum scale benchmark score (310 pts for CPU apex, 980 pts for GPU apex)
+  const maxScore = type === "gpu" ? 980 : 310;
 
-  // Exact percentage calculation relative to max milestone
+  // Exact percentage calculation relative to max scale
   const pctA = Math.max(0.5, (itemA.score / maxScore) * 100);
   const pctB = Math.max(0.5, (itemB.score / maxScore) * 100);
 
@@ -69,7 +68,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
       {/* CHART CONTAINER WITH UNIFIED COORD SYSTEM */}
       <div className="flex flex-col sm:flex-row items-stretch gap-2 pt-2">
         {/* Left Component Titles Stack */}
-        <div className="w-full sm:w-44 shrink-0 flex flex-col justify-around py-12 gap-6 min-w-0 pr-2">
+        <div className="w-full sm:w-44 shrink-0 flex flex-col justify-around py-10 gap-6 min-w-0 pr-2">
           {/* Component A Title */}
           <div className="flex flex-col min-w-0">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
@@ -107,23 +106,9 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           </div>
         </div>
 
-        {/* Right Shared Coordinate Scale Container (Guarantees 1:1 pixel alignment across top, tracks & bottom) */}
-        <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[220px]">
-          {/* Continuous Unified Guide Lines Overlay running through entire height */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            {milestones.map((ms, idx) => {
-              const msPct = (ms.score / maxScore) * 100;
-              return (
-                <div
-                  key={idx}
-                  className="absolute top-0 bottom-0 w-px border-r border-dashed border-purple-500/20 dark:border-white/10"
-                  style={{ left: `${msPct}%` }}
-                />
-              );
-            })}
-          </div>
-
-          {/* 1. TOP RULER ROW (Even Indices) */}
+        {/* Right Shared Scale Container */}
+        <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[200px]">
+          {/* 1. TOP RULER ROW (Even Indices: Pentium 4, i7-3770K, Ryzen 5600) */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
@@ -142,10 +127,25 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             })}
           </div>
 
-          {/* 2. DUAL PROGRESS TRACKS */}
+          {/* 2. DUAL PROGRESS TRACKS (Dashed lines CONFINED strictly INSIDE the track bars only) */}
           <div className="flex flex-col gap-6 w-full z-10 my-4">
             {/* Track Capsule A */}
             <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-visible">
+              {/* Confined Dashed Vertical Lines INSIDE Track A */}
+              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
+                {milestones.map((ms, idx) => {
+                  const msPct = (ms.score / maxScore) * 100;
+                  return (
+                    <div
+                      key={idx}
+                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/15 dark:border-white/15"
+                      style={{ left: `${msPct}%` }}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Filled Slider Bar */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "A"
@@ -169,6 +169,21 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
             {/* Track Capsule B */}
             <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-visible">
+              {/* Confined Dashed Vertical Lines INSIDE Track B */}
+              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
+                {milestones.map((ms, idx) => {
+                  const msPct = (ms.score / maxScore) * 100;
+                  return (
+                    <div
+                      key={idx}
+                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/15 dark:border-white/15"
+                      style={{ left: `${msPct}%` }}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Filled Slider Bar */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "B"
@@ -191,7 +206,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
           </div>
 
-          {/* 3. BOTTOM RULER ROW (Odd Indices) */}
+          {/* 3. BOTTOM RULER ROW (Odd Indices: Core 2 Duo, i5-10400, i5-13600K) */}
           <div className="relative h-8 w-full z-10">
             {bottomMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
