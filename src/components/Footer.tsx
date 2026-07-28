@@ -4,9 +4,10 @@ interface FooterProps {
   setActivePage: (page: "simulator" | "catalog") => void;
   onOpenBuyModal: () => void;
   onResetBuild: () => void;
+  onOpenLegalModal: (tab?: "terms" | "privacy" | "disclaimer" | "affiliate") => void;
 }
 
-export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
+export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal }: FooterProps) {
   return (
     <footer className="mt-24 border-t border-black/10 dark:border-white/10 bg-white/50 dark:bg-[#151719]/80 backdrop-blur-lg rounded-t-3xl pt-12 pb-8 px-6 sm:px-10 text-xs font-extrabold text-gray-600 dark:text-gray-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -38,9 +39,12 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
               <span className="w-1.5 h-1.5 rounded-full bg-[#8A9A86] animate-ping" />
               Verified Telemetry v2.6
             </span>
-            <span className="bg-[#E88D9F]/15 text-[#E88D9F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
-              <ShieldCheck className="w-3 h-3 text-[#E88D9F]" /> 100% Socket Verified
-            </span>
+            <button
+              onClick={() => onOpenLegalModal("terms")}
+              className="bg-[#E88D9F]/15 text-[#E88D9F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 hover:bg-[#E88D9F]/25 transition"
+            >
+              <ShieldCheck className="w-3 h-3 text-[#E88D9F]" /> Legal & Terms
+            </button>
           </div>
         </div>
 
@@ -121,12 +125,26 @@ export default function Footer({ setActivePage, onOpenBuyModal }: FooterProps) {
       </div>
 
       {/* Bottom Legal & Copyright Bar */}
-      <div className="max-w-7xl mx-auto border-t border-black/10 dark:border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500 font-extrabold">
+      <div className="max-w-7xl mx-auto border-t border-black/10 dark:border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500 font-extrabold flex-wrap">
         <div>
           © 2026 <strong>KENSEI SPEC (剣聖スペック)</strong>. All rights reserved.
         </div>
-        <div className="flex items-center gap-4">
-          <span>Designed with Soft Japanese Minimalism</span>
+        <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
+          <button onClick={() => onOpenLegalModal("terms")} className="hover:text-[#E88D9F] transition">
+            Terms of Service / 利用規約
+          </button>
+          <span className="text-gray-300 dark:text-gray-700">•</span>
+          <button onClick={() => onOpenLegalModal("privacy")} className="hover:text-emerald-400 transition">
+            Privacy Policy / プライバシー
+          </button>
+          <span className="text-gray-300 dark:text-gray-700">•</span>
+          <button onClick={() => onOpenLegalModal("disclaimer")} className="hover:text-indigo-400 transition">
+            Telemetry Disclaimer / 免責事項
+          </button>
+          <span className="text-gray-300 dark:text-gray-700">•</span>
+          <button onClick={() => onOpenLegalModal("affiliate")} className="hover:text-amber-400 transition">
+            Commercial & Affiliate / 商業開示
+          </button>
           <span className="text-gray-300 dark:text-gray-700">•</span>
           <button onClick={onOpenBuyModal} className="text-[#E88D9F] hover:underline flex items-center gap-1">
             <ShoppingCart className="w-3 h-3" /> Buy Build

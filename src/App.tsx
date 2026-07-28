@@ -20,6 +20,7 @@ import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap, Check } from "lucide-reac
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
+import LegalDocsModal from "./components/LegalDocsModal";
 
 // Safe casting seed data
 const cpus = cpuData as CPU[];
@@ -38,8 +39,15 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [viewMode, setViewMode] = useState<"wizard" | "overview">("wizard");
 
-  // --- BUY STORE MODAL STATE ---
+  // --- BUY STORE & LEGAL MODAL STATE ---
   const [isBuyModalOpen, setIsBuyModalOpen] = useState<boolean>(false);
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState<boolean>(false);
+  const [legalModalTab, setLegalModalTab] = useState<"terms" | "privacy" | "disclaimer" | "affiliate">("terms");
+
+  const handleOpenLegalModal = (tab: "terms" | "privacy" | "disclaimer" | "affiliate" = "terms") => {
+    setLegalModalTab(tab);
+    setIsLegalModalOpen(true);
+  };
 
   // --- BUILD STATE ---
   const [selectedCpu, setSelectedCpu] = useState<CPU | null>(null);
@@ -641,11 +649,19 @@ export default function App() {
           psuRecommendationW={compatibilityReport.psuRecommendationW}
         />
 
+        {/* LEGAL GOVERNANCE & POLICY MODAL */}
+        <LegalDocsModal
+          isOpen={isLegalModalOpen}
+          onClose={() => setIsLegalModalOpen(false)}
+          initialTab={legalModalTab}
+        />
+
         {/* Rich Multi-Column Footer */}
         <Footer
           setActivePage={setActivePage}
           onOpenBuyModal={() => setIsBuyModalOpen(true)}
           onResetBuild={handleResetBuild}
+          onOpenLegalModal={handleOpenLegalModal}
         />
       </div>
     </div>
