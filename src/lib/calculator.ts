@@ -227,9 +227,15 @@ export function calculatePerformance(
     );
   }
 
-  // Engine Soft-Cap (CS2 engine soft-caps ~535 FPS, Valorant ~580 FPS)
-  if (baseFps > 200) {
-    estimatedFps = Math.min(estimatedFps, baseFps === 240 ? 535 : 580);
+  // Engine Soft-Cap (CS2 Source 2 engine soft-caps ~535 FPS, Valorant ~580 FPS, Dota 2 ~360 FPS)
+  const isEsportsHighFpsGame = game.id.includes("cs2") || game.id.includes("valorant") || game.id.includes("dota") || game.id.includes("fortnite") || game.id.includes("apex");
+  if (isEsportsHighFpsGame || baseFps > 180) {
+    let maxEngineCap = 600;
+    if (game.id.includes("cs2")) maxEngineCap = 535;
+    else if (game.id.includes("valorant")) maxEngineCap = 580;
+    else if (game.id.includes("dota")) maxEngineCap = 360;
+
+    estimatedFps = Math.min(estimatedFps, maxEngineCap);
   }
 
   // Cap FPS logically
