@@ -41,54 +41,54 @@ export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }
           </button>
         </div>
 
-        {/* Tab Selection Navigation Bar */}
-        <div className="flex border-b border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-2.5 gap-2 overflow-x-auto no-scrollbar">
+        {/* Tab Selection Navigation Bar (Grid layout guarantees no tab clipping) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-2.5 gap-2">
           <button
             onClick={() => setActiveTab("terms")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition shrink-0 ${
+            className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center justify-center gap-1.5 transition text-center ${
               activeTab === "terms"
                 ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                 : "text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <FileText className="w-4 h-4 text-[#E88D9F]" />
-            <span>1. Terms of Service / 利用規約</span>
+            <FileText className="w-3.5 h-3.5 text-[#E88D9F] shrink-0" />
+            <span className="truncate">1. Terms of Service / 利用規約</span>
           </button>
 
           <button
             onClick={() => setActiveTab("privacy")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition shrink-0 ${
+            className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center justify-center gap-1.5 transition text-center ${
               activeTab === "privacy"
                 ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                 : "text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Lock className="w-4 h-4 text-emerald-400" />
-            <span>2. Privacy Policy / プライバシー</span>
+            <Lock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span className="truncate">2. Privacy Policy / プライバシー</span>
           </button>
 
           <button
             onClick={() => setActiveTab("disclaimer")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition shrink-0 ${
+            className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center justify-center gap-1.5 transition text-center ${
               activeTab === "disclaimer"
                 ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                 : "text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Activity className="w-4 h-4 text-indigo-400" />
-            <span>3. Telemetry Disclaimer / ベンチマーク免責事項</span>
+            <Activity className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+            <span className="truncate">3. Telemetry / 免責事項</span>
           </button>
 
           <button
             onClick={() => setActiveTab("affiliate")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition shrink-0 ${
+            className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center justify-center gap-1.5 transition text-center ${
               activeTab === "affiliate"
                 ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
                 : "text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <DollarSign className="w-4 h-4 text-amber-400" />
-            <span>4. Commercial & Affiliate / 商業開示事項</span>
+            <DollarSign className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="truncate">4. Commercial / 商業開示</span>
           </button>
         </div>
 
