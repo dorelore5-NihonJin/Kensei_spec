@@ -12,6 +12,10 @@
   --color-matcha-sage-light: #738A6E;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-color: #FBF9F5;
   color: #1E2022;
