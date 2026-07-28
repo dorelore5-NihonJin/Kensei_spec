@@ -29,15 +29,15 @@ const CPU_MILESTONES = [
   { name: "i5-10400", score: 125 },
   { name: "Ryzen 5600", score: 185 },
   { name: "7800X3D", score: 310 },
-  { name: "14900KS / 285K", score: 450 },
+  { name: "14900KS", score: 450 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
   const maxScore = milestones[milestones.length - 1].score;
 
-  const pctA = Math.min(100, Math.max(3, Math.round((itemA.score / maxScore) * 100)));
-  const pctB = Math.min(100, Math.max(3, Math.round((itemB.score / maxScore) * 100)));
+  const pctA = Math.min(100, Math.max(2, Math.round((itemA.score / maxScore) * 100)));
+  const pctB = Math.min(100, Math.max(2, Math.round((itemB.score / maxScore) * 100)));
 
   const winner = itemA.score > itemB.score ? "A" : itemB.score > itemA.score ? "B" : "Tie";
   const winnerName = winner === "A" ? itemA.name : itemB.name;
@@ -54,91 +54,117 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         <div>
           <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-purple-500" />
-            Aggregate Telemetry Performance Score / 総合性能ベンチマーク
+            Aggregate Telemetry Performance Matrix / 総合性能比較チャート
           </h3>
           <p className="text-xs text-gray-500 dark:text-gray-400 font-bold mt-0.5">
-            Comparative silicon throughput index measured against landmark hardware generations.
+            Normalized throughput benchmark scale relative to historical silicon milestones.
           </p>
         </div>
-        <span className="text-[10px] font-black uppercase bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/20 self-start sm:self-auto">
-          Silicon Scale
+        <span className="text-[10px] font-black uppercase bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/20 self-start sm:self-auto font-mono">
+          0 ➔ {maxScore} PTS APEX
         </span>
       </div>
 
-      {/* Milestones Header Ruler */}
-      <div className="relative w-full pt-6 pb-2">
-        <div className="grid grid-cols-6 gap-1 w-full text-center border-b border-black/10 dark:border-white/10 pb-2">
-          {milestones.map((ms, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <span className="text-[10px] font-black text-purple-500 dark:text-purple-400 font-mono">
-                {ms.name}
-              </span>
-              <span className="text-[8px] font-bold text-gray-400 font-mono">{ms.score} pts</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Dual Stacked Progress Bars */}
-      <div className="flex flex-col gap-5">
-        {/* BAR A */}
-        <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between text-xs font-black">
-            <div className="flex items-center gap-2">
-              <span className="text-[#1E2022] dark:text-white">{itemA.name}</span>
-              <span className="text-[10px] text-gray-400 font-bold">({itemA.details})</span>
-            </div>
-            <div className="flex items-center gap-2 font-mono">
-              <span className="text-sm font-black text-[#1E2022] dark:text-white">{itemA.score} pts</span>
-              {winner === "A" && (
-                <span className="text-[10px] font-black text-emerald-500 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md">
-                  +{deltaPct}%
+      {/* CHART CONTAINER WITH MILESTONE GUIDES & CONNECTING TICKS */}
+      <div className="flex flex-col gap-8 relative pt-8 pb-4 px-2">
+        {/* Top Milestone Labels positioned at exact percentage locations with tick lines */}
+        <div className="relative w-full h-8 mb-2">
+          {milestones.map((ms, idx) => {
+            const msPct = Math.round((ms.score / maxScore) * 100);
+            return (
+              <div
+                key={idx}
+                className="absolute top-0 -translate-x-1/2 flex flex-col items-center pointer-events-none"
+                style={{ left: `${msPct}%` }}
+              >
+                <span className="text-[10px] font-black text-purple-600 dark:text-purple-400 font-mono whitespace-nowrap bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">
+                  {ms.name}
                 </span>
-              )}
-            </div>
-          </div>
-
-          <div className="w-full h-7 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden p-1 border border-black/10 dark:border-white/10 relative">
-            <div
-              className={`h-full rounded-lg transition-all duration-700 ease-out flex items-center justify-end px-3 font-mono text-[10px] font-black text-white ${
-                winner === "A"
-                  ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-emerald-400 shadow-md"
-                  : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-75"
-              }`}
-              style={{ width: `${pctA}%` }}
-            >
-              {pctA > 15 && <span>{pctA}% Apex</span>}
-            </div>
-          </div>
+                <span className="text-[8px] font-bold text-gray-400 font-mono">{ms.score} pts</span>
+                {/* Connecting Vertical Tick Pointer Downward */}
+                <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mt-1" />
+              </div>
+            );
+          })}
         </div>
 
-        {/* BAR B */}
-        <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between text-xs font-black">
-            <div className="flex items-center gap-2">
-              <span className="text-[#1E2022] dark:text-white">{itemB.name}</span>
-              <span className="text-[10px] text-gray-400 font-bold">({itemB.details})</span>
+        {/* Dual Stacked Progress Bars Container with Overlay Vertical Grid Lines */}
+        <div className="relative flex flex-col gap-6 w-full">
+          {/* Vertical Guide Ticks Overlay passing through the bars */}
+          <div className="absolute inset-0 pointer-events-none z-10">
+            {milestones.map((ms, idx) => {
+              const msPct = Math.round((ms.score / maxScore) * 100);
+              return (
+                <div
+                  key={idx}
+                  className="absolute top-0 bottom-0 w-px border-r border-dashed border-gray-300/60 dark:border-white/10"
+                  style={{ left: `${msPct}%` }}
+                />
+              );
+            })}
+          </div>
+
+          {/* BAR A */}
+          <div className="flex flex-col gap-1.5 relative z-20">
+            <div className="flex items-center justify-between text-xs font-black">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-purple-500" />
+                <span className="text-[#1E2022] dark:text-white font-extrabold">{itemA.name}</span>
+                <span className="text-[10px] text-gray-400 font-bold">({itemA.details})</span>
+              </div>
+              <div className="flex items-center gap-2 font-mono">
+                <span className="text-sm font-black text-[#1E2022] dark:text-white">{itemA.score} pts</span>
+                {winner === "A" && (
+                  <span className="text-[10px] font-black text-emerald-500 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md">
+                    +{deltaPct}%
+                  </span>
+                )}
+              </div>
             </div>
-            <div className="flex items-center gap-2 font-mono">
-              <span className="text-sm font-black text-[#1E2022] dark:text-white">{itemB.score} pts</span>
-              {winner === "B" && (
-                <span className="text-[10px] font-black text-emerald-500 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md">
-                  +{deltaPct}%
-                </span>
-              )}
+
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner">
+              <div
+                className={`h-full rounded-lg transition-all duration-700 ease-out flex items-center justify-end px-3 font-mono text-[10px] font-black text-white ${
+                  winner === "A"
+                    ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-emerald-400 shadow-md"
+                    : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-80"
+                }`}
+                style={{ width: `${pctA}%` }}
+              >
+                {pctA > 15 && <span>{itemA.score} pts</span>}
+              </div>
             </div>
           </div>
 
-          <div className="w-full h-7 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden p-1 border border-black/10 dark:border-white/10 relative">
-            <div
-              className={`h-full rounded-lg transition-all duration-700 ease-out flex items-center justify-end px-3 font-mono text-[10px] font-black text-white ${
-                winner === "B"
-                  ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-emerald-400 shadow-md"
-                  : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-75"
-              }`}
-              style={{ width: `${pctB}%` }}
-            >
-              {pctB > 15 && <span>{pctB}% Apex</span>}
+          {/* BAR B */}
+          <div className="flex flex-col gap-1.5 relative z-20">
+            <div className="flex items-center justify-between text-xs font-black">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="text-[#1E2022] dark:text-white font-extrabold">{itemB.name}</span>
+                <span className="text-[10px] text-gray-400 font-bold">({itemB.details})</span>
+              </div>
+              <div className="flex items-center gap-2 font-mono">
+                <span className="text-sm font-black text-[#1E2022] dark:text-white">{itemB.score} pts</span>
+                {winner === "B" && (
+                  <span className="text-[10px] font-black text-emerald-500 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md">
+                    +{deltaPct}%
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner">
+              <div
+                className={`h-full rounded-lg transition-all duration-700 ease-out flex items-center justify-end px-3 font-mono text-[10px] font-black text-white ${
+                  winner === "B"
+                    ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-emerald-400 shadow-md"
+                    : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-80"
+                }`}
+                style={{ width: `${pctB}%` }}
+              >
+                {pctB > 15 && <span>{itemB.score} pts</span>}
+              </div>
             </div>
           </div>
         </div>

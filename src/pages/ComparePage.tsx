@@ -3,7 +3,6 @@ import type { CPU, GPU } from "../lib/types";
 import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
-import PerformanceSpectrumRail from "../components/PerformanceSpectrumRail";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
 
 interface ComparePageProps {
@@ -161,13 +160,6 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             </div>
           </div>
 
-          {/* Performance Rail for Component A */}
-          <PerformanceSpectrumRail
-            type={mode}
-            name={isCpuMode ? selectedCpuA.name : selectedGpuA.name}
-            score={scoreA}
-          />
-
           <button
             onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuA : selectedGpuA)}
             className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-2"
@@ -224,13 +216,6 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
               <span className="text-2xl font-black text-purple-500">{scoreB} pts</span>
             </div>
           </div>
-
-          {/* Performance Rail for Component B */}
-          <PerformanceSpectrumRail
-            type={mode}
-            name={isCpuMode ? selectedCpuB.name : selectedGpuB.name}
-            score={scoreB}
-          />
 
           <button
             onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuB : selectedGpuB)}
