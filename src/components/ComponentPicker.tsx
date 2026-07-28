@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
-import { Cpu, Tv, Database, HardDrive, Search, Filter } from "lucide-react";
+import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X } from "lucide-react";
 
 interface ComponentPickerProps {
   cpus: CPU[];
@@ -219,7 +219,7 @@ export default function ComponentPicker({
                 <div className="absolute z-30 left-0 right-0 mt-2 max-h-60 overflow-y-auto bg-white dark:bg-[#1A1C1E] border border-black/15 dark:border-white/15 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5">
                   <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black px-3 py-1.5 uppercase border-b border-black/10 dark:border-white/10 flex justify-between">
                     <span>Suggestions ({filteredCpus.length} matches)</span>
-                    <button onClick={() => setIsCpuFocused(false)} className="text-red-500 hover:text-red-700 font-black">✕ Close</button>
+                    <button onClick={() => setIsCpuFocused(false)} className="text-red-500 hover:text-red-700 font-black flex items-center gap-1"><X className="w-3 h-3" /> Close</button>
                   </div>
                   {filteredCpus.length === 0 ? (
                     <div className="text-xs text-gray-500 dark:text-gray-400 py-4 text-center font-bold">No match. Adjust filters.</div>
@@ -261,7 +261,7 @@ export default function ComponentPicker({
       <div className="flex flex-col gap-3">
         <label className="block text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
           <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-[#8A9A86]" /> RAM Speed, Capacity & Channel Config</span>
-          {!selectedCpu && <span className="text-xs text-amber-600 dark:text-amber-400 font-black">⚠️ Choose a CPU first</span>}
+          {!selectedCpu && <span className="text-xs text-amber-600 dark:text-amber-400 font-black flex items-center gap-1"><AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Choose a CPU first</span>}
         </label>
 
         {/* RAM Capacity Picker (Exact GB) */}
@@ -455,7 +455,7 @@ export default function ComponentPicker({
               <div className="absolute z-20 left-0 right-0 mt-2 max-h-60 overflow-y-auto bg-white dark:bg-[#1A1C1E] border border-black/15 dark:border-white/15 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5">
                 <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black px-3 py-1.5 uppercase border-b border-black/10 dark:border-white/10 flex justify-between">
                   <span>Suggestions ({filteredGpus.length} matches)</span>
-                  <button onClick={() => setIsGpuFocused(false)} className="text-red-500 hover:text-red-700 font-black">✕ Close</button>
+                  <button onClick={() => setIsGpuFocused(false)} className="text-red-500 hover:text-red-700 font-black flex items-center gap-1"><X className="w-3 h-3" /> Close</button>
                 </div>
                 {filteredGpus.length === 0 ? (
                   <div className="text-xs text-gray-500 dark:text-gray-400 py-4 text-center font-bold">No match. Adjust filters.</div>
