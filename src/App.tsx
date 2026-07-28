@@ -15,8 +15,11 @@ import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
 import CookieBanner from "./components/CookieBanner";
+import CookieSettingsModal from "./components/CookieSettingsModal";
 
 export default function App() {
+  const [isCookieSettingsOpen, setIsCookieSettingsOpen] = useState<boolean>(false);
+
   const {
     cpus,
     gpus,
@@ -589,10 +592,21 @@ export default function App() {
           onOpenBuyModal={() => setIsBuyModalOpen(true)}
           onResetBuild={handleResetBuild}
           onOpenLegalModal={handleOpenLegalModal}
+          onOpenCookieSettings={() => setIsCookieSettingsOpen(true)}
         />
 
         {/* Cookie & LocalStorage GDPR Consent Banner */}
         <CookieBanner onOpenPrivacyPolicy={() => handleOpenLegalModal("privacy")} />
+
+        {/* Dedicated Cookie & Storage Preferences Modal */}
+        <CookieSettingsModal
+          isOpen={isCookieSettingsOpen}
+          onClose={() => setIsCookieSettingsOpen(false)}
+          onOpenPrivacyPolicy={() => {
+            setIsCookieSettingsOpen(false);
+            handleOpenLegalModal("privacy");
+          }}
+        />
       </div>
     </div>
   );

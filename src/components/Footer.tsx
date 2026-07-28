@@ -1,13 +1,14 @@
-import { Cpu, Gamepad2, ShoppingCart, Zap, ShieldCheck } from "lucide-react";
+import { Cpu, Gamepad2, ShoppingCart, Zap, ShieldCheck, Cookie } from "lucide-react";
 
 interface FooterProps {
   setActivePage: (page: "simulator" | "catalog") => void;
   onOpenBuyModal: () => void;
   onResetBuild: () => void;
   onOpenLegalModal: (tab?: "terms" | "privacy" | "disclaimer" | "affiliate") => void;
+  onOpenCookieSettings?: () => void;
 }
 
-export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal }: FooterProps) {
+export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal, onOpenCookieSettings }: FooterProps) {
   return (
     <footer className="mt-24 border-t border-black/10 dark:border-white/10 bg-white/50 dark:bg-[#151719]/80 backdrop-blur-lg rounded-t-3xl pt-12 pb-8 px-6 sm:px-10 text-xs font-extrabold text-gray-600 dark:text-gray-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -23,10 +24,11 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
               />
             </div>
             <div>
-              <h3 className="text-base font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-                KENSEI SPEC <span className="text-[10px] bg-[#E88D9F] text-white px-2 py-0.5 rounded font-black tracking-wider uppercase">剣聖スペック</span>
-              </h3>
-              <p className="text-[11px] text-gray-500 font-extrabold">Next-Gen Real-Time PC Hardware Telemetry & FPS Simulator</p>
+              <div className="flex items-center gap-2">
+                <span className="font-black text-base text-[#1E2022] dark:text-white tracking-tight">KENSEI SPEC</span>
+                <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] px-2 py-0.5 rounded-full uppercase font-bold">剣聖スペック</span>
+              </div>
+              <p className="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider">Hardware Telemetry Physics Engine</p>
             </div>
           </div>
 
@@ -34,7 +36,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
             Built to deliver authentic hardware benchmark predictions. Features 3D V-Cache latency math, VRAM buffer thrashing penalties, and socket-matched PC build recommendations.
           </p>
 
-          <div className="flex items-center gap-2 mt-1">
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
             <span className="bg-[#8A9A86]/15 text-[#8A9A86] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8A9A86] animate-ping" />
               Verified Telemetry v2.6
@@ -54,6 +56,15 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
                   : "Legal & Terms"}
               </span>
             </button>
+
+            {onOpenCookieSettings && (
+              <button
+                onClick={onOpenCookieSettings}
+                className="bg-[#E88D9F]/15 text-[#E88D9F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 hover:bg-[#E88D9F]/25 transition"
+              >
+                <Cookie className="w-3 h-3 text-[#E88D9F]" /> Cookie Settings
+              </button>
+            )}
           </div>
         </div>
 
