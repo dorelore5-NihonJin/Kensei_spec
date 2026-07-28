@@ -377,6 +377,8 @@ export default function App() {
                 setRayTracing={setRayTracing}
                 frameGen={frameGen}
                 setFrameGen={setFrameGen}
+                selectedCpu={selectedCpu}
+                selectedGpu={selectedGpu}
               />
               <FpsGauge
                 report={performanceReport}
@@ -486,6 +488,8 @@ export default function App() {
                   setRayTracing={setRayTracing}
                   frameGen={frameGen}
                   setFrameGen={setFrameGen}
+                  selectedCpu={selectedCpu}
+                  selectedGpu={selectedGpu}
                 />
 
                 {/* Progressive Action Banner for Step 2 */}

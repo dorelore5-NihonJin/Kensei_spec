@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import type { Game } from "../lib/types";
-import { Gamepad2, Search } from "lucide-react";
+import type { CPU, GPU, Game } from "../lib/types";
+import { Gamepad2, Search, AlertTriangle } from "lucide-react";
 
 interface GameSelectorProps {
   games: Game[];
@@ -16,6 +16,8 @@ interface GameSelectorProps {
   setRayTracing: (val: "Off" | "Medium" | "Ultra") => void;
   frameGen: boolean;
   setFrameGen: (val: boolean) => void;
+  selectedCpu?: CPU | null;
+  selectedGpu?: GPU | null;
 }
 
 // Custom theme badges for each game
@@ -57,7 +59,9 @@ export default function GameSelector({
   rayTracing,
   setRayTracing,
   frameGen,
-  setFrameGen
+  setFrameGen,
+  selectedCpu,
+  selectedGpu
 }: GameSelectorProps) {
   const [searchGameQuery, setSearchGameQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<"All" | "Esports" | "AAA" | "Simulation">("All");
@@ -69,8 +73,10 @@ export default function GameSelector({
     setFailedImages((prev) => ({ ...prev, [id]: true }));
   };
 
-  // Dynamic CPU & GPU Reliance Meters reacting instantly to settings
+  // Dynamic CPU & GPU Reliance Meters reacting instantly to settings & selected GPU
   const effectiveCpuReliance = useMemo(() => {
+    if (!selectedGpu) return null; // Show prompt if no GPU selected yet!
+
     let factor = selectedGame.cpuDependence * 100;
     if (selectedResolution === "1080p") factor *= 1.15;
     else if (selectedResolution === "1440p") factor *= 0.95;
@@ -82,10 +88,17 @@ export default function GameSelector({
     if (selectedDlss !== "Off") factor *= 1.12;
     if (rayTracing !== "Off") factor *= 1.08;
 
+    if (selectedCpu && selectedGpu) {
+      const ratio = selectedGpu.relativePowerScore / Math.max(1, (selectedCpu.singleCoreScore * 0.7 + selectedCpu.multiCoreScore * 0.3));
+      if (ratio > 2.2) factor *= 1.20;
+    }
+
     return Math.min(100, Math.max(15, Math.round(factor)));
-  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing]);
+  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing, selectedCpu, selectedGpu]);
 
   const effectiveGpuReliance = useMemo(() => {
+    if (!selectedGpu) return null; // Show prompt if no GPU selected yet!
+
     let factor = selectedGame.gpuDependence * 100;
     if (selectedResolution === "1080p") factor *= 0.85;
     else if (selectedResolution === "1440p") factor *= 1.10;
@@ -102,7 +115,7 @@ export default function GameSelector({
     else if (rayTracing === "Ultra") factor *= 1.50;
 
     return Math.min(100, Math.max(15, Math.round(factor)));
-  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing]);
+  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing, selectedGpu]);
 
   // Category classifier helper
   const getGameCategory = (id: string): "Esports" | "AAA" | "Simulation" => {
@@ -223,12 +236,20 @@ export default function GameSelector({
       <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex justify-around text-center text-xs">
         <div>
           <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">CPU Reliance</span>
-          <span className="font-black text-indigo-600 dark:text-indigo-400 transition-all duration-300">{effectiveCpuReliance}%</span>
+          {effectiveCpuReliance !== null ? (
+            <span className="font-black text-indigo-600 dark:text-indigo-400 transition-all duration-300">{effectiveCpuReliance}%</span>
+          ) : (
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-0.5"><AlertTriangle className="w-3 h-3 text-amber-500" /> Select GPU in Step 1</span>
+          )}
         </div>
         <div className="border-r border-black/10 dark:border-white/10" />
         <div>
           <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">GPU Reliance</span>
-          <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] transition-all duration-300">{effectiveGpuReliance}%</span>
+          {effectiveGpuReliance !== null ? (
+            <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] transition-all duration-300">{effectiveGpuReliance}%</span>
+          ) : (
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-0.5"><AlertTriangle className="w-3 h-3 text-amber-500" /> Select GPU in Step 1</span>
+          )}
         </div>
       </div>
 
