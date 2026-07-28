@@ -61,14 +61,14 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </p>
       </div>
 
-      {/* Main Chart Section with Tight Flex Layout (Left Title Offset: w-44, Right Track Area: flex-1) */}
+      {/* Main Chart Section */}
       <div className="flex flex-col gap-6 pt-2">
         {/* Top Milestone Ruler Row */}
-        <div className="flex items-end gap-3">
-          {/* Left spacer matching title column width */}
-          <div className="w-40 sm:w-48 shrink-0 hidden sm:block" />
+        <div className="flex items-end">
+          {/* Left spacer matching left title card width */}
+          <div className="w-44 sm:w-52 shrink-0 hidden sm:block" />
 
-          {/* Right Ruler Container (1:1 aligned directly above track bars) */}
+          {/* Right Ruler Container (Stretches 100% over the tracks) */}
           <div className="flex-1 relative h-14">
             {milestones.map((ms, idx) => {
               const msPct = Math.round((ms.score / maxScore) * 100);
@@ -94,16 +94,26 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
         {/* BAR A ROW */}
         <div className="flex items-center gap-3 relative">
-          {/* Left Component Title Label (Tight w-40 sm:w-48 width, right up against track start!) */}
-          <div className="w-40 sm:w-48 shrink-0 flex flex-col min-w-0 pr-1">
+          {/* Left Component Title & Score Card */}
+          <div className="w-44 sm:w-52 shrink-0 flex flex-col min-w-0 pr-2">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemA.name}
             </h4>
-            <p className="text-[10px] text-gray-400 font-bold truncate">{itemA.details}</p>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
+                {itemA.score} pts
+              </span>
+              {winner === "A" && (
+                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                  +{deltaPct}%
+                </span>
+              )}
+            </div>
+            <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemA.details}</p>
           </div>
 
-          {/* Right Track Scale Container */}
-          <div className="flex-1 flex items-center gap-3 relative min-w-0">
+          {/* Right Track Scale Container (Full Width) */}
+          <div className="flex-1 relative h-8 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
@@ -119,7 +129,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule A */}
-            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
+            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
               {/* Filled Slider Bar */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1 relative ${
@@ -133,31 +143,31 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 <div className="w-5 h-5 rounded-full bg-white/40 dark:bg-black/40 border border-white/80 backdrop-blur-md shrink-0 shadow-md" />
               </div>
             </div>
-
-            {/* Score Badge */}
-            <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs z-10">
-              <span className="font-black text-[#1E2022] dark:text-white">{itemA.score} pts</span>
-              {winner === "A" && (
-                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                  +{deltaPct}%
-                </span>
-              )}
-            </div>
           </div>
         </div>
 
         {/* BAR B ROW */}
         <div className="flex items-center gap-3 relative">
-          {/* Left Component Title Label (Tight w-40 sm:w-48 width, right up against track start!) */}
-          <div className="w-40 sm:w-48 shrink-0 flex flex-col min-w-0 pr-1">
+          {/* Left Component Title & Score Card */}
+          <div className="w-44 sm:w-52 shrink-0 flex flex-col min-w-0 pr-2">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemB.name}
             </h4>
-            <p className="text-[10px] text-gray-400 font-bold truncate">{itemB.details}</p>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
+                {itemB.score} pts
+              </span>
+              {winner === "B" && (
+                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                  +{deltaPct}%
+                </span>
+              )}
+            </div>
+            <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemB.details}</p>
           </div>
 
-          {/* Right Track Scale Container */}
-          <div className="flex-1 flex items-center gap-3 relative min-w-0">
+          {/* Right Track Scale Container (Full Width) */}
+          <div className="flex-1 relative h-8 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
@@ -173,7 +183,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule B */}
-            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
+            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
               {/* Filled Slider Bar */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1 relative ${
@@ -186,16 +196,6 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 {/* Circular Knob */}
                 <div className="w-5 h-5 rounded-full bg-white/40 dark:bg-black/40 border border-white/80 backdrop-blur-md shrink-0 shadow-md" />
               </div>
-            </div>
-
-            {/* Score Badge */}
-            <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs z-10">
-              <span className="font-black text-[#1E2022] dark:text-white">{itemB.score} pts</span>
-              {winner === "B" && (
-                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                  +{deltaPct}%
-                </span>
-              )}
             </div>
           </div>
         </div>
