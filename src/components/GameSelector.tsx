@@ -232,23 +232,51 @@ export default function GameSelector({
         })}
       </div>
 
-      {/* Dynamic Game Dependence Metrics */}
-      <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex justify-around text-center text-xs">
-        <div>
-          <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">CPU Reliance</span>
+      {/* Dynamic Hardware-Aware Reliance Metrics */}
+      <div className="p-3.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row justify-around items-center text-center gap-3">
+        <div className="flex flex-col items-center flex-1">
+          <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
+            CPU Reliance {selectedCpu && <span className="text-gray-400 font-normal">({selectedCpu.name})</span>}
+          </span>
           {effectiveCpuReliance !== null ? (
-            <span className="font-black text-indigo-600 dark:text-indigo-400 transition-all duration-300">{effectiveCpuReliance}%</span>
+            <div className="flex flex-col items-center">
+              <span className="font-black text-indigo-600 dark:text-indigo-400 text-base transition-all duration-300">
+                {effectiveCpuReliance}%
+              </span>
+              {selectedCpu && (
+                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 bg-indigo-500/15 text-indigo-600 dark:text-indigo-300">
+                  {effectiveCpuReliance > 80 ? "High Thread Load" : "Optimal Headroom"}
+                </span>
+              )}
+            </div>
           ) : (
-            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-0.5"><AlertTriangle className="w-3 h-3 text-amber-500" /> Select GPU in Step 1</span>
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Select GPU in Step 1
+            </span>
           )}
         </div>
-        <div className="border-r border-black/10 dark:border-white/10" />
-        <div>
-          <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">GPU Reliance</span>
+
+        <div className="hidden sm:block border-r border-black/10 dark:border-white/10 h-10" />
+
+        <div className="flex flex-col items-center flex-1">
+          <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
+            GPU Reliance {selectedGpu && <span className="text-gray-400 font-normal">({selectedGpu.name})</span>}
+          </span>
           {effectiveGpuReliance !== null ? (
-            <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] transition-all duration-300">{effectiveGpuReliance}%</span>
+            <div className="flex flex-col items-center">
+              <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] text-base transition-all duration-300">
+                {effectiveGpuReliance}%
+              </span>
+              {selectedGpu && (
+                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 bg-[#E88D9F]/15 text-[#E88D9F]">
+                  {effectiveGpuReliance > 85 ? "Shader & Render Bound" : "High VRAM Headroom"}
+                </span>
+              )}
+            </div>
           ) : (
-            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-0.5"><AlertTriangle className="w-3 h-3 text-amber-500" /> Select GPU in Step 1</span>
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Select GPU in Step 1
+            </span>
           )}
         </div>
       </div>
