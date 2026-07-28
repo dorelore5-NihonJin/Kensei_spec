@@ -142,7 +142,7 @@ export function calculatePerformance(
     storageFactor = 1.02;
   }
 
-  // --- 3. Dynamic Resolution-Aware Bottleneck Calculation ---
+  // --- 3. Dynamic Resolution-Aware & Asymmetric Bottleneck Calculation ---
   let resCpuWeight = game.cpuDependence;
   let resGpuWeight = game.gpuDependence;
 
@@ -162,7 +162,25 @@ export function calculatePerformance(
 
   // Bottleneck Law: The weakest hardware component strictly limits peak framerate throughput
   const minHwFactor = Math.min(cpuFactor, gpuFactor);
-  const combinedHwFactor = (minHwFactor * 0.68) + (weightedHwFactor * 0.32);
+
+  // Asymmetric Disparity Penalty: When one component is > 2.2x faster than the other, pipeline waiting occurs
+  const bottleneckRatio = Math.max(cpuFactor / gpuFactor, gpuFactor / cpuFactor);
+  let asymmetricStallFactor = 1.0;
+  if (bottleneckRatio > 2.2) {
+    asymmetricStallFactor = Math.max(0.78, 1.0 - (bottleneckRatio - 2.2) * 0.05);
+  }
+
+  // Generational Disparity (e.g. pairing a 2015 CPU with a 2024 GPU)
+  const yearDiff = Math.abs(gpu.releaseYear - cpu.releaseYear);
+  let genMismatchFactor = 1.0;
+  if (yearDiff >= 6 && cpu.releaseYear <= 2017) {
+    genMismatchFactor = Math.max(0.76, 1.0 - (yearDiff - 5) * 0.035);
+    warnings.push(
+      `💡 Generational Asymmetry: Pairing a ${cpu.releaseYear} CPU (${cpu.name}) with a ${gpu.releaseYear} GPU (${gpu.name}) causes PCIe bus & draw-call thread saturation.`
+    );
+  }
+
+  const combinedHwFactor = ((minHwFactor * 0.68) + (weightedHwFactor * 0.32)) * asymmetricStallFactor * genMismatchFactor;
 
   let estimatedFps = baseFps * combinedHwFactor * ramFactor * storageFactor;
 
