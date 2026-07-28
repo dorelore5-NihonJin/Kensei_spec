@@ -207,10 +207,12 @@ export default function ComponentPicker({
             </div>
 
               {/* Click-away backdrop overlay */}
-              <div
-                className="fixed inset-0 z-20"
-                onClick={() => setIsCpuFocused(false)}
-              />
+              {isCpuFocused && (
+                <div
+                  className="fixed inset-0 z-20"
+                  onClick={() => setIsCpuFocused(false)}
+                />
+              )}
 
               {/* Suggestions list */}
               {isCpuFocused && (
@@ -441,10 +443,12 @@ export default function ComponentPicker({
             </div>
 
             {/* Click-away backdrop overlay */}
-            <div
-              className="fixed inset-0 z-10"
-              onClick={() => setIsGpuFocused(false)}
-            />
+            {isGpuFocused && (
+              <div
+                className="fixed inset-0 z-10"
+                onClick={() => setIsGpuFocused(false)}
+              />
+            )}
 
             {/* Suggestions list */}
             {isGpuFocused && (
