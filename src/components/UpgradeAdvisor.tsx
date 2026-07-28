@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import type { CPU, GPU, RAMProfile, Game, StorageType } from "../lib/types";
 import { calculatePerformance } from "../lib/calculator";
-import { ArrowUpRight, TrendingUp, Sparkles, HelpCircle } from "lucide-react";
+import { ArrowUpRight, TrendingUp, Sparkles, HelpCircle, CheckCircle2, Zap } from "lucide-react";
 
 interface UpgradeAdvisorProps {
   selectedCpu: CPU | null;
@@ -15,8 +15,6 @@ interface UpgradeAdvisorProps {
   rayTracing: "Off" | "Medium" | "Ultra";
   frameGen: boolean;
   ramChannel: "Single" | "Dual";
-  bottleneckType: "None" | "CPU" | "GPU" | "RAM" | "Storage";
-  currentFps: number;
   cpus: CPU[];
   gpus: GPU[];
 }
@@ -33,24 +31,56 @@ export default function UpgradeAdvisor({
   rayTracing,
   frameGen,
   ramChannel,
-  bottleneckType,
-  currentFps,
   cpus,
   gpus
 }: UpgradeAdvisorProps) {
   const isComplete = selectedCpu && selectedGpu && selectedRam;
 
-  // Live calculation of the absolute best, most optimal upgrade candidate
+  // Calculate current baseline performance
+  const currentPerformance = useMemo(() => {
+    if (!isComplete) return null;
+    return calculatePerformance(
+      selectedCpu,
+      selectedGpu,
+      selectedRam,
+      selectedStorage,
+      selectedGame,
+      selectedResolution,
+      selectedPreset,
+      selectedDlss,
+      rayTracing,
+      frameGen,
+      ramChannel
+    );
+  }, [
+    isComplete,
+    selectedCpu,
+    selectedGpu,
+    selectedRam,
+    selectedStorage,
+    selectedGame,
+    selectedResolution,
+    selectedPreset,
+    selectedDlss,
+    rayTracing,
+    frameGen,
+    ramChannel
+  ]);
+
+  const bottleneckType = currentPerformance?.bottleneckType || "None";
+  const currentFps = currentPerformance?.averageFps || 0;
+
+  // Find the smartest upgrade path
   const upgradeRecommendation = useMemo(() => {
-    if (!isComplete || bottleneckType === "None" || currentFps <= 0) return null;
+    if (!isComplete || !currentPerformance) return null;
 
     if (bottleneckType === "CPU") {
-      const currentBrand = selectedCpu.manufacturer;
       const currentSocket = selectedCpu.socket;
+      const currentBrand = selectedCpu.manufacturer;
 
-      // 1. First priority: search for Drop-In CPU upgrades on the EXACT SAME socket (e.g. AM4 -> AM4 or LGA1700 -> LGA1700)
+      // 1. Try finding a drop-in CPU on the SAME socket first
       const sameSocketCandidates = cpus.filter(
-        (c) => c.manufacturer === currentBrand && c.socket === currentSocket && c.id !== selectedCpu.id
+        (c) => c.socket === currentSocket && c.id !== selectedCpu.id
       );
 
       let bestUpgrade: CPU | null = null;
@@ -75,7 +105,7 @@ export default function UpgradeAdvisor({
 
         const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
         if (pctIncrease >= 20) {
-          const scoreMetric = candidate.singleCoreScore * 1.5 + candidate.multiCoreScore * 0.5;
+          const scoreMetric = candidate.singleCoreScore * 0.7 + candidate.multiCoreScore * 0.3;
           if (scoreMetric < lowestEnrichingScore) {
             lowestEnrichingScore = scoreMetric;
             bestUpgrade = candidate;
@@ -121,8 +151,8 @@ export default function UpgradeAdvisor({
           suggestedName: bestUpgrade.name,
           isDropIn,
           socketBadge: isDropIn
-            ? `✅ Drop-in Socket Compatible (${currentSocket})`
-            : `⚡ Platform Upgrade Required (${currentSocket} → ${bestUpgrade.socket} + Motherboard)`,
+            ? `Drop-in Socket Compatible (${currentSocket})`
+            : `Platform Upgrade Required (${currentSocket} → ${bestUpgrade.socket} + Motherboard)`,
           details: `${bestUpgrade.cores} Cores / ${bestUpgrade.threads} Threads • Socket ${bestUpgrade.socket} • L3 Cache ${bestUpgrade.l3CacheMB}MB`,
           currentFps,
           newFps: bestUpgradeFps,
@@ -132,7 +162,6 @@ export default function UpgradeAdvisor({
     }
 
     if (bottleneckType === "GPU") {
-      // Find the nearest GPU of the same brand (or any) that unlocks +30% average FPS
       const currentBrand = selectedGpu.manufacturer;
       const candidates = gpus.filter(
         (g) => g.manufacturer === currentBrand && g.id !== selectedGpu.id
@@ -167,7 +196,6 @@ export default function UpgradeAdvisor({
         }
       }
 
-      // Fallback: pick the absolute best performing GPU of the same manufacturer
       if (!bestUpgrade) {
         let maxFps = 0;
         for (const candidate of candidates) {
@@ -208,6 +236,7 @@ export default function UpgradeAdvisor({
     return null;
   }, [
     isComplete,
+    currentPerformance,
     bottleneckType,
     currentFps,
     cpus,
@@ -228,12 +257,12 @@ export default function UpgradeAdvisor({
   return (
     <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col gap-5">
       <div className="flex items-center justify-between">
-        <h3 className="text-base font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
-          <TrendingUp className="w-4 h-4 text-[#E88D9F]" />
-          Optimal Upgrade Advisor / 推奨アップグレード
+        <h3 className="text-lg font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
+          <TrendingUp className="w-5 h-5 text-[#E88D9F]" />
+          Smart Upgrade Advisor / アップグレード診断
         </h3>
         <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] dark:bg-[#E88D9F]/25 font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
-          Advisor
+          Optimization
         </span>
       </div>
 
@@ -260,12 +289,17 @@ export default function UpgradeAdvisor({
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider">Suggested Upgrade Tier</span>
                 {upgradeRecommendation.socketBadge && (
-                  <span className={`text-[9px] font-black px-2 py-0.5 rounded-md ${
+                  <span className={`text-[9px] font-black px-2 py-0.5 rounded-md flex items-center gap-1 ${
                     upgradeRecommendation.isDropIn
                       ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
                       : "bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30"
                   }`}>
-                    {upgradeRecommendation.socketBadge}
+                    {upgradeRecommendation.isDropIn ? (
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
+                    ) : (
+                      <Zap className="w-3 h-3 text-purple-400 shrink-0" />
+                    )}
+                    <span>{upgradeRecommendation.socketBadge}</span>
                   </span>
                 )}
               </div>

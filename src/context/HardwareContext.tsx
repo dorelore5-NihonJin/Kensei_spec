@@ -186,7 +186,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
 
       const cpuLabel = sharedState.cpu ? sharedState.cpu.name : "Custom CPU";
       const gpuLabel = sharedState.gpu ? sharedState.gpu.name : "Custom GPU";
-      showToast("Shared Configuration Loaded! ⚡", `${cpuLabel} + ${gpuLabel}`);
+      showToast("Shared Configuration Loaded!", `${cpuLabel} + ${gpuLabel}`);
     }
   }, []);
 

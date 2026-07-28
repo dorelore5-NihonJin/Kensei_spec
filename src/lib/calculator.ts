@@ -283,7 +283,7 @@ export function calculatePerformance(
     averageFps = Math.max(1, Math.round(averageFps * 0.88));
     onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 0.48));
     warnings.push(
-      `🚨 VRAM Allocation Cap Exceeded: Game requires ~${VRAM_used}GB VRAM, but ${gpu.name} only has ${gpu.vramGB}GB. System RAM texture paging causes severe micro-stuttering.`
+      `VRAM Allocation Cap Exceeded: Game requires ~${VRAM_used}GB VRAM, but ${gpu.name} only has ${gpu.vramGB}GB. System RAM texture paging causes severe micro-stuttering.`
     );
   }
 
@@ -372,7 +372,7 @@ export function calculatePerformance(
     cpuLoadPercentage = Math.min(100, Math.max(95, Math.round(baseCpuLoad * 1.4)));
     gpuLoadPercentage = is4KOrPathTracing ? 99 : Math.max(20, Math.min(82, Math.round(baseGpuLoad / (effectiveRatio * 0.70))));
     warnings.push(
-      `⚠️ Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
+      `Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
     );
   } else if (totalPowerRatio < 0.38) {
     // Severe GPU Bottleneck (Top CPU + Weak/Legacy GPU)
@@ -391,7 +391,7 @@ export function calculatePerformance(
 
     cpuLoadPercentage = Math.min(55, Math.max(12, Math.round(dynamicCpuLoad)));
     warnings.push(
-      `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
+      `Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
   } else {
     // Balanced System: Load scales dynamically with settings
@@ -407,7 +407,7 @@ export function calculatePerformance(
 
   if (storage === "HDD") {
     warnings.push(
-      `⚠️ Storage warning: An HDD can cause severe FPS drops (1% Lows) and micro-stuttering.`
+      `Storage warning: An HDD can cause severe FPS drops (1% Lows) and micro-stuttering.`
     );
   }
 

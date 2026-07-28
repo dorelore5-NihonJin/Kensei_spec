@@ -342,8 +342,6 @@ export default function App() {
                 rayTracing={rayTracing}
                 frameGen={frameGen}
                 ramChannel={ramChannel}
-                bottleneckType={performanceReport.bottleneckType}
-                currentFps={performanceReport.averageFps}
                 cpus={cpus}
                 gpus={gpus}
               />
@@ -538,8 +536,6 @@ export default function App() {
                           rayTracing={rayTracing}
                           frameGen={frameGen}
                           ramChannel={ramChannel}
-                          bottleneckType={performanceReport.bottleneckType}
-                          currentFps={performanceReport.averageFps}
                           cpus={cpus}
                           gpus={gpus}
                         />
