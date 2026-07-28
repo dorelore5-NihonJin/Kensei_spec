@@ -66,7 +66,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         {/* Top Milestone Ruler Row */}
         <div className="flex items-end">
           {/* Left spacer matching left title card width */}
-          <div className="w-44 sm:w-52 shrink-0 hidden sm:block" />
+          <div className="w-36 sm:w-44 shrink-0 hidden sm:block" />
 
           {/* Right Ruler Container (Stretches 100% over the tracks) */}
           <div className="flex-1 relative h-14">
@@ -93,13 +93,13 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
 
         {/* BAR A ROW */}
-        <div className="flex items-center gap-3 relative">
-          {/* Left Component Title & Score Card */}
-          <div className="w-44 sm:w-52 shrink-0 flex flex-col min-w-0 pr-2">
+        <div className="flex items-center gap-2 relative">
+          {/* Left Component Title & Score Card (Tightened w-36 sm:w-44 width) */}
+          <div className="w-36 sm:w-44 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemA.name}
             </h4>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-1.5 mt-0.5">
               <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
                 {itemA.score} pts
               </span>
@@ -112,8 +112,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemA.details}</p>
           </div>
 
-          {/* Right Track Scale Container (Full Width) */}
-          <div className="flex-1 relative h-7 min-w-0">
+          {/* Right Track Scale Container (Height increased to h-10 sm:h-11) */}
+          <div className="flex-1 relative h-10 sm:h-11 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
@@ -129,24 +129,24 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule A */}
-            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
               {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-1 relative ${
                   winner === "A"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
               >
-                {/* Integrated Terminal Cap Knob */}
+                {/* Prominent Integrated Terminal Cap Knob */}
                 <div
-                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
+                  className={`w-7 h-7 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
                     winner === "A" ? "border-emerald-400" : "border-gray-400"
                   }`}
                 >
                   <div
-                    className={`w-2 h-2 rounded-full ${
+                    className={`w-2.5 h-2.5 rounded-full ${
                       winner === "A" ? "bg-emerald-400" : "bg-gray-400"
                     }`}
                   />
@@ -157,13 +157,13 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
 
         {/* BAR B ROW */}
-        <div className="flex items-center gap-3 relative">
-          {/* Left Component Title & Score Card */}
-          <div className="w-44 sm:w-52 shrink-0 flex flex-col min-w-0 pr-2">
+        <div className="flex items-center gap-2 relative">
+          {/* Left Component Title & Score Card (Tightened w-36 sm:w-44 width) */}
+          <div className="w-36 sm:w-44 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemB.name}
             </h4>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-1.5 mt-0.5">
               <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
                 {itemB.score} pts
               </span>
@@ -176,8 +176,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemB.details}</p>
           </div>
 
-          {/* Right Track Scale Container (Full Width) */}
-          <div className="flex-1 relative h-8 min-w-0">
+          {/* Right Track Scale Container (Height increased to h-10 sm:h-11) */}
+          <div className="flex-1 relative h-10 sm:h-11 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
@@ -193,24 +193,24 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule B */}
-            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
               {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-1 relative ${
                   winner === "B"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
               >
-                {/* Integrated Terminal Cap Knob */}
+                {/* Prominent Integrated Terminal Cap Knob */}
                 <div
-                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
+                  className={`w-7 h-7 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
                     winner === "B" ? "border-emerald-400" : "border-gray-400"
                   }`}
                 >
                   <div
-                    className={`w-2 h-2 rounded-full ${
+                    className={`w-2.5 h-2.5 rounded-full ${
                       winner === "B" ? "bg-emerald-400" : "bg-gray-400"
                     }`}
                   />
