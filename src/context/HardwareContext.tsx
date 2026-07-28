@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from "react";
+import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import type { ReactNode } from "react";
 import type { CPU, GPU, RAMProfile, Game, StorageType } from "../lib/types";
 
@@ -87,12 +87,25 @@ interface HardwareContextType {
 const HardwareContext = createContext<HardwareContextType | undefined>(undefined);
 
 export function HardwareProvider({ children }: { children: ReactNode }) {
+  // Helper to read localStorage safely
+  const getStorageItem = (key: string, fallback: string) => {
+    try {
+      const val = localStorage.getItem(key);
+      return val !== null ? val : fallback;
+    } catch {
+      return fallback;
+    }
+  };
+
   // Dark Mode State
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => getStorageItem("kensei_dark_mode", "false") === "true");
 
   // App Page & Navigation State
-  const [activePage, setActivePage] = useState<"simulator" | "catalog">("simulator");
-  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
+  const [activePage, setActivePage] = useState<"simulator" | "catalog">(() => getStorageItem("kensei_active_page", "simulator") as any);
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(() => {
+    const step = parseInt(getStorageItem("kensei_current_step", "1"));
+    return (step === 1 || step === 2 || step === 3) ? step : 1;
+  });
   const [viewMode, setViewMode] = useState<"wizard" | "overview">("wizard");
 
   // Buy Store & Legal Modals State
@@ -105,21 +118,80 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     setIsLegalModalOpen(true);
   };
 
-  // Hardware Selection State
-  const [selectedCpu, setSelectedCpu] = useState<CPU | null>(null);
-  const [selectedGpu, setSelectedGpu] = useState<GPU | null>(null);
-  const [selectedRam, setSelectedRam] = useState<RAMProfile | null>(null);
-  const [ramCapacityGB, setRamCapacityGB] = useState<number>(32);
-  const [selectedStorage, setSelectedStorage] = useState<StorageType>("NVMe Gen3");
-  const [ramChannel, setRamChannel] = useState<"Single" | "Dual">("Dual");
+  // Hardware Selection State (Restored from localStorage on F5)
+  const [selectedCpu, setSelectedCpu] = useState<CPU | null>(() => {
+    const savedId = getStorageItem("kensei_cpu_id", "");
+    return savedId ? cpus.find(c => c.id === savedId) || null : null;
+  });
+  const [selectedGpu, setSelectedGpu] = useState<GPU | null>(() => {
+    const savedId = getStorageItem("kensei_gpu_id", "");
+    return savedId ? gpus.find(g => g.id === savedId) || null : null;
+  });
+  const [selectedRam, setSelectedRam] = useState<RAMProfile | null>(() => {
+    const savedId = getStorageItem("kensei_ram_id", "");
+    return savedId ? ramProfiles.find(r => r.id === savedId) || null : null;
+  });
+  const [ramCapacityGB, setRamCapacityGB] = useState<number>(() => parseInt(getStorageItem("kensei_ram_capacity", "32")) || 32);
+  const [selectedStorage, setSelectedStorage] = useState<StorageType>(() => getStorageItem("kensei_storage", "NVMe Gen3") as StorageType);
+  const [ramChannel, setRamChannel] = useState<"Single" | "Dual">(() => getStorageItem("kensei_ram_channel", "Dual") as any);
 
-  // Game & Graphics Options State
-  const [selectedGame, setSelectedGame] = useState<Game>(games[2] || games[0]); // Default Cyberpunk 2077
-  const [selectedResolution, setSelectedResolution] = useState<"1080p" | "1440p" | "4K">("1080p");
-  const [selectedPreset, setSelectedPreset] = useState<"Low" | "Medium" | "High" | "Ultra">("High");
-  const [selectedDlss, setSelectedDlss] = useState<"Off" | "Quality" | "Performance">("Off");
-  const [rayTracing, setRayTracing] = useState<"Off" | "Medium" | "Ultra">("Off");
-  const [frameGen, setFrameGen] = useState<boolean>(false);
+  // Game & Graphics Options State (Restored from localStorage on F5)
+  const [selectedGame, setSelectedGame] = useState<Game>(() => {
+    const savedId = getStorageItem("kensei_game_id", "");
+    return savedId ? games.find(g => g.id === savedId) || games[2] || games[0] : games[2] || games[0];
+  });
+  const [selectedResolution, setSelectedResolution] = useState<"1080p" | "1440p" | "4K">(() => getStorageItem("kensei_resolution", "1080p") as any);
+  const [selectedPreset, setSelectedPreset] = useState<"Low" | "Medium" | "High" | "Ultra">(() => getStorageItem("kensei_preset", "High") as any);
+  const [selectedDlss, setSelectedDlss] = useState<"Off" | "Quality" | "Performance">(() => getStorageItem("kensei_dlss", "Off") as any);
+  const [rayTracing, setRayTracing] = useState<"Off" | "Medium" | "Ultra">(() => getStorageItem("kensei_ray_tracing", "Off") as any);
+  const [frameGen, setFrameGen] = useState<boolean>(() => getStorageItem("kensei_frame_gen", "false") === "true");
+
+  // Auto-Save Configuration State to localStorage
+  useEffect(() => {
+    try {
+      if (selectedCpu) localStorage.setItem("kensei_cpu_id", selectedCpu.id);
+      else localStorage.removeItem("kensei_cpu_id");
+
+      if (selectedGpu) localStorage.setItem("kensei_gpu_id", selectedGpu.id);
+      else localStorage.removeItem("kensei_gpu_id");
+
+      if (selectedRam) localStorage.setItem("kensei_ram_id", selectedRam.id);
+      else localStorage.removeItem("kensei_ram_id");
+
+      localStorage.setItem("kensei_ram_capacity", ramCapacityGB.toString());
+      localStorage.setItem("kensei_storage", selectedStorage);
+      localStorage.setItem("kensei_ram_channel", ramChannel);
+
+      if (selectedGame) localStorage.setItem("kensei_game_id", selectedGame.id);
+      localStorage.setItem("kensei_resolution", selectedResolution);
+      localStorage.setItem("kensei_preset", selectedPreset);
+      localStorage.setItem("kensei_dlss", selectedDlss);
+      localStorage.setItem("kensei_ray_tracing", rayTracing);
+      localStorage.setItem("kensei_frame_gen", frameGen.toString());
+
+      localStorage.setItem("kensei_current_step", currentStep.toString());
+      localStorage.setItem("kensei_active_page", activePage);
+      localStorage.setItem("kensei_dark_mode", darkMode.toString());
+    } catch {
+      // Ignore storage write errors
+    }
+  }, [
+    selectedCpu,
+    selectedGpu,
+    selectedRam,
+    ramCapacityGB,
+    selectedStorage,
+    ramChannel,
+    selectedGame,
+    selectedResolution,
+    selectedPreset,
+    selectedDlss,
+    rayTracing,
+    frameGen,
+    currentStep,
+    activePage,
+    darkMode
+  ]);
 
   // Reset Build Action
   const handleResetBuild = () => {
@@ -130,6 +202,18 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     setSelectedStorage("NVMe Gen3");
     setRamChannel("Dual");
     setCurrentStep(1);
+
+    try {
+      localStorage.removeItem("kensei_cpu_id");
+      localStorage.removeItem("kensei_gpu_id");
+      localStorage.removeItem("kensei_ram_id");
+      localStorage.setItem("kensei_ram_capacity", "32");
+      localStorage.setItem("kensei_storage", "NVMe Gen3");
+      localStorage.setItem("kensei_ram_channel", "Dual");
+      localStorage.setItem("kensei_current_step", "1");
+    } catch {
+      // Ignore storage errors
+    }
   };
 
   // Catalog Selection Action
