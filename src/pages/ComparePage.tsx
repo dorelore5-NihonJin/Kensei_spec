@@ -198,22 +198,29 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   return (
     <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8 animate-fadeIn">
       {/* 1. PAGE HEADER & MODE TOGGLE */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl">
-        <div>
+      <div className="relative overflow-hidden bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+        {/* Background Decorative Banner Overlay */}
+        <div
+          className="absolute inset-0 opacity-15 dark:opacity-25 bg-cover bg-center pointer-events-none transition-opacity duration-500"
+          style={{ backgroundImage: `url('file:///C:/Users/dorel/.gemini/antigravity/brain/ad50f79c-bd42-4505-9c5f-2d790b6a091e/compare_hero_banner_1785274601218.jpg')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#1A1C1E] dark:via-[#1A1C1E]/80 dark:to-transparent pointer-events-none" />
+
+        <div className="relative z-10">
           <div className="flex items-center gap-2 text-purple-500 font-extrabold text-xs uppercase tracking-wider">
             <Scale className="w-4 h-4" />
-            <span>Versus Benchmark Comparison</span>
+            <span>Versus Telemetry Comparison Studio / 比較スタジオ</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#1E2022] dark:text-white mt-1">
             Hardware Comparison Studio
           </h1>
-          <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1">
-            Select 2 components below to compare telemetry performance metrics side-by-side.
+          <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
+            Compare CPUs and GPUs side-by-side with real-time aggregate telemetry benchmark metrics, architectural specs, and hierarchy ranking.
           </p>
         </div>
 
         {/* Mode Switcher Tabs */}
-        <div className="flex items-center bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0">
+        <div className="flex items-center bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0 relative z-10">
           <button
             onClick={() => handleModeChange("cpu")}
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
