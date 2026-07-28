@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import type { Game, CPU, GPU, RAMProfile } from "../lib/types";
-import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2, Copy, Check } from "lucide-react";
+import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2, Copy, Check, Gamepad2, Palette, Video, Volume2, Building2 } from "lucide-react";
 
 interface GameBuildsCatalogProps {
   games: Game[];
@@ -31,6 +31,25 @@ export interface PresetBuild {
   badgeTag: string;
   accentBorderClass: string;
   highlightFeature: string;
+}
+
+function renderCategoryIcon(category: BuildCategory) {
+  switch (category) {
+    case "Gaming":
+      return <Gamepad2 className="w-3.5 h-3.5 text-[#E88D9F] shrink-0" />;
+    case "3D Render":
+      return <Palette className="w-3.5 h-3.5 text-purple-400 shrink-0" />;
+    case "AI & Dev":
+      return <Code2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />;
+    case "Streaming":
+      return <Video className="w-3.5 h-3.5 text-[#8A9A86] shrink-0" />;
+    case "Audio Studio":
+      return <Volume2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />;
+    case "CAD & Workstation":
+      return <Building2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />;
+    default:
+      return <Package className="w-3.5 h-3.5 text-gray-400 shrink-0" />;
+  }
 }
 
 export default function GameBuildsCatalog({
@@ -77,7 +96,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "🎮 Esports 1080p",
+        categoryBadge: "Esports 1080p",
         tierName: "Budget ($500-$800)",
         buildTitle: `${game.title} 1080p Value Champion`,
         cpuName: isEsports ? "Ryzen 5 5600" : "Core i3-13100F",
@@ -98,7 +117,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "🎮 Pure AMD Budget",
+        categoryBadge: "Pure AMD Budget",
         tierName: "Budget ($500-$800)",
         buildTitle: `${game.title} Radeon RX 6600 Budget Rig`,
         cpuName: "Ryzen 5 5500",
@@ -119,7 +138,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "🎮 1440p Sweetspot",
+        categoryBadge: "1440p Sweetspot",
         tierName: "Sweetspot ($1,000-$1,500)",
         buildTitle: `${game.title} 1440p Ultra Dominator`,
         cpuName: isEsports ? "Ryzen 7 5700X3D" : "Ryzen 5 7600X",
@@ -140,7 +159,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "🎮 Pure AMD 1440p",
+        categoryBadge: "Pure AMD 1440p",
         tierName: "Sweetspot ($1,000-$1,500)",
         buildTitle: `${game.title} RX 7800 XT 16GB Monster`,
         cpuName: "Ryzen 5 7600X",
@@ -161,7 +180,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "3D Render",
-        categoryBadge: "🎨 4K Ray Tracing & 3D",
+        categoryBadge: "4K Ray Tracing & 3D",
         tierName: "High-End ($1,800-$2,500)",
         buildTitle: `${game.title} 4K Ray Tracing Beast`,
         cpuName: "Ryzen 7 7800X3D",
@@ -182,7 +201,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Streaming",
-        categoryBadge: "📺 4K Streamer Workstation",
+        categoryBadge: "4K Streamer Workstation",
         tierName: "High-End ($1,800-$2,500)",
         buildTitle: `${game.title} Core Ultra 7 265K Streamer`,
         cpuName: "Core Ultra 7 265K",
@@ -203,7 +222,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "AI & Dev",
-        categoryBadge: "💻 AI LLM Dev & Flagship",
+        categoryBadge: "AI LLM Dev & Flagship",
         tierName: "God Tier ($3,000+)",
         buildTitle: `${game.title} Absolute Flagship King`,
         cpuName: "Ryzen 7 9800X3D",
@@ -224,7 +243,7 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "3D Render",
-        categoryBadge: "👑 Core i9 Flagship",
+        categoryBadge: "Core i9 Flagship",
         tierName: "God Tier ($3,000+)",
         buildTitle: `${game.title} i9-14900K Liquid Master`,
         cpuName: "Core i9-14900K",
@@ -257,34 +276,33 @@ export default function GameBuildsCatalog({
       feature: string;
     }> = [
       // AI & Deep Learning LLM Workstations
-      { cat: "AI & Dev", badge: "💻 AI LLM Dev", tier: "God Tier ($3,000+)", title: "Llama 3.3 70B Local Inference Rig", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4090 24GB", ram: "64GB DDR5-6400 Low-Latency", storage: "4TB Gen4 NVMe", price: 4200, fps: 165, tag: "Local AI Inference", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "24GB VRAM CUDA • 32 Thread CPU" },
-      { cat: "AI & Dev", badge: "💻 PyTorch Machine", tier: "High-End ($1,800-$2,500)", title: "DeepSeek Coder PyTorch Workstation", cpu: "Core Ultra 9 285K", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB PCIe 4.0 SSD", price: 2850, fps: 145, tag: "PyTorch Vision Transformer", border: "border-2 border-[#E88D9F]/70", feature: "NPU AI Engine • 16GB VRAM" },
-      { cat: "AI & Dev", badge: "💻 Linux Dev", tier: "Sweetspot ($1,000-$1,500)", title: "Docker Microservices & Rust Compiler", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4060 Ti 16GB", ram: "64GB DDR5-5600", storage: "2TB NVMe Gen4", price: 1420, fps: 110, tag: "64GB RAM Linux Workstation", border: "border-2 border-[#8A9A86]/60", feature: "16GB VRAM Buffer for LLMQuant" },
-      { cat: "AI & Dev", badge: "💻 Fullstack Dev", tier: "Budget ($500-$800)", title: "Fullstack Web & React Native Rig", cpu: "Core i5-13400F", gpu: "GeForce RTX 3060 12GB", ram: "32GB DDR4-3200", storage: "1TB NVMe SSD", price: 740, fps: 95, tag: "Developer Value Champion", border: "border-2 border-emerald-500/40", feature: "10 Cores • 12GB VRAM" },
+      { cat: "AI & Dev", badge: "AI LLM Dev", tier: "God Tier ($3,000+)", title: "Llama 3.3 70B Local Inference Rig", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4090 24GB", ram: "64GB DDR5-6400 Low-Latency", storage: "4TB Gen4 NVMe", price: 4200, fps: 165, tag: "Local AI Inference", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "24GB VRAM CUDA • 32 Thread CPU" },
+      { cat: "AI & Dev", badge: "PyTorch Machine", tier: "High-End ($1,800-$2,500)", title: "DeepSeek Coder PyTorch Workstation", cpu: "Core Ultra 9 285K", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB PCIe 4.0 SSD", price: 2850, fps: 145, tag: "PyTorch Vision Transformer", border: "border-2 border-[#E88D9F]/70", feature: "NPU AI Engine • 16GB VRAM" },
+      { cat: "AI & Dev", badge: "Linux Dev", tier: "Sweetspot ($1,000-$1,500)", title: "Docker Microservices & Rust Compiler", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4060 Ti 16GB", ram: "64GB DDR5-5600", storage: "2TB NVMe Gen4", price: 1420, fps: 110, tag: "64GB RAM Linux Workstation", border: "border-2 border-[#8A9A86]/60", feature: "16GB VRAM Buffer for LLMQuant" },
+      { cat: "AI & Dev", badge: "Fullstack Dev", tier: "Budget ($500-$800)", title: "Fullstack Web & React Native Rig", cpu: "Core i5-13400F", gpu: "GeForce RTX 3060 12GB", ram: "32GB DDR4-3200", storage: "1TB NVMe SSD", price: 740, fps: 95, tag: "Developer Value Champion", border: "border-2 border-emerald-500/40", feature: "10 Cores • 12GB VRAM" },
 
       // 3D Render & VFX Workstations
-      { cat: "3D Render", badge: "🎨 Blender Octane", tier: "God Tier ($3,000+)", title: "Blender 4.3 Octane Render Monster", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4090 24GB", ram: "128GB DDR5-5600 ECC", storage: "4TB PCIe 4.0 NVMe", price: 4450, fps: 180, tag: "Blender GPU Render King", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "16 Cores / 32 Threads • 128GB RAM" },
-      { cat: "3D Render", badge: "🎨 Unreal Engine 5", tier: "High-End ($1,800-$2,500)", title: "Unreal Engine 5.5 Virtual Production", cpu: "Core i9-14900K", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB NVMe Gen4", price: 2480, fps: 140, tag: "Lumen & Nanite Realtime", border: "border-2 border-[#E88D9F]/70", feature: "24 Cores • 16GB GDDR6X" },
-      { cat: "3D Render", badge: "🎨 Cinema 4D", tier: "Sweetspot ($1,000-$1,500)", title: "Cinema 4D Redshift Motion Design", cpu: "Core Ultra 7 265K", gpu: "GeForce RTX 4070 12GB", ram: "32GB DDR5-6000", storage: "1TB Gen4 NVMe", price: 1490, fps: 115, tag: "Motion Design Workstation", border: "border-2 border-[#8A9A86]/60", feature: "Hardware Ray Tracing Cores" },
-      { cat: "3D Render", badge: "🎨 Maya & V-Ray", tier: "Budget ($500-$800)", title: "Maya 3D Modeling & Photoshop Rig", cpu: "Ryzen 5 5600X", gpu: "GeForce RTX 4060 8GB", ram: "32GB DDR4-3200", storage: "1TB M.2 SSD", price: 780, fps: 88, tag: "Entry 3D Modeling", border: "border-2 border-emerald-500/40", feature: "32GB RAM for 3D Viewport" },
+      { cat: "3D Render", badge: "Blender Octane", tier: "God Tier ($3,000+)", title: "Blender 4.3 Octane Render Monster", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4090 24GB", ram: "128GB DDR5-5600 ECC", storage: "4TB PCIe 4.0 NVMe", price: 4450, fps: 180, tag: "Blender GPU Render King", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "16 Cores / 32 Threads • 128GB RAM" },
+      { cat: "3D Render", badge: "Unreal Engine 5", tier: "High-End ($1,800-$2,500)", title: "Unreal Engine 5.5 Virtual Production", cpu: "Core i9-14900K", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB NVMe Gen4", price: 2480, fps: 140, tag: "Lumen & Nanite Realtime", border: "border-2 border-[#E88D9F]/70", feature: "24 Cores • 16GB GDDR6X" },
+      { cat: "3D Render", badge: "Cinema 4D", tier: "Sweetspot ($1,000-$1,500)", title: "Cinema 4D Redshift Motion Design", cpu: "Core Ultra 7 265K", gpu: "GeForce RTX 4070 12GB", ram: "32GB DDR5-6000", storage: "1TB Gen4 NVMe", price: 1490, fps: 115, tag: "Motion Design Workstation", border: "border-2 border-[#8A9A86]/60", feature: "Hardware Ray Tracing Cores" },
+      { cat: "3D Render", badge: "Maya & V-Ray", tier: "Budget ($500-$800)", title: "Maya 3D Modeling & Photoshop Rig", cpu: "Ryzen 5 5600X", gpu: "GeForce RTX 4060 8GB", ram: "32GB DDR4-3200", storage: "1TB M.2 SSD", price: 780, fps: 88, tag: "Entry 3D Modeling", border: "border-2 border-emerald-500/40", feature: "32GB RAM for 3D Viewport" },
 
       // 4K Live Broadcast & VTuber Rigs
-      { cat: "Streaming", badge: "📺 VTuber Broadcast", tier: "High-End ($1,800-$2,500)", title: "VTuber 3D Face Tracking & OBS Studio", cpu: "Ryzen 9 7900X", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB NVMe Gen4", price: 2350, fps: 150, tag: "Dual-Display 4K Stream", border: "border-2 border-[#E88D9F]/70", feature: "AV1 Hardware Encode • 12 Cores" },
-      { cat: "Streaming", badge: "📺 Twitch 4K Stream", tier: "Sweetspot ($1,000-$1,500)", title: "Twitch 1440p 60FPS AV1 Stream Rig", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4070 Super 12GB", ram: "32GB DDR5-6000", storage: "2TB NVMe SSD", price: 1390, fps: 125, tag: "Zero-Lag OBS Encoder", border: "border-2 border-[#8A9A86]/60", feature: "8 Cores / 16 Threads" },
-      { cat: "Streaming", badge: "📺 Portable LAN Rig", tier: "Budget ($500-$800)", title: "1080p Streamer & Discord LAN Rig", cpu: "Core i3-13100F", gpu: "GeForce RTX 3060 12GB", ram: "16GB DDR4-3200", storage: "1TB M.2 SSD", price: 630, fps: 90, tag: "Compact Streamer", border: "border-2 border-emerald-500/40", feature: "NVENC Encoder Included" },
+      { cat: "Streaming", badge: "VTuber Broadcast", tier: "High-End ($1,800-$2,500)", title: "VTuber 3D Face Tracking & OBS Studio", cpu: "Ryzen 9 7900X", gpu: "GeForce RTX 4080 Super 16GB", ram: "64GB DDR5-6000", storage: "2TB NVMe Gen4", price: 2350, fps: 150, tag: "Dual-Display 4K Stream", border: "border-2 border-[#E88D9F]/70", feature: "AV1 Hardware Encode • 12 Cores" },
+      { cat: "Streaming", badge: "Twitch 4K Stream", tier: "Sweetspot ($1,000-$1,500)", title: "Twitch 1440p 60FPS AV1 Stream Rig", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4070 Super 12GB", ram: "32GB DDR5-6000", storage: "2TB NVMe SSD", price: 1390, fps: 125, tag: "Zero-Lag OBS Encoder", border: "border-2 border-[#8A9A86]/60", feature: "8 Cores / 16 Threads" },
+      { cat: "Streaming", badge: "Portable LAN Rig", tier: "Budget ($500-$800)", title: "1080p Streamer & Discord LAN Rig", cpu: "Core i3-13100F", gpu: "GeForce RTX 3060 12GB", ram: "16GB DDR4-3200", storage: "1TB M.2 SSD", price: 630, fps: 90, tag: "Compact Streamer", border: "border-2 border-emerald-500/40", feature: "NVENC Encoder Included" },
 
       // Audio DAW & Hans Zimmer Studio Rigs
-      { cat: "Audio Studio", badge: "🔊 Hans Zimmer VST", tier: "God Tier ($3,000+)", title: "Hans Zimmer 500-Track Orchestral VST Rig", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4070 12GB", ram: "128GB DDR5-5600", storage: "8TB NVMe M.2 RAID", price: 3450, fps: 130, tag: "128GB RAM VST Studio", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "128GB DDR5 for Kontakt Samples" },
-      { cat: "Audio Studio", badge: "🔊 Ableton Studio", tier: "High-End ($1,800-$2,500)", title: "Ableton Live 12 Low-Latency Zero-Buffer", cpu: "Core i7-14700K", gpu: "GeForce RTX 4060 Ti 16GB", ram: "64GB DDR5-6000", storage: "4TB NVMe Gen4", price: 1920, fps: 120, tag: "Zero-Buffer DAW Studio", border: "border-2 border-[#E88D9F]/70", feature: "20 Cores • Silent Noctua Cooler" },
-      { cat: "Audio Studio", badge: "🔊 Pro Tools Rig", tier: "Sweetspot ($1,000-$1,500)", title: "Pro Tools HD Home Recording Rig", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4060 8GB", ram: "32GB DDR5-5600", storage: "2TB NVMe SSD", price: 1150, fps: 105, tag: "Home Studio DAW", border: "border-2 border-[#8A9A86]/60", feature: "Ultra-Quiet Fans • 32GB RAM" },
+      { cat: "Audio Studio", badge: "Hans Zimmer VST", tier: "God Tier ($3,000+)", title: "Hans Zimmer 500-Track Orchestral VST Rig", cpu: "Ryzen 9 9950X", gpu: "GeForce RTX 4070 12GB", ram: "128GB DDR5-5600", storage: "8TB NVMe M.2 RAID", price: 3450, fps: 130, tag: "128GB RAM VST Studio", border: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)]", feature: "128GB DDR5 for Kontakt Samples" },
+      { cat: "Audio Studio", badge: "Ableton Studio", tier: "High-End ($1,800-$2,500)", title: "Ableton Live 12 Low-Latency Zero-Buffer", cpu: "Core i7-14700K", gpu: "GeForce RTX 4060 Ti 16GB", ram: "64GB DDR5-6000", storage: "4TB NVMe Gen4", price: 1920, fps: 120, tag: "Zero-Buffer DAW Studio", border: "border-2 border-[#E88D9F]/70", feature: "20 Cores • Silent Noctua Cooler" },
+      { cat: "Audio Studio", badge: "Pro Tools Rig", tier: "Sweetspot ($1,000-$1,500)", title: "Pro Tools HD Home Recording Rig", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4060 8GB", ram: "32GB DDR5-5600", storage: "2TB NVMe SSD", price: 1150, fps: 105, tag: "Home Studio DAW", border: "border-2 border-[#8A9A86]/60", feature: "Ultra-Quiet Fans • 32GB RAM" },
 
       // CAD & Industrial Engineering Workstations
-      { cat: "CAD & Workstation", badge: "🏢 SolidWorks 2026", tier: "High-End ($1,800-$2,500)", title: "SolidWorks 2026 Industrial Assembly Rig", cpu: "Core Ultra 9 285K", gpu: "GeForce RTX 4070 Ti Super 16GB", ram: "64GB DDR5-6400", storage: "2TB PCIe 4.0 SSD", price: 2390, fps: 135, tag: "CAD Industrial BIM", border: "border-2 border-[#E88D9F]/70", feature: "Single-Core 5.7GHz OC Boost" },
-      { cat: "CAD & Workstation", badge: "🏢 Revit Architectural", tier: "Sweetspot ($1,000-$1,500)", title: "AutoCAD Architectural BIM Monster", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4070 12GB", ram: "32GB DDR5-6000", storage: "2TB NVMe Gen4", price: 1320, fps: 112, tag: "Revit 3D Architecture", border: "border-2 border-[#8A9A86]/60", feature: "12GB VRAM Viewport Render" },
+      { cat: "CAD & Workstation", badge: "SolidWorks 2026", tier: "High-End ($1,800-$2,500)", title: "SolidWorks 2026 Industrial Assembly Rig", cpu: "Core Ultra 9 285K", gpu: "GeForce RTX 4070 Ti Super 16GB", ram: "64GB DDR5-6400", storage: "2TB PCIe 4.0 SSD", price: 2390, fps: 135, tag: "CAD Industrial BIM", border: "border-2 border-[#E88D9F]/70", feature: "Single-Core 5.7GHz OC Boost" },
+      { cat: "CAD & Workstation", badge: "Revit Architectural", tier: "Sweetspot ($1,000-$1,500)", title: "AutoCAD Architectural BIM Monster", cpu: "Ryzen 7 7700X", gpu: "GeForce RTX 4070 12GB", ram: "32GB DDR5-6000", storage: "2TB NVMe Gen4", price: 1320, fps: 112, tag: "Revit 3D Architecture", border: "border-2 border-[#8A9A86]/60", feature: "12GB VRAM Viewport Render" },
 
-      // Retro & Nostalgia Hardware Rigs
-      { cat: "Gaming", badge: "🕹️ Windows XP Retro", tier: "Budget ($500-$800)", title: "Pentium 4 Windows XP Retro Gaming PC", cpu: "Pentium 4 3.0GHz", gpu: "GeForce GTX 750 Ti 2GB", ram: "4GB DDR2-800", storage: "256GB SATA SSD", price: 120, fps: 35, tag: "Retro Nostalgia XP", border: "border-2 border-emerald-500/40", feature: "Legacy Direct3D 9 Support" },
-      { cat: "Gaming", badge: "🕹️ Vintage Overclock", tier: "Budget ($500-$800)", title: "Core 2 Quad Q6600 Vintage OC Rig", cpu: "Core 2 Quad Q6600", gpu: "GeForce GTX 1060 6GB", ram: "8GB DDR3-1333", storage: "500GB SATA SSD", price: 180, fps: 45, tag: "Legendary Q6600 OC", border: "border-2 border-emerald-500/40", feature: "LGA775 Legacy Silicon" }
+      { cat: "Gaming", badge: "Windows XP Retro", tier: "Budget ($500-$800)", title: "Pentium 4 Windows XP Retro Gaming PC", cpu: "Pentium 4 3.0GHz", gpu: "GeForce GTX 750 Ti 2GB", ram: "4GB DDR2-800", storage: "256GB SATA SSD", price: 120, fps: 35, tag: "Retro Nostalgia XP", border: "border-2 border-emerald-500/40", feature: "Legacy Direct3D 9 Support" },
+      { cat: "Gaming", badge: "Vintage Overclock", tier: "Budget ($500-$800)", title: "Core 2 Quad Q6600 Vintage OC Rig", cpu: "Core 2 Quad Q6600", gpu: "GeForce GTX 1060 6GB", ram: "8GB DDR3-1333", storage: "500GB SATA SSD", price: 180, fps: 45, tag: "Legendary Q6600 OC", border: "border-2 border-emerald-500/40", feature: "Legacy LGA775 Silicon" }
     ];
 
     // Multiply variations dynamically to reach exactly 250 builds
@@ -508,12 +526,12 @@ export default function GameBuildsCatalog({
               onChange={(e) => setSelectedCategoryFilter(e.target.value)}
             >
               <option value="All" className="bg-white dark:bg-[#1A1C1E]">-- All Workload Categories --</option>
-              <option value="Gaming" className="bg-white dark:bg-[#1A1C1E]">🎮 Esports & Gaming</option>
-              <option value="3D Render" className="bg-white dark:bg-[#1A1C1E]">🎨 3D Render & VFX</option>
-              <option value="AI & Dev" className="bg-white dark:bg-[#1A1C1E]">💻 AI ML & Software Dev</option>
-              <option value="Streaming" className="bg-white dark:bg-[#1A1C1E]">📺 4K Live Streaming</option>
-              <option value="Audio Studio" className="bg-white dark:bg-[#1A1C1E]">🔊 Audio DAW Studio</option>
-              <option value="CAD & Workstation" className="bg-white dark:bg-[#1A1C1E]">🏢 CAD & Engineering</option>
+              <option value="Gaming" className="bg-white dark:bg-[#1A1C1E]">Esports & Gaming</option>
+              <option value="3D Render" className="bg-white dark:bg-[#1A1C1E]">3D Render & VFX</option>
+              <option value="AI & Dev" className="bg-white dark:bg-[#1A1C1E]">AI ML & Software Dev</option>
+              <option value="Streaming" className="bg-white dark:bg-[#1A1C1E]">4K Live Streaming</option>
+              <option value="Audio Studio" className="bg-white dark:bg-[#1A1C1E]">Audio DAW Studio</option>
+              <option value="CAD & Workstation" className="bg-white dark:bg-[#1A1C1E]">CAD & Engineering</option>
             </select>
           </div>
 
@@ -568,9 +586,8 @@ export default function GameBuildsCatalog({
               <div>
                 {/* Top Category Badge & Price Tag */}
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-black bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1">
-                    {isGodTier && <Award className="w-3 h-3 text-amber-400" />}
-                    {isHighEnd && <Sparkles className="w-3 h-3 text-[#E88D9F]" />}
+                  <span className="text-[10px] font-black bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                    {isGodTier ? <Award className="w-3 h-3 text-amber-400 shrink-0" /> : isHighEnd ? <Sparkles className="w-3 h-3 text-[#E88D9F] shrink-0" /> : renderCategoryIcon(build.category)}
                     {build.categoryBadge}
                   </span>
                   <span className="text-xs font-mono font-black text-[#8A9A86]">
@@ -588,8 +605,9 @@ export default function GameBuildsCatalog({
                 </div>
 
                 {/* Silicon Highlight Pill */}
-                <div className="mt-2.5 text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-xl border border-amber-500/20 inline-block">
-                  ⚡ {build.highlightFeature}
+                <div className="mt-2.5 text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-xl border border-amber-500/20 inline-flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-amber-500 shrink-0" />
+                  <span>{build.highlightFeature}</span>
                 </div>
 
                 {/* Specs List */}
