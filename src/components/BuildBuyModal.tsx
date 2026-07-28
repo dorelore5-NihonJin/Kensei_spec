@@ -502,7 +502,7 @@ export default function BuildBuyModal({
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
             <a
-              href="https://www.amazon.com"
+              href={`https://www.amazon.com/s?k=${encodeURIComponent(`${selectedCpu?.name || 'Gaming CPU'} ${selectedGpu?.name || 'GPU'}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial px-5 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md flex items-center justify-center gap-2"
@@ -510,7 +510,7 @@ export default function BuildBuyModal({
               <ShoppingCart className="w-4 h-4" /> Order Parts on Amazon <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <a
-              href="https://www.newegg.com"
+              href={`https://www.newegg.com/p/pl?d=${encodeURIComponent(`${selectedCpu?.name || 'Gaming CPU'} ${selectedGpu?.name || 'GPU'}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-3 rounded-2xl bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white font-black text-xs hover:bg-black/10 transition flex items-center justify-center gap-1.5"
