@@ -11,6 +11,7 @@ import BuildBuyModal from "./components/BuildBuyModal";
 import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap, Check } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
+import ComparePage from "./pages/ComparePage";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
@@ -171,8 +172,10 @@ export default function App() {
           onOpenBuyModal={() => setIsBuyModalOpen(true)}
         />
 
-        {/* PAGE SWITCH: CATALOG PAGE vs SIMULATOR PAGE */}
-        {activePage === "catalog" ? (
+        {/* PAGE SWITCH: COMPARE PAGE vs CATALOG PAGE vs SIMULATOR PAGE */}
+        {activePage === "compare" ? (
+          <ComparePage cpus={cpus} gpus={gpus} />
+        ) : activePage === "catalog" ? (
           <GameBuildsCatalog
             games={games}
             cpus={cpus}

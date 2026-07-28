@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid } from "lucide-react";
+import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid, Scale } from "lucide-react";
 
 interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   onReset: () => void;
-  activePage: "simulator" | "catalog";
-  setActivePage: (page: "simulator" | "catalog") => void;
+  activePage: "simulator" | "catalog" | "compare";
+  setActivePage: (page: "simulator" | "catalog" | "compare") => void;
   onOpenBuyModal: () => void;
 }
 
@@ -21,12 +21,12 @@ export default function Header({
   const [showAboutModal, setShowAboutModal] = useState(false);
 
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
       {/* 1. STICKY TOP PROMINENT HEADER NAVBAR */}
       <header className="sticky top-3 z-40 w-full bg-white/90 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 transition-all duration-300">
         
         {/* Left: Brand Logo & Title */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActivePage("simulator")}>
+        <div className="flex items-center gap-3 cursor-pointer shrink-0" onClick={() => setActivePage("simulator")}>
           <div className="w-11 h-11 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022] hover:scale-105 transition duration-200">
             <img
               src="./kensei_logo.png"
@@ -48,12 +48,12 @@ export default function Header({
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
-        <div className="flex items-center gap-1.5 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner w-full lg:w-auto justify-center">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner w-full lg:w-auto justify-center">
           
           {/* TAB 1: SIMULATOR */}
           <button
             onClick={() => setActivePage("simulator")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "simulator"
                 ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-md scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -66,7 +66,7 @@ export default function Header({
           {/* TAB 2: GAME BUILDS CATALOG */}
           <button
             onClick={() => setActivePage("catalog")}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "catalog"
                 ? "bg-[#8A9A86] text-white shadow-md scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -76,13 +76,26 @@ export default function Header({
             <span>2. Game Builds Catalog</span>
           </button>
 
-          {/* TAB 3: PC CONFIGURATOR STORE */}
+          {/* TAB 3: HARDWARE COMPARE */}
+          <button
+            onClick={() => setActivePage("compare")}
+            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+              activePage === "compare"
+                ? "bg-purple-600 text-white shadow-md scale-102"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+            }`}
+          >
+            <Scale className="w-4 h-4 text-purple-400" />
+            <span>3. Hardware Compare</span>
+          </button>
+
+          {/* TAB 4: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
-            className="px-4 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
+            className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
           >
             <ShoppingCart className="w-4 h-4" />
-            <span>3. Buy PC Store</span>
+            <span>4. Buy PC Store</span>
           </button>
         </div>
 
@@ -139,12 +152,12 @@ export default function Header({
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
-            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-sm">
-              {activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
+            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs">
+              {activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
             </span>
             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              {activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
+              {activePage === "compare" ? "DEEP SILICON MATRIX COMPARISON" : activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
             </span>
           </div>
 
