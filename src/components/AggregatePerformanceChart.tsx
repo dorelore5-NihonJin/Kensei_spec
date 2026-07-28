@@ -14,29 +14,31 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
-// 5 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 520 pts)
+// GPU Milestones scale (Apex scale max: 980 pts - RTX 5090 level)
 const GPU_MILESTONES = [
   { name: "GTX 750 Ti", score: 55 },
   { name: "GTX 1060", score: 110 },
   { name: "RTX 2060", score: 185 },
   { name: "RTX 3070", score: 310 },
-  { name: "RTX 4070 Super", score: 440 },
+  { name: "RTX 4070S", score: 440 },
+  { name: "RTX 4080", score: 520 },
 ];
 
-// 6 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 450 pts)
+// CPU Milestones scale (Apex scale max: 1200 pts - Workstation Server EPYC level)
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
   { name: "i5-10400", score: 125 },
-  { name: "Ryzen 5600", score: 185 },
+  { name: "R5 5600", score: 185 },
   { name: "i5-13600K", score: 250 },
   { name: "7800X3D", score: 310 },
+  { name: "14900KS", score: 450 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-  // Maximum scale benchmark score (450 pts for CPU, 520 pts for GPU)
-  const maxScore = type === "gpu" ? 520 : 450;
+  // Maximum realistic benchmark scale: 1200 pts for CPU server apex, 980 pts for GPU apex
+  const maxScore = type === "gpu" ? 980 : 1200;
 
   // Exact percentage calculation relative to max scale (min 2% so low scores show a sleek tip)
   const pctA = Math.min(100, Math.max(2, (itemA.score / maxScore) * 100));
@@ -68,7 +70,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
       </div>
 
       {/* CHART CONTAINER WITH LOCKED PIXEL WIDTH COORD SYSTEM */}
-      <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-2">
+      <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-2 w-full">
         {/* Fixed Width Left Component Titles Stack (w-44 shrink-0 prevents layout jumping) */}
         <div className="w-full sm:w-44 shrink-0 flex flex-col justify-around py-8 gap-6 min-w-44 max-w-44 pr-2">
           {/* Component A Title */}
@@ -120,7 +122,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
                   style={{ left: `${msPct}%` }}
                 >
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
                     {ms.name} ({ms.score} pts)
                   </span>
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mt-1" />
@@ -129,7 +131,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             })}
           </div>
 
-          {/* 2. DUAL PROGRESS TRACKS (Optimal Balanced Height: h-9 sm:h-10, smooth gradient fills) */}
+          {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth gradient fills) */}
           <div className="flex flex-col gap-5 w-full z-10 my-3">
             {/* Track Capsule A */}
             <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
@@ -197,7 +199,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   style={{ left: `${msPct}%` }}
                 >
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mb-1" />
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
                     {ms.name} ({ms.score} pts)
                   </span>
                 </div>

@@ -142,9 +142,9 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       </div>
 
       {/* 2. COMPONENT SELECTION BAR & HERO VERSUS SCORE CARD */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full">
         {/* COMPONENT A SELECTOR */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative">
+        <div className="lg:col-span-5 w-full bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative min-w-0">
           <SearchableSelect
             label="Component A (Left)"
             options={isCpuMode ? cpuOptions : gpuOptions}
@@ -162,16 +162,16 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           />
 
           <div className="flex items-center justify-between pt-2">
-            <div>
-              <h3 className="text-base font-black text-[#1E2022] dark:text-white">
+            <div className="min-w-0 pr-2">
+              <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
                 {isCpuMode ? selectedCpuA.name : selectedGpuA.name}
               </h3>
-              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
+              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
                 {isCpuMode ? `${selectedCpuA.cores} Cores / ${selectedCpuA.threads} Threads • Socket ${selectedCpuA.socket}` : `${selectedGpuA.vramGB}GB VRAM • ${selectedGpuA.architecture}`}
               </p>
             </div>
 
-            <div className="text-right">
+            <div className="text-right shrink-0">
               <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
               <span className="text-2xl font-black text-purple-500">{scoreA} pts</span>
             </div>
@@ -187,21 +187,21 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         </div>
 
         {/* VERSUS BADGE DELTA */}
-        <div className="lg:col-span-2 flex flex-col items-center justify-center gap-2 pt-12">
-          <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30">
+        <div className="lg:col-span-2 w-full flex flex-col items-center justify-center gap-2 pt-12 min-w-0">
+          <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30 shrink-0">
             VS
           </div>
           {winner !== "Tie" ? (
-            <span className="text-[11px] font-extrabold text-emerald-500 text-center">
+            <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate max-w-full px-1">
               Candidate {winner} leads by +{deltaPct}%
             </span>
           ) : (
-            <span className="text-[11px] font-extrabold text-gray-400 text-center">Equal Match</span>
+            <span className="text-[11px] font-extrabold text-gray-400 text-center truncate max-w-full px-1">Equal Match</span>
           )}
         </div>
 
         {/* COMPONENT B SELECTOR */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative">
+        <div className="lg:col-span-5 w-full bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative min-w-0">
           <SearchableSelect
             label="Component B (Right)"
             options={isCpuMode ? cpuOptions : gpuOptions}
