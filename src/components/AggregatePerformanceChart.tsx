@@ -15,8 +15,8 @@ interface AggregatePerformanceChartProps {
 }
 
 const GPU_MILESTONES = [
-  { name: "GTX 980", score: 120 },
-  { name: "GTX 1660", score: 145 },
+  { name: "GTX 750 Ti", score: 55 },
+  { name: "GTX 1060", score: 110 },
   { name: "RTX 2060", score: 185 },
   { name: "RTX 3070", score: 310 },
   { name: "RTX 4080", score: 520 },
@@ -33,8 +33,8 @@ const CPU_MILESTONES = [
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-  // Maximum scale benchmark score (310 pts for CPU apex, 980 pts for GPU apex)
-  const maxScore = type === "gpu" ? 980 : 310;
+  // Maximum scale benchmark score (310 pts for CPU apex, 520 pts for GPU milestone scale)
+  const maxScore = type === "gpu" ? 520 : 310;
 
   // Exact percentage calculation relative to max scale
   const pctA = Math.max(0.5, (itemA.score / maxScore) * 100);
@@ -108,7 +108,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
         {/* Right Shared Scale Container */}
         <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[200px]">
-          {/* 1. TOP RULER ROW (Even Indices: Pentium 4, i7-3770K, Ryzen 5600) */}
+          {/* 1. TOP RULER ROW (Even Indices) */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
@@ -147,23 +147,25 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
                   winner === "A"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
-              />
-              {/* Knob Pin Head centered 1:1 on exact math percentage point */}
-              <div
-                className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-2 shadow-lg flex items-center justify-center transition-all duration-700 ease-out z-20 ${
-                  winner === "A"
-                    ? "bg-emerald-400 border-white dark:border-[#1A1C1E] scale-105"
-                    : "bg-gray-300 dark:bg-gray-600 border-white dark:border-[#1A1C1E]"
-                }`}
-                style={{ left: `${pctA}%` }}
               >
-                <div className="w-2 h-2 rounded-full bg-white dark:bg-black" />
+                {/* Integrated Terminal Cap Knob */}
+                <div
+                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-sm flex items-center justify-center shrink-0 ${
+                    winner === "A" ? "border-emerald-400" : "border-gray-400"
+                  }`}
+                >
+                  <div
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      winner === "A" ? "bg-emerald-400" : "bg-gray-400"
+                    }`}
+                  />
+                </div>
               </div>
             </div>
 
@@ -185,28 +187,30 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
                   winner === "B"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
-              />
-              {/* Knob Pin Head centered 1:1 on exact math percentage point */}
-              <div
-                className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-2 shadow-lg flex items-center justify-center transition-all duration-700 ease-out z-20 ${
-                  winner === "B"
-                    ? "bg-emerald-400 border-white dark:border-[#1A1C1E] scale-105"
-                    : "bg-gray-300 dark:bg-gray-600 border-white dark:border-[#1A1C1E]"
-                }`}
-                style={{ left: `${pctB}%` }}
               >
-                <div className="w-2 h-2 rounded-full bg-white dark:bg-black" />
+                {/* Integrated Terminal Cap Knob */}
+                <div
+                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-sm flex items-center justify-center shrink-0 ${
+                    winner === "B" ? "border-emerald-400" : "border-gray-400"
+                  }`}
+                >
+                  <div
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      winner === "B" ? "bg-emerald-400" : "bg-gray-400"
+                    }`}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 3. BOTTOM RULER ROW (Odd Indices: Core 2 Duo, i5-10400, i5-13600K) */}
+          {/* 3. BOTTOM RULER ROW (Odd Indices) */}
           <div className="relative h-8 w-full z-10">
             {bottomMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
