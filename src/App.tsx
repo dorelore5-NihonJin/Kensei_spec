@@ -559,7 +559,7 @@ export default function App() {
                         onClick={() => setIsBuyModalOpen(true)}
                         className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#E88D9F] text-white font-black text-sm hover:bg-[#E88D9F]/90 transition shadow-lg flex items-center justify-center gap-2 shrink-0"
                       >
-                        <ShoppingCart className="w-4 h-4" /> Buy Complete Build / 買います 🛒
+                        <ShoppingCart className="w-4 h-4" /> Buy Complete Build / 買います
                       </button>
                     </div>
                   </div>
