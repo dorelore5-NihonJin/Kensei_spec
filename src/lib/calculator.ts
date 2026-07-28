@@ -100,12 +100,13 @@ export function calculatePerformance(
     rawCpuPower *= 1.16; // +16% effective throughput boost in gaming workloads from 3D V-Cache L3 pool
   }
   const refCpuPower = 185.0;
-  const cpuFactor = Math.max(0.22, rawCpuPower / refCpuPower);
+  const cpuFactor = Math.max(0.25, rawCpuPower / refCpuPower);
 
   // GPU Power Index (Normalized to RTX 4060 / RX 7600 baseline = 295)
   const gpuPower = gpu.relativePowerScore;
   const refGpuPower = 295.0;
-  const gpuFactor = Math.max(0.20, gpuPower / refGpuPower);
+  const rawGpuRatio = gpuPower / refGpuPower;
+  const gpuFactor = Math.max(0.25, resolution === "4K" ? Math.pow(rawGpuRatio, 0.95) : rawGpuRatio);
 
   // RAM Speed & Capacity Scaling
   let ramFactor = ramProfile.speedMultiplier;

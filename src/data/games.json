@@ -14,16 +14,16 @@
         "Ultra": 200
       },
       "1440p": {
-        "Low": 260,
-        "Medium": 220,
-        "High": 180,
-        "Ultra": 150
+        "Low": 240,
+        "Medium": 200,
+        "High": 170,
+        "Ultra": 210
       },
       "4K": {
-        "Low": 150,
-        "Medium": 120,
-        "High": 100,
-        "Ultra": 80
+        "Low": 130,
+        "Medium": 110,
+        "High": 90,
+        "Ultra": 70
       }
     }
   },
@@ -36,10 +36,10 @@
     "ramMinRequirementGB": 4,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 400,
-        "Medium": 350,
-        "High": 300,
-        "Ultra": 260
+        "Low": 450,
+        "Medium": 380,
+        "High": 350,
+        "Ultra": 280
       },
       "1440p": {
         "Low": 320,
@@ -64,22 +64,22 @@
     "ramMinRequirementGB": 12,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 90,
-        "Medium": 75,
-        "High": 60,
-        "Ultra": 45
+        "Low": 95,
+        "Medium": 80,
+        "High": 68,
+        "Ultra": 50
       },
       "1440p": {
         "Low": 65,
-        "Medium": 55,
+        "Medium": 54,
         "High": 45,
-        "Ultra": 30
+        "Ultra": 32
       },
       "4K": {
-        "Low": 35,
+        "Low": 38,
         "Medium": 28,
         "High": 22,
-        "Ultra": 15
+        "Ultra": 24
       }
     }
   },
@@ -92,22 +92,22 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 130,
-        "Medium": 110,
-        "High": 90,
-        "Ultra": 70
+        "Low": 145,
+        "Medium": 120,
+        "High": 98,
+        "Ultra": 75
       },
       "1440p": {
-        "Low": 95,
+        "Low": 98,
         "Medium": 80,
-        "High": 65,
-        "Ultra": 50
+        "High": 64,
+        "Ultra": 48
       },
       "4K": {
-        "Low": 50,
-        "Medium": 40,
-        "High": 32,
-        "Ultra": 24
+        "Low": 54,
+        "Medium": 42,
+        "High": 34,
+        "Ultra": 32
       }
     }
   },
@@ -120,22 +120,22 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 180,
-        "Medium": 150,
-        "High": 120,
-        "Ultra": 90
+        "Low": 220,
+        "Medium": 180,
+        "High": 145,
+        "Ultra": 110
       },
       "1440p": {
-        "Low": 135,
-        "Medium": 110,
-        "High": 90,
-        "Ultra": 70
+        "Low": 160,
+        "Medium": 130,
+        "High": 105,
+        "Ultra": 82
       },
       "4K": {
-        "Low": 75,
-        "Medium": 60,
-        "High": 50,
-        "Ultra": 40
+        "Low": 90,
+        "Medium": 75,
+        "High": 60,
+        "Ultra": 45
       }
     }
   },
@@ -148,19 +148,19 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 70,
-        "Medium": 55,
+        "Low": 72,
+        "Medium": 58,
         "High": 45,
-        "Ultra": 35
+        "Ultra": 34
       },
       "1440p": {
         "Low": 50,
         "Medium": 40,
-        "High": 32,
-        "Ultra": 24
+        "High": 30,
+        "Ultra": 22
       },
       "4K": {
-        "Low": 25,
+        "Low": 24,
         "Medium": 18,
         "High": 14,
         "Ultra": 10
@@ -176,22 +176,22 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 55,
-        "Medium": 45,
-        "High": 35,
-        "Ultra": 28
+        "Low": 58,
+        "Medium": 48,
+        "High": 38,
+        "Ultra": 30
       },
       "1440p": {
-        "Low": 40,
-        "Medium": 32,
-        "High": 24,
-        "Ultra": 18
+        "Low": 42,
+        "Medium": 34,
+        "High": 26,
+        "Ultra": 20
       },
       "4K": {
-        "Low": 20,
-        "Medium": 15,
-        "High": 11,
-        "Ultra": 8
+        "Low": 22,
+        "Medium": 16,
+        "High": 12,
+        "Ultra": 9
       }
     }
   },
@@ -204,22 +204,22 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 85,
-        "Medium": 70,
-        "High": 55,
-        "Ultra": 42
+        "Low": 90,
+        "Medium": 75,
+        "High": 60,
+        "Ultra": 45
       },
       "1440p": {
-        "Low": 60,
-        "Medium": 48,
-        "High": 38,
+        "Low": 62,
+        "Medium": 50,
+        "High": 40,
         "Ultra": 28
       },
       "4K": {
         "Low": 30,
         "Medium": 22,
         "High": 16,
-        "Ultra": 12
+        "Ultra": 11
       }
     }
   },
@@ -232,22 +232,22 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 280,
-        "Medium": 240,
-        "High": 200,
-        "Ultra": 160
+        "Low": 320,
+        "Medium": 270,
+        "High": 230,
+        "Ultra": 230
       },
       "1440p": {
-        "Low": 210,
-        "Medium": 180,
-        "High": 150,
-        "Ultra": 120
+        "Low": 230,
+        "Medium": 190,
+        "High": 160,
+        "Ultra": 130
       },
       "4K": {
-        "Low": 120,
-        "Medium": 100,
-        "High": 80,
-        "Ultra": 60
+        "Low": 130,
+        "Medium": 105,
+        "High": 85,
+        "Ultra": 65
       }
     }
   },
@@ -260,16 +260,16 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 220,
-        "Medium": 190,
-        "High": 160,
-        "Ultra": 130
+        "Low": 240,
+        "Medium": 200,
+        "High": 170,
+        "Ultra": 140
       },
       "1440p": {
         "Low": 170,
         "Medium": 140,
-        "High": 120,
-        "Ultra": 95
+        "High": 115,
+        "Ultra": 92
       },
       "4K": {
         "Low": 90,
@@ -288,22 +288,22 @@
     "ramMinRequirementGB": 12,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 110,
-        "Medium": 90,
-        "High": 75,
-        "Ultra": 60
+        "Low": 115,
+        "Medium": 95,
+        "High": 80,
+        "Ultra": 65
       },
       "1440p": {
         "Low": 85,
-        "Medium": 70,
-        "High": 55,
+        "Medium": 72,
+        "High": 58,
         "Ultra": 45
       },
       "4K": {
         "Low": 45,
-        "Medium": 35,
+        "Medium": 36,
         "High": 28,
-        "Ultra": 22
+        "Ultra": 20
       }
     }
   },
@@ -316,21 +316,21 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 160,
-        "Medium": 135,
-        "High": 110,
-        "Ultra": 85
+        "Low": 165,
+        "Medium": 140,
+        "High": 115,
+        "Ultra": 90
       },
       "1440p": {
         "Low": 120,
         "Medium": 100,
-        "High": 82,
+        "High": 80,
         "Ultra": 62
       },
       "4K": {
         "Low": 65,
-        "Medium": 54,
-        "High": 44,
+        "Medium": 52,
+        "High": 42,
         "Ultra": 32
       }
     }
@@ -344,9 +344,9 @@
     "ramMinRequirementGB": 8,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 260,
-        "Medium": 200,
-        "High": 150,
+        "Low": 270,
+        "Medium": 210,
+        "High": 155,
         "Ultra": 110
       },
       "1440p": {
@@ -359,7 +359,7 @@
         "Low": 100,
         "Medium": 75,
         "High": 55,
-        "Ultra": 40
+        "Ultra": 38
       }
     }
   },
@@ -372,9 +372,9 @@
     "ramMinRequirementGB": 4,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 240,
-        "Medium": 180,
-        "High": 140,
+        "Low": 250,
+        "Medium": 190,
+        "High": 145,
         "Ultra": 100
       },
       "1440p": {
@@ -385,9 +385,9 @@
       },
       "4K": {
         "Low": 90,
-        "Medium": 68,
+        "Medium": 70,
         "High": 50,
-        "Ultra": 38
+        "Ultra": 35
       }
     }
   },
@@ -400,21 +400,21 @@
     "ramMinRequirementGB": 12,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 115,
-        "Medium": 95,
-        "High": 80,
-        "Ultra": 60
+        "Low": 120,
+        "Medium": 100,
+        "High": 82,
+        "Ultra": 62
       },
       "1440p": {
-        "Low": 85,
-        "Medium": 70,
+        "Low": 88,
+        "Medium": 72,
         "High": 58,
         "Ultra": 42
       },
       "4K": {
-        "Low": 45,
+        "Low": 46,
         "Medium": 36,
-        "High": 30,
+        "High": 28,
         "Ultra": 20
       }
     }
@@ -428,22 +428,22 @@
     "ramMinRequirementGB": 12,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 160,
-        "Medium": 130,
+        "Low": 165,
+        "Medium": 135,
         "High": 110,
         "Ultra": 90
       },
       "1440p": {
         "Low": 120,
         "Medium": 98,
-        "High": 82,
-        "Ultra": 68
+        "High": 80,
+        "Ultra": 64
       },
       "4K": {
         "Low": 65,
         "Medium": 52,
-        "High": 44,
-        "Ultra": 35
+        "High": 42,
+        "Ultra": 32
       }
     }
   },
@@ -456,16 +456,16 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 105,
-        "Medium": 85,
-        "High": 70,
+        "Low": 110,
+        "Medium": 90,
+        "High": 72,
         "Ultra": 55
       },
       "1440p": {
-        "Low": 78,
-        "Medium": 62,
+        "Low": 80,
+        "Medium": 64,
         "High": 50,
-        "Ultra": 38
+        "Ultra": 36
       },
       "4K": {
         "Low": 40,
@@ -484,22 +484,22 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 120,
-        "Medium": 100,
-        "High": 80,
+        "Low": 125,
+        "Medium": 105,
+        "High": 85,
         "Ultra": 65
       },
       "1440p": {
-        "Low": 90,
+        "Low": 92,
         "Medium": 75,
         "High": 60,
-        "Ultra": 48
+        "Ultra": 45
       },
       "4K": {
         "Low": 48,
         "Medium": 38,
-        "High": 30,
-        "Ultra": 24
+        "High": 28,
+        "Ultra": 22
       }
     }
   },
@@ -512,22 +512,22 @@
     "ramMinRequirementGB": 12,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 130,
-        "Medium": 110,
-        "High": 90,
-        "Ultra": 70
+        "Low": 135,
+        "Medium": 115,
+        "High": 92,
+        "Ultra": 72
       },
       "1440p": {
         "Low": 95,
         "Medium": 80,
-        "High": 65,
-        "Ultra": 50
+        "High": 62,
+        "Ultra": 45
       },
       "4K": {
-        "Low": 50,
-        "Medium": 40,
-        "High": 32,
-        "Ultra": 24
+        "Low": 48,
+        "Medium": 38,
+        "High": 30,
+        "Ultra": 22
       }
     }
   },
@@ -540,22 +540,22 @@
     "ramMinRequirementGB": 16,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 75,
-        "Medium": 60,
-        "High": 48,
-        "Ultra": 35
+        "Low": 80,
+        "Medium": 65,
+        "High": 52,
+        "Ultra": 38
       },
       "1440p": {
-        "Low": 55,
-        "Medium": 44,
-        "High": 35,
-        "Ultra": 25
+        "Low": 60,
+        "Medium": 48,
+        "High": 38,
+        "Ultra": 26
       },
       "4K": {
-        "Low": 28,
+        "Low": 30,
         "Medium": 22,
         "High": 16,
-        "Ultra": 12
+        "Ultra": 11
       }
     }
   },
@@ -568,22 +568,22 @@
     "ramMinRequirementGB": 4,
     "baseFpsScaling": {
       "1080p": {
-        "Low": 250,
-        "Medium": 200,
-        "High": 160,
-        "Ultra": 120
+        "Low": 260,
+        "Medium": 210,
+        "High": 170,
+        "Ultra": 130
       },
       "1440p": {
-        "Low": 190,
-        "Medium": 150,
-        "High": 120,
-        "Ultra": 90
+        "Low": 200,
+        "Medium": 160,
+        "High": 130,
+        "Ultra": 95
       },
       "4K": {
-        "Low": 100,
-        "Medium": 80,
-        "High": 60,
-        "Ultra": 45
+        "Low": 110,
+        "Medium": 85,
+        "High": 65,
+        "Ultra": 50
       }
     }
   }
