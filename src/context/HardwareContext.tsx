@@ -23,8 +23,8 @@ interface HardwareContextType {
   games: Game[];
 
   // App Page & Navigation State
-  activePage: "simulator" | "catalog" | "compare";
-  setActivePage: (page: "simulator" | "catalog" | "compare") => void;
+  activePage: "simulator" | "catalog" | "compare" | "rankings";
+  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings") => void;
   currentStep: 1 | 2 | 3;
   setCurrentStep: (step: 1 | 2 | 3) => void;
   viewMode: "wizard" | "overview";
@@ -121,7 +121,14 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   const [darkMode, setDarkMode] = useState<boolean>(() => getStorageItem("kensei_dark_mode", "false") === "true");
 
   // App Page & Navigation State
-  const [activePage, setActivePage] = useState<"simulator" | "catalog" | "compare">(() => getStorageItem("kensei_active_page", "simulator") as any);
+  const [activePage, setActivePage] = useState<"simulator" | "catalog" | "compare" | "rankings">(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get("page");
+    if (pageParam === "rankings" || pageParam === "compare" || pageParam === "catalog" || pageParam === "simulator") {
+      return pageParam as any;
+    }
+    return getStorageItem("kensei_active_page", "simulator") as any;
+  });
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(() => {
     const step = parseInt(getStorageItem("kensei_current_step", "1"));
     return (step === 1 || step === 2 || step === 3) ? step : 1;

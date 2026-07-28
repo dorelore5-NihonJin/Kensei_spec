@@ -12,6 +12,7 @@ import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap, Check } from "lucide-reac
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import ComparePage from "./pages/ComparePage";
+import RankingsPage from "./pages/RankingsPage";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
@@ -172,9 +173,11 @@ export default function App() {
           onOpenBuyModal={() => setIsBuyModalOpen(true)}
         />
 
-        {/* PAGE SWITCH: COMPARE PAGE vs CATALOG PAGE vs SIMULATOR PAGE */}
+        {/* PAGE SWITCH: COMPARE PAGE vs RANKINGS PAGE vs CATALOG PAGE vs SIMULATOR PAGE */}
         {activePage === "compare" ? (
           <ComparePage cpus={cpus} gpus={gpus} />
+        ) : activePage === "rankings" ? (
+          <RankingsPage cpus={cpus} gpus={gpus} />
         ) : activePage === "catalog" ? (
           <GameBuildsCatalog
             games={games}

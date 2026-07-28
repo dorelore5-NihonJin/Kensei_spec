@@ -401,32 +401,56 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                     <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-bold text-gray-500">Place in Global Ranking / 総合順位</td>
                       <td className="py-3.5 px-4">
-                        <span className={`px-2.5 py-1 rounded-lg font-mono font-black text-xs border inline-flex items-center gap-1 ${
-                          techSpecsA.rank < techSpecsB.rank
-                            ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                            : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20"
-                        }`}>
-                          <span>#{techSpecsA.rank} of {techSpecsA.totalCount}</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const url = new URL(window.location.href);
+                            url.searchParams.set("page", "rankings");
+                            url.searchParams.set("type", mode);
+                            url.searchParams.set("highlight", itemA.id);
+                            window.history.replaceState({}, "", url.toString());
+                            setActivePage("rankings");
+                          }}
+                          className={`px-3 py-1 rounded-xl font-mono font-black text-xs border inline-flex items-center gap-1.5 transition hover:scale-105 ${
+                            techSpecsA.rank < techSpecsB.rank
+                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25"
+                              : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20 hover:bg-[#E88D9F]/20"
+                          }`}
+                          title="Click to view full global ranking hierarchy"
+                        >
+                          <span>#{techSpecsA.rank}</span>
                           {techSpecsA.rank < techSpecsB.rank && (
                             <span className="inline-flex items-center gap-0.5 text-amber-500 dark:text-amber-400 font-extrabold ml-1">
                               <Trophy className="w-3 h-3" /> Best
                             </span>
                           )}
-                        </span>
+                        </button>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className={`px-2.5 py-1 rounded-lg font-mono font-black text-xs border inline-flex items-center gap-1 ${
-                          techSpecsB.rank < techSpecsA.rank
-                            ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                            : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20"
-                        }`}>
-                          <span>#{techSpecsB.rank} of {techSpecsB.totalCount}</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const url = new URL(window.location.href);
+                            url.searchParams.set("page", "rankings");
+                            url.searchParams.set("type", mode);
+                            url.searchParams.set("highlight", itemB.id);
+                            window.history.replaceState({}, "", url.toString());
+                            setActivePage("rankings");
+                          }}
+                          className={`px-3 py-1 rounded-xl font-mono font-black text-xs border inline-flex items-center gap-1.5 transition hover:scale-105 ${
+                            techSpecsB.rank < techSpecsA.rank
+                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25"
+                              : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20 hover:bg-[#E88D9F]/20"
+                          }`}
+                          title="Click to view full global ranking hierarchy"
+                        >
+                          <span>#{techSpecsB.rank}</span>
                           {techSpecsB.rank < techSpecsA.rank && (
                             <span className="inline-flex items-center gap-0.5 text-amber-500 dark:text-amber-400 font-extrabold ml-1">
                               <Trophy className="w-3 h-3" /> Best
                             </span>
                           )}
-                        </span>
+                        </button>
                       </td>
                     </tr>
 

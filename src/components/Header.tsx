@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid, Scale } from "lucide-react";
+import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid, Scale, Trophy } from "lucide-react";
 
 interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   onReset: () => void;
-  activePage: "simulator" | "catalog" | "compare";
-  setActivePage: (page: "simulator" | "catalog" | "compare") => void;
+  activePage: "simulator" | "catalog" | "compare" | "rankings";
+  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings") => void;
   onOpenBuyModal: () => void;
 }
 
@@ -81,21 +81,34 @@ export default function Header({
             onClick={() => setActivePage("compare")}
             className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "compare"
-                ? "bg-purple-600 text-white shadow-md scale-102"
+                ? "bg-[#E88D9F] text-white shadow-md scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Scale className={`w-4 h-4 ${activePage === "compare" ? "text-purple-200" : "text-purple-400"}`} />
+            <Scale className={`w-4 h-4 ${activePage === "compare" ? "text-white" : "text-[#E88D9F]"}`} />
             <span>3. Hardware Compare</span>
           </button>
 
-          {/* TAB 4: PC CONFIGURATOR STORE */}
+          {/* TAB 4: GLOBAL RANKINGS */}
+          <button
+            onClick={() => setActivePage("rankings")}
+            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+              activePage === "rankings"
+                ? "bg-[#E88D9F] text-white shadow-md scale-102"
+                : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+            }`}
+          >
+            <Trophy className={`w-4 h-4 ${activePage === "rankings" ? "text-white" : "text-amber-400"}`} />
+            <span>4. Silicon Rankings</span>
+          </button>
+
+          {/* TAB 5: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
             className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
           >
             <ShoppingCart className="w-4 h-4" />
-            <span>4. Buy PC Store</span>
+            <span>5. Buy PC Store</span>
           </button>
         </div>
 
@@ -146,7 +159,7 @@ export default function Header({
         >
           <source
             src={
-              activePage === "compare"
+              activePage === "compare" || activePage === "rankings"
                 ? "./gif_banner_vs.mp4"
                 : activePage === "catalog"
                 ? "./gif_banner_catalog.mp4"
@@ -159,16 +172,18 @@ export default function Header({
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs">
-              {activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
+              {activePage === "rankings" ? "GLOBAL HIERARCHY LEADERBOARD" : activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
             </span>
             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              {activePage === "compare" ? "DEEP SILICON MATRIX COMPARISON" : activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+              {activePage === "rankings" ? "100% VERIFIED HARDWARE INDEX" : activePage === "compare" ? "DEEP SILICON MATRIX COMPARISON" : activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
             </span>
           </div>
 
           <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
-            {activePage === "compare"
+            {activePage === "rankings"
+              ? "GLOBAL SILICON HIERARCHY RANKINGS"
+              : activePage === "compare"
               ? "KENSEI VERSUS HARDWARE STUDIO"
               : activePage === "catalog"
               ? "KENSEI GAME BUILDS CATALOG"
@@ -176,7 +191,9 @@ export default function Header({
           </h1>
 
           <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
-            {activePage === "compare"
+            {activePage === "rankings"
+              ? "Explore complete global hierarchy leaderboards for all CPUs and GPUs sorted by normalized aggregate performance throughput."
+              : activePage === "compare"
               ? "Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics, architectural specs, and hierarchy ranking."
               : activePage === "catalog"
               ? "Browse 250 verified PC configurations across Esports Gaming, AI LLM Inference, 3D Rendering & Workstations."
