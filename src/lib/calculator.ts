@@ -192,7 +192,7 @@ export function calculatePerformance(
     );
   }
 
-  const combinedHwFactor = ((minHwFactor * 0.68) + (weightedHwFactor * 0.32)) * asymmetricStallFactor * genMismatchFactor;
+  const combinedHwFactor = ((minHwFactor * 0.45) + (weightedHwFactor * 0.55)) * asymmetricStallFactor * genMismatchFactor;
 
   let estimatedFps = baseFps * combinedHwFactor * ramFactor * storageFactor;
 
