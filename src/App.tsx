@@ -14,6 +14,7 @@ import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
+import CookieBanner from "./components/CookieBanner";
 
 export default function App() {
   const {
@@ -589,6 +590,9 @@ export default function App() {
           onResetBuild={handleResetBuild}
           onOpenLegalModal={handleOpenLegalModal}
         />
+
+        {/* Cookie & LocalStorage GDPR Consent Banner */}
+        <CookieBanner onOpenPrivacyPolicy={() => handleOpenLegalModal("privacy")} />
       </div>
     </div>
   );
