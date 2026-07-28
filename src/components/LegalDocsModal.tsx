@@ -207,10 +207,10 @@ export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }
 
               <div className="flex flex-col gap-4">
                 <h4 className="text-sm font-black text-[#1E2022] dark:text-white uppercase tracking-wider border-b border-black/10 dark:border-white/10 pb-1 flex items-center gap-1.5">
-                  <ChevronRight className="w-4 h-4 text-emerald-400" /> Section 3: Local Storage Usage (`localStorage`) (ローカルストレージの使用目的)
+                  <ChevronRight className="w-4 h-4 text-emerald-400" /> Section 3: Cookie & Local Storage Disclosure (`localStorage`) (クッキー及びローカルストレージの使用目的)
                 </h4>
                 <p className="text-xs font-bold leading-relaxed text-gray-600 dark:text-gray-300">
-                  We utilize standard HTML5 Web Storage (`localStorage`) strictly to preserve your visual application state across browser reloads.
+                  KENSEI SPEC utilizes HTML5 Web Storage (`localStorage`) and session cookie technology strictly to preserve your hardware configuration, game graphics presets, and legal governance preferences across browser reloads.
                 </p>
                 <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5">
                   <table className="w-full text-[11px] font-bold text-left border-collapse">
@@ -218,19 +218,34 @@ export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }
                       <tr className="border-b border-black/10 dark:border-white/10 text-gray-500 uppercase">
                         <th className="py-1">Storage Key</th>
                         <th className="py-1">Purpose</th>
-                        <th className="py-1">Expiration</th>
+                        <th className="py-1">Expiration / Status</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 text-gray-600 dark:text-gray-300">
                       <tr>
-                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_theme_mode</td>
-                        <td className="py-1.5">Remembers Light or Dark mode toggle preference</td>
-                        <td className="py-1.5">Persistent (User Erasable)</td>
+                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_cpu_id / gpu_id / ram_id</td>
+                        <td className="py-1.5">Saves active CPU, GPU, and RAM selections across F5 page reloads</td>
+                        <td className="py-1.5 text-emerald-500 font-mono">Persistent (Local Browser)</td>
                       </tr>
                       <tr>
-                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_wizard_step</td>
-                        <td className="py-1.5">Saves current step (1, 2, or 3) for session convenience</td>
-                        <td className="py-1.5">Session / Persistent</td>
+                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_game_id / resolution / preset</td>
+                        <td className="py-1.5">Stores target game title, resolution (1080p/1440p/4K), and graphics preset</td>
+                        <td className="py-1.5 text-emerald-500 font-mono">Persistent (Local Browser)</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_cookie_consent</td>
+                        <td className="py-1.5">Stores explicit user cookie consent status ('accepted' / 'declined')</td>
+                        <td className="py-1.5 text-purple-400 font-mono font-black">Audit Log (Immutable)</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_cookie_consent_timestamp</td>
+                        <td className="py-1.5">ISO 8601 timestamp log recording exact date & time consent was granted</td>
+                        <td className="py-1.5 text-purple-400 font-mono font-black">Audit Log (Immutable)</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 font-mono text-[#E88D9F]">kensei_legal_accepted</td>
+                        <td className="py-1.5">Records user acknowledgment of Terms of Service & Privacy Policy</td>
+                        <td className="py-1.5 text-purple-400 font-mono font-black">Audit Log (Immutable)</td>
                       </tr>
                     </tbody>
                   </table>
@@ -245,10 +260,22 @@ export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }
                   Our data protection practices comply fully with:
                 </p>
                 <ul className="list-disc list-inside text-[11px] font-bold text-gray-600 dark:text-gray-300 space-y-1">
-                  <li><strong>European Union GDPR</strong> (General Data Protection Regulation - Regulation EU 2016/679).</li>
+                  <li><strong>European Union GDPR</strong> (General Data Protection Regulation - Regulation EU 2016/679) & ePrivacy Directive (2002/58/EC).</li>
                   <li><strong>California Consumer Privacy Act (CCPA)</strong> & CPRA.</li>
                   <li><strong>Japan Act on the Protection of Personal Information (APPI)</strong> (個人情報の保護に関する法律).</li>
                 </ul>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h4 className="text-sm font-black text-[#1E2022] dark:text-white uppercase tracking-wider border-b border-black/10 dark:border-white/10 pb-1 flex items-center gap-1.5">
+                  <ChevronRight className="w-4 h-4 text-emerald-400" /> Section 5: Legal Consent Auditability & Non-Repudiation (合意監査ログ及び非否認性原則)
+                </h4>
+                <p className="text-xs font-bold leading-relaxed text-gray-600 dark:text-gray-300">
+                  Under the ePrivacy Directive and Japanese APPI frameworks, when a User acknowledges legal policies or grants cookie permissions on KENSEI SPEC, a cryptographic local consent record (`kensei_cookie_consent_timestamp` / `kensei_legal_accepted`) is written to the browser's storage manifest.
+                </p>
+                <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 text-[11px] text-gray-600 dark:text-gray-300 font-extrabold leading-relaxed">
+                  <strong>Non-Repudiation Guarantee:</strong> Once legal consent is granted, the timestamp log serves as an immutable verification record demonstrating explicit consent under international digital contract governance standards.
+                </div>
               </div>
             </div>
           )}

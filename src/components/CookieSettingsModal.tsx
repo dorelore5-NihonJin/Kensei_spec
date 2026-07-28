@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Cookie, ShieldCheck, CheckCircle2, XCircle, Trash2, X, Lock, Check, FileText } from "lucide-react";
+import { Cookie, ShieldCheck, CheckCircle2, XCircle, X, Lock, Check, FileText } from "lucide-react";
 
 interface CookieSettingsModalProps {
   isOpen: boolean;
@@ -42,16 +42,6 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
       }
     } catch {
       // Ignore storage write errors
-    }
-  };
-
-  const handleClearAllStorage = () => {
-    try {
-      localStorage.clear();
-      setConsentStatus("none");
-      setConsentTime(null);
-    } catch {
-      // Ignore errors
     }
   };
 
@@ -182,13 +172,10 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
 
         {/* Action Options Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-white/10">
-          <button
-            onClick={handleClearAllStorage}
-            className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition flex items-center justify-center gap-2 border border-rose-500/20 whitespace-nowrap"
-          >
-            <Trash2 className="w-4 h-4 text-rose-400 shrink-0" />
-            <span>Reset Local Storage / リセット</span>
-          </button>
+          <div className="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+            <Lock className="w-3.5 h-3.5 text-[#8A9A86] shrink-0" />
+            <span>Immutable Consent Audit Log Registered</span>
+          </div>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
             <button
