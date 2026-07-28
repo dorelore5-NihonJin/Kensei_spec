@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
-import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X } from "lucide-react";
+import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X, Check } from "lucide-react";
 
 interface ComponentPickerProps {
   cpus: CPU[];
@@ -70,11 +70,36 @@ export default function ComponentPicker({
 
   const filteredRamProfiles = useMemo(() => {
     if (!selectedCpu) return ramProfiles;
-    return ramProfiles.filter((ram) => selectedCpu.supportedDdr.includes(ram.generation));
+    return ramProfiles.filter((r) => selectedCpu.supportedDdr.includes(r.generation));
   }, [ramProfiles, selectedCpu]);
 
   return (
     <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col gap-6">
+      
+      {/* Complete Hardware Build Matrix Summary Badge */}
+      {selectedCpu && selectedGpu && selectedRam && (
+        <div className="p-3.5 bg-[#8A9A86]/10 dark:bg-[#8A9A86]/20 border border-[#8A9A86]/30 rounded-2xl flex flex-wrap items-center justify-between gap-2.5 text-xs font-black animate-fadeIn">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="flex items-center gap-1 bg-[#8A9A86] text-white px-2.5 py-0.5 rounded-full text-[10px] uppercase shadow-xs">
+              <Check className="w-3 h-3" /> Build Active
+            </span>
+            <span className="text-[#1E2022] dark:text-white">
+              {selectedCpu.name} • {selectedGpu.name} • {ramCapacityGB}GB {selectedRam.generation} ({ramChannel}) • {selectedStorage}
+            </span>
+          </div>
+          <button
+            onClick={() => {
+              setSelectedCpu(null);
+              setSelectedGpu(null);
+              setSelectedRam(null);
+            }}
+            className="text-[10px] text-red-500 hover:text-red-700 font-extrabold underline shrink-0 ml-auto"
+          >
+            Reset Hardware
+          </button>
+        </div>
+      )}
+
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-xl font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <Cpu className="w-5 h-5 text-[#E88D9F]" />

@@ -90,8 +90,15 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
       <div className="flex flex-col items-center justify-center py-4 text-center">
         <div className="relative w-44 h-44 flex items-center justify-center">
           <svg className="w-full h-full transform -rotate-90">
-            {/* Gradients */}
+            {/* Gradients & Glow Filters */}
             <defs>
+              <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
               <linearGradient id="fps-grad-under-30" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#F43F5E" />
                 <stop offset="100%" stopColor="#E11D48" />
@@ -126,6 +133,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
               r={radius}
               stroke={`url(#${gradientId})`}
               strokeWidth="8"
+              filter="url(#neon-glow)"
               className={`fill-transparent transition-all duration-300 ease-out ${pulseClass}`}
               strokeDasharray={circumference}
               strokeDashoffset={isComplete ? strokeOffset : circumference}
