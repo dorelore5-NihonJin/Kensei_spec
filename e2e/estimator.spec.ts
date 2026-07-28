@@ -10,9 +10,12 @@ test.describe('Kensei Spec E2E Tests', () => {
     await expect(page).toHaveTitle(/KENSEI SPEC/);
     
     // Check main elements are visible
-    await expect(page.getByText('Pick Components')).toBeVisible();
-    await expect(page.getByText('Select Target')).toBeVisible();
-    await expect(page.getByText('Estimated Performance')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Pick Components / 構成の選択' })).toBeVisible();
+    await page.getByRole('button', { name: 'Proceed to Step 2' }).click();
+    await expect(page.getByRole('heading', { name: 'Select Target / ゲーム選択' })).toBeVisible();
+    await page.getByRole('button', { name: 'View Benchmark Results' }).click();
+
+    await expect(page.getByText('Select Hardware Components First')).toBeVisible();
   });
 
   test('should simulate bottleneck warnings and compute performance on selections', async ({ page }) => {
@@ -37,15 +40,19 @@ test.describe('Kensei Spec E2E Tests', () => {
     // Select HDD storage for extra performance penalty/warnings
     await page.getByText('HDD').click();
 
-    // Confirm diagnostics card renders warnings (using regex for flexibility)
-    await expect(page.getByText(/Generational Mismatch/i)).toBeVisible();
-    await expect(page.getByText(/Low RAM capacity/i)).toBeVisible();
-    await expect(page.getByText(/Mechanical Storage/i)).toBeVisible();
-    await expect(page.getByText(/bottleneck/i).first()).toBeVisible();
+    await page.getByRole('button', { name: 'Proceed to Step 2' }).click();
 
     // Select a light game to see some FPS calculation
     await page.getByPlaceholder('Search games...').fill('Valorant');
     await page.getByText('Valorant').first().click();
+
+    await page.getByRole('button', { name: 'View Benchmark Results' }).click();
+
+    // Confirm diagnostics card renders warnings (using regex for flexibility)
+    await expect(page.getByText(/Generational Asymmetry|Generational Mismatch/i)).toBeVisible();
+    await expect(page.getByText(/Low RAM capacity/i)).toBeVisible();
+    await expect(page.getByText(/Mechanical Storage/i)).toBeVisible();
+    await expect(page.getByText(/bottleneck/i).first()).toBeVisible();
 
     // Ensure FPS average and 1% low can be calculated
     const avgFpsContainer = page.locator('.select-all');
