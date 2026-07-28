@@ -12,6 +12,14 @@ interface QuickGameSwitcherProps {
   onSelectPreset: (preset: "Low" | "Medium" | "High" | "Ultra") => void;
 }
 
+// Helper for resolving relative image paths under subfolder deployments
+function resolveCoverUrl(path?: string): string {
+  if (!path) return "./games/cs2.jpg";
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  const clean = path.replace(/^\//, "");
+  return `./${clean}`;
+}
+
 export default function QuickGameSwitcher({
   games,
   selectedGame,
@@ -25,7 +33,7 @@ export default function QuickGameSwitcher({
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300;
+      const scrollAmount = direction === "left" ? -320 : 320;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -83,12 +91,15 @@ export default function QuickGameSwitcher({
         </div>
       </div>
 
-      {/* Horizontal Games Carousel Bar with Sleek Nav Controls & Zero Native Scrollbars */}
-      <div className="relative flex items-center group">
+      {/* Horizontal Games Carousel Bar with Soft Gradient Edge Fade & Sleek Arrow Navigation */}
+      <div className="relative flex items-center group px-1">
+        {/* Soft Left Edge Gradient Fade */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white dark:from-[#1A1C1E] to-transparent z-10 rounded-l-2xl" />
+
         {/* Left Scroll Button */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-0 z-10 p-1.5 rounded-full bg-white/90 dark:bg-[#1A1C1E]/90 border border-black/10 dark:border-white/10 shadow-md text-gray-700 dark:text-gray-200 hover:scale-110 transition hidden group-hover:flex items-center justify-center"
+          className="absolute -left-2 z-20 p-2 rounded-full bg-white dark:bg-[#1E2022] border border-black/10 dark:border-white/10 shadow-lg text-gray-700 dark:text-gray-200 hover:scale-110 active:scale-95 transition flex items-center justify-center"
           title="Scroll Left"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -97,10 +108,11 @@ export default function QuickGameSwitcher({
         {/* Carousel Container (Custom hidden scrollbars via no-scrollbar) */}
         <div
           ref={scrollRef}
-          className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 w-full"
+          className="flex items-center gap-2.5 overflow-x-auto no-scrollbar scroll-smooth py-1 px-4 w-full"
         >
           {games.map((game) => {
             const isSelected = selectedGame.id === game.id;
+            const coverSrc = resolveCoverUrl(game.coverImage);
 
             return (
               <button
@@ -112,10 +124,10 @@ export default function QuickGameSwitcher({
                     : "bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10 dark:hover:bg-white/10"
                 }`}
               >
-                {/* Game Thumbnail */}
-                <div className="w-6 h-6 rounded-lg overflow-hidden shrink-0 border border-black/10 dark:border-white/10 bg-black/20">
+                {/* Game Thumbnail Cover */}
+                <div className="w-6 h-6 rounded-lg overflow-hidden shrink-0 border border-black/10 dark:border-white/10 bg-black/20 shadow-xs">
                   <img
-                    src={`./games/${game.id}.jpg`}
+                    src={coverSrc}
                     alt={game.title}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -123,17 +135,20 @@ export default function QuickGameSwitcher({
                     }}
                   />
                 </div>
-                <span className="truncate max-w-[130px]">{game.title}</span>
+                <span className="truncate max-w-[140px]">{game.title}</span>
                 {isSelected && <Sparkles className="w-3.5 h-3.5 text-[#E88D9F]" />}
               </button>
             );
           })}
         </div>
 
+        {/* Soft Right Edge Gradient Fade */}
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white dark:from-[#1A1C1E] to-transparent z-10 rounded-r-2xl" />
+
         {/* Right Scroll Button */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 z-10 p-1.5 rounded-full bg-white/90 dark:bg-[#1A1C1E]/90 border border-black/10 dark:border-white/10 shadow-md text-gray-700 dark:text-gray-200 hover:scale-110 transition hidden group-hover:flex items-center justify-center"
+          className="absolute -right-2 z-20 p-2 rounded-full bg-white dark:bg-[#1E2022] border border-black/10 dark:border-white/10 shadow-lg text-gray-700 dark:text-gray-200 hover:scale-110 active:scale-95 transition flex items-center justify-center"
           title="Scroll Right"
         >
           <ChevronRight className="w-4 h-4" />
