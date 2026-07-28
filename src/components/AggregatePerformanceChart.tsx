@@ -15,16 +15,17 @@ interface AggregatePerformanceChartProps {
 }
 
 const GPU_MILESTONES = [
-  { name: "GTX 1050 Ti", score: 85 },
+  { name: "GTX 980", score: 120 },
   { name: "GTX 1660", score: 145 },
-  { name: "RTX 3060", score: 205 },
-  { name: "RTX 4070", score: 380 },
+  { name: "RTX 2060", score: 185 },
+  { name: "RTX 3070", score: 310 },
   { name: "RTX 4080", score: 520 },
   { name: "RTX 5090", score: 980 },
 ];
 
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
+  { name: "Core 2 Duo", score: 45 },
   { name: "i7-3770K", score: 65 },
   { name: "i5-10400", score: 125 },
   { name: "Ryzen 5600", score: 185 },
@@ -37,8 +38,10 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
   const maxScore = milestones[milestones.length - 1].score;
 
-  const pctA = Math.min(100, Math.max(1.5, Math.round((itemA.score / maxScore) * 100)));
-  const pctB = Math.min(100, Math.max(1.5, Math.round((itemB.score / maxScore) * 100)));
+  // Set minimum 6% width so terminal knob (28px) never buckles or shifts backwards on low scores (e.g. Pentium 4 11pts)
+  const minWidthPct = 6;
+  const pctA = Math.min(100, Math.max(minWidthPct, Math.round((itemA.score / maxScore) * 100)));
+  const pctB = Math.min(100, Math.max(minWidthPct, Math.round((itemB.score / maxScore) * 100)));
 
   const winner = itemA.score > itemB.score ? "A" : itemB.score > itemA.score ? "B" : "Tie";
   const winnerName = winner === "A" ? itemA.name : itemB.name;
@@ -94,7 +97,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
         {/* BAR A ROW */}
         <div className="flex items-center gap-2 relative">
-          {/* Left Component Title & Score Card (Tightened w-36 sm:w-44 width) */}
+          {/* Left Component Title & Score Card */}
           <div className="w-36 sm:w-44 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemA.name}
@@ -112,7 +115,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemA.details}</p>
           </div>
 
-          {/* Right Track Scale Container (Height increased to h-10 sm:h-11) */}
+          {/* Right Track Scale Container */}
           <div className="flex-1 relative h-10 sm:h-11 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -130,7 +133,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
             {/* Track Capsule A */}
             <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Filled Slider Bar */}
+              {/* Filled Slider Bar with min-width of 6% to prevent knob distortion on low scores */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-1 relative ${
                   winner === "A"
@@ -158,7 +161,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
         {/* BAR B ROW */}
         <div className="flex items-center gap-2 relative">
-          {/* Left Component Title & Score Card (Tightened w-36 sm:w-44 width) */}
+          {/* Left Component Title & Score Card */}
           <div className="w-36 sm:w-44 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemB.name}
@@ -176,7 +179,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{itemB.details}</p>
           </div>
 
-          {/* Right Track Scale Container (Height increased to h-10 sm:h-11) */}
+          {/* Right Track Scale Container */}
           <div className="flex-1 relative h-10 sm:h-11 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -194,7 +197,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
             {/* Track Capsule B */}
             <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Filled Slider Bar */}
+              {/* Filled Slider Bar with min-width of 6% to prevent knob distortion on low scores */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-1 relative ${
                   winner === "B"
