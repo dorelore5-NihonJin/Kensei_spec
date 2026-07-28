@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers } from "lucide-react";
+import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers, MousePointerClick } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
@@ -31,12 +31,12 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     window.history.replaceState({}, "", url.toString());
   };
 
-  // Default selections
-  const [selectedCpuA, setSelectedCpuA] = useState<CPU>(() => cpus.find(c => c.id === "cpu-001") || cpus[0]);
-  const [selectedCpuB, setSelectedCpuB] = useState<CPU>(() => cpus.find(c => c.id === "cpu-007") || cpus[1]);
+  // Selections start empty (null) until user chooses components to compare
+  const [selectedCpuA, setSelectedCpuA] = useState<CPU | null>(null);
+  const [selectedCpuB, setSelectedCpuB] = useState<CPU | null>(null);
 
-  const [selectedGpuA, setSelectedGpuA] = useState<GPU>(() => gpus.find(g => g.id === "gpu-001") || gpus[0]);
-  const [selectedGpuB, setSelectedGpuB] = useState<GPU>(() => gpus.find(g => g.id === "gpu-006") || gpus[1]);
+  const [selectedGpuA, setSelectedGpuA] = useState<GPU | null>(null);
+  const [selectedGpuB, setSelectedGpuB] = useState<GPU | null>(null);
 
   // Map options for SearchableSelect
   const cpuOptions = cpus.map((c) => ({
@@ -53,15 +53,17 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     manufacturer: g.manufacturer
   }));
 
-  // CPU Score comparison: Single Core * 0.6 + Multi Core * 0.4
-  const cpuScoreA = Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10);
-  const cpuScoreB = Math.round(selectedCpuB.singleCoreScore * 0.6 + (selectedCpuB.multiCoreScore / 10) * 0.4 * 10);
-
-  // GPU Score comparison: relativePowerScore
-  const gpuScoreA = selectedGpuA.relativePowerScore;
-  const gpuScoreB = selectedGpuB.relativePowerScore;
-
   const isCpuMode = mode === "cpu";
+  const itemA = isCpuMode ? selectedCpuA : selectedGpuA;
+  const itemB = isCpuMode ? selectedCpuB : selectedGpuB;
+
+  // Calculate scores if items exist
+  const cpuScoreA = selectedCpuA ? Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10) : 0;
+  const cpuScoreB = selectedCpuB ? Math.round(selectedCpuB.singleCoreScore * 0.6 + (selectedCpuB.multiCoreScore / 10) * 0.4 * 10) : 0;
+
+  const gpuScoreA = selectedGpuA ? selectedGpuA.relativePowerScore : 0;
+  const gpuScoreB = selectedGpuB ? selectedGpuB.relativePowerScore : 0;
+
   const scoreA = isCpuMode ? cpuScoreA : gpuScoreA;
   const scoreB = isCpuMode ? cpuScoreB : gpuScoreB;
 
@@ -70,6 +72,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     : 0;
 
   const winner = scoreA > scoreB ? "A" : scoreB > scoreA ? "B" : "Tie";
+  const isBothSelected = itemA !== null && itemB !== null;
 
   const handleApplyToBuild = (comp: CPU | GPU) => {
     if (isCpuMode) {
@@ -81,24 +84,24 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     setActivePage("simulator");
   };
 
-  const itemAInfo = {
-    name: isCpuMode ? selectedCpuA.name : selectedGpuA.name,
+  const itemAInfo = itemA ? {
+    name: isCpuMode ? (selectedCpuA?.name || "") : (selectedGpuA?.name || ""),
     score: scoreA,
-    details: isCpuMode ? `${selectedCpuA.cores}C/${selectedCpuA.threads}T • Socket ${selectedCpuA.socket}` : `${selectedGpuA.vramGB}GB VRAM • ${selectedGpuA.architecture}`,
-    manufacturer: isCpuMode ? selectedCpuA.manufacturer : selectedGpuA.manufacturer,
-    releaseYear: isCpuMode ? selectedCpuA.releaseYear : selectedGpuA.releaseYear
-  };
+    details: isCpuMode ? `${selectedCpuA?.cores}C/${selectedCpuA?.threads}T • Socket ${selectedCpuA?.socket}` : `${selectedGpuA?.vramGB}GB VRAM • ${selectedGpuA?.architecture}`,
+    manufacturer: isCpuMode ? selectedCpuA?.manufacturer : selectedGpuA?.manufacturer,
+    releaseYear: isCpuMode ? selectedCpuA?.releaseYear : selectedGpuA?.releaseYear
+  } : null;
 
-  const itemBInfo = {
-    name: isCpuMode ? selectedCpuB.name : selectedGpuB.name,
+  const itemBInfo = itemB ? {
+    name: isCpuMode ? (selectedCpuB?.name || "") : (selectedGpuB?.name || ""),
     score: scoreB,
-    details: isCpuMode ? `${selectedCpuB.cores}C/${selectedCpuB.threads}T • Socket ${selectedCpuB.socket}` : `${selectedGpuB.vramGB}GB VRAM • ${selectedGpuB.architecture}`,
-    manufacturer: isCpuMode ? selectedCpuB.manufacturer : selectedGpuB.manufacturer,
-    releaseYear: isCpuMode ? selectedCpuB.releaseYear : selectedGpuB.releaseYear
-  };
+    details: isCpuMode ? `${selectedCpuB?.cores}C/${selectedCpuB?.threads}T • Socket ${selectedCpuB?.socket}` : `${selectedGpuB?.vramGB}GB VRAM • ${selectedGpuB?.architecture}`,
+    manufacturer: isCpuMode ? selectedCpuB?.manufacturer : selectedGpuB?.manufacturer,
+    releaseYear: isCpuMode ? selectedCpuB?.releaseYear : selectedGpuB?.releaseYear
+  } : null;
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8">
+    <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8 animate-fadeIn">
       {/* 1. PAGE HEADER & MODE TOGGLE */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl">
         <div>
@@ -110,7 +113,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             Hardware Comparison Studio
           </h1>
           <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1">
-            Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics.
+            Select 2 components below to compare telemetry performance metrics side-by-side.
           </p>
         </div>
 
@@ -141,14 +144,14 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         </div>
       </div>
 
-      {/* 2. COMPONENT SELECTION BAR & HERO VERSUS SCORE CARD */}
+      {/* 2. COMPONENT SELECTION BAR */}
       <div className="flex flex-col lg:flex-row items-stretch gap-5 w-full">
-        {/* COMPONENT A SELECTOR (flex-1 lg:w-0 min-w-0 guarantees locked 50% split) */}
+        {/* COMPONENT A SELECTOR */}
         <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component A (Left)"
             options={isCpuMode ? cpuOptions : gpuOptions}
-            value={isCpuMode ? selectedCpuA.id : selectedGpuA.id}
+            value={itemA?.id || ""}
             onChange={(id) => {
               if (isCpuMode) {
                 const found = cpus.find((c) => c.id === id);
@@ -158,54 +161,67 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 if (found) setSelectedGpuA(found);
               }
             }}
-            placeholder={isCpuMode ? "Search CPU (e.g. 7800X3D)..." : "Search GPU (e.g. 4070 Super)..."}
+            placeholder={isCpuMode ? "Select first CPU..." : "Select first GPU..."}
           />
 
-          <div className="flex items-center justify-between pt-2">
-            <div className="min-w-0 pr-2">
-              <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
-                {isCpuMode ? selectedCpuA.name : selectedGpuA.name}
-              </h3>
-              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
-                {isCpuMode ? `${selectedCpuA.cores} Cores / ${selectedCpuA.threads} Threads • Socket ${selectedCpuA.socket}` : `${selectedGpuA.vramGB}GB VRAM • ${selectedGpuA.architecture}`}
-              </p>
-            </div>
+          {itemA ? (
+            <div className="animate-fadeIn">
+              <div className="flex items-center justify-between pt-2">
+                <div className="min-w-0 pr-2">
+                  <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
+                    {itemAInfo?.name}
+                  </h3>
+                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+                    {itemAInfo?.details}
+                  </p>
+                </div>
 
-            <div className="text-right shrink-0">
-              <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-              <span className="text-2xl font-black text-purple-500">{scoreA} pts</span>
-            </div>
-          </div>
+                <div className="text-right shrink-0">
+                  <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
+                  <span className="text-2xl font-black text-purple-500">{scoreA} pts</span>
+                </div>
+              </div>
 
-          <button
-            onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuA : selectedGpuA)}
-            className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-2"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Set as Active Build Component</span>
-          </button>
+              <button
+                onClick={() => handleApplyToBuild(itemA as CPU | GPU)}
+                className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>Set as Active Build Component</span>
+              </button>
+            </div>
+          ) : (
+            <div className="py-6 border border-dashed border-black/10 dark:border-white/10 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 bg-black/5 dark:bg-white/5">
+              <MousePointerClick className="w-5 h-5 text-gray-400" />
+              <span className="text-xs font-extrabold text-gray-400">Select Candidate A from dropdown above</span>
+            </div>
+          )}
         </div>
 
-        {/* VERSUS BADGE DELTA (w-24 shrink-0 locks center column width) */}
+        {/* VERSUS BADGE DELTA */}
         <div className="w-full lg:w-24 shrink-0 flex flex-col items-center justify-center gap-2 py-4 lg:py-0 min-w-0">
           <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30 shrink-0">
             VS
           </div>
-          {winner !== "Tie" ? (
-            <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate w-full px-1">
-              +{deltaPct}%
-            </span>
+          {isBothSelected ? (
+            winner !== "Tie" ? (
+              <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate w-full px-1 animate-fadeIn">
+                +{deltaPct}%
+              </span>
+            ) : (
+              <span className="text-[11px] font-extrabold text-gray-400 text-center truncate w-full px-1 animate-fadeIn">Equal</span>
+            )
           ) : (
-            <span className="text-[11px] font-extrabold text-gray-400 text-center truncate w-full px-1">Equal</span>
+            <span className="text-[10px] font-bold text-gray-400 text-center truncate w-full px-1">Waiting</span>
           )}
         </div>
 
-        {/* COMPONENT B SELECTOR (flex-1 lg:w-0 min-w-0 guarantees locked 50% split) */}
+        {/* COMPONENT B SELECTOR */}
         <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component B (Right)"
             options={isCpuMode ? cpuOptions : gpuOptions}
-            value={isCpuMode ? selectedCpuB.id : selectedGpuB.id}
+            value={itemB?.id || ""}
             onChange={(id) => {
               if (isCpuMode) {
                 const found = cpus.find((c) => c.id === id);
@@ -215,168 +231,66 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 if (found) setSelectedGpuB(found);
               }
             }}
-            placeholder={isCpuMode ? "Search CPU (e.g. 7800X3D)..." : "Search GPU (e.g. 4070 Super)..."}
+            placeholder={isCpuMode ? "Select second CPU..." : "Select second GPU..."}
           />
 
-          <div className="flex items-center justify-between pt-2">
-            <div>
-              <h3 className="text-base font-black text-[#1E2022] dark:text-white">
-                {isCpuMode ? selectedCpuB.name : selectedGpuB.name}
-              </h3>
-              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                {isCpuMode ? `${selectedCpuB.cores} Cores / ${selectedCpuB.threads} Threads • Socket ${selectedCpuB.socket}` : `${selectedGpuB.vramGB}GB VRAM • ${selectedGpuB.architecture}`}
-              </p>
-            </div>
+          {itemB ? (
+            <div className="animate-fadeIn">
+              <div className="flex items-center justify-between pt-2">
+                <div className="min-w-0 pr-2">
+                  <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
+                    {itemBInfo?.name}
+                  </h3>
+                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+                    {itemBInfo?.details}
+                  </p>
+                </div>
 
-            <div className="text-right">
-              <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-              <span className="text-2xl font-black text-purple-500">{scoreB} pts</span>
-            </div>
-          </div>
+                <div className="text-right shrink-0">
+                  <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
+                  <span className="text-2xl font-black text-purple-500">{scoreB} pts</span>
+                </div>
+              </div>
 
-          <button
-            onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuB : selectedGpuB)}
-            className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-2"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Set as Active Build Component</span>
-          </button>
+              <button
+                onClick={() => handleApplyToBuild(itemB as CPU | GPU)}
+                className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>Set as Active Build Component</span>
+              </button>
+            </div>
+          ) : (
+            <div className="py-6 border border-dashed border-black/10 dark:border-white/10 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 bg-black/5 dark:bg-white/5">
+              <MousePointerClick className="w-5 h-5 text-gray-400" />
+              <span className="text-xs font-extrabold text-gray-400">Select Candidate B from dropdown above</span>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* 3. AGGREGATE PERFORMANCE STACKED COMPARISON CHART */}
-      <AggregatePerformanceChart
-        type={mode}
-        itemA={itemAInfo}
-        itemB={itemBInfo}
-      />
-
-      {/* 3. SIDE-BY-SIDE DETAILED COMPARISON TABLE */}
-      <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-6">
-        <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-          <h3 className="text-base font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-purple-500" />
-            Detailed Technical Specification Matrix / 仕様比較表
+      {/* 3. BENCHMARK MATRIX CHART / EMPTY PROMPT STATE */}
+      {isBothSelected && itemAInfo && itemBInfo ? (
+        <div className="animate-fadeIn transition-all duration-500 ease-out">
+          <AggregatePerformanceChart
+            type={mode}
+            itemA={itemAInfo}
+            itemB={itemBInfo}
+          />
+        </div>
+      ) : (
+        <div className="bg-white/80 dark:bg-[#1A1C1E]/80 border border-dashed border-purple-500/30 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-3 shadow-lg animate-fadeIn">
+          <div className="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center border border-purple-500/20 shadow-inner">
+            <Sparkles className="w-7 h-7 text-purple-500 animate-pulse" />
+          </div>
+          <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+            Select 2 {isCpuMode ? "CPUs" : "GPUs"} to compare performance / {isCpuMode ? "CPU" : "GPU"}を2つ選択してください
           </h3>
-          <span className="text-[10px] font-black uppercase bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/20">
-            Verified Specs
-          </span>
+          <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-md">
+            Choose both Candidate A and Candidate B from the dropdown menus above to generate the telemetry benchmark matrix and relative advantage score.
+          </p>
         </div>
-
-        {isCpuMode ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs font-bold border-collapse">
-              <thead>
-                <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 uppercase text-[10px]">
-                  <th className="py-3 px-4 w-1/3">Specification Field</th>
-                  <th className="py-3 px-4 w-1/3 text-purple-500 font-mono text-sm">{selectedCpuA.name}</th>
-                  <th className="py-3 px-4 w-1/3 text-purple-500 font-mono text-sm">{selectedCpuB.name}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-black/5 dark:divide-white/5 text-[#1E2022] dark:text-gray-200">
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Manufacturer / Vendor</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.manufacturer}</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.manufacturer}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Cores / Threads</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.cores} Cores / {selectedCpuA.threads} Threads</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.cores} Cores / {selectedCpuB.threads} Threads</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Single-Core Score (Cinebench/Geekbench)</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.singleCoreScore} pts</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.singleCoreScore} pts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Multi-Core Throughput Score</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.multiCoreScore} pts</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.multiCoreScore} pts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">L3 Cache Architecture</td>
-                  <td className="py-3.5 px-4">
-                    {selectedCpuA.l3CacheMB}MB {selectedCpuA.is3DVCache && <span className="ml-1 text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded-md font-extrabold">3D V-Cache</span>}
-                  </td>
-                  <td className="py-3.5 px-4">
-                    {selectedCpuB.l3CacheMB}MB {selectedCpuB.is3DVCache && <span className="ml-1 text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded-md font-extrabold">3D V-Cache</span>}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Motherboard Socket</td>
-                  <td className="py-3.5 px-4 font-mono text-purple-400">Socket {selectedCpuA.socket}</td>
-                  <td className="py-3.5 px-4 font-mono text-purple-400">Socket {selectedCpuB.socket}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Supported DDR Generations</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.supportedDdr.join(", ")}</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.supportedDdr.join(", ")}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Thermal Power (TDP)</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.tdpW} Watts</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.tdpW} Watts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Release Year</td>
-                  <td className="py-3.5 px-4">{selectedCpuA.releaseYear}</td>
-                  <td className="py-3.5 px-4">{selectedCpuB.releaseYear}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs font-bold border-collapse">
-              <thead>
-                <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 uppercase text-[10px]">
-                  <th className="py-3 px-4 w-1/3">Specification Field</th>
-                  <th className="py-3 px-4 w-1/3 text-purple-500 font-mono text-sm">{selectedGpuA.name}</th>
-                  <th className="py-3 px-4 w-1/3 text-purple-500 font-mono text-sm">{selectedGpuB.name}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-black/5 dark:divide-white/5 text-[#1E2022] dark:text-gray-200">
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Manufacturer / Vendor</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.manufacturer}</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.manufacturer}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">VRAM Capacity</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.vramGB} GB</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.vramGB} GB</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">GPU Architecture / Micro-code</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.architecture}</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.architecture}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Relative Power Score</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.relativePowerScore} pts</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.relativePowerScore} pts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Ray Tracing Hardware Accelerator Score</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.rayTracingPowerScore} pts</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.rayTracingPowerScore} pts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Thermal Power (TDP)</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.tdpW} Watts</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.tdpW} Watts</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-gray-400 uppercase text-[10px]">Release Year</td>
-                  <td className="py-3.5 px-4">{selectedGpuA.releaseYear}</td>
-                  <td className="py-3.5 px-4">{selectedGpuB.releaseYear}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }

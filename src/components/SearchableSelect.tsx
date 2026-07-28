@@ -30,7 +30,7 @@ export default function SearchableSelect({
   const [searchQuery, setSearchQuery] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const selectedOption = options.find((opt) => opt.id === value) || options[0];
+  const selectedOption = options.find((opt) => opt.id === value);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -67,30 +67,31 @@ export default function SearchableSelect({
         }}
         className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-purple-500/50 rounded-2xl p-3 text-left transition flex items-center justify-between gap-2 focus:outline-none focus:ring-2 focus:ring-purple-500/30"
       >
-        <div className="flex items-center gap-2.5 min-w-0">
-          {selectedOption?.manufacturer && (
-            <span
-              className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
-                selectedOption.manufacturer === "Intel"
-                  ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
-                  : selectedOption.manufacturer === "AMD"
-                  ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
-                  : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
-              }`}
-            >
-              {selectedOption.manufacturer}
-            </span>
-          )}
-          <div className="min-w-0">
-            <h4 className="text-xs font-black text-[#1E2022] dark:text-white truncate">
-              {selectedOption ? selectedOption.name : placeholder}
-            </h4>
-            {selectedOption?.subText && (
-              <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{selectedOption.subText}</p>
+        {selectedOption ? (
+          <div className="flex items-center gap-2.5 min-w-0">
+            {selectedOption.manufacturer && (
+              <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20 shrink-0">
+                {selectedOption.manufacturer}
+              </span>
             )}
+            <div className="flex flex-col min-w-0">
+              <span className="text-xs font-black text-[#1E2022] dark:text-white truncate">
+                {selectedOption.name}
+              </span>
+              {selectedOption.subText && (
+                <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 truncate">
+                  {selectedOption.subText}
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${isOpen ? "rotate-180 text-purple-400" : ""}`} />
+        ) : (
+          <span className="text-xs font-bold text-gray-400 dark:text-gray-500 py-1">
+            {placeholder}
+          </span>
+        )}
+
+        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${isOpen ? "rotate-180 text-purple-500" : ""}`} />
       </button>
 
       {/* Dropdown Menu Container */}
