@@ -14,19 +14,22 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
-// 4 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 520 pts)
+// 5 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 520 pts)
 const GPU_MILESTONES = [
   { name: "GTX 750 Ti", score: 55 },
   { name: "GTX 1060", score: 110 },
   { name: "RTX 2060", score: 185 },
   { name: "RTX 3070", score: 310 },
+  { name: "RTX 4070 Super", score: 440 },
 ];
 
-// 4 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 450 pts)
+// 6 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 450 pts)
 const CPU_MILESTONES = [
+  { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
   { name: "i5-10400", score: 125 },
   { name: "Ryzen 5600", score: 185 },
+  { name: "i5-13600K", score: 250 },
   { name: "7800X3D", score: 310 },
 ];
 
@@ -52,7 +55,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const bottomMilestones = milestones.filter((_, idx) => idx % 2 === 1);
 
   return (
-    <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6">
+    <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6 w-full">
       {/* Centered Main Title */}
       <div className="flex flex-col items-center justify-center text-center gap-1 border-b border-black/10 dark:border-white/10 pb-5">
         <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
@@ -64,10 +67,10 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </p>
       </div>
 
-      {/* CHART CONTAINER WITH UNIFIED COORD SYSTEM */}
-      <div className="flex flex-col sm:flex-row items-stretch gap-2 pt-2">
-        {/* Left Component Titles Stack */}
-        <div className="w-full sm:w-44 shrink-0 flex flex-col justify-around py-12 gap-8 min-w-0 pr-2">
+      {/* CHART CONTAINER WITH LOCKED PIXEL WIDTH COORD SYSTEM */}
+      <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-2">
+        {/* Fixed Width Left Component Titles Stack (w-44 shrink-0 prevents layout jumping) */}
+        <div className="w-full sm:w-44 shrink-0 flex flex-col justify-around py-8 gap-6 min-w-44 max-w-44 pr-2">
           {/* Component A Title */}
           <div className="flex flex-col min-w-0">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
@@ -106,8 +109,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
 
         {/* Right Shared Scale Container */}
-        <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[240px]">
-          {/* 1. TOP RULER ROW (Even Indices: Core 2 Duo, Ryzen 5600) */}
+        <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[210px] min-w-0">
+          {/* 1. TOP RULER ROW */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
@@ -117,7 +120,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
                   style={{ left: `${msPct}%` }}
                 >
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-1 rounded-lg border border-purple-500/20 shadow-xs">
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
                     {ms.name} ({ms.score} pts)
                   </span>
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mt-1" />
@@ -126,10 +129,10 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             })}
           </div>
 
-          {/* 2. DUAL PROGRESS TRACKS (1.5x Taller height: h-12 sm:h-14, clean smooth gradient fills without knob dots) */}
-          <div className="flex flex-col gap-6 w-full z-10 my-4">
+          {/* 2. DUAL PROGRESS TRACKS (Optimal Balanced Height: h-9 sm:h-10, smooth gradient fills) */}
+          <div className="flex flex-col gap-5 w-full z-10 my-3">
             {/* Track Capsule A */}
-            <div className="w-full h-12 sm:h-14 bg-black/5 dark:bg-white/5 rounded-full p-1.5 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
               {/* Confined Dashed Vertical Lines INSIDE Track A */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
                 {milestones.map((ms, idx) => {
@@ -144,7 +147,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 })}
               </div>
 
-              {/* Smooth Clean Gradient Filled Capsule (Taller, No Knob Dot) */}
+              {/* Smooth Clean Gradient Filled Capsule */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "A"
@@ -156,7 +159,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule B */}
-            <div className="w-full h-12 sm:h-14 bg-black/5 dark:bg-white/5 rounded-full p-1.5 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
               {/* Confined Dashed Vertical Lines INSIDE Track B */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
                 {milestones.map((ms, idx) => {
@@ -171,7 +174,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 })}
               </div>
 
-              {/* Smooth Clean Gradient Filled Capsule (Taller, No Knob Dot) */}
+              {/* Smooth Clean Gradient Filled Capsule */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "B"
@@ -179,12 +182,11 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
-              >
-              </div>
+              />
             </div>
           </div>
 
-          {/* 3. BOTTOM RULER ROW (Odd Indices: i5-10400, 7800X3D) */}
+          {/* 3. BOTTOM RULER ROW */}
           <div className="relative h-8 w-full z-10">
             {bottomMilestones.map((ms, idx) => {
               const msPct = (ms.score / maxScore) * 100;
@@ -195,7 +197,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   style={{ left: `${msPct}%` }}
                 >
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mb-1" />
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-1 rounded-lg border border-purple-500/20 shadow-xs">
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
                     {ms.name} ({ms.score} pts)
                   </span>
                 </div>
