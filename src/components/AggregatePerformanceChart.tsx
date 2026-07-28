@@ -33,21 +33,9 @@ const CPU_MILESTONES = [
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
-  // Static milestone array
-  const baseMilestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-
-  // Insert dynamically selected items A and B if they are missing from milestones
-  const allPoints = [...baseMilestones];
-  if (!allPoints.some((m) => m.name.toLowerCase() === itemA.name.toLowerCase())) {
-    allPoints.push({ name: itemA.name, score: itemA.score });
-  }
-  if (!allPoints.some((m) => m.name.toLowerCase() === itemB.name.toLowerCase())) {
-    allPoints.push({ name: itemB.name, score: itemB.score });
-  }
-
-  // Sort milestones chronologically/by score
-  allPoints.sort((a, b) => a.score - b.score);
-  const maxScore = Math.max(allPoints[allPoints.length - 1].score, 100);
+  // Use clean fixed milestone array to prevent label overlap collisions
+  const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
+  const maxScore = milestones[milestones.length - 1].score;
 
   const pctA = Math.min(100, Math.max(1.5, Math.round((itemA.score / maxScore) * 100)));
   const pctB = Math.min(100, Math.max(1.5, Math.round((itemB.score / maxScore) * 100)));
@@ -73,139 +61,154 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </p>
       </div>
 
-      {/* Main Chart Container */}
-      <div className="flex flex-col gap-4 relative pt-4">
-        {/* Top Milestone Ruler */}
-        <div className="relative w-full h-14">
-          {allPoints.map((ms, idx) => {
-            const msPct = Math.round((ms.score / maxScore) * 100);
-            const isMatchA = ms.name.toLowerCase() === itemA.name.toLowerCase();
-            const isMatchB = ms.name.toLowerCase() === itemB.name.toLowerCase();
-            const isMatch = isMatchA || isMatchB;
+      {/* Main Chart Section with 2-Column Grid (Left: Titles, Right: Track Scale Area) */}
+      <div className="grid grid-cols-12 gap-4 items-end pt-2">
+        
+        {/* LEFT COLUMN: Empty space matching the titles width below */}
+        <div className="col-span-4 sm:col-span-3 hidden sm:block" />
 
+        {/* RIGHT COLUMN: Top Milestone Labels Ruler (Strictly aligned 1:1 above tracks) */}
+        <div className="col-span-12 sm:col-span-9 relative w-full h-14">
+          {milestones.map((ms, idx) => {
+            const msPct = Math.round((ms.score / maxScore) * 100);
             return (
               <div
                 key={idx}
-                className="absolute top-0 -translate-x-1/2 flex flex-col items-center z-10 transition-all duration-300"
+                className="absolute top-0 -translate-x-1/2 flex flex-col items-center z-10"
                 style={{ left: `${msPct}%` }}
               >
-                <span
-                  className={`text-[10px] font-black font-mono whitespace-nowrap px-2 py-0.5 rounded-md border shadow-xs ${
-                    isMatch
-                      ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border-emerald-500/40 font-black scale-105"
-                      : "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/20"
-                  }`}
-                >
+                <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-md border border-purple-500/20 shadow-xs">
                   {ms.name}
                 </span>
                 <span className="text-[8px] font-extrabold text-gray-500 dark:text-gray-400 font-mono mt-0.5">
                   {ms.score} pts
                 </span>
-                {/* Vertical tick extending downwards to tracks */}
+                {/* Vertical tick line extending downwards */}
                 <div className="w-px h-5 bg-black/15 dark:bg-white/20 mt-1" />
               </div>
             );
           })}
         </div>
+      </div>
 
-        {/* Dual Track Container with Background Grid Lines */}
-        <div className="relative flex flex-col gap-6 pt-2">
-          {/* Vertical dashed guide lines extending across tracks */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            {allPoints.map((ms, idx) => {
-              const msPct = Math.round((ms.score / maxScore) * 100);
-              return (
-                <div
-                  key={idx}
-                  className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/10 dark:border-white/10"
-                  style={{ left: `${msPct}%` }}
-                />
-              );
-            })}
+      {/* Track & Title Rows Container */}
+      <div className="flex flex-col gap-6">
+        
+        {/* BAR A ROW */}
+        <div className="grid grid-cols-12 items-center gap-4 relative">
+          
+          {/* Left Title Label */}
+          <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0 pr-2">
+            <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
+              {itemA.name}
+            </h4>
+            <p className="text-[10px] text-gray-400 font-bold truncate">{itemA.details}</p>
           </div>
 
-          {/* BAR A */}
-          <div className="grid grid-cols-12 items-center gap-4 relative z-10">
-            {/* Left Label */}
-            <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0">
-              <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
-                {itemA.name}
-              </h4>
-              <p className="text-[10px] text-gray-400 font-bold truncate">{itemA.details}</p>
+          {/* Right Track Scale Area (Aligned exactly under the ruler above) */}
+          <div className="col-span-8 sm:col-span-9 flex items-center gap-3 relative">
+            
+            {/* Dashed vertical milestone guide line passing strictly inside the track column */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              {milestones.map((ms, idx) => {
+                const msPct = Math.round((ms.score / maxScore) * 100);
+                return (
+                  <div
+                    key={idx}
+                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/10 dark:border-white/10"
+                    style={{ left: `${msPct}%` }}
+                  />
+                );
+              })}
             </div>
 
-            {/* Track A */}
-            <div className="col-span-8 sm:col-span-9 flex items-center gap-3">
-              <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-                {/* Filled Bar */}
-                <div
-                  className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1.5 relative ${
-                    winner === "A"
-                      ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
-                      : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
-                  }`}
-                  style={{ width: `${pctA}%` }}
-                >
-                  {/* Circular Node Knob */}
-                  <div className="w-5 h-5 rounded-full bg-white/30 dark:bg-black/30 border border-white/60 backdrop-blur-md shrink-0 shadow-sm" />
-                </div>
+            {/* Track Capsule A */}
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
+              {/* Filled Slider Bar */}
+              <div
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1 relative ${
+                  winner === "A"
+                    ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
+                    : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
+                }`}
+                style={{ width: `${pctA}%` }}
+              >
+                {/* Circular Knob */}
+                <div className="w-5 h-5 rounded-full bg-white/40 dark:bg-black/40 border border-white/80 backdrop-blur-md shrink-0 shadow-md" />
               </div>
+            </div>
 
-              {/* Score & Badge on Right */}
-              <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs">
-                <span className="font-black text-[#1E2022] dark:text-white">{itemA.score} pts</span>
-                {winner === "A" && (
-                  <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                    +{deltaPct}%
-                  </span>
-                )}
-              </div>
+            {/* Score Badge */}
+            <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs z-10">
+              <span className="font-black text-[#1E2022] dark:text-white">{itemA.score} pts</span>
+              {winner === "A" && (
+                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                  +{deltaPct}%
+                </span>
+              )}
             </div>
           </div>
+        </div>
 
-          {/* BAR B */}
-          <div className="grid grid-cols-12 items-center gap-4 relative z-10">
-            {/* Left Label */}
-            <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0">
-              <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
-                {itemB.name}
-              </h4>
-              <p className="text-[10px] text-gray-400 font-bold truncate">{itemB.details}</p>
+        {/* BAR B ROW */}
+        <div className="grid grid-cols-12 items-center gap-4 relative">
+          
+          {/* Left Title Label */}
+          <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0 pr-2">
+            <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
+              {itemB.name}
+            </h4>
+            <p className="text-[10px] text-gray-400 font-bold truncate">{itemB.details}</p>
+          </div>
+
+          {/* Right Track Scale Area (Aligned exactly under the ruler above) */}
+          <div className="col-span-8 sm:col-span-9 flex items-center gap-3 relative">
+            
+            {/* Dashed vertical milestone guide line passing strictly inside the track column */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              {milestones.map((ms, idx) => {
+                const msPct = Math.round((ms.score / maxScore) * 100);
+                return (
+                  <div
+                    key={idx}
+                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/10 dark:border-white/10"
+                    style={{ left: `${msPct}%` }}
+                  />
+                );
+              })}
             </div>
 
-            {/* Track B */}
-            <div className="col-span-8 sm:col-span-9 flex items-center gap-3">
-              <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-                {/* Filled Bar */}
-                <div
-                  className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1.5 relative ${
-                    winner === "B"
-                      ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
-                      : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
-                  }`}
-                  style={{ width: `${pctB}%` }}
-                >
-                  {/* Circular Node Knob */}
-                  <div className="w-5 h-5 rounded-full bg-white/30 dark:bg-black/30 border border-white/60 backdrop-blur-md shrink-0 shadow-sm" />
-                </div>
+            {/* Track Capsule B */}
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center z-10">
+              {/* Filled Slider Bar */}
+              <div
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-1 relative ${
+                  winner === "B"
+                    ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
+                    : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
+                }`}
+                style={{ width: `${pctB}%` }}
+              >
+                {/* Circular Knob */}
+                <div className="w-5 h-5 rounded-full bg-white/40 dark:bg-black/40 border border-white/80 backdrop-blur-md shrink-0 shadow-md" />
               </div>
+            </div>
 
-              {/* Score & Badge on Right */}
-              <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs">
-                <span className="font-black text-[#1E2022] dark:text-white">{itemB.score} pts</span>
-                {winner === "B" && (
-                  <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                    +{deltaPct}%
-                  </span>
-                )}
-              </div>
+            {/* Score Badge */}
+            <div className="flex items-center gap-1.5 shrink-0 font-mono text-xs z-10">
+              <span className="font-black text-[#1E2022] dark:text-white">{itemB.score} pts</span>
+              {winner === "B" && (
+                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                  +{deltaPct}%
+                </span>
+              )}
             </div>
           </div>
         </div>
       </div>
 
       {/* Summary Verdict Banner */}
-      <div className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl flex items-start gap-3 text-purple-900 dark:text-purple-200">
+      <div className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl flex items-start gap-3 text-purple-900 dark:text-purple-200 mt-2">
         <Trophy className="w-5 h-5 text-purple-500 shrink-0 mt-0.5" />
         <div className="text-xs font-extrabold leading-relaxed">
           {winner !== "Tie" ? (
