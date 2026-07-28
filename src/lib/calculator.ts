@@ -235,25 +235,39 @@ export function calculatePerformance(
   // Cap FPS logically
   estimatedFps = Math.max(1, Math.round(estimatedFps));
 
-  // --- 4. 1% Low FPS Precision Calculation ---
+  // --- 4. 1% Low FPS & Advanced Hardware Physics Calculation ---
   let onePercentFactor = 0.72;
   if (cpu.is3DVCache) onePercentFactor += 0.07;
-  if (ramChannel === "Single") onePercentFactor -= 0.12;
+  if (ramChannel === "Single") {
+    onePercentFactor -= 0.14;
+    estimatedFps *= 0.94; // Single channel memory bandwidth bottleneck
+    warnings.push(
+      `⚠️ Single-Channel RAM: Running 1 RAM stick halves memory bandwidth, dropping 1% Low FPS stability.`
+    );
+  }
   if (storage === "HDD") onePercentFactor -= 0.15;
+
+  // Resizable BAR / Smart Access Memory (ReBAR/SAM) Hardware Alignment
+  const isReBarCapableSystem = cpu.releaseYear >= 2020 && gpu.releaseYear >= 2020;
+  const isReBarBeneficialGame = ["game-starfield", "game-hogwarts", "game-forza5", "game-cyberpunk", "game-rdr2"].includes(game.id);
+  if (isReBarCapableSystem && isReBarBeneficialGame) {
+    onePercentFactor += 0.06; // +6% 1% Lows stability boost from ReBAR un-gated VRAM bus access
+  }
 
   let averageFps = Math.round(estimatedFps);
   let onePercentLowFps = Math.max(1, Math.round(estimatedFps * onePercentFactor));
 
-  // VRAM Limit Check
+  // VRAM Capacity Thrashing & System RAM Paging Check
   const resMultiplier = resolution === "1080p" ? 1.0 : resolution === "1440p" ? 1.35 : 1.85;
   const presetMultiplier = preset === "Low" ? 0.8 : preset === "Medium" ? 0.95 : preset === "High" ? 1.1 : 1.3;
   const GameBaseVRAM = Math.max(2.0, game.ramMinRequirementGB * 0.45);
   const VRAM_used = Number((GameBaseVRAM * resMultiplier * presetMultiplier).toFixed(2));
 
   if (VRAM_used > gpu.vramGB) {
-    onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 0.55));
+    averageFps = Math.max(1, Math.round(averageFps * 0.88));
+    onePercentLowFps = Math.max(1, Math.round(onePercentLowFps * 0.48));
     warnings.push(
-      `🚨 VRAM Limit Exceeded: Game requires ${VRAM_used}GB VRAM, but your ${gpu.name} only has ${gpu.vramGB}GB. Expect micro-stuttering.`
+      `🚨 VRAM Allocation Cap Exceeded: Game requires ~${VRAM_used}GB VRAM, but ${gpu.name} only has ${gpu.vramGB}GB. System RAM texture paging causes severe micro-stuttering.`
     );
   }
 
