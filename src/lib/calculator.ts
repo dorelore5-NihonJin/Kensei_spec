@@ -325,25 +325,32 @@ export function calculatePerformance(
     baseCpuLoad += 8;
   }
 
-  // Evaluate Hardware Ratio Limits
+  // Single-Core & Multi-Core Asymmetric Mismatch Evaluation
+  const singleCoreRatio = gpuMetric / (cpu.singleCoreScore * 1.5);
+  const totalPowerRatio = gpuMetric / Math.max(1.0, cpuMetric);
+
   let gpuLoadPercentage = 50;
   let cpuLoadPercentage = 50;
 
-  if (gpuMetric > 2.5 * cpuMetric) {
+  const is4KOrPathTracing = resolution === "4K" || rayTracing === "Ultra";
+
+  if (singleCoreRatio > 1.85 || totalPowerRatio > 2.0) {
+    // Severe CPU Bottleneck (Legacy CPU + Modern GPU)
+    const effectiveRatio = Math.max(singleCoreRatio, totalPowerRatio);
     bottleneckType = "CPU";
-    const ratio = gpuMetric / cpuMetric;
-    bottleneckPercentage = Math.min(80, Math.round((ratio - 2.5) * 15));
-    cpuLoadPercentage = 100;
-    gpuLoadPercentage = Math.max(25, Math.min(85, Math.round(baseGpuLoad / (ratio * 0.75))));
+    bottleneckPercentage = Math.min(85, Math.round((effectiveRatio - 1.8) * 20));
+    cpuLoadPercentage = Math.min(100, Math.max(95, Math.round(baseCpuLoad * 1.4)));
+    gpuLoadPercentage = is4KOrPathTracing ? 99 : Math.max(20, Math.min(82, Math.round(baseGpuLoad / (effectiveRatio * 0.70))));
     warnings.push(
       `⚠️ Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
     );
-  } else if (cpuMetric > 3.0 * gpuMetric) {
+  } else if (totalPowerRatio < 0.38) {
+    // Severe GPU Bottleneck (Top CPU + Weak/Legacy GPU)
     bottleneckType = "GPU";
-    const ratio = cpuMetric / gpuMetric;
-    bottleneckPercentage = Math.min(80, Math.round((ratio - 3.0) * 12));
+    const ratioInv = 1.0 / totalPowerRatio;
+    bottleneckPercentage = Math.min(85, Math.round((ratioInv - 2.5) * 12));
     gpuLoadPercentage = 99;
-    cpuLoadPercentage = Math.max(15, Math.min(65, Math.round(baseCpuLoad / (ratio * 0.7))));
+    cpuLoadPercentage = Math.max(8, Math.min(45, Math.round(baseCpuLoad * (totalPowerRatio / 0.38))));
     warnings.push(
       `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
