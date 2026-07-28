@@ -145,7 +145,13 @@ export default function Header({
           className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out pointer-events-none"
         >
           <source
-            src={activePage === "catalog" ? "./gif_banner_catalog.mp4" : "./gif_banner_calculator.mp4"}
+            src={
+              activePage === "compare"
+                ? "./gif_banner_vs.mp4"
+                : activePage === "catalog"
+                ? "./gif_banner_catalog.mp4"
+                : "./gif_banner_calculator.mp4"
+            }
             type="video/mp4"
           />
         </video>
@@ -162,11 +168,17 @@ export default function Header({
           </div>
 
           <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
-            {activePage === "catalog" ? "KENSEI GAME BUILDS CATALOG" : "KENSEI SPEC HARDWARE SIMULATOR"}
+            {activePage === "compare"
+              ? "KENSEI VERSUS HARDWARE STUDIO"
+              : activePage === "catalog"
+              ? "KENSEI GAME BUILDS CATALOG"
+              : "KENSEI SPEC HARDWARE SIMULATOR"}
           </h1>
 
           <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
-            {activePage === "catalog"
+            {activePage === "compare"
+              ? "Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics, architectural specs, and hierarchy ranking."
+              : activePage === "catalog"
               ? "Browse 250 verified PC configurations across Esports Gaming, AI LLM Inference, 3D Rendering & Workstations."
               : "Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism."}
           </p>
