@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import type { CPU, GPU, Game } from "../lib/types";
+import type { CPU, GPU, Game, RAMProfile } from "../lib/types";
+import { calculatePerformance } from "../lib/calculator";
 import { Gamepad2, Search, AlertTriangle } from "lucide-react";
 
 interface GameSelectorProps {
@@ -73,49 +74,55 @@ export default function GameSelector({
     setFailedImages((prev) => ({ ...prev, [id]: true }));
   };
 
-  // Dynamic CPU & GPU Reliance Meters reacting instantly to settings & selected GPU
-  const effectiveCpuReliance = useMemo(() => {
-    if (!selectedGpu) return null; // Show prompt if no GPU selected yet!
+  // Dynamic Telemetry Load Calculations matching exact hardware pairing physics
+  const telemetryLoads = useMemo(() => {
+    if (!selectedGpu) return null; // Require GPU selection
 
-    let factor = selectedGame.cpuDependence * 100;
-    if (selectedResolution === "1080p") factor *= 1.15;
-    else if (selectedResolution === "1440p") factor *= 0.95;
-    else if (selectedResolution === "4K") factor *= 0.70;
+    const fallbackCpu: CPU = selectedCpu || {
+      id: "fallback-cpu",
+      name: "Standard CPU",
+      manufacturer: "Intel",
+      socket: "LGA1700",
+      cores: 6,
+      threads: 12,
+      singleCoreScore: 200,
+      multiCoreScore: 1600,
+      releaseYear: 2022,
+      tdpW: 65,
+      supportedDdr: ["DDR4", "DDR5"],
+      is3DVCache: false,
+      l3CacheMB: 18
+    };
 
-    if (selectedPreset === "Low") factor *= 1.12;
-    else if (selectedPreset === "Ultra") factor *= 0.90;
+    const fallbackRam: RAMProfile = {
+      id: "ddr4-3200",
+      generation: "DDR4",
+      speedMhz: 3200,
+      speedMultiplier: 1.0,
+      capacityGB: 16
+    };
 
-    if (selectedDlss !== "Off") factor *= 1.12;
-    if (rayTracing !== "Off") factor *= 1.08;
+    const report = calculatePerformance(
+      fallbackCpu,
+      selectedGpu,
+      fallbackRam,
+      "NVMe Gen3",
+      selectedGame,
+      selectedResolution,
+      selectedPreset,
+      selectedDlss,
+      rayTracing,
+      frameGen,
+      "Dual",
+      32
+    );
 
-    if (selectedCpu && selectedGpu) {
-      const ratio = selectedGpu.relativePowerScore / Math.max(1, (selectedCpu.singleCoreScore * 0.7 + selectedCpu.multiCoreScore * 0.3));
-      if (ratio > 2.2) factor *= 1.20;
-    }
-
-    return Math.min(100, Math.max(15, Math.round(factor)));
-  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing, selectedCpu, selectedGpu]);
-
-  const effectiveGpuReliance = useMemo(() => {
-    if (!selectedGpu) return null; // Show prompt if no GPU selected yet!
-
-    let factor = selectedGame.gpuDependence * 100;
-    if (selectedResolution === "1080p") factor *= 0.85;
-    else if (selectedResolution === "1440p") factor *= 1.10;
-    else if (selectedResolution === "4K") factor *= 1.40;
-
-    if (selectedPreset === "Low") factor *= 0.75;
-    else if (selectedPreset === "Medium") factor *= 0.90;
-    else if (selectedPreset === "Ultra") factor *= 1.22;
-
-    if (selectedDlss === "Quality") factor *= 0.82;
-    else if (selectedDlss === "Performance") factor *= 0.68;
-
-    if (rayTracing === "Medium") factor *= 1.25;
-    else if (rayTracing === "Ultra") factor *= 1.50;
-
-    return Math.min(100, Math.max(15, Math.round(factor)));
-  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing, selectedGpu]);
+    return {
+      cpuLoad: report.cpuLoadPercentage,
+      gpuLoad: report.gpuLoadPercentage,
+      bottleneckType: report.bottleneckType
+    };
+  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing, frameGen, selectedCpu, selectedGpu]);
 
   // Category classifier helper
   const getGameCategory = (id: string): "Esports" | "AAA" | "Simulation" => {
@@ -232,22 +239,30 @@ export default function GameSelector({
         })}
       </div>
 
-      {/* Dynamic Hardware-Aware Reliance Metrics */}
+      {/* Dynamic Hardware-Aware Telemetry Reliance Metrics */}
       <div className="p-3.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row justify-around items-center text-center gap-3">
         <div className="flex flex-col items-center flex-1">
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
             CPU Reliance {selectedCpu && <span className="text-gray-400 font-normal">({selectedCpu.name})</span>}
           </span>
-          {effectiveCpuReliance !== null ? (
+          {telemetryLoads !== null ? (
             <div className="flex flex-col items-center">
               <span className="font-black text-indigo-600 dark:text-indigo-400 text-base transition-all duration-300">
-                {effectiveCpuReliance}%
+                {telemetryLoads.cpuLoad}%
               </span>
-              {selectedCpu && (
-                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 bg-indigo-500/15 text-indigo-600 dark:text-indigo-300">
-                  {effectiveCpuReliance > 80 ? "High Thread Load" : "Optimal Headroom"}
-                </span>
-              )}
+              <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 ${
+                telemetryLoads.cpuLoad >= 90
+                  ? "bg-purple-500/15 text-purple-600 dark:text-purple-400"
+                  : telemetryLoads.cpuLoad >= 60
+                  ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300"
+                  : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+              }`}>
+                {telemetryLoads.cpuLoad >= 90
+                  ? "High Thread Load"
+                  : telemetryLoads.cpuLoad >= 60
+                  ? "Balanced Load"
+                  : "Optimal Headroom"}
+              </span>
             </div>
           ) : (
             <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
@@ -262,16 +277,24 @@ export default function GameSelector({
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
             GPU Reliance {selectedGpu && <span className="text-gray-400 font-normal">({selectedGpu.name})</span>}
           </span>
-          {effectiveGpuReliance !== null ? (
+          {telemetryLoads !== null ? (
             <div className="flex flex-col items-center">
               <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] text-base transition-all duration-300">
-                {effectiveGpuReliance}%
+                {telemetryLoads.gpuLoad}%
               </span>
-              {selectedGpu && (
-                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 bg-[#E88D9F]/15 text-[#E88D9F]">
-                  {effectiveGpuReliance > 85 ? "Shader & Render Bound" : "High VRAM Headroom"}
-                </span>
-              )}
+              <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 ${
+                telemetryLoads.gpuLoad >= 90
+                  ? "bg-rose-500/15 text-rose-600 dark:text-rose-400"
+                  : telemetryLoads.gpuLoad <= 50
+                  ? "bg-amber-500/15 text-amber-600 dark:text-amber-400"
+                  : "bg-teal-500/15 text-teal-600 dark:text-teal-400"
+              }`}>
+                {telemetryLoads.gpuLoad >= 90
+                  ? "Shader & Render Bound"
+                  : telemetryLoads.gpuLoad <= 50
+                  ? "Throttled by CPU"
+                  : "High VRAM Headroom"}
+              </span>
             </div>
           ) : (
             <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
