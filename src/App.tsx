@@ -1,12 +1,5 @@
-import { useState, useMemo, useEffect } from "react";
-import type { CPU, GPU, RAMProfile, Game, StorageType } from "./lib/types";
-
-import cpuData from "./data/cpus.json";
-import gpuData from "./data/gpus.json";
-import ramData from "./data/ram.json";
-import gameData from "./data/games.json";
-
-import { calculatePerformance, getCompatibilityReport } from "./lib/calculator";
+import { useState, useEffect } from "react";
+import { useHardware } from "./context/HardwareContext";
 
 import Header from "./components/Header";
 import ComponentPicker from "./components/ComponentPicker";
@@ -22,74 +15,55 @@ import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
 
-// Safe casting seed data
-const cpus = cpuData as CPU[];
-const gpus = gpuData as GPU[];
-const ramProfiles = ramData as RAMProfile[];
-const games = gameData as Game[];
-
 export default function App() {
-  // --- DARK MODE ---
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  // --- SITE PAGE ROUTING ---
-  const [activePage, setActivePage] = useState<"simulator" | "catalog">("simulator");
-
-  // --- STEPPER WIZARD STATE ---
-  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
-  const [viewMode, setViewMode] = useState<"wizard" | "overview">("wizard");
-
-  // --- BUY STORE & LEGAL MODAL STATE ---
-  const [isBuyModalOpen, setIsBuyModalOpen] = useState<boolean>(false);
-  const [isLegalModalOpen, setIsLegalModalOpen] = useState<boolean>(false);
-  const [legalModalTab, setLegalModalTab] = useState<"terms" | "privacy" | "disclaimer" | "affiliate">("terms");
-
-  const handleOpenLegalModal = (tab: "terms" | "privacy" | "disclaimer" | "affiliate" = "terms") => {
-    setLegalModalTab(tab);
-    setIsLegalModalOpen(true);
-  };
-
-  // --- BUILD STATE ---
-  const [selectedCpu, setSelectedCpu] = useState<CPU | null>(null);
-  const [selectedGpu, setSelectedGpu] = useState<GPU | null>(null);
-  const [selectedRam, setSelectedRam] = useState<RAMProfile | null>(null);
-  const [ramCapacityGB, setRamCapacityGB] = useState<number>(32);
-  const [selectedStorage, setSelectedStorage] = useState<StorageType>("NVMe Gen3");
-  const [ramChannel, setRamChannel] = useState<"Single" | "Dual">("Dual");
-
-  // --- GAME & RESOLUTION STATE ---
-  const [selectedGame, setSelectedGame] = useState<Game>(games[2]); // Default Cyberpunk 2077
-  const [selectedResolution, setSelectedResolution] = useState<"1080p" | "1440p" | "4K">("1080p");
-  const [selectedPreset, setSelectedPreset] = useState<"Low" | "Medium" | "High" | "Ultra">("High");
-  const [selectedDlss, setSelectedDlss] = useState<"Off" | "Quality" | "Performance">("Off");
-  const [rayTracing, setRayTracing] = useState<"Off" | "Medium" | "Ultra">("Off");
-  const [frameGen, setFrameGen] = useState<boolean>(false);
-
-  // Handler for loading preset build from catalog into simulator
-  const handleSelectCatalogBuild = (
-    cpu: CPU,
-    gpu: GPU,
-    ram: RAMProfile,
-    ramCap: number,
-    game: Game,
-    targetResolution?: "1080p" | "1440p" | "4K"
-  ) => {
-    setSelectedCpu(cpu);
-    setSelectedGpu(gpu);
-    setSelectedRam(ram);
-    setRamCapacityGB(ramCap);
-    setSelectedGame(game);
-    if (targetResolution) {
-      setSelectedResolution(targetResolution);
-    }
-    setCurrentStep(3);
-    setActivePage("simulator");
-
-    // Smoothly scroll down to Step 3 Telemetry Dashboard so calculation results are immediately visible!
-    setTimeout(() => {
-      window.scrollTo({ top: 380, behavior: "smooth" });
-    }, 100);
-  };
+  const {
+    cpus,
+    gpus,
+    ramProfiles,
+    games,
+    activePage,
+    setActivePage,
+    currentStep,
+    setCurrentStep,
+    viewMode,
+    setViewMode,
+    darkMode,
+    setDarkMode,
+    selectedCpu,
+    setSelectedCpu,
+    selectedGpu,
+    setSelectedGpu,
+    selectedRam,
+    setSelectedRam,
+    ramCapacityGB,
+    setRamCapacityGB,
+    selectedStorage,
+    setSelectedStorage,
+    ramChannel,
+    setRamChannel,
+    selectedGame,
+    setSelectedGame,
+    selectedResolution,
+    setSelectedResolution,
+    selectedPreset,
+    setSelectedPreset,
+    selectedDlss,
+    setSelectedDlss,
+    rayTracing,
+    setRayTracing,
+    frameGen,
+    setFrameGen,
+    isBuyModalOpen,
+    setIsBuyModalOpen,
+    isLegalModalOpen,
+    setIsLegalModalOpen,
+    legalModalTab,
+    handleOpenLegalModal,
+    performanceResult: performanceReport,
+    compatibilityReport,
+    handleResetBuild,
+    handleSelectCatalogBuild
+  } = useHardware();
 
   // --- PARALLAX EFFECT STATE ---
   const [scrollY, setScrollY] = useState(0);
@@ -140,19 +114,6 @@ export default function App() {
     setRamChannel("Dual");
   };
 
-  // --- RESET ALL STATE ---
-  const handleResetBuild = () => {
-    setSelectedCpu(null);
-    setSelectedGpu(null);
-    setSelectedRam(null);
-    setRamCapacityGB(32);
-    setSelectedStorage("NVMe Gen3");
-    setRamChannel("Dual");
-    setRayTracing("Off");
-    setFrameGen(false);
-    setCurrentStep(1);
-  };
-
   // Auto-detect RAM compatibility when CPU changes
   useEffect(() => {
     if (selectedCpu) {
@@ -160,42 +121,7 @@ export default function App() {
         setSelectedRam(null);
       }
     }
-  }, [selectedCpu, selectedRam]);
-
-  // --- CALCULATIONS ---
-  const performanceReport = useMemo(() => {
-    return calculatePerformance(
-      selectedCpu,
-      selectedGpu,
-      selectedRam,
-      selectedStorage,
-      selectedGame,
-      selectedResolution,
-      selectedPreset,
-      selectedDlss,
-      rayTracing,
-      frameGen,
-      ramChannel,
-      ramCapacityGB
-    );
-  }, [
-    selectedCpu,
-    selectedGpu,
-    selectedRam,
-    selectedStorage,
-    selectedGame,
-    selectedResolution,
-    selectedPreset,
-    selectedDlss,
-    rayTracing,
-    frameGen,
-    ramChannel,
-    ramCapacityGB
-  ]);
-
-  const compatibilityReport = useMemo(() => {
-    return getCompatibilityReport(selectedCpu, selectedGpu, selectedRam, selectedStorage);
-  }, [selectedCpu, selectedGpu, selectedRam, selectedStorage]);
+  }, [selectedCpu, selectedRam, setSelectedRam]);
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark bg-[#121315] text-white" : "bg-[#FBF9F5] text-[#1E2022]"} pb-20 relative px-4 sm:px-6 lg:px-8 overflow-hidden`}>
