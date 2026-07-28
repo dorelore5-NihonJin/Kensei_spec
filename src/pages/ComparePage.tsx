@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers, MousePointerClick } from "lucide-react";
+import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers, MousePointerClick, ShieldCheck } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
@@ -56,6 +56,15 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const isCpuMode = mode === "cpu";
   const itemA = isCpuMode ? selectedCpuA : selectedGpuA;
   const itemB = isCpuMode ? selectedCpuB : selectedGpuB;
+
+  // Filter out the component that is ALREADY selected in the opposite dropdown!
+  const filteredOptionsA = isCpuMode
+    ? cpuOptions.filter((opt) => opt.id !== selectedCpuB?.id)
+    : gpuOptions.filter((opt) => opt.id !== selectedGpuB?.id);
+
+  const filteredOptionsB = isCpuMode
+    ? cpuOptions.filter((opt) => opt.id !== selectedCpuA?.id)
+    : gpuOptions.filter((opt) => opt.id !== selectedGpuA?.id);
 
   // Calculate scores if items exist
   const cpuScoreA = selectedCpuA ? Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10) : 0;
@@ -150,7 +159,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component A (Left)"
-            options={isCpuMode ? cpuOptions : gpuOptions}
+            options={filteredOptionsA}
             value={itemA?.id || ""}
             onChange={(id) => {
               if (isCpuMode) {
@@ -220,7 +229,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component B (Right)"
-            options={isCpuMode ? cpuOptions : gpuOptions}
+            options={filteredOptionsB}
             value={itemB?.id || ""}
             onChange={(id) => {
               if (isCpuMode) {
@@ -269,14 +278,157 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         </div>
       </div>
 
-      {/* 3. BENCHMARK MATRIX CHART / EMPTY PROMPT STATE */}
+      {/* 3. BENCHMARK MATRIX CHART & DETAILED COMPARISON TABLE */}
       {isBothSelected && itemAInfo && itemBInfo ? (
-        <div className="animate-fadeIn transition-all duration-500 ease-out">
+        <div className="flex flex-col gap-8 animate-fadeIn transition-all duration-500 ease-out">
+          {/* Aggregate Visual Benchmark Chart */}
           <AggregatePerformanceChart
             type={mode}
             itemA={itemAInfo}
             itemB={itemBInfo}
           />
+
+          {/* Comprehensive Telemetry Specification Matrix Table */}
+          <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-purple-500" />
+                <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                  Detailed Telemetry Specification Matrix / 詳細スペック比較
+                </h3>
+              </div>
+              <span className="text-xs font-black text-purple-600 dark:text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+                {isCpuMode ? "CPU Architecture" : "GPU Architecture"}
+              </span>
+            </div>
+
+            {/* Side-by-side spec grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* COMPONENT A SPECS */}
+              <div className="flex flex-col gap-3 p-5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+                <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+                  <span className="text-xs font-black text-purple-500 uppercase tracking-wider">Candidate A</span>
+                  <h4 className="text-sm font-black text-[#1E2022] dark:text-white truncate">
+                    {isCpuMode ? selectedCpuA?.name : selectedGpuA?.name}
+                  </h4>
+                </div>
+
+                {isCpuMode && selectedCpuA ? (
+                  <div className="flex flex-col gap-2.5 text-xs">
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Cores / Threads</span>
+                      <span className="font-black font-mono">{selectedCpuA.cores} Cores / {selectedCpuA.threads} Threads</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Single Core Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedCpuA.singleCoreScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Multi Core Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedCpuA.multiCoreScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Socket / Platform</span>
+                      <span className="font-black font-mono">{selectedCpuA.socket}</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Release Year</span>
+                      <span className="font-black font-mono">{selectedCpuA.releaseYear}</span>
+                    </div>
+                    <div className="flex justify-between py-1">
+                      <span className="font-bold text-gray-500">Manufacturer</span>
+                      <span className="font-black">{selectedCpuA.manufacturer}</span>
+                    </div>
+                  </div>
+                ) : !isCpuMode && selectedGpuA ? (
+                  <div className="flex flex-col gap-2.5 text-xs">
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">VRAM Capacity</span>
+                      <span className="font-black font-mono">{selectedGpuA.vramGB} GB</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Relative Power Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedGpuA.relativePowerScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Architecture</span>
+                      <span className="font-black">{selectedGpuA.architecture}</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Release Year</span>
+                      <span className="font-black font-mono">{selectedGpuA.releaseYear}</span>
+                    </div>
+                    <div className="flex justify-between py-1">
+                      <span className="font-bold text-gray-500">Manufacturer</span>
+                      <span className="font-black">{selectedGpuA.manufacturer}</span>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+
+              {/* COMPONENT B SPECS */}
+              <div className="flex flex-col gap-3 p-5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+                <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+                  <span className="text-xs font-black text-purple-500 uppercase tracking-wider">Candidate B</span>
+                  <h4 className="text-sm font-black text-[#1E2022] dark:text-white truncate">
+                    {isCpuMode ? selectedCpuB?.name : selectedGpuB?.name}
+                  </h4>
+                </div>
+
+                {isCpuMode && selectedCpuB ? (
+                  <div className="flex flex-col gap-2.5 text-xs">
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Cores / Threads</span>
+                      <span className="font-black font-mono">{selectedCpuB.cores} Cores / {selectedCpuB.threads} Threads</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Single Core Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedCpuB.singleCoreScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Multi Core Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedCpuB.multiCoreScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Socket / Platform</span>
+                      <span className="font-black font-mono">{selectedCpuB.socket}</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Release Year</span>
+                      <span className="font-black font-mono">{selectedCpuB.releaseYear}</span>
+                    </div>
+                    <div className="flex justify-between py-1">
+                      <span className="font-bold text-gray-500">Manufacturer</span>
+                      <span className="font-black">{selectedCpuB.manufacturer}</span>
+                    </div>
+                  </div>
+                ) : !isCpuMode && selectedGpuB ? (
+                  <div className="flex flex-col gap-2.5 text-xs">
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">VRAM Capacity</span>
+                      <span className="font-black font-mono">{selectedGpuB.vramGB} GB</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Relative Power Score</span>
+                      <span className="font-black font-mono text-purple-600 dark:text-purple-400">{selectedGpuB.relativePowerScore} pts</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Architecture</span>
+                      <span className="font-black">{selectedGpuB.architecture}</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
+                      <span className="font-bold text-gray-500">Release Year</span>
+                      <span className="font-black font-mono">{selectedGpuB.releaseYear}</span>
+                    </div>
+                    <div className="flex justify-between py-1">
+                      <span className="font-bold text-gray-500">Manufacturer</span>
+                      <span className="font-black">{selectedGpuB.manufacturer}</span>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="bg-white/80 dark:bg-[#1A1C1E]/80 border border-dashed border-purple-500/30 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-3 shadow-lg animate-fadeIn">
