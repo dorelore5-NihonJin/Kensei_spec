@@ -45,18 +45,20 @@ export default function UpgradeAdvisor({
     if (!isComplete || bottleneckType === "None" || currentFps <= 0) return null;
 
     if (bottleneckType === "CPU") {
-      // Find the CPU of the same brand that unlocks +30% average FPS, with the lowest score
       const currentBrand = selectedCpu.manufacturer;
-      const candidates = cpus.filter(
-        (c) => c.manufacturer === currentBrand && c.id !== selectedCpu.id
+      const currentSocket = selectedCpu.socket;
+
+      // 1. First priority: search for Drop-In CPU upgrades on the EXACT SAME socket (e.g. AM4 -> AM4 or LGA1700 -> LGA1700)
+      const sameSocketCandidates = cpus.filter(
+        (c) => c.manufacturer === currentBrand && c.socket === currentSocket && c.id !== selectedCpu.id
       );
 
       let bestUpgrade: CPU | null = null;
       let lowestEnrichingScore = Infinity;
       let bestUpgradeFps = 0;
+      let isDropIn = true;
 
-      for (const candidate of candidates) {
-        // Run performance simulator with this candidate CPU
+      for (const candidate of sameSocketCandidates) {
         const res = calculatePerformance(
           candidate,
           selectedGpu,
@@ -72,7 +74,7 @@ export default function UpgradeAdvisor({
         );
 
         const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
-        if (pctIncrease >= 30) {
+        if (pctIncrease >= 20) {
           const scoreMetric = candidate.singleCoreScore * 1.5 + candidate.multiCoreScore * 0.5;
           if (scoreMetric < lowestEnrichingScore) {
             lowestEnrichingScore = scoreMetric;
@@ -82,10 +84,14 @@ export default function UpgradeAdvisor({
         }
       }
 
-      // Fallback: if no CPU reaches +30%, find the one with the highest overall FPS in the list
+      // 2. Fallback: if no same-socket CPU yields +20%, search across all sockets of same manufacturer (Platform Upgrade required)
       if (!bestUpgrade) {
+        const allBrandCandidates = cpus.filter(
+          (c) => c.manufacturer === currentBrand && c.id !== selectedCpu.id
+        );
+
         let maxFps = 0;
-        for (const candidate of candidates) {
+        for (const candidate of allBrandCandidates) {
           const res = calculatePerformance(
             candidate,
             selectedGpu,
@@ -99,10 +105,11 @@ export default function UpgradeAdvisor({
             frameGen,
             ramChannel
           );
-          if (res.averageFps > maxFps) {
+          if (res.averageFps > maxFps && res.averageFps > currentFps) {
             maxFps = res.averageFps;
             bestUpgrade = candidate;
             bestUpgradeFps = res.averageFps;
+            isDropIn = candidate.socket === currentSocket;
           }
         }
       }
@@ -112,6 +119,10 @@ export default function UpgradeAdvisor({
           type: "CPU",
           currentName: selectedCpu.name,
           suggestedName: bestUpgrade.name,
+          isDropIn,
+          socketBadge: isDropIn
+            ? `✅ Drop-in Socket Compatible (${currentSocket})`
+            : `⚡ Platform Upgrade Required (${currentSocket} → ${bestUpgrade.socket} + Motherboard)`,
           details: `${bestUpgrade.cores} Cores / ${bestUpgrade.threads} Threads • Socket ${bestUpgrade.socket} • L3 Cache ${bestUpgrade.l3CacheMB}MB`,
           currentFps,
           newFps: bestUpgradeFps,
@@ -246,7 +257,18 @@ export default function UpgradeAdvisor({
 
           <div className="p-4 bg-[#E88D9F]/10 dark:bg-[#E88D9F]/20 border border-[#E88D9F]/30 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div>
-              <div className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider mb-1">Suggested Upgrade Tier</div>
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider">Suggested Upgrade Tier</span>
+                {upgradeRecommendation.socketBadge && (
+                  <span className={`text-[9px] font-black px-2 py-0.5 rounded-md ${
+                    upgradeRecommendation.isDropIn
+                      ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
+                      : "bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30"
+                  }`}>
+                    {upgradeRecommendation.socketBadge}
+                  </span>
+                )}
+              </div>
               <h4 className="text-sm font-black text-[#1E2022] dark:text-white flex items-center gap-2">
                 {upgradeRecommendation.suggestedName}
                 <ArrowUpRight className="w-4 h-4 text-[#E88D9F]" />
