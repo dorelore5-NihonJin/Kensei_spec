@@ -129,25 +129,27 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule A */}
-            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-0.5 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Filled Slider Bar - Ends exactly at terminal point without trailing overflow */}
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+              {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
                   winner === "A"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
               >
-                {/* Terminal Circular Pin Knob centered flush at the exact right tip */}
+                {/* Integrated Terminal Cap Knob */}
                 <div
-                  className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-5 h-5 rounded-full border-2 shadow-md flex items-center justify-center z-20 ${
-                    winner === "A"
-                      ? "bg-emerald-400 border-white dark:border-[#1A1C1E]"
-                      : "bg-gray-300 dark:bg-gray-600 border-white dark:border-[#1A1C1E]"
+                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
+                    winner === "A" ? "border-emerald-400" : "border-gray-400"
                   }`}
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-black" />
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      winner === "A" ? "bg-emerald-400" : "bg-gray-400"
+                    }`}
+                  />
                 </div>
               </div>
             </div>
@@ -175,7 +177,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           </div>
 
           {/* Right Track Scale Container (Full Width) */}
-          <div className="flex-1 relative h-7 min-w-0">
+          <div className="flex-1 relative h-8 min-w-0">
             {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
@@ -191,25 +193,27 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             </div>
 
             {/* Track Capsule B */}
-            <div className="w-full h-full bg-black/5 dark:bg-white/5 rounded-full p-0.5 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Filled Slider Bar - Ends exactly at terminal point without trailing overflow */}
+            <div className="w-full h-8 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
+              {/* Filled Slider Bar */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-0.5 relative ${
                   winner === "B"
                     ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
               >
-                {/* Terminal Circular Pin Knob centered flush at the exact right tip */}
+                {/* Integrated Terminal Cap Knob */}
                 <div
-                  className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-5 h-5 rounded-full border-2 shadow-md flex items-center justify-center z-20 ${
-                    winner === "B"
-                      ? "bg-emerald-400 border-white dark:border-[#1A1C1E]"
-                      : "bg-gray-300 dark:bg-gray-600 border-white dark:border-[#1A1C1E]"
+                  className={`w-5 h-5 rounded-full bg-white dark:bg-[#1A1C1E] border-2 shadow-md flex items-center justify-center shrink-0 ${
+                    winner === "B" ? "border-emerald-400" : "border-gray-400"
                   }`}
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-black" />
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      winner === "B" ? "bg-emerald-400" : "bg-gray-400"
+                    }`}
+                  />
                 </div>
               </div>
             </div>
