@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Cpu as CpuIcon, Zap, Trophy, Sparkles, Layers } from "lucide-react";
+import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import PerformanceSpectrumRail from "../components/PerformanceSpectrumRail";
+import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
 
 interface ComparePageProps {
   cpus: CPU[];
@@ -64,6 +65,20 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     setActivePage("simulator");
   };
 
+  const itemAInfo = {
+    name: isCpuMode ? selectedCpuA.name : selectedGpuA.name,
+    score: scoreA,
+    details: isCpuMode ? `${selectedCpuA.cores}C/${selectedCpuA.threads}T • Socket ${selectedCpuA.socket}` : `${selectedGpuA.vramGB}GB VRAM • ${selectedGpuA.architecture}`,
+    manufacturer: isCpuMode ? selectedCpuA.manufacturer : selectedGpuA.manufacturer
+  };
+
+  const itemBInfo = {
+    name: isCpuMode ? selectedCpuB.name : selectedGpuB.name,
+    score: scoreB,
+    details: isCpuMode ? `${selectedCpuB.cores}C/${selectedCpuB.threads}T • Socket ${selectedCpuB.socket}` : `${selectedGpuB.vramGB}GB VRAM • ${selectedGpuB.architecture}`,
+    manufacturer: isCpuMode ? selectedCpuB.manufacturer : selectedGpuB.manufacturer
+  };
+
   return (
     <div className="flex flex-col gap-8 w-full max-w-7xl mx-auto pb-12 animate-fadeIn">
       {/* 1. PAGE HEADER & MODE SELECTOR */}
@@ -114,13 +129,6 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* COMPONENT A SELECTOR */}
         <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
-          {winner === "A" && (
-            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 z-10">
-              <Trophy className="w-3 h-3 text-emerald-500" />
-              <span>+{deltaPct}% Advantage</span>
-            </div>
-          )}
-
           <SearchableSelect
             label="Component A (Left)"
             options={isCpuMode ? cpuOptions : gpuOptions}
@@ -185,13 +193,6 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
         {/* COMPONENT B SELECTOR */}
         <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
-          {winner === "B" && (
-            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 z-10">
-              <Trophy className="w-3 h-3 text-emerald-500" />
-              <span>+{deltaPct}% Advantage</span>
-            </div>
-          )}
-
           <SearchableSelect
             label="Component B (Right)"
             options={isCpuMode ? cpuOptions : gpuOptions}
@@ -240,6 +241,13 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           </button>
         </div>
       </div>
+
+      {/* 3. AGGREGATE PERFORMANCE STACKED COMPARISON CHART */}
+      <AggregatePerformanceChart
+        type={mode}
+        itemA={itemAInfo}
+        itemB={itemBInfo}
+      />
 
       {/* 3. SIDE-BY-SIDE DETAILED COMPARISON TABLE */}
       <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-6">
