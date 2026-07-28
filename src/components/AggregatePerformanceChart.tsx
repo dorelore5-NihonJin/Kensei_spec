@@ -122,8 +122,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
                   style={{ left: `${msPct}%` }}
                 >
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
-                    {ms.name} ({ms.score} pts)
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                    {ms.name}
                   </span>
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mt-1" />
                 </div>
@@ -199,8 +199,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   style={{ left: `${msPct}%` }}
                 >
                   <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mb-1" />
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
-                    {ms.name} ({ms.score} pts)
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                    {ms.name}
                   </span>
                 </div>
               );
