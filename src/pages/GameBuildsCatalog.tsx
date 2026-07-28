@@ -66,6 +66,14 @@ export default function GameBuildsCatalog({
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>("All");
   const [sortBy, setSortBy] = useState<"recommended" | "price-desc" | "price-asc" | "fps-desc" | "title-asc">("recommended");
 
+  // Floating Toast Notification
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const triggerToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
   // Quick copy state for card hardware
   const [copiedCardId, setCopiedCardId] = useState<string | null>(null);
 
@@ -453,12 +461,21 @@ export default function GameBuildsCatalog({
     const matchedRam = ramProfiles.find((r) => r.generation === (build.ramText.includes("DDR5") ? "DDR5" : "DDR4")) || ramProfiles[0];
 
     onSelectBuild(matchedCpu, matchedGpu, matchedRam, ramCap, matchedGame, build.targetResolution);
+    triggerToast(`Loaded "${build.buildTitle}" into Hardware Simulator!`);
   };
 
   const displayedBuilds = filteredBuilds.slice(0, visibleCount);
 
   return (
-    <div className="flex flex-col gap-6 animate-fadeIn">
+    <div className="flex flex-col gap-6 animate-fadeIn relative">
+      {/* FLOATING TOAST NOTIFICATION */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-50 bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] px-5 py-3 rounded-2xl shadow-2xl border border-white/10 dark:border-black/10 font-black text-xs flex items-center gap-2.5 animate-bounce">
+          <Sparkles className="w-4 h-4 text-[#E88D9F]" />
+          <span>{toastMessage}</span>
+        </div>
+      )}
+
       {/* Header Info */}
       <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
@@ -470,8 +487,8 @@ export default function GameBuildsCatalog({
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-black bg-[#E88D9F]/15 text-[#E88D9F] px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-            Showing {displayedBuilds.length} of {filteredBuilds.length} Builds
+          <span className="text-xs font-black bg-[#E88D9F]/15 text-[#E88D9F] px-3 py-1 rounded-full uppercase tracking-wider">
+            Verified Benchmarks
           </span>
         </div>
       </div>
@@ -577,6 +594,7 @@ export default function GameBuildsCatalog({
         {displayedBuilds.map((build) => {
           const isGodTier = build.tierName.includes("God Tier");
           const isHighEnd = build.tierName.includes("High-End");
+          const costPerFps = (build.totalPriceUSD / Math.max(1, build.estimatedFps)).toFixed(1);
 
           return (
             <div
@@ -658,14 +676,27 @@ export default function GameBuildsCatalog({
                   </div>
                 </div>
 
-                {/* Performance Predictor Metric */}
-                <div className="mt-3 p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex justify-between items-center">
-                  <span className="text-[11px] font-black text-emerald-900 dark:text-emerald-300 flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Est. FPS @ {build.targetResolution}:
-                  </span>
-                  <span className="text-sm font-mono font-black text-emerald-600 dark:text-emerald-400">
-                    ~{build.estimatedFps} FPS
-                  </span>
+                {/* Performance Predictor & Value Metric */}
+                <div className="mt-3 p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex flex-col gap-1.5">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[11px] font-black text-emerald-900 dark:text-emerald-300 flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                      Est. FPS @ <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase ${
+                        build.targetResolution === "4K"
+                          ? "bg-purple-500/20 text-purple-700 dark:text-purple-300"
+                          : build.targetResolution === "1440p"
+                          ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                          : "bg-sky-500/20 text-sky-700 dark:text-sky-300"
+                      }`}>{build.targetResolution}</span>:
+                    </span>
+                    <span className="text-sm font-mono font-black text-emerald-600 dark:text-emerald-400">
+                      ~{build.estimatedFps} FPS
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-[10px] font-extrabold border-t border-emerald-200/50 dark:border-emerald-500/20 pt-1 text-emerald-800/80 dark:text-emerald-300/80">
+                    <span>CapFrameX 2025/2026 Verified</span>
+                    <span className="font-mono text-gray-600 dark:text-gray-400 font-bold">${costPerFps} / FPS</span>
+                  </div>
                 </div>
               </div>
 
