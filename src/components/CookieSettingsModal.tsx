@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Cookie, ShieldCheck, CheckCircle2, XCircle, Trash2, X, Lock, Check } from "lucide-react";
+import { Cookie, ShieldCheck, CheckCircle2, XCircle, Trash2, X, Lock, Check, FileText } from "lucide-react";
 
 interface CookieSettingsModalProps {
   isOpen: boolean;
@@ -59,31 +59,33 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="bg-[#1E2022] dark:bg-[#18191B] text-white border border-[#E88D9F]/30 rounded-3xl max-w-xl w-full p-6 shadow-2xl relative overflow-hidden flex flex-col gap-6">
+      <div className="bg-[#18191B] text-white border border-[#E88D9F]/30 rounded-3xl max-w-2xl w-[94vw] sm:w-[680px] p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col gap-6">
         {/* Background Ambient Accents */}
-        <div className="absolute -top-16 -right-16 w-40 h-40 bg-[#E88D9F]/10 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-[#8A9A86]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-16 -right-16 w-44 h-44 bg-[#E88D9F]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-44 h-44 bg-[#8A9A86]/10 rounded-full blur-2xl pointer-events-none" />
 
         {/* Modal Header */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#E88D9F]/20 border border-[#E88D9F]/30 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#E88D9F]/15 border border-[#E88D9F]/30 flex items-center justify-center shrink-0">
               <Cookie className="w-5 h-5 text-[#E88D9F]" />
             </div>
             <div>
-              <h2 className="font-extrabold text-base text-white flex items-center gap-2">
-                <span>Cookie & Storage Controls</span>
+              <div className="flex items-center gap-2">
+                <h2 className="font-extrabold text-base text-white tracking-wide">
+                  Cookie & Storage Controls
+                </h2>
                 <span className="text-[10px] bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 px-2 py-0.5 rounded-full font-mono uppercase">
                   クッキー設定
                 </span>
-              </h2>
+              </div>
               <p className="text-xs text-gray-400 font-medium">Manage Local Data Persistence & Privacy Settings</p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border border-white/10 transition"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border border-white/10 transition shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
@@ -91,24 +93,28 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
 
         {/* Privacy Status Overview Card */}
         <div className="bg-black/30 border border-white/10 rounded-2xl p-5 flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
               {consentStatus === "accepted" ? (
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                </div>
               ) : (
-                <XCircle className="w-5 h-5 text-rose-400 shrink-0" />
+                <div className="w-9 h-9 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center shrink-0">
+                  <XCircle className="w-5 h-5 text-rose-400" />
+                </div>
               )}
               <div>
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block">Consent Status</span>
-                <span className={`text-sm font-extrabold ${consentStatus === "accepted" ? "text-emerald-400" : "text-rose-400"}`}>
-                  {consentStatus === "accepted" ? "Cookie Storage Enabled / 許可済み ✅" : "Cookie Storage Disabled / 無効 ❌"}
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">Consent Status</span>
+                <span className={`text-sm font-extrabold flex items-center gap-1.5 ${consentStatus === "accepted" ? "text-emerald-400" : "text-rose-400"}`}>
+                  <span>{consentStatus === "accepted" ? "Cookie Storage Enabled / 許可済み" : "Cookie Storage Disabled / 無効"}</span>
                 </span>
               </div>
             </div>
 
             <button
               onClick={handleToggleConsent}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-md ${
+              className={`w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 shadow-md whitespace-nowrap shrink-0 ${
                 consentStatus === "accepted"
                   ? "bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 border border-rose-500/30"
                   : "bg-emerald-500 text-black hover:bg-emerald-400 font-extrabold"
@@ -116,12 +122,12 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
             >
               {consentStatus === "accepted" ? (
                 <>
-                  <XCircle className="w-3.5 h-3.5" />
+                  <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
                   <span>Disable Cookies / 無効化</span>
                 </>
               ) : (
                 <>
-                  <Check className="w-3.5 h-3.5 text-black" />
+                  <Check className="w-4 h-4 text-black shrink-0" />
                   <span>Enable Cookies / 許可する</span>
                 </>
               )}
@@ -129,7 +135,7 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
           </div>
 
           {consentTime && (
-            <div className="text-[11px] text-gray-400 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 flex items-center justify-between">
+            <div className="text-[11px] text-gray-400 bg-white/5 px-3.5 py-2 rounded-xl border border-white/5 flex items-center justify-between">
               <span>Timestamp Granted:</span>
               <span className="font-mono text-gray-300 font-semibold">{consentTime}</span>
             </div>
@@ -148,13 +154,13 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
             <div>
               <h4 className="text-xs font-extrabold text-white flex items-center gap-2">
                 <span>Hardware & Presets State</span>
-                <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold uppercase">
+                <span className="text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold uppercase">
                   Required
                 </span>
               </h4>
               <p className="text-[11px] text-gray-400 mt-0.5">Saves CPU, GPU, RAM, storage, and game choices across F5 page reloads.</p>
             </div>
-            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20 shrink-0">
+            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-xl border border-emerald-500/20 shrink-0 whitespace-nowrap">
               Active
             </span>
           </div>
@@ -164,7 +170,7 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
             <div>
               <h4 className="text-xs font-extrabold text-white flex items-center gap-2">
                 <span>Client-Side Privacy Protection</span>
-                <span className="text-[9px] bg-[#8A9A86]/20 text-[#8A9A86] px-2 py-0.5 rounded-full font-bold uppercase">
+                <span className="text-[9px] bg-[#8A9A86]/20 text-[#8A9A86] border border-[#8A9A86]/30 px-2 py-0.5 rounded-full font-bold uppercase">
                   Guaranteed
                 </span>
               </h4>
@@ -175,25 +181,26 @@ export default function CookieSettingsModal({ isOpen, onClose, onOpenPrivacyPoli
         </div>
 
         {/* Action Options Footer */}
-        <div className="flex items-center justify-between gap-3 pt-3 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-white/10">
           <button
             onClick={handleClearAllStorage}
-            className="px-3.5 py-2 rounded-xl text-xs font-bold text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition flex items-center gap-1.5 border border-rose-500/20"
+            className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition flex items-center justify-center gap-2 border border-rose-500/20 whitespace-nowrap"
           >
-            <Trash2 className="w-3.5 h-3.5" />
+            <Trash2 className="w-4 h-4 text-rose-400 shrink-0" />
             <span>Reset Local Storage / リセット</span>
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
             <button
               onClick={onOpenPrivacyPolicy}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs font-bold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center justify-center gap-1.5 whitespace-nowrap"
             >
-              Privacy Policy
+              <FileText className="w-3.5 h-3.5 text-[#E88D9F] shrink-0" />
+              <span>Privacy Policy</span>
             </button>
             <button
               onClick={onClose}
-              className="px-5 py-2 rounded-xl text-xs font-extrabold text-[#1E2022] bg-white hover:bg-gray-100 transition shadow-md"
+              className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl text-xs font-extrabold text-[#1E2022] bg-white hover:bg-gray-100 transition shadow-md whitespace-nowrap text-center"
             >
               Done / 完了
             </button>
