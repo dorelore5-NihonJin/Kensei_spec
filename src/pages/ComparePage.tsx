@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Scale, Cpu as CpuIcon, Zap, Trophy, Sparkles, Layers } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
+import SearchableSelect from "../components/SearchableSelect";
+import PerformanceSpectrumRail from "../components/PerformanceSpectrumRail";
 
 interface ComparePageProps {
   cpus: CPU[];
@@ -18,6 +20,21 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
   const [selectedGpuA, setSelectedGpuA] = useState<GPU>(() => gpus.find(g => g.id === "gpu-001") || gpus[0]);
   const [selectedGpuB, setSelectedGpuB] = useState<GPU>(() => gpus.find(g => g.id === "gpu-006") || gpus[1]);
+
+  // Map options for SearchableSelect
+  const cpuOptions = cpus.map((c) => ({
+    id: c.id,
+    name: `${c.manufacturer} ${c.name}`,
+    subText: `${c.cores} Cores / ${c.threads} Threads • Socket ${c.socket} • ${c.releaseYear}`,
+    manufacturer: c.manufacturer
+  }));
+
+  const gpuOptions = gpus.map((g) => ({
+    id: g.id,
+    name: `${g.manufacturer} ${g.name}`,
+    subText: `${g.vramGB}GB VRAM • ${g.architecture} • ${g.releaseYear}`,
+    manufacturer: g.manufacturer
+  }));
 
   // CPU Score comparison: Single Core * 0.6 + Multi Core * 0.4
   const cpuScoreA = Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10);
@@ -94,42 +111,31 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       </div>
 
       {/* 2. COMPONENT SELECTION BAR & HERO VERSUS SCORE CARD */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* COMPONENT A SELECTOR */}
         <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
           {winner === "A" && (
-            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 z-10">
               <Trophy className="w-3 h-3 text-emerald-500" />
               <span>+{deltaPct}% Advantage</span>
             </div>
           )}
 
-          <span className="text-[10px] text-gray-400 font-black uppercase tracking-widest">Component A (Left)</span>
-          {isCpuMode ? (
-            <select
-              value={selectedCpuA.id}
-              onChange={(e) => setSelectedCpuA(cpus.find(c => c.id === e.target.value) || cpus[0])}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-3 text-xs font-black text-[#1E2022] dark:text-white focus:outline-none focus:border-purple-500 cursor-pointer"
-            >
-              {cpus.map((cpu) => (
-                <option key={cpu.id} value={cpu.id} className="dark:bg-[#1A1C1E] dark:text-white">
-                  {cpu.manufacturer} {cpu.name} ({cpu.cores}C/{cpu.threads}T • Socket {cpu.socket})
-                </option>
-              ))}
-            </select>
-          ) : (
-            <select
-              value={selectedGpuA.id}
-              onChange={(e) => setSelectedGpuA(gpus.find(g => g.id === e.target.value) || gpus[0])}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-3 text-xs font-black text-[#1E2022] dark:text-white focus:outline-none focus:border-purple-500 cursor-pointer"
-            >
-              {gpus.map((gpu) => (
-                <option key={gpu.id} value={gpu.id} className="dark:bg-[#1A1C1E] dark:text-white">
-                  {gpu.manufacturer} {gpu.name} ({gpu.vramGB}GB VRAM • {gpu.architecture})
-                </option>
-              ))}
-            </select>
-          )}
+          <SearchableSelect
+            label="Component A (Left)"
+            options={isCpuMode ? cpuOptions : gpuOptions}
+            value={isCpuMode ? selectedCpuA.id : selectedGpuA.id}
+            onChange={(id) => {
+              if (isCpuMode) {
+                const found = cpus.find((c) => c.id === id);
+                if (found) setSelectedCpuA(found);
+              } else {
+                const found = gpus.find((g) => g.id === id);
+                if (found) setSelectedGpuA(found);
+              }
+            }}
+            placeholder={isCpuMode ? "Search CPU (e.g. 7800X3D)..." : "Search GPU (e.g. 4070 Super)..."}
+          />
 
           <div className="flex items-center justify-between pt-2">
             <div>
@@ -147,6 +153,13 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             </div>
           </div>
 
+          {/* Performance Rail for Component A */}
+          <PerformanceSpectrumRail
+            type={mode}
+            name={isCpuMode ? selectedCpuA.name : selectedGpuA.name}
+            score={scoreA}
+          />
+
           <button
             onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuA : selectedGpuA)}
             className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-2"
@@ -157,7 +170,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         </div>
 
         {/* VERSUS BADGE DELTA */}
-        <div className="lg:col-span-2 flex flex-col items-center justify-center gap-2">
+        <div className="lg:col-span-2 flex flex-col items-center justify-center gap-2 pt-12">
           <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30">
             VS
           </div>
@@ -173,38 +186,27 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         {/* COMPONENT B SELECTOR */}
         <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
           {winner === "B" && (
-            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <div className="absolute top-3 right-3 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 z-10">
               <Trophy className="w-3 h-3 text-emerald-500" />
               <span>+{deltaPct}% Advantage</span>
             </div>
           )}
 
-          <span className="text-[10px] text-gray-400 font-black uppercase tracking-widest">Component B (Right)</span>
-          {isCpuMode ? (
-            <select
-              value={selectedCpuB.id}
-              onChange={(e) => setSelectedCpuB(cpus.find(c => c.id === e.target.value) || cpus[1])}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-3 text-xs font-black text-[#1E2022] dark:text-white focus:outline-none focus:border-purple-500 cursor-pointer"
-            >
-              {cpus.map((cpu) => (
-                <option key={cpu.id} value={cpu.id} className="dark:bg-[#1A1C1E] dark:text-white">
-                  {cpu.manufacturer} {cpu.name} ({cpu.cores}C/{cpu.threads}T • Socket {cpu.socket})
-                </option>
-              ))}
-            </select>
-          ) : (
-            <select
-              value={selectedGpuB.id}
-              onChange={(e) => setSelectedGpuB(gpus.find(g => g.id === e.target.value) || gpus[1])}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-3 text-xs font-black text-[#1E2022] dark:text-white focus:outline-none focus:border-purple-500 cursor-pointer"
-            >
-              {gpus.map((gpu) => (
-                <option key={gpu.id} value={gpu.id} className="dark:bg-[#1A1C1E] dark:text-white">
-                  {gpu.manufacturer} {gpu.name} ({gpu.vramGB}GB VRAM • {gpu.architecture})
-                </option>
-              ))}
-            </select>
-          )}
+          <SearchableSelect
+            label="Component B (Right)"
+            options={isCpuMode ? cpuOptions : gpuOptions}
+            value={isCpuMode ? selectedCpuB.id : selectedGpuB.id}
+            onChange={(id) => {
+              if (isCpuMode) {
+                const found = cpus.find((c) => c.id === id);
+                if (found) setSelectedCpuB(found);
+              } else {
+                const found = gpus.find((g) => g.id === id);
+                if (found) setSelectedGpuB(found);
+              }
+            }}
+            placeholder={isCpuMode ? "Search CPU (e.g. 7800X3D)..." : "Search GPU (e.g. 4070 Super)..."}
+          />
 
           <div className="flex items-center justify-between pt-2">
             <div>
@@ -221,6 +223,13 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
               <span className="text-2xl font-black text-purple-500">{scoreB} pts</span>
             </div>
           </div>
+
+          {/* Performance Rail for Component B */}
+          <PerformanceSpectrumRail
+            type={mode}
+            name={isCpuMode ? selectedCpuB.name : selectedGpuB.name}
+            score={scoreB}
+          />
 
           <button
             onClick={() => handleApplyToBuild(isCpuMode ? selectedCpuB : selectedGpuB)}
