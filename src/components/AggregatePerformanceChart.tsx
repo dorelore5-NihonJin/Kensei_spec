@@ -14,14 +14,16 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
+// GPU Milestones scale (Apex scale max: 980 pts - RTX 5090)
 const GPU_MILESTONES = [
   { name: "GTX 750 Ti", score: 55 },
   { name: "GTX 1060", score: 110 },
   { name: "RTX 2060", score: 185 },
   { name: "RTX 3070", score: 310 },
-  { name: "RTX 4080", score: 520 },
+  { name: "RTX 4070 Super", score: 440 },
 ];
 
+// CPU Milestones scale (Apex scale max: 310 pts - 7800X3D)
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
@@ -33,8 +35,8 @@ const CPU_MILESTONES = [
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-  // Maximum scale benchmark score (310 pts for CPU apex, 520 pts for GPU milestone scale)
-  const maxScore = type === "gpu" ? 520 : 310;
+  // Maximum scale benchmark score (310 pts for CPU apex, 980 pts for GPU apex)
+  const maxScore = type === "gpu" ? 980 : 310;
 
   // Exact percentage calculation relative to max scale
   const pctA = Math.max(0.5, (itemA.score / maxScore) * 100);
