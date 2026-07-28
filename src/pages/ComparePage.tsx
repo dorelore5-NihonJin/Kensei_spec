@@ -12,7 +12,24 @@ interface ComparePageProps {
 
 export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
-  const [mode, setMode] = useState<"cpu" | "gpu">("cpu");
+
+  // Persist mode (cpu vs gpu) across page refreshes via URL search param & localStorage
+  const [mode, setMode] = useState<"cpu" | "gpu">(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get("mode");
+    if (modeParam === "gpu" || modeParam === "cpu") return modeParam;
+    const stored = localStorage.getItem("kensei_compare_mode");
+    if (stored === "gpu" || stored === "cpu") return stored;
+    return "cpu";
+  });
+
+  const handleModeChange = (newMode: "cpu" | "gpu") => {
+    setMode(newMode);
+    localStorage.setItem("kensei_compare_mode", newMode);
+    const url = new URL(window.location.href);
+    url.searchParams.set("mode", newMode);
+    window.history.replaceState({}, "", url.toString());
+  };
 
   // Default selections
   const [selectedCpuA, setSelectedCpuA] = useState<CPU>(() => cpus.find(c => c.id === "cpu-001") || cpus[0]);
@@ -68,39 +85,39 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     name: isCpuMode ? selectedCpuA.name : selectedGpuA.name,
     score: scoreA,
     details: isCpuMode ? `${selectedCpuA.cores}C/${selectedCpuA.threads}T • Socket ${selectedCpuA.socket}` : `${selectedGpuA.vramGB}GB VRAM • ${selectedGpuA.architecture}`,
-    manufacturer: isCpuMode ? selectedCpuA.manufacturer : selectedGpuA.manufacturer
+    manufacturer: isCpuMode ? selectedCpuA.manufacturer : selectedGpuA.manufacturer,
+    releaseYear: isCpuMode ? selectedCpuA.releaseYear : selectedGpuA.releaseYear
   };
 
   const itemBInfo = {
     name: isCpuMode ? selectedCpuB.name : selectedGpuB.name,
     score: scoreB,
     details: isCpuMode ? `${selectedCpuB.cores}C/${selectedCpuB.threads}T • Socket ${selectedCpuB.socket}` : `${selectedGpuB.vramGB}GB VRAM • ${selectedGpuB.architecture}`,
-    manufacturer: isCpuMode ? selectedCpuB.manufacturer : selectedGpuB.manufacturer
+    manufacturer: isCpuMode ? selectedCpuB.manufacturer : selectedGpuB.manufacturer,
+    releaseYear: isCpuMode ? selectedCpuB.releaseYear : selectedGpuB.releaseYear
   };
 
   return (
-    <div className="flex flex-col gap-8 w-full max-w-7xl mx-auto pb-12 animate-fadeIn">
-      {/* 1. PAGE HEADER & MODE SELECTOR */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-lg">
+    <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col gap-8">
+      {/* 1. PAGE HEADER & MODE TOGGLE */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-500/15 font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-purple-500/20">
-              Hardware Versus Matrix
-            </span>
+          <div className="flex items-center gap-2 text-purple-500 font-extrabold text-xs uppercase tracking-wider">
+            <Scale className="w-4 h-4" />
+            <span>Versus Benchmark Comparison</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-            <Scale className="w-6 h-6 text-purple-500" />
-            Hardware Versus Lab / スペック比較
-          </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-1">
-            Side-by-side silicon telemetry comparison, architecture breakdown, and performance rating.
+          <h1 className="text-2xl sm:text-3xl font-black text-[#1E2022] dark:text-white mt-1">
+            Hardware Comparison Studio
+          </h1>
+          <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1">
+            Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics.
           </p>
         </div>
 
-        {/* Mode Toggle Switch */}
-        <div className="flex items-center gap-1.5 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0">
+        {/* Mode Switcher Tabs */}
+        <div className="flex items-center bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0">
           <button
-            onClick={() => setMode("cpu")}
+            onClick={() => handleModeChange("cpu")}
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "cpu"
                 ? "bg-purple-600 text-white shadow-md scale-102"
@@ -111,7 +128,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <span>CPU vs CPU</span>
           </button>
           <button
-            onClick={() => setMode("gpu")}
+            onClick={() => handleModeChange("gpu")}
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "gpu"
                 ? "bg-purple-600 text-white shadow-md scale-102"

@@ -23,7 +23,7 @@ const GPU_MILESTONES = [
   { name: "RTX 4070 Super", score: 440 },
 ];
 
-// CPU Milestones scale (Apex scale max: 310 pts - 7800X3D)
+// CPU Milestones scale (Apex scale max: 1200 pts - EPYC 9654 / Workstation Server Apex)
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
@@ -31,12 +31,14 @@ const CPU_MILESTONES = [
   { name: "i5-10400", score: 125 },
   { name: "Ryzen 5600", score: 185 },
   { name: "i5-13600K", score: 250 },
+  { name: "7800X3D", score: 310 },
+  { name: "14900KS", score: 450 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
   const milestones = type === "gpu" ? GPU_MILESTONES : CPU_MILESTONES;
-  // Maximum scale benchmark score (310 pts for CPU apex, 980 pts for GPU apex)
-  const maxScore = type === "gpu" ? 980 : 310;
+  // Maximum scale benchmark score (1200 pts for CPU server apex, 980 pts for GPU apex)
+  const maxScore = type === "gpu" ? 980 : 1200;
 
   // Exact percentage calculation relative to max scale
   const pctA = Math.max(0.5, (itemA.score / maxScore) * 100);
