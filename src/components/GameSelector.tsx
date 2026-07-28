@@ -69,6 +69,41 @@ export default function GameSelector({
     setFailedImages((prev) => ({ ...prev, [id]: true }));
   };
 
+  // Dynamic CPU & GPU Reliance Meters reacting instantly to settings
+  const effectiveCpuReliance = useMemo(() => {
+    let factor = selectedGame.cpuDependence * 100;
+    if (selectedResolution === "1080p") factor *= 1.15;
+    else if (selectedResolution === "1440p") factor *= 0.95;
+    else if (selectedResolution === "4K") factor *= 0.70;
+
+    if (selectedPreset === "Low") factor *= 1.12;
+    else if (selectedPreset === "Ultra") factor *= 0.90;
+
+    if (selectedDlss !== "Off") factor *= 1.12;
+    if (rayTracing !== "Off") factor *= 1.08;
+
+    return Math.min(100, Math.max(15, Math.round(factor)));
+  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing]);
+
+  const effectiveGpuReliance = useMemo(() => {
+    let factor = selectedGame.gpuDependence * 100;
+    if (selectedResolution === "1080p") factor *= 0.85;
+    else if (selectedResolution === "1440p") factor *= 1.10;
+    else if (selectedResolution === "4K") factor *= 1.40;
+
+    if (selectedPreset === "Low") factor *= 0.75;
+    else if (selectedPreset === "Medium") factor *= 0.90;
+    else if (selectedPreset === "Ultra") factor *= 1.22;
+
+    if (selectedDlss === "Quality") factor *= 0.82;
+    else if (selectedDlss === "Performance") factor *= 0.68;
+
+    if (rayTracing === "Medium") factor *= 1.25;
+    else if (rayTracing === "Ultra") factor *= 1.50;
+
+    return Math.min(100, Math.max(15, Math.round(factor)));
+  }, [selectedGame, selectedResolution, selectedPreset, selectedDlss, rayTracing]);
+
   // Category classifier helper
   const getGameCategory = (id: string): "Esports" | "AAA" | "Simulation" => {
     const esportsIds = ["game-cs2", "game-valorant", "game-dota2", "game-apex", "game-fortnite", "game-codwarzone", "game-helldivers2"];
@@ -184,16 +219,16 @@ export default function GameSelector({
         })}
       </div>
 
-      {/* Game Dependence Metrics */}
+      {/* Dynamic Game Dependence Metrics */}
       <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex justify-around text-center text-xs">
         <div>
           <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">CPU Reliance</span>
-          <span className="font-black text-[#1E2022] dark:text-white">{selectedGame.cpuDependence * 100}%</span>
+          <span className="font-black text-indigo-600 dark:text-indigo-400 transition-all duration-300">{effectiveCpuReliance}%</span>
         </div>
         <div className="border-r border-black/10 dark:border-white/10" />
         <div>
           <span className="text-[10px] text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider">GPU Reliance</span>
-          <span className="font-black text-[#1E2022] dark:text-white">{selectedGame.gpuDependence * 100}%</span>
+          <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] transition-all duration-300">{effectiveGpuReliance}%</span>
         </div>
       </div>
 

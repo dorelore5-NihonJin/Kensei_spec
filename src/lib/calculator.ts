@@ -262,21 +262,71 @@ export function calculatePerformance(
     onePercentLowFps = averageFps;
   }
 
-  // --- 6. Bottleneck Calculations ---
+  // --- 6. Dynamic Real-Time Load & Bottleneck Calculations ---
   const cpuMetric = (cpu.singleCoreScore * 0.7) + (cpu.multiCoreScore * 0.3);
   const gpuMetric = gpu.relativePowerScore;
 
   let bottleneckType: "None" | "CPU" | "GPU" | "RAM" | "Storage" = "None";
   let bottleneckPercentage = 0;
-  let cpuLoadPercentage = 50;
+
+  // Base Load Calculations
+  let baseGpuLoad = 82 + (game.gpuDependence * 12);
+  let baseCpuLoad = 35 + (game.cpuDependence * 35);
+
+  // Resolution Modifiers
+  if (resolution === "1080p") {
+    baseGpuLoad -= 12;
+    baseCpuLoad += 16;
+  } else if (resolution === "1440p") {
+    baseGpuLoad += 6;
+    baseCpuLoad -= 4;
+  } else if (resolution === "4K") {
+    baseGpuLoad += 22;
+    baseCpuLoad -= 18;
+  }
+
+  // Preset Detail Modifiers
+  if (preset === "Low") {
+    baseGpuLoad -= 18;
+    baseCpuLoad += 10;
+  } else if (preset === "Medium") {
+    baseGpuLoad -= 8;
+    baseCpuLoad += 4;
+  } else if (preset === "High") {
+    baseGpuLoad += 4;
+  } else if (preset === "Ultra") {
+    baseGpuLoad += 16;
+    baseCpuLoad -= 6;
+  }
+
+  // DLSS / FSR Upscaling Modifiers (Lowers internal render resolution -> Drops GPU load, Increases CPU throughput)
+  if (dlssFsr === "Quality") {
+    baseGpuLoad -= 14;
+    baseCpuLoad += 8;
+  } else if (dlssFsr === "Performance") {
+    baseGpuLoad -= 24;
+    baseCpuLoad += 14;
+  }
+
+  // Ray Tracing Modifiers (Increases Shader & RT Core load to maximum -> Increases CPU BVH build load)
+  if (rayTracing === "Medium") {
+    baseGpuLoad += 14;
+    baseCpuLoad += 6;
+  } else if (rayTracing === "Ultra") {
+    baseGpuLoad += 26;
+    baseCpuLoad += 12;
+  }
+
+  // Evaluate Hardware Ratio Limits
   let gpuLoadPercentage = 50;
+  let cpuLoadPercentage = 50;
 
   if (gpuMetric > 2.5 * cpuMetric) {
     bottleneckType = "CPU";
     const ratio = gpuMetric / cpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 2.5) * 15));
     cpuLoadPercentage = 100;
-    gpuLoadPercentage = Math.max(20, Math.round(100 - bottleneckPercentage));
+    gpuLoadPercentage = Math.max(20, Math.min(99, Math.round(baseGpuLoad - bottleneckPercentage * 0.6)));
     warnings.push(
       `⚠️ Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
     );
@@ -285,13 +335,14 @@ export function calculatePerformance(
     const ratio = cpuMetric / gpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 3.0) * 12));
     gpuLoadPercentage = 100;
-    cpuLoadPercentage = Math.max(30, Math.round(100 - bottleneckPercentage));
+    cpuLoadPercentage = Math.max(20, Math.min(95, Math.round(baseCpuLoad - bottleneckPercentage * 0.5)));
     warnings.push(
       `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
   } else {
-    gpuLoadPercentage = 95;
-    cpuLoadPercentage = Math.min(90, Math.round(40 + (game.cpuDependence * 40)));
+    // Balanced System: Load scales dynamically with settings
+    gpuLoadPercentage = Math.min(99, Math.max(15, Math.round(baseGpuLoad)));
+    cpuLoadPercentage = Math.min(98, Math.max(15, Math.round(baseCpuLoad)));
   }
 
   if (ramProfile.capacityGB < game.ramMinRequirementGB) {
