@@ -61,54 +61,50 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </p>
       </div>
 
-      {/* Main Chart Section with 2-Column Grid (Left: Titles, Right: Track Scale Area) */}
-      <div className="grid grid-cols-12 gap-4 items-end pt-2">
-        
-        {/* LEFT COLUMN: Empty space matching the titles width below */}
-        <div className="col-span-4 sm:col-span-3 hidden sm:block" />
+      {/* Main Chart Section with Tight Flex Layout (Left Title Offset: w-44, Right Track Area: flex-1) */}
+      <div className="flex flex-col gap-6 pt-2">
+        {/* Top Milestone Ruler Row */}
+        <div className="flex items-end gap-3">
+          {/* Left spacer matching title column width */}
+          <div className="w-40 sm:w-48 shrink-0 hidden sm:block" />
 
-        {/* RIGHT COLUMN: Top Milestone Labels Ruler (Strictly aligned 1:1 above tracks) */}
-        <div className="col-span-12 sm:col-span-9 relative w-full h-14">
-          {milestones.map((ms, idx) => {
-            const msPct = Math.round((ms.score / maxScore) * 100);
-            return (
-              <div
-                key={idx}
-                className="absolute top-0 -translate-x-1/2 flex flex-col items-center z-10"
-                style={{ left: `${msPct}%` }}
-              >
-                <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-md border border-purple-500/20 shadow-xs">
-                  {ms.name}
-                </span>
-                <span className="text-[8px] font-extrabold text-gray-500 dark:text-gray-400 font-mono mt-0.5">
-                  {ms.score} pts
-                </span>
-                {/* Vertical tick line extending downwards */}
-                <div className="w-px h-5 bg-black/15 dark:bg-white/20 mt-1" />
-              </div>
-            );
-          })}
+          {/* Right Ruler Container (1:1 aligned directly above track bars) */}
+          <div className="flex-1 relative h-14">
+            {milestones.map((ms, idx) => {
+              const msPct = Math.round((ms.score / maxScore) * 100);
+              return (
+                <div
+                  key={idx}
+                  className="absolute top-0 -translate-x-1/2 flex flex-col items-center z-10"
+                  style={{ left: `${msPct}%` }}
+                >
+                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2 py-0.5 rounded-md border border-purple-500/20 shadow-xs">
+                    {ms.name}
+                  </span>
+                  <span className="text-[8px] font-extrabold text-gray-500 dark:text-gray-400 font-mono mt-0.5">
+                    {ms.score} pts
+                  </span>
+                  {/* Vertical tick line extending downwards */}
+                  <div className="w-px h-5 bg-black/15 dark:bg-white/20 mt-1" />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* Track & Title Rows Container */}
-      <div className="flex flex-col gap-6">
-        
         {/* BAR A ROW */}
-        <div className="grid grid-cols-12 items-center gap-4 relative">
-          
-          {/* Left Title Label */}
-          <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0 pr-2">
+        <div className="flex items-center gap-3 relative">
+          {/* Left Component Title Label (Tight w-40 sm:w-48 width, right up against track start!) */}
+          <div className="w-40 sm:w-48 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemA.name}
             </h4>
             <p className="text-[10px] text-gray-400 font-bold truncate">{itemA.details}</p>
           </div>
 
-          {/* Right Track Scale Area (Aligned exactly under the ruler above) */}
-          <div className="col-span-8 sm:col-span-9 flex items-center gap-3 relative">
-            
-            {/* Dashed vertical milestone guide line passing strictly inside the track column */}
+          {/* Right Track Scale Container */}
+          <div className="flex-1 flex items-center gap-3 relative min-w-0">
+            {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
                 const msPct = Math.round((ms.score / maxScore) * 100);
@@ -151,20 +147,18 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
 
         {/* BAR B ROW */}
-        <div className="grid grid-cols-12 items-center gap-4 relative">
-          
-          {/* Left Title Label */}
-          <div className="col-span-4 sm:col-span-3 flex flex-col min-w-0 pr-2">
+        <div className="flex items-center gap-3 relative">
+          {/* Left Component Title Label (Tight w-40 sm:w-48 width, right up against track start!) */}
+          <div className="w-40 sm:w-48 shrink-0 flex flex-col min-w-0 pr-1">
             <h4 className="text-xs sm:text-sm font-black text-[#1E2022] dark:text-white truncate">
               {itemB.name}
             </h4>
             <p className="text-[10px] text-gray-400 font-bold truncate">{itemB.details}</p>
           </div>
 
-          {/* Right Track Scale Area (Aligned exactly under the ruler above) */}
-          <div className="col-span-8 sm:col-span-9 flex items-center gap-3 relative">
-            
-            {/* Dashed vertical milestone guide line passing strictly inside the track column */}
+          {/* Right Track Scale Container */}
+          <div className="flex-1 flex items-center gap-3 relative min-w-0">
+            {/* Dashed vertical milestone guide lines passing strictly inside the track column */}
             <div className="absolute inset-0 pointer-events-none z-0">
               {milestones.map((ms, idx) => {
                 const msPct = Math.round((ms.score / maxScore) * 100);
