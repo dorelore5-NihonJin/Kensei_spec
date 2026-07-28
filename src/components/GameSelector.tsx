@@ -256,7 +256,7 @@ export default function GameSelector({
                     : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
                 }`}
               >
-                {dlss === "Off" ? "Off (Native)" : dlss === "Quality" ? "Quality (1.25x)" : "Perf (1.5x)"}
+                {dlss === "Off" ? "Off (Native)" : dlss === "Quality" ? "Quality" : "Performance"}
               </button>
             ))}
           </div>
@@ -277,30 +277,26 @@ export default function GameSelector({
                     : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
                 }`}
               >
-                {rt === "Off" ? "Off (1.0x)" : rt === "Medium" ? "RT Medium" : "Path Tracing"}
+                {rt === "Off" ? "Off" : rt === "Medium" ? "RT Medium" : "Path Tracing"}
               </button>
             ))}
           </div>
         </div>
 
         {/* Frame Generation Toggle */}
-        <div className="flex items-center justify-between p-3 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10">
+        <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex items-center justify-between">
           <div>
             <div className="text-xs font-black text-[#1E2022] dark:text-white">Frame Generation (DLSS 3 / FSR 3)</div>
-            <div className="text-[10px] text-gray-600 dark:text-gray-400 font-bold">Adds 1.7x display average FPS boost</div>
+            <div className="text-[10px] text-gray-500 font-extrabold">Dynamic AI Frame Interpolation</div>
           </div>
           <button
             type="button"
             onClick={() => setFrameGen(!frameGen)}
-            className={`w-12 h-6 rounded-full transition-colors relative focus:outline-none ${
-              frameGen ? "bg-[#E88D9F]" : "bg-gray-300 dark:bg-neutral-800"
+            className={`w-12 h-6 rounded-full transition p-1 flex items-center ${
+              frameGen ? "bg-[#8A9A86] justify-end" : "bg-gray-300 dark:bg-gray-700 justify-start"
             }`}
           >
-            <span
-              className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${
-                frameGen ? "transform translate-x-6" : ""
-              }`}
-            />
+            <div className="w-4 h-4 rounded-full bg-white shadow-md" />
           </button>
         </div>
       </div>
