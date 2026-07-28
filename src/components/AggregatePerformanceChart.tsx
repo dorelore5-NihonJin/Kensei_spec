@@ -14,7 +14,7 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
-// GPU Milestones scale (Apex scale max: 980 pts - RTX 5090 level)
+// 6 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 980 pts)
 const GPU_MILESTONES = [
   { name: "GTX 750 Ti", score: 55 },
   { name: "GTX 1060", score: 110 },
@@ -24,7 +24,7 @@ const GPU_MILESTONES = [
   { name: "RTX 4080", score: 520 },
 ];
 
-// CPU Milestones scale (Apex scale max: 1200 pts - Workstation Server EPYC level)
+// 6 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 1200 pts)
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
@@ -32,7 +32,6 @@ const CPU_MILESTONES = [
   { name: "R5 5600", score: 185 },
   { name: "i5-13600K", score: 250 },
   { name: "7800X3D", score: 310 },
-  { name: "14900KS", score: 450 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
@@ -57,9 +56,9 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const bottomMilestones = milestones.filter((_, idx) => idx % 2 === 1);
 
   return (
-    <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6 w-full">
+    <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between gap-6 w-full min-h-[420px]">
       {/* Centered Main Title */}
-      <div className="flex flex-col items-center justify-center text-center gap-1 border-b border-black/10 dark:border-white/10 pb-5">
+      <div className="flex flex-col items-center justify-center text-center gap-1 border-b border-black/10 dark:border-white/10 pb-5 shrink-0">
         <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-purple-500" />
           Aggregate Telemetry Performance Matrix / 総合性能比較チャート
@@ -110,8 +109,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           </div>
         </div>
 
-        {/* Right Shared Scale Container */}
-        <div className="flex-1 relative flex flex-col justify-between py-2 min-h-[210px] min-w-0">
+        {/* Right Shared Scale Container (h-[210px] fixed height) */}
+        <div className="flex-1 relative flex flex-col justify-between py-2 h-[210px] min-w-0">
           {/* 1. TOP RULER ROW */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
@@ -209,9 +208,9 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
       </div>
 
-      {/* Summary Verdict Banner */}
-      <div className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl flex items-start gap-3 text-purple-900 dark:text-purple-200 mt-2">
-        <Trophy className="w-5 h-5 text-purple-500 shrink-0 mt-0.5" />
+      {/* Summary Verdict Banner (min-h-[64px] fixed container) */}
+      <div className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl flex items-center gap-3 text-purple-900 dark:text-purple-200 shrink-0 min-h-[64px]">
+        <Trophy className="w-5 h-5 text-purple-500 shrink-0" />
         <div className="text-xs font-extrabold leading-relaxed">
           {winner !== "Tie" ? (
             <>
