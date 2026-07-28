@@ -60,7 +60,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
       {/* Centered Main Title */}
       <div className="flex flex-col items-center justify-center text-center gap-1 border-b border-black/10 dark:border-white/10 pb-5 shrink-0">
         <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-purple-500" />
+          <Sparkles className="w-5 h-5 text-[#E88D9F]" />
           Aggregate Telemetry Performance Matrix / 総合性能比較チャート
         </h3>
         <p className="text-xs text-gray-500 dark:text-gray-400 font-bold">
@@ -78,7 +78,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
               {itemA.name}
             </h4>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
+              <span className="text-xs font-black text-[#E88D9F] font-mono">
                 {itemA.score} pts
               </span>
               {winner === "A" && (
@@ -96,7 +96,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
               {itemB.name}
             </h4>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="text-xs font-black text-purple-600 dark:text-purple-400 font-mono">
+              <span className="text-xs font-black text-[#E88D9F] font-mono">
                 {itemB.score} pts
               </span>
               {winner === "B" && (
@@ -121,16 +121,16 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
                   style={{ left: `${msPct}%` }}
                 >
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                  <span className="text-[10px] font-black text-[#E88D9F] dark:text-[#E88D9F] font-mono whitespace-nowrap bg-[#E88D9F]/10 px-2.5 py-0.5 rounded-lg border border-[#E88D9F]/20 shadow-xs">
                     {ms.name}
                   </span>
-                  <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mt-1" />
+                  <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mt-1" />
                 </div>
               );
             })}
           </div>
 
-          {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth gradient fills) */}
+          {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth Sakura/Sage gradient fills) */}
           <div className="flex flex-col gap-5 w-full z-10 my-3">
             {/* Track Capsule A */}
             <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
@@ -148,11 +148,11 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 })}
               </div>
 
-              {/* Smooth Clean Gradient Filled Capsule */}
+              {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "A"
-                    ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
+                    ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
@@ -175,11 +175,11 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                 })}
               </div>
 
-              {/* Smooth Clean Gradient Filled Capsule */}
+              {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
               <div
                 className={`h-full rounded-full transition-all duration-700 ease-out relative ${
                   winner === "B"
-                    ? "bg-gradient-to-r from-purple-600 via-blue-500 to-emerald-400 shadow-md"
+                    ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
@@ -197,8 +197,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
                   style={{ left: `${msPct}%` }}
                 >
-                  <div className="w-px h-3 bg-purple-500/40 dark:bg-purple-400/40 mb-1" />
-                  <span className="text-[10px] font-black text-purple-600 dark:text-purple-300 font-mono whitespace-nowrap bg-purple-500/10 px-2.5 py-0.5 rounded-lg border border-purple-500/20 shadow-xs">
+                  <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mb-1" />
+                  <span className="text-[10px] font-black text-[#E88D9F] dark:text-[#E88D9F] font-mono whitespace-nowrap bg-[#E88D9F]/10 px-2.5 py-0.5 rounded-lg border border-[#E88D9F]/20 shadow-xs">
                     {ms.name}
                   </span>
                 </div>
@@ -208,14 +208,14 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         </div>
       </div>
 
-      {/* Summary Verdict Banner (min-h-[64px] fixed container) */}
-      <div className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl flex items-center gap-3 text-purple-900 dark:text-purple-200 shrink-0 min-h-[64px]">
-        <Trophy className="w-5 h-5 text-purple-500 shrink-0" />
+      {/* Summary Verdict Banner (min-h-[64px] fixed container with Sakura Pink theme) */}
+      <div className="p-4 bg-[#E88D9F]/10 border border-[#E88D9F]/20 rounded-2xl flex items-center gap-3 text-gray-900 dark:text-gray-100 shrink-0 min-h-[64px]">
+        <Trophy className="w-5 h-5 text-[#E88D9F] shrink-0" />
         <div className="text-xs font-extrabold leading-relaxed">
           {winner !== "Tie" ? (
             <>
-              <strong className="text-purple-600 dark:text-purple-300 font-black">{winnerName}</strong> outperforms{" "}
-              <span className="text-gray-600 dark:text-gray-300">{loserName}</span> by an impressive{" "}
+              <strong className="text-[#E88D9F] font-black">{winnerName}</strong> outperforms{" "}
+              <span className="text-gray-600 dark:text-gray-400">{loserName}</span> by an impressive{" "}
               <span className="text-emerald-500 font-black">+{deltaPct}%</span> based on our aggregate telemetry benchmark results.
             </>
           ) : (

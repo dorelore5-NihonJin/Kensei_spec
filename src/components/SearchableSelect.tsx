@@ -1,29 +1,28 @@
 import { useState, useRef, useEffect } from "react";
-import { Search, ChevronDown, Check, X } from "lucide-react";
+import { ChevronDown, Search, Check, X } from "lucide-react";
 
 export interface SelectOption {
   id: string;
   name: string;
   subText?: string;
   manufacturer?: string;
-  badge?: string;
 }
 
 interface SearchableSelectProps {
+  label?: string;
   options: SelectOption[];
   value: string;
-  onChange: (id: string) => void;
+  onChange: (value: string) => void;
   placeholder?: string;
-  label?: string;
   className?: string;
 }
 
 export default function SearchableSelect({
+  label,
   options,
   value,
   onChange,
-  placeholder = "Search component...",
-  label,
+  placeholder = "Select component...",
   className = ""
 }: SearchableSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,12 +64,12 @@ export default function SearchableSelect({
           setIsOpen(!isOpen);
           setSearchQuery("");
         }}
-        className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-purple-500/50 rounded-2xl p-3 text-left transition flex items-center justify-between gap-2 focus:outline-none focus:ring-2 focus:ring-purple-500/30"
+        className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#E88D9F]/50 rounded-2xl p-3 text-left transition flex items-center justify-between gap-2 focus:outline-none focus:ring-2 focus:ring-[#E88D9F]/30"
       >
         {selectedOption ? (
           <div className="flex items-center gap-2.5 min-w-0">
             {selectedOption.manufacturer && (
-              <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20 shrink-0">
+              <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-[#E88D9F]/10 text-[#E88D9F] border border-[#E88D9F]/20 shrink-0">
                 {selectedOption.manufacturer}
               </span>
             )}
@@ -91,7 +90,7 @@ export default function SearchableSelect({
           </span>
         )}
 
-        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${isOpen ? "rotate-180 text-purple-500" : ""}`} />
+        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${isOpen ? "rotate-180 text-[#E88D9F]" : ""}`} />
       </button>
 
       {/* Dropdown Menu Container */}
@@ -99,7 +98,7 @@ export default function SearchableSelect({
         <div className="absolute top-full left-0 right-0 mt-2 z-50 bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-72">
           {/* Search Bar Input */}
           <div className="p-2.5 border-b border-black/10 dark:border-white/10 flex items-center gap-2 bg-black/5 dark:bg-white/5">
-            <Search className="w-4 h-4 text-purple-400 shrink-0" />
+            <Search className="w-4 h-4 text-[#E88D9F] shrink-0" />
             <input
               type="text"
               autoFocus
@@ -138,7 +137,7 @@ export default function SearchableSelect({
                     }}
                     className={`w-full p-2.5 rounded-xl text-left transition flex items-center justify-between gap-2.5 ${
                       isSelected
-                        ? "bg-purple-600/15 text-purple-600 dark:text-purple-300 font-black border border-purple-500/30"
+                        ? "bg-[#E88D9F]/15 text-[#E88D9F] font-black border border-[#E88D9F]/30"
                         : "hover:bg-black/5 dark:hover:bg-white/5 text-[#1E2022] dark:text-gray-200"
                     }`}
                   >
@@ -159,12 +158,12 @@ export default function SearchableSelect({
                       <div className="min-w-0">
                         <h5 className="text-xs font-bold truncate">{option.name}</h5>
                         {option.subText && (
-                          <p className="text-[10px] text-gray-400 truncate font-medium">{option.subText}</p>
+                          <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{option.subText}</p>
                         )}
                       </div>
                     </div>
 
-                    {isSelected && <Check className="w-4 h-4 text-purple-400 shrink-0" />}
+                    {isSelected && <Check className="w-4 h-4 text-[#E88D9F] shrink-0" />}
                   </button>
                 );
               })

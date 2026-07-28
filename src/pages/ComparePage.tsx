@@ -211,7 +211,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#1A1C1E] dark:via-[#1A1C1E]/80 dark:to-transparent pointer-events-none" />
 
         <div className="relative z-10">
-          <div className="flex items-center gap-2 text-purple-500 font-extrabold text-xs uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-[#E88D9F] font-extrabold text-xs uppercase tracking-wider">
             <Scale className="w-4 h-4" />
             <span>Versus Telemetry Comparison Studio / 比較スタジオ</span>
           </div>
@@ -229,7 +229,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             onClick={() => handleModeChange("cpu")}
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "cpu"
-                ? "bg-purple-600 text-white shadow-md scale-102"
+                ? "bg-[#E88D9F] text-white shadow-md scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-white"
             }`}
           >
@@ -240,7 +240,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             onClick={() => handleModeChange("gpu")}
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "gpu"
-                ? "bg-purple-600 text-white shadow-md scale-102"
+                ? "bg-[#E88D9F] text-white shadow-md scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-white"
             }`}
           >
@@ -276,13 +276,13 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
                 <div className="text-right shrink-0">
                   <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-                  <span className="text-2xl font-black text-purple-500">{scoreA} pts</span>
+                  <span className="text-2xl font-black text-[#E88D9F]">{scoreA} pts</span>
                 </div>
               </div>
 
               <button
                 onClick={() => handleApplyToBuild(itemA as CPU | GPU)}
-                className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
+                className="w-full py-2.5 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
               >
                 <Layers className="w-3.5 h-3.5" />
                 <span>Set as Active Build Component</span>
@@ -298,7 +298,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
         {/* VERSUS BADGE DELTA */}
         <div className="w-full lg:w-24 shrink-0 flex flex-col items-center justify-center gap-2 py-4 lg:py-0 min-w-0">
-          <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30 shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-[#E88D9F] text-white font-black text-base flex items-center justify-center shadow-lg border border-[#E88D9F]/30 shrink-0">
             VS
           </div>
           {isBothSelected ? (
@@ -338,13 +338,13 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
                 <div className="text-right shrink-0">
                   <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-                  <span className="text-2xl font-black text-purple-500">{scoreB} pts</span>
+                  <span className="text-2xl font-black text-[#E88D9F]">{scoreB} pts</span>
                 </div>
               </div>
 
               <button
                 onClick={() => handleApplyToBuild(itemB as CPU | GPU)}
-                className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
+                className="w-full py-2.5 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
               >
                 <Layers className="w-3.5 h-3.5" />
                 <span>Set as Active Build Component</span>
@@ -375,7 +375,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
               <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5 text-purple-500" />
+                  <Trophy className="w-5 h-5 text-[#E88D9F]" />
                   <div>
                     <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
                       Primary Details & Global Ranking / 基本概要・総合ランキング
@@ -392,8 +392,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   <thead>
                     <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
                       <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemBInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
@@ -404,7 +404,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                         <span className={`px-2.5 py-1 rounded-lg font-mono font-black text-xs border ${
                           techSpecsA.rank < techSpecsB.rank
                             ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                            : "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/20"
+                            : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20"
                         }`}>
                           #{techSpecsA.rank} of {techSpecsA.totalCount} {techSpecsA.rank < techSpecsB.rank && "🏆 Best"}
                         </span>
@@ -413,7 +413,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                         <span className={`px-2.5 py-1 rounded-lg font-mono font-black text-xs border ${
                           techSpecsB.rank < techSpecsA.rank
                             ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                            : "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/20"
+                            : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20"
                         }`}>
                           #{techSpecsB.rank} of {techSpecsB.totalCount} {techSpecsB.rank < techSpecsA.rank && "🏆 Best"}
                         </span>
@@ -444,8 +444,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                     {/* Architecture Codename */}
                     <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-bold text-gray-500">Architecture Codename / アーキテクチャ</td>
-                      <td className="py-3.5 px-4 font-black text-purple-600 dark:text-purple-300">{techSpecsA.architectureCodename}</td>
-                      <td className="py-3.5 px-4 font-black text-purple-600 dark:text-purple-300">{techSpecsB.architectureCodename}</td>
+                      <td className="py-3.5 px-4 font-black text-[#E88D9F]">{techSpecsA.architectureCodename}</td>
+                      <td className="py-3.5 px-4 font-black text-[#E88D9F]">{techSpecsB.architectureCodename}</td>
                     </tr>
 
                     {/* Release Date */}
@@ -463,7 +463,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
               <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <Cpu className="w-5 h-5 text-purple-500" />
+                  <Cpu className="w-5 h-5 text-[#E88D9F]" />
                   <div>
                     <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
                       Core Specs & Clock Frequencies / コア構成・動作周波数
@@ -480,8 +480,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   <thead>
                     <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
                       <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemBInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
@@ -511,8 +511,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                     {/* Boost / Turbo Clock */}
                     <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-bold text-gray-500">Boost / Turbo Clock / ブーストクロック</td>
-                      <td className="py-3.5 px-4 font-mono text-purple-600 dark:text-purple-300 font-black">{techSpecsA.boostClock}</td>
-                      <td className="py-3.5 px-4 font-mono text-purple-600 dark:text-purple-300 font-black">{techSpecsB.boostClock}</td>
+                      <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{techSpecsA.boostClock}</td>
+                      <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{techSpecsB.boostClock}</td>
                     </tr>
 
                     {/* Cache Memory */}
@@ -530,7 +530,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
               <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <Flame className="w-5 h-5 text-purple-500" />
+                  <Flame className="w-5 h-5 text-[#E88D9F]" />
                   <div>
                     <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
                       Thermal, Power & Efficiency Ratings / 消費電力・評価スコア
@@ -547,8 +547,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   <thead>
                     <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
                       <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemBInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
@@ -576,8 +576,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                     {/* Cost-Effectiveness Score */}
                     <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-bold text-gray-500">Cost-Effectiveness Rating / コスパ評価</td>
-                      <td className="py-3.5 px-4 font-mono font-black text-purple-600 dark:text-purple-400">{techSpecsA.costEffectivenessScore}</td>
-                      <td className="py-3.5 px-4 font-mono font-black text-purple-600 dark:text-purple-400">{techSpecsB.costEffectivenessScore}</td>
+                      <td className="py-3.5 px-4 font-mono font-black text-[#E88D9F]">{techSpecsA.costEffectivenessScore}</td>
+                      <td className="py-3.5 px-4 font-mono font-black text-[#E88D9F]">{techSpecsB.costEffectivenessScore}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -588,7 +588,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
               <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <HardDrive className="w-5 h-5 text-purple-500" />
+                  <HardDrive className="w-5 h-5 text-[#E88D9F]" />
                   <div>
                     <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
                       Platform, Memory & Bus Interface / ソケット・バス規格
@@ -605,8 +605,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   <thead>
                     <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
                       <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-purple-600 dark:text-purple-400 font-black text-sm">{itemBInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
@@ -630,9 +630,9 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           </div>
         </div>
       ) : (
-        <div className="bg-white/80 dark:bg-[#1A1C1E]/80 border border-dashed border-purple-500/30 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-3 shadow-lg animate-fadeIn">
-          <div className="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center border border-purple-500/20 shadow-inner">
-            <Sparkles className="w-7 h-7 text-purple-500 animate-pulse" />
+        <div className="bg-white/80 dark:bg-[#1A1C1E]/80 border border-dashed border-[#E88D9F]/30 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-3 shadow-lg animate-fadeIn">
+          <div className="w-14 h-14 rounded-2xl bg-[#E88D9F]/10 text-[#E88D9F] flex items-center justify-center border border-[#E88D9F]/20 shadow-inner">
+            <Sparkles className="w-7 h-7 text-[#E88D9F] animate-pulse" />
           </div>
           <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
             Select 2 {isCpuMode ? "CPUs" : "GPUs"} to compare performance / {isCpuMode ? "CPU" : "GPU"}を2つ選択してください
