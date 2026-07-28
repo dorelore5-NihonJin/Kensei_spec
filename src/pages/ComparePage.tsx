@@ -13,30 +13,102 @@ interface ComparePageProps {
 export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
 
-  // Persist mode (cpu vs gpu) across page refreshes via URL search param & localStorage
+  // Read initial mode from URL search param
   const [mode, setMode] = useState<"cpu" | "gpu">(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get("mode");
     if (modeParam === "gpu" || modeParam === "cpu") return modeParam;
-    const stored = localStorage.getItem("kensei_compare_mode");
-    if (stored === "gpu" || stored === "cpu") return stored;
     return "cpu";
   });
 
-  const handleModeChange = (newMode: "cpu" | "gpu") => {
-    setMode(newMode);
-    localStorage.setItem("kensei_compare_mode", newMode);
+  // Read initial component selections from URL search params ('a' and 'b')
+  const [selectedCpuA, setSelectedCpuA] = useState<CPU | null>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get("mode") || "cpu";
+    const aParam = urlParams.get("a");
+    if (modeParam === "cpu" && aParam) {
+      return cpus.find((c) => c.id === aParam) || null;
+    }
+    return null;
+  });
+
+  const [selectedCpuB, setSelectedCpuB] = useState<CPU | null>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get("mode") || "cpu";
+    const bParam = urlParams.get("b");
+    if (modeParam === "cpu" && bParam) {
+      return cpus.find((c) => c.id === bParam) || null;
+    }
+    return null;
+  });
+
+  const [selectedGpuA, setSelectedGpuA] = useState<GPU | null>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get("mode") || "cpu";
+    const aParam = urlParams.get("a");
+    if (modeParam === "gpu" && aParam) {
+      return gpus.find((g) => g.id === aParam) || null;
+    }
+    return null;
+  });
+
+  const [selectedGpuB, setSelectedGpuB] = useState<GPU | null>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get("mode") || "cpu";
+    const bParam = urlParams.get("b");
+    if (modeParam === "gpu" && bParam) {
+      return gpus.find((g) => g.id === bParam) || null;
+    }
+    return null;
+  });
+
+  // Helper to sync state directly into URL parameters without reloading
+  const syncUrlParams = (currentMode: "cpu" | "gpu", itemA: CPU | GPU | null, itemB: CPU | GPU | null) => {
     const url = new URL(window.location.href);
-    url.searchParams.set("mode", newMode);
+    url.searchParams.set("mode", currentMode);
+    if (itemA) {
+      url.searchParams.set("a", itemA.id);
+    } else {
+      url.searchParams.delete("a");
+    }
+    if (itemB) {
+      url.searchParams.set("b", itemB.id);
+    } else {
+      url.searchParams.delete("b");
+    }
     window.history.replaceState({}, "", url.toString());
   };
 
-  // Selections start empty (null) until user chooses components to compare
-  const [selectedCpuA, setSelectedCpuA] = useState<CPU | null>(null);
-  const [selectedCpuB, setSelectedCpuB] = useState<CPU | null>(null);
+  const handleModeChange = (newMode: "cpu" | "gpu") => {
+    setMode(newMode);
+    const nextItemA = newMode === "cpu" ? selectedCpuA : selectedGpuA;
+    const nextItemB = newMode === "cpu" ? selectedCpuB : selectedGpuB;
+    syncUrlParams(newMode, nextItemA, nextItemB);
+  };
 
-  const [selectedGpuA, setSelectedGpuA] = useState<GPU | null>(null);
-  const [selectedGpuB, setSelectedGpuB] = useState<GPU | null>(null);
+  const handleSelectA = (id: string) => {
+    if (mode === "cpu") {
+      const found = cpus.find((c) => c.id === id) || null;
+      setSelectedCpuA(found);
+      syncUrlParams("cpu", found, selectedCpuB);
+    } else {
+      const found = gpus.find((g) => g.id === id) || null;
+      setSelectedGpuA(found);
+      syncUrlParams("gpu", found, selectedGpuB);
+    }
+  };
+
+  const handleSelectB = (id: string) => {
+    if (mode === "cpu") {
+      const found = cpus.find((c) => c.id === id) || null;
+      setSelectedCpuB(found);
+      syncUrlParams("cpu", selectedCpuA, found);
+    } else {
+      const found = gpus.find((g) => g.id === id) || null;
+      setSelectedGpuB(found);
+      syncUrlParams("gpu", selectedGpuA, found);
+    }
+  };
 
   // Map options for SearchableSelect
   const cpuOptions = cpus.map((c) => ({
@@ -161,15 +233,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             label="Component A (Left)"
             options={filteredOptionsA}
             value={itemA?.id || ""}
-            onChange={(id) => {
-              if (isCpuMode) {
-                const found = cpus.find((c) => c.id === id);
-                if (found) setSelectedCpuA(found);
-              } else {
-                const found = gpus.find((g) => g.id === id);
-                if (found) setSelectedGpuA(found);
-              }
-            }}
+            onChange={handleSelectA}
             placeholder={isCpuMode ? "Select first CPU..." : "Select first GPU..."}
           />
 
@@ -231,15 +295,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             label="Component B (Right)"
             options={filteredOptionsB}
             value={itemB?.id || ""}
-            onChange={(id) => {
-              if (isCpuMode) {
-                const found = cpus.find((c) => c.id === id);
-                if (found) setSelectedCpuB(found);
-              } else {
-                const found = gpus.find((g) => g.id === id);
-                if (found) setSelectedGpuB(found);
-              }
-            }}
+            onChange={handleSelectB}
             placeholder={isCpuMode ? "Select second CPU..." : "Select second GPU..."}
           />
 
