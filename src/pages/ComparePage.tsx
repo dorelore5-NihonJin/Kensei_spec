@@ -142,9 +142,9 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       </div>
 
       {/* 2. COMPONENT SELECTION BAR & HERO VERSUS SCORE CARD */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full">
-        {/* COMPONENT A SELECTOR */}
-        <div className="lg:col-span-5 w-full bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-w-0 min-h-[220px]">
+      <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full">
+        {/* COMPONENT A SELECTOR (flex-1 lg:w-0 min-w-0 guarantees locked 50% split) */}
+        <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component A (Left)"
             options={isCpuMode ? cpuOptions : gpuOptions}
@@ -186,22 +186,22 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           </button>
         </div>
 
-        {/* VERSUS BADGE DELTA */}
-        <div className="lg:col-span-2 w-full flex flex-col items-center justify-center gap-2 pt-12 min-w-0">
+        {/* VERSUS BADGE DELTA (w-32 shrink-0 locks center column width) */}
+        <div className="w-full lg:w-32 shrink-0 flex flex-col items-center justify-center gap-2 py-4 lg:py-0 min-w-0">
           <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white font-black text-base flex items-center justify-center shadow-lg border border-purple-400/30 shrink-0">
             VS
           </div>
           {winner !== "Tie" ? (
-            <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate max-w-full px-1">
+            <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate w-full px-1">
               Candidate {winner} leads by +{deltaPct}%
             </span>
           ) : (
-            <span className="text-[11px] font-extrabold text-gray-400 text-center truncate max-w-full px-1">Equal Match</span>
+            <span className="text-[11px] font-extrabold text-gray-400 text-center truncate w-full px-1">Equal Match</span>
           )}
         </div>
 
-        {/* COMPONENT B SELECTOR */}
-        <div className="lg:col-span-5 w-full bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-w-0 min-h-[220px]">
+        {/* COMPONENT B SELECTOR (flex-1 lg:w-0 min-w-0 guarantees locked 50% split) */}
+        <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
             label="Component B (Right)"
             options={isCpuMode ? cpuOptions : gpuOptions}
