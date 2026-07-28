@@ -95,7 +95,16 @@ export function calculatePerformance(
 
   // --- 2. Calculate Hardware Modifiers (Benchmark Calibrated to Real-World TechPowerUp & Gamers Nexus Tests) ---
   // CPU Power Index (Normalized to i5-13400 / Ryzen 5 5600 baseline = 1.0)
-  let rawCpuPower = (cpu.singleCoreScore * 0.70) + ((cpu.multiCoreScore / 10) * 0.30);
+  // For CPUs with 6+ physical cores or 12+ threads, multi-core scaling accounts for 40% of total throughput in modern multi-threaded AAA engines (Cyberpunk, Wukong, UE5)
+  const isMultiThreadedCpu = cpu.cores >= 6 || cpu.threads >= 12;
+  const singleCoreWeight = isMultiThreadedCpu ? 0.60 : 0.70;
+  const multiCoreWeight = isMultiThreadedCpu ? 0.40 : 0.30;
+  const multiCoreScale = isMultiThreadedCpu ? 0.50 : 0.30;
+
+  let rawCpuPower = (cpu.singleCoreScore * singleCoreWeight) + ((cpu.multiCoreScore / 10) * multiCoreWeight * multiCoreScale * 10);
+  if (cpu.releaseYear <= 2014 && cpu.cores >= 6) {
+    rawCpuPower *= 1.08; // HEDT Quad-Channel / L3 Cache Boost (+8% throughput for 6-core Sandy Bridge-E / Ivy Bridge-E)
+  }
   if (cpu.is3DVCache) {
     rawCpuPower *= 1.16; // +16% effective throughput boost in gaming workloads from 3D V-Cache L3 pool
   }
@@ -114,7 +123,7 @@ export function calculatePerformance(
   if (ramProfile.generation === "DDR5" && (resolution === "1440p" || resolution === "4K")) {
     ramFactor *= 1.04; // Bandwidth boost in memory-intensive resolutions
   } else if (ramProfile.generation === "DDR3") {
-    ramFactor *= 0.90;
+    ramFactor *= (cpu.cores >= 6 ? 0.94 : 0.90); // HEDT DDR3 quad-channel memory bus delivers high throughput
   } else if (ramProfile.generation === "DDR2") {
     ramFactor *= 0.80;
   } else if (ramProfile.generation === "DDR") {
@@ -172,11 +181,12 @@ export function calculatePerformance(
     asymmetricStallFactor = Math.max(0.78, 1.0 - (bottleneckRatio - 2.2) * 0.05);
   }
 
-  // Generational Disparity (e.g. pairing a 2015 CPU with a 2024 GPU)
+  // Generational Disparity (e.g. pairing a 2011 CPU with a 2024 GPU)
   const yearDiff = Math.abs(gpu.releaseYear - cpu.releaseYear);
   let genMismatchFactor = 1.0;
   if (yearDiff >= 6 && cpu.releaseYear <= 2017) {
-    genMismatchFactor = Math.max(0.76, 1.0 - (yearDiff - 5) * 0.035);
+    const penaltyPerYear = (cpu.cores >= 6 ? 0.025 : 0.035);
+    genMismatchFactor = Math.max(0.80, 1.0 - (yearDiff - 5) * penaltyPerYear);
     warnings.push(
       `💡 Generational Asymmetry: Pairing a ${cpu.releaseYear} CPU (${cpu.name}) with a ${gpu.releaseYear} GPU (${gpu.name}) causes PCIe bus & draw-call thread saturation.`
     );
