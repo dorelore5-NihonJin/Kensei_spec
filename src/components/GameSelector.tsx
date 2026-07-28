@@ -266,7 +266,8 @@ export default function GameSelector({
             </div>
           ) : (
             <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Select GPU in Step 1
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+              {!selectedCpu && !selectedGpu ? "Select Hardware in Step 1" : !selectedCpu ? "Select CPU in Step 1" : "Select GPU in Step 1"}
             </span>
           )}
         </div>
@@ -298,7 +299,8 @@ export default function GameSelector({
             </div>
           ) : (
             <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Select GPU in Step 1
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+              {!selectedCpu && !selectedGpu ? "Select Hardware in Step 1" : !selectedGpu ? "Select GPU in Step 1" : "Select CPU in Step 1"}
             </span>
           )}
         </div>
