@@ -98,7 +98,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4 py-8 flex flex-col gap-8">
+    <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8">
       {/* 1. PAGE HEADER & MODE TOGGLE */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl">
         <div>
