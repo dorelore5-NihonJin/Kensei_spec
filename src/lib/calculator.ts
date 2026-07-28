@@ -262,59 +262,67 @@ export function calculatePerformance(
     onePercentLowFps = averageFps;
   }
 
-  // --- 6. Dynamic Real-Time Load & Bottleneck Calculations ---
+  // --- 6. Real-Time Telemetry Load & Bottleneck Calculations ---
   const cpuMetric = (cpu.singleCoreScore * 0.7) + (cpu.multiCoreScore * 0.3);
   const gpuMetric = gpu.relativePowerScore;
 
   let bottleneckType: "None" | "CPU" | "GPU" | "RAM" | "Storage" = "None";
   let bottleneckPercentage = 0;
 
-  // Base Load Calculations
-  let baseGpuLoad = 82 + (game.gpuDependence * 12);
-  let baseCpuLoad = 35 + (game.cpuDependence * 35);
+  // Base Load Profile per Game Type
+  const isEsportsOrLightGame = ["game-cs2", "game-valorant", "game-dota2", "game-gtav", "game-fortnite"].includes(game.id);
+  let baseGpuLoad = isEsportsOrLightGame ? (62 + game.gpuDependence * 15) : (92 + game.gpuDependence * 8);
+  let baseCpuLoad = 34 + (game.cpuDependence * 28);
+
+  // Multi-Core Core Count Thread Distribution (High-core CPUs show lower % total load)
+  if (cpu.multiCoreScore > 2800) {
+    baseCpuLoad *= 0.62;
+  } else if (cpu.multiCoreScore > 1800) {
+    baseCpuLoad *= 0.76;
+  } else if (cpu.multiCoreScore < 1200) {
+    baseCpuLoad *= 1.45;
+  }
 
   // Resolution Modifiers
   if (resolution === "1080p") {
-    baseGpuLoad -= 12;
-    baseCpuLoad += 16;
+    baseGpuLoad -= 8;
+    baseCpuLoad += 10;
   } else if (resolution === "1440p") {
-    baseGpuLoad += 6;
-    baseCpuLoad -= 4;
+    baseGpuLoad += 4;
+    baseCpuLoad -= 2;
   } else if (resolution === "4K") {
-    baseGpuLoad += 22;
-    baseCpuLoad -= 18;
+    baseGpuLoad += 12;
+    baseCpuLoad -= 12;
   }
 
   // Preset Detail Modifiers
   if (preset === "Low") {
-    baseGpuLoad -= 18;
-    baseCpuLoad += 10;
+    baseGpuLoad -= 16;
+    baseCpuLoad += 8;
   } else if (preset === "Medium") {
-    baseGpuLoad -= 8;
-    baseCpuLoad += 4;
-  } else if (preset === "High") {
-    baseGpuLoad += 4;
+    baseGpuLoad -= 6;
+    baseCpuLoad += 2;
   } else if (preset === "Ultra") {
-    baseGpuLoad += 16;
-    baseCpuLoad -= 6;
+    baseGpuLoad += 8;
+    baseCpuLoad -= 2;
   }
 
-  // DLSS / FSR Upscaling Modifiers (Lowers internal render resolution -> Drops GPU load, Increases CPU throughput)
+  // DLSS / FSR Upscaling Modifiers
   if (dlssFsr === "Quality") {
     baseGpuLoad -= 14;
     baseCpuLoad += 8;
   } else if (dlssFsr === "Performance") {
-    baseGpuLoad -= 24;
+    baseGpuLoad -= 22;
     baseCpuLoad += 14;
   }
 
-  // Ray Tracing Modifiers (Increases Shader & RT Core load to maximum -> Increases CPU BVH build load)
+  // Ray Tracing Modifiers
   if (rayTracing === "Medium") {
-    baseGpuLoad += 14;
-    baseCpuLoad += 6;
+    baseGpuLoad += 10;
+    baseCpuLoad += 4;
   } else if (rayTracing === "Ultra") {
-    baseGpuLoad += 26;
-    baseCpuLoad += 12;
+    baseGpuLoad += 18;
+    baseCpuLoad += 8;
   }
 
   // Evaluate Hardware Ratio Limits
@@ -326,7 +334,7 @@ export function calculatePerformance(
     const ratio = gpuMetric / cpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 2.5) * 15));
     cpuLoadPercentage = 100;
-    gpuLoadPercentage = Math.max(20, Math.min(99, Math.round(baseGpuLoad - bottleneckPercentage * 0.6)));
+    gpuLoadPercentage = Math.max(25, Math.min(85, Math.round(baseGpuLoad / (ratio * 0.75))));
     warnings.push(
       `⚠️ Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
     );
@@ -334,14 +342,14 @@ export function calculatePerformance(
     bottleneckType = "GPU";
     const ratio = cpuMetric / gpuMetric;
     bottleneckPercentage = Math.min(80, Math.round((ratio - 3.0) * 12));
-    gpuLoadPercentage = 100;
-    cpuLoadPercentage = Math.max(20, Math.min(95, Math.round(baseCpuLoad - bottleneckPercentage * 0.5)));
+    gpuLoadPercentage = 99;
+    cpuLoadPercentage = Math.max(15, Math.min(65, Math.round(baseCpuLoad / (ratio * 0.7))));
     warnings.push(
       `⚠️ Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
   } else {
     // Balanced System: Load scales dynamically with settings
-    gpuLoadPercentage = Math.min(99, Math.max(15, Math.round(baseGpuLoad)));
+    gpuLoadPercentage = Math.min(99, Math.max(20, Math.round(baseGpuLoad)));
     cpuLoadPercentage = Math.min(98, Math.max(15, Math.round(baseCpuLoad)));
   }
 
