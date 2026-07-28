@@ -381,10 +381,19 @@ export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }
             <span>© 2026 KENSEI SPEC (剣聖スペック). All Rights Reserved. Legal Version 2.6.</span>
           </div>
           <button
-            onClick={onClose}
-            className="px-6 py-2.5 rounded-xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black hover:opacity-90 transition shadow-xs"
+            onClick={() => {
+              try {
+                localStorage.setItem("kensei_legal_accepted", "true");
+                localStorage.setItem("kensei_legal_accepted_timestamp", new Date().toISOString());
+              } catch (e) {
+                // Ignore storage errors
+              }
+              onClose();
+            }}
+            className="px-6 py-2.5 rounded-xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black hover:opacity-90 transition shadow-xs flex items-center gap-1.5"
           >
-            I Acknowledge & Agree / 了解しました
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>I Acknowledge & Agree / 了解しました</span>
           </button>
         </div>
       </div>

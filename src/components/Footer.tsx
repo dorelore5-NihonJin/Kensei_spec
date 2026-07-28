@@ -41,9 +41,18 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
             </span>
             <button
               onClick={() => onOpenLegalModal("terms")}
-              className="bg-[#E88D9F]/15 text-[#E88D9F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 hover:bg-[#E88D9F]/25 transition"
+              className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 transition ${
+                typeof window !== "undefined" && localStorage.getItem("kensei_legal_accepted") === "true"
+                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/25"
+                  : "bg-[#E88D9F]/15 text-[#E88D9F] hover:bg-[#E88D9F]/25"
+              }`}
             >
-              <ShieldCheck className="w-3 h-3 text-[#E88D9F]" /> Legal & Terms
+              <ShieldCheck className="w-3 h-3" />
+              <span>
+                {typeof window !== "undefined" && localStorage.getItem("kensei_legal_accepted") === "true"
+                  ? "Legal Consent Active ✅"
+                  : "Legal & Terms"}
+              </span>
             </button>
           </div>
         </div>
