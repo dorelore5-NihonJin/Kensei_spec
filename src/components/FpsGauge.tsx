@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type { CalculationResult } from "../lib/types";
-import { Sparkles, Info } from "lucide-react";
+import { Sparkles, Share2, Check, Info } from "lucide-react";
+import { useHardware } from "../context/HardwareContext";
 
 interface FpsGaugeProps {
   report: CalculationResult;
@@ -44,6 +45,15 @@ function useAnimatedNumber(target: number, duration: number = 300) {
 }
 
 export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam, frameGen }: FpsGaugeProps) {
+  const { handleShareBuild } = useHardware();
+  const [copied, setCopied] = useState(false);
+
+  const onShareClick = () => {
+    handleShareBuild();
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const isComplete = selectedCpu && selectedGpu && selectedRam;
 
   const animatedAvgFps = useAnimatedNumber(isComplete ? report.averageFps : 0);
@@ -76,14 +86,35 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
         性能
       </div>
 
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
         <h3 className="text-base font-black tracking-tight flex items-center gap-2 text-white">
           <Sparkles className="w-5 h-5 text-[#E88D9F]" />
           3. Estimated Performance / 性能予測
         </h3>
-        <span className="text-[10px] bg-white/10 text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">
-          Real-Time
-        </span>
+        <div className="flex items-center gap-2">
+          {isComplete && (
+            <button
+              onClick={onShareClick}
+              className="text-xs font-extrabold px-3 py-1 rounded-full bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 hover:bg-[#E88D9F]/30 transition flex items-center gap-1.5 shadow-xs"
+              title="Share Build Configuration / 構成を共有"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Link Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-[#E88D9F]" />
+                  <span>Share Build / 共有</span>
+                </>
+              )}
+            </button>
+          )}
+          <span className="text-[10px] bg-white/10 text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">
+            Real-Time
+          </span>
+        </div>
       </div>
 
       {/* SVG Radial Gauge */}

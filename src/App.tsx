@@ -16,6 +16,7 @@ import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
 import CookieBanner from "./components/CookieBanner";
 import CookieSettingsModal from "./components/CookieSettingsModal";
+import Toast from "./components/Toast";
 
 export default function App() {
   const [isCookieSettingsOpen, setIsCookieSettingsOpen] = useState<boolean>(false);
@@ -57,6 +58,10 @@ export default function App() {
     setRayTracing,
     frameGen,
     setFrameGen,
+    isToastOpen,
+    setIsToastOpen,
+    toastMessage,
+    toastSubMessage,
     isBuyModalOpen,
     setIsBuyModalOpen,
     isLegalModalOpen,
@@ -606,6 +611,14 @@ export default function App() {
             setIsCookieSettingsOpen(false);
             handleOpenLegalModal("privacy");
           }}
+        />
+
+        {/* Global Toast Notification System */}
+        <Toast
+          message={toastMessage}
+          subMessage={toastSubMessage}
+          isOpen={isToastOpen}
+          onClose={() => setIsToastOpen(false)}
         />
       </div>
     </div>

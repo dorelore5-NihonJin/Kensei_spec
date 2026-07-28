@@ -8,6 +8,7 @@ import ramData from "../data/ram.json";
 import gameData from "../data/games.json";
 
 import { calculatePerformance, getCompatibilityReport } from "../lib/calculator";
+import { encodeBuildToUrl, decodeBuildFromUrl } from "../lib/urlSharing";
 
 const cpus = cpuData as CPU[];
 const gpus = gpuData as GPU[];
@@ -59,6 +60,13 @@ interface HardwareContextType {
   frameGen: boolean;
   setFrameGen: (fg: boolean) => void;
 
+  // Toast State
+  isToastOpen: boolean;
+  setIsToastOpen: (open: boolean) => void;
+  toastMessage: string;
+  toastSubMessage: string;
+  showToast: (message: string, subMessage?: string) => void;
+
   // Modals State
   isBuyModalOpen: boolean;
   setIsBuyModalOpen: (open: boolean) => void;
@@ -74,6 +82,7 @@ interface HardwareContextType {
 
   // Action Methods
   handleResetBuild: () => void;
+  handleShareBuild: () => string;
   handleSelectCatalogBuild: (
     cpu: CPU,
     gpu: GPU,
@@ -95,6 +104,17 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     } catch {
       return fallback;
     }
+  };
+
+  // Toast Notification State
+  const [toastMessage, setToastMessage] = useState<string>("");
+  const [toastSubMessage, setToastSubMessage] = useState<string>("");
+  const [isToastOpen, setIsToastOpen] = useState<boolean>(false);
+
+  const showToast = (message: string, subMessage?: string) => {
+    setToastMessage(message);
+    setToastSubMessage(subMessage || "");
+    setIsToastOpen(true);
   };
 
   // Dark Mode State
@@ -145,6 +165,30 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   const [selectedDlss, setSelectedDlss] = useState<"Off" | "Quality" | "Performance">(() => getStorageItem("kensei_dlss", "Off") as any);
   const [rayTracing, setRayTracing] = useState<"Off" | "Medium" | "Ultra">(() => getStorageItem("kensei_ray_tracing", "Off") as any);
   const [frameGen, setFrameGen] = useState<boolean>(() => getStorageItem("kensei_frame_gen", "false") === "true");
+
+  // Check for shared build in URL parameters on mount
+  useEffect(() => {
+    const sharedState = decodeBuildFromUrl(cpus, gpus, ramProfiles, games);
+    if (sharedState) {
+      if (sharedState.cpu) setSelectedCpu(sharedState.cpu);
+      if (sharedState.gpu) setSelectedGpu(sharedState.gpu);
+      if (sharedState.ram) setSelectedRam(sharedState.ram);
+      setRamCapacityGB(sharedState.ramCap);
+      setSelectedStorage(sharedState.storage);
+      if (sharedState.game) setSelectedGame(sharedState.game);
+      setSelectedResolution(sharedState.resolution);
+      setSelectedPreset(sharedState.preset);
+      setSelectedDlss(sharedState.dlss);
+      setRayTracing(sharedState.rayTracing);
+      setFrameGen(sharedState.frameGen);
+      setCurrentStep(3);
+      setActivePage("simulator");
+
+      const cpuLabel = sharedState.cpu ? sharedState.cpu.name : "Custom CPU";
+      const gpuLabel = sharedState.gpu ? sharedState.gpu.name : "Custom GPU";
+      showToast("Shared Configuration Loaded! ⚡", `${cpuLabel} + ${gpuLabel}`);
+    }
+  }, []);
 
   // Auto-Save Configuration State to localStorage
   useEffect(() => {
@@ -276,6 +320,30 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     );
   }, [selectedCpu, selectedGpu, selectedRam, selectedStorage]);
 
+  const handleShareBuild = () => {
+    const url = encodeBuildToUrl(
+      selectedCpu,
+      selectedGpu,
+      selectedRam,
+      ramCapacityGB,
+      selectedStorage,
+      selectedGame,
+      selectedResolution,
+      selectedPreset,
+      selectedDlss,
+      rayTracing,
+      frameGen
+    );
+
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url);
+    }
+    const cpuName = selectedCpu ? selectedCpu.name : "System";
+    const gpuName = selectedGpu ? selectedGpu.name : "Build";
+    showToast("Build Link Copied to Clipboard! 🔗", `${cpuName} + ${gpuName}`);
+    return url;
+  };
+
   const value = {
     cpus,
     gpus,
@@ -313,6 +381,11 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     setRayTracing,
     frameGen,
     setFrameGen,
+    isToastOpen,
+    setIsToastOpen,
+    toastMessage,
+    toastSubMessage,
+    showToast,
     isBuyModalOpen,
     setIsBuyModalOpen,
     isLegalModalOpen,
@@ -323,6 +396,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     performanceResult,
     compatibilityReport,
     handleResetBuild,
+    handleShareBuild,
     handleSelectCatalogBuild
   };
 
