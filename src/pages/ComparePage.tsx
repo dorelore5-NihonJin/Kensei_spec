@@ -127,7 +127,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       {/* 2. COMPONENT SELECTION BAR & HERO VERSUS SCORE CARD */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* COMPONENT A SELECTOR */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
+        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative">
           <SearchableSelect
             label="Component A (Left)"
             options={isCpuMode ? cpuOptions : gpuOptions}
@@ -184,7 +184,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         </div>
 
         {/* COMPONENT B SELECTOR */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
+        <div className="lg:col-span-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative">
           <SearchableSelect
             label="Component B (Right)"
             options={isCpuMode ? cpuOptions : gpuOptions}

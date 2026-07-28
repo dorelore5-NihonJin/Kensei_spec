@@ -55,7 +55,7 @@ export default function SearchableSelect({
   });
 
   return (
-    <div ref={containerRef} className={`relative flex flex-col gap-1.5 ${className}`}>
+    <div ref={containerRef} className={`relative flex flex-col gap-1.5 ${isOpen ? "z-40" : "z-10"} ${className}`}>
       {label && <label className="text-[10px] font-black uppercase text-gray-400 tracking-wider">{label}</label>}
 
       {/* Selected Option Box Button */}
