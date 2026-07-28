@@ -72,7 +72,7 @@ export default function Header({
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <LayoutGrid className="w-4 h-4 text-[#8A9A86]" />
+            <LayoutGrid className={`w-4 h-4 ${activePage === "catalog" ? "text-white" : "text-[#8A9A86]"}`} />
             <span>2. Game Builds Catalog</span>
           </button>
 
@@ -85,7 +85,7 @@ export default function Header({
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Scale className="w-4 h-4 text-purple-400" />
+            <Scale className={`w-4 h-4 ${activePage === "compare" ? "text-purple-200" : "text-purple-400"}`} />
             <span>3. Hardware Compare</span>
           </button>
 
