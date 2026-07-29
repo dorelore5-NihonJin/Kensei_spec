@@ -55,11 +55,11 @@ export default function Header({
             onClick={() => setActivePage("simulator")}
             className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "simulator"
-                ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-md scale-102"
+                ? "bg-cyan-600 dark:bg-cyan-500 text-white shadow-md shadow-cyan-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Layers className="w-4 h-4 text-[#E88D9F]" />
+            <Layers className={`w-4 h-4 ${activePage === "simulator" ? "text-white" : "text-cyan-500"}`} />
             <span>1. Simulator & Calculator</span>
           </button>
 
@@ -68,7 +68,7 @@ export default function Header({
             onClick={() => setActivePage("catalog")}
             className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "catalog"
-                ? "bg-[#8A9A86] text-white shadow-md scale-102"
+                ? "bg-[#8A9A86] text-white shadow-md shadow-[#8A9A86]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
@@ -81,7 +81,7 @@ export default function Header({
             onClick={() => setActivePage("compare")}
             className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "compare"
-                ? "bg-[#E88D9F] text-white shadow-md scale-102"
+                ? "bg-[#E88D9F] text-white shadow-md shadow-[#E88D9F]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
@@ -94,20 +94,20 @@ export default function Header({
             onClick={() => setActivePage("rankings")}
             className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
               activePage === "rankings"
-                ? "bg-[#E88D9F] text-white shadow-md scale-102"
+                ? "bg-amber-500 text-white shadow-md shadow-amber-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Trophy className={`w-4 h-4 ${activePage === "rankings" ? "text-white" : "text-amber-400"}`} />
+            <Trophy className={`w-4 h-4 ${activePage === "rankings" ? "text-white" : "text-amber-500"}`} />
             <span>4. Silicon Rankings</span>
           </button>
 
           {/* TAB 5: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
-            className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 transition shadow-md flex items-center gap-1.5 shrink-0 hover:scale-102"
+            className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30"
           >
-            <ShoppingCart className="w-4 h-4" />
+            <ShoppingCart className="w-4 h-4 text-white" />
             <span>5. Buy PC Store</span>
           </button>
         </div>
