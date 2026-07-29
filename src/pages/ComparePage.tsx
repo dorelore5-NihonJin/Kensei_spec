@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor, Gamepad2 } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
@@ -26,8 +26,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get("mode") || "cpu";
     const aParam = urlParams.get("a");
-    if (modeParam === "cpu" && aParam) {
-      return cpus.find((c) => c.id === aParam) || null;
+    const cpuAParam = urlParams.get("cpuA");
+    const targetId = (modeParam === "cpu" ? aParam : null) || cpuAParam || localStorage.getItem("kensei_compare_cpu_a");
+    if (targetId) {
+      const match = cpus.find((c) => c.id === targetId);
+      if (match) return match;
     }
     return cpus[0] || null;
   });
@@ -36,8 +39,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get("mode") || "cpu";
     const bParam = urlParams.get("b");
-    if (modeParam === "cpu" && bParam) {
-      return cpus.find((c) => c.id === bParam) || null;
+    const cpuBParam = urlParams.get("cpuB");
+    const targetId = (modeParam === "cpu" ? bParam : null) || cpuBParam || localStorage.getItem("kensei_compare_cpu_b");
+    if (targetId) {
+      const match = cpus.find((c) => c.id === targetId);
+      if (match) return match;
     }
     return cpus[1] || cpus[0] || null;
   });
@@ -46,8 +52,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get("mode") || "cpu";
     const aParam = urlParams.get("a");
-    if (modeParam === "gpu" && aParam) {
-      return gpus.find((g) => g.id === aParam) || null;
+    const gpuAParam = urlParams.get("gpuA");
+    const targetId = (modeParam === "gpu" ? aParam : null) || gpuAParam || localStorage.getItem("kensei_compare_gpu_a");
+    if (targetId) {
+      const match = gpus.find((g) => g.id === targetId);
+      if (match) return match;
     }
     return gpus[0] || null;
   });
@@ -56,46 +65,65 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get("mode") || "cpu";
     const bParam = urlParams.get("b");
-    if (modeParam === "gpu" && bParam) {
-      return gpus.find((g) => g.id === bParam) || null;
+    const gpuBParam = urlParams.get("gpuB");
+    const targetId = (modeParam === "gpu" ? bParam : null) || gpuBParam || localStorage.getItem("kensei_compare_gpu_b");
+    if (targetId) {
+      const match = gpus.find((g) => g.id === targetId);
+      if (match) return match;
     }
     return gpus[1] || gpus[0] || null;
   });
 
+  // Save selection states to localStorage
+  useEffect(() => {
+    if (selectedCpuA) localStorage.setItem("kensei_compare_cpu_a", selectedCpuA.id);
+    if (selectedCpuB) localStorage.setItem("kensei_compare_cpu_b", selectedCpuB.id);
+  }, [selectedCpuA, selectedCpuB]);
+
+  useEffect(() => {
+    if (selectedGpuA) localStorage.setItem("kensei_compare_gpu_a", selectedGpuA.id);
+    if (selectedGpuB) localStorage.setItem("kensei_compare_gpu_b", selectedGpuB.id);
+  }, [selectedGpuA, selectedGpuB]);
+
   // Helper to sync state directly into URL parameters without reloading
-  const syncUrlParams = (currentMode: "cpu" | "gpu", itemA: CPU | GPU | null, itemB: CPU | GPU | null) => {
+  const syncUrlParams = (
+    currentMode: "cpu" | "gpu",
+    cpuA: CPU | null,
+    cpuB: CPU | null,
+    gpuA: GPU | null,
+    gpuB: GPU | null
+  ) => {
     const url = new URL(window.location.href);
     url.searchParams.set("page", "compare");
     url.searchParams.set("mode", currentMode);
-    if (itemA) {
-      url.searchParams.set("a", itemA.id);
-    } else {
-      url.searchParams.delete("a");
-    }
-    if (itemB) {
-      url.searchParams.set("b", itemB.id);
-    } else {
-      url.searchParams.delete("b");
-    }
+
+    const activeA = currentMode === "cpu" ? cpuA : gpuA;
+    const activeB = currentMode === "cpu" ? cpuB : gpuB;
+    if (activeA) url.searchParams.set("a", activeA.id);
+    if (activeB) url.searchParams.set("b", activeB.id);
+
+    if (cpuA) url.searchParams.set("cpuA", cpuA.id);
+    if (cpuB) url.searchParams.set("cpuB", cpuB.id);
+    if (gpuA) url.searchParams.set("gpuA", gpuA.id);
+    if (gpuB) url.searchParams.set("gpuB", gpuB.id);
+
     window.history.replaceState({}, "", url.toString());
   };
 
   const handleModeChange = (newMode: "cpu" | "gpu") => {
     setMode(newMode);
-    const nextItemA = newMode === "cpu" ? selectedCpuA : selectedGpuA;
-    const nextItemB = newMode === "cpu" ? selectedCpuB : selectedGpuB;
-    syncUrlParams(newMode, nextItemA, nextItemB);
+    syncUrlParams(newMode, selectedCpuA, selectedCpuB, selectedGpuA, selectedGpuB);
   };
 
   const handleSelectA = (id: string) => {
     if (mode === "cpu") {
       const found = cpus.find((c) => c.id === id) || null;
       setSelectedCpuA(found);
-      syncUrlParams("cpu", found, selectedCpuB);
+      syncUrlParams("cpu", found, selectedCpuB, selectedGpuA, selectedGpuB);
     } else {
       const found = gpus.find((g) => g.id === id) || null;
       setSelectedGpuA(found);
-      syncUrlParams("gpu", found, selectedGpuB);
+      syncUrlParams("gpu", selectedCpuA, selectedCpuB, found, selectedGpuB);
     }
   };
 
@@ -103,11 +131,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     if (mode === "cpu") {
       const found = cpus.find((c) => c.id === id) || null;
       setSelectedCpuB(found);
-      syncUrlParams("cpu", selectedCpuA, found);
+      syncUrlParams("cpu", selectedCpuA, found, selectedGpuA, selectedGpuB);
     } else {
       const found = gpus.find((g) => g.id === id) || null;
       setSelectedGpuB(found);
-      syncUrlParams("gpu", selectedGpuA, found);
+      syncUrlParams("gpu", selectedCpuA, selectedCpuB, selectedGpuA, found);
     }
   };
 
