@@ -55,7 +55,7 @@ export default function CustomSelect({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#E88D9F]/50 rounded-2xl px-3.5 py-2.5 text-left transition flex items-center justify-between gap-2.5 focus:outline-none focus:ring-2 focus:ring-[#E88D9F]/30 shrink-0"
+        className="flex-1 min-w-0 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#E88D9F]/50 rounded-2xl px-3 py-2 text-left transition flex items-center justify-between gap-2 focus:outline-none focus:ring-2 focus:ring-[#E88D9F]/30"
       >
         <div className="flex items-center gap-2 min-w-0">
           {icon && <span className="text-[#E88D9F] shrink-0">{icon}</span>}
@@ -73,7 +73,7 @@ export default function CustomSelect({
 
       {/* Custom Popover Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 z-50 bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden p-1.5 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-72 min-w-[220px]">
+        <div className="absolute top-full left-0 mt-2 z-50 bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden p-1.5 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-72 min-w-[240px]">
           <div className="overflow-y-auto divide-y divide-black/5 dark:divide-white/5">
             {options.map((option) => {
               const isSelected = option.value === value;

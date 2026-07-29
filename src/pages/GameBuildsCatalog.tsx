@@ -529,7 +529,7 @@ export default function GameBuildsCatalog({
         </div>
 
         {/* Row 2: Category, Game & Budget Dropdowns */}
-        <div className="flex flex-wrap items-center gap-3 border-t border-black/10 dark:border-white/10 pt-3">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6 border-t border-black/10 dark:border-white/10 pt-3">
           
           {/* Workload Category Filter */}
           <CustomSelect
@@ -546,7 +546,7 @@ export default function GameBuildsCatalog({
             value={selectedCategoryFilter}
             onChange={(val) => setSelectedCategoryFilter(val)}
             icon={<Code2 className="w-3.5 h-3.5 text-indigo-500" />}
-            className="w-full sm:w-60"
+            className="flex-1 sm:flex-initial min-w-[240px]"
           />
 
           {/* Game Filter */}
@@ -559,7 +559,7 @@ export default function GameBuildsCatalog({
             value={selectedGameFilter}
             onChange={(val) => setSelectedGameFilter(val)}
             icon={<Filter className="w-3.5 h-3.5 text-[#8A9A86]" />}
-            className="w-full sm:w-56"
+            className="flex-1 sm:flex-initial min-w-[220px]"
           />
 
           {/* Budget Tier Filter */}
@@ -575,7 +575,7 @@ export default function GameBuildsCatalog({
             value={selectedTierFilter}
             onChange={(val) => setSelectedTierFilter(val)}
             icon={<Zap className="w-3.5 h-3.5 text-amber-500" />}
-            className="w-full sm:w-60"
+            className="flex-1 sm:flex-initial min-w-[240px]"
           />
         </div>
       </div>
