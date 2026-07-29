@@ -4,6 +4,7 @@ import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu,
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
+import GpuGamingBenchmarkChart from "../components/GpuGamingBenchmarkChart";
 import { getCpuTechnicalDetails, getGpuTechnicalDetails } from "../lib/hardwareSpecs";
 
 interface ComparePageProps {
@@ -1009,6 +1010,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   </table>
                 </div>
               </div>
+
+              {/* INTERACTIVE GPU GAMING BENCHMARKS SHOWCASE */}
+              {selectedGpuA && selectedGpuB && (
+                <GpuGamingBenchmarkChart gpuA={selectedGpuA} gpuB={selectedGpuB} />
+              )}
             </div>
           )}
         </div>
