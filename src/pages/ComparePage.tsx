@@ -160,46 +160,47 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
       if (selectedOpponent) {
         const yearDiff = Math.abs(year - opponentYear);
-        const scoreDiffRatio = Math.abs(score - opponentScore) / Math.max(1, opponentScore);
+        const maxScoreVal = Math.max(opponentScore, score, 1);
+        const scoreDiffRatio = Math.abs(score - opponentScore) / maxScoreVal;
 
-        // Direct Cross-Brand Rival: Same era (<= 2 yrs) + similar performance (<= 35% diff) + rival brand
+        // Direct Cross-Brand Rival: Same era (<= 2 yrs) + similar tier (scoreDiffRatio <= 0.35) + competitor brand
         if (yearDiff <= 2 && scoreDiffRatio <= 0.35 && brand !== opponentBrand) {
-          rankScore = 1000 - scoreDiffRatio * 100 - yearDiff * 20;
+          rankScore = 15000 - scoreDiffRatio * 1000 - yearDiff * 100;
           badge = `🔥 Direct ${brand} Rival`;
           badgeColor = "rival";
         }
-        // Same Era Alternative: Same era (<= 1 yr) + similar tier
+        // Same Era Alternative: Same era (<= 1 yr) + similar tier (scoreDiffRatio <= 0.4)
         else if (yearDiff <= 1 && scoreDiffRatio <= 0.4) {
-          rankScore = 800 - yearDiff * 50 - scoreDiffRatio * 100;
+          rankScore = 12000 - yearDiff * 500 - scoreDiffRatio * 1000;
           badge = `⚡ ${year} Era Rival`;
           badgeColor = "era";
         }
         // Similar Performance Tier
-        else if (scoreDiffRatio <= 0.25) {
-          rankScore = 600 - scoreDiffRatio * 100;
+        else if (scoreDiffRatio <= 0.25 && yearDiff <= 4) {
+          rankScore = 10000 - scoreDiffRatio * 1000;
           badge = `💡 Similar Tier`;
           badgeColor = "popular";
         }
-        // Modern components (2018+)
-        else if (year >= 2018) {
-          rankScore = 300 + (year - 2018) * 10;
+        // Modern components (2020+)
+        else if (year >= 2020) {
+          rankScore = 5000 + (year - 2020) * 10;
         }
-        // Legacy components (2012–2017)
+        // Mid-era components (2012–2019)
         else if (year >= 2012) {
-          rankScore = 150 + (year - 2012) * 5;
+          rankScore = 2000 + (year - 2012) * 10;
         } else {
           rankScore = year;
         }
       } else {
         // No opponent selected -> Rank modern hardware (2012+) first
         if (year >= 2020) {
-          rankScore = 500 + year * 2;
+          rankScore = 5000 + year * 2;
           badge = year >= 2022 ? `✨ Modern` : undefined;
           badgeColor = "recent";
         } else if (year >= 2015) {
-          rankScore = 300 + year;
+          rankScore = 3000 + year;
         } else if (year >= 2012) {
-          rankScore = 100 + year;
+          rankScore = 1000 + year;
         } else {
           rankScore = year;
         }
