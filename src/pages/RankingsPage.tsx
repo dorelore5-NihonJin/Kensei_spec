@@ -227,14 +227,14 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                 <div
                   key={item.id}
                   id={`item-${item.id}`}
-                  className={`p-4 rounded-2xl border transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-4 ${
+                  className={`p-4 rounded-2xl border transition-all duration-300 grid grid-cols-1 md:grid-cols-12 gap-4 items-center ${
                     isHighlighted
                       ? "bg-[#E88D9F]/10 border-[#E88D9F] ring-2 ring-[#E88D9F]/50 shadow-lg scale-[1.01]"
                       : "bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 hover:border-[#E88D9F]/40"
                   }`}
                 >
-                  {/* Rank Badge + Name Details */}
-                  <div className="flex items-center gap-4 min-w-0 w-full sm:w-auto">
+                  {/* Column 1: Rank Badge + Name Details (md:col-span-5) */}
+                  <div className="md:col-span-5 flex items-center gap-4 min-w-0">
                     {/* Rank Badge Icon */}
                     <div
                       className={`w-10 h-10 rounded-xl font-black text-sm flex items-center justify-center shrink-0 shadow-sm border ${
@@ -268,9 +268,9 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                     </div>
                   </div>
 
-                  {/* Benchmark Meter + Score */}
-                  <div className="flex items-center gap-4 w-full sm:w-72 shrink-0">
-                    <div className="flex-1 flex flex-col gap-1">
+                  {/* Column 2: Benchmark Meter Bar + Score PTS (md:col-span-4) - PIXEL LOCKED POSITION */}
+                  <div className="md:col-span-4 flex items-center gap-4 min-w-0">
+                    <div className="flex-1 flex flex-col gap-1 min-w-0">
                       <div className="w-full h-3 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden p-0.5">
                         <div
                           className="h-full bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 rounded-full transition-all duration-500"
@@ -282,18 +282,18 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       </span>
                     </div>
 
-                    <div className="text-right shrink-0 min-w-20">
-                      <span className="text-base font-black text-[#E88D9F] font-mono">
+                    <div className="text-right shrink-0 w-24">
+                      <span className="text-base font-black text-[#E88D9F] font-mono whitespace-nowrap">
                         {item.computedScore} pts
                       </span>
                     </div>
                   </div>
 
-                  {/* Quick Action Buttons */}
-                  <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end">
+                  {/* Column 3: Quick Action Buttons (md:col-span-3) */}
+                  <div className="md:col-span-3 flex items-center gap-2 justify-start md:justify-end shrink-0">
                     <button
                       onClick={() => handleCompareItem(item)}
-                      className="px-3 py-1.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-extrabold transition flex items-center gap-1 shrink-0"
+                      className="px-3.5 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-extrabold transition flex items-center gap-1.5 shrink-0"
                     >
                       <Scale className="w-3.5 h-3.5" />
                       <span>Compare</span>
@@ -301,7 +301,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
 
                     <button
                       onClick={() => handleApplyToBuild(item)}
-                      className="px-3 py-1.5 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-extrabold transition flex items-center gap-1 shrink-0"
+                      className="px-3.5 py-2 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-extrabold transition flex items-center gap-1.5 shrink-0"
                     >
                       <Layers className="w-3.5 h-3.5" />
                       <span>Select</span>
