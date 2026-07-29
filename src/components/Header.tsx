@@ -159,7 +159,9 @@ export default function Header({
         >
           <source
             src={
-              activePage === "compare" || activePage === "rankings"
+              activePage === "rankings"
+                ? "./gif_banner_rankings.mp4"
+                : activePage === "compare"
                 ? "./gif_banner_vs.mp4"
                 : activePage === "catalog"
                 ? "./gif_banner_catalog.mp4"
