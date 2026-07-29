@@ -61,8 +61,11 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
     })
     .sort((a, b) => a.score - b.score);
 
-  // Maximum benchmark scale: 2200 pts for CPU apex (leaves safe right padding), 880 pts for GPU apex
-  const maxScore = type === "gpu" ? 880 : 2200;
+  // Dynamically compute apex score so extreme workstation CPUs (Threadripper PRO 7995WX = 4341 pts) or GPUs scale proportionally without clipping at 100%
+  const highestCandidateScore = Math.max(itemA?.score || 0, itemB?.score || 0);
+  const highestMilestoneScore = milestones.length > 0 ? milestones[milestones.length - 1].score : 0;
+  const baseApex = type === "gpu" ? 880 : 2200;
+  const maxScore = Math.max(highestCandidateScore, highestMilestoneScore, baseApex) * 1.08;
 
   // Exact percentage calculation relative to max scale (min 2% so low scores show a sleek tip)
   const pctA = Math.min(100, Math.max(2, (itemA.score / maxScore) * 100));
