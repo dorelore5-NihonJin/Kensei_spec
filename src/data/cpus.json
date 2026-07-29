@@ -9,8 +9,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 10,
-    "multiCoreScore": 12,
+    "singleCoreScore": 217,
+    "multiCoreScore": 300,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -44,7 +44,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.00 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 156,
+    "cinebenchR23Multi": 265,
+    "passmarkScore": 1087
   },
   {
     "id": "cpu-002",
@@ -56,8 +59,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 12,
-    "multiCoreScore": 20,
+    "singleCoreScore": 217,
+    "multiCoreScore": 300,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -91,7 +94,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.00 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 156,
+    "cinebenchR23Multi": 265,
+    "passmarkScore": 1087
   },
   {
     "id": "cpu-003",
@@ -103,8 +109,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 25,
-    "multiCoreScore": 38,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -138,7 +144,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.36 / 10.0",
-    "powerEfficiencyScore": "1.20 / 5.00"
+    "powerEfficiencyScore": "1.20 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-004",
@@ -150,8 +159,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 28,
-    "multiCoreScore": 42,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -185,7 +194,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.47 / 10.0",
-    "powerEfficiencyScore": "1.36 / 5.00"
+    "powerEfficiencyScore": "1.36 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-005",
@@ -197,8 +209,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 28,
-    "multiCoreScore": 68,
+    "singleCoreScore": 273,
+    "multiCoreScore": 657,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -232,7 +244,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$124",
     "costEffectivenessScore": "3.76 / 10.0",
-    "powerEfficiencyScore": "1.76 / 5.00"
+    "powerEfficiencyScore": "1.76 / 5.00",
+    "cinebenchR23Single": 197,
+    "cinebenchR23Multi": 670,
+    "passmarkScore": 2189
   },
   {
     "id": "cpu-006",
@@ -245,8 +260,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 30,
-    "multiCoreScore": 72,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -280,7 +295,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$128",
     "costEffectivenessScore": "3.84 / 10.0",
-    "powerEfficiencyScore": "1.88 / 5.00"
+    "powerEfficiencyScore": "1.88 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-007",
@@ -293,8 +311,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 38,
-    "multiCoreScore": 56,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -328,7 +346,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$95",
     "costEffectivenessScore": "3.79 / 10.0",
-    "powerEfficiencyScore": "1.80 / 5.00"
+    "powerEfficiencyScore": "1.80 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-008",
@@ -341,8 +362,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 42,
-    "multiCoreScore": 110,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -376,7 +397,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$160",
     "costEffectivenessScore": "4.47 / 10.0",
-    "powerEfficiencyScore": "2.76 / 5.00"
+    "powerEfficiencyScore": "2.76 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-009",
@@ -388,8 +412,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 54,
-    "multiCoreScore": 160,
+    "singleCoreScore": 581,
+    "multiCoreScore": 2810,
     "tdpW": 105,
     "socket": "LGA775",
     "l3CacheMB": 24,
@@ -423,7 +447,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$199",
     "costEffectivenessScore": "5.24 / 10.0",
-    "powerEfficiencyScore": "1.65 / 5.00"
+    "powerEfficiencyScore": "1.65 / 5.00",
+    "cinebenchR23Single": 418,
+    "cinebenchR23Multi": 2842,
+    "passmarkScore": 8187
   },
   {
     "id": "cpu-010",
@@ -435,8 +462,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 64,
-    "multiCoreScore": 195,
+    "singleCoreScore": 729,
+    "multiCoreScore": 3532,
     "tdpW": 105,
     "socket": "LGA775",
     "l3CacheMB": 24,
@@ -470,7 +497,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$228",
     "costEffectivenessScore": "5.81 / 10.0",
-    "powerEfficiencyScore": "1.99 / 5.00"
+    "powerEfficiencyScore": "1.99 / 5.00",
+    "cinebenchR23Single": 525,
+    "cinebenchR23Multi": 3570,
+    "passmarkScore": 10288
   },
   {
     "id": "cpu-011",
@@ -482,8 +512,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 62,
-    "multiCoreScore": 115,
+    "singleCoreScore": 777,
+    "multiCoreScore": 1875,
     "tdpW": 58,
     "socket": "LGA1155",
     "l3CacheMB": 8,
@@ -517,7 +547,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$150",
     "costEffectivenessScore": "4.87 / 10.0",
-    "powerEfficiencyScore": "2.58 / 5.00"
+    "powerEfficiencyScore": "2.58 / 5.00",
+    "cinebenchR23Single": 559,
+    "cinebenchR23Multi": 1901,
+    "passmarkScore": 6242
   },
   {
     "id": "cpu-012",
@@ -529,8 +562,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 82,
-    "multiCoreScore": 210,
+    "singleCoreScore": 800,
+    "multiCoreScore": 2500,
     "tdpW": 65,
     "socket": "LGA1155",
     "l3CacheMB": 16,
@@ -564,7 +597,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$253",
     "costEffectivenessScore": "6.30 / 10.0",
-    "powerEfficiencyScore": "3.68 / 5.00"
+    "powerEfficiencyScore": "3.68 / 5.00",
+    "cinebenchR23Single": 500,
+    "cinebenchR23Multi": 1800,
+    "passmarkScore": 4000
   },
   {
     "id": "cpu-013",
@@ -576,8 +612,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 88,
-    "multiCoreScore": 265,
+    "singleCoreScore": 1300,
+    "multiCoreScore": 5500,
     "tdpW": 105,
     "socket": "LGA1155",
     "l3CacheMB": 24,
@@ -611,7 +647,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$291",
     "costEffectivenessScore": "7.04 / 10.0",
-    "powerEfficiencyScore": "2.73 / 5.00"
+    "powerEfficiencyScore": "2.73 / 5.00",
+    "cinebenchR23Single": 950,
+    "cinebenchR23Multi": 8000,
+    "passmarkScore": 13000
   },
   {
     "id": "cpu-014",
@@ -623,8 +662,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 92,
-    "multiCoreScore": 380,
+    "singleCoreScore": 1033,
+    "multiCoreScore": 7572,
     "tdpW": 105,
     "socket": "LGA1155",
     "l3CacheMB": 24,
@@ -658,7 +697,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$390",
     "costEffectivenessScore": "8.41 / 10.0",
-    "powerEfficiencyScore": "3.55 / 5.00"
+    "powerEfficiencyScore": "3.55 / 5.00",
+    "cinebenchR23Single": 744,
+    "cinebenchR23Multi": 7589,
+    "passmarkScore": 20996
   },
   {
     "id": "cpu-015",
@@ -670,8 +712,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 94,
-    "multiCoreScore": 245,
+    "singleCoreScore": 1069,
+    "multiCoreScore": 2596,
     "tdpW": 65,
     "socket": "LGA1155",
     "l3CacheMB": 16,
@@ -705,7 +747,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$283",
     "costEffectivenessScore": "6.90 / 10.0",
-    "powerEfficiencyScore": "4.26 / 5.00"
+    "powerEfficiencyScore": "4.26 / 5.00",
+    "cinebenchR23Single": 770,
+    "cinebenchR23Multi": 2618,
+    "passmarkScore": 8628
   },
   {
     "id": "cpu-016",
@@ -717,8 +762,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 102,
-    "multiCoreScore": 310,
+    "singleCoreScore": 1185,
+    "multiCoreScore": 5772,
     "tdpW": 105,
     "socket": "LGA1155",
     "l3CacheMB": 24,
@@ -752,7 +797,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$328",
     "costEffectivenessScore": "7.79 / 10.0",
-    "powerEfficiencyScore": "3.17 / 5.00"
+    "powerEfficiencyScore": "3.17 / 5.00",
+    "cinebenchR23Single": 853,
+    "cinebenchR23Multi": 5800,
+    "passmarkScore": 16800
   },
   {
     "id": "cpu-017",
@@ -764,8 +812,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 88,
-    "multiCoreScore": 145,
+    "singleCoreScore": 1010,
+    "multiCoreScore": 2441,
     "tdpW": 58,
     "socket": "LGA1150",
     "l3CacheMB": 8,
@@ -799,7 +847,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$191",
     "costEffectivenessScore": "5.67 / 10.0",
-    "powerEfficiencyScore": "3.44 / 5.00"
+    "powerEfficiencyScore": "3.44 / 5.00",
+    "cinebenchR23Single": 727,
+    "cinebenchR23Multi": 2472,
+    "passmarkScore": 8123
   },
   {
     "id": "cpu-018",
@@ -811,8 +862,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 112,
-    "multiCoreScore": 290,
+    "singleCoreScore": 1212,
+    "multiCoreScore": 2949,
     "tdpW": 65,
     "socket": "LGA1150",
     "l3CacheMB": 16,
@@ -846,7 +897,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$325",
     "costEffectivenessScore": "7.73 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 873,
+    "cinebenchR23Multi": 2968,
+    "passmarkScore": 9797
   },
   {
     "id": "cpu-019",
@@ -858,8 +912,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 118,
-    "multiCoreScore": 360,
+    "singleCoreScore": 1150,
+    "multiCoreScore": 4500,
     "tdpW": 105,
     "socket": "LGA1150",
     "l3CacheMB": 24,
@@ -893,7 +947,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$372",
     "costEffectivenessScore": "8.64 / 10.0",
-    "powerEfficiencyScore": "3.69 / 5.00"
+    "powerEfficiencyScore": "3.69 / 5.00",
+    "cinebenchR23Single": 800,
+    "cinebenchR23Multi": 4000,
+    "passmarkScore": 8000
   },
   {
     "id": "cpu-020",
@@ -905,8 +962,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 130,
-    "multiCoreScore": 410,
+    "singleCoreScore": 1150,
+    "multiCoreScore": 4500,
     "tdpW": 105,
     "socket": "LGA1150",
     "l3CacheMB": 24,
@@ -940,7 +997,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$411",
     "costEffectivenessScore": "9.41 / 10.0",
-    "powerEfficiencyScore": "4.15 / 5.00"
+    "powerEfficiencyScore": "4.15 / 5.00",
+    "cinebenchR23Single": 800,
+    "cinebenchR23Multi": 4000,
+    "passmarkScore": 8000
   },
   {
     "id": "cpu-021",
@@ -952,8 +1012,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 122,
-    "multiCoreScore": 490,
+    "singleCoreScore": 1494,
+    "multiCoreScore": 11008,
     "tdpW": 105,
     "socket": "LGA1150",
     "l3CacheMB": 24,
@@ -987,7 +1047,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$480",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "4.61 / 5.00"
+    "powerEfficiencyScore": "4.61 / 5.00",
+    "cinebenchR23Single": 1076,
+    "cinebenchR23Multi": 10975,
+    "passmarkScore": 30508
   },
   {
     "id": "cpu-022",
@@ -999,8 +1062,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 124,
-    "multiCoreScore": 610,
+    "singleCoreScore": 1496,
+    "multiCoreScore": 14779,
     "tdpW": 105,
     "socket": "LGA1150",
     "l3CacheMB": 24,
@@ -1034,7 +1097,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$581",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1077,
+    "cinebenchR23Multi": 14647,
+    "passmarkScore": 39940
   },
   {
     "id": "cpu-023",
@@ -1047,8 +1113,8 @@
       "DDR3",
       "DDR4"
     ],
-    "singleCoreScore": 114,
-    "multiCoreScore": 210,
+    "singleCoreScore": 1248,
+    "multiCoreScore": 3025,
     "tdpW": 58,
     "socket": "LGA1151",
     "l3CacheMB": 8,
@@ -1082,7 +1148,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$250",
     "costEffectivenessScore": "6.84 / 10.0",
-    "powerEfficiencyScore": "4.72 / 5.00"
+    "powerEfficiencyScore": "4.72 / 5.00",
+    "cinebenchR23Single": 899,
+    "cinebenchR23Multi": 3057,
+    "passmarkScore": 10059
   },
   {
     "id": "cpu-024",
@@ -1094,8 +1163,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 136,
-    "multiCoreScore": 380,
+    "singleCoreScore": 1496,
+    "multiCoreScore": 3655,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -1129,7 +1198,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$399",
     "costEffectivenessScore": "9.19 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1077,
+    "cinebenchR23Multi": 3662,
+    "passmarkScore": 12130
   },
   {
     "id": "cpu-025",
@@ -1141,8 +1213,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 148,
-    "multiCoreScore": 495,
+    "singleCoreScore": 1500,
+    "multiCoreScore": 5500,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -1176,7 +1248,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$476",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "4.92 / 5.00"
+    "powerEfficiencyScore": "4.92 / 5.00",
+    "cinebenchR23Single": 1000,
+    "cinebenchR23Multi": 5500,
+    "passmarkScore": 10000
   },
   {
     "id": "cpu-026",
@@ -1188,8 +1263,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 124,
-    "multiCoreScore": 230,
+    "singleCoreScore": 1481,
+    "multiCoreScore": 3593,
     "tdpW": 58,
     "socket": "LGA1151",
     "l3CacheMB": 8,
@@ -1223,7 +1298,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$271",
     "costEffectivenessScore": "7.24 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1066,
+    "cinebenchR23Multi": 3624,
+    "passmarkScore": 11945
   },
   {
     "id": "cpu-027",
@@ -1235,8 +1313,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 152,
-    "multiCoreScore": 430,
+    "singleCoreScore": 1780,
+    "multiCoreScore": 4359,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -1270,7 +1348,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$441",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1282,
+    "cinebenchR23Multi": 4359,
+    "passmarkScore": 14458
   },
   {
     "id": "cpu-028",
@@ -1282,8 +1363,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 168,
-    "multiCoreScore": 565,
+    "singleCoreScore": 1500,
+    "multiCoreScore": 5500,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -1317,7 +1398,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$534",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1000,
+    "cinebenchR23Multi": 5500,
+    "passmarkScore": 10000
   },
   {
     "id": "cpu-029",
@@ -1329,8 +1413,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 128,
-    "multiCoreScore": 345,
+    "singleCoreScore": 1484,
+    "multiCoreScore": 3620,
     "tdpW": 58,
     "socket": "LGA1151",
     "l3CacheMB": 8,
@@ -1364,7 +1448,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$372",
     "costEffectivenessScore": "8.64 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1068,
+    "cinebenchR23Multi": 3631,
+    "passmarkScore": 12018
   },
   {
     "id": "cpu-030",
@@ -1376,8 +1463,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 142,
-    "multiCoreScore": 530,
+    "singleCoreScore": 1772,
+    "multiCoreScore": 6540,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -1411,7 +1498,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$521",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1276,
+    "cinebenchR23Multi": 6508,
+    "passmarkScore": 19894
   },
   {
     "id": "cpu-031",
@@ -1423,8 +1513,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 160,
-    "multiCoreScore": 590,
+    "singleCoreScore": 1786,
+    "multiCoreScore": 6610,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -1458,7 +1548,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$571",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1286,
+    "cinebenchR23Multi": 6559,
+    "passmarkScore": 20097
   },
   {
     "id": "cpu-032",
@@ -1470,8 +1563,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 174,
-    "multiCoreScore": 780,
+    "singleCoreScore": 1750,
+    "multiCoreScore": 6500,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -1505,7 +1598,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$693",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1150,
+    "cinebenchR23Multi": 10000,
+    "passmarkScore": 13500
   },
   {
     "id": "cpu-033",
@@ -1517,8 +1613,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 170,
-    "multiCoreScore": 630,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 4500,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -1552,7 +1648,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$603",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 7000,
+    "passmarkScore": 10500
   },
   {
     "id": "cpu-034",
@@ -1564,8 +1663,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 185,
-    "multiCoreScore": 820,
+    "singleCoreScore": 1850,
+    "multiCoreScore": 6000,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -1599,7 +1698,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$757",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1250,
+    "cinebenchR23Multi": 9500,
+    "passmarkScore": 14000
   },
   {
     "id": "cpu-035",
@@ -1611,8 +1713,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 940,
+    "singleCoreScore": 1900,
+    "multiCoreScore": 8000,
     "tdpW": 125,
     "socket": "LGA1151",
     "l3CacheMB": 36,
@@ -1646,7 +1748,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$835",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1300,
+    "cinebenchR23Multi": 12500,
+    "passmarkScore": 18000
   },
   {
     "id": "cpu-036",
@@ -1658,8 +1763,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 154,
-    "multiCoreScore": 510,
+    "singleCoreScore": 1846,
+    "multiCoreScore": 9076,
     "tdpW": 58,
     "socket": "LGA1200",
     "l3CacheMB": 8,
@@ -1693,7 +1798,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$489",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1329,
+    "cinebenchR23Multi": 9037,
+    "passmarkScore": 26382
   },
   {
     "id": "cpu-037",
@@ -1705,8 +1813,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 158,
-    "multiCoreScore": 680,
+    "singleCoreScore": 1850,
+    "multiCoreScore": 5500,
     "tdpW": 65,
     "socket": "LGA1200",
     "l3CacheMB": 16,
@@ -1740,7 +1848,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$622",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1150,
+    "cinebenchR23Multi": 8500,
+    "passmarkScore": 12000
   },
   {
     "id": "cpu-038",
@@ -1752,8 +1863,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 196,
-    "multiCoreScore": 960,
+    "singleCoreScore": 2050,
+    "multiCoreScore": 8500,
     "tdpW": 105,
     "socket": "LGA1200",
     "l3CacheMB": 24,
@@ -1787,7 +1898,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$848",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1400,
+    "cinebenchR23Multi": 13500,
+    "passmarkScore": 19000
   },
   {
     "id": "cpu-039",
@@ -1799,8 +1913,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 210,
-    "multiCoreScore": 1100,
+    "singleCoreScore": 2100,
+    "multiCoreScore": 10500,
     "tdpW": 125,
     "socket": "LGA1200",
     "l3CacheMB": 36,
@@ -1834,7 +1948,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$971",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 16500,
+    "passmarkScore": 24000
   },
   {
     "id": "cpu-040",
@@ -1846,8 +1963,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 188,
-    "multiCoreScore": 790,
+    "singleCoreScore": 2050,
+    "multiCoreScore": 6500,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -1881,7 +1998,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$712",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1400,
+    "cinebenchR23Multi": 10000,
+    "passmarkScore": 17000
   },
   {
     "id": "cpu-041",
@@ -1893,8 +2013,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 215,
-    "multiCoreScore": 880,
+    "singleCoreScore": 2200,
+    "multiCoreScore": 7500,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -1928,7 +2048,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$787",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1500,
+    "cinebenchR23Multi": 11000,
+    "passmarkScore": 20000
   },
   {
     "id": "cpu-042",
@@ -1940,8 +2063,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 232,
-    "multiCoreScore": 1120,
+    "singleCoreScore": 2250,
+    "multiCoreScore": 9500,
     "tdpW": 105,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -1975,7 +2098,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$971",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1550,
+    "cinebenchR23Multi": 15000,
+    "passmarkScore": 24000
   },
   {
     "id": "cpu-043",
@@ -1987,8 +2113,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 248,
-    "multiCoreScore": 1220,
+    "singleCoreScore": 2300,
+    "multiCoreScore": 10000,
     "tdpW": 125,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -2022,7 +2148,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1600,
+    "cinebenchR23Multi": 16000,
+    "passmarkScore": 25000
   },
   {
     "id": "cpu-044",
@@ -2035,8 +2164,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 235,
-    "multiCoreScore": 720,
+    "singleCoreScore": 2147,
+    "multiCoreScore": 10659,
     "tdpW": 58,
     "socket": "LGA1700",
     "l3CacheMB": 8,
@@ -2070,7 +2199,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$682",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1546,
+    "cinebenchR23Multi": 10513,
+    "passmarkScore": 30942
   },
   {
     "id": "cpu-045",
@@ -2083,8 +2215,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 245,
-    "multiCoreScore": 990,
+    "singleCoreScore": 2300,
+    "multiCoreScore": 8500,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -2118,7 +2250,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$877",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1700,
+    "cinebenchR23Multi": 12000,
+    "passmarkScore": 19000
   },
   {
     "id": "cpu-046",
@@ -2131,8 +2266,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 275,
-    "multiCoreScore": 1450,
+    "singleCoreScore": 2500,
+    "multiCoreScore": 12000,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -2166,7 +2301,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1850,
+    "cinebenchR23Multi": 17500,
+    "passmarkScore": 27000
   },
   {
     "id": "cpu-047",
@@ -2179,8 +2317,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 295,
-    "multiCoreScore": 1880,
+    "singleCoreScore": 2600,
+    "multiCoreScore": 15000,
     "tdpW": 105,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -2214,7 +2352,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1900,
+    "cinebenchR23Multi": 23000,
+    "passmarkScore": 34000
   },
   {
     "id": "cpu-048",
@@ -2227,8 +2368,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 315,
-    "multiCoreScore": 2450,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 18000,
     "tdpW": 125,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -2262,7 +2403,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 27000,
+    "passmarkScore": 41000
   },
   {
     "id": "cpu-049",
@@ -2275,8 +2419,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 250,
-    "multiCoreScore": 790,
+    "singleCoreScore": 2280,
+    "multiCoreScore": 11356,
     "tdpW": 58,
     "socket": "LGA1700",
     "l3CacheMB": 8,
@@ -2310,7 +2454,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$736",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1642,
+    "cinebenchR23Multi": 11166,
+    "passmarkScore": 32950
   },
   {
     "id": "cpu-050",
@@ -2323,8 +2470,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 260,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2718,
+    "multiCoreScore": 27807,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -2358,7 +2505,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1957,
+    "cinebenchR23Multi": 26615,
+    "passmarkScore": 74954
   },
   {
     "id": "cpu-051",
@@ -2371,8 +2521,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 320,
-    "multiCoreScore": 2150,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 15000,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -2406,7 +2556,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 24000,
+    "passmarkScore": 40000
   },
   {
     "id": "cpu-052",
@@ -2419,8 +2572,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 345,
-    "multiCoreScore": 2850,
+    "singleCoreScore": 2800,
+    "multiCoreScore": 18000,
     "tdpW": 105,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -2454,7 +2607,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2100,
+    "cinebenchR23Multi": 35000,
+    "passmarkScore": 50000
   },
   {
     "id": "cpu-053",
@@ -2467,8 +2623,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 375,
-    "multiCoreScore": 3650,
+    "singleCoreScore": 3000,
+    "multiCoreScore": 20000,
     "tdpW": 125,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -2502,7 +2658,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2200,
+    "cinebenchR23Multi": 38000,
+    "passmarkScore": 58000
   },
   {
     "id": "cpu-054",
@@ -2515,8 +2674,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 335,
-    "multiCoreScore": 2280,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 15000,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 16,
@@ -2550,7 +2709,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 24000,
+    "passmarkScore": 40000
   },
   {
     "id": "cpu-055",
@@ -2563,8 +2725,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 360,
-    "multiCoreScore": 3250,
+    "singleCoreScore": 2800,
+    "multiCoreScore": 18000,
     "tdpW": 105,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -2598,7 +2760,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2100,
+    "cinebenchR23Multi": 35000,
+    "passmarkScore": 50000
   },
   {
     "id": "cpu-056",
@@ -2611,8 +2776,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 395,
-    "multiCoreScore": 3980,
+    "singleCoreScore": 3150,
+    "multiCoreScore": 21500,
     "tdpW": 125,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -2646,7 +2811,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2250,
+    "cinebenchR23Multi": 40000,
+    "passmarkScore": 60000
   },
   {
     "id": "cpu-057",
@@ -2658,8 +2826,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 385,
-    "multiCoreScore": 2650,
+    "singleCoreScore": 3162,
+    "multiCoreScore": 29913,
     "tdpW": 65,
     "socket": "LGA1851",
     "l3CacheMB": 16,
@@ -2693,7 +2861,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2277,
+    "cinebenchR23Multi": 27096,
+    "passmarkScore": 81107
   },
   {
     "id": "cpu-058",
@@ -2705,8 +2876,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 420,
-    "multiCoreScore": 3550,
+    "singleCoreScore": 3204,
+    "multiCoreScore": 44948,
     "tdpW": 105,
     "socket": "LGA1851",
     "l3CacheMB": 24,
@@ -2740,7 +2911,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2307,
+    "cinebenchR23Multi": 39219,
+    "passmarkScore": 118778
   },
   {
     "id": "cpu-059",
@@ -2752,8 +2926,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 450,
-    "multiCoreScore": 4200,
+    "singleCoreScore": 3240,
+    "multiCoreScore": 55987,
     "tdpW": 125,
     "socket": "LGA1851",
     "l3CacheMB": 36,
@@ -2787,7 +2961,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2333,
+    "cinebenchR23Multi": 47593,
+    "passmarkScore": 146448
   },
   {
     "id": "cpu-060",
@@ -2799,8 +2976,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 400,
-    "multiCoreScore": 2800,
+    "singleCoreScore": 3339,
+    "multiCoreScore": 31787,
     "tdpW": 65,
     "socket": "LGA1851",
     "l3CacheMB": 16,
@@ -2834,7 +3011,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2404,
+    "cinebenchR23Multi": 28608,
+    "passmarkScore": 86146
   },
   {
     "id": "cpu-061",
@@ -2846,8 +3026,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 440,
-    "multiCoreScore": 3800,
+    "singleCoreScore": 3389,
+    "multiCoreScore": 48027,
     "tdpW": 105,
     "socket": "LGA1851",
     "l3CacheMB": 24,
@@ -2881,7 +3061,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2440,
+    "cinebenchR23Multi": 41480,
+    "passmarkScore": 126846
   },
   {
     "id": "cpu-062",
@@ -2893,8 +3076,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 500,
-    "multiCoreScore": 4700,
+    "singleCoreScore": 3630,
+    "multiCoreScore": 63971,
     "tdpW": 125,
     "socket": "LGA1851",
     "l3CacheMB": 36,
@@ -2928,7 +3111,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2614,
+    "cinebenchR23Multi": 53326,
+    "passmarkScore": 167188
   },
   {
     "id": "cpu-063",
@@ -2940,8 +3126,8 @@
     "supportedDdr": [
       "DDR"
     ],
-    "singleCoreScore": 10,
-    "multiCoreScore": 14,
+    "singleCoreScore": 271,
+    "multiCoreScore": 325,
     "tdpW": 45,
     "socket": "AM2+",
     "l3CacheMB": 2,
@@ -2975,7 +3161,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.00 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 195,
+    "cinebenchR23Multi": 332,
+    "passmarkScore": 1355
   },
   {
     "id": "cpu-064",
@@ -2987,8 +3176,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 14,
-    "multiCoreScore": 22,
+    "singleCoreScore": 272,
+    "multiCoreScore": 327,
     "tdpW": 45,
     "socket": "AM2+",
     "l3CacheMB": 2,
@@ -3022,7 +3211,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.00 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 196,
+    "cinebenchR23Multi": 333,
+    "passmarkScore": 1362
   },
   {
     "id": "cpu-065",
@@ -3034,8 +3226,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 18,
-    "multiCoreScore": 28,
+    "singleCoreScore": 408,
+    "multiCoreScore": 490,
     "tdpW": 45,
     "socket": "AM2+",
     "l3CacheMB": 2,
@@ -3069,7 +3261,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.13 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 294,
+    "cinebenchR23Multi": 500,
+    "passmarkScore": 2041
   },
   {
     "id": "cpu-066",
@@ -3081,8 +3276,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 22,
-    "multiCoreScore": 58,
+    "singleCoreScore": 545,
+    "multiCoreScore": 1312,
     "tdpW": 45,
     "socket": "AM2+",
     "l3CacheMB": 2,
@@ -3116,7 +3311,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$112",
     "costEffectivenessScore": "3.53 / 10.0",
-    "powerEfficiencyScore": "1.44 / 5.00"
+    "powerEfficiencyScore": "1.44 / 5.00",
+    "cinebenchR23Single": 392,
+    "cinebenchR23Multi": 1333,
+    "passmarkScore": 4370
   },
   {
     "id": "cpu-067",
@@ -3129,8 +3327,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 38,
-    "multiCoreScore": 98,
+    "singleCoreScore": 686,
+    "multiCoreScore": 1654,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -3164,7 +3362,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$150",
     "costEffectivenessScore": "4.27 / 10.0",
-    "powerEfficiencyScore": "2.48 / 5.00"
+    "powerEfficiencyScore": "2.48 / 5.00",
+    "cinebenchR23Single": 494,
+    "cinebenchR23Multi": 1680,
+    "passmarkScore": 5507
   },
   {
     "id": "cpu-068",
@@ -3177,8 +3378,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 44,
-    "multiCoreScore": 175,
+    "singleCoreScore": 826,
+    "multiCoreScore": 2998,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -3212,7 +3413,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$229",
     "costEffectivenessScore": "5.24 / 10.0",
-    "powerEfficiencyScore": "3.84 / 5.00"
+    "powerEfficiencyScore": "3.84 / 5.00",
+    "cinebenchR23Single": 595,
+    "cinebenchR23Multi": 3035,
+    "passmarkScore": 9147
   },
   {
     "id": "cpu-069",
@@ -3224,8 +3428,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 41,
-    "multiCoreScore": 110,
+    "singleCoreScore": 962,
+    "multiCoreScore": 2321,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -3259,7 +3463,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$160",
     "costEffectivenessScore": "4.47 / 10.0",
-    "powerEfficiencyScore": "2.76 / 5.00"
+    "powerEfficiencyScore": "2.76 / 5.00",
+    "cinebenchR23Single": 693,
+    "cinebenchR23Multi": 2356,
+    "passmarkScore": 7727
   },
   {
     "id": "cpu-070",
@@ -3271,8 +3478,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 48,
-    "multiCoreScore": 185,
+    "singleCoreScore": 1103,
+    "multiCoreScore": 4006,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -3306,7 +3513,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$239",
     "costEffectivenessScore": "5.44 / 10.0",
-    "powerEfficiencyScore": "4.12 / 5.00"
+    "powerEfficiencyScore": "4.12 / 5.00",
+    "cinebenchR23Single": 794,
+    "cinebenchR23Multi": 4049,
+    "passmarkScore": 12221
   },
   {
     "id": "cpu-071",
@@ -3318,8 +3528,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 56,
-    "multiCoreScore": 290,
+    "singleCoreScore": 650,
+    "multiCoreScore": 2800,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -3353,7 +3563,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$338",
     "costEffectivenessScore": "6.79 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 450,
+    "cinebenchR23Multi": 2500,
+    "passmarkScore": 5500
   },
   {
     "id": "cpu-072",
@@ -3365,8 +3578,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 68,
-    "multiCoreScore": 340,
+    "singleCoreScore": 1252,
+    "multiCoreScore": 6107,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -3400,7 +3613,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$377",
     "costEffectivenessScore": "7.56 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 901,
+    "cinebenchR23Multi": 6127,
+    "passmarkScore": 17772
   },
   {
     "id": "cpu-073",
@@ -3412,8 +3628,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 102,
-    "multiCoreScore": 290,
+    "singleCoreScore": 1468,
+    "multiCoreScore": 3572,
     "tdpW": 58,
     "socket": "AM4",
     "l3CacheMB": 8,
@@ -3447,7 +3663,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$317",
     "costEffectivenessScore": "7.56 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1057,
+    "cinebenchR23Multi": 3594,
+    "passmarkScore": 11866
   },
   {
     "id": "cpu-074",
@@ -3459,8 +3678,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 112,
-    "multiCoreScore": 580,
+    "singleCoreScore": 1150,
+    "multiCoreScore": 4500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -3494,7 +3713,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$524",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 850,
+    "cinebenchR23Multi": 7000,
+    "passmarkScore": 12000
   },
   {
     "id": "cpu-075",
@@ -3506,8 +3728,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 122,
-    "multiCoreScore": 640,
+    "singleCoreScore": 1150,
+    "multiCoreScore": 4500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -3541,7 +3763,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$567",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 850,
+    "cinebenchR23Multi": 7000,
+    "passmarkScore": 12000
   },
   {
     "id": "cpu-076",
@@ -3553,8 +3778,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 115,
-    "multiCoreScore": 780,
+    "singleCoreScore": 1937,
+    "multiCoreScore": 19286,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -3588,7 +3813,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$672",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1395,
+    "cinebenchR23Multi": 18972,
+    "passmarkScore": 52089
   },
   {
     "id": "cpu-077",
@@ -3600,8 +3828,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 130,
-    "multiCoreScore": 890,
+    "singleCoreScore": 1250,
+    "multiCoreScore": 6000,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -3635,7 +3863,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$749",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 900,
+    "cinebenchR23Multi": 9000,
+    "passmarkScore": 15000
   },
   {
     "id": "cpu-078",
@@ -3647,8 +3878,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 110,
-    "multiCoreScore": 310,
+    "singleCoreScore": 1586,
+    "multiCoreScore": 3863,
     "tdpW": 58,
     "socket": "AM4",
     "l3CacheMB": 8,
@@ -3682,7 +3913,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$336",
     "costEffectivenessScore": "7.93 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1142,
+    "cinebenchR23Multi": 3883,
+    "passmarkScore": 12830
   },
   {
     "id": "cpu-079",
@@ -3694,8 +3928,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 128,
-    "multiCoreScore": 710,
+    "singleCoreScore": 1300,
+    "multiCoreScore": 5500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -3729,7 +3963,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$613",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 950,
+    "cinebenchR23Multi": 8000,
+    "passmarkScore": 13000
   },
   {
     "id": "cpu-080",
@@ -3741,8 +3978,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 138,
-    "multiCoreScore": 780,
+    "singleCoreScore": 1300,
+    "multiCoreScore": 5500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -3776,7 +4013,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$663",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 950,
+    "cinebenchR23Multi": 8000,
+    "passmarkScore": 13000
   },
   {
     "id": "cpu-081",
@@ -3788,8 +4028,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 145,
-    "multiCoreScore": 1040,
+    "singleCoreScore": 1400,
+    "multiCoreScore": 6500,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -3823,7 +4063,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$849",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1000,
+    "cinebenchR23Multi": 10000,
+    "passmarkScore": 17000
   },
   {
     "id": "cpu-082",
@@ -3835,8 +4078,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 132,
-    "multiCoreScore": 510,
+    "singleCoreScore": 1829,
+    "multiCoreScore": 8992,
     "tdpW": 58,
     "socket": "AM4",
     "l3CacheMB": 8,
@@ -3870,7 +4113,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$470",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1317,
+    "cinebenchR23Multi": 8956,
+    "passmarkScore": 26138
   },
   {
     "id": "cpu-083",
@@ -3882,8 +4128,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 146,
-    "multiCoreScore": 590,
+    "singleCoreScore": 1840,
+    "multiCoreScore": 9080,
     "tdpW": 58,
     "socket": "AM4",
     "l3CacheMB": 8,
@@ -3917,7 +4163,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$530",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1325,
+    "cinebenchR23Multi": 9010,
+    "passmarkScore": 26380
   },
   {
     "id": "cpu-084",
@@ -3929,8 +4178,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 154,
-    "multiCoreScore": 880,
+    "singleCoreScore": 1650,
+    "multiCoreScore": 6500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -3964,7 +4213,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$734",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1150,
+    "cinebenchR23Multi": 9500,
+    "passmarkScore": 17500
   },
   {
     "id": "cpu-085",
@@ -3976,8 +4228,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 162,
-    "multiCoreScore": 940,
+    "singleCoreScore": 1650,
+    "multiCoreScore": 6500,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -4011,7 +4263,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$776",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1150,
+    "cinebenchR23Multi": 9500,
+    "passmarkScore": 17500
   },
   {
     "id": "cpu-086",
@@ -4023,8 +4278,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 170,
-    "multiCoreScore": 1250,
+    "singleCoreScore": 1700,
+    "multiCoreScore": 8000,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -4058,7 +4313,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$993",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 13000,
+    "passmarkScore": 22000
   },
   {
     "id": "cpu-087",
@@ -4070,8 +4328,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 176,
-    "multiCoreScore": 1320,
+    "singleCoreScore": 1700,
+    "multiCoreScore": 8000,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -4105,7 +4363,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 13000,
+    "passmarkScore": 22000
   },
   {
     "id": "cpu-088",
@@ -4117,8 +4378,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 178,
-    "multiCoreScore": 1950,
+    "singleCoreScore": 1750,
+    "multiCoreScore": 12000,
     "tdpW": 125,
     "socket": "AM4",
     "l3CacheMB": 36,
@@ -4152,7 +4413,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1250,
+    "cinebenchR23Multi": 18500,
+    "passmarkScore": 32000
   },
   {
     "id": "cpu-089",
@@ -4164,8 +4428,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 2580,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 14500,
     "tdpW": 125,
     "socket": "AM4",
     "l3CacheMB": 36,
@@ -4199,7 +4463,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1300,
+    "cinebenchR23Multi": 24000,
+    "passmarkScore": 39000
   },
   {
     "id": "cpu-090",
@@ -4211,8 +4478,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 192,
-    "multiCoreScore": 1050,
+    "singleCoreScore": 2366,
+    "multiCoreScore": 17887,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -4246,7 +4513,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$866",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1704,
+    "cinebenchR23Multi": 17381,
+    "passmarkScore": 49450
   },
   {
     "id": "cpu-091",
@@ -4258,8 +4528,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 198,
-    "multiCoreScore": 1100,
+    "singleCoreScore": 2512,
+    "multiCoreScore": 19034,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -4293,7 +4563,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$901",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1809,
+    "cinebenchR23Multi": 18452,
+    "passmarkScore": 52609
   },
   {
     "id": "cpu-092",
@@ -4305,8 +4578,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 212,
-    "multiCoreScore": 1190,
+    "singleCoreScore": 2000,
+    "multiCoreScore": 8000,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -4340,7 +4613,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$964",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 11000,
+    "passmarkScore": 22000
   },
   {
     "id": "cpu-093",
@@ -4352,8 +4628,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 215,
-    "multiCoreScore": 1540,
+    "singleCoreScore": 2795,
+    "multiCoreScore": 28800,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 24,
@@ -4387,7 +4663,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2012,
+    "cinebenchR23Multi": 27363,
+    "passmarkScore": 77590
   },
   {
     "id": "cpu-094",
@@ -4399,8 +4678,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 228,
-    "multiCoreScore": 1680,
+    "singleCoreScore": 2100,
+    "multiCoreScore": 10000,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 24,
@@ -4434,7 +4713,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1500,
+    "cinebenchR23Multi": 15000,
+    "passmarkScore": 28000
   },
   {
     "id": "cpu-095",
@@ -4446,8 +4728,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 232,
-    "multiCoreScore": 1720,
+    "singleCoreScore": 2100,
+    "multiCoreScore": 10500,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 96,
@@ -4481,7 +4763,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 14500,
+    "passmarkScore": 28000
   },
   {
     "id": "cpu-096",
@@ -4493,8 +4778,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 245,
-    "multiCoreScore": 2450,
+    "singleCoreScore": 2150,
+    "multiCoreScore": 13500,
     "tdpW": 125,
     "socket": "AM4",
     "l3CacheMB": 36,
@@ -4528,7 +4813,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1550,
+    "cinebenchR23Multi": 21000,
+    "passmarkScore": 39000
   },
   {
     "id": "cpu-097",
@@ -4540,8 +4828,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 250,
-    "multiCoreScore": 3100,
+    "singleCoreScore": 2200,
+    "multiCoreScore": 15500,
     "tdpW": 125,
     "socket": "AM4",
     "l3CacheMB": 36,
@@ -4575,7 +4863,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1600,
+    "cinebenchR23Multi": 25000,
+    "passmarkScore": 45000
   },
   {
     "id": "cpu-098",
@@ -4587,8 +4878,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 285,
-    "multiCoreScore": 1580,
+    "singleCoreScore": 2745,
+    "multiCoreScore": 21251,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -4622,7 +4913,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1976,
+    "cinebenchR23Multi": 20155,
+    "passmarkScore": 58618
   },
   {
     "id": "cpu-099",
@@ -4634,8 +4928,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 305,
-    "multiCoreScore": 1680,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 11000,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -4669,7 +4963,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1900,
+    "cinebenchR23Multi": 15000,
+    "passmarkScore": 33000
   },
   {
     "id": "cpu-100",
@@ -4681,8 +4978,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 322,
-    "multiCoreScore": 2180,
+    "singleCoreScore": 2800,
+    "multiCoreScore": 14500,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 24,
@@ -4716,7 +5013,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1950,
+    "cinebenchR23Multi": 19000,
+    "passmarkScore": 43000
   },
   {
     "id": "cpu-101",
@@ -4728,8 +5028,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 325,
-    "multiCoreScore": 2280,
+    "singleCoreScore": 2750,
+    "multiCoreScore": 15000,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 96,
@@ -4763,7 +5063,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2050,
+    "cinebenchR23Multi": 18500,
+    "passmarkScore": 47000
   },
   {
     "id": "cpu-102",
@@ -4775,8 +5078,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 338,
-    "multiCoreScore": 3150,
+    "singleCoreScore": 2850,
+    "multiCoreScore": 18000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 36,
@@ -4810,7 +5113,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 29000,
+    "passmarkScore": 51000
   },
   {
     "id": "cpu-103",
@@ -4822,8 +5128,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 350,
-    "multiCoreScore": 4100,
+    "singleCoreScore": 2900,
+    "multiCoreScore": 22000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 36,
@@ -4857,7 +5163,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2050,
+    "cinebenchR23Multi": 38000,
+    "passmarkScore": 63000
   },
   {
     "id": "cpu-104",
@@ -4869,8 +5178,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 348,
-    "multiCoreScore": 4050,
+    "singleCoreScore": 2900,
+    "multiCoreScore": 23000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 128,
@@ -4904,7 +5213,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2350,
+    "cinebenchR23Multi": 42000,
+    "passmarkScore": 65000
   },
   {
     "id": "cpu-105",
@@ -4916,8 +5228,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 360,
-    "multiCoreScore": 1980,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 11000,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -4951,7 +5263,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1900,
+    "cinebenchR23Multi": 15000,
+    "passmarkScore": 33000
   },
   {
     "id": "cpu-106",
@@ -4963,8 +5278,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 385,
-    "multiCoreScore": 2650,
+    "singleCoreScore": 2800,
+    "multiCoreScore": 14500,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 24,
@@ -4998,7 +5313,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1950,
+    "cinebenchR23Multi": 19000,
+    "passmarkScore": 43000
   },
   {
     "id": "cpu-107",
@@ -5010,8 +5328,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 395,
-    "multiCoreScore": 2780,
+    "singleCoreScore": 3300,
+    "multiCoreScore": 17500,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 96,
@@ -5045,7 +5363,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2300,
+    "cinebenchR23Multi": 22000,
+    "passmarkScore": 52000
   },
   {
     "id": "cpu-108",
@@ -5057,8 +5378,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 410,
-    "multiCoreScore": 3880,
+    "singleCoreScore": 2850,
+    "multiCoreScore": 18000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 36,
@@ -5092,7 +5413,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 29000,
+    "passmarkScore": 51000
   },
   {
     "id": "cpu-109",
@@ -5104,8 +5428,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 435,
-    "multiCoreScore": 4850,
+    "singleCoreScore": 2900,
+    "multiCoreScore": 23000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 36,
@@ -5139,7 +5463,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2350,
+    "cinebenchR23Multi": 42000,
+    "passmarkScore": 65000
   },
   {
     "id": "cpu-110",
@@ -5151,8 +5478,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 370,
-    "multiCoreScore": 2100,
+    "singleCoreScore": 3136,
+    "multiCoreScore": 24837,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -5186,7 +5513,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2258,
+    "cinebenchR23Multi": 23032,
+    "passmarkScore": 68365
   },
   {
     "id": "cpu-111",
@@ -5198,8 +5528,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 400,
-    "multiCoreScore": 2900,
+    "singleCoreScore": 3506,
+    "multiCoreScore": 38306,
     "tdpW": 105,
     "socket": "AM5",
     "l3CacheMB": 24,
@@ -5233,7 +5563,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2524,
+    "cinebenchR23Multi": 34326,
+    "passmarkScore": 102777
   },
   {
     "id": "cpu-112",
@@ -5245,8 +5578,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 440,
-    "multiCoreScore": 4950,
+    "singleCoreScore": 2900,
+    "multiCoreScore": 23000,
     "tdpW": 125,
     "socket": "AM5",
     "l3CacheMB": 128,
@@ -5280,7 +5613,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2350,
+    "cinebenchR23Multi": 42000,
+    "passmarkScore": 65000
   },
   {
     "id": "cpu-113",
@@ -5292,8 +5628,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 16,
-    "multiCoreScore": 24,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5327,7 +5663,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.04 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-114",
@@ -5339,8 +5678,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 19,
-    "multiCoreScore": 28,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5374,7 +5713,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.16 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-115",
@@ -5386,8 +5728,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 20,
-    "multiCoreScore": 30,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5421,7 +5763,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.19 / 10.0",
-    "powerEfficiencyScore": "1.00 / 5.00"
+    "powerEfficiencyScore": "1.00 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-116",
@@ -5433,8 +5778,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 22,
-    "multiCoreScore": 33,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5468,7 +5813,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.24 / 10.0",
-    "powerEfficiencyScore": "1.04 / 5.00"
+    "powerEfficiencyScore": "1.04 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-117",
@@ -5480,8 +5828,8 @@
     "supportedDdr": [
       "DDR2"
     ],
-    "singleCoreScore": 24,
-    "multiCoreScore": 36,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5515,7 +5863,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.33 / 10.0",
-    "powerEfficiencyScore": "1.16 / 5.00"
+    "powerEfficiencyScore": "1.16 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-118",
@@ -5528,8 +5879,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 28,
-    "multiCoreScore": 42,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5563,7 +5914,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.47 / 10.0",
-    "powerEfficiencyScore": "1.36 / 5.00"
+    "powerEfficiencyScore": "1.36 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-119",
@@ -5576,8 +5930,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 31,
-    "multiCoreScore": 46,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5611,7 +5965,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$84",
     "costEffectivenessScore": "3.56 / 10.0",
-    "powerEfficiencyScore": "1.48 / 5.00"
+    "powerEfficiencyScore": "1.48 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-120",
@@ -5624,8 +5981,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 33,
-    "multiCoreScore": 49,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5659,7 +6016,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$87",
     "costEffectivenessScore": "3.61 / 10.0",
-    "powerEfficiencyScore": "1.56 / 5.00"
+    "powerEfficiencyScore": "1.56 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-121",
@@ -5672,8 +6032,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 35,
-    "multiCoreScore": 52,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5707,7 +6067,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$91",
     "costEffectivenessScore": "3.70 / 10.0",
-    "powerEfficiencyScore": "1.68 / 5.00"
+    "powerEfficiencyScore": "1.68 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-122",
@@ -5720,8 +6083,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 40,
-    "multiCoreScore": 59,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5755,7 +6118,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$100",
     "costEffectivenessScore": "3.87 / 10.0",
-    "powerEfficiencyScore": "1.92 / 5.00"
+    "powerEfficiencyScore": "1.92 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-123",
@@ -5768,8 +6134,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 42,
-    "multiCoreScore": 62,
+    "singleCoreScore": 300,
+    "multiCoreScore": 550,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5803,7 +6169,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$103",
     "costEffectivenessScore": "3.93 / 10.0",
-    "powerEfficiencyScore": "2.00 / 5.00"
+    "powerEfficiencyScore": "2.00 / 5.00",
+    "cinebenchR23Single": 150,
+    "cinebenchR23Multi": 300,
+    "passmarkScore": 1200
   },
   {
     "id": "cpu-124",
@@ -5816,8 +6185,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 32,
-    "multiCoreScore": 78,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5851,7 +6220,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$133",
     "costEffectivenessScore": "3.93 / 10.0",
-    "powerEfficiencyScore": "2.00 / 5.00"
+    "powerEfficiencyScore": "2.00 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-125",
@@ -5864,8 +6236,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 30,
-    "multiCoreScore": 82,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5899,7 +6271,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$134",
     "costEffectivenessScore": "3.96 / 10.0",
-    "powerEfficiencyScore": "2.04 / 5.00"
+    "powerEfficiencyScore": "2.04 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-126",
@@ -5912,8 +6287,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 32,
-    "multiCoreScore": 86,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5947,7 +6322,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$138",
     "costEffectivenessScore": "4.04 / 10.0",
-    "powerEfficiencyScore": "2.16 / 5.00"
+    "powerEfficiencyScore": "2.16 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-127",
@@ -5960,8 +6338,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 34,
-    "multiCoreScore": 92,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -5995,7 +6373,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$143",
     "costEffectivenessScore": "4.13 / 10.0",
-    "powerEfficiencyScore": "2.28 / 5.00"
+    "powerEfficiencyScore": "2.28 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-128",
@@ -6008,8 +6389,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 38,
-    "multiCoreScore": 100,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -6043,7 +6424,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$151",
     "costEffectivenessScore": "4.30 / 10.0",
-    "powerEfficiencyScore": "2.52 / 5.00"
+    "powerEfficiencyScore": "2.52 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-129",
@@ -6056,8 +6440,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 40,
-    "multiCoreScore": 105,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -6091,7 +6475,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$156",
     "costEffectivenessScore": "4.39 / 10.0",
-    "powerEfficiencyScore": "2.64 / 5.00"
+    "powerEfficiencyScore": "2.64 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-130",
@@ -6104,8 +6491,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 41,
-    "multiCoreScore": 108,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -6139,7 +6526,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$159",
     "costEffectivenessScore": "4.44 / 10.0",
-    "powerEfficiencyScore": "2.72 / 5.00"
+    "powerEfficiencyScore": "2.72 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-131",
@@ -6152,8 +6542,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 45,
-    "multiCoreScore": 120,
+    "singleCoreScore": 350,
+    "multiCoreScore": 1100,
     "tdpW": 45,
     "socket": "LGA775",
     "l3CacheMB": 2,
@@ -6187,7 +6577,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$169",
     "costEffectivenessScore": "4.64 / 10.0",
-    "powerEfficiencyScore": "3.00 / 5.00"
+    "powerEfficiencyScore": "3.00 / 5.00",
+    "cinebenchR23Single": 180,
+    "cinebenchR23Multi": 700,
+    "passmarkScore": 2500
   },
   {
     "id": "cpu-132",
@@ -6200,8 +6593,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 24,
-    "multiCoreScore": 38,
+    "singleCoreScore": 682,
+    "multiCoreScore": 820,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6235,7 +6628,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$79",
     "costEffectivenessScore": "3.36 / 10.0",
-    "powerEfficiencyScore": "1.20 / 5.00"
+    "powerEfficiencyScore": "1.20 / 5.00",
+    "cinebenchR23Single": 491,
+    "cinebenchR23Multi": 835,
+    "passmarkScore": 3414
   },
   {
     "id": "cpu-133",
@@ -6248,8 +6644,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 26,
-    "multiCoreScore": 62,
+    "singleCoreScore": 819,
+    "multiCoreScore": 1479,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6283,7 +6679,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$103",
     "costEffectivenessScore": "3.64 / 10.0",
-    "powerEfficiencyScore": "1.60 / 5.00"
+    "powerEfficiencyScore": "1.60 / 5.00",
+    "cinebenchR23Single": 590,
+    "cinebenchR23Multi": 1505,
+    "passmarkScore": 5336
   },
   {
     "id": "cpu-134",
@@ -6296,8 +6695,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 28,
-    "multiCoreScore": 85,
+    "singleCoreScore": 820,
+    "multiCoreScore": 1976,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6331,7 +6730,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$134",
     "costEffectivenessScore": "3.96 / 10.0",
-    "powerEfficiencyScore": "2.04 / 5.00"
+    "powerEfficiencyScore": "2.04 / 5.00",
+    "cinebenchR23Single": 590,
+    "cinebenchR23Multi": 2006,
+    "passmarkScore": 6580
   },
   {
     "id": "cpu-135",
@@ -6344,8 +6746,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 34,
-    "multiCoreScore": 52,
+    "singleCoreScore": 822,
+    "multiCoreScore": 989,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6379,7 +6781,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$89",
     "costEffectivenessScore": "3.67 / 10.0",
-    "powerEfficiencyScore": "1.64 / 5.00"
+    "powerEfficiencyScore": "1.64 / 5.00",
+    "cinebenchR23Single": 592,
+    "cinebenchR23Multi": 1006,
+    "passmarkScore": 4117
   },
   {
     "id": "cpu-136",
@@ -6392,8 +6797,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 32,
-    "multiCoreScore": 72,
+    "singleCoreScore": 685,
+    "multiCoreScore": 1237,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6427,7 +6832,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$115",
     "costEffectivenessScore": "3.87 / 10.0",
-    "powerEfficiencyScore": "1.92 / 5.00"
+    "powerEfficiencyScore": "1.92 / 5.00",
+    "cinebenchR23Single": 493,
+    "cinebenchR23Multi": 1257,
+    "passmarkScore": 4463
   },
   {
     "id": "cpu-137",
@@ -6440,8 +6848,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 34,
-    "multiCoreScore": 90,
+    "singleCoreScore": 685,
+    "multiCoreScore": 1651,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6475,7 +6883,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$141",
     "costEffectivenessScore": "4.10 / 10.0",
-    "powerEfficiencyScore": "2.24 / 5.00"
+    "powerEfficiencyScore": "2.24 / 5.00",
+    "cinebenchR23Single": 493,
+    "cinebenchR23Multi": 1676,
+    "passmarkScore": 5498
   },
   {
     "id": "cpu-138",
@@ -6488,8 +6899,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 36,
-    "multiCoreScore": 94,
+    "singleCoreScore": 686,
+    "multiCoreScore": 1654,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6523,7 +6934,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$146",
     "costEffectivenessScore": "4.19 / 10.0",
-    "powerEfficiencyScore": "2.36 / 5.00"
+    "powerEfficiencyScore": "2.36 / 5.00",
+    "cinebenchR23Single": 494,
+    "cinebenchR23Multi": 1680,
+    "passmarkScore": 5507
   },
   {
     "id": "cpu-139",
@@ -6536,8 +6950,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 40,
-    "multiCoreScore": 102,
+    "singleCoreScore": 687,
+    "multiCoreScore": 1657,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6571,7 +6985,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$154",
     "costEffectivenessScore": "4.36 / 10.0",
-    "powerEfficiencyScore": "2.60 / 5.00"
+    "powerEfficiencyScore": "2.60 / 5.00",
+    "cinebenchR23Single": 495,
+    "cinebenchR23Multi": 1683,
+    "passmarkScore": 5517
   },
   {
     "id": "cpu-140",
@@ -6584,8 +7001,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 41,
-    "multiCoreScore": 105,
+    "singleCoreScore": 825,
+    "multiCoreScore": 1990,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6619,7 +7036,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$157",
     "costEffectivenessScore": "4.41 / 10.0",
-    "powerEfficiencyScore": "2.68 / 5.00"
+    "powerEfficiencyScore": "2.68 / 5.00",
+    "cinebenchR23Single": 594,
+    "cinebenchR23Multi": 2020,
+    "passmarkScore": 6625
   },
   {
     "id": "cpu-141",
@@ -6632,8 +7052,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 43,
-    "multiCoreScore": 110,
+    "singleCoreScore": 963,
+    "multiCoreScore": 2323,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6667,7 +7087,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$162",
     "costEffectivenessScore": "4.50 / 10.0",
-    "powerEfficiencyScore": "2.80 / 5.00"
+    "powerEfficiencyScore": "2.80 / 5.00",
+    "cinebenchR23Single": 693,
+    "cinebenchR23Multi": 2356,
+    "passmarkScore": 7734
   },
   {
     "id": "cpu-142",
@@ -6680,8 +7103,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 38,
-    "multiCoreScore": 150,
+    "singleCoreScore": 824,
+    "multiCoreScore": 2988,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6715,7 +7138,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$210",
     "costEffectivenessScore": "4.87 / 10.0",
-    "powerEfficiencyScore": "3.32 / 5.00"
+    "powerEfficiencyScore": "3.32 / 5.00",
+    "cinebenchR23Single": 593,
+    "cinebenchR23Multi": 3024,
+    "passmarkScore": 9118
   },
   {
     "id": "cpu-143",
@@ -6728,8 +7154,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 41,
-    "multiCoreScore": 162,
+    "singleCoreScore": 825,
+    "multiCoreScore": 2993,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6763,7 +7189,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$219",
     "costEffectivenessScore": "5.04 / 10.0",
-    "powerEfficiencyScore": "3.56 / 5.00"
+    "powerEfficiencyScore": "3.56 / 5.00",
+    "cinebenchR23Single": 594,
+    "cinebenchR23Multi": 3029,
+    "passmarkScore": 9133
   },
   {
     "id": "cpu-144",
@@ -6776,8 +7205,8 @@
       "DDR2",
       "DDR3"
     ],
-    "singleCoreScore": 45,
-    "multiCoreScore": 180,
+    "singleCoreScore": 964,
+    "multiCoreScore": 3500,
     "tdpW": 45,
     "socket": "AM3",
     "l3CacheMB": 2,
@@ -6811,7 +7240,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$234",
     "costEffectivenessScore": "5.33 / 10.0",
-    "powerEfficiencyScore": "3.96 / 5.00"
+    "powerEfficiencyScore": "3.96 / 5.00",
+    "cinebenchR23Single": 694,
+    "cinebenchR23Multi": 3539,
+    "passmarkScore": 10678
   },
   {
     "id": "cpu-145",
@@ -6823,8 +7255,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 44,
-    "multiCoreScore": 120,
+    "singleCoreScore": 1101,
+    "multiCoreScore": 2657,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -6858,7 +7290,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$167",
     "costEffectivenessScore": "4.61 / 10.0",
-    "powerEfficiencyScore": "2.96 / 5.00"
+    "powerEfficiencyScore": "2.96 / 5.00",
+    "cinebenchR23Single": 793,
+    "cinebenchR23Multi": 2696,
+    "passmarkScore": 8845
   },
   {
     "id": "cpu-146",
@@ -6870,8 +7305,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 40,
-    "multiCoreScore": 160,
+    "singleCoreScore": 962,
+    "multiCoreScore": 3490,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -6905,7 +7340,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$218",
     "costEffectivenessScore": "5.01 / 10.0",
-    "powerEfficiencyScore": "3.52 / 5.00"
+    "powerEfficiencyScore": "3.52 / 5.00",
+    "cinebenchR23Single": 693,
+    "cinebenchR23Multi": 3534,
+    "passmarkScore": 10649
   },
   {
     "id": "cpu-147",
@@ -6917,8 +7355,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 42,
-    "multiCoreScore": 230,
+    "singleCoreScore": 963,
+    "multiCoreScore": 4673,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -6952,7 +7390,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$290",
     "costEffectivenessScore": "5.84 / 10.0",
-    "powerEfficiencyScore": "4.68 / 5.00"
+    "powerEfficiencyScore": "4.68 / 5.00",
+    "cinebenchR23Single": 693,
+    "cinebenchR23Multi": 4712,
+    "passmarkScore": 13609
   },
   {
     "id": "cpu-148",
@@ -6964,8 +7405,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 46,
-    "multiCoreScore": 250,
+    "singleCoreScore": 964,
+    "multiCoreScore": 4682,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -6999,7 +7440,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$306",
     "costEffectivenessScore": "6.16 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 694,
+    "cinebenchR23Multi": 4719,
+    "passmarkScore": 13633
   },
   {
     "id": "cpu-149",
@@ -7011,8 +7455,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 50,
-    "multiCoreScore": 270,
+    "singleCoreScore": 1104,
+    "multiCoreScore": 5367,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -7046,7 +7490,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$320",
     "costEffectivenessScore": "6.44 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 795,
+    "cinebenchR23Multi": 5406,
+    "passmarkScore": 15626
   },
   {
     "id": "cpu-150",
@@ -7058,8 +7505,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 58,
-    "multiCoreScore": 305,
+    "singleCoreScore": 1385,
+    "multiCoreScore": 6745,
     "tdpW": 45,
     "socket": "AM3+",
     "l3CacheMB": 2,
@@ -7093,7 +7540,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$348",
     "costEffectivenessScore": "6.99 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 997,
+    "cinebenchR23Multi": 6780,
+    "passmarkScore": 19633
   },
   {
     "id": "cpu-151",
@@ -7105,8 +7555,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 78,
-    "multiCoreScore": 130,
+    "singleCoreScore": 894,
+    "multiCoreScore": 2159,
     "tdpW": 58,
     "socket": "LGA1155",
     "l3CacheMB": 8,
@@ -7140,7 +7590,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$174",
     "costEffectivenessScore": "5.33 / 10.0",
-    "powerEfficiencyScore": "3.07 / 5.00"
+    "powerEfficiencyScore": "3.07 / 5.00",
+    "cinebenchR23Single": 644,
+    "cinebenchR23Multi": 2190,
+    "passmarkScore": 7186
   },
   {
     "id": "cpu-152",
@@ -7152,8 +7605,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 84,
-    "multiCoreScore": 215,
+    "singleCoreScore": 1064,
+    "multiCoreScore": 2580,
     "tdpW": 65,
     "socket": "LGA1155",
     "l3CacheMB": 16,
@@ -7187,7 +7640,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$257",
     "costEffectivenessScore": "6.39 / 10.0",
-    "powerEfficiencyScore": "3.77 / 5.00"
+    "powerEfficiencyScore": "3.77 / 5.00",
+    "cinebenchR23Single": 766,
+    "cinebenchR23Multi": 2604,
+    "passmarkScore": 8578
   },
   {
     "id": "cpu-153",
@@ -7199,8 +7655,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 90,
-    "multiCoreScore": 230,
+    "singleCoreScore": 1067,
+    "multiCoreScore": 2589,
     "tdpW": 65,
     "socket": "LGA1155",
     "l3CacheMB": 16,
@@ -7234,7 +7690,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$272",
     "costEffectivenessScore": "6.67 / 10.0",
-    "powerEfficiencyScore": "4.04 / 5.00"
+    "powerEfficiencyScore": "4.04 / 5.00",
+    "cinebenchR23Single": 768,
+    "cinebenchR23Multi": 2611,
+    "passmarkScore": 8607
   },
   {
     "id": "cpu-154",
@@ -7246,8 +7705,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 98,
-    "multiCoreScore": 295,
+    "singleCoreScore": 1183,
+    "multiCoreScore": 5758,
     "tdpW": 105,
     "socket": "LGA1155",
     "l3CacheMB": 24,
@@ -7281,7 +7740,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$317",
     "costEffectivenessScore": "7.56 / 10.0",
-    "powerEfficiencyScore": "3.03 / 5.00"
+    "powerEfficiencyScore": "3.03 / 5.00",
+    "cinebenchR23Single": 852,
+    "cinebenchR23Multi": 5794,
+    "passmarkScore": 16761
   },
   {
     "id": "cpu-155",
@@ -7293,8 +7755,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 98,
-    "multiCoreScore": 255,
+    "singleCoreScore": 1338,
+    "multiCoreScore": 3250,
     "tdpW": 65,
     "socket": "LGA1150",
     "l3CacheMB": 16,
@@ -7328,7 +7790,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$293",
     "costEffectivenessScore": "7.10 / 10.0",
-    "powerEfficiencyScore": "4.46 / 5.00"
+    "powerEfficiencyScore": "4.46 / 5.00",
+    "cinebenchR23Single": 963,
+    "cinebenchR23Multi": 3274,
+    "passmarkScore": 10801
   },
   {
     "id": "cpu-156",
@@ -7340,8 +7805,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 104,
-    "multiCoreScore": 275,
+    "singleCoreScore": 1342,
+    "multiCoreScore": 3263,
     "tdpW": 65,
     "socket": "LGA1150",
     "l3CacheMB": 16,
@@ -7375,7 +7840,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$309",
     "costEffectivenessScore": "7.41 / 10.0",
-    "powerEfficiencyScore": "4.76 / 5.00"
+    "powerEfficiencyScore": "4.76 / 5.00",
+    "cinebenchR23Single": 966,
+    "cinebenchR23Multi": 3284,
+    "passmarkScore": 10842
   },
   {
     "id": "cpu-157",
@@ -7387,8 +7855,8 @@
     "supportedDdr": [
       "DDR3"
     ],
-    "singleCoreScore": 118,
-    "multiCoreScore": 375,
+    "singleCoreScore": 1492,
+    "multiCoreScore": 7289,
     "tdpW": 105,
     "socket": "LGA1150",
     "l3CacheMB": 24,
@@ -7422,7 +7890,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$380",
     "costEffectivenessScore": "8.81 / 10.0",
-    "powerEfficiencyScore": "3.79 / 5.00"
+    "powerEfficiencyScore": "3.79 / 5.00",
+    "cinebenchR23Single": 1074,
+    "cinebenchR23Multi": 7303,
+    "passmarkScore": 21207
   },
   {
     "id": "cpu-158",
@@ -7434,8 +7905,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 118,
-    "multiCoreScore": 310,
+    "singleCoreScore": 1485,
+    "multiCoreScore": 3617,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7469,7 +7940,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$343",
     "costEffectivenessScore": "8.07 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1069,
+    "cinebenchR23Multi": 3635,
+    "passmarkScore": 12013
   },
   {
     "id": "cpu-159",
@@ -7481,8 +7955,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 125,
-    "multiCoreScore": 340,
+    "singleCoreScore": 1489,
+    "multiCoreScore": 3631,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7516,7 +7990,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$366",
     "costEffectivenessScore": "8.53 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1072,
+    "cinebenchR23Multi": 3645,
+    "passmarkScore": 12056
   },
   {
     "id": "cpu-160",
@@ -7528,8 +8005,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 130,
-    "multiCoreScore": 360,
+    "singleCoreScore": 1764,
+    "multiCoreScore": 4306,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7563,7 +8040,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$382",
     "costEffectivenessScore": "8.84 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1270,
+    "cinebenchR23Multi": 4318,
+    "passmarkScore": 14293
   },
   {
     "id": "cpu-161",
@@ -7575,8 +8055,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 138,
-    "multiCoreScore": 395,
+    "singleCoreScore": 1770,
+    "multiCoreScore": 4328,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7610,7 +8090,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$409",
     "costEffectivenessScore": "9.39 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1274,
+    "cinebenchR23Multi": 4332,
+    "passmarkScore": 14360
   },
   {
     "id": "cpu-162",
@@ -7622,8 +8105,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 154,
-    "multiCoreScore": 510,
+    "singleCoreScore": 1969,
+    "multiCoreScore": 9681,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -7657,7 +8140,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$489",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1418,
+    "cinebenchR23Multi": 9642,
+    "passmarkScore": 28141
   },
   {
     "id": "cpu-163",
@@ -7669,8 +8155,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 148,
-    "multiCoreScore": 560,
+    "singleCoreScore": 1914,
+    "multiCoreScore": 7074,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7704,7 +8190,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$544",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1378,
+    "cinebenchR23Multi": 7028,
+    "passmarkScore": 21513
   },
   {
     "id": "cpu-164",
@@ -7716,8 +8205,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 165,
-    "multiCoreScore": 730,
+    "singleCoreScore": 1978,
+    "multiCoreScore": 14737,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -7751,7 +8240,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$657",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1424,
+    "cinebenchR23Multi": 14525,
+    "passmarkScore": 40799
   },
   {
     "id": "cpu-165",
@@ -7763,8 +8255,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 146,
-    "multiCoreScore": 540,
+    "singleCoreScore": 2049,
+    "multiCoreScore": 7566,
     "tdpW": 65,
     "socket": "LGA1151",
     "l3CacheMB": 16,
@@ -7798,7 +8290,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$531",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1475,
+    "cinebenchR23Multi": 7523,
+    "passmarkScore": 23013
   },
   {
     "id": "cpu-166",
@@ -7810,8 +8305,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 178,
-    "multiCoreScore": 770,
+    "singleCoreScore": 2294,
+    "multiCoreScore": 11415,
     "tdpW": 105,
     "socket": "LGA1151",
     "l3CacheMB": 24,
@@ -7845,7 +8340,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$722",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1652,
+    "cinebenchR23Multi": 11234,
+    "passmarkScore": 33126
   },
   {
     "name": "Apple M1",
@@ -7856,8 +8354,8 @@
     "supportedDdr": [
       "Unified LPDDR4X"
     ],
-    "singleCoreScore": 175,
-    "multiCoreScore": 760,
+    "singleCoreScore": 2328,
+    "multiCoreScore": 11579,
     "tdpW": 15,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 12,
@@ -7892,7 +8390,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$713",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1676,
+    "cinebenchR23Multi": 11397,
+    "passmarkScore": 33604
   },
   {
     "name": "Apple M1 Pro",
@@ -7903,8 +8404,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 178,
-    "multiCoreScore": 1020,
+    "singleCoreScore": 2477,
+    "multiCoreScore": 15584,
     "tdpW": 30,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 24,
@@ -7939,7 +8440,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$897",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1783,
+    "cinebenchR23Multi": 15156,
+    "passmarkScore": 43914
   },
   {
     "name": "Apple M1 Max",
@@ -7950,8 +8454,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 180,
-    "multiCoreScore": 1050,
+    "singleCoreScore": 2479,
+    "multiCoreScore": 15618,
     "tdpW": 45,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 48,
@@ -7986,7 +8490,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$916",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1785,
+    "cinebenchR23Multi": 15173,
+    "passmarkScore": 44003
   },
   {
     "name": "Apple M1 Ultra",
@@ -7997,8 +8504,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 2100,
+    "singleCoreScore": 2627,
+    "multiCoreScore": 34676,
     "tdpW": 90,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 96,
@@ -8033,7 +8540,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1891,
+    "cinebenchR23Multi": 32147,
+    "passmarkScore": 91944
   },
   {
     "name": "Apple M2",
@@ -8044,8 +8554,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 880,
+    "singleCoreScore": 2641,
+    "multiCoreScore": 13208,
     "tdpW": 20,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 16,
@@ -8080,7 +8590,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$800",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1902,
+    "cinebenchR23Multi": 12934,
+    "passmarkScore": 38302
   },
   {
     "name": "Apple M2 Pro",
@@ -8091,8 +8604,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 198,
-    "multiCoreScore": 1250,
+    "singleCoreScore": 2791,
+    "multiCoreScore": 21291,
     "tdpW": 35,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 32,
@@ -8127,7 +8640,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2010,
+    "cinebenchR23Multi": 20502,
+    "passmarkScore": 58810
   },
   {
     "name": "Apple M2 Max",
@@ -8138,8 +8654,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 200,
-    "multiCoreScore": 1280,
+    "singleCoreScore": 2793,
+    "multiCoreScore": 21335,
     "tdpW": 50,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 48,
@@ -8174,7 +8690,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2011,
+    "cinebenchR23Multi": 20512,
+    "passmarkScore": 58924
   },
   {
     "name": "Apple M2 Ultra",
@@ -8185,8 +8704,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 202,
-    "multiCoreScore": 2550,
+    "singleCoreScore": 2795,
+    "multiCoreScore": 45135,
     "tdpW": 100,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 96,
@@ -8221,7 +8740,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2012,
+    "cinebenchR23Multi": 41045,
+    "passmarkScore": 118428
   },
   {
     "name": "Apple M3",
@@ -8232,8 +8754,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 220,
-    "multiCoreScore": 980,
+    "singleCoreScore": 2816,
+    "multiCoreScore": 14148,
     "tdpW": 22,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 16,
@@ -8268,7 +8790,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$880",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2028,
+    "cinebenchR23Multi": 13790,
+    "passmarkScore": 41002
   },
   {
     "name": "Apple M3 Pro",
@@ -8279,8 +8804,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 225,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2822,
+    "multiCoreScore": 21654,
     "tdpW": 38,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 36,
@@ -8315,7 +8840,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2032,
+    "cinebenchR23Multi": 20726,
+    "passmarkScore": 59779
   },
   {
     "name": "Apple M3 Max",
@@ -8326,8 +8854,8 @@
     "supportedDdr": [
       "Unified LPDDR5"
     ],
-    "singleCoreScore": 230,
-    "multiCoreScore": 1820,
+    "singleCoreScore": 2827,
+    "multiCoreScore": 29491,
     "tdpW": 60,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 48,
@@ -8362,7 +8890,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2035,
+    "cinebenchR23Multi": 27676,
+    "passmarkScore": 79382
   },
   {
     "name": "Apple M4",
@@ -8373,8 +8904,8 @@
     "supportedDdr": [
       "Unified LPDDR5X"
     ],
-    "singleCoreScore": 260,
-    "multiCoreScore": 1350,
+    "singleCoreScore": 3012,
+    "multiCoreScore": 19234,
     "tdpW": 25,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 20,
@@ -8409,7 +8940,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2169,
+    "cinebenchR23Multi": 18437,
+    "passmarkScore": 54109
   },
   {
     "name": "Apple M4 Pro",
@@ -8420,8 +8954,8 @@
     "supportedDdr": [
       "Unified LPDDR5X"
     ],
-    "singleCoreScore": 265,
-    "multiCoreScore": 1980,
+    "singleCoreScore": 3018,
+    "multiCoreScore": 27741,
     "tdpW": 45,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 40,
@@ -8456,7 +8990,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2173,
+    "cinebenchR23Multi": 25859,
+    "passmarkScore": 75389
   },
   {
     "name": "Apple M4 Max",
@@ -8467,8 +9004,8 @@
     "supportedDdr": [
       "Unified LPDDR5X"
     ],
-    "singleCoreScore": 270,
-    "multiCoreScore": 2450,
+    "singleCoreScore": 3024,
+    "multiCoreScore": 32417,
     "tdpW": 75,
     "socket": "Apple Unified SoC",
     "l3CacheMB": 48,
@@ -8503,7 +9040,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2177,
+    "cinebenchR23Multi": 29607,
+    "passmarkScore": 87091
   },
   {
     "name": "Core i5-14400",
@@ -8515,8 +9055,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 1250,
+    "singleCoreScore": 2772,
+    "multiCoreScore": 28195,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 20,
@@ -8551,7 +9091,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1996,
+    "cinebenchR23Multi": 27146,
+    "passmarkScore": 76032
   },
   {
     "name": "Core i5-14500",
@@ -8563,8 +9106,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 188,
-    "multiCoreScore": 1580,
+    "singleCoreScore": 2779,
+    "multiCoreScore": 35857,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -8599,7 +9142,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2001,
+    "cinebenchR23Multi": 34017,
+    "passmarkScore": 95201
   },
   {
     "name": "Core i7-14700",
@@ -8611,8 +9157,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 218,
-    "multiCoreScore": 2200,
+    "singleCoreScore": 3110,
+    "multiCoreScore": 57722,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 33,
@@ -8647,7 +9193,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2239,
+    "cinebenchR23Multi": 53288,
+    "passmarkScore": 150525
   },
   {
     "name": "Core i9-14900KS",
@@ -8659,8 +9208,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 242,
-    "multiCoreScore": 2720,
+    "singleCoreScore": 3150,
+    "multiCoreScore": 21500,
     "tdpW": 150,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -8695,7 +9244,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2250,
+    "cinebenchR23Multi": 40000,
+    "passmarkScore": 60000
   },
   {
     "name": "Core i5-13500",
@@ -8707,8 +9259,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 180,
-    "multiCoreScore": 1520,
+    "singleCoreScore": 2632,
+    "multiCoreScore": 33870,
     "tdpW": 65,
     "socket": "LGA1700",
     "l3CacheMB": 24,
@@ -8743,7 +9295,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1895,
+    "cinebenchR23Multi": 32215,
+    "passmarkScore": 89939
   },
   {
     "name": "Core i9-13900KS",
@@ -8755,8 +9310,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 235,
-    "multiCoreScore": 2640,
+    "singleCoreScore": 3150,
+    "multiCoreScore": 21500,
     "tdpW": 150,
     "socket": "LGA1700",
     "l3CacheMB": 36,
@@ -8791,7 +9346,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2250,
+    "cinebenchR23Multi": 40000,
+    "passmarkScore": 60000
   },
   {
     "name": "Core i9-12900KS",
@@ -8803,8 +9361,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 215,
-    "multiCoreScore": 2150,
+    "singleCoreScore": 2700,
+    "multiCoreScore": 18000,
     "tdpW": 150,
     "socket": "LGA1700",
     "l3CacheMB": 30,
@@ -8839,7 +9397,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 27000,
+    "passmarkScore": 41000
   },
   {
     "name": "Core i7-10700",
@@ -8850,8 +9411,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 138,
-    "multiCoreScore": 920,
+    "singleCoreScore": 2407,
+    "multiCoreScore": 24120,
     "tdpW": 65,
     "socket": "LGA1200",
     "l3CacheMB": 16,
@@ -8886,7 +9447,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$774",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1733,
+    "cinebenchR23Multi": 23569,
+    "passmarkScore": 65114
   },
   {
     "name": "Core i9-10980XE",
@@ -8897,8 +9461,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 142,
-    "multiCoreScore": 1780,
+    "singleCoreScore": 2368,
+    "multiCoreScore": 55484,
     "tdpW": 165,
     "socket": "LGA2066",
     "l3CacheMB": 24.75,
@@ -8933,7 +9497,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1705,
+    "cinebenchR23Multi": 52173,
+    "passmarkScore": 143446
   },
   {
     "name": "Core Ultra 7 155H",
@@ -8945,8 +9512,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 1480,
+    "singleCoreScore": 2787,
+    "multiCoreScore": 39381,
     "tdpW": 28,
     "socket": "BGA2049",
     "l3CacheMB": 24,
@@ -8981,7 +9548,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2007,
+    "cinebenchR23Multi": 37531,
+    "passmarkScore": 104027
   },
   {
     "name": "Core Ultra 9 185H",
@@ -8993,8 +9563,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 208,
-    "multiCoreScore": 1620,
+    "singleCoreScore": 2802,
+    "multiCoreScore": 39840,
     "tdpW": 45,
     "socket": "BGA2049",
     "l3CacheMB": 24,
@@ -9029,7 +9599,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2017,
+    "cinebenchR23Multi": 37718,
+    "passmarkScore": 105204
   },
   {
     "name": "Core i7-13700HX",
@@ -9040,8 +9613,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 205,
-    "multiCoreScore": 1850,
+    "singleCoreScore": 2939,
+    "multiCoreScore": 46050,
     "tdpW": 55,
     "socket": "BGA1964",
     "l3CacheMB": 30,
@@ -9076,7 +9649,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2116,
+    "cinebenchR23Multi": 43166,
+    "passmarkScore": 121003
   },
   {
     "name": "Core i9-13900HX",
@@ -9087,8 +9663,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 222,
-    "multiCoreScore": 2350,
+    "singleCoreScore": 3100,
+    "multiCoreScore": 66181,
     "tdpW": 55,
     "socket": "BGA1964",
     "l3CacheMB": 36,
@@ -9123,7 +9699,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2232,
+    "cinebenchR23Multi": 60710,
+    "passmarkScore": 171653
   },
   {
     "name": "Core i9-14900HX",
@@ -9134,8 +9713,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 232,
-    "multiCoreScore": 2520,
+    "singleCoreScore": 3276,
+    "multiCoreScore": 70447,
     "tdpW": 55,
     "socket": "BGA1964",
     "l3CacheMB": 36,
@@ -9170,7 +9749,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2359,
+    "cinebenchR23Multi": 64165,
+    "passmarkScore": 182670
   },
   {
     "name": "Ryzen 5 7500F",
@@ -9181,8 +9763,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 185,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2637,
+    "multiCoreScore": 20234,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 32,
@@ -9217,7 +9799,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1899,
+    "cinebenchR23Multi": 19370,
+    "passmarkScore": 55859
   },
   {
     "name": "Ryzen 7 7700",
@@ -9228,8 +9813,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 1720,
+    "singleCoreScore": 2927,
+    "multiCoreScore": 30401,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 32,
@@ -9264,7 +9849,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2107,
+    "cinebenchR23Multi": 28655,
+    "passmarkScore": 81857
   },
   {
     "name": "Ryzen 9 7900",
@@ -9275,8 +9863,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 200,
-    "multiCoreScore": 2150,
+    "singleCoreScore": 3072,
+    "multiCoreScore": 48766,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 64,
@@ -9311,7 +9899,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2212,
+    "cinebenchR23Multi": 45125,
+    "passmarkScore": 128059
   },
   {
     "name": "Ryzen 9 7900X3D",
@@ -9322,8 +9913,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 205,
-    "multiCoreScore": 2220,
+    "singleCoreScore": 2850,
+    "multiCoreScore": 18000,
     "tdpW": 120,
     "socket": "AM5",
     "l3CacheMB": 128,
@@ -9358,7 +9949,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2000,
+    "cinebenchR23Multi": 29000,
+    "passmarkScore": 51000
   },
   {
     "name": "Ryzen 5 8500G",
@@ -9369,8 +9963,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 1280,
+    "singleCoreScore": 2772,
+    "multiCoreScore": 21175,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -9405,7 +9999,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$990",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1996,
+    "cinebenchR23Multi": 20359,
+    "passmarkScore": 58482
   },
   {
     "name": "Ryzen 5 8600G",
@@ -9416,8 +10013,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 190,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2782,
+    "multiCoreScore": 21347,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -9452,7 +10049,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2003,
+    "cinebenchR23Multi": 20431,
+    "passmarkScore": 58932
   },
   {
     "name": "Ryzen 7 8700G",
@@ -9463,8 +10063,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 202,
-    "multiCoreScore": 1750,
+    "singleCoreScore": 3090,
+    "multiCoreScore": 32136,
     "tdpW": 65,
     "socket": "AM5",
     "l3CacheMB": 16,
@@ -9499,7 +10099,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2225,
+    "cinebenchR23Multi": 30260,
+    "passmarkScore": 86520
   },
   {
     "name": "Ryzen 5 5500",
@@ -9510,8 +10113,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 142,
-    "multiCoreScore": 980,
+    "singleCoreScore": 2454,
+    "multiCoreScore": 18493,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -9546,7 +10149,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$782",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1767,
+    "cinebenchR23Multi": 18023,
+    "passmarkScore": 51141
   },
   {
     "name": "Ryzen 5 5600X3D",
@@ -9557,8 +10163,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 168,
-    "multiCoreScore": 1220,
+    "singleCoreScore": 2000,
+    "multiCoreScore": 8000,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 96,
@@ -9593,7 +10199,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$944",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 11000,
+    "passmarkScore": 22000
   },
   {
     "name": "Ryzen 7 5700X3D",
@@ -9604,8 +10213,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 172,
-    "multiCoreScore": 1460,
+    "singleCoreScore": 3052,
+    "multiCoreScore": 31336,
     "tdpW": 105,
     "socket": "AM4",
     "l3CacheMB": 96,
@@ -9640,7 +10249,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2197,
+    "cinebenchR23Multi": 29879,
+    "passmarkScore": 84444
   },
   {
     "name": "Ryzen 7 5700G",
@@ -9651,8 +10263,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 160,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2581,
+    "multiCoreScore": 26406,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 16,
@@ -9687,7 +10299,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1858,
+    "cinebenchR23Multi": 25269,
+    "passmarkScore": 71177
   },
   {
     "name": "Ryzen 5 4600G",
@@ -9698,8 +10313,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 130,
-    "multiCoreScore": 860,
+    "singleCoreScore": 2171,
+    "multiCoreScore": 16271,
     "tdpW": 65,
     "socket": "AM4",
     "l3CacheMB": 8,
@@ -9734,7 +10349,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$702",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1563,
+    "cinebenchR23Multi": 15943,
+    "passmarkScore": 45020
   },
   {
     "name": "Ryzen Threadripper 3960X",
@@ -9745,8 +10363,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 165,
-    "multiCoreScore": 2580,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 11000,
     "tdpW": 280,
     "socket": "sTRX4",
     "l3CacheMB": 128,
@@ -9781,7 +10399,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 34000,
+    "passmarkScore": 48800
   },
   {
     "name": "Ryzen Threadripper 3970X",
@@ -9792,8 +10413,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 168,
-    "multiCoreScore": 3200,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 13000,
     "tdpW": 280,
     "socket": "sTRX4",
     "l3CacheMB": 128,
@@ -9828,7 +10449,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 42000,
+    "passmarkScore": 58400
   },
   {
     "name": "Ryzen Threadripper 3990X",
@@ -9839,8 +10463,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 162,
-    "multiCoreScore": 5400,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 20000,
     "tdpW": 280,
     "socket": "sTRX4",
     "l3CacheMB": 256,
@@ -9875,7 +10499,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1250,
+    "cinebenchR23Multi": 75000,
+    "passmarkScore": 80000
   },
   {
     "name": "Ryzen Threadripper 7960X",
@@ -9886,8 +10513,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 228,
-    "multiCoreScore": 3850,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 11000,
     "tdpW": 350,
     "socket": "sTR5",
     "l3CacheMB": 128,
@@ -9922,7 +10549,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 34000,
+    "passmarkScore": 48800
   },
   {
     "name": "Ryzen Threadripper 7970X",
@@ -9933,8 +10563,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 230,
-    "multiCoreScore": 4800,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 13000,
     "tdpW": 350,
     "socket": "sTR5",
     "l3CacheMB": 128,
@@ -9969,7 +10599,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 42000,
+    "passmarkScore": 58400
   },
   {
     "name": "Ryzen Threadripper 7980X",
@@ -9980,8 +10613,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 232,
-    "multiCoreScore": 7900,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 20000,
     "tdpW": 350,
     "socket": "sTR5",
     "l3CacheMB": 256,
@@ -10016,7 +10649,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 74000,
+    "passmarkScore": 96800
   },
   {
     "name": "Ryzen Threadripper PRO 7995WX",
@@ -10027,8 +10663,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 235,
-    "multiCoreScore": 10500,
+    "singleCoreScore": 1800,
+    "multiCoreScore": 20000,
     "tdpW": 350,
     "socket": "sTR5",
     "l3CacheMB": 384,
@@ -10063,7 +10699,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1200,
+    "cinebenchR23Multi": 80000,
+    "passmarkScore": 100000
   },
   {
     "name": "Core Ultra 7 258V",
@@ -10074,8 +10713,8 @@
     "supportedDdr": [
       "LPDDR5X-8533"
     ],
-    "singleCoreScore": 235,
-    "multiCoreScore": 1420,
+    "singleCoreScore": 2982,
+    "multiCoreScore": 15281,
     "tdpW": 17,
     "socket": "BGA2734",
     "l3CacheMB": 12,
@@ -10110,7 +10749,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2147,
+    "cinebenchR23Multi": 14600,
+    "passmarkScore": 44167
   },
   {
     "name": "Core Ultra 5 226V",
@@ -10121,8 +10763,8 @@
     "supportedDdr": [
       "LPDDR5X-8533"
     ],
-    "singleCoreScore": 215,
-    "multiCoreScore": 1280,
+    "singleCoreScore": 2958,
+    "multiCoreScore": 15064,
     "tdpW": 17,
     "socket": "BGA2734",
     "l3CacheMB": 8,
@@ -10157,7 +10799,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2130,
+    "cinebenchR23Multi": 14484,
+    "passmarkScore": 43576
   },
   {
     "name": "Core Ultra 5 125H",
@@ -10169,8 +10814,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 1320,
+    "singleCoreScore": 2772,
+    "multiCoreScore": 31819,
     "tdpW": 28,
     "socket": "BGA2049",
     "l3CacheMB": 18,
@@ -10205,7 +10850,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1996,
+    "cinebenchR23Multi": 30539,
+    "passmarkScore": 85092
   },
   {
     "name": "Core i7-1360P",
@@ -10217,8 +10865,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 185,
-    "multiCoreScore": 1220,
+    "singleCoreScore": 2915,
+    "multiCoreScore": 29610,
     "tdpW": 28,
     "socket": "BGA1744",
     "l3CacheMB": 18,
@@ -10253,7 +10901,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2099,
+    "cinebenchR23Multi": 28546,
+    "passmarkScore": 79855
   },
   {
     "name": "Core i5-1340P",
@@ -10265,8 +10916,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 172,
-    "multiCoreScore": 1080,
+    "singleCoreScore": 2623,
+    "multiCoreScore": 26476,
     "tdpW": 28,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -10301,7 +10952,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$956",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1889,
+    "cinebenchR23Multi": 25690,
+    "passmarkScore": 71436
   },
   {
     "name": "Core i7-1260P",
@@ -10313,8 +10967,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 170,
-    "multiCoreScore": 1120,
+    "singleCoreScore": 2744,
+    "multiCoreScore": 27747,
     "tdpW": 28,
     "socket": "BGA1744",
     "l3CacheMB": 18,
@@ -10349,7 +11003,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$978",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1976,
+    "cinebenchR23Multi": 26874,
+    "passmarkScore": 74856
   },
   {
     "name": "Core i5-1240P",
@@ -10361,8 +11018,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 160,
-    "multiCoreScore": 980,
+    "singleCoreScore": 2473,
+    "multiCoreScore": 24849,
     "tdpW": 28,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -10397,7 +11054,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$888",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1781,
+    "cinebenchR23Multi": 24222,
+    "passmarkScore": 67069
   },
   {
     "name": "Ryzen AI 9 HX 370",
@@ -10408,8 +11068,8 @@
     "supportedDdr": [
       "LPDDR5X"
     ],
-    "singleCoreScore": 240,
-    "multiCoreScore": 2100,
+    "singleCoreScore": 2988,
+    "multiCoreScore": 47330,
     "tdpW": 28,
     "socket": "FP8",
     "l3CacheMB": 24,
@@ -10444,7 +11104,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2151,
+    "cinebenchR23Multi": 43880,
+    "passmarkScore": 124301
   },
   {
     "name": "Ryzen AI 9 365",
@@ -10455,8 +11118,8 @@
     "supportedDdr": [
       "LPDDR5X"
     ],
-    "singleCoreScore": 230,
-    "multiCoreScore": 1820,
+    "singleCoreScore": 2976,
+    "multiCoreScore": 38807,
     "tdpW": 28,
     "socket": "FP8",
     "l3CacheMB": 24,
@@ -10491,7 +11154,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2143,
+    "cinebenchR23Multi": 36431,
+    "passmarkScore": 102970
   },
   {
     "name": "Ryzen 7 8845HS",
@@ -10503,8 +11169,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 205,
-    "multiCoreScore": 1680,
+    "singleCoreScore": 3093,
+    "multiCoreScore": 32068,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -10539,7 +11205,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2227,
+    "cinebenchR23Multi": 30287,
+    "passmarkScore": 86356
   },
   {
     "name": "Ryzen 7 7840HS",
@@ -10551,8 +11220,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 200,
-    "multiCoreScore": 1640,
+    "singleCoreScore": 2933,
+    "multiCoreScore": 30356,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -10587,7 +11256,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2112,
+    "cinebenchR23Multi": 28723,
+    "passmarkScore": 81756
   },
   {
     "name": "Ryzen 9 7940HS",
@@ -10599,8 +11271,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 210,
-    "multiCoreScore": 1720,
+    "singleCoreScore": 3085,
+    "multiCoreScore": 32042,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -10635,7 +11307,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2221,
+    "cinebenchR23Multi": 30206,
+    "passmarkScore": 86275
   },
   {
     "name": "Ryzen 7 6800U",
@@ -10646,8 +11321,8 @@
     "supportedDdr": [
       "LPDDR5"
     ],
-    "singleCoreScore": 165,
-    "multiCoreScore": 1320,
+    "singleCoreScore": 2739,
+    "multiCoreScore": 27947,
     "tdpW": 15,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -10682,7 +11357,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1972,
+    "cinebenchR23Multi": 26819,
+    "passmarkScore": 75346
   },
   {
     "name": "Ryzen 7 5800U",
@@ -10694,8 +11372,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 152,
-    "multiCoreScore": 1250,
+    "singleCoreScore": 2573,
+    "multiCoreScore": 26171,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -10730,7 +11408,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$977",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1853,
+    "cinebenchR23Multi": 25201,
+    "passmarkScore": 70574
   },
   {
     "name": "Ryzen 5 5600U",
@@ -10742,8 +11423,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 142,
-    "multiCoreScore": 950,
+    "singleCoreScore": 2318,
+    "multiCoreScore": 17445,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -10778,7 +11459,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$764",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1669,
+    "cinebenchR23Multi": 17024,
+    "passmarkScore": 48249
   },
   {
     "name": "Ryzen 7 4700U",
@@ -10790,8 +11474,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 125,
-    "multiCoreScore": 780,
+    "singleCoreScore": 2394,
+    "multiCoreScore": 11918,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -10826,7 +11510,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$681",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1724,
+    "cinebenchR23Multi": 11723,
+    "passmarkScore": 34583
   },
   {
     "name": "Ryzen 5 4500U",
@@ -10838,8 +11525,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 115,
-    "multiCoreScore": 620,
+    "singleCoreScore": 2157,
+    "multiCoreScore": 7994,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -10874,7 +11561,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$550",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1553,
+    "cinebenchR23Multi": 7920,
+    "passmarkScore": 24299
   },
   {
     "name": "Ryzen 5 3500U",
@@ -10885,8 +11575,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 90,
-    "multiCoreScore": 480,
+    "singleCoreScore": 2001,
+    "multiCoreScore": 9824,
     "tdpW": 15,
     "socket": "FP5",
     "l3CacheMB": 4,
@@ -10921,7 +11611,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$417",
     "costEffectivenessScore": "9.53 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1441,
+    "cinebenchR23Multi": 9799,
+    "passmarkScore": 28562
   },
   {
     "name": "Ryzen 5 5500U",
@@ -10933,8 +11626,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 138,
-    "multiCoreScore": 880,
+    "singleCoreScore": 2314,
+    "multiCoreScore": 17359,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -10969,7 +11662,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$721",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1666,
+    "cinebenchR23Multi": 16993,
+    "passmarkScore": 48026
   },
   {
     "name": "Ryzen 3 5300U",
@@ -10981,8 +11677,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 125,
-    "multiCoreScore": 620,
+    "singleCoreScore": 1938,
+    "multiCoreScore": 9577,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 4,
@@ -11017,7 +11713,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$528",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1395,
+    "cinebenchR23Multi": 9486,
+    "passmarkScore": 27819
   },
   {
     "name": "Ryzen 7 5700U",
@@ -11029,8 +11728,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 145,
-    "multiCoreScore": 1150,
+    "singleCoreScore": 2565,
+    "multiCoreScore": 25972,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -11065,7 +11764,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$913",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1847,
+    "cinebenchR23Multi": 25119,
+    "passmarkScore": 70060
   },
   {
     "name": "Ryzen 5 5600H",
@@ -11076,8 +11778,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 150,
-    "multiCoreScore": 1050,
+    "singleCoreScore": 2326,
+    "multiCoreScore": 17585,
     "tdpW": 45,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -11112,7 +11814,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$830",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1675,
+    "cinebenchR23Multi": 17085,
+    "passmarkScore": 48615
   },
   {
     "name": "Ryzen 7 5800H",
@@ -11123,8 +11828,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 158,
-    "multiCoreScore": 1380,
+    "singleCoreScore": 2579,
+    "multiCoreScore": 26385,
     "tdpW": 45,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -11159,7 +11864,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1857,
+    "cinebenchR23Multi": 25255,
+    "passmarkScore": 71121
   },
   {
     "name": "Ryzen 9 5900HX",
@@ -11170,8 +11878,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 165,
-    "multiCoreScore": 1450,
+    "singleCoreScore": 2710,
+    "multiCoreScore": 27812,
     "tdpW": 45,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -11206,7 +11914,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1951,
+    "cinebenchR23Multi": 26534,
+    "passmarkScore": 74950
   },
   {
     "name": "Ryzen 5 6600U",
@@ -11217,8 +11928,8 @@
     "supportedDdr": [
       "LPDDR5"
     ],
-    "singleCoreScore": 155,
-    "multiCoreScore": 1080,
+    "singleCoreScore": 2468,
+    "multiCoreScore": 18683,
     "tdpW": 15,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -11253,7 +11964,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$851",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1777,
+    "cinebenchR23Multi": 18125,
+    "passmarkScore": 51644
   },
   {
     "name": "Ryzen 5 6600H",
@@ -11264,8 +11978,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 162,
-    "multiCoreScore": 1180,
+    "singleCoreScore": 2475,
+    "multiCoreScore": 18821,
     "tdpW": 45,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -11300,7 +12014,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$915",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1782,
+    "cinebenchR23Multi": 18176,
+    "passmarkScore": 52003
   },
   {
     "name": "Ryzen 7 6800H",
@@ -11311,8 +12028,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 172,
-    "multiCoreScore": 1480,
+    "singleCoreScore": 2747,
+    "multiCoreScore": 28230,
     "tdpW": 45,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -11347,7 +12064,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1978,
+    "cinebenchR23Multi": 26901,
+    "passmarkScore": 76069
   },
   {
     "name": "Ryzen 9 6900HX",
@@ -11358,8 +12078,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 178,
-    "multiCoreScore": 1550,
+    "singleCoreScore": 2884,
+    "multiCoreScore": 29730,
     "tdpW": 45,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -11394,7 +12114,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2076,
+    "cinebenchR23Multi": 28234,
+    "passmarkScore": 80093
   },
   {
     "name": "Ryzen 3 7320U",
@@ -11405,8 +12128,8 @@
     "supportedDdr": [
       "LPDDR5"
     ],
-    "singleCoreScore": 120,
-    "multiCoreScore": 580,
+    "singleCoreScore": 2161,
+    "multiCoreScore": 10659,
     "tdpW": 15,
     "socket": "FT6",
     "l3CacheMB": 4,
@@ -11441,7 +12164,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$501",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1556,
+    "cinebenchR23Multi": 10581,
+    "passmarkScore": 30970
   },
   {
     "name": "Ryzen 5 7530U",
@@ -11453,8 +12179,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 145,
-    "multiCoreScore": 950,
+    "singleCoreScore": 2594,
+    "multiCoreScore": 19522,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -11489,7 +12215,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$767",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1868,
+    "cinebenchR23Multi": 19054,
+    "passmarkScore": 53993
   },
   {
     "name": "Ryzen 5 7640HS",
@@ -11501,8 +12230,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 192,
-    "multiCoreScore": 1420,
+    "singleCoreScore": 2645,
+    "multiCoreScore": 20332,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -11537,7 +12266,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1904,
+    "cinebenchR23Multi": 19421,
+    "passmarkScore": 56120
   },
   {
     "name": "Ryzen 7 7730U",
@@ -11549,8 +12281,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 152,
-    "multiCoreScore": 1220,
+    "singleCoreScore": 2875,
+    "multiCoreScore": 29203,
     "tdpW": 15,
     "socket": "FP6",
     "l3CacheMB": 16,
@@ -11585,7 +12317,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$960",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2070,
+    "cinebenchR23Multi": 28152,
+    "passmarkScore": 78758
   },
   {
     "name": "Ryzen 7 7735HS",
@@ -11597,8 +12332,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 175,
-    "multiCoreScore": 1520,
+    "singleCoreScore": 2903,
+    "multiCoreScore": 29886,
     "tdpW": 35,
     "socket": "FP7",
     "l3CacheMB": 16,
@@ -11633,7 +12368,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2090,
+    "cinebenchR23Multi": 28424,
+    "passmarkScore": 80521
   },
   {
     "name": "Ryzen 9 7845HX",
@@ -11644,8 +12382,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 208,
-    "multiCoreScore": 2250,
+    "singleCoreScore": 3082,
+    "multiCoreScore": 49136,
     "tdpW": 55,
     "socket": "FL1",
     "l3CacheMB": 64,
@@ -11680,7 +12418,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2219,
+    "cinebenchR23Multi": 45268,
+    "passmarkScore": 129004
   },
   {
     "name": "Ryzen 9 7945HX",
@@ -11691,8 +12432,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 215,
-    "multiCoreScore": 2850,
+    "singleCoreScore": 3091,
+    "multiCoreScore": 67401,
     "tdpW": 55,
     "socket": "FL1",
     "l3CacheMB": 64,
@@ -11727,7 +12468,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2226,
+    "cinebenchR23Multi": 60547,
+    "passmarkScore": 174685
   },
   {
     "name": "Ryzen 9 7945HX3D",
@@ -11738,8 +12482,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 220,
-    "multiCoreScore": 2920,
+    "singleCoreScore": 3097,
+    "multiCoreScore": 67731,
     "tdpW": 55,
     "socket": "FL1",
     "l3CacheMB": 128,
@@ -11774,7 +12518,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2230,
+    "cinebenchR23Multi": 60656,
+    "passmarkScore": 175522
   },
   {
     "name": "Ryzen 5 8645HS",
@@ -11786,8 +12533,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 1460,
+    "singleCoreScore": 2787,
+    "multiCoreScore": 21461,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -11822,7 +12569,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2007,
+    "cinebenchR23Multi": 20471,
+    "passmarkScore": 59227
   },
   {
     "name": "Ryzen 9 8945HS",
@@ -11834,8 +12584,8 @@
       "DDR5",
       "LPDDR5X"
     ],
-    "singleCoreScore": 212,
-    "multiCoreScore": 1760,
+    "singleCoreScore": 3250,
+    "multiCoreScore": 33815,
     "tdpW": 35,
     "socket": "FP7r2",
     "l3CacheMB": 16,
@@ -11870,7 +12620,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2340,
+    "cinebenchR23Multi": 31824,
+    "passmarkScore": 91038
   },
   {
     "name": "Ryzen 7 4800H",
@@ -11881,8 +12634,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 132,
-    "multiCoreScore": 1050,
+    "singleCoreScore": 2401,
+    "multiCoreScore": 24202,
     "tdpW": 45,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -11917,7 +12670,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$844",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1729,
+    "cinebenchR23Multi": 23514,
+    "passmarkScore": 65307
   },
   {
     "name": "Ryzen 5 4600H",
@@ -11928,8 +12684,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 122,
-    "multiCoreScore": 820,
+    "singleCoreScore": 2163,
+    "multiCoreScore": 16182,
     "tdpW": 45,
     "socket": "FP6",
     "l3CacheMB": 8,
@@ -11964,7 +12720,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$671",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1557,
+    "cinebenchR23Multi": 15881,
+    "passmarkScore": 44781
   },
   {
     "name": "Ryzen 7 3700U",
@@ -11975,8 +12734,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 95,
-    "multiCoreScore": 520,
+    "singleCoreScore": 2216,
+    "multiCoreScore": 10900,
     "tdpW": 15,
     "socket": "FP5",
     "l3CacheMB": 4,
@@ -12011,7 +12770,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$444",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1596,
+    "cinebenchR23Multi": 10853,
+    "passmarkScore": 31682
   },
   {
     "name": "Core i9-13980HX",
@@ -12022,8 +12784,8 @@
     "supportedDdr": [
       "DDR5"
     ],
-    "singleCoreScore": 228,
-    "multiCoreScore": 2480,
+    "singleCoreScore": 3107,
+    "multiCoreScore": 66699,
     "tdpW": 55,
     "socket": "BGA1964",
     "l3CacheMB": 36,
@@ -12058,7 +12820,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2237,
+    "cinebenchR23Multi": 60846,
+    "passmarkScore": 172962
   },
   {
     "name": "Core i9-13900H",
@@ -12070,8 +12835,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 205,
-    "multiCoreScore": 1720,
+    "singleCoreScore": 3079,
+    "multiCoreScore": 39974,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 24,
@@ -12106,7 +12871,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2217,
+    "cinebenchR23Multi": 37689,
+    "passmarkScore": 106093
   },
   {
     "name": "Core i7-13700H",
@@ -12118,8 +12886,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 1620,
+    "singleCoreScore": 2927,
+    "multiCoreScore": 37834,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 24,
@@ -12154,7 +12922,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2107,
+    "cinebenchR23Multi": 35819,
+    "passmarkScore": 100439
   },
   {
     "name": "Core i5-13500H",
@@ -12166,8 +12937,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 1350,
+    "singleCoreScore": 2634,
+    "multiCoreScore": 26912,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 18,
@@ -12202,7 +12973,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1896,
+    "cinebenchR23Multi": 25786,
+    "passmarkScore": 72548
   },
   {
     "name": "Core i7-1355U",
@@ -12214,8 +12988,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 175,
-    "multiCoreScore": 980,
+    "singleCoreScore": 2903,
+    "multiCoreScore": 21877,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -12250,7 +13024,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$871",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2090,
+    "cinebenchR23Multi": 21318,
+    "passmarkScore": 60499
   },
   {
     "name": "Core i5-1335U",
@@ -12262,8 +13039,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 165,
-    "multiCoreScore": 880,
+    "singleCoreScore": 2615,
+    "multiCoreScore": 19617,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -12298,7 +13075,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$804",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1883,
+    "cinebenchR23Multi": 19207,
+    "passmarkScore": 54273
   },
   {
     "name": "Core i3-1315U",
@@ -12310,8 +13090,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 150,
-    "multiCoreScore": 650,
+    "singleCoreScore": 2189,
+    "multiCoreScore": 10832,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 10,
@@ -12346,7 +13126,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$598",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1576,
+    "cinebenchR23Multi": 10717,
+    "passmarkScore": 31458
   },
   {
     "name": "Core i9-12900HK",
@@ -12358,8 +13141,8 @@
       "DDR5",
       "LPDDR5"
     ],
-    "singleCoreScore": 195,
-    "multiCoreScore": 1650,
+    "singleCoreScore": 2905,
+    "multiCoreScore": 37599,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 24,
@@ -12394,7 +13177,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 2092,
+    "cinebenchR23Multi": 35564,
+    "passmarkScore": 99808
   },
   {
     "name": "Core i7-12700H",
@@ -12406,8 +13192,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 182,
-    "multiCoreScore": 1520,
+    "singleCoreScore": 2758,
+    "multiCoreScore": 35492,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 24,
@@ -12442,7 +13228,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1986,
+    "cinebenchR23Multi": 33762,
+    "passmarkScore": 94246
   },
   {
     "name": "Core i5-12500H",
@@ -12454,8 +13243,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 168,
-    "multiCoreScore": 1250,
+    "singleCoreScore": 2481,
+    "multiCoreScore": 25235,
     "tdpW": 45,
     "socket": "BGA1744",
     "l3CacheMB": 18,
@@ -12490,7 +13279,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1786,
+    "cinebenchR23Multi": 24290,
+    "passmarkScore": 68050
   },
   {
     "name": "Core i7-1255U",
@@ -12502,8 +13294,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 162,
-    "multiCoreScore": 890,
+    "singleCoreScore": 2735,
+    "multiCoreScore": 20527,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -12538,7 +13330,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$807",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1969,
+    "cinebenchR23Multi": 20084,
+    "passmarkScore": 56788
   },
   {
     "name": "Core i5-1235U",
@@ -12550,8 +13345,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 152,
-    "multiCoreScore": 790,
+    "singleCoreScore": 2464,
+    "multiCoreScore": 18408,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 12,
@@ -12586,7 +13381,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$740",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1774,
+    "cinebenchR23Multi": 18095,
+    "passmarkScore": 50948
   },
   {
     "name": "Core i3-1215U",
@@ -12598,8 +13396,8 @@
       "DDR4",
       "DDR5"
     ],
-    "singleCoreScore": 140,
-    "multiCoreScore": 580,
+    "singleCoreScore": 2065,
+    "multiCoreScore": 10186,
     "tdpW": 15,
     "socket": "BGA1744",
     "l3CacheMB": 10,
@@ -12634,7 +13432,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$548",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1487,
+    "cinebenchR23Multi": 10112,
+    "passmarkScore": 29595
   },
   {
     "name": "Core i9-11980HK",
@@ -12645,8 +13446,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 162,
-    "multiCoreScore": 1280,
+    "singleCoreScore": 2706,
+    "multiCoreScore": 27561,
     "tdpW": 45,
     "socket": "BGA1787",
     "l3CacheMB": 24,
@@ -12681,7 +13482,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$999",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1948,
+    "cinebenchR23Multi": 26493,
+    "passmarkScore": 74315
   },
   {
     "name": "Core i7-11800H",
@@ -12692,8 +13496,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 155,
-    "multiCoreScore": 1200,
+    "singleCoreScore": 2576,
+    "multiCoreScore": 26143,
     "tdpW": 45,
     "socket": "BGA1787",
     "l3CacheMB": 24,
@@ -12728,7 +13532,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$951",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1855,
+    "cinebenchR23Multi": 25228,
+    "passmarkScore": 70510
   },
   {
     "name": "Core i5-11400H",
@@ -12739,8 +13546,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 142,
-    "multiCoreScore": 920,
+    "singleCoreScore": 2050,
+    "multiCoreScore": 6500,
     "tdpW": 45,
     "socket": "BGA1787",
     "l3CacheMB": 12,
@@ -12775,7 +13582,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$747",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1400,
+    "cinebenchR23Multi": 10000,
+    "passmarkScore": 17000
   },
   {
     "name": "Core i7-1165G7",
@@ -12787,8 +13597,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 140,
-    "multiCoreScore": 650,
+    "singleCoreScore": 2409,
+    "multiCoreScore": 11921,
     "tdpW": 15,
     "socket": "BGA1449",
     "l3CacheMB": 12,
@@ -12823,7 +13633,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$559",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1734,
+    "cinebenchR23Multi": 11791,
+    "passmarkScore": 34621
   },
   {
     "name": "Core i5-1135G7",
@@ -12835,8 +13648,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 130,
-    "multiCoreScore": 560,
+    "singleCoreScore": 2171,
+    "multiCoreScore": 10699,
     "tdpW": 15,
     "socket": "BGA1449",
     "l3CacheMB": 8,
@@ -12871,7 +13684,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$498",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1563,
+    "cinebenchR23Multi": 10628,
+    "passmarkScore": 31090
   },
   {
     "name": "Core i3-1115G4",
@@ -12883,8 +13699,8 @@
       "DDR4",
       "LPDDR4X"
     ],
-    "singleCoreScore": 115,
-    "multiCoreScore": 380,
+    "singleCoreScore": 1816,
+    "multiCoreScore": 4437,
     "tdpW": 15,
     "socket": "BGA1449",
     "l3CacheMB": 6,
@@ -12919,7 +13735,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$350",
     "costEffectivenessScore": "8.81 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1308,
+    "cinebenchR23Multi": 4447,
+    "passmarkScore": 14725
   },
   {
     "name": "Core i7-10875H",
@@ -12930,8 +13749,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 135,
-    "multiCoreScore": 1020,
+    "singleCoreScore": 2404,
+    "multiCoreScore": 24199,
     "tdpW": 45,
     "socket": "BGA1440",
     "l3CacheMB": 16,
@@ -12966,7 +13785,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$829",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1731,
+    "cinebenchR23Multi": 23542,
+    "passmarkScore": 65306
   },
   {
     "name": "Core i7-10750H",
@@ -12977,8 +13799,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 128,
-    "multiCoreScore": 820,
+    "singleCoreScore": 2397,
+    "multiCoreScore": 17932,
     "tdpW": 45,
     "socket": "BGA1440",
     "l3CacheMB": 12,
@@ -13013,7 +13835,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$677",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1726,
+    "cinebenchR23Multi": 17605,
+    "passmarkScore": 49624
   },
   {
     "name": "Core i5-10300H",
@@ -13024,8 +13849,8 @@
     "supportedDdr": [
       "DDR4"
     ],
-    "singleCoreScore": 115,
-    "multiCoreScore": 520,
+    "singleCoreScore": 2157,
+    "multiCoreScore": 10610,
     "tdpW": 45,
     "socket": "BGA1440",
     "l3CacheMB": 8,
@@ -13060,7 +13885,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$462",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1553,
+    "cinebenchR23Multi": 10560,
+    "passmarkScore": 30839
   },
   {
     "name": "Core i7-1065G7",
@@ -13072,8 +13900,8 @@
       "DDR4",
       "LPDDR4"
     ],
-    "singleCoreScore": 118,
-    "multiCoreScore": 510,
+    "singleCoreScore": 2238,
+    "multiCoreScore": 11003,
     "tdpW": 15,
     "socket": "BGA1526",
     "l3CacheMB": 8,
@@ -13108,7 +13936,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$459",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1611,
+    "cinebenchR23Multi": 10955,
+    "passmarkScore": 31984
   },
   {
     "name": "Core i5-1035G1",
@@ -13120,8 +13951,8 @@
       "DDR4",
       "LPDDR4"
     ],
-    "singleCoreScore": 105,
-    "multiCoreScore": 450,
+    "singleCoreScore": 2014,
+    "multiCoreScore": 9874,
     "tdpW": 15,
     "socket": "BGA1526",
     "l3CacheMB": 6,
@@ -13156,7 +13987,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$412",
     "costEffectivenessScore": "9.44 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 9860,
+    "passmarkScore": 28713
   },
   {
     "name": "Core i7-10510U",
@@ -13168,8 +14002,8 @@
       "DDR4",
       "LPDDR3"
     ],
-    "singleCoreScore": 115,
-    "multiCoreScore": 480,
+    "singleCoreScore": 2235,
+    "multiCoreScore": 10973,
     "tdpW": 15,
     "socket": "BGA1528",
     "l3CacheMB": 8,
@@ -13204,7 +14038,10 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$438",
     "costEffectivenessScore": "9.90 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1609,
+    "cinebenchR23Multi": 10941,
+    "passmarkScore": 31903
   },
   {
     "name": "Core i5-10210U",
@@ -13216,8 +14053,8 @@
       "DDR4",
       "LPDDR3"
     ],
-    "singleCoreScore": 105,
-    "multiCoreScore": 420,
+    "singleCoreScore": 2014,
+    "multiCoreScore": 9861,
     "tdpW": 15,
     "socket": "BGA1528",
     "l3CacheMB": 6,
@@ -13252,6 +14089,9 @@
     "pcieLanes": "20 Express Lanes",
     "launchMsrp": "$395",
     "costEffectivenessScore": "9.10 / 10.0",
-    "powerEfficiencyScore": "5.00 / 5.00"
+    "powerEfficiencyScore": "5.00 / 5.00",
+    "cinebenchR23Single": 1450,
+    "cinebenchR23Multi": 9860,
+    "passmarkScore": 28681
   }
 ]
