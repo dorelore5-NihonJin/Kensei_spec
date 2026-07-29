@@ -121,6 +121,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
     setManufacturerFilter("All");
     setSortBy("score-desc");
     const url = new URL(window.location.href);
+    url.searchParams.set("page", "rankings");
     url.searchParams.set("type", newType);
     url.searchParams.delete("highlight");
     window.history.replaceState({}, "", url.toString());

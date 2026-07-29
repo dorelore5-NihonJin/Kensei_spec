@@ -129,6 +129,16 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     }
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
+
+  useEffect(() => {
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("page", activePage);
+      window.history.replaceState({}, "", url.toString());
+    } catch {
+      // Ignore URL replace errors
+    }
+  }, [activePage]);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(() => {
     const step = parseInt(getStorageItem("kensei_current_step", "1"));
     return (step === 1 || step === 2 || step === 3) ? step : 1;
