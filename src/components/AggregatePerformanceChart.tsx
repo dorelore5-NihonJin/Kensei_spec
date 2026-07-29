@@ -30,12 +30,11 @@ const GPU_MILESTONE_DEFINITIONS = [
 const CPU_MILESTONE_DEFINITIONS = [
   { name: "Pentium 4", query: "Pentium 4", defaultScore: 11 },
   { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 45 },
-  { name: "i5-10400", query: "i5-10400", defaultScore: 125 },
-  { name: "R5 5600", query: "5600", defaultScore: 185 },
-  { name: "i5-13600K", query: "i5-13600K", defaultScore: 250 },
-  { name: "7800X3D", query: "7800X3D", defaultScore: 310 },
-  { name: "i9-14900K", query: "14900K", defaultScore: 550 },
-  { name: "R9 9950X", query: "9950X", defaultScore: 850 },
+  { name: "i7-7700K", query: "7700K", defaultScore: 460 },
+  { name: "R5 5600", query: "5600", defaultScore: 611 },
+  { name: "i7-12700K", query: "12700K", defaultScore: 950 },
+  { name: "7800X3D", query: "7800X3D", defaultScore: 1107 },
+  { name: "i9-14900K", query: "14900K", defaultScore: 1647 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
@@ -43,22 +42,24 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const rawMilestones = type === "gpu" ? GPU_MILESTONE_DEFINITIONS : CPU_MILESTONE_DEFINITIONS;
   const dbItems = type === "gpu" ? (gpus as any[]) : (cpus as any[]);
 
-  const milestones = rawMilestones.map((ms) => {
-    const match = dbItems.find((d) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
-    let score = ms.defaultScore;
-    if (match) {
-      if (type === "gpu") {
-        score = match.relativePowerScore || ms.defaultScore;
-      } else {
-        if (match.singleCoreScore !== undefined && match.multiCoreScore !== undefined) {
-          score = Math.round(match.singleCoreScore * 0.6 + (match.multiCoreScore / 10) * 0.4 * 10);
-        } else {
+  const milestones = rawMilestones
+    .map((ms) => {
+      const match = dbItems.find((d) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
+      let score = ms.defaultScore;
+      if (match) {
+        if (type === "gpu") {
           score = match.relativePowerScore || ms.defaultScore;
+        } else {
+          if (match.singleCoreScore !== undefined && match.multiCoreScore !== undefined) {
+            score = Math.round(match.singleCoreScore * 0.6 + (match.multiCoreScore / 10) * 0.4 * 10);
+          } else {
+            score = match.relativePowerScore || ms.defaultScore;
+          }
         }
       }
-    }
-    return { name: ms.name, score };
-  });
+      return { name: ms.name, score };
+    })
+    .sort((a, b) => a.score - b.score);
 
   // Maximum benchmark scale: 2200 pts for CPU apex (leaves safe right padding), 880 pts for GPU apex
   const maxScore = type === "gpu" ? 880 : 2200;
