@@ -36,7 +36,32 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
   let baseClock = "3.20 GHz";
   let boostClock = "4.40 GHz";
 
-  if (name.includes("apple m4")) {
+  if (name.includes("ryzen ai 9") || name.includes("strix point")) {
+    arch = "Zen 5 / Zen 5c (Strix Point)";
+    node = "TSMC N4P (4nm)";
+    baseClock = "2.00 GHz";
+    boostClock = "5.10 GHz";
+  } else if (name.includes("258v") || name.includes("226v") || name.includes("lunar lake")) {
+    arch = "Lunar Lake (Lion Cove / Skymont)";
+    node = "TSMC N3B (3nm)";
+    baseClock = "2.20 GHz";
+    boostClock = "5.00 GHz";
+  } else if (name.includes("8845hs") || name.includes("7840hs") || name.includes("7940hs")) {
+    arch = "Zen 4 (Phoenix / Hawk Point)";
+    node = "TSMC 4nm";
+    baseClock = "3.80 GHz";
+    boostClock = "5.10 GHz";
+  } else if (name.includes("6800u") || name.includes("5800u") || name.includes("5600u")) {
+    arch = "Zen 3 / Zen 3+ (Rembrandt/Cezanne)";
+    node = "TSMC 6nm / 7nm";
+    baseClock = "2.70 GHz";
+    boostClock = "4.70 GHz";
+  } else if (name.includes("1360p") || name.includes("1340p") || name.includes("1260p") || name.includes("1240p")) {
+    arch = "Raptor Lake / Alder Lake P";
+    node = "Intel 7 (10nm)";
+    baseClock = "2.10 GHz";
+    boostClock = "5.00 GHz";
+  } else if (name.includes("apple m4")) {
     arch = "Apple M4 Silicon (ARMv9)";
     node = "TSMC N3E (3nm)";
     baseClock = "3.40 GHz";

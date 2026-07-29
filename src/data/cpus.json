@@ -3674,5 +3674,323 @@
     "l3CacheMB": 384,
     "is3DVCache": false,
     "id": "cpu-213"
+  },
+  {
+    "name": "Core Ultra 7 258V",
+    "manufacturer": "Intel",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "LPDDR5X-8533"
+    ],
+    "singleCoreScore": 235,
+    "multiCoreScore": 1420,
+    "tdpW": 17,
+    "socket": "BGA2734",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-214"
+  },
+  {
+    "name": "Core Ultra 5 226V",
+    "manufacturer": "Intel",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "LPDDR5X-8533"
+    ],
+    "singleCoreScore": 215,
+    "multiCoreScore": 1280,
+    "tdpW": 17,
+    "socket": "BGA2734",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-215"
+  },
+  {
+    "name": "Core Ultra 5 125H",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 14,
+    "threads": 18,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 182,
+    "multiCoreScore": 1320,
+    "tdpW": 28,
+    "socket": "BGA2049",
+    "l3CacheMB": 18,
+    "is3DVCache": false,
+    "id": "cpu-216"
+  },
+  {
+    "name": "Core i7-1360P",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 185,
+    "multiCoreScore": 1220,
+    "tdpW": 28,
+    "socket": "BGA1744",
+    "l3CacheMB": 18,
+    "is3DVCache": false,
+    "id": "cpu-217"
+  },
+  {
+    "name": "Core i5-1340P",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 172,
+    "multiCoreScore": 1080,
+    "tdpW": 28,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-218"
+  },
+  {
+    "name": "Core i7-1260P",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 170,
+    "multiCoreScore": 1120,
+    "tdpW": 28,
+    "socket": "BGA1744",
+    "l3CacheMB": 18,
+    "is3DVCache": false,
+    "id": "cpu-219"
+  },
+  {
+    "name": "Core i5-1240P",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 160,
+    "multiCoreScore": 980,
+    "tdpW": 28,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-220"
+  },
+  {
+    "name": "Ryzen AI 9 HX 370",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 240,
+    "multiCoreScore": 2100,
+    "tdpW": 28,
+    "socket": "FP8",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-221"
+  },
+  {
+    "name": "Ryzen AI 9 365",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 10,
+    "threads": 20,
+    "supportedDdr": [
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 230,
+    "multiCoreScore": 1820,
+    "tdpW": 28,
+    "socket": "FP8",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-222"
+  },
+  {
+    "name": "Ryzen 7 8845HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 205,
+    "multiCoreScore": 1680,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-223"
+  },
+  {
+    "name": "Ryzen 7 7840HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 200,
+    "multiCoreScore": 1640,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-224"
+  },
+  {
+    "name": "Ryzen 9 7940HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 210,
+    "multiCoreScore": 1720,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-225"
+  },
+  {
+    "name": "Ryzen 7 6800U",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "LPDDR5"
+    ],
+    "singleCoreScore": 165,
+    "multiCoreScore": 1320,
+    "tdpW": 15,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-226"
+  },
+  {
+    "name": "Ryzen 7 5800U",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 152,
+    "multiCoreScore": 1250,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-227"
+  },
+  {
+    "name": "Ryzen 5 5600U",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 142,
+    "multiCoreScore": 950,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-228"
+  },
+  {
+    "name": "Ryzen 7 4700U",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 8,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 125,
+    "multiCoreScore": 780,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-229"
+  },
+  {
+    "name": "Ryzen 5 4500U",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 6,
+    "threads": 6,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 115,
+    "multiCoreScore": 620,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-230"
+  },
+  {
+    "name": "Ryzen 5 3500U",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 90,
+    "multiCoreScore": 480,
+    "tdpW": 15,
+    "socket": "FP5",
+    "l3CacheMB": 4,
+    "is3DVCache": false,
+    "id": "cpu-231"
   }
 ]
