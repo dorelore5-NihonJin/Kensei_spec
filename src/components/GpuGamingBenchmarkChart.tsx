@@ -154,32 +154,12 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
         })}
       </div>
 
-      {/* Quality Preset Switcher */}
-      <div className="flex items-center justify-between bg-black/5 dark:bg-white/5 rounded-2xl p-2 border border-black/10 dark:border-white/10">
-        <span className="text-xs font-black text-gray-500 uppercase tracking-wider px-2">Quality Preset:</span>
-        <div className="flex items-center gap-1">
-          {PRESETS.map((preset) => (
-            <button
-              key={preset.key}
-              onClick={() => setSelectedPreset(preset.key)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black capitalize transition-all ${
-                selectedPreset === preset.key
-                  ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
-                  : "text-gray-500 hover:text-gray-900 dark:hover:text-white"
-              }`}
-            >
-              {preset.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Main Visual FPS Comparison Bars */}
       <div className="bg-black/5 dark:bg-white/5 rounded-2xl p-5 sm:p-6 border border-black/10 dark:border-white/10 flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <span className="text-xs font-black text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
             <Flame className="w-4 h-4 text-[#E88D9F]" />
-            {selectedGame} • {selectedRes} ({selectedPreset.toUpperCase()} Preset)
+            {selectedGame} • {selectedRes} ({selectedPreset.toUpperCase()} PRESET)
           </span>
 
           {winner !== "Tie" && (
@@ -241,36 +221,48 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
         </div>
       </div>
 
-      {/* Preset Breakdown Grid (Low, Medium, High, Ultra comparison) */}
+      {/* Interactive Quality Preset Cards Matrix */}
       <div>
-        <h4 className="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">
-          All Presets Benchmark Matrix ({selectedGame} @ {selectedRes})
-        </h4>
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="text-xs font-black text-gray-500 uppercase tracking-wider">
+            Graphics Quality Presets ({selectedGame} @ {selectedRes})
+          </h4>
+          <span className="text-[10px] font-bold text-gray-400">Click preset to filter telemetry</span>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {PRESETS.map((p) => {
             const fA = getFps(gpuA, selectedGame, selectedRes, p.key);
             const fB = getFps(gpuB, selectedGame, selectedRes, p.key);
             const isSelected = selectedPreset === p.key;
+            const pWinner = fA > fB ? "A" : fB > fA ? "B" : "Tie";
 
             return (
               <div
                 key={p.key}
                 onClick={() => setSelectedPreset(p.key)}
-                className={`cursor-pointer p-3.5 rounded-2xl border transition-all duration-200 ${
+                className={`cursor-pointer p-4 rounded-2xl border transition-all duration-300 relative overflow-hidden ${
                   isSelected
-                    ? "border-[#E88D9F] bg-[#E88D9F]/10 shadow-sm"
-                    : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-black/20 dark:hover:border-white/20"
+                    ? "border-[#E88D9F] bg-gradient-to-br from-[#E88D9F]/15 to-[#8A9A86]/10 shadow-lg ring-2 ring-[#E88D9F]/30 scale-[1.02]"
+                    : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-black/20 dark:hover:border-white/20 hover:scale-[1.01]"
                 }`}
               >
-                <span className="text-[11px] font-black uppercase text-gray-500 block mb-2">{p.label}</span>
-                <div className="flex flex-col gap-1 text-xs font-black">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-black uppercase text-[#1E2022] dark:text-white">{p.label}</span>
+                  {isSelected && (
+                    <span className="text-[9px] font-black uppercase text-[#E88D9F] bg-[#E88D9F]/15 px-2 py-0.5 rounded-md border border-[#E88D9F]/30">
+                      Active
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-1.5 text-xs font-black mt-2">
                   <div className="flex items-center justify-between text-gray-700 dark:text-gray-300">
-                    <span className="truncate max-w-[90px]">{gpuA.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
-                    <span className="font-mono text-[#E88D9F]">{fA} FPS</span>
+                    <span className="truncate max-w-[90px] text-[11px] font-bold">{gpuA.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
+                    <span className={`font-mono ${pWinner === "A" ? "text-[#E88D9F] font-black" : "text-gray-400"}`}>{fA} FPS</span>
                   </div>
                   <div className="flex items-center justify-between text-gray-700 dark:text-gray-300">
-                    <span className="truncate max-w-[90px]">{gpuB.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
-                    <span className="font-mono text-emerald-400">{fB} FPS</span>
+                    <span className="truncate max-w-[90px] text-[11px] font-bold">{gpuB.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
+                    <span className={`font-mono ${pWinner === "B" ? "text-emerald-400 font-black" : "text-gray-400"}`}>{fB} FPS</span>
                   </div>
                 </div>
               </div>
