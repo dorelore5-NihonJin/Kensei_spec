@@ -230,7 +230,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "cpu"
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-600 dark:text-gray-300 hover:text-white"
+                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
             }`}
           >
             <CpuIcon className="w-4 h-4" />
@@ -241,7 +241,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               mode === "gpu"
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-600 dark:text-gray-300 hover:text-white"
+                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
             }`}
           >
             <Zap className="w-4 h-4" />

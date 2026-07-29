@@ -194,7 +194,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               type === "cpu"
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-600 dark:text-gray-300 hover:text-white"
+                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
             }`}
           >
             <Cpu className="w-4 h-4" />
@@ -205,7 +205,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
             className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
               type === "gpu"
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-600 dark:text-gray-300 hover:text-white"
+                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
             }`}
           >
             <Zap className="w-4 h-4" />
@@ -270,8 +270,8 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
               }}
               className={`px-3.5 py-2 rounded-xl text-xs font-black transition border shrink-0 ${
                 manufacturerFilter === mfr
-                  ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-400 border-black/10 dark:border-white/10 hover:text-white"
+                  ? "bg-[#E88D9F] text-white shadow-sm border-[#E88D9F]"
+                  : "bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-black/10 dark:border-white/10 hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30"
               }`}
             >
               {mfr}
@@ -431,7 +431,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       className={`w-8 h-8 rounded-xl text-xs font-black transition ${
                         currentPage === pg
                           ? "bg-[#E88D9F] text-white shadow-md"
-                          : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-black/10 dark:border-white/10 hover:text-white"
+                          : "bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border border-black/10 dark:border-white/10 hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30"
                       }`}
                     >
                       {pg}
