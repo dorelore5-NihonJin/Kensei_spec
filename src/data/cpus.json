@@ -1268,7 +1268,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$441",
+    "launchMsrp": 229,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2164,7 +2164,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 289,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2212,7 +2212,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 409,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2260,7 +2260,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 589,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2404,7 +2404,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 319,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2452,7 +2452,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 409,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2500,7 +2500,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 589,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2548,7 +2548,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 319,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2596,7 +2596,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 409,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -2644,7 +2644,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 589,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -3962,7 +3962,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$734",
+    "launchMsrp": 199,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4009,7 +4009,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$776",
+    "launchMsrp": 249,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4056,7 +4056,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$993",
+    "launchMsrp": 329,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4150,7 +4150,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 499,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4197,7 +4197,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 749,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4244,7 +4244,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$866",
+    "launchMsrp": 199,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4291,7 +4291,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$901",
+    "launchMsrp": 199,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4338,7 +4338,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$964",
+    "launchMsrp": 299,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4385,7 +4385,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 299,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4432,7 +4432,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 449,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4479,7 +4479,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 449,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4526,7 +4526,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 549,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4573,7 +4573,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 799,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4620,7 +4620,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 229,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4667,7 +4667,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 299,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4714,7 +4714,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 399,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4761,7 +4761,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 449,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4808,7 +4808,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 549,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4855,7 +4855,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 699,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4902,7 +4902,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 699,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4949,7 +4949,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 279,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -4996,7 +4996,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 359,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -5043,7 +5043,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 479,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -5090,7 +5090,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 499,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -5137,7 +5137,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 649,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -5278,7 +5278,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 699,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -8693,7 +8693,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 699,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -8789,7 +8789,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 699,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -8837,7 +8837,7 @@
     "iGpuModel": "Intel® UHD / Iris Xe Graphics",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 739,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -9356,7 +9356,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 599,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -9591,7 +9591,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$944",
+    "launchMsrp": 299,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -9638,7 +9638,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 249,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -9920,7 +9920,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 1499,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -9967,7 +9967,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 2499,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -10014,7 +10014,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 4999,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -10061,7 +10061,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 5.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$999",
+    "launchMsrp": 9999,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -10776,7 +10776,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$764",
+    "launchMsrp": 199,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
@@ -11110,7 +11110,7 @@
     "iGpuModel": "Radeon Graphics (RDNA 3 / Vega)",
     "pcieVersion": "PCIe 4.0",
     "pcieLanes": "20 Express Lanes",
-    "launchMsrp": "$830",
+    "launchMsrp": 199,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 / 5.00"
   },
