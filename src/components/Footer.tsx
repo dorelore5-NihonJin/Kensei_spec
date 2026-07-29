@@ -132,13 +132,13 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
           </h4>
           <ul className="grid grid-cols-2 gap-1.5 text-[11px] font-extrabold text-gray-500 dark:text-gray-400">
             <li>• Cyberpunk 2077</li>
-            <li>• CS2</li>
-            <li>• GTA VI</li>
+            <li>• RDR 2</li>
+            <li>• Forza Horizon 6</li>
             <li>• Wukong</li>
-            <li>• Valorant</li>
-            <li>• Elden Ring</li>
-            <li>• Fortnite</li>
-            <li>• Apex Legends</li>
+            <li>• Helldivers 2</li>
+            <li>• Alan Wake 2</li>
+            <li>• GTA VI</li>
+            <li>• CS2 / Valorant</li>
           </ul>
         </div>
       </div>
