@@ -146,8 +146,8 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDe
     is64Bit: cpu.is64Bit !== undefined ? cpu.is64Bit : true,
     win11Compat: cpu.win11Compat !== undefined ? cpu.win11Compat : false,
 
-    socket: `Socket ${cpu.socket}`,
-    powerDrawTdp: `${cpu.tdpW} W TDP`,
+    socket: cpu.socket ? (cpu.socket.startsWith("Socket") || cpu.socket === "Integrated" || cpu.socket.includes("BGA") ? cpu.socket : `Socket ${cpu.socket}`) : "Unknown Socket",
+    powerDrawTdp: cpu.tdpW ? `${cpu.tdpW} W TDP` : "Unknown TDP",
     recommendedPsu: cpu.recommendedPsu || "400 W",
 
     instructionSets: cpu.instructionSets || "",
