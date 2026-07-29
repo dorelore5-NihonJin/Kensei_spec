@@ -69,7 +69,15 @@ export default function SearchableSelect({
         {selectedOption ? (
           <div className="flex items-center gap-2.5 min-w-0">
             {selectedOption.manufacturer && (
-              <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-[#E88D9F]/10 text-[#E88D9F] border border-[#E88D9F]/20 shrink-0">
+              <span
+                className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
+                  selectedOption.manufacturer === "Intel"
+                    ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                    : selectedOption.manufacturer === "AMD"
+                    ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                    : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                }`}
+              >
                 {selectedOption.manufacturer}
               </span>
             )}
@@ -146,10 +154,10 @@ export default function SearchableSelect({
                         <span
                           className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
                             option.manufacturer === "Intel"
-                              ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
+                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
                               : option.manufacturer === "AMD"
-                              ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
-                              : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                           }`}
                         >
                           {option.manufacturer}

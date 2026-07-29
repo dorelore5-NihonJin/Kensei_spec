@@ -261,22 +261,36 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider hidden sm:inline mr-1">
             Vendor:
           </span>
-          {(type === "cpu" ? ["All", "AMD", "Intel"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => (
-            <button
-              key={mfr}
-              onClick={() => {
-                setManufacturerFilter(mfr);
-                setCurrentPage(1);
-              }}
-              className={`px-3.5 py-2 rounded-xl text-xs font-black transition border shrink-0 ${
-                manufacturerFilter === mfr
-                  ? "bg-[#E88D9F] text-white shadow-sm border-[#E88D9F]"
-                  : "bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-black/10 dark:border-white/10 hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30"
-              }`}
-            >
-              {mfr}
-            </button>
-          ))}
+          {(type === "cpu" ? ["All", "AMD", "Intel"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => {
+            const isActive = manufacturerFilter === mfr;
+            let activeClass = "bg-[#E88D9F] text-white shadow-sm border-[#E88D9F]";
+            let hoverClass = "hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30";
+
+            if (mfr === "Intel") {
+              activeClass = "bg-blue-500 text-white shadow-sm border-blue-500";
+              hoverClass = "hover:bg-blue-500/15 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/30";
+            } else if (mfr === "NVIDIA") {
+              activeClass = "bg-emerald-500 text-white shadow-sm border-emerald-500";
+              hoverClass = "hover:bg-emerald-500/15 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/30";
+            }
+
+            return (
+              <button
+                key={mfr}
+                onClick={() => {
+                  setManufacturerFilter(mfr);
+                  setCurrentPage(1);
+                }}
+                className={`px-3.5 py-2 rounded-xl text-xs font-black transition border shrink-0 ${
+                  isActive
+                    ? activeClass
+                    : `bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-black/10 dark:border-white/10 ${hoverClass}`
+                }`}
+              >
+                {mfr}
+              </button>
+            );
+          })}
 
           {isFilterActive && (
             <button
@@ -343,7 +357,15 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                         <h3 className="text-sm font-black text-[#1E2022] dark:text-white truncate">
                           {item.name}
                         </h3>
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-[#E88D9F]/10 text-[#E88D9F] border border-[#E88D9F]/20 shrink-0">
+                        <span
+                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
+                            item.manufacturer === "Intel"
+                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                              : item.manufacturer === "AMD"
+                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                          }`}
+                        >
                           {item.manufacturer}
                         </span>
                       </div>

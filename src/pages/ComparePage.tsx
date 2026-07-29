@@ -471,8 +471,32 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                     {/* Designer / Manufacturer */}
                     <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-bold text-gray-500">Designer / 開発メーカー</td>
-                      <td className="py-3.5 px-4 font-black">{itemAInfo.manufacturer}</td>
-                      <td className="py-3.5 px-4 font-black">{itemBInfo.manufacturer}</td>
+                      <td className="py-3.5 px-4 font-black">
+                        <span
+                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
+                            itemAInfo.manufacturer === "Intel"
+                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                              : itemAInfo.manufacturer === "AMD"
+                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                          }`}
+                        >
+                          {itemAInfo.manufacturer}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 font-black">
+                        <span
+                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
+                            itemBInfo.manufacturer === "Intel"
+                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                              : itemBInfo.manufacturer === "AMD"
+                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                          }`}
+                        >
+                          {itemBInfo.manufacturer}
+                        </span>
+                      </td>
                     </tr>
 
                     {/* Architecture Codename */}
