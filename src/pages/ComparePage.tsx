@@ -187,11 +187,45 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const gpuTechA = selectedGpuA ? getGpuTechnicalDetails(selectedGpuA, gpus) : null;
   const gpuTechB = selectedGpuB ? getGpuTechnicalDetails(selectedGpuB, gpus) : null;
 
+  // Helper to parse metric strings with unit multipliers (Billion, Million, GHz, MHz, GB, MB, KB, TFLOPS, etc.)
+  const parseMetricNumber = (val: string | number | undefined): number => {
+    if (val === undefined || val === null) return NaN;
+    if (typeof val === "number") return val;
+    const str = String(val).toLowerCase().trim();
+    if (str === "n/a" || str === "-" || str === "none") return NaN;
+
+    const match = str.match(/([0-9]+(?:\.[0-9]+)?)/);
+    if (!match) return NaN;
+    let num = parseFloat(match[1]);
+
+    // Unit Multipliers
+    if (str.includes("trillion")) {
+      num *= 1000000;
+    } else if (str.includes("billion")) {
+      num *= 1000; // Normalized to Millions
+    }
+
+    if (str.includes("ghz")) {
+      num *= 1000; // Normalized to MHz
+    }
+
+    if (str.includes("tflops")) {
+      num *= 1000; // Normalized to GFLOPS
+    }
+
+    if (str.includes("gb/s") || (str.includes("gb") && !str.includes("gbit"))) {
+      num *= 1000; // Normalized to MB
+    } else if (str.includes("kb")) {
+      num *= 0.001; // Normalized to MB
+    }
+
+    return num;
+  };
+
   // Helper to compare numeric metric strings cleanly
   const compareNumeric = (valAStr: string | number | undefined, valBStr: string | number | undefined, lowerIsBetter: boolean = false): "A" | "B" | "none" => {
-    if (valAStr === undefined || valBStr === undefined) return "none";
-    const numA = typeof valAStr === "number" ? valAStr : parseFloat(String(valAStr).replace(/[^0-9.-]/g, ""));
-    const numB = typeof valBStr === "number" ? valBStr : parseFloat(String(valBStr).replace(/[^0-9.-]/g, ""));
+    const numA = parseMetricNumber(valAStr);
+    const numB = parseMetricNumber(valBStr);
     if (isNaN(numA) || isNaN(numB) || numA === numB) return "none";
     if (lowerIsBetter) return numA < numB ? "A" : "B";
     return numA > numB ? "A" : "B";
