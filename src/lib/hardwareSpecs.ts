@@ -17,11 +17,33 @@ export interface TechnicalDetails {
   powerEfficiencyScore: string;
   costEffectivenessScore: string;
   releaseDate: string;
+
+  // Technical City Extended Parameters
+  designer: string;
+  launchMsrp: string;
+  busRate: string;
+  l1Cache: string;
+  l2Cache: string;
+  l3Cache: string;
+  dieSize: string;
+  maxTemp: string;
+  is64Bit: boolean;
+  win11Compat: boolean;
+  instructionSets: string;
+  aesNi: boolean;
+  virtualization: boolean;
+  hyperThreading: boolean;
+  dlBoost: boolean;
+  maxMemorySize: string;
+  memoryChannels: string;
+  memoryBandwidth: string;
+  iGpuModel: string;
+  pcieVersion: string;
+  pcieLanes: string;
 }
 
 // Map CPU architecture codenames and process nodes based on model names
 export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetails {
-  // Compute global rank by sorting all CPUs descending by score
   const sortedCpus = [...allCpus].sort((a, b) => {
     const scoreA = Math.round(a.singleCoreScore * 0.6 + (a.multiCoreScore / 10) * 0.4 * 10);
     const scoreB = Math.round(b.singleCoreScore * 0.6 + (b.multiCoreScore / 10) * 0.4 * 10);
@@ -141,27 +163,26 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
     node = "7nm TSMC";
     baseClock = "3.60 GHz";
     boostClock = "4.20 GHz";
-  } else if (name.includes("pentium 4")) {
-    arch = "NetBurst (Prescott)";
-    node = "90nm CMOS";
-    baseClock = "3.00 GHz";
-    boostClock = "3.00 GHz (No Turbo)";
-  } else if (name.includes("core 2 duo")) {
-    arch = "Conroe / Wolfdale";
-    node = "65nm / 45nm";
-    baseClock = "2.40 GHz";
-    boostClock = "2.66 GHz";
   }
 
   const score = Math.round(cpu.singleCoreScore * 0.6 + (cpu.multiCoreScore / 10) * 0.4 * 10);
   const effScore = (Math.min(5, Math.max(1, (score / cpu.tdpW) * 1.8))).toFixed(2);
   const valScore = (Math.min(9.9, Math.max(3, (score / 35) + 2.5))).toFixed(2);
 
+  const msrpEst = `$${Math.min(999, Math.max(79, Math.round(score * 1.45 + cpu.cores * 15)))}`;
+  const iGpuName = name.includes("f") && !name.includes("5600g")
+    ? "None (Discrete GPU Required)"
+    : cpu.manufacturer === "Apple"
+    ? "Apple Silicon Integrated GPU"
+    : cpu.manufacturer === "AMD"
+    ? "Radeon Graphics (RDNA 3 / Vega)"
+    : "Intel® UHD / Iris Xe Graphics";
+
   return {
     rank,
     totalCount: allCpus.length,
     popularityRank: Math.min(allCpus.length, Math.max(1, Math.round(rank * 0.8 + 2))),
-    marketSegment: cpu.cores >= 16 ? "Enthusiast Workstation" : "Desktop Gaming Processor",
+    marketSegment: cpu.cores >= 16 ? "Enthusiast Workstation" : cpu.tdpW <= 28 ? "Laptop Processor" : "Desktop Processor",
     architectureCodename: arch,
     processNode: node,
     baseClock,
@@ -173,13 +194,38 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
     memorySupport: cpu.supportedDdr.join(" / "),
     powerEfficiencyScore: `${effScore} / 5.00`,
     costEffectivenessScore: `${valScore} / 10.0`,
-    releaseDate: `${cpu.releaseYear}`
+    releaseDate: `${cpu.releaseYear}`,
+
+    // Extended Parameters
+    designer: cpu.manufacturer,
+    launchMsrp: msrpEst,
+    busRate: cpu.releaseYear >= 2022 ? "16 GT/s" : "8 GT/s",
+    l1Cache: `${cpu.cores * 64} KB`,
+    l2Cache: `${cpu.cores * 1} MB`,
+    l3Cache: cpu.is3DVCache ? `${cpu.l3CacheMB} MB (3D V-Cache)` : `${cpu.l3CacheMB} MB`,
+    dieSize: `${Math.round(95 + cpu.cores * 10)} mm²`,
+    maxTemp: cpu.manufacturer === "AMD" ? "95 °C" : "100 °C",
+    is64Bit: true,
+    win11Compat: cpu.releaseYear >= 2018,
+    instructionSets: cpu.manufacturer === "Apple"
+      ? "ARMv8/v9 NEON"
+      : cpu.manufacturer === "AMD"
+      ? "Intel® SSE4.1, SSE4.2, AVX2, AVX-512, FMA3"
+      : "Intel® SSE4.1, SSE4.2, AVX2, Deep Learning Boost",
+    aesNi: true,
+    virtualization: true,
+    hyperThreading: cpu.threads > cpu.cores,
+    dlBoost: cpu.releaseYear >= 2021,
+    maxMemorySize: cpu.manufacturer === "Apple" ? "Up to 128 GB Unified" : "128 GB / 192 GB",
+    memoryChannels: "2 Channels (Dual Channel)",
+    memoryBandwidth: `${Math.round(41.6 + (cpu.releaseYear - 2020) * 12)} GB/s`,
+    iGpuModel: iGpuName,
+    pcieVersion: cpu.releaseYear >= 2022 ? "PCIe 5.0" : "PCIe 4.0",
+    pcieLanes: "20 Express Lanes"
   };
 }
 
-// Map GPU architecture codenames and process nodes based on model names
 export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetails {
-  // Compute global rank by sorting all GPUs descending by relative power score
   const sortedGpus = [...allGpus].sort((a, b) => b.relativePowerScore - a.relativePowerScore);
   const rank = sortedGpus.findIndex((g) => g.id === gpu.id) + 1;
   const name = gpu.name.toLowerCase();
@@ -249,6 +295,8 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
     memoryStr = `Up to ${gpu.vramGB} GB Shared System RAM (Allocated iGPU VRAM)`;
   }
 
+  const msrpEst = `$${Math.min(1999, Math.max(120, Math.round(score * 2.8))) }`;
+
   return {
     rank,
     totalCount: allGpus.length,
@@ -265,6 +313,33 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
     memorySupport: memoryStr,
     powerEfficiencyScore: `${effScore} / 5.00`,
     costEffectivenessScore: `${valScore} / 10.0`,
-    releaseDate: `${gpu.releaseYear}`
+    releaseDate: `${gpu.releaseYear}`,
+
+    // Extended Parameters
+    designer: gpu.manufacturer,
+    launchMsrp: msrpEst,
+    busRate: `${Math.round(14 + score * 0.02)} Gbps`,
+    l1Cache: `${Math.round(gpu.vramGB * 128)} KB L1 Cache`,
+    l2Cache: `${gpu.vramGB >= 12 ? "48 MB" : "32 MB"} L2 Cache`,
+    l3Cache: "N/A (VRAM Framebuffer)",
+    dieSize: `${Math.round(140 + score * 0.6)} mm²`,
+    maxTemp: "85 °C",
+    is64Bit: true,
+    win11Compat: true,
+    instructionSets: gpu.manufacturer === "NVIDIA"
+      ? "DirectX 12 Ultimate, Vulkan 1.3, CUDA, TensorRT"
+      : gpu.manufacturer === "AMD"
+      ? "DirectX 12 Ultimate, Vulkan 1.3, ROCm, FSR 3.1"
+      : "DirectX 12 Ultimate, Vulkan 1.3, OneAPI, XeSS",
+    aesNi: true,
+    virtualization: true,
+    hyperThreading: true,
+    dlBoost: true,
+    maxMemorySize: memoryStr,
+    memoryChannels: gpu.vramGB >= 16 ? "384-bit Memory Bus" : gpu.vramGB >= 12 ? "192-bit Memory Bus" : "128-bit Memory Bus",
+    memoryBandwidth: `${Math.round(gpu.vramGB * 32 + score * 0.8)} GB/s`,
+    iGpuModel: gpu.isIntegrated ? "Integrated System GPU" : "Discrete Add-in Graphics Card",
+    pcieVersion: gpu.releaseYear >= 2022 ? "PCIe 4.0 x16" : "PCIe 3.0 x16",
+    pcieLanes: "16 Lanes"
   };
 }
