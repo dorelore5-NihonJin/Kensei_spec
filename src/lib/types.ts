@@ -10,6 +10,45 @@ export interface GPU {
   tdpW: number;
   rayTracingPowerScore: number;
   isIntegrated?: boolean;
+  gpuCodeName?: string;
+  marketSegment?: string;
+  designer?: string;
+  processNode?: string;
+  launchMsrp?: string;
+  costEffectivenessScore?: string;
+  powerEfficiencyScore?: string;
+  cudaCores?: string;
+  baseClock?: string;
+  boostClock?: string;
+  transistors?: string;
+  maxTemp?: string;
+  textureFillRate?: string;
+  tflops?: string;
+  rops?: number;
+  tmus?: number;
+  l1Cache?: string;
+  l2Cache?: string;
+  interface?: string;
+  length?: string;
+  slotWidth?: string;
+  powerConnectors?: string;
+  memoryType?: string;
+  maxVramAmount?: string;
+  memoryBusWidth?: string;
+  memoryClockSpeed?: string;
+  memoryBandwidth?: string;
+  sharedMemory?: string;
+  displayConnectors?: string;
+  hdmiSupport?: boolean;
+  gsyncSupport?: string;
+  vrReady?: boolean;
+  ansel?: boolean;
+  directX?: string;
+  shaderModel?: string;
+  openGL?: string;
+  openCL?: string;
+  vulkan?: string;
+  cuda?: string;
 }
 
 export interface CPU {
@@ -26,6 +65,36 @@ export interface CPU {
   socket: string;
   l3CacheMB: number;
   is3DVCache: boolean;
+  marketSegment?: string;
+  designer?: string;
+  architectureCodename?: string;
+  processNode?: string;
+  baseClock?: string;
+  boostClock?: string;
+  busRate?: string;
+  l1Cache?: string;
+  l2Cache?: string;
+  l3Cache?: string;
+  dieSize?: string;
+  maxTemp?: string;
+  is64Bit?: boolean;
+  win11Compat?: boolean;
+  recommendedPsu?: string;
+  instructionSets?: string;
+  aesNi?: boolean;
+  dlBoost?: boolean;
+  virtualization?: boolean;
+  hyperThreading?: boolean;
+  memorySupport?: string;
+  maxMemorySize?: string;
+  memoryChannels?: string;
+  memoryBandwidth?: string;
+  iGpuModel?: string;
+  pcieVersion?: string;
+  pcieLanes?: string;
+  launchMsrp?: string;
+  costEffectivenessScore?: string;
+  powerEfficiencyScore?: string;
 }
 
 export interface RAMProfile {
