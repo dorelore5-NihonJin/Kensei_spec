@@ -133,57 +133,57 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth Sakura/Sage gradient fills) */}
           <div className="flex flex-col gap-5 w-full z-10 my-3">
             {/* Track Capsule A */}
-            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Confined Dashed Vertical Lines INSIDE Track A */}
-              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
-                {milestones.map((ms, idx) => {
-                  const msPct = (ms.score / maxScore) * 100;
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/15 dark:border-white/15"
-                      style={{ left: `${msPct}%` }}
-                    />
-                  );
-                })}
-              </div>
-
+            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-hidden">
               {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out relative z-10 ${
                   winner === "A"
                     ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
               />
-            </div>
 
-            {/* Track Capsule B */}
-            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center">
-              {/* Confined Dashed Vertical Lines INSIDE Track B */}
-              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden">
+              {/* Confined Dashed Vertical Lines ON TOP of Track A Fills */}
+              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
                 {milestones.map((ms, idx) => {
                   const msPct = (ms.score / maxScore) * 100;
                   return (
                     <div
                       key={idx}
-                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/15 dark:border-white/15"
+                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
                       style={{ left: `${msPct}%` }}
                     />
                   );
                 })}
               </div>
+            </div>
 
+            {/* Track Capsule B */}
+            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-hidden">
               {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative ${
+                className={`h-full rounded-full transition-all duration-700 ease-out relative z-10 ${
                   winner === "B"
                     ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
               />
+
+              {/* Confined Dashed Vertical Lines ON TOP of Track B Fills */}
+              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
+                {milestones.map((ms, idx) => {
+                  const msPct = (ms.score / maxScore) * 100;
+                  return (
+                    <div
+                      key={idx}
+                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
+                      style={{ left: `${msPct}%` }}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
 

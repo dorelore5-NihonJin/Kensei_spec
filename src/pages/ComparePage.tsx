@@ -66,6 +66,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   // Helper to sync state directly into URL parameters without reloading
   const syncUrlParams = (currentMode: "cpu" | "gpu", itemA: CPU | GPU | null, itemB: CPU | GPU | null) => {
     const url = new URL(window.location.href);
+    url.searchParams.set("page", "compare");
     url.searchParams.set("mode", currentMode);
     if (itemA) {
       url.searchParams.set("a", itemA.id);
