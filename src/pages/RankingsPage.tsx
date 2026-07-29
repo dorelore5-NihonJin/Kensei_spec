@@ -261,7 +261,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider hidden sm:inline mr-1">
             Vendor:
           </span>
-          {(type === "cpu" ? ["All", "AMD", "Intel", "Apple"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => {
+          {(type === "cpu" ? ["All", "AMD", "Intel", "Apple"] : ["All", "NVIDIA", "AMD", "Intel", "Apple"]).map((mfr) => {
             const isActive = manufacturerFilter === mfr;
             let activeClass = "bg-[#E88D9F] text-white shadow-sm border-[#E88D9F]";
             let hoverClass = "hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30";

@@ -143,7 +143,23 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
   let node = "12nm FFN";
   let vramType = "GDDR6";
 
-  if (name.includes("rtx 40") || name.includes("4070") || name.includes("4080") || name.includes("4090")) {
+  if (name.includes("apple m4")) {
+    arch = "Apple M4 Custom Architecture";
+    node = "TSMC N3E (3nm)";
+    vramType = "Unified LPDDR5X";
+  } else if (name.includes("apple m3")) {
+    arch = "Apple M3 Custom (Dynamic Caching)";
+    node = "TSMC N3B (3nm)";
+    vramType = "Unified LPDDR5";
+  } else if (name.includes("apple m2")) {
+    arch = "Apple M2 Custom Architecture";
+    node = "TSMC N5P (5nm)";
+    vramType = "Unified LPDDR5";
+  } else if (name.includes("apple m1")) {
+    arch = "Apple M1 Custom Architecture";
+    node = "TSMC N5 (5nm)";
+    vramType = "Unified LPDDR4X";
+  } else if (name.includes("rtx 40") || name.includes("4070") || name.includes("4080") || name.includes("4090")) {
     arch = "Ada Lovelace";
     node = "TSMC 4N (Custom 5nm)";
     vramType = "GDDR6X";
