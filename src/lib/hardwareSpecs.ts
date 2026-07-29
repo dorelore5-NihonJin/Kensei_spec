@@ -1,49 +1,118 @@
 import type { CPU, GPU } from "./types";
 
-export interface TechnicalDetails {
+export interface CpuTechnicalDetails {
   rank: number;
   totalCount: number;
   popularityRank: number;
   marketSegment: string;
+  designer: string;
   architectureCodename: string;
-  processNode: string;
-  baseClock: string;
-  boostClock: string;
-  cacheInfo: string;
-  powerDrawTdp: string;
-  recommendedPsu: string;
-  platformSocket: string;
-  memorySupport: string;
+  releaseDate: string;
+  launchMsrp: string;
   powerEfficiencyScore: string;
   costEffectivenessScore: string;
-  releaseDate: string;
 
-  // Technical City Extended Parameters
-  designer: string;
-  launchMsrp: string;
+  // Detailed CPU Specs
+  cores: number;
+  threads: number;
+  baseClock: string;
+  boostClock: string;
   busRate: string;
   l1Cache: string;
   l2Cache: string;
   l3Cache: string;
+  processNode: string;
   dieSize: string;
   maxTemp: string;
   is64Bit: boolean;
   win11Compat: boolean;
+
+  // Compatibility & Power
+  socket: string;
+  powerDrawTdp: string;
+  recommendedPsu: string;
+
+  // Technologies & Security
   instructionSets: string;
   aesNi: boolean;
+  dlBoost: boolean;
   virtualization: boolean;
   hyperThreading: boolean;
-  dlBoost: boolean;
+
+  // Memory Specs
+  memorySupport: string;
   maxMemorySize: string;
   memoryChannels: string;
   memoryBandwidth: string;
+
+  // Integrated Graphics & Peripherals
   iGpuModel: string;
   pcieVersion: string;
   pcieLanes: string;
 }
 
+export interface GpuTechnicalDetails {
+  rank: number;
+  totalCount: number;
+  popularityRank: number;
+  marketSegment: string;
+  designer: string;
+  architectureCodename: string;
+  gpuCodeName: string;
+  releaseDate: string;
+  launchMsrp: string;
+  powerEfficiencyScore: string;
+  costEffectivenessScore: string;
+
+  // Detailed Specs
+  cudaCores: string;
+  baseClock: string;
+  boostClock: string;
+  transistors: string;
+  processNode: string;
+  powerDrawTdp: string;
+  maxTemp: string;
+  textureFillRate: string;
+  tflops: string;
+  rops: number;
+  tmus: number;
+  l1Cache: string;
+  l2Cache: string;
+
+  // Form Factor & Compatibility
+  interface: string;
+  length: string;
+  slotWidth: string;
+  powerConnectors: string;
+
+  // VRAM Capacity and Type
+  memoryType: string;
+  maxVramAmount: string;
+  memoryBusWidth: string;
+  memoryClockSpeed: string;
+  memoryBandwidth: string;
+  sharedMemory: string;
+
+  // Connectivity & Outputs
+  displayConnectors: string;
+  hdmiSupport: boolean;
+  gsyncSupport: string;
+
+  // Supported Technologies
+  vrReady: boolean;
+  ansel: boolean;
+
+  // API and SDK Support
+  directX: string;
+  shaderModel: string;
+  openGL: string;
+  openCL: string;
+  vulkan: string;
+  cuda: string;
+}
+
 // Map CPU architecture codenames and process nodes based on model names
-export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetails {
+export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDetails {
   const sortedCpus = [...allCpus].sort((a, b) => {
     const scoreA = Math.round(a.singleCoreScore * 0.6 + (a.multiCoreScore / 10) * 0.4 * 10);
     const scoreB = Math.round(b.singleCoreScore * 0.6 + (b.multiCoreScore / 10) * 0.4 * 10);
@@ -183,163 +252,244 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
     totalCount: allCpus.length,
     popularityRank: Math.min(allCpus.length, Math.max(1, Math.round(rank * 0.8 + 2))),
     marketSegment: cpu.cores >= 16 ? "Enthusiast Workstation" : cpu.tdpW <= 28 ? "Laptop Processor" : "Desktop Processor",
+    designer: cpu.manufacturer,
     architectureCodename: arch,
-    processNode: node,
-    baseClock,
-    boostClock,
-    cacheInfo: cpu.is3DVCache ? `${cpu.l3CacheMB} MB (AMD 3D V-Cache)` : `${cpu.l3CacheMB} MB L3 Cache`,
-    powerDrawTdp: `${cpu.tdpW} W TDP`,
-    recommendedPsu: `${Math.max(400, cpu.tdpW * 3 + 250)} W`,
-    platformSocket: `Socket ${cpu.socket}`,
-    memorySupport: cpu.supportedDdr.join(" / "),
+    releaseDate: `${cpu.releaseYear}`,
+    launchMsrp: msrpEst,
     powerEfficiencyScore: `${effScore} / 5.00`,
     costEffectivenessScore: `${valScore} / 10.0`,
-    releaseDate: `${cpu.releaseYear}`,
 
-    // Extended Parameters
-    designer: cpu.manufacturer,
-    launchMsrp: msrpEst,
+    // Detailed CPU Specs
+    cores: cpu.cores,
+    threads: cpu.threads,
+    baseClock,
+    boostClock,
     busRate: cpu.releaseYear >= 2022 ? "16 GT/s" : "8 GT/s",
     l1Cache: `${cpu.cores * 64} KB`,
     l2Cache: `${cpu.cores * 1} MB`,
     l3Cache: cpu.is3DVCache ? `${cpu.l3CacheMB} MB (3D V-Cache)` : `${cpu.l3CacheMB} MB`,
+    processNode: node,
     dieSize: `${Math.round(95 + cpu.cores * 10)} mm²`,
     maxTemp: cpu.manufacturer === "AMD" ? "95 °C" : "100 °C",
     is64Bit: true,
     win11Compat: cpu.releaseYear >= 2018,
+
+    // Compatibility & Power
+    socket: `Socket ${cpu.socket}`,
+    powerDrawTdp: `${cpu.tdpW} W TDP`,
+    recommendedPsu: `${Math.max(400, cpu.tdpW * 3 + 250)} W`,
+
+    // Technologies & Security
     instructionSets: cpu.manufacturer === "Apple"
       ? "ARMv8/v9 NEON"
       : cpu.manufacturer === "AMD"
       ? "Intel® SSE4.1, SSE4.2, AVX2, AVX-512, FMA3"
       : "Intel® SSE4.1, SSE4.2, AVX2, Deep Learning Boost",
     aesNi: true,
+    dlBoost: cpu.releaseYear >= 2021,
     virtualization: true,
     hyperThreading: cpu.threads > cpu.cores,
-    dlBoost: cpu.releaseYear >= 2021,
+
+    // Memory Specs
+    memorySupport: cpu.supportedDdr.join(" / "),
     maxMemorySize: cpu.manufacturer === "Apple" ? "Up to 128 GB Unified" : "128 GB / 192 GB",
     memoryChannels: "2 Channels (Dual Channel)",
     memoryBandwidth: `${Math.round(41.6 + (cpu.releaseYear - 2020) * 12)} GB/s`,
+
+    // Integrated Graphics & Peripherals
     iGpuModel: iGpuName,
     pcieVersion: cpu.releaseYear >= 2022 ? "PCIe 5.0" : "PCIe 4.0",
     pcieLanes: "20 Express Lanes"
   };
 }
 
-export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetails {
+export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDetails {
   const sortedGpus = [...allGpus].sort((a, b) => b.relativePowerScore - a.relativePowerScore);
   const rank = sortedGpus.findIndex((g) => g.id === gpu.id) + 1;
   const name = gpu.name.toLowerCase();
+  const score = gpu.relativePowerScore;
 
   let arch = gpu.architecture || "Graphics Architecture";
   let node = "12nm FFN";
   let vramType = "GDDR6";
+  let gpuCode = "AD102";
+  let cudaCoresCount = Math.round(score * 22);
+  let baseClockMHz = Math.round(1400 + score * 1.5);
+  let boostClockMHz = Math.round(1750 + score * 1.8);
+  let transistorsCount = `${(Math.round((score * 120 + 2000) / 100) / 10).toFixed(1)} Billion`;
+  let texFillRate = (score * 1.8 + 45).toFixed(1);
+  let tflopsVal = (score * 0.08 + 1.2).toFixed(2);
+  let ropsCount = gpu.vramGB >= 16 ? 96 : gpu.vramGB >= 12 ? 64 : 32;
+  let tmusCount = Math.round(cudaCoresCount / 16);
 
-  if (name.includes("apple m4")) {
-    arch = "Apple M4 Custom Architecture";
-    node = "TSMC N3E (3nm)";
-    vramType = "Unified LPDDR5X";
-  } else if (name.includes("apple m3")) {
-    arch = "Apple M3 Custom (Dynamic Caching)";
-    node = "TSMC N3B (3nm)";
-    vramType = "Unified LPDDR5";
-  } else if (name.includes("apple m2")) {
-    arch = "Apple M2 Custom Architecture";
-    node = "TSMC N5P (5nm)";
-    vramType = "Unified LPDDR5";
-  } else if (name.includes("apple m1")) {
-    arch = "Apple M1 Custom Architecture";
-    node = "TSMC N5 (5nm)";
-    vramType = "Unified LPDDR4X";
-  } else if (name.includes("rtx 40") || name.includes("4070") || name.includes("4080") || name.includes("4090")) {
+  if (name.includes("4090")) {
     arch = "Ada Lovelace";
+    gpuCode = "AD102";
     node = "TSMC 4N (Custom 5nm)";
     vramType = "GDDR6X";
-  } else if (name.includes("rtx 30") || name.includes("3070") || name.includes("3080") || name.includes("3090")) {
+    cudaCoresCount = 16384;
+    baseClockMHz = 2235;
+    boostClockMHz = 2520;
+    transistorsCount = "76.3 Billion";
+    tflopsVal = "82.58";
+    texFillRate = "1290.2";
+    ropsCount = 176;
+    tmusCount = 512;
+  } else if (name.includes("4080")) {
+    arch = "Ada Lovelace";
+    gpuCode = "AD103";
+    node = "TSMC 4N (Custom 5nm)";
+    vramType = "GDDR6X";
+    cudaCoresCount = 9728;
+    baseClockMHz = 2205;
+    boostClockMHz = 2505;
+    transistorsCount = "45.9 Billion";
+    tflopsVal = "48.74";
+    texFillRate = "761.5";
+    ropsCount = 112;
+    tmusCount = 304;
+  } else if (name.includes("4070")) {
+    arch = "Ada Lovelace";
+    gpuCode = "AD104";
+    node = "TSMC 4N (Custom 5nm)";
+    vramType = "GDDR6X";
+    cudaCoresCount = 5888;
+    baseClockMHz = 1920;
+    boostClockMHz = 2475;
+    transistorsCount = "35.8 Billion";
+    tflopsVal = "29.15";
+    texFillRate = "455.4";
+    ropsCount = 64;
+    tmusCount = 184;
+  } else if (name.includes("3080")) {
     arch = "Ampere";
+    gpuCode = "GA102";
     node = "8nm Samsung";
-    vramType = name.includes("3080") || name.includes("3090") ? "GDDR6X" : "GDDR6";
-  } else if (name.includes("rtx 20") || name.includes("gtx 16")) {
+    vramType = "GDDR6X";
+    cudaCoresCount = 8704;
+    baseClockMHz = 1440;
+    boostClockMHz = 1710;
+    transistorsCount = "28.3 Billion";
+    tflopsVal = "29.77";
+    texFillRate = "465.1";
+    ropsCount = 96;
+    tmusCount = 272;
+  } else if (name.includes("3060")) {
+    arch = "Ampere";
+    gpuCode = "GA106";
+    node = "8nm Samsung";
+    vramType = "GDDR6";
+    cudaCoresCount = 3584;
+    baseClockMHz = 1320;
+    boostClockMHz = 1777;
+    transistorsCount = "12.0 Billion";
+    tflopsVal = "12.74";
+    texFillRate = "199.0";
+    ropsCount = 48;
+    tmusCount = 112;
+  } else if (name.includes("1660")) {
     arch = "Turing";
+    gpuCode = "TU116";
     node = "12nm FFN";
-    vramType = "GDDR6";
-  } else if (name.includes("gtx 10") || name.includes("1080") || name.includes("1060")) {
-    arch = "Pascal";
-    node = "16nm FinFET";
-    vramType = name.includes("1080") ? "GDDR5X" : "GDDR5";
-  } else if (name.includes("arc b5") || name.includes("arc b7") || name.includes("battlemage")) {
-    arch = "Xe2 Battlemage";
-    node = "TSMC N4 (4nm)";
-    vramType = "GDDR6";
-  } else if (name.includes("arc a") || name.includes("alchemist")) {
-    arch = "Xe-HPG Alchemist";
-    node = "TSMC N6 (6nm)";
-    vramType = "GDDR6";
-  } else if (name.includes("gtx 7") || name.includes("750")) {
-    arch = "Maxwell / Kepler";
-    node = "28nm TSMC";
     vramType = "GDDR5";
-  } else if (name.includes("7800") || name.includes("7900") || name.includes("9600")) {
-    arch = "Curie / Tesla";
-    node = "90nm / 65nm";
-    vramType = "GDDR3";
+    cudaCoresCount = 1408;
+    baseClockMHz = 1530;
+    boostClockMHz = 1785;
+    transistorsCount = "6.6 Billion";
+    tflopsVal = "5.027";
+    texFillRate = "157.1";
+    ropsCount = 48;
+    tmusCount = 88;
+  } else if (name.includes("1050 ti") || name.includes("1050ti")) {
+    arch = "Pascal";
+    gpuCode = "GP107";
+    node = "14nm Samsung";
+    vramType = "GDDR5";
+    cudaCoresCount = 768;
+    baseClockMHz = 1291;
+    boostClockMHz = 1392;
+    transistorsCount = "3.3 Billion";
+    tflopsVal = "2.138";
+    texFillRate = "66.82";
+    ropsCount = 32;
+    tmusCount = 48;
+  } else if (name.includes("apple")) {
+    arch = "Apple Silicon Architecture";
+    gpuCode = "Apple iGPU";
+    node = "TSMC 3nm / 5nm";
+    vramType = "Unified System Memory";
+  } else if (gpu.isIntegrated || name.includes("vega") || name.includes("uhd") || name.includes("iris")) {
+    arch = "Integrated Graphics (iGPU)";
+    gpuCode = "Integrated SoC";
+    node = "7nm / 10nm";
+    vramType = "Shared System RAM";
   }
 
-  const score = gpu.relativePowerScore;
   const effScore = (Math.min(5, Math.max(1, (score / gpu.tdpW) * 2.2))).toFixed(2);
   const valScore = (Math.min(9.9, Math.max(3, (score / 45) + 2.0))).toFixed(2);
 
-  let memoryStr = `${gpu.vramGB} GB ${vramType}`;
-  if (gpu.manufacturer === "Apple") {
-    memoryStr = `${gpu.vramGB} GB Unified Memory (Shared System RAM)`;
-  } else if (gpu.isIntegrated || name.includes("igpu") || name.includes("vega") || name.includes("intel hd") || name.includes("uhd")) {
-    memoryStr = `Up to ${gpu.vramGB} GB Shared System RAM (Allocated iGPU VRAM)`;
-  }
+  const msrpEst = `$${Math.min(1999, Math.max(120, Math.round(score * 2.8)))}`;
 
-  const msrpEst = `$${Math.min(1999, Math.max(120, Math.round(score * 2.8))) }`;
+  const l1CacheStr = gpu.isIntegrated ? "256 KB L1 Cache" : gpu.vramGB >= 12 ? "1.4 MB L1 Cache" : "288 KB L1 Cache";
+  const l2CacheStr = gpu.vramGB >= 16 ? "96 MB L2 Cache" : gpu.vramGB >= 12 ? "48 MB L2 Cache" : "1.5 MB L2 Cache";
 
   return {
     rank,
     totalCount: allGpus.length,
     popularityRank: Math.min(allGpus.length, Math.max(1, Math.round(rank * 0.85 + 1))),
     marketSegment: gpu.isIntegrated ? "Integrated Mobile / SoC GPU" : "Desktop Gaming GPU",
-    architectureCodename: arch,
-    processNode: node,
-    baseClock: `${Math.round(1400 + score * 2)} MHz`,
-    boostClock: `${Math.round(1800 + score * 2.5)} MHz`,
-    cacheInfo: `${gpu.vramGB >= 12 ? "48 MB L2 Cache" : "32 MB L2 Cache"}`,
-    powerDrawTdp: `${gpu.tdpW} W TDP`,
-    recommendedPsu: `${gpu.recommendedPsuW} W`,
-    platformSocket: gpu.isIntegrated ? "Integrated SoC / Soldered" : "PCIe 4.0 x16",
-    memorySupport: memoryStr,
-    powerEfficiencyScore: `${effScore} / 5.00`,
-    costEffectivenessScore: `${valScore} / 10.0`,
-    releaseDate: `${gpu.releaseYear}`,
-
-    // Extended Parameters
     designer: gpu.manufacturer,
+    architectureCodename: arch,
+    gpuCodeName: gpuCode,
+    releaseDate: `${gpu.releaseYear}`,
     launchMsrp: msrpEst,
-    busRate: `${Math.round(14 + score * 0.02)} Gbps`,
-    l1Cache: `${Math.round(gpu.vramGB * 128)} KB L1 Cache`,
-    l2Cache: `${gpu.vramGB >= 12 ? "48 MB" : "32 MB"} L2 Cache`,
-    l3Cache: "N/A (VRAM Framebuffer)",
-    dieSize: `${Math.round(140 + score * 0.6)} mm²`,
+    powerEfficiencyScore: `${effScore} Efficiency`,
+    costEffectivenessScore: `${valScore} Rating`,
+
+    // Detailed Specs
+    cudaCores: `${cudaCoresCount} Shaders`,
+    baseClock: `${baseClockMHz} MHz`,
+    boostClock: `${boostClockMHz} MHz`,
+    transistors: transistorsCount,
+    processNode: node,
+    powerDrawTdp: `${gpu.tdpW} Watt`,
     maxTemp: "85 °C",
-    is64Bit: true,
-    win11Compat: true,
-    instructionSets: gpu.manufacturer === "NVIDIA"
-      ? "DirectX 12 Ultimate, Vulkan 1.3, CUDA, TensorRT"
-      : gpu.manufacturer === "AMD"
-      ? "DirectX 12 Ultimate, Vulkan 1.3, ROCm, FSR 3.1"
-      : "DirectX 12 Ultimate, Vulkan 1.3, OneAPI, XeSS",
-    aesNi: true,
-    virtualization: true,
-    hyperThreading: true,
-    dlBoost: true,
-    maxMemorySize: memoryStr,
-    memoryChannels: gpu.vramGB >= 16 ? "384-bit Memory Bus" : gpu.vramGB >= 12 ? "192-bit Memory Bus" : "128-bit Memory Bus",
+    textureFillRate: `${texFillRate} GTexel/s`,
+    tflops: `${tflopsVal} TFLOPS`,
+    rops: ropsCount,
+    tmus: tmusCount,
+    l1Cache: l1CacheStr,
+    l2Cache: l2CacheStr,
+
+    // Form Factor & Compatibility
+    interface: gpu.releaseYear >= 2022 ? "PCIe 4.0 x16" : "PCIe 3.0 x16",
+    length: gpu.isIntegrated ? "N/A (Built-in)" : gpu.vramGB >= 16 ? "304 mm" : "229 mm",
+    slotWidth: gpu.isIntegrated ? "Integrated" : gpu.vramGB >= 16 ? "3-slot" : "2-slot",
+    powerConnectors: gpu.isIntegrated ? "None" : gpu.tdpW >= 250 ? "1x 16-pin 12VHPWR" : gpu.tdpW >= 100 ? "1x 8-pin" : "None",
+
+    // VRAM Capacity and Type
+    memoryType: vramType,
+    maxVramAmount: gpu.manufacturer === "Apple" ? `${gpu.vramGB} GB Unified` : gpu.isIntegrated ? `${gpu.vramGB} GB Shared` : `${gpu.vramGB} GB`,
+    memoryBusWidth: gpu.vramGB >= 16 ? "384 Bit" : gpu.vramGB >= 12 ? "192 Bit" : "128 Bit",
+    memoryClockSpeed: `${Math.round(14000 + score * 10)} MHz`,
     memoryBandwidth: `${Math.round(gpu.vramGB * 32 + score * 0.8)} GB/s`,
-    iGpuModel: gpu.isIntegrated ? "Integrated System GPU" : "Discrete Add-in Graphics Card",
-    pcieVersion: gpu.releaseYear >= 2022 ? "PCIe 4.0 x16" : "PCIe 3.0 x16",
-    pcieLanes: "16 Lanes"
+    sharedMemory: gpu.isIntegrated ? "Dynamic System RAM" : "-",
+
+    // Connectivity & Outputs
+    displayConnectors: gpu.isIntegrated ? "1x HDMI, 1x eDP" : "1x HDMI 2.1, 3x DisplayPort 1.4a",
+    hdmiSupport: true,
+    gsyncSupport: gpu.manufacturer === "NVIDIA" ? "G-SYNC Compatible" : gpu.manufacturer === "AMD" ? "FreeSync Premium" : "Adaptive Sync",
+
+    // Supported Technologies
+    vrReady: gpu.relativePowerScore >= 40,
+    ansel: gpu.manufacturer === "NVIDIA",
+
+    // API and SDK Support
+    directX: gpu.releaseYear >= 2020 ? "12 Ultimate (12_2)" : "12 (12_1)",
+    shaderModel: gpu.releaseYear >= 2022 ? "6.7" : "6.5",
+    openGL: "4.6",
+    openCL: "3.0",
+    vulkan: "1.3",
+    cuda: gpu.manufacturer === "NVIDIA" ? "CUDA Supported" : gpu.manufacturer === "AMD" ? "ROCm Supported" : "OneAPI Supported"
   };
 }

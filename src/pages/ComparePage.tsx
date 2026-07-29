@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Cpu as CpuIcon, Zap, Sparkles, Layers, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Activity } from "lucide-react";
+import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
-import { getCpuTechnicalDetails, getGpuTechnicalDetails, type TechnicalDetails } from "../lib/hardwareSpecs";
+import { getCpuTechnicalDetails, getGpuTechnicalDetails } from "../lib/hardwareSpecs";
 
 interface ComparePageProps {
   cpus: CPU[];
@@ -48,7 +48,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     if (modeParam === "gpu" && aParam) {
       return gpus.find((g) => g.id === aParam) || null;
     }
-    return null;
+    return gpus[0] || null;
   });
 
   const [selectedGpuB, setSelectedGpuB] = useState<GPU | null>(() => {
@@ -58,7 +58,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     if (modeParam === "gpu" && bParam) {
       return gpus.find((g) => g.id === bParam) || null;
     }
-    return null;
+    return gpus[1] || gpus[0] || null;
   });
 
   // Helper to sync state directly into URL parameters without reloading
@@ -121,7 +121,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const gpuOptions = gpus.map((g) => ({
     id: g.id,
     name: `${g.manufacturer} ${g.name}`,
-    subText: `${g.vramGB}GB VRAM • ${g.architecture} • ${g.releaseYear}`,
+    subText: g.manufacturer === "Apple" ? `${g.vramGB}GB Unified RAM • ${g.architecture} • ${g.releaseYear}` : g.isIntegrated ? `${g.vramGB}GB Shared RAM (iGPU) • ${g.architecture} • ${g.releaseYear}` : `${g.vramGB}GB VRAM • ${g.architecture} • ${g.releaseYear}`,
     manufacturer: g.manufacturer
   }));
 
@@ -129,7 +129,6 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const itemA = isCpuMode ? selectedCpuA : selectedGpuA;
   const itemB = isCpuMode ? selectedCpuB : selectedGpuB;
 
-  // Filter out the component that is ALREADY selected in the opposite dropdown!
   const filteredOptionsA = isCpuMode
     ? cpuOptions.filter((opt) => opt.id !== selectedCpuB?.id)
     : gpuOptions.filter((opt) => opt.id !== selectedGpuB?.id);
@@ -168,7 +167,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const itemAInfo = itemA ? {
     name: isCpuMode ? (selectedCpuA?.name || "") : (selectedGpuA?.name || ""),
     score: scoreA,
-    details: isCpuMode ? `${selectedCpuA?.cores}C/${selectedCpuA?.threads}T • Socket ${selectedCpuA?.socket}` : `${selectedGpuA?.vramGB}GB VRAM • ${selectedGpuA?.architecture}`,
+    details: isCpuMode ? `${selectedCpuA?.cores}C/${selectedCpuA?.threads}T • Socket ${selectedCpuA?.socket}` : selectedGpuA?.manufacturer === "Apple" ? `${selectedGpuA?.vramGB}GB Unified RAM` : selectedGpuA?.isIntegrated ? `${selectedGpuA?.vramGB}GB Shared RAM` : `${selectedGpuA?.vramGB}GB VRAM`,
     manufacturer: isCpuMode ? selectedCpuA?.manufacturer : selectedGpuA?.manufacturer,
     releaseYear: isCpuMode ? selectedCpuA?.releaseYear : selectedGpuA?.releaseYear
   } : null;
@@ -176,23 +175,17 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const itemBInfo = itemB ? {
     name: isCpuMode ? (selectedCpuB?.name || "") : (selectedGpuB?.name || ""),
     score: scoreB,
-    details: isCpuMode ? `${selectedCpuB?.cores}C/${selectedCpuB?.threads}T • Socket ${selectedCpuB?.socket}` : `${selectedGpuB?.vramGB}GB VRAM • ${selectedGpuB?.architecture}`,
+    details: isCpuMode ? `${selectedCpuB?.cores}C/${selectedCpuB?.threads}T • Socket ${selectedCpuB?.socket}` : selectedGpuB?.manufacturer === "Apple" ? `${selectedGpuB?.vramGB}GB Unified RAM` : selectedGpuB?.isIntegrated ? `${selectedGpuB?.vramGB}GB Shared RAM` : `${selectedGpuB?.vramGB}GB VRAM`,
     manufacturer: isCpuMode ? selectedCpuB?.manufacturer : selectedGpuB?.manufacturer,
     releaseYear: isCpuMode ? selectedCpuB?.releaseYear : selectedGpuB?.releaseYear
   } : null;
 
-  // Generate Technical City Specs for Candidate A and Candidate B
-  const techSpecsA: TechnicalDetails | null = itemA
-    ? isCpuMode
-      ? getCpuTechnicalDetails(selectedCpuA!, cpus)
-      : getGpuTechnicalDetails(selectedGpuA!, gpus)
-    : null;
+  // Technical details for CPU and GPU
+  const cpuTechA = selectedCpuA ? getCpuTechnicalDetails(selectedCpuA, cpus) : null;
+  const cpuTechB = selectedCpuB ? getCpuTechnicalDetails(selectedCpuB, cpus) : null;
 
-  const techSpecsB: TechnicalDetails | null = itemB
-    ? isCpuMode
-      ? getCpuTechnicalDetails(selectedCpuB!, cpus)
-      : getGpuTechnicalDetails(selectedGpuB!, gpus)
-    : null;
+  const gpuTechA = selectedGpuA ? getGpuTechnicalDetails(selectedGpuA, gpus) : null;
+  const gpuTechB = selectedGpuB ? getGpuTechnicalDetails(selectedGpuB, gpus) : null;
 
   // Helper to render winning spec with emerald badge
   const getWinnerClass = (winnerSide: "A" | "B" | "none", targetSide: "A" | "B", valText: React.ReactNode) => {
@@ -214,169 +207,177 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col gap-8 animate-fadeIn">
       {/* 1. PAGE HEADER & MODE TOGGLE */}
       <div className="relative overflow-hidden bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-        {/* Background Live Video Banner Overlay */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-35 pointer-events-none transition-opacity duration-500"
-          src="/gif_banner_vs.mp4"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#1A1C1E] dark:via-[#1A1C1E]/80 dark:to-transparent pointer-events-none" />
-
-        <div className="relative z-10">
-          <div className="flex items-center gap-2 text-[#E88D9F] font-extrabold text-xs uppercase tracking-wider">
-            <Scale className="w-4 h-4" />
-            <span>Versus Telemetry Comparison Studio / 比較スタジオ</span>
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-[#E88D9F]/10 text-[#E88D9F] flex items-center justify-center border border-[#E88D9F]/20 shadow-inner shrink-0">
+            <Scale className="w-7 h-7" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#1E2022] dark:text-white mt-1">
-            Hardware Comparison Studio
-          </h1>
-          <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
-            Compare CPUs and GPUs side-by-side with real-time aggregate telemetry benchmark metrics, architectural specs, and hierarchy ranking.
-          </p>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-[#E88D9F]/15 text-[#E88D9F] border border-[#E88D9F]/30 tracking-wider">
+                Telemetry Laboratory
+              </span>
+              <span className="text-xs text-gray-400 font-bold hidden sm:inline">• Technical City Matrix</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white mt-1">
+              Hardware Comparison Studio / ハードウェア比較
+            </h2>
+          </div>
         </div>
 
-        {/* Mode Switcher Tabs */}
-        <div className="flex items-center bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0 relative z-10">
+        {/* Component Selector Switch */}
+        <div className="flex items-center p-1.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 shrink-0 self-start md:self-center">
           <button
             onClick={() => handleModeChange("cpu")}
-            className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
-              mode === "cpu"
+            className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 ${
+              isCpuMode
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
+                : "text-gray-500 hover:text-black dark:hover:text-white"
             }`}
           >
-            <CpuIcon className="w-4 h-4" />
-            <span>CPU vs CPU</span>
+            <Cpu className="w-4 h-4" />
+            <span>CPUs Comparison</span>
           </button>
           <button
             onClick={() => handleModeChange("gpu")}
-            className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all ${
-              mode === "gpu"
+            className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 ${
+              !isCpuMode
                 ? "bg-[#E88D9F] text-white shadow-md scale-102"
-                : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
+                : "text-gray-500 hover:text-black dark:hover:text-white"
             }`}
           >
             <Zap className="w-4 h-4" />
-            <span>GPU vs GPU</span>
+            <span>GPUs Comparison</span>
           </button>
         </div>
       </div>
 
-      {/* 2. COMPONENT SELECTION BAR */}
-      <div className="flex flex-col lg:flex-row items-stretch gap-5 w-full">
-        {/* COMPONENT A SELECTOR */}
-        <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
+      {/* 2. SELECTION CARDS MATRIX */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* CANDIDATE A */}
+        <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-1.5">
+              <MousePointerClick className="w-3.5 h-3.5" /> Candidate A
+            </span>
+            {itemA && (
+              <span
+                className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md border ${
+                  itemA.manufacturer === "Intel"
+                    ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                    : itemA.manufacturer === "AMD"
+                    ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                    : itemA.manufacturer === "NVIDIA"
+                    ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                    : "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
+                }`}
+              >
+                {itemA.manufacturer}
+              </span>
+            )}
+          </div>
+
           <SearchableSelect
-            label="Component A (Left)"
             options={filteredOptionsA}
             value={itemA?.id || ""}
             onChange={handleSelectA}
-            placeholder={isCpuMode ? "Select first CPU..." : "Select first GPU..."}
+            placeholder={`Select first ${isCpuMode ? "CPU" : "GPU"}...`}
           />
 
-          {itemA ? (
-            <div className="animate-fadeIn">
-              <div className="flex items-center justify-between pt-2">
-                <div className="min-w-0 pr-2">
-                  <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
-                    {itemAInfo?.name}
-                  </h3>
-                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
-                    {itemAInfo?.details}
-                  </p>
-                </div>
-
-                <div className="text-right shrink-0">
-                  <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-                  <span className="text-2xl font-black text-[#E88D9F]">{scoreA} pts</span>
+          {itemAInfo && (
+            <div className="flex items-center justify-between pt-2 border-t border-black/10 dark:border-white/10 mt-1">
+              <div>
+                <div className="text-xs text-gray-400 font-bold">{itemAInfo.details}</div>
+                <div className="text-xs font-black text-gray-700 dark:text-gray-300 mt-0.5">
+                  Released {itemAInfo.releaseYear}
                 </div>
               </div>
+              <div className="text-right">
+                <div className="text-[10px] uppercase font-bold text-gray-400">Score</div>
+                <div className="text-xl font-black font-mono text-[#E88D9F]">{itemAInfo.score} PTS</div>
+              </div>
+            </div>
+          )}
+        </div>
 
-              <button
-                onClick={() => handleApplyToBuild(itemA as CPU | GPU)}
-                className="w-full py-2.5 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
+        {/* CANDIDATE B */}
+        <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative overflow-hidden">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-1.5">
+              <MousePointerClick className="w-3.5 h-3.5" /> Candidate B
+            </span>
+            {itemB && (
+              <span
+                className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md border ${
+                  itemB.manufacturer === "Intel"
+                    ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                    : itemB.manufacturer === "AMD"
+                    ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                    : itemB.manufacturer === "NVIDIA"
+                    ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                    : "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
+                }`}
               >
-                <Layers className="w-3.5 h-3.5" />
-                <span>Set as Active Build Component</span>
-              </button>
-            </div>
-          ) : (
-            <div className="py-6 border border-dashed border-black/10 dark:border-white/10 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 bg-black/5 dark:bg-white/5">
-              <MousePointerClick className="w-5 h-5 text-gray-400" />
-              <span className="text-xs font-extrabold text-gray-400">Select Candidate A from dropdown above</span>
-            </div>
-          )}
-        </div>
-
-        {/* VERSUS BADGE DELTA */}
-        <div className="w-full lg:w-24 shrink-0 flex flex-col items-center justify-center gap-2 py-4 lg:py-0 min-w-0">
-          <div className="w-12 h-12 rounded-2xl bg-[#E88D9F] text-white font-black text-base flex items-center justify-center shadow-lg border border-[#E88D9F]/30 shrink-0">
-            VS
-          </div>
-          {isBothSelected ? (
-            winner !== "Tie" ? (
-              <span className="text-[11px] font-extrabold text-emerald-500 text-center truncate w-full px-1 animate-fadeIn">
-                +{deltaPct}%
+                {itemB.manufacturer}
               </span>
-            ) : (
-              <span className="text-[11px] font-extrabold text-gray-400 text-center truncate w-full px-1 animate-fadeIn">Equal</span>
-            )
-          ) : (
-            <span className="text-[10px] font-bold text-gray-400 text-center truncate w-full px-1">Waiting</span>
-          )}
-        </div>
+            )}
+          </div>
 
-        {/* COMPONENT B SELECTOR */}
-        <div className="flex-1 w-full lg:w-0 min-w-0 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between gap-4 relative min-h-[220px]">
           <SearchableSelect
-            label="Component B (Right)"
             options={filteredOptionsB}
             value={itemB?.id || ""}
             onChange={handleSelectB}
-            placeholder={isCpuMode ? "Select second CPU..." : "Select second GPU..."}
+            placeholder={`Select second ${isCpuMode ? "CPU" : "GPU"}...`}
           />
 
-          {itemB ? (
-            <div className="animate-fadeIn">
-              <div className="flex items-center justify-between pt-2">
-                <div className="min-w-0 pr-2">
-                  <h3 className="text-base font-black text-[#1E2022] dark:text-white truncate">
-                    {itemBInfo?.name}
-                  </h3>
-                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
-                    {itemBInfo?.details}
-                  </p>
-                </div>
-
-                <div className="text-right shrink-0">
-                  <span className="text-[10px] font-black uppercase text-gray-400 block">Performance Index</span>
-                  <span className="text-2xl font-black text-[#E88D9F]">{scoreB} pts</span>
+          {itemBInfo && (
+            <div className="flex items-center justify-between pt-2 border-t border-black/10 dark:border-white/10 mt-1">
+              <div>
+                <div className="text-xs text-gray-400 font-bold">{itemBInfo.details}</div>
+                <div className="text-xs font-black text-gray-700 dark:text-gray-300 mt-0.5">
+                  Released {itemBInfo.releaseYear}
                 </div>
               </div>
-
-              <button
-                onClick={() => handleApplyToBuild(itemB as CPU | GPU)}
-                className="w-full py-2.5 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-black transition flex items-center justify-center gap-1.5 mt-4"
-              >
-                <Layers className="w-3.5 h-3.5" />
-                <span>Set as Active Build Component</span>
-              </button>
-            </div>
-          ) : (
-            <div className="py-6 border border-dashed border-black/10 dark:border-white/10 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 bg-black/5 dark:bg-white/5">
-              <MousePointerClick className="w-5 h-5 text-gray-400" />
-              <span className="text-xs font-extrabold text-gray-400">Select Candidate B from dropdown above</span>
+              <div className="text-right">
+                <div className="text-[10px] uppercase font-bold text-gray-400">Score</div>
+                <div className="text-xl font-black font-mono text-[#E88D9F]">{itemBInfo.score} PTS</div>
+              </div>
             </div>
           )}
         </div>
       </div>
 
-      {/* 3. BENCHMARK MATRIX CHART & TECHNICAL CITY SPECIFICATION TABLES */}
-      {isBothSelected && itemAInfo && itemBInfo && techSpecsA && techSpecsB ? (
-        <div className="flex flex-col gap-8 animate-fadeIn transition-all duration-500 ease-out">
+      {/* 3. VERIFIED COMPARISON DATA MATRIX */}
+      {isBothSelected && itemAInfo && itemBInfo ? (
+        <div className="flex flex-col gap-8">
+          {/* WINNER VERDICT BANNER */}
+          <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 flex items-center justify-center shrink-0">
+                <Trophy className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-amber-500">
+                  Performance Lead Analysis
+                </span>
+                <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white mt-0.5">
+                  {winner === "Tie"
+                    ? "Identical Throughput Benchmark Score"
+                    : `${winner === "A" ? itemAInfo.name : itemBInfo.name} is ${deltaPct}% Faster`}
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => handleApplyToBuild(winner === "B" ? itemB! : itemA!)}
+                className="px-5 py-2.5 rounded-2xl bg-[#E88D9F] hover:bg-[#E88D9F]/90 text-white text-xs font-black transition shadow-md flex items-center gap-2"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Apply Winner to Simulator</span>
+              </button>
+            </div>
+          </div>
+
           {/* Aggregate Visual Benchmark Chart */}
           <AggregatePerformanceChart
             type={mode}
@@ -384,532 +385,538 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             itemB={itemBInfo}
           />
 
-          {/* TECHNICAL CITY STYLE GROUPED COMPARISON MATRIX */}
-          <div className="flex flex-col gap-6">
-            {/* CATEGORY 1: PRIMARY DETAILS & GLOBAL RANKING */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
+          {/* ============================================================ */}
+          {/* CPU MODE COMPARISON MATRIX */}
+          {/* ============================================================ */}
+          {isCpuMode && cpuTechA && cpuTechB && (
+            <div className="flex flex-col gap-6">
+              {/* CPU BLOCK 1: PRIMARY DETAILS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Trophy className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Primary Details & Global Ranking / 基本概要・総合ランキング
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      Overall hierarchy rank, popularity status, market segment, and architectural generation.
-                    </p>
-                  </div>
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Primary Details & Market Evaluation / CPU基本情報
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px]">
+                        <th className="py-3 px-4 w-2/5">Specification Metric</th>
+                        <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                        <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Place in Global Ranking</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(cpuTechA.rank < cpuTechB.rank ? "A" : "B", "A", `#${cpuTechA.rank}`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(cpuTechB.rank < cpuTechA.rank ? "B" : "A", "B", `#${cpuTechB.rank}`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Place by Popularity</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(cpuTechA.popularityRank < cpuTechB.popularityRank ? "A" : "B", "A", `#${cpuTechA.popularityRank} in builds`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(cpuTechB.popularityRank < cpuTechA.popularityRank ? "B" : "A", "B", `#${cpuTechB.popularityRank} in builds`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost-Effectiveness Evaluation</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechA.costEffectivenessScore) >= parseFloat(cpuTechB.costEffectivenessScore) ? "A" : "B", "A", cpuTechA.costEffectivenessScore)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechB.costEffectivenessScore) >= parseFloat(cpuTechA.costEffectivenessScore) ? "B" : "A", "B", cpuTechB.costEffectivenessScore)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Power Efficiency</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechA.powerEfficiencyScore) >= parseFloat(cpuTechB.powerEfficiencyScore) ? "A" : "B", "A", cpuTechA.powerEfficiencyScore)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechB.powerEfficiencyScore) >= parseFloat(cpuTechA.powerEfficiencyScore) ? "B" : "A", "B", cpuTechB.powerEfficiencyScore)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Market Segment</td>
+                        <td className="py-3.5 px-4">{cpuTechA.marketSegment}</td>
+                        <td className="py-3.5 px-4">{cpuTechB.marketSegment}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Designer / Manufacturer</td>
+                        <td className="py-3.5 px-4 font-black">{cpuTechA.designer}</td>
+                        <td className="py-3.5 px-4 font-black">{cpuTechB.designer}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Architecture Codename</td>
+                        <td className="py-3.5 px-4 font-black text-[#E88D9F]">{cpuTechA.architectureCodename}</td>
+                        <td className="py-3.5 px-4 font-black text-[#E88D9F]">{cpuTechB.architectureCodename}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Release Date</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(cpuTechA.releaseDate) >= parseInt(cpuTechB.releaseDate) ? "A" : "B", "A", cpuTechA.releaseDate)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(cpuTechB.releaseDate) >= parseInt(cpuTechA.releaseDate) ? "B" : "A", "B", cpuTechB.releaseDate)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Launch Price (MSRP)</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{cpuTechA.launchMsrp}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{cpuTechB.launchMsrp}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Place in Global Ranking */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Place in Global Ranking / 総合順位</td>
-                      <td className="py-3.5 px-4">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const url = new URL(window.location.href);
-                            url.searchParams.set("page", "rankings");
-                            url.searchParams.set("type", mode);
-                            url.searchParams.set("highlight", itemA.id);
-                            window.history.replaceState({}, "", url.toString());
-                            setActivePage("rankings");
-                          }}
-                          className={`px-3 py-1 rounded-xl font-mono font-black text-xs border inline-flex items-center gap-1.5 transition hover:scale-105 ${
-                            techSpecsA.rank < techSpecsB.rank
-                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25"
-                              : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20 hover:bg-[#E88D9F]/20"
-                          }`}
-                          title="Click to view full global ranking hierarchy"
-                        >
-                          <span>#{techSpecsA.rank}</span>
-                          {techSpecsA.rank < techSpecsB.rank && (
-                            <span className="inline-flex items-center gap-0.5 text-amber-500 dark:text-amber-400 font-extrabold ml-1">
-                              <Trophy className="w-3 h-3" /> Best
-                            </span>
-                          )}
-                        </button>
-                      </td>
-                      <td className="py-3.5 px-4">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const url = new URL(window.location.href);
-                            url.searchParams.set("page", "rankings");
-                            url.searchParams.set("type", mode);
-                            url.searchParams.set("highlight", itemB.id);
-                            window.history.replaceState({}, "", url.toString());
-                            setActivePage("rankings");
-                          }}
-                          className={`px-3 py-1 rounded-xl font-mono font-black text-xs border inline-flex items-center gap-1.5 transition hover:scale-105 ${
-                            techSpecsB.rank < techSpecsA.rank
-                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25"
-                              : "bg-[#E88D9F]/10 text-[#E88D9F] border-[#E88D9F]/20 hover:bg-[#E88D9F]/20"
-                          }`}
-                          title="Click to view full global ranking hierarchy"
-                        >
-                          <span>#{techSpecsB.rank}</span>
-                          {techSpecsB.rank < techSpecsA.rank && (
-                            <span className="inline-flex items-center gap-0.5 text-amber-500 dark:text-amber-400 font-extrabold ml-1">
-                              <Trophy className="w-3 h-3" /> Best
-                            </span>
-                          )}
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Place by Popularity */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Place by Popularity / 人気ランキング</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(techSpecsA.popularityRank < techSpecsB.popularityRank ? "A" : "B", "A", `#${techSpecsA.popularityRank} in builds`)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(techSpecsB.popularityRank < techSpecsA.popularityRank ? "B" : "A", "B", `#${techSpecsB.popularityRank} in builds`)}</td>
-                    </tr>
-
-                    {/* Cost-Effectiveness Evaluation */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Cost-Effectiveness Evaluation / コスパ評価</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsA.costEffectivenessScore) >= parseFloat(techSpecsB.costEffectivenessScore) ? "A" : "B", "A", `${techSpecsA.costEffectivenessScore} Rating`)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsB.costEffectivenessScore) >= parseFloat(techSpecsA.costEffectivenessScore) ? "B" : "A", "B", `${techSpecsB.costEffectivenessScore} Rating`)}</td>
-                    </tr>
-
-                    {/* Power Efficiency */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Power Efficiency / ワットパフォーマンス</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsA.powerEfficiencyScore) >= parseFloat(techSpecsB.powerEfficiencyScore) ? "A" : "B", "A", `${techSpecsA.powerEfficiencyScore} Efficiency`)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsB.powerEfficiencyScore) >= parseFloat(techSpecsA.powerEfficiencyScore) ? "B" : "A", "B", `${techSpecsB.powerEfficiencyScore} Efficiency`)}</td>
-                    </tr>
-
-                    {/* Market Segment */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Market Segment / セグメント</td>
-                      <td className="py-3.5 px-4">{techSpecsA.marketSegment}</td>
-                      <td className="py-3.5 px-4">{techSpecsB.marketSegment}</td>
-                    </tr>
-
-                    {/* Designer / Manufacturer */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Designer / 開発メーカー</td>
-                      <td className="py-3.5 px-4 font-black">
-                        <span
-                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
-                            itemAInfo.manufacturer === "Intel"
-                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                              : itemAInfo.manufacturer === "AMD"
-                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
-                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                          }`}
-                        >
-                          {itemAInfo.manufacturer}
-                        </span>
-                      </td>
-                      <td className="py-3.5 px-4 font-black">
-                        <span
-                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
-                            itemBInfo.manufacturer === "Intel"
-                              ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                              : itemBInfo.manufacturer === "AMD"
-                              ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
-                              : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
-                          }`}
-                        >
-                          {itemBInfo.manufacturer}
-                        </span>
-                      </td>
-                    </tr>
-
-                    {/* Architecture Codename */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Architecture Codename / アーキテクチャ</td>
-                      <td className="py-3.5 px-4 font-black text-[#E88D9F]">{techSpecsA.architectureCodename}</td>
-                      <td className="py-3.5 px-4 font-black text-[#E88D9F]">{techSpecsB.architectureCodename}</td>
-                    </tr>
-
-                    {/* Release Date */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Release Year / 発売年</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseInt(techSpecsA.releaseDate) >= parseInt(techSpecsB.releaseDate) ? "A" : "B", "A", techSpecsA.releaseDate)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseInt(techSpecsB.releaseDate) >= parseInt(techSpecsA.releaseDate) ? "B" : "A", "B", techSpecsB.releaseDate)}</td>
-                    </tr>
-
-                    {/* Launch Price MSRP */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Launch Price (MSRP) / 発売価格</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsA.launchMsrp}</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsB.launchMsrp}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* CATEGORY 2: DETAILED SPECIFICATIONS & SILICON MICROARCHITECTURE */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
+              {/* CPU BLOCK 2: DETAILED SPECIFICATIONS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Cpu className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Detailed Specifications & Cores / 詳細スペック・コア構成
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      Physical compute engines, clock frequencies, bus rate, cache memory, and semiconductor lithography.
-                    </p>
-                  </div>
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Detailed CPU Specifications / コア構成・クロック
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Physical Cores / Threads</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(cpuTechA.cores >= cpuTechB.cores ? "A" : "B", "A", `${cpuTechA.cores} Cores / ${cpuTechA.threads} Threads`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(cpuTechB.cores >= cpuTechA.cores ? "B" : "A", "B", `${cpuTechB.cores} Cores / ${cpuTechB.threads} Threads`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Base Clock Speed</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechA.baseClock) >= parseFloat(cpuTechB.baseClock) ? "A" : "B", "A", cpuTechA.baseClock)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechB.baseClock) >= parseFloat(cpuTechA.baseClock) ? "B" : "A", "B", cpuTechB.baseClock)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Boost / Turbo Clock Speed</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechA.boostClock) >= parseFloat(cpuTechB.boostClock) ? "A" : "B", "A", cpuTechA.boostClock)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechB.boostClock) >= parseFloat(cpuTechA.boostClock) ? "B" : "A", "B", cpuTechB.boostClock)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Bus Rate (GT/s)</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.busRate}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.busRate}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">L1 Cache</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.l1Cache}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.l1Cache}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">L2 Cache</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.l2Cache}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.l2Cache}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">L3 Cache Memory</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.l3Cache}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.l3Cache}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Process Node Lithography</td>
+                        <td className="py-3.5 px-4">{cpuTechA.processNode}</td>
+                        <td className="py-3.5 px-4">{cpuTechB.processNode}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Die Size (mm²)</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.dieSize}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.dieSize}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Maximum Core Temperature (TjMax)</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.maxTemp}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.maxTemp}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">64-bit Architecture Support</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Windows 11 Official Support</td>
+                        <td className="py-3.5 px-4">{cpuTechA.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
+                        <td className="py-3.5 px-4">{cpuTechB.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Cores / Memory */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">
-                        {isCpuMode ? "Physical Cores / Threads" : "VRAM Memory Capacity"}
-                      </td>
-                      <td className="py-3.5 px-4">
-                        {getWinnerClass(
-                          isCpuMode
-                            ? (itemA as CPU).cores >= (itemB as CPU).cores ? "A" : "B"
-                            : (itemA as GPU).vramGB >= (itemB as GPU).vramGB ? "A" : "B",
-                          "A",
-                          itemAInfo.details
-                        )}
-                      </td>
-                      <td className="py-3.5 px-4">
-                        {getWinnerClass(
-                          isCpuMode
-                            ? (itemB as CPU).cores >= (itemA as CPU).cores ? "B" : "A"
-                            : (itemB as GPU).vramGB >= (itemA as GPU).vramGB ? "B" : "A",
-                          "B",
-                          itemBInfo.details
-                        )}
-                      </td>
-                    </tr>
-
-                    {/* Semiconductor Process Node */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Process Node Lithography / 製造プロセス</td>
-                      <td className="py-3.5 px-4">{techSpecsA.processNode}</td>
-                      <td className="py-3.5 px-4">{techSpecsB.processNode}</td>
-                    </tr>
-
-                    {/* Base Clock */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Base Clock Speed / 基本クロック</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsA.baseClock) >= parseFloat(techSpecsB.baseClock) ? "A" : "B", "A", techSpecsA.baseClock)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsB.baseClock) >= parseFloat(techSpecsA.baseClock) ? "B" : "A", "B", techSpecsB.baseClock)}</td>
-                    </tr>
-
-                    {/* Boost / Turbo Clock */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Boost / Turbo Clock Speed / ブーストクロック</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsA.boostClock) >= parseFloat(techSpecsB.boostClock) ? "A" : "B", "A", techSpecsA.boostClock)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsB.boostClock) >= parseFloat(techSpecsA.boostClock) ? "B" : "A", "B", techSpecsB.boostClock)}</td>
-                    </tr>
-
-                    {/* Bus Rate */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Bus Rate / DMI / Fabric Speed</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.busRate}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.busRate}</td>
-                    </tr>
-
-                    {/* L1 Cache */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">L1 Cache Memory</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.l1Cache}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.l1Cache}</td>
-                    </tr>
-
-                    {/* L2 Cache */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">L2 Cache Memory</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.l2Cache}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.l2Cache}</td>
-                    </tr>
-
-                    {/* L3 Cache */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">L3 Cache Memory / L3キャッシュ</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.l3Cache}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.l3Cache}</td>
-                    </tr>
-
-                    {/* Die Size */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Die Size (mm²) / ダイサイズ</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.dieSize}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.dieSize}</td>
-                    </tr>
-
-                    {/* Max Core Temperature */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Max Temperature (TjMax) / 限界温度</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.maxTemp}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.maxTemp}</td>
-                    </tr>
-
-                    {/* 64-Bit Support */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">64-bit Architecture Support</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                    </tr>
-
-                    {/* Windows 11 Compatibility */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Windows 11 Official Compatibility</td>
-                      <td className="py-3.5 px-4">{techSpecsA.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
-                      <td className="py-3.5 px-4">{techSpecsB.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* CATEGORY 3: COMPATIBILITY, SOCKET & POWER */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
+              {/* CPU BLOCK 3: SOCKET & POWER */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Flame className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Compatibility, Socket & Power / 互換性・ソケット・消費電力
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      Motherboard socket type, thermal design power (TDP), and power supply unit requirements.
-                    </p>
-                  </div>
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Compatibility, Socket & Power / ソケット・TDP
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Socket / Platform Interface</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechA.socket}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechB.socket}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Thermal Design Power (TDP)</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{cpuTechA.powerDrawTdp}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{cpuTechB.powerDrawTdp}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Recommended PSU Capacity</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.recommendedPsu}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.recommendedPsu}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Socket */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Platform / Socket / Bus Slot</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsA.platformSocket}</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsB.platformSocket}</td>
-                    </tr>
-
-                    {/* Power Draw TDP */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Thermal Design Power (TDP) / 消費電力</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsA.powerDrawTdp}</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsB.powerDrawTdp}</td>
-                    </tr>
-
-                    {/* Recommended PSU */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Recommended PSU / 推奨電源容量</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.recommendedPsu}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.recommendedPsu}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* CATEGORY 4: TECHNOLOGIES & EXTENSIONS */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Technologies, Extensions & AI / 拡張命令・セキュリティ・AI
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      SIMD instruction sets, hardware encryption, virtualization, and AI neural engines.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Instruction Set Extensions */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Instruction Set Extensions</td>
-                      <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{techSpecsA.instructionSets}</td>
-                      <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{techSpecsB.instructionSets}</td>
-                    </tr>
-
-                    {/* AES-NI */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">AES-NI Encryption Acceleration</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                    </tr>
-
-                    {/* Deep Learning Boost / AI */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Deep Learning Boost / AI Engine</td>
-                      <td className="py-3.5 px-4">{techSpecsA.dlBoost ? <span className="text-emerald-500 font-black">+ (Supported)</span> : <span className="text-gray-400">-</span>}</td>
-                      <td className="py-3.5 px-4">{techSpecsB.dlBoost ? <span className="text-emerald-500 font-black">+ (Supported)</span> : <span className="text-gray-400">-</span>}</td>
-                    </tr>
-
-                    {/* Virtualization */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Hardware Virtualization (VT-x / AMD-V)</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                      <td className="py-3.5 px-4 font-black text-emerald-500">+ (Supported)</td>
-                    </tr>
-
-                    {/* Hyper-Threading / SMT */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Hyper-Threading / SMT Multi-Threading</td>
-                      <td className="py-3.5 px-4">{techSpecsA.hyperThreading ? <span className="text-emerald-500 font-black">+ (Supported)</span> : <span className="text-gray-400">-</span>}</td>
-                      <td className="py-3.5 px-4">{techSpecsB.hyperThreading ? <span className="text-emerald-500 font-black">+ (Supported)</span> : <span className="text-gray-400">-</span>}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* CATEGORY 5: MEMORY SPECS */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
+              {/* CPU BLOCK 4: MEMORY SPECS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <HardDrive className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Memory Specs & Bandwidth / メモリ仕様・帯域幅
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      Supported memory types, max capacity, memory channel count, and peak memory bandwidth.
-                    </p>
-                  </div>
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Memory Specifications / メモリ対応規格
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Supported Memory Types</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechA.memorySupport}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechB.memorySupport}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Maximum Memory Capacity</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.maxMemorySize}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.maxMemorySize}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Max Memory Channels</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechA.memoryChannels}</td>
+                        <td className="py-3.5 px-4 font-mono">{cpuTechB.memoryChannels}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Maximum Memory Bandwidth</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechA.memoryBandwidth) >= parseFloat(cpuTechB.memoryBandwidth) ? "A" : "B", "A", cpuTechA.memoryBandwidth)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(cpuTechB.memoryBandwidth) >= parseFloat(cpuTechA.memoryBandwidth) ? "B" : "A", "B", cpuTechB.memoryBandwidth)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ============================================================ */}
+          {/* GPU MODE COMPARISON MATRIX (Tailored for Video Cards) */}
+          {/* ============================================================ */}
+          {!isCpuMode && gpuTechA && gpuTechB && (
+            <div className="flex flex-col gap-6">
+              {/* GPU BLOCK 1: PRIMARY DETAILS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Trophy className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Primary Details & Market Evaluation / ビデオカード基本概要
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px]">
+                        <th className="py-3 px-4 w-2/5">Specification Metric</th>
+                        <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
+                        <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Place in Global Ranking</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(gpuTechA.rank < gpuTechB.rank ? "A" : "B", "A", `#${gpuTechA.rank}`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(gpuTechB.rank < gpuTechA.rank ? "B" : "A", "B", `#${gpuTechB.rank}`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Place by Popularity</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(gpuTechA.popularityRank < gpuTechB.popularityRank ? "A" : "B", "A", `#${gpuTechA.popularityRank} in builds`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(gpuTechB.popularityRank < gpuTechA.popularityRank ? "B" : "A", "B", `#${gpuTechB.popularityRank} in builds`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost-Effectiveness Evaluation</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechA.costEffectivenessScore) >= parseFloat(gpuTechB.costEffectivenessScore) ? "A" : "B", "A", gpuTechA.costEffectivenessScore)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechB.costEffectivenessScore) >= parseFloat(gpuTechA.costEffectivenessScore) ? "B" : "A", "B", gpuTechB.costEffectivenessScore)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Power Efficiency Score</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechA.powerEfficiencyScore) >= parseFloat(gpuTechB.powerEfficiencyScore) ? "A" : "B", "A", gpuTechA.powerEfficiencyScore)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechB.powerEfficiencyScore) >= parseFloat(gpuTechA.powerEfficiencyScore) ? "B" : "A", "B", gpuTechB.powerEfficiencyScore)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">GPU Architecture</td>
+                        <td className="py-3.5 px-4 font-black text-[#E88D9F]">{gpuTechA.architectureCodename}</td>
+                        <td className="py-3.5 px-4 font-black text-[#E88D9F]">{gpuTechB.architectureCodename}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">GPU Code Name</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.gpuCodeName}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.gpuCodeName}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Market Segment</td>
+                        <td className="py-3.5 px-4">{gpuTechA.marketSegment}</td>
+                        <td className="py-3.5 px-4">{gpuTechB.marketSegment}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Release Date</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechA.releaseDate) >= parseInt(gpuTechB.releaseDate) ? "A" : "B", "A", gpuTechA.releaseDate)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechB.releaseDate) >= parseInt(gpuTechA.releaseDate) ? "B" : "A", "B", gpuTechB.releaseDate)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Launch Price (MSRP)</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.launchMsrp}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.launchMsrp}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Supported Memory Types */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Supported Memory Types</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsA.memorySupport}</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsB.memorySupport}</td>
-                    </tr>
-
-                    {/* Maximum Memory Capacity */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Maximum Memory Capacity</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.maxMemorySize}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.maxMemorySize}</td>
-                    </tr>
-
-                    {/* Memory Channels */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Max Memory Channels</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.memoryChannels}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.memoryChannels}</td>
-                    </tr>
-
-                    {/* Maximum Memory Bandwidth */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Peak Memory Bandwidth / 最大帯域幅</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsA.memoryBandwidth) >= parseFloat(techSpecsB.memoryBandwidth) ? "A" : "B", "A", techSpecsA.memoryBandwidth)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(parseFloat(techSpecsB.memoryBandwidth) >= parseFloat(techSpecsA.memoryBandwidth) ? "B" : "A", "B", techSpecsB.memoryBandwidth)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* CATEGORY 6: GRAPHICS SPECIFICATIONS & PERIPHERALS */}
-            <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-[#E88D9F]" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                      Graphics Specifications & Peripherals / グラフィック・周辺機器
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5">
-                      Integrated graphics processor, PCI Express generation, and bus lane width.
-                    </p>
-                  </div>
+              {/* GPU BLOCK 2: DETAILED SPECIFICATIONS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Zap className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Detailed GPU Specifications / シェーダーコア・演算能力
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Pipelines / CUDA Cores / Shaders</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechA.cudaCores}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechB.cudaCores}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Core Clock Speed</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechA.baseClock) >= parseInt(gpuTechB.baseClock) ? "A" : "B", "A", gpuTechA.baseClock)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechB.baseClock) >= parseInt(gpuTechA.baseClock) ? "B" : "A", "B", gpuTechB.baseClock)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Boost Clock Speed</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechA.boostClock) >= parseInt(gpuTechB.boostClock) ? "A" : "B", "A", gpuTechA.boostClock)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechB.boostClock) >= parseInt(gpuTechA.boostClock) ? "B" : "A", "B", gpuTechB.boostClock)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Number of Transistors</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.transistors}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.transistors}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Manufacturing Process Technology</td>
+                        <td className="py-3.5 px-4">{gpuTechA.processNode}</td>
+                        <td className="py-3.5 px-4">{gpuTechB.processNode}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Power Consumption (TDP)</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.powerDrawTdp}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.powerDrawTdp}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Maximum GPU Temperature</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.maxTemp}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.maxTemp}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Texture Fill Rate</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.textureFillRate}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.textureFillRate}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Floating-Point Processing Power (TFLOPS)</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechA.tflops) >= parseFloat(gpuTechB.tflops) ? "A" : "B", "A", gpuTechA.tflops)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechB.tflops) >= parseFloat(gpuTechA.tflops) ? "B" : "A", "B", gpuTechB.tflops)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">ROPs Count</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.rops}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.rops}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">TMUs Count</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.tmus}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.tmus}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">L1 Cache Memory</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.l1Cache}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.l1Cache}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">L2 Cache Memory</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.l2Cache}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.l2Cache}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <th className="py-3 px-4 w-2/5">Specification Metric</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
-                      <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold text-gray-700 dark:text-gray-300">
-                    {/* Integrated Graphics Model */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">Integrated Graphics Processor / 内蔵グラフィックス</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsA.iGpuModel}</td>
-                      <td className="py-3.5 px-4 font-mono font-black">{techSpecsB.iGpuModel}</td>
-                    </tr>
+              {/* GPU BLOCK 3: FORM FACTOR & COMPATIBILITY */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Flame className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Form Factor & Compatibility / サイズ・電源端子
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Bus Interface</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechA.interface}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechB.interface}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Card Length (mm)</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.length}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.length}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Slot Width</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.slotWidth}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.slotWidth}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Supplementary Power Connectors</td>
+                        <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechA.powerConnectors}</td>
+                        <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechB.powerConnectors}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-                    {/* PCI Express Version */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">PCI Express Interface Revision</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(techSpecsA.pcieVersion.includes("5.0") ? "A" : "B", "A", techSpecsA.pcieVersion)}</td>
-                      <td className="py-3.5 px-4">{getWinnerClass(techSpecsB.pcieVersion.includes("5.0") ? "B" : "A", "B", techSpecsB.pcieVersion)}</td>
-                    </tr>
+              {/* GPU BLOCK 4: VRAM CAPACITY & TYPE */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <HardDrive className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    VRAM Capacity & Memory Subsystem / VRAMメモリ仕様
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Memory Type</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechA.memoryType}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechB.memoryType}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Maximum RAM Amount</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechA.maxVramAmount) >= parseInt(gpuTechB.maxVramAmount) ? "A" : "B", "A", gpuTechA.maxVramAmount)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseInt(gpuTechB.maxVramAmount) >= parseInt(gpuTechA.maxVramAmount) ? "B" : "A", "B", gpuTechB.maxVramAmount)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Memory Bus Width</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.memoryBusWidth}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.memoryBusWidth}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Memory Clock Speed</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.memoryClockSpeed}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.memoryClockSpeed}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Memory Bandwidth</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechA.memoryBandwidth) >= parseFloat(gpuTechB.memoryBandwidth) ? "A" : "B", "A", gpuTechA.memoryBandwidth)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(parseFloat(gpuTechB.memoryBandwidth) >= parseFloat(gpuTechA.memoryBandwidth) ? "B" : "A", "B", gpuTechB.memoryBandwidth)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Shared System Memory Status</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.sharedMemory}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.sharedMemory}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-                    {/* PCI Express Lanes */}
-                    <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                      <td className="py-3.5 px-4 font-bold text-gray-500">PCI Express Lanes Count</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsA.pcieLanes}</td>
-                      <td className="py-3.5 px-4 font-mono">{techSpecsB.pcieLanes}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              {/* GPU BLOCK 5: CONNECTIVITY & OUTPUTS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Monitor className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Connectivity & Outputs / 映像出力端子・同期技術
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Display Connectors</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono">{gpuTechA.displayConnectors}</td>
+                        <td className="py-3.5 px-4 w-3/10 font-mono">{gpuTechB.displayConnectors}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">HDMI 2.1 Standard</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">G-SYNC / FreeSync Display Support</td>
+                        <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechA.gsyncSupport}</td>
+                        <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechB.gsyncSupport}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* GPU BLOCK 6: SUPPORTED TECHNOLOGIES & APIS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <ShieldCheck className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    API & SDK Support / 3DグラフィックスAPI
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">DirectX API Revision</td>
+                        <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechA.directX}</td>
+                        <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechB.directX}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Shader Model Version</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.shaderModel}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.shaderModel}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">OpenGL Version</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.openGL}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.openGL}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">OpenCL Version</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.openCL}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.openCL}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Vulkan API Version</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.vulkan}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.vulkan}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">CUDA / GPGPU Acceleration</td>
+                        <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechA.cuda}</td>
+                        <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechB.cuda}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       ) : (
         <div className="bg-white/80 dark:bg-[#1A1C1E]/80 border border-dashed border-[#E88D9F]/30 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-3 shadow-lg animate-fadeIn">
