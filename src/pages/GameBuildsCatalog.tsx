@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import type { Game, CPU, GPU, RAMProfile } from "../lib/types";
 import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2, Copy, Check, Gamepad2, Palette, Video, Volume2, Building2 } from "lucide-react";
+import CustomSelect from "../components/CustomSelect";
 
 interface GameBuildsCatalogProps {
   games: Game[];
@@ -511,81 +512,71 @@ export default function GameBuildsCatalog({
           </div>
 
           {/* Sort By Selector */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-gray-500 uppercase tracking-wider shrink-0 flex items-center gap-1">
-              <ArrowUpDown className="w-3.5 h-3.5 text-[#E88D9F]" /> Sort:
-            </span>
-            <select
-              className="bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3 py-2.5 text-xs font-black text-[#1E2022] dark:text-white outline-none cursor-pointer"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
-            >
-              <option value="recommended" className="bg-white dark:bg-[#1A1C1E]">Recommended Order</option>
-              <option value="price-desc" className="bg-white dark:bg-[#1A1C1E]">Price: High to Low ($4,450 → $120)</option>
-              <option value="price-asc" className="bg-white dark:bg-[#1A1C1E]">Price: Low to High ($120 → $4,450)</option>
-              <option value="fps-desc" className="bg-white dark:bg-[#1A1C1E]">Framerate: Highest FPS</option>
-              <option value="title-asc" className="bg-white dark:bg-[#1A1C1E]">Title (A-Z)</option>
-            </select>
-          </div>
+          <CustomSelect
+            label="SORT:"
+            options={[
+              { value: "recommended", label: "Recommended Order" },
+              { value: "price-desc", label: "Price: High to Low ($4,450 → $120)" },
+              { value: "price-asc", label: "Price: Low to High ($120 → $4,450)" },
+              { value: "fps-desc", label: "Framerate: Highest FPS" },
+              { value: "title-asc", label: "Title (A-Z)" }
+            ]}
+            value={sortBy}
+            onChange={(val) => setSortBy(val as any)}
+            icon={<ArrowUpDown className="w-3.5 h-3.5" />}
+            className="w-full md:w-64"
+          />
         </div>
 
         {/* Row 2: Category, Game & Budget Dropdowns */}
         <div className="flex flex-wrap items-center gap-3 border-t border-black/10 dark:border-white/10 pt-3">
           
           {/* Workload Category Filter */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-gray-500 uppercase tracking-wider shrink-0 flex items-center gap-1">
-              <Code2 className="w-3.5 h-3.5 text-indigo-500" /> Category:
-            </span>
-            <select
-              className="bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3 py-2 text-xs font-black text-[#1E2022] dark:text-white outline-none cursor-pointer"
-              value={selectedCategoryFilter}
-              onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-            >
-              <option value="All" className="bg-white dark:bg-[#1A1C1E]">-- All Workload Categories --</option>
-              <option value="Gaming" className="bg-white dark:bg-[#1A1C1E]">Esports & Gaming</option>
-              <option value="3D Render" className="bg-white dark:bg-[#1A1C1E]">3D Render & VFX</option>
-              <option value="AI & Dev" className="bg-white dark:bg-[#1A1C1E]">AI ML & Software Dev</option>
-              <option value="Streaming" className="bg-white dark:bg-[#1A1C1E]">4K Live Streaming</option>
-              <option value="Audio Studio" className="bg-white dark:bg-[#1A1C1E]">Audio DAW Studio</option>
-              <option value="CAD & Workstation" className="bg-white dark:bg-[#1A1C1E]">CAD & Engineering</option>
-            </select>
-          </div>
+          <CustomSelect
+            label="CATEGORY:"
+            options={[
+              { value: "All", label: "-- All Workload Categories --" },
+              { value: "Gaming", label: "Esports & Gaming" },
+              { value: "3D Render", label: "3D Render & VFX" },
+              { value: "AI & Dev", label: "AI ML & Software Dev" },
+              { value: "Streaming", label: "4K Live Streaming" },
+              { value: "Audio Studio", label: "Audio DAW Studio" },
+              { value: "CAD & Workstation", label: "CAD & Engineering" }
+            ]}
+            value={selectedCategoryFilter}
+            onChange={(val) => setSelectedCategoryFilter(val)}
+            icon={<Code2 className="w-3.5 h-3.5 text-indigo-500" />}
+            className="w-full sm:w-60"
+          />
 
           {/* Game Filter */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-gray-500 uppercase tracking-wider shrink-0 flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5 text-[#8A9A86]" /> Game:
-            </span>
-            <select
-              className="bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3 py-2 text-xs font-black text-[#1E2022] dark:text-white outline-none cursor-pointer"
-              value={selectedGameFilter}
-              onChange={(e) => setSelectedGameFilter(e.target.value)}
-            >
-              <option value="All" className="bg-white dark:bg-[#1A1C1E]">-- All 18 Games --</option>
-              {games.map((g) => (
-                <option key={g.id} value={g.id} className="bg-white dark:bg-[#1A1C1E]">
-                  {g.title}
-                </option>
-              ))}
-            </select>
-          </div>
+          <CustomSelect
+            label="GAME:"
+            options={[
+              { value: "All", label: `-- All ${games.length} Games --` },
+              ...games.map((g) => ({ value: g.id, label: g.title }))
+            ]}
+            value={selectedGameFilter}
+            onChange={(val) => setSelectedGameFilter(val)}
+            icon={<Filter className="w-3.5 h-3.5 text-[#8A9A86]" />}
+            className="w-full sm:w-56"
+          />
 
           {/* Budget Tier Filter */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-gray-500 uppercase tracking-wider shrink-0">Budget:</span>
-            <select
-              className="bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-3 py-2 text-xs font-black text-[#1E2022] dark:text-white outline-none cursor-pointer"
-              value={selectedTierFilter}
-              onChange={(e) => setSelectedTierFilter(e.target.value)}
-            >
-              <option value="All" className="bg-white dark:bg-[#1A1C1E]">-- All Budget Tiers --</option>
-              <option value="Budget ($500-$800)" className="bg-white dark:bg-[#1A1C1E]">Budget ($500-$800)</option>
-              <option value="Sweetspot ($1,000-$1,500)" className="bg-white dark:bg-[#1A1C1E]">Sweetspot ($1,000-$1,500)</option>
-              <option value="High-End ($1,800-$2,500)" className="bg-white dark:bg-[#1A1C1E]">High-End ($1,800-$2,500)</option>
-              <option value="God Tier ($3,000+)" className="bg-white dark:bg-[#1A1C1E]">God Tier ($3,000+)</option>
-            </select>
-          </div>
+          <CustomSelect
+            label="BUDGET:"
+            options={[
+              { value: "All", label: "-- All Budget Tiers --" },
+              { value: "Budget ($500-$800)", label: "Budget ($500-$800)" },
+              { value: "Sweetspot ($1,000-$1,500)", label: "Sweetspot ($1,000-$1,500)" },
+              { value: "High-End ($1,800-$2,500)", label: "High-End ($1,800-$2,500)" },
+              { value: "God Tier ($3,000+)", label: "God Tier ($3,000+)" }
+            ]}
+            value={selectedTierFilter}
+            onChange={(val) => setSelectedTierFilter(val)}
+            icon={<Zap className="w-3.5 h-3.5 text-amber-500" />}
+            className="w-full sm:w-60"
+          />
         </div>
       </div>
 

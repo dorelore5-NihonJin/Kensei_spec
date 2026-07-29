@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Trophy, Cpu, Zap, Search, Layers, Scale, ChevronLeft, ChevronRight, ArrowUpDown, RotateCcw } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
+import CustomSelect from "../components/CustomSelect";
 
 interface RankingsPageProps {
   cpus: CPU[];
@@ -233,31 +234,26 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           </div>
 
           {/* Sort Order Selector Dropdown */}
-          <div className="relative w-full sm:w-64">
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#E88D9F]">
-              <ArrowUpDown className="w-3.5 h-3.5" />
-            </div>
-            <select
-              value={sortBy}
-              onChange={(e) => {
-                setSortBy(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl pl-9 pr-8 py-2.5 text-xs font-black text-[#1E2022] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E88D9F]/30 transition cursor-pointer appearance-none"
-            >
-              <option value="score-desc">Highest to Lowest Score / 高→低</option>
-              <option value="score-asc">Lowest to Highest Score / 低→高</option>
-              <option value="year-desc">Newest Release Year / 新しい順</option>
-              <option value="year-asc">Oldest Release Year / 古い順</option>
-              <option value="name-asc">Alphabetical / 名前順 (A-Z)</option>
-              <option value="specs-desc">
-                {type === "cpu" ? "Max Cores First / コア数順" : "Max VRAM First / VRAM容量順"}
-              </option>
-            </select>
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 text-[10px]">
-              ▼
-            </div>
-          </div>
+          <CustomSelect
+            options={[
+              { value: "score-desc", label: "Highest to Lowest Score / 高→低" },
+              { value: "score-asc", label: "Lowest to Highest Score / 低→高" },
+              { value: "year-desc", label: "Newest Release Year / 新しい順" },
+              { value: "year-asc", label: "Oldest Release Year / 古い順" },
+              { value: "name-asc", label: "Alphabetical / 名前順 (A-Z)" },
+              {
+                value: "specs-desc",
+                label: type === "cpu" ? "Max Cores First / コア数順" : "Max VRAM First / VRAM容量順"
+              }
+            ]}
+            value={sortBy}
+            onChange={(val) => {
+              setSortBy(val);
+              setCurrentPage(1);
+            }}
+            icon={<ArrowUpDown className="w-3.5 h-3.5" />}
+            className="w-full sm:w-72"
+          />
         </div>
 
         {/* Right Group: Manufacturer Filter Badges + Reset Filter */}
