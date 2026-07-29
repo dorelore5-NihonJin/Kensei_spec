@@ -495,7 +495,7 @@ export default function GameBuildsCatalog({
       </div>
 
       {/* Filter & Sorting Controls Bar */}
-      <div className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col gap-4">
+      <div className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col gap-4 relative z-30">
         
         {/* Row 1: Search & Sort Order */}
         <div className="flex flex-col md:flex-row gap-3">

@@ -215,7 +215,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
       </div>
 
       {/* 2. SEARCH, SORTING & MANUFACTURER FILTER BAR */}
-      <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-5 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4">
+      <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-5 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 relative z-30">
         {/* Left Group: Search Input + Sort Dropdown */}
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
           {/* Search Input Box */}
