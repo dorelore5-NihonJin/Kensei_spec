@@ -1,7 +1,7 @@
 export interface GPU {
   id: string;
   name: string;
-  manufacturer: "NVIDIA" | "AMD" | "Intel";
+  manufacturer: "NVIDIA" | "AMD" | "Intel" | "Apple";
   releaseYear: number;
   relativePowerScore: number;
   vramGB: number;
@@ -9,6 +9,7 @@ export interface GPU {
   recommendedPsuW: number;
   tdpW: number;
   rayTracingPowerScore: number;
+  isIntegrated?: boolean;
 }
 
 export interface CPU {

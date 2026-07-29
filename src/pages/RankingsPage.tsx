@@ -378,6 +378,10 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
                         {type === "cpu"
                           ? `${(item as CPU).cores} Cores / ${(item as CPU).threads} Threads • Socket ${(item as CPU).socket} • ${item.releaseYear}`
+                          : (item as GPU).manufacturer === "Apple"
+                          ? `${(item as GPU).vramGB}GB Unified RAM • ${(item as GPU).architecture} • ${item.releaseYear}`
+                          : (item as GPU).isIntegrated
+                          ? `${(item as GPU).vramGB}GB Shared RAM (iGPU) • ${(item as GPU).architecture} • ${item.releaseYear}`
                           : `${(item as GPU).vramGB}GB VRAM • ${(item as GPU).architecture} • ${item.releaseYear}`}
                       </p>
                     </div>

@@ -9,7 +9,8 @@
     "architecture": "Curie",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-002",
@@ -21,7 +22,8 @@
     "architecture": "Curie",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-003",
@@ -33,7 +35,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-004",
@@ -45,7 +48,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-005",
@@ -57,7 +61,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-006",
@@ -69,7 +74,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-007",
@@ -81,7 +87,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-008",
@@ -93,7 +100,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-009",
@@ -105,7 +113,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-010",
@@ -117,7 +126,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-011",
@@ -129,7 +139,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-012",
@@ -141,7 +152,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-013",
@@ -153,7 +165,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-014",
@@ -165,7 +178,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-015",
@@ -177,7 +191,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-016",
@@ -189,7 +204,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-017",
@@ -201,7 +217,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-018",
@@ -213,7 +230,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-019",
@@ -225,7 +243,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-020",
@@ -237,7 +256,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-021",
@@ -249,7 +269,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-022",
@@ -261,7 +282,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-023",
@@ -273,7 +295,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-024",
@@ -285,7 +308,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-025",
@@ -297,7 +321,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-026",
@@ -309,7 +334,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-027",
@@ -321,7 +347,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-028",
@@ -333,7 +360,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-029",
@@ -345,7 +373,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-030",
@@ -357,7 +386,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-031",
@@ -369,7 +399,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-032",
@@ -381,7 +412,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-033",
@@ -393,7 +425,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-034",
@@ -405,7 +438,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-035",
@@ -417,7 +451,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-036",
@@ -429,7 +464,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-037",
@@ -441,7 +477,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-038",
@@ -453,7 +490,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-039",
@@ -465,7 +503,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-040",
@@ -477,7 +516,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-041",
@@ -489,7 +529,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-042",
@@ -501,7 +542,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-043",
@@ -513,7 +555,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-044",
@@ -525,7 +568,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-045",
@@ -537,7 +581,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-046",
@@ -549,7 +594,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-047",
@@ -561,7 +607,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-048",
@@ -573,7 +620,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-049",
@@ -585,7 +633,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-050",
@@ -597,7 +646,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-051",
@@ -609,7 +659,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 85
+    "rayTracingPowerScore": 85,
+    "isIntegrated": false
   },
   {
     "id": "gpu-052",
@@ -621,7 +672,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 101
+    "rayTracingPowerScore": 101,
+    "isIntegrated": false
   },
   {
     "id": "gpu-053",
@@ -633,7 +685,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 107
+    "rayTracingPowerScore": 107,
+    "isIntegrated": false
   },
   {
     "id": "gpu-054",
@@ -645,7 +698,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 119
+    "rayTracingPowerScore": 119,
+    "isIntegrated": false
   },
   {
     "id": "gpu-055",
@@ -657,7 +711,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 131
+    "rayTracingPowerScore": 131,
+    "isIntegrated": false
   },
   {
     "id": "gpu-056",
@@ -669,7 +724,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 139
+    "rayTracingPowerScore": 139,
+    "isIntegrated": false
   },
   {
     "id": "gpu-057",
@@ -681,7 +737,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 168
+    "rayTracingPowerScore": 168,
+    "isIntegrated": false
   },
   {
     "id": "gpu-058",
@@ -693,7 +750,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 180
+    "rayTracingPowerScore": 180,
+    "isIntegrated": false
   },
   {
     "id": "gpu-059",
@@ -705,7 +763,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 110
+    "rayTracingPowerScore": 110,
+    "isIntegrated": false
   },
   {
     "id": "gpu-060",
@@ -717,7 +776,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 149
+    "rayTracingPowerScore": 149,
+    "isIntegrated": false
   },
   {
     "id": "gpu-061",
@@ -729,7 +789,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 185
+    "rayTracingPowerScore": 185,
+    "isIntegrated": false
   },
   {
     "id": "gpu-062",
@@ -741,7 +802,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 212
+    "rayTracingPowerScore": 212,
+    "isIntegrated": false
   },
   {
     "id": "gpu-063",
@@ -753,7 +815,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 230
+    "rayTracingPowerScore": 230,
+    "isIntegrated": false
   },
   {
     "id": "gpu-064",
@@ -765,7 +828,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 279
+    "rayTracingPowerScore": 279,
+    "isIntegrated": false
   },
   {
     "id": "gpu-065",
@@ -777,7 +841,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 315
+    "rayTracingPowerScore": 315,
+    "isIntegrated": false
   },
   {
     "id": "gpu-066",
@@ -789,7 +854,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 342
+    "rayTracingPowerScore": 342,
+    "isIntegrated": false
   },
   {
     "id": "gpu-067",
@@ -801,7 +867,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 850,
     "tdpW": 700,
-    "rayTracingPowerScore": 369
+    "rayTracingPowerScore": 369,
+    "isIntegrated": false
   },
   {
     "id": "gpu-068",
@@ -813,7 +880,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 275
+    "rayTracingPowerScore": 275,
+    "isIntegrated": false
   },
   {
     "id": "gpu-069",
@@ -825,7 +893,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 313
+    "rayTracingPowerScore": 313,
+    "isIntegrated": false
   },
   {
     "id": "gpu-070",
@@ -837,7 +906,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 319
+    "rayTracingPowerScore": 319,
+    "isIntegrated": false
   },
   {
     "id": "gpu-071",
@@ -849,7 +919,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 438
+    "rayTracingPowerScore": 438,
+    "isIntegrated": false
   },
   {
     "id": "gpu-072",
@@ -861,7 +932,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 513
+    "rayTracingPowerScore": 513,
+    "isIntegrated": false
   },
   {
     "id": "gpu-073",
@@ -873,7 +945,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 700,
     "tdpW": 550,
-    "rayTracingPowerScore": 525
+    "rayTracingPowerScore": 525,
+    "isIntegrated": false
   },
   {
     "id": "gpu-074",
@@ -885,7 +958,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 700,
     "tdpW": 550,
-    "rayTracingPowerScore": 569
+    "rayTracingPowerScore": 569,
+    "isIntegrated": false
   },
   {
     "id": "gpu-075",
@@ -897,7 +971,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 675
+    "rayTracingPowerScore": 675,
+    "isIntegrated": false
   },
   {
     "id": "gpu-076",
@@ -909,7 +984,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 706
+    "rayTracingPowerScore": 706,
+    "isIntegrated": false
   },
   {
     "id": "gpu-077",
@@ -921,7 +997,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 850,
     "tdpW": 700,
-    "rayTracingPowerScore": 938
+    "rayTracingPowerScore": 938,
+    "isIntegrated": false
   },
   {
     "id": "gpu-078",
@@ -933,7 +1010,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 495
+    "rayTracingPowerScore": 495,
+    "isIntegrated": false
   },
   {
     "id": "gpu-079",
@@ -945,7 +1023,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 780
+    "rayTracingPowerScore": 780,
+    "isIntegrated": false
   },
   {
     "id": "gpu-080",
@@ -957,7 +1036,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 1170
+    "rayTracingPowerScore": 1170,
+    "isIntegrated": false
   },
   {
     "id": "gpu-081",
@@ -969,7 +1049,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 1000,
     "tdpW": 850,
-    "rayTracingPowerScore": 1500
+    "rayTracingPowerScore": 1500,
+    "isIntegrated": false
   },
   {
     "id": "gpu-082",
@@ -981,7 +1062,8 @@
     "architecture": "R500",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-083",
@@ -993,7 +1075,8 @@
     "architecture": "R500",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-084",
@@ -1005,7 +1088,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-085",
@@ -1017,7 +1101,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-086",
@@ -1029,7 +1114,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-087",
@@ -1041,7 +1127,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-088",
@@ -1053,7 +1140,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-089",
@@ -1065,7 +1153,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-090",
@@ -1077,7 +1166,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-091",
@@ -1089,7 +1179,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-092",
@@ -1101,7 +1192,8 @@
     "architecture": "TeraScale 3",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-093",
@@ -1113,7 +1205,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-094",
@@ -1125,7 +1218,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-095",
@@ -1137,7 +1231,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-096",
@@ -1149,7 +1244,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-097",
@@ -1161,7 +1257,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-098",
@@ -1173,7 +1270,8 @@
     "architecture": "GCN 2.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-099",
@@ -1185,7 +1283,8 @@
     "architecture": "GCN 3.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-100",
@@ -1197,7 +1296,8 @@
     "architecture": "GCN 2.0",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-101",
@@ -1209,7 +1309,8 @@
     "architecture": "GCN 3.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-102",
@@ -1221,7 +1322,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-103",
@@ -1233,7 +1335,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-104",
@@ -1245,7 +1348,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-105",
@@ -1257,7 +1361,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-106",
@@ -1269,7 +1374,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-107",
@@ -1281,7 +1387,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-108",
@@ -1293,7 +1400,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-109",
@@ -1305,7 +1413,8 @@
     "architecture": "Vega",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-110",
@@ -1317,7 +1426,8 @@
     "architecture": "Vega",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-111",
@@ -1329,7 +1439,8 @@
     "architecture": "Vega",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-112",
@@ -1341,7 +1452,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-113",
@@ -1353,7 +1465,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-114",
@@ -1365,7 +1478,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-115",
@@ -1377,7 +1491,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-116",
@@ -1389,7 +1504,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 17
+    "rayTracingPowerScore": 17,
+    "isIntegrated": false
   },
   {
     "id": "gpu-117",
@@ -1401,7 +1517,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 22
+    "rayTracingPowerScore": 22,
+    "isIntegrated": false
   },
   {
     "id": "gpu-118",
@@ -1413,7 +1530,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 46
+    "rayTracingPowerScore": 46,
+    "isIntegrated": false
   },
   {
     "id": "gpu-119",
@@ -1425,7 +1543,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 54
+    "rayTracingPowerScore": 54,
+    "isIntegrated": false
   },
   {
     "id": "gpu-120",
@@ -1437,7 +1556,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 65
+    "rayTracingPowerScore": 65,
+    "isIntegrated": false
   },
   {
     "id": "gpu-121",
@@ -1449,7 +1569,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 78
+    "rayTracingPowerScore": 78,
+    "isIntegrated": false
   },
   {
     "id": "gpu-122",
@@ -1461,7 +1582,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 93
+    "rayTracingPowerScore": 93,
+    "isIntegrated": false
   },
   {
     "id": "gpu-123",
@@ -1473,7 +1595,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 850,
     "tdpW": 700,
-    "rayTracingPowerScore": 104
+    "rayTracingPowerScore": 104,
+    "isIntegrated": false
   },
   {
     "id": "gpu-124",
@@ -1485,7 +1608,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 850,
     "tdpW": 700,
-    "rayTracingPowerScore": 113
+    "rayTracingPowerScore": 113,
+    "isIntegrated": false
   },
   {
     "id": "gpu-125",
@@ -1497,7 +1621,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 98
+    "rayTracingPowerScore": 98,
+    "isIntegrated": false
   },
   {
     "id": "gpu-126",
@@ -1509,7 +1634,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 105
+    "rayTracingPowerScore": 105,
+    "isIntegrated": false
   },
   {
     "id": "gpu-127",
@@ -1521,7 +1647,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 700,
     "tdpW": 550,
-    "rayTracingPowerScore": 143
+    "rayTracingPowerScore": 143,
+    "isIntegrated": false
   },
   {
     "id": "gpu-128",
@@ -1533,7 +1660,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 700,
     "tdpW": 550,
-    "rayTracingPowerScore": 170
+    "rayTracingPowerScore": 170,
+    "isIntegrated": false
   },
   {
     "id": "gpu-129",
@@ -1545,7 +1673,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 185
+    "rayTracingPowerScore": 185,
+    "isIntegrated": false
   },
   {
     "id": "gpu-130",
@@ -1557,7 +1686,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 230
+    "rayTracingPowerScore": 230,
+    "isIntegrated": false
   },
   {
     "id": "gpu-131",
@@ -1569,7 +1699,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 800,
     "tdpW": 650,
-    "rayTracingPowerScore": 265
+    "rayTracingPowerScore": 265,
+    "isIntegrated": false
   },
   {
     "id": "gpu-132",
@@ -1581,7 +1712,8 @@
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 224
+    "rayTracingPowerScore": 224,
+    "isIntegrated": false
   },
   {
     "id": "gpu-133",
@@ -1593,7 +1725,8 @@
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 700,
     "tdpW": 550,
-    "rayTracingPowerScore": 336
+    "rayTracingPowerScore": 336,
+    "isIntegrated": false
   },
   {
     "id": "gpu-134",
@@ -1605,7 +1738,8 @@
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 750,
     "tdpW": 600,
-    "rayTracingPowerScore": 427
+    "rayTracingPowerScore": 427,
+    "isIntegrated": false
   },
   {
     "id": "gpu-135",
@@ -1617,7 +1751,8 @@
     "architecture": "Gen7",
     "recommendedPsuW": 200,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-136",
@@ -1629,7 +1764,8 @@
     "architecture": "Gen7.5",
     "recommendedPsuW": 200,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-137",
@@ -1641,7 +1777,8 @@
     "architecture": "Gen8",
     "recommendedPsuW": 200,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-138",
@@ -1653,7 +1790,8 @@
     "architecture": "Gen9.5",
     "recommendedPsuW": 250,
     "tdpW": 100,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-139",
@@ -1665,7 +1803,8 @@
     "architecture": "Xe-LP",
     "recommendedPsuW": 250,
     "tdpW": 100,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-140",
@@ -1677,7 +1816,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 34
+    "rayTracingPowerScore": 34,
+    "isIntegrated": false
   },
   {
     "id": "gpu-141",
@@ -1689,7 +1829,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 42
+    "rayTracingPowerScore": 42,
+    "isIntegrated": false
   },
   {
     "id": "gpu-142",
@@ -1701,7 +1842,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 86
+    "rayTracingPowerScore": 86,
+    "isIntegrated": false
   },
   {
     "id": "gpu-143",
@@ -1713,7 +1855,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 105
+    "rayTracingPowerScore": 105,
+    "isIntegrated": false
   },
   {
     "id": "gpu-144",
@@ -1725,7 +1868,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 116
+    "rayTracingPowerScore": 116,
+    "isIntegrated": false
   },
   {
     "id": "gpu-145",
@@ -1737,7 +1881,8 @@
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 120
+    "rayTracingPowerScore": 120,
+    "isIntegrated": false
   },
   {
     "id": "gpu-146",
@@ -1749,7 +1894,8 @@
     "architecture": "Battlemage",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 179
+    "rayTracingPowerScore": 179,
+    "isIntegrated": false
   },
   {
     "id": "gpu-147",
@@ -1761,7 +1907,8 @@
     "architecture": "Battlemage",
     "recommendedPsuW": 600,
     "tdpW": 450,
-    "rayTracingPowerScore": 196
+    "rayTracingPowerScore": 196,
+    "isIntegrated": false
   },
   {
     "id": "gpu-148",
@@ -1773,7 +1920,8 @@
     "architecture": "Battlemage",
     "recommendedPsuW": 650,
     "tdpW": 500,
-    "rayTracingPowerScore": 264
+    "rayTracingPowerScore": 264,
+    "isIntegrated": false
   },
   {
     "id": "gpu-149",
@@ -1785,7 +1933,8 @@
     "architecture": "Curie",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-150",
@@ -1797,7 +1946,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-151",
@@ -1809,7 +1959,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-152",
@@ -1821,7 +1972,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-153",
@@ -1833,7 +1985,8 @@
     "architecture": "Tesla",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-154",
@@ -1845,7 +1998,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-155",
@@ -1857,7 +2011,8 @@
     "architecture": "Fermi",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-156",
@@ -1869,7 +2024,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-157",
@@ -1881,7 +2037,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-158",
@@ -1893,7 +2050,8 @@
     "architecture": "Kepler",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-159",
@@ -1905,7 +2063,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 180,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-160",
@@ -1917,7 +2076,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 150,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-161",
@@ -1929,7 +2089,8 @@
     "architecture": "Maxwell",
     "recommendedPsuW": 100,
     "tdpW": 50,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-162",
@@ -1941,7 +2102,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-163",
@@ -1953,7 +2115,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 180,
     "tdpW": 20,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-164",
@@ -1965,7 +2128,8 @@
     "architecture": "Pascal",
     "recommendedPsuW": 220,
     "tdpW": 28,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-165",
@@ -1977,7 +2141,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-166",
@@ -1989,7 +2154,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 71
+    "rayTracingPowerScore": 71,
+    "isIntegrated": false
   },
   {
     "id": "gpu-167",
@@ -2001,7 +2167,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 180,
     "tdpW": 20,
-    "rayTracingPowerScore": 88
+    "rayTracingPowerScore": 88,
+    "isIntegrated": false
   },
   {
     "id": "gpu-168",
@@ -2013,7 +2180,8 @@
     "architecture": "Turing",
     "recommendedPsuW": 200,
     "tdpW": 20,
-    "rayTracingPowerScore": 113
+    "rayTracingPowerScore": 113,
+    "isIntegrated": false
   },
   {
     "id": "gpu-169",
@@ -2025,7 +2193,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 120,
     "tdpW": 20,
-    "rayTracingPowerScore": 92
+    "rayTracingPowerScore": 92,
+    "isIntegrated": false
   },
   {
     "id": "gpu-170",
@@ -2037,7 +2206,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 124
+    "rayTracingPowerScore": 124,
+    "isIntegrated": false
   },
   {
     "id": "gpu-171",
@@ -2049,7 +2219,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 180,
     "tdpW": 20,
-    "rayTracingPowerScore": 166
+    "rayTracingPowerScore": 166,
+    "isIntegrated": false
   },
   {
     "id": "gpu-172",
@@ -2061,7 +2232,8 @@
     "architecture": "Ampere",
     "recommendedPsuW": 200,
     "tdpW": 20,
-    "rayTracingPowerScore": 196
+    "rayTracingPowerScore": 196,
+    "isIntegrated": false
   },
   {
     "id": "gpu-173",
@@ -2073,7 +2245,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 120,
     "tdpW": 20,
-    "rayTracingPowerScore": 181
+    "rayTracingPowerScore": 181,
+    "isIntegrated": false
   },
   {
     "id": "gpu-174",
@@ -2085,7 +2258,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 140,
     "tdpW": 20,
-    "rayTracingPowerScore": 231
+    "rayTracingPowerScore": 231,
+    "isIntegrated": false
   },
   {
     "id": "gpu-175",
@@ -2097,7 +2271,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 281
+    "rayTracingPowerScore": 281,
+    "isIntegrated": false
   },
   {
     "id": "gpu-176",
@@ -2109,7 +2284,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 180,
     "tdpW": 20,
-    "rayTracingPowerScore": 413
+    "rayTracingPowerScore": 413,
+    "isIntegrated": false
   },
   {
     "id": "gpu-177",
@@ -2121,7 +2297,8 @@
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 200,
     "tdpW": 20,
-    "rayTracingPowerScore": 525
+    "rayTracingPowerScore": 525,
+    "isIntegrated": false
   },
   {
     "id": "gpu-178",
@@ -2133,7 +2310,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 120,
     "tdpW": 20,
-    "rayTracingPowerScore": 315
+    "rayTracingPowerScore": 315,
+    "isIntegrated": false
   },
   {
     "id": "gpu-179",
@@ -2145,7 +2323,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 140,
     "tdpW": 20,
-    "rayTracingPowerScore": 413
+    "rayTracingPowerScore": 413,
+    "isIntegrated": false
   },
   {
     "id": "gpu-180",
@@ -2157,7 +2336,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 540
+    "rayTracingPowerScore": 540,
+    "isIntegrated": false
   },
   {
     "id": "gpu-181",
@@ -2169,7 +2349,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 180,
     "tdpW": 20,
-    "rayTracingPowerScore": 743
+    "rayTracingPowerScore": 743,
+    "isIntegrated": false
   },
   {
     "id": "gpu-182",
@@ -2181,7 +2362,8 @@
     "architecture": "Blackwell",
     "recommendedPsuW": 200,
     "tdpW": 20,
-    "rayTracingPowerScore": 975
+    "rayTracingPowerScore": 975,
+    "isIntegrated": false
   },
   {
     "id": "gpu-183",
@@ -2193,7 +2375,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-184",
@@ -2205,7 +2388,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-185",
@@ -2217,7 +2401,8 @@
     "architecture": "TeraScale 1",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-186",
@@ -2229,7 +2414,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-187",
@@ -2241,7 +2427,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-188",
@@ -2253,7 +2440,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-189",
@@ -2265,7 +2453,8 @@
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-190",
@@ -2277,7 +2466,8 @@
     "architecture": "TeraScale 3",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-191",
@@ -2289,7 +2479,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-192",
@@ -2301,7 +2492,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-193",
@@ -2313,7 +2505,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 450,
     "tdpW": 300,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-194",
@@ -2325,7 +2518,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-195",
@@ -2337,7 +2531,8 @@
     "architecture": "GCN 1.1",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-196",
@@ -2349,7 +2544,8 @@
     "architecture": "GCN 1.0",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-197",
@@ -2361,7 +2557,8 @@
     "architecture": "GCN 2.0",
     "recommendedPsuW": 550,
     "tdpW": 400,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-198",
@@ -2373,7 +2570,8 @@
     "architecture": "GCN 3.0",
     "recommendedPsuW": 500,
     "tdpW": 350,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-199",
@@ -2385,7 +2583,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-200",
@@ -2397,7 +2596,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 300,
     "tdpW": 150,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-201",
@@ -2409,7 +2609,8 @@
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-202",
@@ -2421,7 +2622,8 @@
     "architecture": "Vega",
     "recommendedPsuW": 100,
     "tdpW": 20,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-203",
@@ -2433,7 +2635,8 @@
     "architecture": "Vega",
     "recommendedPsuW": 100,
     "tdpW": 20,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": true
   },
   {
     "id": "gpu-204",
@@ -2445,7 +2648,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 350,
     "tdpW": 200,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-205",
@@ -2457,7 +2661,8 @@
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 400,
     "tdpW": 250,
-    "rayTracingPowerScore": 0
+    "rayTracingPowerScore": 0,
+    "isIntegrated": false
   },
   {
     "id": "gpu-206",
@@ -2469,7 +2674,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 120,
     "tdpW": 20,
-    "rayTracingPowerScore": 38
+    "rayTracingPowerScore": 38,
+    "isIntegrated": false
   },
   {
     "id": "gpu-207",
@@ -2481,7 +2687,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 140,
     "tdpW": 20,
-    "rayTracingPowerScore": 46
+    "rayTracingPowerScore": 46,
+    "isIntegrated": false
   },
   {
     "id": "gpu-208",
@@ -2493,7 +2700,8 @@
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 56
+    "rayTracingPowerScore": 56,
+    "isIntegrated": false
   },
   {
     "id": "gpu-209",
@@ -2505,7 +2713,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 130,
     "tdpW": 20,
-    "rayTracingPowerScore": 83
+    "rayTracingPowerScore": 83,
+    "isIntegrated": false
   },
   {
     "id": "gpu-210",
@@ -2517,7 +2726,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 103
+    "rayTracingPowerScore": 103,
+    "isIntegrated": false
   },
   {
     "id": "gpu-211",
@@ -2529,7 +2739,8 @@
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 150,
     "tdpW": 20,
-    "rayTracingPowerScore": 91
+    "rayTracingPowerScore": 91,
+    "isIntegrated": false
   },
   {
     "name": "GeForce RTX 5070 Ti",
@@ -2541,7 +2752,8 @@
     "recommendedPsuW": 750,
     "tdpW": 300,
     "rayTracingPowerScore": 680,
-    "id": "gpu-212"
+    "id": "gpu-212",
+    "isIntegrated": false
   },
   {
     "name": "GeForce RTX 3080 12GB",
@@ -2553,7 +2765,8 @@
     "recommendedPsuW": 750,
     "tdpW": 350,
     "rayTracingPowerScore": 340,
-    "id": "gpu-213"
+    "id": "gpu-213",
+    "isIntegrated": false
   },
   {
     "name": "GeForce RTX 3050 6GB",
@@ -2565,7 +2778,8 @@
     "recommendedPsuW": 300,
     "tdpW": 70,
     "rayTracingPowerScore": 85,
-    "id": "gpu-214"
+    "id": "gpu-214",
+    "isIntegrated": false
   },
   {
     "name": "GeForce GT 1030 2GB",
@@ -2577,7 +2791,8 @@
     "recommendedPsuW": 300,
     "tdpW": 30,
     "rayTracingPowerScore": 0,
-    "id": "gpu-215"
+    "id": "gpu-215",
+    "isIntegrated": false
   },
   {
     "name": "GeForce GTX 750 1GB",
@@ -2589,7 +2804,8 @@
     "recommendedPsuW": 300,
     "tdpW": 55,
     "rayTracingPowerScore": 0,
-    "id": "gpu-216"
+    "id": "gpu-216",
+    "isIntegrated": false
   },
   {
     "name": "Radeon RX 6750 XT",
@@ -2601,7 +2817,8 @@
     "recommendedPsuW": 650,
     "tdpW": 250,
     "rayTracingPowerScore": 140,
-    "id": "gpu-217"
+    "id": "gpu-217",
+    "isIntegrated": false
   },
   {
     "name": "Radeon RX 6650 XT",
@@ -2613,7 +2830,8 @@
     "recommendedPsuW": 500,
     "tdpW": 180,
     "rayTracingPowerScore": 105,
-    "id": "gpu-218"
+    "id": "gpu-218",
+    "isIntegrated": false
   },
   {
     "name": "Radeon RX 6700 10GB",
@@ -2625,7 +2843,8 @@
     "recommendedPsuW": 600,
     "tdpW": 175,
     "rayTracingPowerScore": 120,
-    "id": "gpu-219"
+    "id": "gpu-219",
+    "isIntegrated": false
   },
   {
     "name": "Radeon RX 580 2048SP",
@@ -2637,7 +2856,8 @@
     "recommendedPsuW": 450,
     "tdpW": 150,
     "rayTracingPowerScore": 0,
-    "id": "gpu-220"
+    "id": "gpu-220",
+    "isIntegrated": false
   },
   {
     "name": "Radeon R9 390 8GB",
@@ -2649,7 +2869,8 @@
     "recommendedPsuW": 600,
     "tdpW": 275,
     "rayTracingPowerScore": 0,
-    "id": "gpu-221"
+    "id": "gpu-221",
+    "isIntegrated": false
   },
   {
     "name": "Radeon R9 380X 4GB",
@@ -2661,7 +2882,8 @@
     "recommendedPsuW": 500,
     "tdpW": 190,
     "rayTracingPowerScore": 0,
-    "id": "gpu-222"
+    "id": "gpu-222",
+    "isIntegrated": false
   },
   {
     "name": "Intel Arc A370M",
@@ -2673,7 +2895,8 @@
     "recommendedPsuW": 250,
     "tdpW": 50,
     "rayTracingPowerScore": 30,
-    "id": "gpu-223"
+    "id": "gpu-223",
+    "isIntegrated": false
   },
   {
     "name": "Intel Arc Pro A60",
@@ -2685,7 +2908,8 @@
     "recommendedPsuW": 450,
     "tdpW": 130,
     "rayTracingPowerScore": 90,
-    "id": "gpu-224"
+    "id": "gpu-224",
+    "isIntegrated": false
   },
   {
     "name": "Intel Arc Graphics 140V (Lunar Lake)",
@@ -2697,7 +2921,8 @@
     "recommendedPsuW": 200,
     "tdpW": 30,
     "rayTracingPowerScore": 65,
-    "id": "gpu-225"
+    "id": "gpu-225",
+    "isIntegrated": true
   },
   {
     "name": "Apple M1 8-Core GPU",
@@ -2709,7 +2934,8 @@
     "recommendedPsuW": 150,
     "tdpW": 15,
     "rayTracingPowerScore": 0,
-    "id": "gpu-226"
+    "id": "gpu-226",
+    "isIntegrated": true
   },
   {
     "name": "Apple M1 Pro 16-Core GPU",
@@ -2721,7 +2947,8 @@
     "recommendedPsuW": 200,
     "tdpW": 30,
     "rayTracingPowerScore": 0,
-    "id": "gpu-227"
+    "id": "gpu-227",
+    "isIntegrated": true
   },
   {
     "name": "Apple M1 Max 32-Core GPU",
@@ -2733,7 +2960,8 @@
     "recommendedPsuW": 250,
     "tdpW": 60,
     "rayTracingPowerScore": 0,
-    "id": "gpu-228"
+    "id": "gpu-228",
+    "isIntegrated": true
   },
   {
     "name": "Apple M1 Ultra 64-Core GPU",
@@ -2745,7 +2973,8 @@
     "recommendedPsuW": 450,
     "tdpW": 120,
     "rayTracingPowerScore": 0,
-    "id": "gpu-229"
+    "id": "gpu-229",
+    "isIntegrated": true
   },
   {
     "name": "Apple M2 10-Core GPU",
@@ -2757,7 +2986,8 @@
     "recommendedPsuW": 150,
     "tdpW": 20,
     "rayTracingPowerScore": 0,
-    "id": "gpu-230"
+    "id": "gpu-230",
+    "isIntegrated": true
   },
   {
     "name": "Apple M2 Pro 19-Core GPU",
@@ -2769,7 +2999,8 @@
     "recommendedPsuW": 200,
     "tdpW": 35,
     "rayTracingPowerScore": 0,
-    "id": "gpu-231"
+    "id": "gpu-231",
+    "isIntegrated": true
   },
   {
     "name": "Apple M2 Max 38-Core GPU",
@@ -2781,7 +3012,8 @@
     "recommendedPsuW": 300,
     "tdpW": 65,
     "rayTracingPowerScore": 0,
-    "id": "gpu-232"
+    "id": "gpu-232",
+    "isIntegrated": true
   },
   {
     "name": "Apple M2 Ultra 76-Core GPU",
@@ -2793,7 +3025,8 @@
     "recommendedPsuW": 500,
     "tdpW": 130,
     "rayTracingPowerScore": 0,
-    "id": "gpu-233"
+    "id": "gpu-233",
+    "isIntegrated": true
   },
   {
     "name": "Apple M3 10-Core GPU",
@@ -2805,7 +3038,8 @@
     "recommendedPsuW": 150,
     "tdpW": 22,
     "rayTracingPowerScore": 75,
-    "id": "gpu-234"
+    "id": "gpu-234",
+    "isIntegrated": true
   },
   {
     "name": "Apple M3 Pro 18-Core GPU",
@@ -2817,7 +3051,8 @@
     "recommendedPsuW": 200,
     "tdpW": 40,
     "rayTracingPowerScore": 150,
-    "id": "gpu-235"
+    "id": "gpu-235",
+    "isIntegrated": true
   },
   {
     "name": "Apple M3 Max 40-Core GPU",
@@ -2829,7 +3064,8 @@
     "recommendedPsuW": 350,
     "tdpW": 75,
     "rayTracingPowerScore": 320,
-    "id": "gpu-236"
+    "id": "gpu-236",
+    "isIntegrated": true
   },
   {
     "name": "Apple M4 10-Core GPU",
@@ -2841,7 +3077,8 @@
     "recommendedPsuW": 180,
     "tdpW": 25,
     "rayTracingPowerScore": 95,
-    "id": "gpu-237"
+    "id": "gpu-237",
+    "isIntegrated": true
   },
   {
     "name": "Apple M4 Pro 20-Core GPU",
@@ -2853,7 +3090,8 @@
     "recommendedPsuW": 250,
     "tdpW": 50,
     "rayTracingPowerScore": 210,
-    "id": "gpu-238"
+    "id": "gpu-238",
+    "isIntegrated": true
   },
   {
     "name": "Apple M4 Max 40-Core GPU",
@@ -2865,7 +3103,8 @@
     "recommendedPsuW": 400,
     "tdpW": 90,
     "rayTracingPowerScore": 420,
-    "id": "gpu-239"
+    "id": "gpu-239",
+    "isIntegrated": true
   },
   {
     "name": "Radeon 890M (iGPU)",
@@ -2877,7 +3116,8 @@
     "recommendedPsuW": 200,
     "tdpW": 28,
     "rayTracingPowerScore": 70,
-    "id": "gpu-240"
+    "id": "gpu-240",
+    "isIntegrated": true
   },
   {
     "name": "Radeon 780M (iGPU)",
@@ -2889,7 +3129,8 @@
     "recommendedPsuW": 200,
     "tdpW": 28,
     "rayTracingPowerScore": 48,
-    "id": "gpu-241"
+    "id": "gpu-241",
+    "isIntegrated": true
   },
   {
     "name": "Radeon 760M (iGPU)",
@@ -2901,7 +3142,8 @@
     "recommendedPsuW": 180,
     "tdpW": 25,
     "rayTracingPowerScore": 32,
-    "id": "gpu-242"
+    "id": "gpu-242",
+    "isIntegrated": true
   },
   {
     "name": "Radeon 680M (iGPU)",
@@ -2913,7 +3155,8 @@
     "recommendedPsuW": 180,
     "tdpW": 28,
     "rayTracingPowerScore": 35,
-    "id": "gpu-243"
+    "id": "gpu-243",
+    "isIntegrated": true
   },
   {
     "name": "Radeon 660M (iGPU)",
@@ -2925,7 +3168,8 @@
     "recommendedPsuW": 150,
     "tdpW": 20,
     "rayTracingPowerScore": 20,
-    "id": "gpu-244"
+    "id": "gpu-244",
+    "isIntegrated": true
   },
   {
     "name": "Radeon RX Vega 8 (iGPU)",
@@ -2937,7 +3181,8 @@
     "recommendedPsuW": 120,
     "tdpW": 15,
     "rayTracingPowerScore": 0,
-    "id": "gpu-245"
+    "id": "gpu-245",
+    "isIntegrated": true
   },
   {
     "name": "Radeon RX Vega 7 (iGPU)",
@@ -2949,7 +3194,8 @@
     "recommendedPsuW": 120,
     "tdpW": 15,
     "rayTracingPowerScore": 0,
-    "id": "gpu-246"
+    "id": "gpu-246",
+    "isIntegrated": true
   },
   {
     "name": "Intel Arc Graphics 8 Xe (Meteor Lake iGPU)",
@@ -2961,7 +3207,8 @@
     "recommendedPsuW": 180,
     "tdpW": 28,
     "rayTracingPowerScore": 52,
-    "id": "gpu-247"
+    "id": "gpu-247",
+    "isIntegrated": true
   },
   {
     "name": "Intel Arc Graphics 7 Xe (Meteor Lake iGPU)",
@@ -2973,7 +3220,8 @@
     "recommendedPsuW": 180,
     "tdpW": 28,
     "rayTracingPowerScore": 42,
-    "id": "gpu-248"
+    "id": "gpu-248",
+    "isIntegrated": true
   },
   {
     "name": "Intel Iris Xe Graphics 96EU (iGPU)",
@@ -2985,7 +3233,8 @@
     "recommendedPsuW": 120,
     "tdpW": 28,
     "rayTracingPowerScore": 0,
-    "id": "gpu-249"
+    "id": "gpu-249",
+    "isIntegrated": true
   },
   {
     "name": "Intel Iris Xe Graphics 80EU (iGPU)",
@@ -2997,7 +3246,8 @@
     "recommendedPsuW": 120,
     "tdpW": 28,
     "rayTracingPowerScore": 0,
-    "id": "gpu-250"
+    "id": "gpu-250",
+    "isIntegrated": true
   },
   {
     "name": "Intel UHD Graphics 770 (iGPU)",
@@ -3009,7 +3259,8 @@
     "recommendedPsuW": 120,
     "tdpW": 15,
     "rayTracingPowerScore": 0,
-    "id": "gpu-251"
+    "id": "gpu-251",
+    "isIntegrated": true
   },
   {
     "name": "Intel UHD Graphics 730 (iGPU)",
@@ -3021,6 +3272,7 @@
     "recommendedPsuW": 120,
     "tdpW": 15,
     "rayTracingPowerScore": 0,
-    "id": "gpu-252"
+    "id": "gpu-252",
+    "isIntegrated": true
   }
 ]

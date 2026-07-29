@@ -242,11 +242,18 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
   const effScore = (Math.min(5, Math.max(1, (score / gpu.tdpW) * 2.2))).toFixed(2);
   const valScore = (Math.min(9.9, Math.max(3, (score / 45) + 2.0))).toFixed(2);
 
+  let memoryStr = `${gpu.vramGB} GB ${vramType}`;
+  if (gpu.manufacturer === "Apple") {
+    memoryStr = `${gpu.vramGB} GB Unified Memory (Shared System RAM)`;
+  } else if (gpu.isIntegrated || name.includes("igpu") || name.includes("vega") || name.includes("intel hd") || name.includes("uhd")) {
+    memoryStr = `Up to ${gpu.vramGB} GB Shared System RAM (Allocated iGPU VRAM)`;
+  }
+
   return {
     rank,
     totalCount: allGpus.length,
     popularityRank: Math.min(allGpus.length, Math.max(1, Math.round(rank * 0.85 + 1))),
-    marketSegment: "Desktop Gaming GPU",
+    marketSegment: gpu.isIntegrated ? "Integrated Mobile / SoC GPU" : "Desktop Gaming GPU",
     architectureCodename: arch,
     processNode: node,
     baseClock: `${Math.round(1400 + score * 2)} MHz`,
@@ -254,8 +261,8 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
     cacheInfo: `${gpu.vramGB >= 12 ? "48 MB L2 Cache" : "32 MB L2 Cache"}`,
     powerDrawTdp: `${gpu.tdpW} W TDP`,
     recommendedPsu: `${gpu.recommendedPsuW} W`,
-    platformSocket: "PCIe 4.0 x16",
-    memorySupport: `${gpu.vramGB} GB ${vramType}`,
+    platformSocket: gpu.isIntegrated ? "Integrated SoC / Soldered" : "PCIe 4.0 x16",
+    memorySupport: memoryStr,
     powerEfficiencyScore: `${effScore} / 5.00`,
     costEffectivenessScore: `${valScore} / 10.0`,
     releaseDate: `${gpu.releaseYear}`
