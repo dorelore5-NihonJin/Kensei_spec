@@ -61,6 +61,26 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
     node = "Intel 7 (10nm)";
     baseClock = "2.10 GHz";
     boostClock = "5.00 GHz";
+  } else if (name.includes("11800h") || name.includes("11400h") || name.includes("1165g7") || name.includes("1135g7")) {
+    arch = "Tiger Lake H/U";
+    node = "10nm SuperFin";
+    baseClock = "2.30 GHz";
+    boostClock = "4.60 GHz";
+  } else if (name.includes("10875h") || name.includes("10750h") || name.includes("10510u") || name.includes("10210u")) {
+    arch = "Comet Lake H/U";
+    node = "14nm++";
+    baseClock = "2.60 GHz";
+    boostClock = "5.00 GHz";
+  } else if (name.includes("5500u") || name.includes("5700u") || name.includes("5800h") || name.includes("5600h") || name.includes("5900hx")) {
+    arch = "Zen 3 / Zen 2 (Cezanne / Lucienne)";
+    node = "TSMC 7nm";
+    baseClock = "2.10 GHz";
+    boostClock = "4.60 GHz";
+  } else if (name.includes("4800h") || name.includes("4600h") || name.includes("4700u") || name.includes("4500u")) {
+    arch = "Zen 2 (Renoir)";
+    node = "TSMC 7nm";
+    baseClock = "2.00 GHz";
+    boostClock = "4.20 GHz";
   } else if (name.includes("apple m4")) {
     arch = "Apple M4 Silicon (ARMv9)";
     node = "TSMC N3E (3nm)";

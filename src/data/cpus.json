@@ -3992,5 +3992,866 @@
     "l3CacheMB": 4,
     "is3DVCache": false,
     "id": "cpu-231"
+  },
+  {
+    "name": "Ryzen 5 5500U",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 138,
+    "multiCoreScore": 880,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-232"
+  },
+  {
+    "name": "Ryzen 3 5300U",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 125,
+    "multiCoreScore": 620,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 4,
+    "is3DVCache": false,
+    "id": "cpu-233"
+  },
+  {
+    "name": "Ryzen 7 5700U",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 145,
+    "multiCoreScore": 1150,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-234"
+  },
+  {
+    "name": "Ryzen 5 5600H",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 150,
+    "multiCoreScore": 1050,
+    "tdpW": 45,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-235"
+  },
+  {
+    "name": "Ryzen 7 5800H",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 158,
+    "multiCoreScore": 1380,
+    "tdpW": 45,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-236"
+  },
+  {
+    "name": "Ryzen 9 5900HX",
+    "manufacturer": "AMD",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 165,
+    "multiCoreScore": 1450,
+    "tdpW": 45,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-237"
+  },
+  {
+    "name": "Ryzen 5 6600U",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "LPDDR5"
+    ],
+    "singleCoreScore": 155,
+    "multiCoreScore": 1080,
+    "tdpW": 15,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-238"
+  },
+  {
+    "name": "Ryzen 5 6600H",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 162,
+    "multiCoreScore": 1180,
+    "tdpW": 45,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-239"
+  },
+  {
+    "name": "Ryzen 7 6800H",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 172,
+    "multiCoreScore": 1480,
+    "tdpW": 45,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-240"
+  },
+  {
+    "name": "Ryzen 9 6900HX",
+    "manufacturer": "AMD",
+    "releaseYear": 2022,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 178,
+    "multiCoreScore": 1550,
+    "tdpW": 45,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-241"
+  },
+  {
+    "name": "Ryzen 3 7320U",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "LPDDR5"
+    ],
+    "singleCoreScore": 120,
+    "multiCoreScore": 580,
+    "tdpW": 15,
+    "socket": "FT6",
+    "l3CacheMB": 4,
+    "is3DVCache": false,
+    "id": "cpu-242"
+  },
+  {
+    "name": "Ryzen 5 7530U",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 145,
+    "multiCoreScore": 950,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-243"
+  },
+  {
+    "name": "Ryzen 5 7640HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 192,
+    "multiCoreScore": 1420,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-244"
+  },
+  {
+    "name": "Ryzen 7 7730U",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 152,
+    "multiCoreScore": 1220,
+    "tdpW": 15,
+    "socket": "FP6",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-245"
+  },
+  {
+    "name": "Ryzen 7 7735HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 175,
+    "multiCoreScore": 1520,
+    "tdpW": 35,
+    "socket": "FP7",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-246"
+  },
+  {
+    "name": "Ryzen 9 7845HX",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 12,
+    "threads": 24,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 208,
+    "multiCoreScore": 2250,
+    "tdpW": 55,
+    "socket": "FL1",
+    "l3CacheMB": 64,
+    "is3DVCache": false,
+    "id": "cpu-247"
+  },
+  {
+    "name": "Ryzen 9 7945HX",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 215,
+    "multiCoreScore": 2850,
+    "tdpW": 55,
+    "socket": "FL1",
+    "l3CacheMB": 64,
+    "is3DVCache": false,
+    "id": "cpu-248"
+  },
+  {
+    "name": "Ryzen 9 7945HX3D",
+    "manufacturer": "AMD",
+    "releaseYear": 2023,
+    "cores": 16,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 220,
+    "multiCoreScore": 2920,
+    "tdpW": 55,
+    "socket": "FL1",
+    "l3CacheMB": 128,
+    "is3DVCache": true,
+    "id": "cpu-249"
+  },
+  {
+    "name": "Ryzen 5 8645HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 195,
+    "multiCoreScore": 1460,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-250"
+  },
+  {
+    "name": "Ryzen 9 8945HS",
+    "manufacturer": "AMD",
+    "releaseYear": 2024,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5X"
+    ],
+    "singleCoreScore": 212,
+    "multiCoreScore": 1760,
+    "tdpW": 35,
+    "socket": "FP7r2",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-251"
+  },
+  {
+    "name": "Ryzen 7 4800H",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 132,
+    "multiCoreScore": 1050,
+    "tdpW": 45,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-252"
+  },
+  {
+    "name": "Ryzen 5 4600H",
+    "manufacturer": "AMD",
+    "releaseYear": 2020,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 122,
+    "multiCoreScore": 820,
+    "tdpW": 45,
+    "socket": "FP6",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-253"
+  },
+  {
+    "name": "Ryzen 7 3700U",
+    "manufacturer": "AMD",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 95,
+    "multiCoreScore": 520,
+    "tdpW": 15,
+    "socket": "FP5",
+    "l3CacheMB": 4,
+    "is3DVCache": false,
+    "id": "cpu-254"
+  },
+  {
+    "name": "Core i9-13980HX",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 24,
+    "threads": 32,
+    "supportedDdr": [
+      "DDR5"
+    ],
+    "singleCoreScore": 228,
+    "multiCoreScore": 2480,
+    "tdpW": 55,
+    "socket": "BGA1964",
+    "l3CacheMB": 36,
+    "is3DVCache": false,
+    "id": "cpu-255"
+  },
+  {
+    "name": "Core i9-13900H",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 205,
+    "multiCoreScore": 1720,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-256"
+  },
+  {
+    "name": "Core i7-13700H",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 195,
+    "multiCoreScore": 1620,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-257"
+  },
+  {
+    "name": "Core i5-13500H",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 182,
+    "multiCoreScore": 1350,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 18,
+    "is3DVCache": false,
+    "id": "cpu-258"
+  },
+  {
+    "name": "Core i7-1355U",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 10,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 175,
+    "multiCoreScore": 980,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-259"
+  },
+  {
+    "name": "Core i5-1335U",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 10,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 165,
+    "multiCoreScore": 880,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-260"
+  },
+  {
+    "name": "Core i3-1315U",
+    "manufacturer": "Intel",
+    "releaseYear": 2023,
+    "cores": 6,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 150,
+    "multiCoreScore": 650,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 10,
+    "is3DVCache": false,
+    "id": "cpu-261"
+  },
+  {
+    "name": "Core i9-12900HK",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR5",
+      "LPDDR5"
+    ],
+    "singleCoreScore": 195,
+    "multiCoreScore": 1650,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-262"
+  },
+  {
+    "name": "Core i7-12700H",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 14,
+    "threads": 20,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 182,
+    "multiCoreScore": 1520,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-263"
+  },
+  {
+    "name": "Core i5-12500H",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 12,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 168,
+    "multiCoreScore": 1250,
+    "tdpW": 45,
+    "socket": "BGA1744",
+    "l3CacheMB": 18,
+    "is3DVCache": false,
+    "id": "cpu-264"
+  },
+  {
+    "name": "Core i7-1255U",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 10,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 162,
+    "multiCoreScore": 890,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-265"
+  },
+  {
+    "name": "Core i5-1235U",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 10,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 152,
+    "multiCoreScore": 790,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-266"
+  },
+  {
+    "name": "Core i3-1215U",
+    "manufacturer": "Intel",
+    "releaseYear": 2022,
+    "cores": 6,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "DDR5"
+    ],
+    "singleCoreScore": 140,
+    "multiCoreScore": 580,
+    "tdpW": 15,
+    "socket": "BGA1744",
+    "l3CacheMB": 10,
+    "is3DVCache": false,
+    "id": "cpu-267"
+  },
+  {
+    "name": "Core i9-11980HK",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 162,
+    "multiCoreScore": 1280,
+    "tdpW": 45,
+    "socket": "BGA1787",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-268"
+  },
+  {
+    "name": "Core i7-11800H",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 155,
+    "multiCoreScore": 1200,
+    "tdpW": 45,
+    "socket": "BGA1787",
+    "l3CacheMB": 24,
+    "is3DVCache": false,
+    "id": "cpu-269"
+  },
+  {
+    "name": "Core i5-11400H",
+    "manufacturer": "Intel",
+    "releaseYear": 2021,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 142,
+    "multiCoreScore": 920,
+    "tdpW": 45,
+    "socket": "BGA1787",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-270"
+  },
+  {
+    "name": "Core i7-1165G7",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 140,
+    "multiCoreScore": 650,
+    "tdpW": 15,
+    "socket": "BGA1449",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-271"
+  },
+  {
+    "name": "Core i5-1135G7",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 130,
+    "multiCoreScore": 560,
+    "tdpW": 15,
+    "socket": "BGA1449",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-272"
+  },
+  {
+    "name": "Core i3-1115G4",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 2,
+    "threads": 4,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4X"
+    ],
+    "singleCoreScore": 115,
+    "multiCoreScore": 380,
+    "tdpW": 15,
+    "socket": "BGA1449",
+    "l3CacheMB": 6,
+    "is3DVCache": false,
+    "id": "cpu-273"
+  },
+  {
+    "name": "Core i7-10875H",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 8,
+    "threads": 16,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 135,
+    "multiCoreScore": 1020,
+    "tdpW": 45,
+    "socket": "BGA1440",
+    "l3CacheMB": 16,
+    "is3DVCache": false,
+    "id": "cpu-274"
+  },
+  {
+    "name": "Core i7-10750H",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 6,
+    "threads": 12,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 128,
+    "multiCoreScore": 820,
+    "tdpW": 45,
+    "socket": "BGA1440",
+    "l3CacheMB": 12,
+    "is3DVCache": false,
+    "id": "cpu-275"
+  },
+  {
+    "name": "Core i5-10300H",
+    "manufacturer": "Intel",
+    "releaseYear": 2020,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4"
+    ],
+    "singleCoreScore": 115,
+    "multiCoreScore": 520,
+    "tdpW": 45,
+    "socket": "BGA1440",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-276"
+  },
+  {
+    "name": "Core i7-1065G7",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4"
+    ],
+    "singleCoreScore": 118,
+    "multiCoreScore": 510,
+    "tdpW": 15,
+    "socket": "BGA1526",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-277"
+  },
+  {
+    "name": "Core i5-1035G1",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR4"
+    ],
+    "singleCoreScore": 105,
+    "multiCoreScore": 450,
+    "tdpW": 15,
+    "socket": "BGA1526",
+    "l3CacheMB": 6,
+    "is3DVCache": false,
+    "id": "cpu-278"
+  },
+  {
+    "name": "Core i7-10510U",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR3"
+    ],
+    "singleCoreScore": 115,
+    "multiCoreScore": 480,
+    "tdpW": 15,
+    "socket": "BGA1528",
+    "l3CacheMB": 8,
+    "is3DVCache": false,
+    "id": "cpu-279"
+  },
+  {
+    "name": "Core i5-10210U",
+    "manufacturer": "Intel",
+    "releaseYear": 2019,
+    "cores": 4,
+    "threads": 8,
+    "supportedDdr": [
+      "DDR4",
+      "LPDDR3"
+    ],
+    "singleCoreScore": 105,
+    "multiCoreScore": 420,
+    "tdpW": 15,
+    "socket": "BGA1528",
+    "l3CacheMB": 6,
+    "is3DVCache": false,
+    "id": "cpu-280"
   }
 ]
