@@ -45,12 +45,23 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
   const milestones = rawMilestones.map((ms) => {
     const match = dbItems.find((d) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
-    const score = match && match.relativePowerScore ? match.relativePowerScore : ms.defaultScore;
+    let score = ms.defaultScore;
+    if (match) {
+      if (type === "gpu") {
+        score = match.relativePowerScore || ms.defaultScore;
+      } else {
+        if (match.singleCoreScore !== undefined && match.multiCoreScore !== undefined) {
+          score = Math.round(match.singleCoreScore * 0.6 + (match.multiCoreScore / 10) * 0.4 * 10);
+        } else {
+          score = match.relativePowerScore || ms.defaultScore;
+        }
+      }
+    }
     return { name: ms.name, score };
   });
 
-  // Maximum benchmark scale: 1200 pts for CPU, 980 pts for GPU
-  const maxScore = type === "gpu" ? 980 : 1200;
+  // Maximum benchmark scale: 2000 pts for CPU apex (Ryzen 9 9950X = 1859 pts), 980 pts for GPU apex
+  const maxScore = type === "gpu" ? 980 : 2000;
 
   // Exact percentage calculation relative to max scale (min 2% so low scores show a sleek tip)
   const pctA = Math.min(100, Math.max(2, (itemA.score / maxScore) * 100));
