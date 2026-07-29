@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor } from "lucide-react";
+import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor, Gamepad2 } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
@@ -881,6 +881,52 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                         <td className="py-3.5 px-4 text-gray-500">Shared System Memory Status</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.sharedMemory}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.sharedMemory}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* GPU BLOCK: GAMING BENCHMARKS & COST PER FRAME */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Gamepad2 className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Average Gaming Performance & Value / 平均ゲーミング性能・コスパ
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Avg. 1080p FPS</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.avgFps1080p, gpuTechB.avgFps1080p), "A", `${gpuTechA.avgFps1080p || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.avgFps1080p, gpuTechB.avgFps1080p), "B", `${gpuTechB.avgFps1080p || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1080p)</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1080p, gpuTechB.costPerFrame1080p, true), "A", gpuTechA.costPerFrame1080p && gpuTechA.costPerFrame1080p !== "N/A" ? `$${gpuTechA.costPerFrame1080p} / FPS` : "N/A")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1080p, gpuTechB.costPerFrame1080p, true), "B", gpuTechB.costPerFrame1080p && gpuTechB.costPerFrame1080p !== "N/A" ? `$${gpuTechB.costPerFrame1080p} / FPS` : "N/A")}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Avg. 1440p FPS</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps1440p, gpuTechB.avgFps1440p), "A", `${gpuTechA.avgFps1440p || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps1440p, gpuTechB.avgFps1440p), "B", `${gpuTechB.avgFps1440p || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1440p)</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1440p, gpuTechB.costPerFrame1440p, true), "A", gpuTechA.costPerFrame1440p && gpuTechA.costPerFrame1440p !== "N/A" ? `$${gpuTechA.costPerFrame1440p} / FPS` : "N/A")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1440p, gpuTechB.costPerFrame1440p, true), "B", gpuTechB.costPerFrame1440p && gpuTechB.costPerFrame1440p !== "N/A" ? `$${gpuTechB.costPerFrame1440p} / FPS` : "N/A")}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Avg. 4K FPS</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps4K, gpuTechB.avgFps4K), "A", `${gpuTechA.avgFps4K || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps4K, gpuTechB.avgFps4K), "B", `${gpuTechB.avgFps4K || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (4K)</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame4K, gpuTechB.costPerFrame4K, true), "A", gpuTechA.costPerFrame4K && gpuTechA.costPerFrame4K !== "N/A" ? `$${gpuTechA.costPerFrame4K} / FPS` : "N/A")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame4K, gpuTechB.costPerFrame4K, true), "B", gpuTechB.costPerFrame4K && gpuTechB.costPerFrame4K !== "N/A" ? `$${gpuTechB.costPerFrame4K} / FPS` : "N/A")}</td>
                       </tr>
                     </tbody>
                   </table>

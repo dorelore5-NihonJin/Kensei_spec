@@ -1,3 +1,23 @@
+
+export interface GameBenchmark {
+  low: number;
+  medium: number;
+  high: number;
+  ultra: number;
+}
+
+export interface ResolutionBenchmark {
+  "1080p": GameBenchmark;
+  "1440p": GameBenchmark;
+  "4K": GameBenchmark;
+}
+
+export interface GPUGamingBenchmarks {
+  "Cyberpunk 2077": ResolutionBenchmark;
+  "Red Dead Redemption 2": ResolutionBenchmark;
+  "Forza Horizon 5": ResolutionBenchmark;
+}
+
 export interface GPU {
   id: string;
   name: string;
@@ -49,6 +69,7 @@ export interface GPU {
   openCL?: string;
   vulkan?: string;
   cuda?: string;
+  gamingBenchmarks?: GPUGamingBenchmarks;
 }
 
 export interface CPU {
