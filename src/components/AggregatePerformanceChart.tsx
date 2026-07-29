@@ -28,8 +28,8 @@ const GPU_MILESTONE_DEFINITIONS = [
 ];
 
 const CPU_MILESTONE_DEFINITIONS = [
-  { name: "Pentium 4", query: "Pentium 4", defaultScore: 11 },
   { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 45 },
+  { name: "i5-10400", query: "10400", defaultScore: 415 },
   { name: "i7-7700K", query: "7700K", defaultScore: 460 },
   { name: "R5 5600", query: "5600", defaultScore: 611 },
   { name: "i7-12700K", query: "12700K", defaultScore: 950 },
@@ -61,15 +61,12 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
     })
     .sort((a, b) => a.score - b.score);
 
-  // Dynamically compute apex score so extreme workstation CPUs (Threadripper PRO 7995WX = 4341 pts) or GPUs scale proportionally without clipping at 100%
-  const highestCandidateScore = Math.max(itemA?.score || 0, itemB?.score || 0);
-  const highestMilestoneScore = milestones.length > 0 ? milestones[milestones.length - 1].score : 0;
-  const baseApex = type === "gpu" ? 880 : 2200;
-  const maxScore = Math.max(highestCandidateScore, highestMilestoneScore, baseApex) * 1.08;
+  // Winner candidate score defines 100% bar scale reference
+  const winnerScore = Math.max(itemA?.score || 0, itemB?.score || 0, 1);
 
-  // Exact percentage calculation relative to max scale (min 2% so low scores show a sleek tip)
-  const pctA = Math.min(100, Math.max(2, (itemA.score / maxScore) * 100));
-  const pctB = Math.min(100, Math.max(2, (itemB.score / maxScore) * 100));
+  // Exact percentage calculation relative to winner candidate (winner always fills 100%)
+  const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / winnerScore) * 100));
+  const pctB = Math.min(100, Math.max(3, ((itemB?.score || 0) / winnerScore) * 100));
 
   const winner = itemA.score > itemB.score ? "A" : itemB.score > itemA.score ? "B" : "Tie";
   const winnerName = winner === "A" ? itemA.name : itemB.name;
@@ -79,9 +76,12 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const maxCompScore = Math.max(itemA.score, itemB.score);
   const deltaPct = minScore > 0 ? Math.round(((maxCompScore - minScore) / minScore) * 100) : 0;
 
-  // Stagger milestones: even index -> top, odd index -> bottom
-  const topMilestones = milestones.filter((_, idx) => idx % 2 === 0);
-  const bottomMilestones = milestones.filter((_, idx) => idx % 2 === 1);
+  // Filter milestone ticks to those within range of winnerScore to prevent cluster clipping
+  const activeMilestones = milestones.filter((ms) => ms.score <= winnerScore * 1.05);
+
+  // Stagger active milestones: even index -> top, odd index -> bottom
+  const topMilestones = activeMilestones.filter((_, idx) => idx % 2 === 0);
+  const bottomMilestones = activeMilestones.filter((_, idx) => idx % 2 === 1);
 
   return (
     <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between gap-6 w-full min-h-[420px]">
@@ -142,7 +142,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {/* 1. TOP RULER ROW */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
-              const msPct = (ms.score / maxScore) * 100;
+              const msPct = Math.min(96, Math.max(4, (ms.score / winnerScore) * 100));
               return (
                 <div
                   key={idx}
@@ -174,8 +174,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Confined Dashed Vertical Lines ON TOP of Track A Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {milestones.map((ms, idx) => {
-                  const msPct = (ms.score / maxScore) * 100;
+                {activeMilestones.map((ms, idx) => {
+                  const msPct = Math.min(98, Math.max(2, (ms.score / winnerScore) * 100));
                   return (
                     <div
                       key={idx}
@@ -201,8 +201,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Confined Dashed Vertical Lines ON TOP of Track B Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {milestones.map((ms, idx) => {
-                  const msPct = (ms.score / maxScore) * 100;
+                {activeMilestones.map((ms, idx) => {
+                  const msPct = Math.min(98, Math.max(2, (ms.score / winnerScore) * 100));
                   return (
                     <div
                       key={idx}
@@ -218,7 +218,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {/* 3. BOTTOM RULER ROW */}
           <div className="relative h-8 w-full z-10">
             {bottomMilestones.map((ms, idx) => {
-              const msPct = (ms.score / maxScore) * 100;
+              const msPct = Math.min(96, Math.max(4, (ms.score / winnerScore) * 100));
               return (
                 <div
                   key={idx}
@@ -226,7 +226,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
                   style={{ left: `${msPct}%` }}
                 >
                   <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mb-1" />
-                  <span className="text-[10px] font-black text-[#E88D9F] dark:text-[#E88D9F] font-mono whitespace-nowrap bg-[#E88D9F]/10 px-2.5 py-0.5 rounded-lg border border-[#E88D9F]/20 shadow-xs">
+                  <span className="text-[10px] font-black text-[#8A9A86] dark:text-[#8A9A86] font-mono whitespace-nowrap bg-[#8A9A86]/10 px-2.5 py-0.5 rounded-lg border border-[#8A9A86]/20 shadow-xs">
                     {ms.name}
                   </span>
                 </div>
