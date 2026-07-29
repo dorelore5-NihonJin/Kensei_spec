@@ -14,7 +14,7 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
-// 6 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 980 pts)
+// 7 Evenly spaced GPU Milestones across 0% to 100% scale (Max Scale: 980 pts)
 const GPU_MILESTONES = [
   { name: "GTX 750 Ti", score: 55 },
   { name: "GTX 1060", score: 110 },
@@ -22,9 +22,10 @@ const GPU_MILESTONES = [
   { name: "RTX 3070", score: 310 },
   { name: "RTX 4070S", score: 440 },
   { name: "RTX 4080", score: 520 },
+  { name: "RTX 4090", score: 740 },
 ];
 
-// 6 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 1200 pts)
+// 8 Evenly spaced CPU Milestones across 0% to 100% scale (Max Scale: 1200 pts)
 const CPU_MILESTONES = [
   { name: "Pentium 4", score: 11 },
   { name: "Core 2 Duo", score: 45 },
@@ -32,6 +33,8 @@ const CPU_MILESTONES = [
   { name: "R5 5600", score: 185 },
   { name: "i5-13600K", score: 250 },
   { name: "7800X3D", score: 310 },
+  { name: "i9-14900K", score: 550 },
+  { name: "R9 9950X", score: 850 },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
