@@ -14,11 +14,11 @@ export interface GPU {
 export interface CPU {
   id: string;
   name: string;
-  manufacturer: "Intel" | "AMD";
+  manufacturer: "Intel" | "AMD" | "Apple";
   releaseYear: number;
   cores: number;
   threads: number;
-  supportedDdr: ("DDR" | "DDR2" | "DDR3" | "DDR4" | "DDR5")[];
+  supportedDdr: string[];
   singleCoreScore: number;
   multiCoreScore: number;
   tdpW: number;

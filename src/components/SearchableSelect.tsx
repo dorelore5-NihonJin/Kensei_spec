@@ -75,6 +75,8 @@ export default function SearchableSelect({
                     ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
                     : selectedOption.manufacturer === "AMD"
                     ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                    : selectedOption.manufacturer === "Apple"
+                    ? "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
                     : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                 }`}
               >
@@ -157,6 +159,8 @@ export default function SearchableSelect({
                               ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
                               : option.manufacturer === "AMD"
                               ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : option.manufacturer === "Apple"
+                              ? "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
                               : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                           }`}
                         >

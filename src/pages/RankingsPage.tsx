@@ -261,7 +261,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider hidden sm:inline mr-1">
             Vendor:
           </span>
-          {(type === "cpu" ? ["All", "AMD", "Intel"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => {
+          {(type === "cpu" ? ["All", "AMD", "Intel", "Apple"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => {
             const isActive = manufacturerFilter === mfr;
             let activeClass = "bg-[#E88D9F] text-white shadow-sm border-[#E88D9F]";
             let hoverClass = "hover:bg-[#E88D9F]/15 hover:text-[#E88D9F] hover:border-[#E88D9F]/30";
@@ -272,6 +272,9 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
             } else if (mfr === "NVIDIA") {
               activeClass = "bg-emerald-500 text-white shadow-sm border-emerald-500";
               hoverClass = "hover:bg-emerald-500/15 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/30";
+            } else if (mfr === "Apple") {
+              activeClass = "bg-slate-700 text-white dark:bg-slate-200 dark:text-slate-900 shadow-sm border-slate-700 dark:border-slate-200";
+              hoverClass = "hover:bg-slate-500/15 hover:text-slate-700 dark:hover:text-slate-300 hover:border-slate-500/30";
             }
 
             return (
@@ -363,6 +366,8 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                               ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
                               : item.manufacturer === "AMD"
                               ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                              : (item.manufacturer as string) === "Apple"
+                              ? "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
                               : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                           }`}
                         >

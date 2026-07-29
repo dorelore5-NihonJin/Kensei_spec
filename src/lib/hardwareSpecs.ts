@@ -36,7 +36,27 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): TechnicalDetai
   let baseClock = "3.20 GHz";
   let boostClock = "4.40 GHz";
 
-  if (name.includes("7800x3d") || name.includes("7950x") || name.includes("7600")) {
+  if (name.includes("apple m4")) {
+    arch = "Apple M4 Silicon (ARMv9)";
+    node = "TSMC N3E (3nm)";
+    baseClock = "3.40 GHz";
+    boostClock = "4.40 GHz";
+  } else if (name.includes("apple m3")) {
+    arch = "Apple M3 Silicon (ARMv9)";
+    node = "TSMC N3B (3nm)";
+    baseClock = "3.20 GHz";
+    boostClock = "4.05 GHz";
+  } else if (name.includes("apple m2")) {
+    arch = "Apple M2 Silicon (ARMv8)";
+    node = "TSMC N5P (5nm)";
+    baseClock = "3.00 GHz";
+    boostClock = "3.50 GHz";
+  } else if (name.includes("apple m1")) {
+    arch = "Apple M1 Silicon (ARMv8)";
+    node = "TSMC N5 (5nm)";
+    baseClock = "2.06 GHz";
+    boostClock = "3.20 GHz";
+  } else if (name.includes("7800x3d") || name.includes("7950x") || name.includes("7600")) {
     arch = "Zen 4 (Raphaël)";
     node = "5nm TSMC (FinFET)";
     baseClock = "4.20 GHz";
