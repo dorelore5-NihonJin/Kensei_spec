@@ -38,7 +38,6 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
 
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             <span className="bg-[#8A9A86]/15 text-[#8A9A86] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8A9A86] animate-ping" />
               Verified Telemetry v2.6
             </span>
             <button

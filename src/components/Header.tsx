@@ -175,7 +175,6 @@ export default function Header({
               {activePage === "rankings" ? "GLOBAL HIERARCHY LEADERBOARD" : activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
             </span>
             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
               {activePage === "rankings" ? "100% VERIFIED HARDWARE INDEX" : activePage === "compare" ? "DEEP SILICON MATRIX COMPARISON" : activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
             </span>
           </div>
