@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Search, Check, X } from "lucide-react";
+import { ChevronDown, Search, Check, X, Flame, Zap, Sparkles, ShieldCheck } from "lucide-react";
 
 export interface SelectOption {
   id: string;
@@ -176,7 +176,7 @@ export default function SearchableSelect({
                           <h5 className="text-xs font-bold truncate">{option.name}</h5>
                           {option.badge && (
                             <span
-                              className={`text-[9px] font-black px-2 py-0.5 rounded-full border shrink-0 ${
+                              className={`text-[9px] font-black px-2 py-0.5 rounded-full border shrink-0 flex items-center gap-1 ${
                                 option.badgeColor === "rival"
                                   ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
                                   : option.badgeColor === "era"
@@ -186,6 +186,10 @@ export default function SearchableSelect({
                                   : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30"
                               }`}
                             >
+                              {option.badgeColor === "rival" && <Flame className="w-2.5 h-2.5 text-[#E88D9F] shrink-0" />}
+                              {option.badgeColor === "era" && <Zap className="w-2.5 h-2.5 text-[#8A9A86] shrink-0" />}
+                              {option.badgeColor === "popular" && <Sparkles className="w-2.5 h-2.5 text-amber-500 shrink-0" />}
+                              {option.badgeColor === "recent" && <ShieldCheck className="w-2.5 h-2.5 text-purple-400 shrink-0" />}
                               {option.badge}
                             </span>
                           )}

@@ -11,10 +11,10 @@ type GameKey = "Cyberpunk 2077" | "Red Dead Redemption 2" | "Forza Horizon 5";
 type ResKey = "1080p" | "1440p" | "4K";
 type PresetKey = "low" | "medium" | "high" | "ultra";
 
-const GAMES: { key: GameKey; label: string; icon: string; bgGradient: string }[] = [
-  { key: "Cyberpunk 2077", label: "Cyberpunk 2077", icon: "🌃", bgGradient: "from-cyan-500/20 via-pink-500/10 to-purple-500/20" },
-  { key: "Red Dead Redemption 2", label: "Red Dead Redemption 2", icon: "🤠", bgGradient: "from-amber-600/20 via-orange-500/10 to-red-600/20" },
-  { key: "Forza Horizon 5", label: "Forza Horizon 5", icon: "🏎️", bgGradient: "from-fuchsia-500/20 via-rose-500/10 to-amber-500/20" }
+const GAMES: { key: GameKey; label: string; cover: string; bgGradient: string }[] = [
+  { key: "Cyberpunk 2077", label: "Cyberpunk 2077", cover: "/games/cyberpunk.jpg", bgGradient: "from-cyan-500/20 via-pink-500/10 to-purple-500/20" },
+  { key: "Red Dead Redemption 2", label: "Red Dead Redemption 2", cover: "/games/rdr2.jpg", bgGradient: "from-amber-600/20 via-orange-500/10 to-red-600/20" },
+  { key: "Forza Horizon 5", label: "Forza Horizon 5", cover: "/games/forza5.jpg", bgGradient: "from-fuchsia-500/20 via-rose-500/10 to-amber-500/20" }
 ];
 
 const RESOLUTIONS: { key: ResKey; label: string; desc: string }[] = [
@@ -122,23 +122,33 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
             <button
               key={game.key}
               onClick={() => setSelectedGame(game.key)}
-              className={`relative overflow-hidden rounded-2xl p-4 border text-left transition-all duration-300 ${
+              className={`relative overflow-hidden rounded-2xl p-3 border text-left transition-all duration-300 ${
                 isActive
                   ? "border-[#E88D9F] bg-gradient-to-br " + game.bgGradient + " shadow-md ring-2 ring-[#E88D9F]/30"
                   : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-black/20 dark:hover:border-white/20"
               }`}
             >
-              <div className="flex items-center justify-between">
-                <span className="text-2xl">{game.icon}</span>
-                {isActive && (
-                  <span className="text-[10px] font-black uppercase tracking-wider text-[#E88D9F] bg-[#E88D9F]/15 px-2 py-0.5 rounded-md border border-[#E88D9F]/30">
-                    Selected
+              <div className="flex items-center gap-3">
+                <img
+                  src={game.cover}
+                  alt={game.label}
+                  className="w-12 h-12 rounded-xl object-cover border border-black/10 dark:border-white/10 shadow-md shrink-0"
+                />
+                <div className="flex flex-col min-w-0">
+                  <span className="text-xs font-black text-[#1E2022] dark:text-white truncate">
+                    {game.label}
                   </span>
-                )}
+                  {isActive ? (
+                    <span className="text-[9px] font-black uppercase tracking-wider text-[#E88D9F] mt-0.5">
+                      Active Game
+                    </span>
+                  ) : (
+                    <span className="text-[9px] font-bold text-gray-400 mt-0.5">
+                      Select Benchmark
+                    </span>
+                  )}
+                </div>
               </div>
-              <p className="text-sm font-black text-[#1E2022] dark:text-white mt-2">
-                {game.label}
-              </p>
             </button>
           );
         })}
