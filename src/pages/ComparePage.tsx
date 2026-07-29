@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor } from "lucide-react";
+import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor , Gamepad2} from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
 import SearchableSelect from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
@@ -864,6 +864,53 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                         <td className="py-3.5 px-4 text-gray-500">G-SYNC / FreeSync Display Support</td>
                         <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechA.gsyncSupport}</td>
                         <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechB.gsyncSupport}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+              {/* GPU BLOCK: GAMING BENCHMARKS & COST PER FRAME */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5 mt-6">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Gamepad2 className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    Average Gaming Performance & Value / 平均ゲーミング性能・コスパ
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Avg. 1080p FPS</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass((gpuTechA.avgFps1080p || 0) >= (gpuTechB.avgFps1080p || 0) ? "A" : "B", "A", `${gpuTechA.avgFps1080p || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass((gpuTechB.avgFps1080p || 0) >= (gpuTechA.avgFps1080p || 0) ? "B" : "A", "B", `${gpuTechB.avgFps1080p || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1080p)</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.costPerFrame1080p}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.costPerFrame1080p}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Avg. 1440p FPS</td>
+                        <td className="py-3.5 px-4">{getWinnerClass((gpuTechA.avgFps1440p || 0) >= (gpuTechB.avgFps1440p || 0) ? "A" : "B", "A", `${gpuTechA.avgFps1440p || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass((gpuTechB.avgFps1440p || 0) >= (gpuTechA.avgFps1440p || 0) ? "B" : "A", "B", `${gpuTechB.avgFps1440p || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1440p)</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.costPerFrame1440p}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.costPerFrame1440p}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Avg. 4K FPS</td>
+                        <td className="py-3.5 px-4">{getWinnerClass((gpuTechA.avgFps4K || 0) >= (gpuTechB.avgFps4K || 0) ? "A" : "B", "A", `${gpuTechA.avgFps4K || 0} FPS`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass((gpuTechB.avgFps4K || 0) >= (gpuTechA.avgFps4K || 0) ? "B" : "A", "B", `${gpuTechB.avgFps4K || 0} FPS`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (4K)</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechA.costPerFrame4K}</td>
+                        <td className="py-3.5 px-4 font-mono">{gpuTechB.costPerFrame4K}</td>
                       </tr>
                     </tbody>
                   </table>

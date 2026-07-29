@@ -109,6 +109,12 @@ export interface GpuTechnicalDetails {
   openCL: string;
   vulkan: string;
   cuda: string;
+  avgFps1080p?: number;
+  avgFps1440p?: number;
+  avgFps4K?: number;
+  costPerFrame1080p?: string;
+  costPerFrame1440p?: string;
+  costPerFrame4K?: string;
 }
 
 // Map CPU architecture codenames and process nodes based on model names
@@ -156,7 +162,7 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDe
     virtualization: cpu.virtualization !== undefined ? cpu.virtualization : true,
     hyperThreading: cpu.hyperThreading !== undefined ? cpu.hyperThreading : false,
 
-    memorySupport: cpu.memorySupport || (cpu.supportedDdr ? cpu.supportedDdr.join(" / ") : ""),
+    memorySupport: cpu.memorySupport || (cpu.supportedDdr && cpu.supportedDdr.join ? cpu.supportedDdr.join(" / ") : ""),
     maxMemorySize: cpu.maxMemorySize || "128 GB",
     memoryChannels: cpu.memoryChannels || "2 Channels",
     memoryBandwidth: cpu.memoryBandwidth || "0 GB/s",
@@ -170,6 +176,27 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDe
 export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDetails {
   const sortedGpus = [...allGpus].sort((a, b) => b.relativePowerScore - a.relativePowerScore);
   const rank = sortedGpus.findIndex((g) => g.id === gpu.id) + 1;
+
+  let avg1080 = 0; let avg1440 = 0; let avg4K = 0;
+  if (gpu.gamingBenchmarks) {
+    const games = Object.values(gpu.gamingBenchmarks);
+    let t1080 = 0, t1440 = 0, t4K = 0;
+    games.forEach((g: any) => {
+       t1080 += (g["1080p"].low + g["1080p"].medium + g["1080p"].high + g["1080p"].ultra) / 4;
+       t1440 += (g["1440p"].low + g["1440p"].medium + g["1440p"].high + g["1440p"].ultra) / 4;
+       t4K += (g["4K"].low + g["4K"].medium + g["4K"].high + g["4K"].ultra) / 4;
+    });
+    if (games.length > 0) {
+      avg1080 = Math.round(t1080 / games.length);
+      avg1440 = Math.round(t1440 / games.length);
+      avg4K = Math.round(t4K / games.length);
+    }
+  }
+
+  const msrpVal = gpu.launchMsrp ? parseFloat(gpu.launchMsrp.replace(/[^0-9.]/g, "")) : 0;
+  const cpf1080 = (msrpVal > 0 && avg1080 > 0) ? `${(msrpVal / avg1080).toFixed(2)}` : "N/A";
+  const cpf1440 = (msrpVal > 0 && avg1440 > 0) ? `${(msrpVal / avg1440).toFixed(2)}` : "N/A";
+  const cpf4K = (msrpVal > 0 && avg4K > 0) ? `${(msrpVal / avg4K).toFixed(2)}` : "N/A";
 
   return {
     rank,
@@ -222,6 +249,13 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDe
     openGL: gpu.openGL || "4.6",
     openCL: gpu.openCL || "3.0",
     vulkan: gpu.vulkan || "1.3",
-    cuda: gpu.cuda || "Supported"
+    cuda: gpu.cuda || "Supported",
+
+    avgFps1080p: avg1080,
+    avgFps1440p: avg1440,
+    avgFps4K: avg4K,
+    costPerFrame1080p: cpf1080,
+    costPerFrame1440p: cpf1440,
+    costPerFrame4K: cpf4K
   };
 }
