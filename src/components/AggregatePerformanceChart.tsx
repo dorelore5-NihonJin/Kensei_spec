@@ -29,8 +29,8 @@ const GPU_MILESTONE_DEFINITIONS = [
 
 const CPU_MILESTONE_DEFINITIONS = [
   { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 45 },
+  { name: "i5-2500K", query: "2500K", defaultScore: 190 },
   { name: "i5-10400", query: "10400", defaultScore: 415 },
-  { name: "i7-7700K", query: "7700K", defaultScore: 460 },
   { name: "R5 5600", query: "5600", defaultScore: 611 },
   { name: "i7-12700K", query: "12700K", defaultScore: 950 },
   { name: "7800X3D", query: "7800X3D", defaultScore: 1107 },
@@ -63,6 +63,9 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
   // Winner candidate score defines 100% bar scale reference
   const winnerScore = Math.max(itemA?.score || 0, itemB?.score || 0, 1);
+
+  // Unified milestone percentage positioning to guarantee 100% pixel-perfect line & badge alignment
+  const getMsPct = (score: number) => Math.min(96, Math.max(3, (score / winnerScore) * 100));
 
   // Exact percentage calculation relative to winner candidate (winner always fills 100%)
   const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / winnerScore) * 100));
@@ -142,7 +145,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {/* 1. TOP RULER ROW */}
           <div className="relative h-10 w-full z-10">
             {topMilestones.map((ms, idx) => {
-              const msPct = Math.min(96, Math.max(4, (ms.score / winnerScore) * 100));
+              const msPct = getMsPct(ms.score);
               return (
                 <div
                   key={idx}
@@ -175,7 +178,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
               {/* Confined Dashed Vertical Lines ON TOP of Track A Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
                 {activeMilestones.map((ms, idx) => {
-                  const msPct = Math.min(98, Math.max(2, (ms.score / winnerScore) * 100));
+                  const msPct = getMsPct(ms.score);
                   return (
                     <div
                       key={idx}
@@ -202,7 +205,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
               {/* Confined Dashed Vertical Lines ON TOP of Track B Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
                 {activeMilestones.map((ms, idx) => {
-                  const msPct = Math.min(98, Math.max(2, (ms.score / winnerScore) * 100));
+                  const msPct = getMsPct(ms.score);
                   return (
                     <div
                       key={idx}
@@ -218,7 +221,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {/* 3. BOTTOM RULER ROW */}
           <div className="relative h-8 w-full z-10">
             {bottomMilestones.map((ms, idx) => {
-              const msPct = Math.min(96, Math.max(4, (ms.score / winnerScore) * 100));
+              const msPct = getMsPct(ms.score);
               return (
                 <div
                   key={idx}
