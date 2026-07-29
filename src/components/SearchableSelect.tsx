@@ -6,6 +6,9 @@ export interface SelectOption {
   name: string;
   subText?: string;
   manufacturer?: string;
+  badge?: string;
+  badgeColor?: "rival" | "era" | "popular" | "recent";
+  releaseYear?: number;
 }
 
 interface SearchableSelectProps {
@@ -15,6 +18,7 @@ interface SearchableSelectProps {
   onChange: (value: string) => void;
   placeholder?: string;
   className?: string;
+  recommendedHeader?: string;
 }
 
 export default function SearchableSelect({
@@ -167,8 +171,25 @@ export default function SearchableSelect({
                           {option.manufacturer}
                         </span>
                       )}
-                      <div className="min-w-0">
-                        <h5 className="text-xs font-bold truncate">{option.name}</h5>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h5 className="text-xs font-bold truncate">{option.name}</h5>
+                          {option.badge && (
+                            <span
+                              className={`text-[9px] font-black px-2 py-0.5 rounded-full border shrink-0 ${
+                                option.badgeColor === "rival"
+                                  ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
+                                  : option.badgeColor === "era"
+                                  ? "bg-[#8A9A86]/20 text-[#8A9A86] dark:text-[#8A9A86] border-[#8A9A86]/40"
+                                  : option.badgeColor === "recent"
+                                  ? "bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30"
+                                  : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30"
+                              }`}
+                            >
+                              {option.badge}
+                            </span>
+                          )}
+                        </div>
                         {option.subText && (
                           <p className="text-[10px] text-gray-400 font-bold truncate mt-0.5">{option.subText}</p>
                         )}

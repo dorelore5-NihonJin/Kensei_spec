@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor, Gamepad2 } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
-import SearchableSelect from "../components/SearchableSelect";
+import SearchableSelect, { type SelectOption } from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
 import GpuGamingBenchmarkChart from "../components/GpuGamingBenchmarkChart";
 import { getCpuTechnicalDetails, getGpuTechnicalDetails } from "../lib/hardwareSpecs";
@@ -130,13 +130,98 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const itemA = isCpuMode ? selectedCpuA : selectedGpuA;
   const itemB = isCpuMode ? selectedCpuB : selectedGpuB;
 
+  // Smart Recommendation Engine for hardware dropdown options
+  const rankOptions = (
+    options: SelectOption[],
+    selectedOpponent: CPU | GPU | null,
+    rawItems: (CPU | GPU)[]
+  ): SelectOption[] => {
+    const opponentYear = selectedOpponent?.releaseYear || 0;
+    const opponentBrand = selectedOpponent?.manufacturer || "";
+    const opponentScore = selectedOpponent
+      ? ("singleCoreScore" in selectedOpponent
+          ? Math.round(selectedOpponent.singleCoreScore * 0.6 + (selectedOpponent.multiCoreScore / 10) * 0.4 * 10)
+          : (selectedOpponent as GPU).relativePowerScore)
+      : 0;
+
+    const mapped = options.map((opt) => {
+      const raw = rawItems.find((item) => item.id === opt.id);
+      if (!raw) return { opt, rankScore: 0 };
+
+      const year = raw.releaseYear || 2010;
+      const brand = raw.manufacturer;
+      const score = "singleCoreScore" in raw
+        ? Math.round(raw.singleCoreScore * 0.6 + (raw.multiCoreScore / 10) * 0.4 * 10)
+        : (raw as GPU).relativePowerScore;
+
+      let badge: string | undefined;
+      let badgeColor: "rival" | "era" | "popular" | "recent" | undefined;
+      let rankScore = 0;
+
+      if (selectedOpponent) {
+        const yearDiff = Math.abs(year - opponentYear);
+        const scoreDiffRatio = Math.abs(score - opponentScore) / Math.max(1, opponentScore);
+
+        // Direct Cross-Brand Rival: Same era (<= 2 yrs) + similar performance (<= 35% diff) + rival brand
+        if (yearDiff <= 2 && scoreDiffRatio <= 0.35 && brand !== opponentBrand) {
+          rankScore = 1000 - scoreDiffRatio * 100 - yearDiff * 20;
+          badge = `🔥 Direct ${brand} Rival`;
+          badgeColor = "rival";
+        }
+        // Same Era Alternative: Same era (<= 1 yr) + similar tier
+        else if (yearDiff <= 1 && scoreDiffRatio <= 0.4) {
+          rankScore = 800 - yearDiff * 50 - scoreDiffRatio * 100;
+          badge = `⚡ ${year} Era Rival`;
+          badgeColor = "era";
+        }
+        // Similar Performance Tier
+        else if (scoreDiffRatio <= 0.25) {
+          rankScore = 600 - scoreDiffRatio * 100;
+          badge = `💡 Similar Tier`;
+          badgeColor = "popular";
+        }
+        // Modern components (2018+)
+        else if (year >= 2018) {
+          rankScore = 300 + (year - 2018) * 10;
+        }
+        // Legacy components (2012–2017)
+        else if (year >= 2012) {
+          rankScore = 150 + (year - 2012) * 5;
+        } else {
+          rankScore = year;
+        }
+      } else {
+        // No opponent selected -> Rank modern hardware (2012+) first
+        if (year >= 2020) {
+          rankScore = 500 + year * 2;
+          badge = year >= 2022 ? `✨ Modern` : undefined;
+          badgeColor = "recent";
+        } else if (year >= 2015) {
+          rankScore = 300 + year;
+        } else if (year >= 2012) {
+          rankScore = 100 + year;
+        } else {
+          rankScore = year;
+        }
+      }
+
+      return {
+        opt: { ...opt, badge, badgeColor, releaseYear: year },
+        rankScore
+      };
+    });
+
+    mapped.sort((a, b) => b.rankScore - a.rankScore);
+    return mapped.map((m) => m.opt);
+  };
+
   const filteredOptionsA = isCpuMode
-    ? cpuOptions.filter((opt) => opt.id !== selectedCpuB?.id)
-    : gpuOptions.filter((opt) => opt.id !== selectedGpuB?.id);
+    ? rankOptions(cpuOptions.filter((opt) => opt.id !== selectedCpuB?.id), selectedCpuB, cpus)
+    : rankOptions(gpuOptions.filter((opt) => opt.id !== selectedGpuB?.id), selectedGpuB, gpus);
 
   const filteredOptionsB = isCpuMode
-    ? cpuOptions.filter((opt) => opt.id !== selectedCpuA?.id)
-    : gpuOptions.filter((opt) => opt.id !== selectedGpuA?.id);
+    ? rankOptions(cpuOptions.filter((opt) => opt.id !== selectedCpuA?.id), selectedCpuA, cpus)
+    : rankOptions(gpuOptions.filter((opt) => opt.id !== selectedGpuA?.id), selectedGpuA, gpus);
 
   // Calculate scores if items exist
   const cpuScoreA = selectedCpuA ? Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10) : 0;
