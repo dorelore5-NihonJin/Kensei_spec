@@ -7,14 +7,17 @@ interface GpuGamingBenchmarkChartProps {
   gpuB: GPU;
 }
 
-type GameKey = "Cyberpunk 2077" | "Red Dead Redemption 2" | "Forza Horizon 5";
+type GameKey = "Cyberpunk 2077" | "Red Dead Redemption 2" | "Forza Horizon 6" | "Black Myth: Wukong" | "Helldivers 2" | "Alan Wake 2";
 type ResKey = "1080p" | "1440p" | "4K";
 type PresetKey = "low" | "medium" | "high" | "ultra";
 
 const GAMES: { key: GameKey; label: string; cover: string; bgGradient: string }[] = [
   { key: "Cyberpunk 2077", label: "Cyberpunk 2077", cover: "/games/cyberpunk.jpg", bgGradient: "from-cyan-500/20 via-pink-500/10 to-purple-500/20" },
   { key: "Red Dead Redemption 2", label: "Red Dead Redemption 2", cover: "/games/rdr2.jpg", bgGradient: "from-amber-600/20 via-orange-500/10 to-red-600/20" },
-  { key: "Forza Horizon 5", label: "Forza Horizon 5", cover: "/games/forza5.jpg", bgGradient: "from-fuchsia-500/20 via-rose-500/10 to-amber-500/20" }
+  { key: "Forza Horizon 6", label: "Forza Horizon 6", cover: "/games/forza6.jpg", bgGradient: "from-fuchsia-500/20 via-rose-500/10 to-amber-500/20" },
+  { key: "Black Myth: Wukong", label: "Black Myth: Wukong", cover: "/games/wukong.jpg", bgGradient: "from-yellow-600/20 via-orange-600/10 to-amber-800/20" },
+  { key: "Helldivers 2", label: "Helldivers 2", cover: "/games/helldivers2.jpg", bgGradient: "from-blue-600/20 via-indigo-500/10 to-blue-800/20" },
+  { key: "Alan Wake 2", label: "Alan Wake 2", cover: "/games/alanwake2.jpg", bgGradient: "from-green-700/20 via-emerald-800/10 to-teal-900/20" }
 ];
 
 const RESOLUTIONS: { key: ResKey; label: string; desc: string }[] = [
@@ -115,7 +118,7 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
       </div>
 
       {/* Game Selector Tabs */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
         {GAMES.map((game) => {
           const isActive = selectedGame === game.key;
           return (

@@ -15,7 +15,10 @@ export interface ResolutionBenchmark {
 export interface GPUGamingBenchmarks {
   "Cyberpunk 2077": ResolutionBenchmark;
   "Red Dead Redemption 2": ResolutionBenchmark;
-  "Forza Horizon 5": ResolutionBenchmark;
+  "Forza Horizon 6": ResolutionBenchmark;
+  "Black Myth: Wukong": ResolutionBenchmark;
+  "Helldivers 2": ResolutionBenchmark;
+  "Alan Wake 2": ResolutionBenchmark;
 }
 
 export interface GPU {
