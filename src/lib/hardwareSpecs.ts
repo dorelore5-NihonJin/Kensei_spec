@@ -139,6 +139,14 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): TechnicalDetai
     arch = "Pascal";
     node = "16nm FinFET";
     vramType = name.includes("1080") ? "GDDR5X" : "GDDR5";
+  } else if (name.includes("arc b5") || name.includes("arc b7") || name.includes("battlemage")) {
+    arch = "Xe2 Battlemage";
+    node = "TSMC N4 (4nm)";
+    vramType = "GDDR6";
+  } else if (name.includes("arc a") || name.includes("alchemist")) {
+    arch = "Xe-HPG Alchemist";
+    node = "TSMC N6 (6nm)";
+    vramType = "GDDR6";
   } else if (name.includes("gtx 7") || name.includes("750")) {
     arch = "Maxwell / Kepler";
     node = "28nm TSMC";

@@ -261,7 +261,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider hidden sm:inline mr-1">
             Vendor:
           </span>
-          {["All", type === "cpu" ? "Intel" : "NVIDIA", "AMD"].map((mfr) => (
+          {(type === "cpu" ? ["All", "AMD", "Intel"] : ["All", "NVIDIA", "AMD", "Intel"]).map((mfr) => (
             <button
               key={mfr}
               onClick={() => {
