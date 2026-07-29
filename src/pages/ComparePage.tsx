@@ -200,7 +200,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
     const match = str.match(/([0-9]+(?:\.[0-9]+)?)/);
     if (!match) return NaN;
-    let num = parseFloat(match[1]);
+    let num = Math.abs(parseFloat(match[1]));
 
     // Unit Multipliers
     if (str.includes("trillion")) {
