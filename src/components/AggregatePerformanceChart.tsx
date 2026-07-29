@@ -60,8 +60,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
     return { name: ms.name, score };
   });
 
-  // Maximum benchmark scale: 2000 pts for CPU apex (Ryzen 9 9950X = 1859 pts), 980 pts for GPU apex
-  const maxScore = type === "gpu" ? 980 : 2000;
+  // Maximum benchmark scale: 2200 pts for CPU apex (leaves safe right padding), 880 pts for GPU apex
+  const maxScore = type === "gpu" ? 880 : 2200;
 
   // Exact percentage calculation relative to max scale (min 2% so low scores show a sleek tip)
   const pctA = Math.min(100, Math.max(2, (itemA.score / maxScore) * 100));
