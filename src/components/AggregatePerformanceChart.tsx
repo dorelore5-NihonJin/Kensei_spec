@@ -28,13 +28,13 @@ const GPU_MILESTONE_DEFINITIONS = [
 ];
 
 const CPU_MILESTONE_DEFINITIONS = [
-  { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 55, row: "bottom" },
   { name: "i5-2500K", query: "2500K", defaultScore: 141, row: "top" },
   { name: "i5-10400", query: "10400", defaultScore: 440, row: "bottom" },
   { name: "R5 5600", query: "5600", defaultScore: 555, row: "top" },
   { name: "i7-12700K", query: "12700K", defaultScore: 957, row: "bottom" },
   { name: "7800X3D", query: "7800X3D", defaultScore: 1012, row: "top" },
-  { name: "i9-14900K", query: "14900K", defaultScore: 1527, row: "bottom" },
+  { name: "i7-14700K", query: "14700K", defaultScore: 1226, row: "bottom" },
+  { name: "i9-14900K", query: "14900K", defaultScore: 1527, row: "top" },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
