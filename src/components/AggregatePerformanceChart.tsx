@@ -28,13 +28,13 @@ const GPU_MILESTONE_DEFINITIONS = [
 ];
 
 const CPU_MILESTONE_DEFINITIONS = [
-  { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 45 },
-  { name: "i5-2500K", query: "2500K", defaultScore: 190 },
-  { name: "i5-10400", query: "10400", defaultScore: 415 },
-  { name: "R5 5600", query: "5600", defaultScore: 611 },
-  { name: "i7-12700K", query: "12700K", defaultScore: 950 },
-  { name: "7800X3D", query: "7800X3D", defaultScore: 1107 },
-  { name: "i9-14900K", query: "14900K", defaultScore: 1647 },
+  { name: "Core 2 Duo", query: "Core 2 Duo", defaultScore: 55, row: "bottom" },
+  { name: "i5-2500K", query: "2500K", defaultScore: 141, row: "top" },
+  { name: "i5-10400", query: "10400", defaultScore: 440, row: "bottom" },
+  { name: "R5 5600", query: "5600", defaultScore: 555, row: "top" },
+  { name: "i7-12700K", query: "12700K", defaultScore: 957, row: "bottom" },
+  { name: "7800X3D", query: "7800X3D", defaultScore: 1012, row: "top" },
+  { name: "i9-14900K", query: "14900K", defaultScore: 1527, row: "bottom" },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
@@ -51,21 +51,18 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           score = match.relativePowerScore || ms.defaultScore;
         } else {
           if (match.singleCoreScore !== undefined && match.multiCoreScore !== undefined) {
-            score = Math.round(match.singleCoreScore * 0.6 + (match.multiCoreScore / 10) * 0.4 * 10);
+            score = Math.round(match.singleCoreScore * 0.7 + (match.multiCoreScore / 2.5));
           } else {
             score = match.relativePowerScore || ms.defaultScore;
           }
         }
       }
-      return { name: ms.name, score };
+      return { name: ms.name, score, row: (ms as any).row || "top" };
     })
     .sort((a, b) => a.score - b.score);
 
   // Winner candidate score defines 100% bar scale reference
   const winnerScore = Math.max(itemA?.score || 0, itemB?.score || 0, 1);
-
-  // Unified milestone percentage positioning to guarantee 100% pixel-perfect line & badge alignment
-  const getMsPct = (score: number) => Math.min(96, Math.max(3, (score / winnerScore) * 100));
 
   // Exact percentage calculation relative to winner candidate (winner always fills 100%)
   const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / winnerScore) * 100));
@@ -80,11 +77,15 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const deltaPct = minScore > 0 ? Math.round(((maxCompScore - minScore) / minScore) * 100) : 0;
 
   // Filter milestone ticks to those within range of winnerScore to prevent cluster clipping
-  const activeMilestones = milestones.filter((ms) => ms.score <= winnerScore * 1.05);
+  const activeMilestones = milestones
+    .filter((ms) => ms.score <= winnerScore * 1.05)
+    .map((ms) => ({
+      ...ms,
+      msPct: Math.min(96, Math.max(3, (ms.score / winnerScore) * 100))
+    }));
 
-  // Stagger active milestones: even index -> top, odd index -> bottom
-  const topMilestones = activeMilestones.filter((_, idx) => idx % 2 === 0);
-  const bottomMilestones = activeMilestones.filter((_, idx) => idx % 2 === 1);
+  const topMilestones = activeMilestones.filter((ms, idx) => type === "gpu" ? idx % 2 === 0 : ms.row === "top");
+  const bottomMilestones = activeMilestones.filter((ms, idx) => type === "gpu" ? idx % 2 === 1 : ms.row === "bottom");
 
   return (
     <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between gap-6 w-full min-h-[420px]">
@@ -144,21 +145,18 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         <div className="flex-1 relative flex flex-col justify-between py-2 h-[210px] min-w-0">
           {/* 1. TOP RULER ROW */}
           <div className="relative h-10 w-full z-10">
-            {topMilestones.map((ms, idx) => {
-              const msPct = getMsPct(ms.score);
-              return (
-                <div
-                  key={idx}
-                  className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
-                  style={{ left: `${msPct}%` }}
-                >
-                  <span className="text-[10px] font-black text-[#E88D9F] dark:text-[#E88D9F] font-mono whitespace-nowrap bg-[#E88D9F]/10 px-2.5 py-0.5 rounded-lg border border-[#E88D9F]/20 shadow-xs">
-                    {ms.name}
-                  </span>
-                  <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mt-1" />
-                </div>
-              );
-            })}
+            {topMilestones.map((ms, idx) => (
+              <div
+                key={idx}
+                className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
+                style={{ left: `${ms.msPct}%` }}
+              >
+                <span className="text-[10px] font-black text-[#E88D9F] dark:text-[#E88D9F] font-mono whitespace-nowrap bg-[#E88D9F]/10 px-2.5 py-0.5 rounded-lg border border-[#E88D9F]/20 shadow-xs">
+                  {ms.name}
+                </span>
+                <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mt-1" />
+              </div>
+            ))}
           </div>
 
           {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth Sakura/Sage gradient fills) */}
@@ -177,16 +175,13 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Confined Dashed Vertical Lines ON TOP of Track A Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {activeMilestones.map((ms, idx) => {
-                  const msPct = getMsPct(ms.score);
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
-                      style={{ left: `${msPct}%` }}
-                    />
-                  );
-                })}
+                {activeMilestones.map((ms, idx) => (
+                  <div
+                    key={idx}
+                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
+                    style={{ left: `${ms.msPct}%` }}
+                  />
+                ))}
               </div>
             </div>
 
@@ -204,37 +199,31 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
 
               {/* Confined Dashed Vertical Lines ON TOP of Track B Fills */}
               <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {activeMilestones.map((ms, idx) => {
-                  const msPct = getMsPct(ms.score);
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
-                      style={{ left: `${msPct}%` }}
-                    />
-                  );
-                })}
+                {activeMilestones.map((ms, idx) => (
+                  <div
+                    key={idx}
+                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
+                    style={{ left: `${ms.msPct}%` }}
+                  />
+                ))}
               </div>
             </div>
           </div>
 
           {/* 3. BOTTOM RULER ROW */}
           <div className="relative h-8 w-full z-10">
-            {bottomMilestones.map((ms, idx) => {
-              const msPct = getMsPct(ms.score);
-              return (
-                <div
-                  key={idx}
-                  className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
-                  style={{ left: `${msPct}%` }}
-                >
-                  <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mb-1" />
-                  <span className="text-[10px] font-black text-[#8A9A86] dark:text-[#8A9A86] font-mono whitespace-nowrap bg-[#8A9A86]/10 px-2.5 py-0.5 rounded-lg border border-[#8A9A86]/20 shadow-xs">
-                    {ms.name}
-                  </span>
-                </div>
-              );
-            })}
+            {bottomMilestones.map((ms, idx) => (
+              <div
+                key={idx}
+                className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
+                style={{ left: `${ms.msPct}%` }}
+              >
+                <div className="w-px h-3 bg-[#E88D9F]/40 dark:bg-[#E88D9F]/40 mb-1" />
+                <span className="text-[10px] font-black text-[#8A9A86] dark:text-[#8A9A86] font-mono whitespace-nowrap bg-[#8A9A86]/10 px-2.5 py-0.5 rounded-lg border border-[#8A9A86]/20 shadow-xs">
+                  {ms.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
