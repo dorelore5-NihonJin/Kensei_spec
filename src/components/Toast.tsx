@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link as LinkIcon, Sparkles, X } from "lucide-react";
 
 interface ToastProps {
@@ -8,10 +9,35 @@ interface ToastProps {
 }
 
 export default function Toast({ message, subMessage, isOpen, onClose }: ToastProps) {
-  if (!isOpen) return null;
+  const [shouldRender, setShouldRender] = useState(isOpen);
+  const [isAnimatingIn, setIsAnimatingIn] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      const frame = requestAnimationFrame(() => {
+        setIsAnimatingIn(true);
+      });
+      return () => cancelAnimationFrame(frame);
+    } else {
+      setIsAnimatingIn(false);
+      const timer = setTimeout(() => {
+        setShouldRender(false);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  if (!shouldRender) return null;
 
   return (
-    <div className="fixed top-6 right-6 z-[120] animate-in fade-in slide-in-from-top-6 duration-300">
+    <div
+      className={`fixed top-6 right-6 z-[120] transition-all duration-400 ease-out ${
+        isAnimatingIn
+          ? "opacity-100 translate-y-0 scale-100"
+          : "opacity-0 -translate-y-6 scale-95 pointer-events-none"
+      }`}
+    >
       <div className="bg-[#18191B]/95 text-white backdrop-blur-2xl border border-emerald-500/30 rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex items-center gap-3.5 max-w-md">
         <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
           <LinkIcon className="w-5 h-5 text-emerald-400" />
