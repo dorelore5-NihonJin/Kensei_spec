@@ -491,7 +491,7 @@ export default function GameBuildsCatalog({
         </div>
         <div className="flex items-center gap-2">
           <span className="text-xs font-black bg-[#E88D9F]/15 text-[#E88D9F] px-3 py-1 rounded-full uppercase tracking-wider">
-            Verified Benchmarks
+            {t("catalog.badge.verified")}
           </span>
         </div>
       </div>
@@ -506,7 +506,7 @@ export default function GameBuildsCatalog({
             <Search className="w-4 h-4 text-gray-500" />
             <input
               type="text"
-              placeholder="Search 250 builds by game, GPU, or CPU (e.g. Llama 3, Cyberpunk, RTX 4070 Super, 9800X3D)..."
+              placeholder={t("catalog.search.placeholder")}
               className="w-full text-xs font-semibold outline-none bg-transparent text-[#1E2022] dark:text-white placeholder:text-gray-500"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -515,13 +515,13 @@ export default function GameBuildsCatalog({
 
           {/* Sort By Selector */}
           <CustomSelect
-            label="SORT:"
+            label={t("catalog.sort.label")}
             options={[
-              { value: "recommended", label: "Recommended Order" },
-              { value: "price-desc", label: "Price: High to Low ($4,450 → $120)" },
-              { value: "price-asc", label: "Price: Low to High ($120 → $4,450)" },
-              { value: "fps-desc", label: "Framerate: Highest FPS" },
-              { value: "title-asc", label: "Title (A-Z)" }
+              { value: "recommended", label: t("catalog.sort.recommended") },
+              { value: "price-desc", label: t("catalog.sort.price_desc") },
+              { value: "price-asc", label: t("catalog.sort.price_asc") },
+              { value: "fps-desc", label: t("catalog.sort.fps_desc") },
+              { value: "title-asc", label: t("catalog.sort.title_asc") }
             ]}
             value={sortBy}
             onChange={(val) => setSortBy(val as any)}
@@ -535,15 +535,15 @@ export default function GameBuildsCatalog({
           
           {/* Workload Category Filter */}
           <CustomSelect
-            label="CATEGORY:"
+            label={t("catalog.category.label")}
             options={[
-              { value: "All", label: "-- All Workload Categories --" },
-              { value: "Gaming", label: "Esports & Gaming" },
-              { value: "3D Render", label: "3D Render & VFX" },
-              { value: "AI & Dev", label: "AI ML & Software Dev" },
-              { value: "Streaming", label: "4K Live Streaming" },
-              { value: "Audio Studio", label: "Audio DAW Studio" },
-              { value: "CAD & Workstation", label: "CAD & Engineering" }
+              { value: "All", label: t("catalog.category.all") },
+              { value: "Gaming", label: t("catalog.category.gaming") },
+              { value: "3D Render", label: t("catalog.category.render") },
+              { value: "AI & Dev", label: t("catalog.category.ai") },
+              { value: "Streaming", label: t("catalog.category.stream") },
+              { value: "Audio Studio", label: t("catalog.category.audio") },
+              { value: "CAD & Workstation", label: t("catalog.category.cad") }
             ]}
             value={selectedCategoryFilter}
             onChange={(val) => setSelectedCategoryFilter(val)}
@@ -553,9 +553,9 @@ export default function GameBuildsCatalog({
 
           {/* Game Filter */}
           <CustomSelect
-            label="GAME:"
+            label={t("catalog.game.label")}
             options={[
-              { value: "All", label: `-- All ${games.length} Games --` },
+              { value: "All", label: t("catalog.game.all") },
               ...games.map((g) => ({ value: g.id, label: g.title }))
             ]}
             value={selectedGameFilter}
@@ -566,13 +566,13 @@ export default function GameBuildsCatalog({
 
           {/* Budget Tier Filter */}
           <CustomSelect
-            label="BUDGET:"
+            label={t("catalog.budget.label")}
             options={[
-              { value: "All", label: "-- All Budget Tiers --" },
-              { value: "Budget ($500-$800)", label: "Budget ($500-$800)" },
-              { value: "Sweetspot ($1,000-$1,500)", label: "Sweetspot ($1,000-$1,500)" },
-              { value: "High-End ($1,800-$2,500)", label: "High-End ($1,800-$2,500)" },
-              { value: "God Tier ($3,000+)", label: "God Tier ($3,000+)" }
+              { value: "All", label: t("catalog.tier.all") },
+              { value: "Budget ($500-$800)", label: t("catalog.tier.budget") },
+              { value: "Sweetspot ($1,000-$1,500)", label: t("catalog.tier.sweetspot") },
+              { value: "High-End ($1,800-$2,500)", label: t("catalog.tier.highend") },
+              { value: "God Tier ($3,000+)", label: t("catalog.tier.godtier") }
             ]}
             value={selectedTierFilter}
             onChange={(val) => setSelectedTierFilter(val)}
@@ -612,7 +612,7 @@ export default function GameBuildsCatalog({
                 </h3>
 
                 <div className="text-xs text-gray-500 font-extrabold mt-1">
-                  Target Game / Use Case: <strong className="text-[#1E2022] dark:text-gray-200">{build.gameTitle}</strong>
+                  {t("catalog.card.target_game")} <strong className="text-[#1E2022] dark:text-gray-200">{build.gameTitle}</strong>
                 </div>
 
                 {/* Silicon Highlight Pill */}
@@ -674,7 +674,7 @@ export default function GameBuildsCatalog({
                   <div className="flex justify-between items-center">
                     <span className="text-[11px] font-black text-emerald-900 dark:text-emerald-300 flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                      Est. FPS @ <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase ${
+                      {t("catalog.card.est_fps")} <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase ${
                         build.targetResolution === "4K"
                           ? "bg-purple-500/20 text-purple-700 dark:text-purple-300"
                           : build.targetResolution === "1440p"
@@ -687,7 +687,7 @@ export default function GameBuildsCatalog({
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-[10px] font-extrabold border-t border-emerald-200/50 dark:border-emerald-500/20 pt-1 text-emerald-800/80 dark:text-emerald-300/80">
-                    <span>CapFrameX 2025/2026 Verified</span>
+                    <span>{t("catalog.card.verified")}</span>
                     <span className="font-mono text-gray-600 dark:text-gray-400 font-bold">${costPerFps} / FPS</span>
                   </div>
                 </div>
@@ -699,7 +699,7 @@ export default function GameBuildsCatalog({
                   onClick={() => handleApplyBuild(build)}
                   className="flex-1 py-2.5 rounded-2xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-xs flex items-center justify-center gap-1.5"
                 >
-                  <Zap className="w-3.5 h-3.5 text-[#E88D9F]" /> Load in Simulator
+                  <Zap className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("catalog.card.load_btn")}
                 </button>
 
                 <button
@@ -707,9 +707,9 @@ export default function GameBuildsCatalog({
                     handleApplyBuild(build);
                     onOpenBuyModal();
                   }}
-                  className="px-3.5 py-2.5 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1"
+                  className="px-3.5 py-2.5 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1 whitespace-nowrap"
                 >
-                  <ShoppingCart className="w-3.5 h-3.5" /> Buy
+                  <ShoppingCart className="w-3.5 h-3.5" /> {t("catalog.card.buy_btn")}
                 </button>
               </div>
             </div>
@@ -724,7 +724,7 @@ export default function GameBuildsCatalog({
             <div className="glass-card rounded-2xl px-6 py-4 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex items-center gap-3 animate-pulse">
               <Loader2 className="w-5 h-5 text-[#E88D9F] animate-spin" />
               <span className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider">
-                Loading next 9 verified configurations...
+                {t("catalog.loading_more")}
               </span>
             </div>
           ) : (
@@ -732,7 +732,7 @@ export default function GameBuildsCatalog({
               onClick={handleLoadMore}
               className="px-8 py-3.5 rounded-2xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-lg flex items-center gap-2"
             >
-              <span>Load More Builds ({visibleCount} of {filteredBuilds.length} showing) / さらなる構成を読み込む</span>
+              <span>{t("catalog.load_more_btn")} ({visibleCount} / {filteredBuilds.length})</span>
               <ArrowDown className="w-4 h-4 text-[#E88D9F]" />
             </button>
           )}

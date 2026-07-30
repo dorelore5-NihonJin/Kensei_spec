@@ -78,10 +78,172 @@ export const translations: TranslationDictionary = {
     ru: "ПРОВЕРЕННЫЕ БЕНЧМАРКИ",
     ja: "検証済みベンチマーク"
   },
-  "hero.catalog.title": {
+  // Section 2: Game Builds Catalog
+  "catalog.title": {
     en: "Curated Game PC Builds Catalog",
-    ru: "Каталог готовых игровых конфигураций",
+    ru: "Каталог готовых ПК и игровых сборок",
     ja: "厳選ゲームPCビルドカタログ"
+  },
+  "catalog.badge.verified": {
+    en: "VERIFIED BENCHMARKS",
+    ru: "ПРОВЕРЕННЫЕ БЕНЧМАРКИ",
+    ja: "検証済みベンチマーク"
+  },
+  "catalog.search.placeholder": {
+    en: "Search 250 builds by game, GPU, or CPU (e.g. Cyberpunk, RTX 4070, 9800X3D)...",
+    ru: "Поиск 250 сборок по игре, видеокарте или процессору (например, Cyberpunk, RTX 4070)...",
+    ja: "250のビルドをゲーム、GPU、CPUで検索 (例: Cyberpunk, RTX 4070)..."
+  },
+  "catalog.sort.label": {
+    en: "SORT:",
+    ru: "СОРТИРОВКА:",
+    ja: "並び替え:"
+  },
+  "catalog.category.label": {
+    en: "CATEGORY:",
+    ru: "КАТЕГОРИЯ:",
+    ja: "カテゴリ:"
+  },
+  "catalog.game.label": {
+    en: "GAME:",
+    ru: "ИГРА:",
+    ja: "ゲーム:"
+  },
+  "catalog.budget.label": {
+    en: "BUDGET:",
+    ru: "БЮДЖЕТ:",
+    ja: "予算:"
+  },
+
+  "catalog.sort.recommended": {
+    en: "Recommended Order",
+    ru: "Рекомендуемый порядок",
+    ja: "おすすめ順"
+  },
+  "catalog.sort.price_desc": {
+    en: "Price: High to Low ($4,450 → $120)",
+    ru: "Цена: От высокой к низкой ($4 450 → $120)",
+    ja: "価格: 高い順 ($4,450 → $120)"
+  },
+  "catalog.sort.price_asc": {
+    en: "Price: Low to High ($120 → $4,450)",
+    ru: "Цена: От низкой к высокой ($120 → $4 450)",
+    ja: "価格: 安い順 ($120 → $4,450)"
+  },
+  "catalog.sort.fps_desc": {
+    en: "Framerate: Highest FPS",
+    ru: "Кадры: Максимальный FPS",
+    ja: "フレームレート: 最高FPS"
+  },
+  "catalog.sort.title_asc": {
+    en: "Title (A-Z)",
+    ru: "Название (А-Я)",
+    ja: "タイトル (A-Z)"
+  },
+
+  "catalog.category.all": {
+    en: "-- All Workload Categories --",
+    ru: "-- Все категории задач --",
+    ja: "-- すべてのタスクカテゴリ --"
+  },
+  "catalog.category.gaming": {
+    en: "Esports & Gaming",
+    ru: "Киберспорт и Игры",
+    ja: "eスポーツ＆ゲーム"
+  },
+  "catalog.category.render": {
+    en: "3D Render & VFX",
+    ru: "3D Рендеринг и Визуализация",
+    ja: "3Dレンダリング＆VFX"
+  },
+  "catalog.category.ai": {
+    en: "AI ML & Software Dev",
+    ru: "ИИ Нейросети и Разработка",
+    ja: "AI ML＆ソフトウェア開発"
+  },
+  "catalog.category.stream": {
+    en: "4K Live Streaming",
+    ru: "4K Стриминг и Запись",
+    ja: "4K ライブ配信"
+  },
+  "catalog.category.audio": {
+    en: "Audio DAW Studio",
+    ru: "Звукозапись и Аранжировка",
+    ja: "オーディオ DAW スタジオ"
+  },
+  "catalog.category.cad": {
+    en: "CAD & Engineering",
+    ru: "CAD и Проектирование",
+    ja: "CAD＆エンジニアリング"
+  },
+
+  "catalog.game.all": {
+    en: "-- All Games --",
+    ru: "-- Все игры --",
+    ja: "-- すべてのゲーム --"
+  },
+
+  "catalog.tier.all": {
+    en: "-- All Budget Tiers --",
+    ru: "-- Все ценовые категории --",
+    ja: "-- すべての予算帯 --"
+  },
+  "catalog.tier.budget": {
+    en: "Budget ($500 - $800)",
+    ru: "Бюджетный ($500 - $800)",
+    ja: "バジェット ($500 - $800)"
+  },
+  "catalog.tier.sweetspot": {
+    en: "Sweetspot ($1,000 - $1,500)",
+    ru: "Сбалансированный ($1 000 - $1 500)",
+    ja: "スイートスポット ($1,000 - $1,500)"
+  },
+  "catalog.tier.highend": {
+    en: "High-End ($1,800 - $2,500)",
+    ru: "Премиум ($1 800 - $2 500)",
+    ja: "ハイエンド ($1,800 - $2,500)"
+  },
+  "catalog.tier.godtier": {
+    en: "God Tier ($3,000+)",
+    ru: "Флагманский ($3 000+)",
+    ja: "フラッグシップ ($3,000+)"
+  },
+
+  "catalog.card.target_game": {
+    en: "Target Game / Use Case:",
+    ru: "Целевая игра / Задача:",
+    ja: "対象ゲーム / 用途:"
+  },
+  "catalog.card.est_fps": {
+    en: "Est. FPS @",
+    ru: "Расч. FPS @",
+    ja: "推定 FPS @"
+  },
+  "catalog.card.verified": {
+    en: "CapFrameX 2025/2026 Verified",
+    ru: "Проверено CapFrameX 2025/2026",
+    ja: "CapFrameX 2025/2026 検証済み"
+  },
+  "catalog.card.load_btn": {
+    en: "Load in Simulator",
+    ru: "Снарядить в симулятор",
+    ja: "シミュレーターに読み込む"
+  },
+  "catalog.card.buy_btn": {
+    en: "Buy PC",
+    ru: "Купить ПК",
+    ja: "PCを購入"
+  },
+
+  "catalog.loading_more": {
+    en: "Loading next 9 verified configurations...",
+    ru: "Загрузка следующих 9 сборок...",
+    ja: "次の9つの構成を読み込み中..."
+  },
+  "catalog.load_more_btn": {
+    en: "Load More Builds",
+    ru: "Загрузить больше сборок",
+    ja: "さらに構成を表示"
   },
   "hero.catalog.desc": {
     en: "Explore optimized PC builds tailored for Budget eSports, 1440p Ultra, and 4K Path Tracing.",
