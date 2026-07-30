@@ -175,7 +175,7 @@ export default function Header({
           );
         })}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs">
               {activePage === "rankings" ? "GLOBAL HIERARCHY LEADERBOARD" : activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
