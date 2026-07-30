@@ -4,7 +4,7 @@
     "name": "GeForce 7800 GTX",
     "manufacturer": "NVIDIA",
     "releaseYear": 2005,
-    "relativePowerScore": 8,
+    "relativePowerScore": 6,
     "vramGB": 0.25,
     "architecture": "Curie",
     "recommendedPsuW": 350,
@@ -111,14 +111,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-002",
     "name": "GeForce 7900 GTX",
     "manufacturer": "NVIDIA",
     "releaseYear": 2006,
-    "relativePowerScore": 11,
+    "relativePowerScore": 8,
     "vramGB": 0.512,
     "architecture": "Curie",
     "recommendedPsuW": 400,
@@ -225,14 +230,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-003",
     "name": "GeForce 8800 GTS",
     "manufacturer": "NVIDIA",
     "releaseYear": 2006,
-    "relativePowerScore": 13,
+    "relativePowerScore": 10,
     "vramGB": 0.64,
     "architecture": "Tesla (G92)",
     "recommendedPsuW": 400,
@@ -339,14 +349,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 468,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3042,
+    "geekbenchOpenCL": 2902,
+    "passmarkG3D": 3468
   },
   {
     "id": "gpu-004",
     "name": "GeForce 8800 GT",
     "manufacturer": "NVIDIA",
     "releaseYear": 2007,
-    "relativePowerScore": 15,
+    "relativePowerScore": 11,
     "vramGB": 0.512,
     "architecture": "Tesla (G92)",
     "recommendedPsuW": 400,
@@ -453,14 +468,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 540,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3510,
+    "geekbenchOpenCL": 3348,
+    "passmarkG3D": 3540
   },
   {
     "id": "gpu-005",
     "name": "GeForce 8800 GTX",
     "manufacturer": "NVIDIA",
     "releaseYear": 2006,
-    "relativePowerScore": 18,
+    "relativePowerScore": 13,
     "vramGB": 0.768,
     "architecture": "Tesla (G80)",
     "recommendedPsuW": 450,
@@ -567,14 +587,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 648,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4212,
+    "geekbenchOpenCL": 4018,
+    "passmarkG3D": 3648
   },
   {
     "id": "gpu-006",
     "name": "GeForce 9600 GT",
     "manufacturer": "NVIDIA",
     "releaseYear": 2008,
-    "relativePowerScore": 14,
+    "relativePowerScore": 10,
     "vramGB": 0.512,
     "architecture": "Tesla",
     "recommendedPsuW": 400,
@@ -681,14 +706,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-007",
     "name": "GeForce 9800 GTX",
     "manufacturer": "NVIDIA",
     "releaseYear": 2008,
-    "relativePowerScore": 19,
+    "relativePowerScore": 14,
     "vramGB": 0.512,
     "architecture": "Tesla",
     "recommendedPsuW": 450,
@@ -795,14 +825,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 684,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4446,
+    "geekbenchOpenCL": 4241,
+    "passmarkG3D": 3684
   },
   {
     "id": "gpu-008",
     "name": "GeForce GTX 260",
     "manufacturer": "NVIDIA",
     "releaseYear": 2008,
-    "relativePowerScore": 24,
+    "relativePowerScore": 18,
     "vramGB": 0.896,
     "architecture": "Tesla",
     "recommendedPsuW": 500,
@@ -909,14 +944,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 864,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5616,
+    "geekbenchOpenCL": 5357,
+    "passmarkG3D": 3864
   },
   {
     "id": "gpu-009",
     "name": "GeForce GTX 280",
     "manufacturer": "NVIDIA",
     "releaseYear": 2008,
-    "relativePowerScore": 28,
+    "relativePowerScore": 21,
     "vramGB": 1,
     "architecture": "Tesla 2.0 (GT200)",
     "recommendedPsuW": 550,
@@ -1023,14 +1063,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "id": "gpu-010",
     "name": "GeForce GTX 285",
     "manufacturer": "NVIDIA",
     "releaseYear": 2009,
-    "relativePowerScore": 31,
+    "relativePowerScore": 23,
     "vramGB": 1,
     "architecture": "Tesla 2.0 (GT200)",
     "recommendedPsuW": 550,
@@ -1137,14 +1182,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-011",
     "name": "GeForce GTX 460",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 34,
+    "relativePowerScore": 25,
     "vramGB": 1,
     "architecture": "Fermi",
     "recommendedPsuW": 450,
@@ -1251,14 +1301,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "id": "gpu-012",
     "name": "GeForce GTX 470",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 38,
+    "relativePowerScore": 28,
     "vramGB": 1.25,
     "architecture": "Fermi",
     "recommendedPsuW": 550,
@@ -1365,14 +1420,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-013",
     "name": "GeForce GTX 480",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 43,
+    "relativePowerScore": 32,
     "vramGB": 1.5,
     "architecture": "Fermi",
     "recommendedPsuW": 600,
@@ -1479,14 +1539,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1548,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10062,
+    "geekbenchOpenCL": 9598,
+    "passmarkG3D": 4548
   },
   {
     "id": "gpu-014",
     "name": "GeForce GTX 560",
     "manufacturer": "NVIDIA",
     "releaseYear": 2011,
-    "relativePowerScore": 39,
+    "relativePowerScore": 29,
     "vramGB": 1,
     "architecture": "Fermi 2.0",
     "recommendedPsuW": 450,
@@ -1593,14 +1658,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1404,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9126,
+    "geekbenchOpenCL": 8705,
+    "passmarkG3D": 4404
   },
   {
     "id": "gpu-015",
     "name": "GeForce GTX 560 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2011,
-    "relativePowerScore": 42,
+    "relativePowerScore": 31,
     "vramGB": 1,
     "architecture": "Fermi 2.0",
     "recommendedPsuW": 500,
@@ -1707,14 +1777,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-016",
     "name": "GeForce GTX 570",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 48,
+    "relativePowerScore": 36,
     "vramGB": 1.25,
     "architecture": "Fermi",
     "recommendedPsuW": 550,
@@ -1821,14 +1896,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "id": "gpu-017",
     "name": "GeForce GTX 580",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 54,
+    "relativePowerScore": 40,
     "vramGB": 1.5,
     "architecture": "Fermi 2.0",
     "recommendedPsuW": 600,
@@ -1935,14 +2015,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1944,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12636,
+    "geekbenchOpenCL": 12053,
+    "passmarkG3D": 4944
   },
   {
     "id": "gpu-018",
     "name": "GeForce GTX 650",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 28,
+    "relativePowerScore": 21,
     "vramGB": 1,
     "architecture": "Kepler",
     "recommendedPsuW": 350,
@@ -2049,14 +2134,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "id": "gpu-019",
     "name": "GeForce GTX 650 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 35,
+    "relativePowerScore": 26,
     "vramGB": 1,
     "architecture": "Kepler",
     "recommendedPsuW": 400,
@@ -2163,14 +2253,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1260,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8190,
+    "geekbenchOpenCL": 7812,
+    "passmarkG3D": 4260
   },
   {
     "id": "gpu-020",
     "name": "GeForce GTX 660",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 46,
+    "relativePowerScore": 34,
     "vramGB": 2,
     "architecture": "Kepler",
     "recommendedPsuW": 450,
@@ -2277,14 +2372,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1656,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10764,
+    "geekbenchOpenCL": 10267,
+    "passmarkG3D": 4656
   },
   {
     "id": "gpu-021",
     "name": "GeForce GTX 660 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 52,
+    "relativePowerScore": 38,
     "vramGB": 2,
     "architecture": "Kepler",
     "recommendedPsuW": 450,
@@ -2391,14 +2491,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-022",
     "name": "GeForce GTX 670",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 59,
+    "relativePowerScore": 44,
     "vramGB": 2,
     "architecture": "Kepler",
     "recommendedPsuW": 500,
@@ -2505,14 +2610,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2124,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13806,
+    "geekbenchOpenCL": 13169,
+    "passmarkG3D": 5124
   },
   {
     "id": "gpu-023",
     "name": "GeForce GTX 680",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 65,
+    "relativePowerScore": 48,
     "vramGB": 2,
     "architecture": "Kepler",
     "recommendedPsuW": 550,
@@ -2619,14 +2729,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "id": "gpu-024",
     "name": "GeForce GTX 750",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 38,
+    "relativePowerScore": 28,
     "vramGB": 1,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 300,
@@ -2733,14 +2848,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-025",
     "name": "GeForce GTX 750 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 44,
+    "relativePowerScore": 10,
     "vramGB": 2,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 300,
@@ -2847,14 +2967,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1200,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10000,
+    "geekbenchOpenCL": 11000,
+    "passmarkG3D": 3800
   },
   {
     "id": "gpu-026",
     "name": "GeForce GTX 760",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 56,
+    "relativePowerScore": 41,
     "vramGB": 2,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 500,
@@ -2961,14 +3086,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2016,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13104,
+    "geekbenchOpenCL": 12499,
+    "passmarkG3D": 5016
   },
   {
     "id": "gpu-027",
     "name": "GeForce GTX 770",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 68,
+    "relativePowerScore": 50,
     "vramGB": 2,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 550,
@@ -3075,14 +3205,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "id": "gpu-028",
     "name": "GeForce GTX 780",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 78,
+    "relativePowerScore": 58,
     "vramGB": 3,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 600,
@@ -3189,14 +3324,19 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-029",
     "name": "GeForce GTX 780 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 88,
+    "relativePowerScore": 65,
     "vramGB": 3,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 600,
@@ -3303,14 +3443,19 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3168,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20592,
+    "geekbenchOpenCL": 19642,
+    "passmarkG3D": 6168
   },
   {
     "id": "gpu-030",
     "name": "GeForce GTX TITAN Black",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 92,
+    "relativePowerScore": 68,
     "vramGB": 6,
     "architecture": "Kepler",
     "recommendedPsuW": 600,
@@ -3417,14 +3562,19 @@
           "ultra": 22
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3312,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21528,
+    "geekbenchOpenCL": 20534,
+    "passmarkG3D": 6312
   },
   {
     "id": "gpu-031",
     "name": "GeForce GTX 950",
     "manufacturer": "NVIDIA",
     "releaseYear": 2015,
-    "relativePowerScore": 55,
+    "relativePowerScore": 41,
     "vramGB": 2,
     "architecture": "Maxwell",
     "recommendedPsuW": 350,
@@ -3531,14 +3681,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1980,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12870,
+    "geekbenchOpenCL": 12276,
+    "passmarkG3D": 4980
   },
   {
     "id": "gpu-032",
     "name": "GeForce GTX 960",
     "manufacturer": "NVIDIA",
     "releaseYear": 2015,
-    "relativePowerScore": 68,
+    "relativePowerScore": 50,
     "vramGB": 4,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 400,
@@ -3645,14 +3800,19 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "id": "gpu-033",
     "name": "GeForce GTX 970",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 94,
+    "relativePowerScore": 70,
     "vramGB": 4,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 500,
@@ -3759,14 +3919,19 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3384,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21996,
+    "geekbenchOpenCL": 20981,
+    "passmarkG3D": 6384
   },
   {
     "id": "gpu-034",
     "name": "GeForce GTX 980",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 112,
+    "relativePowerScore": 83,
     "vramGB": 4,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 500,
@@ -3873,14 +4038,19 @@
           "ultra": 18
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4032,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 26208,
+    "geekbenchOpenCL": 24998,
+    "passmarkG3D": 7032
   },
   {
     "id": "gpu-035",
     "name": "GeForce GTX 980 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2015,
-    "relativePowerScore": 135,
+    "relativePowerScore": 100,
     "vramGB": 6,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 600,
@@ -3987,14 +4157,19 @@
           "ultra": 32
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4860,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 31590,
+    "geekbenchOpenCL": 30132,
+    "passmarkG3D": 7860
   },
   {
     "id": "gpu-036",
     "name": "GeForce GTX TITAN X",
     "manufacturer": "NVIDIA",
     "releaseYear": 2015,
-    "relativePowerScore": 140,
+    "relativePowerScore": 104,
     "vramGB": 12,
     "architecture": "Maxwell",
     "recommendedPsuW": 600,
@@ -4101,14 +4276,19 @@
           "ultra": 62
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5040,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 32760,
+    "geekbenchOpenCL": 31248,
+    "passmarkG3D": 8040
   },
   {
     "id": "gpu-037",
     "name": "GeForce GTX 1050",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 62,
+    "relativePowerScore": 46,
     "vramGB": 2,
     "architecture": "Pascal",
     "recommendedPsuW": 300,
@@ -4215,14 +4395,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "id": "gpu-038",
     "name": "GeForce GTX 1050 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 74,
+    "relativePowerScore": 55,
     "vramGB": 4,
     "architecture": "Pascal",
     "recommendedPsuW": 300,
@@ -4329,14 +4514,19 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2664,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 17316,
+    "geekbenchOpenCL": 16517,
+    "passmarkG3D": 5664
   },
   {
     "id": "gpu-039",
     "name": "GeForce GTX 1060 3GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 92,
+    "relativePowerScore": 50,
     "vramGB": 3,
     "architecture": "Pascal",
     "recommendedPsuW": 400,
@@ -4443,14 +4633,19 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-040",
     "name": "GeForce GTX 1060 6GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 100,
+    "relativePowerScore": 50,
     "vramGB": 6,
     "architecture": "Pascal",
     "recommendedPsuW": 400,
@@ -4557,14 +4752,19 @@
           "ultra": 24
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-041",
     "name": "GeForce GTX 1070",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 138,
+    "relativePowerScore": 102,
     "vramGB": 8,
     "architecture": "Pascal",
     "recommendedPsuW": 500,
@@ -4671,14 +4871,19 @@
           "ultra": 44
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4968,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 32292,
+    "geekbenchOpenCL": 30802,
+    "passmarkG3D": 7968
   },
   {
     "id": "gpu-042",
     "name": "GeForce GTX 1070 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2017,
-    "relativePowerScore": 154,
+    "relativePowerScore": 114,
     "vramGB": 8,
     "architecture": "Pascal",
     "recommendedPsuW": 500,
@@ -4785,14 +4990,19 @@
           "ultra": 49
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5544,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 36036,
+    "geekbenchOpenCL": 34373,
+    "passmarkG3D": 8544
   },
   {
     "id": "gpu-043",
     "name": "GeForce GTX 1080",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 172,
+    "relativePowerScore": 127,
     "vramGB": 8,
     "architecture": "Pascal",
     "recommendedPsuW": 500,
@@ -4899,14 +5109,19 @@
           "ultra": 55
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6192,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 40248,
+    "geekbenchOpenCL": 38390,
+    "passmarkG3D": 9192
   },
   {
     "id": "gpu-044",
     "name": "GeForce GTX 1080 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2017,
-    "relativePowerScore": 230,
+    "relativePowerScore": 170,
     "vramGB": 11,
     "architecture": "Pascal",
     "recommendedPsuW": 600,
@@ -5013,14 +5228,19 @@
           "ultra": 101
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8280,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 53820,
+    "geekbenchOpenCL": 51336,
+    "passmarkG3D": 11280
   },
   {
     "id": "gpu-045",
     "name": "NVIDIA TITAN Xp",
     "manufacturer": "NVIDIA",
     "releaseYear": 2017,
-    "relativePowerScore": 242,
+    "relativePowerScore": 179,
     "vramGB": 12,
     "architecture": "Pascal",
     "recommendedPsuW": 600,
@@ -5127,14 +5347,19 @@
           "ultra": 107
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8712,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 56628,
+    "geekbenchOpenCL": 54014,
+    "passmarkG3D": 11712
   },
   {
     "id": "gpu-046",
     "name": "GeForce GTX 1650",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 78,
+    "relativePowerScore": 58,
     "vramGB": 4,
     "architecture": "Turing",
     "recommendedPsuW": 300,
@@ -5241,14 +5466,19 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 1966,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-047",
     "name": "GeForce GTX 1650 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 96,
+    "relativePowerScore": 71,
     "vramGB": 4,
     "architecture": "Turing",
     "recommendedPsuW": 350,
@@ -5355,14 +5585,19 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3456,
+    "portRoyalScore": 2419,
+    "geekbenchVulkan": 22464,
+    "geekbenchOpenCL": 21427,
+    "passmarkG3D": 6456
   },
   {
     "id": "gpu-048",
     "name": "GeForce GTX 1660",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 115,
+    "relativePowerScore": 85,
     "vramGB": 6,
     "architecture": "Turing",
     "recommendedPsuW": 450,
@@ -5469,14 +5704,19 @@
           "ultra": 27
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4140,
+    "portRoyalScore": 2898,
+    "geekbenchVulkan": 26910,
+    "geekbenchOpenCL": 25668,
+    "passmarkG3D": 7140
   },
   {
     "id": "gpu-049",
     "name": "GeForce GTX 1660 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 124,
+    "relativePowerScore": 92,
     "vramGB": 6,
     "architecture": "Turing",
     "recommendedPsuW": 450,
@@ -5583,14 +5823,19 @@
           "ultra": 30
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4464,
+    "portRoyalScore": 3125,
+    "geekbenchVulkan": 29016,
+    "geekbenchOpenCL": 27677,
+    "passmarkG3D": 7464
   },
   {
     "id": "gpu-050",
     "name": "GeForce GTX 1660 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 128,
+    "relativePowerScore": 95,
     "vramGB": 6,
     "architecture": "Turing",
     "recommendedPsuW": 450,
@@ -5697,14 +5942,19 @@
           "ultra": 30
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 3226,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-051",
     "name": "GeForce RTX 2060",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 142,
+    "relativePowerScore": 105,
     "vramGB": 6,
     "architecture": "Turing",
     "recommendedPsuW": 500,
@@ -5811,14 +6061,19 @@
           "ultra": 34
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5112,
+    "portRoyalScore": 3578,
+    "geekbenchVulkan": 33228,
+    "geekbenchOpenCL": 31694,
+    "passmarkG3D": 8112
   },
   {
     "id": "gpu-052",
     "name": "GeForce RTX 2060 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 168,
+    "relativePowerScore": 124,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 550,
@@ -5925,14 +6180,19 @@
           "ultra": 53
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6048,
+    "portRoyalScore": 4234,
+    "geekbenchVulkan": 39312,
+    "geekbenchOpenCL": 37498,
+    "passmarkG3D": 9048
   },
   {
     "id": "gpu-053",
     "name": "GeForce RTX 2070",
     "manufacturer": "NVIDIA",
     "releaseYear": 2018,
-    "relativePowerScore": 178,
+    "relativePowerScore": 132,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 550,
@@ -6039,14 +6299,19 @@
           "ultra": 57
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6408,
+    "portRoyalScore": 4486,
+    "geekbenchVulkan": 41652,
+    "geekbenchOpenCL": 39730,
+    "passmarkG3D": 9408
   },
   {
     "id": "gpu-054",
     "name": "GeForce RTX 2070 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 198,
+    "relativePowerScore": 147,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 650,
@@ -6153,14 +6418,19 @@
           "ultra": 63
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7128,
+    "portRoyalScore": 4990,
+    "geekbenchVulkan": 46332,
+    "geekbenchOpenCL": 44194,
+    "passmarkG3D": 10128
   },
   {
     "id": "gpu-055",
     "name": "GeForce RTX 2080",
     "manufacturer": "NVIDIA",
     "releaseYear": 2018,
-    "relativePowerScore": 218,
+    "relativePowerScore": 161,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 650,
@@ -6267,14 +6537,19 @@
           "ultra": 69
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7848,
+    "portRoyalScore": 5494,
+    "geekbenchVulkan": 51012,
+    "geekbenchOpenCL": 48658,
+    "passmarkG3D": 10848
   },
   {
     "id": "gpu-056",
     "name": "GeForce RTX 2080 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 232,
+    "relativePowerScore": 172,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 650,
@@ -6381,14 +6656,19 @@
           "ultra": 74
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8352,
+    "portRoyalScore": 5846,
+    "geekbenchVulkan": 54288,
+    "geekbenchOpenCL": 51782,
+    "passmarkG3D": 11352
   },
   {
     "id": "gpu-057",
     "name": "GeForce RTX 2080 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2018,
-    "relativePowerScore": 280,
+    "relativePowerScore": 207,
     "vramGB": 11,
     "architecture": "Turing",
     "recommendedPsuW": 650,
@@ -6495,14 +6775,19 @@
           "ultra": 123
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "id": "gpu-058",
     "name": "NVIDIA TITAN RTX",
     "manufacturer": "NVIDIA",
     "releaseYear": 2018,
-    "relativePowerScore": 300,
+    "relativePowerScore": 222,
     "vramGB": 24,
     "architecture": "Turing",
     "recommendedPsuW": 650,
@@ -6609,14 +6894,19 @@
           "ultra": 132
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10800,
+    "portRoyalScore": 7560,
+    "geekbenchVulkan": 70200,
+    "geekbenchOpenCL": 66960,
+    "passmarkG3D": 13800
   },
   {
     "id": "gpu-059",
     "name": "GeForce RTX 3050",
     "manufacturer": "NVIDIA",
     "releaseYear": 2022,
-    "relativePowerScore": 122,
+    "relativePowerScore": 90,
     "vramGB": 8,
     "architecture": "Ampere",
     "recommendedPsuW": 450,
@@ -6723,14 +7013,19 @@
           "ultra": 39
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4392,
+    "portRoyalScore": 3074,
+    "geekbenchVulkan": 28548,
+    "geekbenchOpenCL": 27230,
+    "passmarkG3D": 7392
   },
   {
     "id": "gpu-060",
     "name": "GeForce RTX 3060",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 165,
+    "relativePowerScore": 122,
     "vramGB": 12,
     "architecture": "Ampere",
     "recommendedPsuW": 550,
@@ -6837,14 +7132,19 @@
           "ultra": 73
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5940,
+    "portRoyalScore": 4158,
+    "geekbenchVulkan": 38610,
+    "geekbenchOpenCL": 36828,
+    "passmarkG3D": 8940
   },
   {
     "id": "gpu-061",
     "name": "GeForce RTX 3060 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2020,
-    "relativePowerScore": 205,
+    "relativePowerScore": 152,
     "vramGB": 8,
     "architecture": "Ampere",
     "recommendedPsuW": 600,
@@ -6951,14 +7251,19 @@
           "ultra": 65
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7380,
+    "portRoyalScore": 5166,
+    "geekbenchVulkan": 47970,
+    "geekbenchOpenCL": 45756,
+    "passmarkG3D": 10380
   },
   {
     "id": "gpu-062",
     "name": "GeForce RTX 3070",
     "manufacturer": "NVIDIA",
     "releaseYear": 2020,
-    "relativePowerScore": 235,
+    "relativePowerScore": 174,
     "vramGB": 8,
     "architecture": "Ampere",
     "recommendedPsuW": 650,
@@ -7065,14 +7370,19 @@
           "ultra": 75
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8460,
+    "portRoyalScore": 5922,
+    "geekbenchVulkan": 54990,
+    "geekbenchOpenCL": 52452,
+    "passmarkG3D": 11460
   },
   {
     "id": "gpu-063",
     "name": "GeForce RTX 3070 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 255,
+    "relativePowerScore": 189,
     "vramGB": 8,
     "architecture": "Ampere",
     "recommendedPsuW": 750,
@@ -7179,14 +7489,19 @@
           "ultra": 81
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9180,
+    "portRoyalScore": 6426,
+    "geekbenchVulkan": 59670,
+    "geekbenchOpenCL": 56916,
+    "passmarkG3D": 12180
   },
   {
     "id": "gpu-064",
     "name": "GeForce RTX 3080",
     "manufacturer": "NVIDIA",
     "releaseYear": 2020,
-    "relativePowerScore": 310,
+    "relativePowerScore": 340,
     "vramGB": 10,
     "architecture": "Ampere",
     "recommendedPsuW": 750,
@@ -7293,14 +7608,19 @@
           "ultra": 137
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "id": "gpu-065",
     "name": "GeForce RTX 3080 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 350,
+    "relativePowerScore": 400,
     "vramGB": 12,
     "architecture": "Ampere",
     "recommendedPsuW": 750,
@@ -7407,14 +7727,19 @@
           "ultra": 154
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19000,
+    "portRoyalScore": 12500,
+    "geekbenchVulkan": 135000,
+    "geekbenchOpenCL": 205000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-066",
     "name": "GeForce RTX 3090",
     "manufacturer": "NVIDIA",
     "releaseYear": 2020,
-    "relativePowerScore": 380,
+    "relativePowerScore": 420,
     "vramGB": 24,
     "architecture": "Ampere",
     "recommendedPsuW": 750,
@@ -7521,14 +7846,19 @@
           "ultra": 168
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19500,
+    "portRoyalScore": 13000,
+    "geekbenchVulkan": 140000,
+    "geekbenchOpenCL": 210000,
+    "passmarkG3D": 26500
   },
   {
     "id": "gpu-067",
     "name": "GeForce RTX 3090 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2022,
-    "relativePowerScore": 410,
+    "relativePowerScore": 450,
     "vramGB": 24,
     "architecture": "Ampere",
     "recommendedPsuW": 850,
@@ -7635,14 +7965,19 @@
           "ultra": 181
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21500,
+    "portRoyalScore": 14500,
+    "geekbenchVulkan": 155000,
+    "geekbenchOpenCL": 230000,
+    "passmarkG3D": 29000
   },
   {
     "id": "gpu-068",
     "name": "GeForce RTX 4060",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 220,
+    "relativePowerScore": 163,
     "vramGB": 8,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
@@ -7749,14 +8084,19 @@
           "ultra": 70
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7920,
+    "portRoyalScore": 5544,
+    "geekbenchVulkan": 51480,
+    "geekbenchOpenCL": 49104,
+    "passmarkG3D": 10920
   },
   {
     "id": "gpu-069",
     "name": "GeForce RTX 4060 Ti 8GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 250,
+    "relativePowerScore": 185,
     "vramGB": 8,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
@@ -7863,14 +8203,19 @@
           "ultra": 79
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9000,
+    "portRoyalScore": 6300,
+    "geekbenchVulkan": 58500,
+    "geekbenchOpenCL": 55800,
+    "passmarkG3D": 12000
   },
   {
     "id": "gpu-070",
     "name": "GeForce RTX 4060 Ti 16GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 255,
+    "relativePowerScore": 189,
     "vramGB": 16,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 550,
@@ -7977,14 +8322,19 @@
           "ultra": 112
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9180,
+    "portRoyalScore": 6426,
+    "geekbenchVulkan": 59670,
+    "geekbenchOpenCL": 56916,
+    "passmarkG3D": 12180
   },
   {
     "id": "gpu-071",
     "name": "GeForce RTX 4070",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 350,
+    "relativePowerScore": 270,
     "vramGB": 12,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 650,
@@ -8091,14 +8441,19 @@
           "ultra": 154
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11000,
+    "geekbenchVulkan": 150000,
+    "geekbenchOpenCL": 160000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-072",
     "name": "GeForce RTX 4070 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2024,
-    "relativePowerScore": 410,
+    "relativePowerScore": 300,
     "vramGB": 12,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 650,
@@ -8205,14 +8560,19 @@
           "ultra": 181
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18000,
+    "portRoyalScore": 13000,
+    "geekbenchVulkan": 160000,
+    "geekbenchOpenCL": 170000,
+    "passmarkG3D": 28000
   },
   {
     "id": "gpu-073",
     "name": "GeForce RTX 4070 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 420,
+    "relativePowerScore": 390,
     "vramGB": 12,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 700,
@@ -8319,14 +8679,19 @@
           "ultra": 185
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 22500,
+    "portRoyalScore": 14000,
+    "geekbenchVulkan": 170000,
+    "geekbenchOpenCL": 200000,
+    "passmarkG3D": 31000
   },
   {
     "id": "gpu-074",
     "name": "GeForce RTX 4070 Ti Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2024,
-    "relativePowerScore": 455,
+    "relativePowerScore": 430,
     "vramGB": 16,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 700,
@@ -8433,7 +8798,12 @@
           "ultra": 201
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 24000,
+    "portRoyalScore": 15000,
+    "geekbenchVulkan": 180000,
+    "geekbenchOpenCL": 210000,
+    "passmarkG3D": 32000
   },
   {
     "id": "gpu-075",
@@ -8547,14 +8917,19 @@
           "ultra": 238
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 27000,
+    "portRoyalScore": 17500,
+    "geekbenchVulkan": 200000,
+    "geekbenchOpenCL": 250000,
+    "passmarkG3D": 34000
   },
   {
     "id": "gpu-076",
     "name": "GeForce RTX 4080 Super",
     "manufacturer": "NVIDIA",
     "releaseYear": 2024,
-    "relativePowerScore": 565,
+    "relativePowerScore": 560,
     "vramGB": 16,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 750,
@@ -8661,14 +9036,19 @@
           "ultra": 249
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 28000,
+    "portRoyalScore": 18000,
+    "geekbenchVulkan": 210000,
+    "geekbenchOpenCL": 260000,
+    "passmarkG3D": 35000
   },
   {
     "id": "gpu-077",
     "name": "GeForce RTX 4090",
     "manufacturer": "NVIDIA",
     "releaseYear": 2022,
-    "relativePowerScore": 750,
+    "relativePowerScore": 740,
     "vramGB": 24,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 850,
@@ -8775,14 +9155,19 @@
           "ultra": 331
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 26000,
+    "geekbenchVulkan": 260000,
+    "geekbenchOpenCL": 320000,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-078",
     "name": "GeForce RTX 5060",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 330,
+    "relativePowerScore": 244,
     "vramGB": 12,
     "architecture": "Blackwell",
     "recommendedPsuW": 600,
@@ -8889,14 +9274,19 @@
           "ultra": 146
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11880,
+    "portRoyalScore": 8316,
+    "geekbenchVulkan": 77220,
+    "geekbenchOpenCL": 73656,
+    "passmarkG3D": 14880
   },
   {
     "id": "gpu-079",
     "name": "GeForce RTX 5070",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 520,
+    "relativePowerScore": 385,
     "vramGB": 16,
     "architecture": "Blackwell",
     "recommendedPsuW": 650,
@@ -9003,14 +9393,19 @@
           "ultra": 229
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18720,
+    "portRoyalScore": 13104,
+    "geekbenchVulkan": 121680,
+    "geekbenchOpenCL": 116064,
+    "passmarkG3D": 21720
   },
   {
     "id": "gpu-080",
     "name": "GeForce RTX 5080",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 780,
+    "relativePowerScore": 577,
     "vramGB": 16,
     "architecture": "Blackwell",
     "recommendedPsuW": 750,
@@ -9117,14 +9512,19 @@
           "ultra": 344
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 28080,
+    "portRoyalScore": 19656,
+    "geekbenchVulkan": 182520,
+    "geekbenchOpenCL": 174096,
+    "passmarkG3D": 31080
   },
   {
     "id": "gpu-081",
     "name": "GeForce RTX 5090",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 1000,
+    "relativePowerScore": 740,
     "vramGB": 32,
     "architecture": "Blackwell",
     "recommendedPsuW": 1000,
@@ -9231,14 +9631,19 @@
           "ultra": 441
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 25200,
+    "geekbenchVulkan": 234000,
+    "geekbenchOpenCL": 223200,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-082",
     "name": "Radeon X1800 XT",
     "manufacturer": "AMD",
     "releaseYear": 2005,
-    "relativePowerScore": 7,
+    "relativePowerScore": 5,
     "vramGB": 0.512,
     "architecture": "R500",
     "recommendedPsuW": 350,
@@ -9345,14 +9750,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-083",
     "name": "Radeon X1950 XTX",
     "manufacturer": "AMD",
     "releaseYear": 2006,
-    "relativePowerScore": 10,
+    "relativePowerScore": 7,
     "vramGB": 0.512,
     "architecture": "R500",
     "recommendedPsuW": 400,
@@ -9459,14 +9869,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 360,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2340,
+    "geekbenchOpenCL": 2232,
+    "passmarkG3D": 3360
   },
   {
     "id": "gpu-084",
     "name": "Radeon HD 2900 XT",
     "manufacturer": "AMD",
     "releaseYear": 2007,
-    "relativePowerScore": 12,
+    "relativePowerScore": 9,
     "vramGB": 0.512,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 450,
@@ -9573,14 +9988,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 432,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2808,
+    "geekbenchOpenCL": 2678,
+    "passmarkG3D": 3432
   },
   {
     "id": "gpu-085",
     "name": "Radeon HD 3870",
     "manufacturer": "AMD",
     "releaseYear": 2007,
-    "relativePowerScore": 14,
+    "relativePowerScore": 10,
     "vramGB": 0.512,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 400,
@@ -9687,14 +10107,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-086",
     "name": "Radeon HD 4850",
     "manufacturer": "AMD",
     "releaseYear": 2008,
-    "relativePowerScore": 20,
+    "relativePowerScore": 15,
     "vramGB": 0.512,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 450,
@@ -9801,14 +10226,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 720,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4680,
+    "geekbenchOpenCL": 4464,
+    "passmarkG3D": 3720
   },
   {
     "id": "gpu-087",
     "name": "Radeon HD 4870",
     "manufacturer": "AMD",
     "releaseYear": 2008,
-    "relativePowerScore": 24,
+    "relativePowerScore": 18,
     "vramGB": 1,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 500,
@@ -9915,14 +10345,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 864,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5616,
+    "geekbenchOpenCL": 5357,
+    "passmarkG3D": 3864
   },
   {
     "id": "gpu-088",
     "name": "Radeon HD 5850",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 36,
+    "relativePowerScore": 27,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
@@ -10029,14 +10464,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1296,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8424,
+    "geekbenchOpenCL": 8035,
+    "passmarkG3D": 4296
   },
   {
     "id": "gpu-089",
     "name": "Radeon HD 5870",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 42,
+    "relativePowerScore": 31,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 500,
@@ -10143,14 +10583,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-090",
     "name": "Radeon HD 5970",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 54,
+    "relativePowerScore": 40,
     "vramGB": 2,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 650,
@@ -10257,14 +10702,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1944,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12636,
+    "geekbenchOpenCL": 12053,
+    "passmarkG3D": 4944
   },
   {
     "id": "gpu-091",
     "name": "Radeon HD 6870",
     "manufacturer": "AMD",
     "releaseYear": 2010,
-    "relativePowerScore": 44,
+    "relativePowerScore": 33,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 500,
@@ -10371,14 +10821,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1584,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10296,
+    "geekbenchOpenCL": 9821,
+    "passmarkG3D": 4584
   },
   {
     "id": "gpu-092",
     "name": "Radeon HD 6970",
     "manufacturer": "AMD",
     "releaseYear": 2010,
-    "relativePowerScore": 52,
+    "relativePowerScore": 38,
     "vramGB": 2,
     "architecture": "TeraScale 3",
     "recommendedPsuW": 550,
@@ -10485,14 +10940,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-093",
     "name": "Radeon HD 7870",
     "manufacturer": "AMD",
     "releaseYear": 2012,
-    "relativePowerScore": 60,
+    "relativePowerScore": 44,
     "vramGB": 2,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 500,
@@ -10599,14 +11059,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2160,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14040,
+    "geekbenchOpenCL": 13392,
+    "passmarkG3D": 5160
   },
   {
     "id": "gpu-094",
     "name": "Radeon HD 7970",
     "manufacturer": "AMD",
     "releaseYear": 2011,
-    "relativePowerScore": 76,
+    "relativePowerScore": 56,
     "vramGB": 3,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 550,
@@ -10713,14 +11178,19 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2736,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 17784,
+    "geekbenchOpenCL": 16963,
+    "passmarkG3D": 5736
   },
   {
     "id": "gpu-095",
     "name": "Radeon HD 7970 GHz Edition",
     "manufacturer": "AMD",
     "releaseYear": 2012,
-    "relativePowerScore": 82,
+    "relativePowerScore": 61,
     "vramGB": 3,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 600,
@@ -10827,14 +11297,19 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "id": "gpu-096",
     "name": "Radeon R9 270X",
     "manufacturer": "AMD",
     "releaseYear": 2013,
-    "relativePowerScore": 58,
+    "relativePowerScore": 43,
     "vramGB": 2,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 500,
@@ -10941,14 +11416,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2088,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13572,
+    "geekbenchOpenCL": 12946,
+    "passmarkG3D": 5088
   },
   {
     "id": "gpu-097",
     "name": "Radeon R9 280X",
     "manufacturer": "AMD",
     "releaseYear": 2013,
-    "relativePowerScore": 78,
+    "relativePowerScore": 58,
     "vramGB": 3,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 600,
@@ -11055,14 +11535,19 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-098",
     "name": "Radeon R9 290X",
     "manufacturer": "AMD",
     "releaseYear": 2013,
-    "relativePowerScore": 94,
+    "relativePowerScore": 70,
     "vramGB": 4,
     "architecture": "GCN 2.0",
     "recommendedPsuW": 600,
@@ -11169,14 +11654,19 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3384,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21996,
+    "geekbenchOpenCL": 20981,
+    "passmarkG3D": 6384
   },
   {
     "id": "gpu-099",
     "name": "Radeon R9 380",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 70,
+    "relativePowerScore": 52,
     "vramGB": 4,
     "architecture": "GCN 3.0",
     "recommendedPsuW": 500,
@@ -11283,14 +11773,19 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2520,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 16380,
+    "geekbenchOpenCL": 15624,
+    "passmarkG3D": 5520
   },
   {
     "id": "gpu-100",
     "name": "Radeon R9 390X",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 104,
+    "relativePowerScore": 77,
     "vramGB": 8,
     "architecture": "GCN 2.0",
     "recommendedPsuW": 650,
@@ -11397,14 +11892,19 @@
           "ultra": 33
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3744,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 24336,
+    "geekbenchOpenCL": 23213,
+    "passmarkG3D": 6744
   },
   {
     "id": "gpu-101",
     "name": "Radeon R9 Fury X",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 114,
+    "relativePowerScore": 84,
     "vramGB": 4,
     "architecture": "GCN 3.0",
     "recommendedPsuW": 600,
@@ -11511,14 +12011,19 @@
           "ultra": 18
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4104,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 26676,
+    "geekbenchOpenCL": 25445,
+    "passmarkG3D": 7104
   },
   {
     "id": "gpu-102",
     "name": "Radeon RX 460",
     "manufacturer": "AMD",
     "releaseYear": 2016,
-    "relativePowerScore": 46,
+    "relativePowerScore": 34,
     "vramGB": 4,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
@@ -11625,14 +12130,19 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1656,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10764,
+    "geekbenchOpenCL": 10267,
+    "passmarkG3D": 4656
   },
   {
     "id": "gpu-103",
     "name": "Radeon RX 470",
     "manufacturer": "AMD",
     "releaseYear": 2016,
-    "relativePowerScore": 82,
+    "relativePowerScore": 61,
     "vramGB": 4,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 450,
@@ -11739,14 +12249,19 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "id": "gpu-104",
     "name": "Radeon RX 480",
     "manufacturer": "AMD",
     "releaseYear": 2016,
-    "relativePowerScore": 96,
+    "relativePowerScore": 71,
     "vramGB": 8,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
@@ -11853,14 +12368,19 @@
           "ultra": 30
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3456,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 22464,
+    "geekbenchOpenCL": 21427,
+    "passmarkG3D": 6456
   },
   {
     "id": "gpu-105",
     "name": "Radeon RX 560",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 50,
+    "relativePowerScore": 37,
     "vramGB": 4,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
@@ -11967,14 +12487,19 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1800,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11700,
+    "geekbenchOpenCL": 11160,
+    "passmarkG3D": 4800
   },
   {
     "id": "gpu-106",
     "name": "Radeon RX 570",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 86,
+    "relativePowerScore": 64,
     "vramGB": 4,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 450,
@@ -12081,14 +12606,19 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-107",
     "name": "Radeon RX 580",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 100,
+    "relativePowerScore": 50,
     "vramGB": 8,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
@@ -12195,14 +12725,19 @@
           "ultra": 32
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "id": "gpu-108",
     "name": "Radeon RX 590",
     "manufacturer": "AMD",
     "releaseYear": 2018,
-    "relativePowerScore": 110,
+    "relativePowerScore": 50,
     "vramGB": 8,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 500,
@@ -12309,14 +12844,19 @@
           "ultra": 35
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "id": "gpu-109",
     "name": "Radeon RX Vega 56",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 128,
+    "relativePowerScore": 95,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 650,
@@ -12423,14 +12963,19 @@
           "ultra": 41
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-110",
     "name": "Radeon RX Vega 64",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 142,
+    "relativePowerScore": 105,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 750,
@@ -12537,14 +13082,19 @@
           "ultra": 45
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5112,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 33228,
+    "geekbenchOpenCL": 31694,
+    "passmarkG3D": 8112
   },
   {
     "id": "gpu-111",
     "name": "Radeon VII",
     "manufacturer": "AMD",
     "releaseYear": 2019,
-    "relativePowerScore": 168,
+    "relativePowerScore": 124,
     "vramGB": 16,
     "architecture": "Vega",
     "recommendedPsuW": 750,
@@ -12651,14 +13201,19 @@
           "ultra": 74
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6048,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 39312,
+    "geekbenchOpenCL": 37498,
+    "passmarkG3D": 9048
   },
   {
     "id": "gpu-112",
     "name": "Radeon RX 5500 XT",
     "manufacturer": "AMD",
     "releaseYear": 2019,
-    "relativePowerScore": 86,
+    "relativePowerScore": 64,
     "vramGB": 8,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 450,
@@ -12765,14 +13320,19 @@
           "ultra": 27
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-113",
     "name": "Radeon RX 5600 XT",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 125,
+    "relativePowerScore": 93,
     "vramGB": 6,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 550,
@@ -12879,14 +13439,19 @@
           "ultra": 30
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4500,
+    "portRoyalScore": 1575,
+    "geekbenchVulkan": 29250,
+    "geekbenchOpenCL": 27900,
+    "passmarkG3D": 7500
   },
   {
     "id": "gpu-114",
     "name": "Radeon RX 5700",
     "manufacturer": "AMD",
     "releaseYear": 2019,
-    "relativePowerScore": 146,
+    "relativePowerScore": 108,
     "vramGB": 8,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 600,
@@ -12993,14 +13558,19 @@
           "ultra": 46
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5256,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 34164,
+    "geekbenchOpenCL": 32587,
+    "passmarkG3D": 8256
   },
   {
     "id": "gpu-115",
     "name": "Radeon RX 5700 XT",
     "manufacturer": "AMD",
     "releaseYear": 2019,
-    "relativePowerScore": 162,
+    "relativePowerScore": 120,
     "vramGB": 8,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 600,
@@ -13107,14 +13677,19 @@
           "ultra": 51
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5832,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 37908,
+    "geekbenchOpenCL": 36158,
+    "passmarkG3D": 8832
   },
   {
     "id": "gpu-116",
     "name": "Radeon RX 6400",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 58,
+    "relativePowerScore": 43,
     "vramGB": 4,
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 350,
@@ -13221,14 +13796,19 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2088,
+    "portRoyalScore": 731,
+    "geekbenchVulkan": 13572,
+    "geekbenchOpenCL": 12946,
+    "passmarkG3D": 5088
   },
   {
     "id": "gpu-117",
     "name": "Radeon RX 6500 XT",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 72,
+    "relativePowerScore": 53,
     "vramGB": 4,
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 400,
@@ -13335,14 +13915,19 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2592,
+    "portRoyalScore": 907,
+    "geekbenchVulkan": 16848,
+    "geekbenchOpenCL": 16070,
+    "passmarkG3D": 5592
   },
   {
     "id": "gpu-118",
     "name": "Radeon RX 6600",
     "manufacturer": "AMD",
     "releaseYear": 2021,
-    "relativePowerScore": 154,
+    "relativePowerScore": 114,
     "vramGB": 8,
     "architecture": "RDNA 2",
     "recommendedPsuW": 450,
@@ -13449,14 +14034,19 @@
           "ultra": 49
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5544,
+    "portRoyalScore": 1940,
+    "geekbenchVulkan": 36036,
+    "geekbenchOpenCL": 34373,
+    "passmarkG3D": 8544
   },
   {
     "id": "gpu-119",
     "name": "Radeon RX 6600 XT",
     "manufacturer": "AMD",
     "releaseYear": 2021,
-    "relativePowerScore": 180,
+    "relativePowerScore": 133,
     "vramGB": 8,
     "architecture": "RDNA 2",
     "recommendedPsuW": 500,
@@ -13563,14 +14153,19 @@
           "ultra": 57
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6480,
+    "portRoyalScore": 2268,
+    "geekbenchVulkan": 42120,
+    "geekbenchOpenCL": 40176,
+    "passmarkG3D": 9480
   },
   {
     "id": "gpu-120",
     "name": "Radeon RX 6700 XT",
     "manufacturer": "AMD",
     "releaseYear": 2021,
-    "relativePowerScore": 215,
+    "relativePowerScore": 159,
     "vramGB": 12,
     "architecture": "RDNA 2",
     "recommendedPsuW": 650,
@@ -13677,14 +14272,19 @@
           "ultra": 95
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7740,
+    "portRoyalScore": 2709,
+    "geekbenchVulkan": 50310,
+    "geekbenchOpenCL": 47988,
+    "passmarkG3D": 10740
   },
   {
     "id": "gpu-121",
     "name": "Radeon RX 6800",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 260,
+    "relativePowerScore": 192,
     "vramGB": 16,
     "architecture": "RDNA 2",
     "recommendedPsuW": 650,
@@ -13791,14 +14391,19 @@
           "ultra": 115
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9360,
+    "portRoyalScore": 3276,
+    "geekbenchVulkan": 60840,
+    "geekbenchOpenCL": 58032,
+    "passmarkG3D": 12360
   },
   {
     "id": "gpu-122",
     "name": "Radeon RX 6800 XT",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 310,
+    "relativePowerScore": 300,
     "vramGB": 16,
     "architecture": "RDNA 2",
     "recommendedPsuW": 750,
@@ -13905,14 +14510,19 @@
           "ultra": 137
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18500,
+    "portRoyalScore": 8500,
+    "geekbenchVulkan": 130000,
+    "geekbenchOpenCL": 125000,
+    "passmarkG3D": 23000
   },
   {
     "id": "gpu-123",
     "name": "Radeon RX 6900 XT",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 345,
+    "relativePowerScore": 350,
     "vramGB": 16,
     "architecture": "RDNA 2",
     "recommendedPsuW": 850,
@@ -14019,14 +14629,19 @@
           "ultra": 152
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19500,
+    "portRoyalScore": 9500,
+    "geekbenchVulkan": 145000,
+    "geekbenchOpenCL": 140000,
+    "passmarkG3D": 25000
   },
   {
     "id": "gpu-124",
     "name": "Radeon RX 6950 XT",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 375,
+    "relativePowerScore": 380,
     "vramGB": 16,
     "architecture": "RDNA 2",
     "recommendedPsuW": 850,
@@ -14133,14 +14748,19 @@
           "ultra": 165
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21000,
+    "portRoyalScore": 10000,
+    "geekbenchVulkan": 160000,
+    "geekbenchOpenCL": 150000,
+    "passmarkG3D": 27000
   },
   {
     "id": "gpu-125",
     "name": "Radeon RX 7600",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 195,
+    "relativePowerScore": 144,
     "vramGB": 8,
     "architecture": "RDNA 3",
     "recommendedPsuW": 550,
@@ -14247,14 +14867,19 @@
           "ultra": 62
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7020,
+    "portRoyalScore": 2457,
+    "geekbenchVulkan": 45630,
+    "geekbenchOpenCL": 43524,
+    "passmarkG3D": 10020
   },
   {
     "id": "gpu-126",
     "name": "Radeon RX 7600 XT",
     "manufacturer": "AMD",
     "releaseYear": 2024,
-    "relativePowerScore": 210,
+    "relativePowerScore": 155,
     "vramGB": 16,
     "architecture": "RDNA 3",
     "recommendedPsuW": 600,
@@ -14361,14 +14986,19 @@
           "ultra": 93
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 2646,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-127",
     "name": "Radeon RX 7700 XT",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 285,
+    "relativePowerScore": 211,
     "vramGB": 12,
     "architecture": "RDNA 3",
     "recommendedPsuW": 700,
@@ -14475,14 +15105,19 @@
           "ultra": 126
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10260,
+    "portRoyalScore": 3591,
+    "geekbenchVulkan": 66690,
+    "geekbenchOpenCL": 63612,
+    "passmarkG3D": 13260
   },
   {
     "id": "gpu-128",
     "name": "Radeon RX 7800 XT",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 340,
+    "relativePowerScore": 252,
     "vramGB": 16,
     "architecture": "RDNA 3",
     "recommendedPsuW": 700,
@@ -14589,14 +15224,19 @@
           "ultra": 150
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12240,
+    "portRoyalScore": 4284,
+    "geekbenchVulkan": 79560,
+    "geekbenchOpenCL": 75888,
+    "passmarkG3D": 15240
   },
   {
     "id": "gpu-129",
     "name": "Radeon RX 7900 GRE",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 370,
+    "relativePowerScore": 274,
     "vramGB": 16,
     "architecture": "RDNA 3",
     "recommendedPsuW": 750,
@@ -14703,14 +15343,19 @@
           "ultra": 163
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 13320,
+    "portRoyalScore": 4662,
+    "geekbenchVulkan": 86580,
+    "geekbenchOpenCL": 82584,
+    "passmarkG3D": 16320
   },
   {
     "id": "gpu-130",
     "name": "Radeon RX 7900 XT",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 460,
+    "relativePowerScore": 400,
     "vramGB": 20,
     "architecture": "RDNA 3",
     "recommendedPsuW": 750,
@@ -14817,14 +15462,19 @@
           "ultra": 203
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 25000,
+    "portRoyalScore": 8500,
+    "geekbenchVulkan": 180000,
+    "geekbenchOpenCL": 170000,
+    "passmarkG3D": 28000
   },
   {
     "id": "gpu-131",
     "name": "Radeon RX 7900 XTX",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 530,
+    "relativePowerScore": 450,
     "vramGB": 24,
     "architecture": "RDNA 3",
     "recommendedPsuW": 800,
@@ -14931,14 +15581,19 @@
           "ultra": 234
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 29000,
+    "portRoyalScore": 10000,
+    "geekbenchVulkan": 220000,
+    "geekbenchOpenCL": 200000,
+    "passmarkG3D": 31000
   },
   {
     "id": "gpu-132",
     "name": "Radeon RX 8600 XT",
     "manufacturer": "AMD",
     "releaseYear": 2025,
-    "relativePowerScore": 320,
+    "relativePowerScore": 237,
     "vramGB": 12,
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 600,
@@ -15045,14 +15700,19 @@
           "ultra": 141
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11520,
+    "portRoyalScore": 4032,
+    "geekbenchVulkan": 74880,
+    "geekbenchOpenCL": 71424,
+    "passmarkG3D": 14520
   },
   {
     "id": "gpu-133",
     "name": "Radeon RX 8700 XT",
     "manufacturer": "AMD",
     "releaseYear": 2025,
-    "relativePowerScore": 480,
+    "relativePowerScore": 355,
     "vramGB": 16,
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 700,
@@ -15159,14 +15819,19 @@
           "ultra": 212
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17280,
+    "portRoyalScore": 6048,
+    "geekbenchVulkan": 112320,
+    "geekbenchOpenCL": 107136,
+    "passmarkG3D": 20280
   },
   {
     "id": "gpu-134",
     "name": "Radeon RX 8800 XT",
     "manufacturer": "AMD",
     "releaseYear": 2025,
-    "relativePowerScore": 610,
+    "relativePowerScore": 451,
     "vramGB": 16,
     "architecture": "RDNA 4.0",
     "recommendedPsuW": 750,
@@ -15273,14 +15938,19 @@
           "ultra": 269
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21960,
+    "portRoyalScore": 7686,
+    "geekbenchVulkan": 142740,
+    "geekbenchOpenCL": 136152,
+    "passmarkG3D": 24960
   },
   {
     "id": "gpu-135",
     "name": "Intel HD Graphics 4000",
     "manufacturer": "Intel",
     "releaseYear": 2012,
-    "relativePowerScore": 4,
+    "relativePowerScore": 5,
     "vramGB": 1,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -15387,14 +16057,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 200,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 936,
+    "geekbenchOpenCL": 893,
+    "passmarkG3D": 3144
   },
   {
     "id": "gpu-136",
     "name": "Intel Iris Pro Graphics 5200",
     "manufacturer": "Intel",
     "releaseYear": 2013,
-    "relativePowerScore": 8,
+    "relativePowerScore": 6,
     "vramGB": 1.5,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -15501,14 +16176,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-137",
     "name": "Intel HD Graphics 530",
     "manufacturer": "Intel",
     "releaseYear": 2015,
-    "relativePowerScore": 7,
+    "relativePowerScore": 5,
     "vramGB": 1.5,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -15615,14 +16295,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-138",
     "name": "Intel UHD Graphics 630",
     "manufacturer": "Intel",
     "releaseYear": 2017,
-    "relativePowerScore": 9,
+    "relativePowerScore": 7,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 250,
@@ -15729,14 +16414,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 324,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2106,
+    "geekbenchOpenCL": 2009,
+    "passmarkG3D": 3324
   },
   {
     "id": "gpu-139",
     "name": "Intel Iris Xe Graphics G7",
     "manufacturer": "Intel",
     "releaseYear": 2020,
-    "relativePowerScore": 18,
+    "relativePowerScore": 13,
     "vramGB": 4,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 250,
@@ -15843,14 +16533,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 648,
+    "portRoyalScore": 454,
+    "geekbenchVulkan": 4212,
+    "geekbenchOpenCL": 4018,
+    "passmarkG3D": 3648
   },
   {
     "id": "gpu-140",
     "name": "Intel Arc A310",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 52,
+    "relativePowerScore": 38,
     "vramGB": 4,
     "architecture": "Alchemist",
     "recommendedPsuW": 350,
@@ -15957,14 +16652,19 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 1310,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-141",
     "name": "Intel Arc A380",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 65,
+    "relativePowerScore": 48,
     "vramGB": 6,
     "architecture": "Alchemist",
     "recommendedPsuW": 350,
@@ -16071,14 +16771,19 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 1638,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "id": "gpu-142",
     "name": "Intel Arc A580",
     "manufacturer": "Intel",
     "releaseYear": 2023,
-    "relativePowerScore": 132,
+    "relativePowerScore": 98,
     "vramGB": 8,
     "architecture": "Alchemist",
     "recommendedPsuW": 500,
@@ -16185,14 +16890,19 @@
           "ultra": 42
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4752,
+    "portRoyalScore": 3326,
+    "geekbenchVulkan": 30888,
+    "geekbenchOpenCL": 29462,
+    "passmarkG3D": 7752
   },
   {
     "id": "gpu-143",
     "name": "Intel Arc A750",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 162,
+    "relativePowerScore": 120,
     "vramGB": 8,
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
@@ -16299,14 +17009,19 @@
           "ultra": 51
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5832,
+    "portRoyalScore": 4082,
+    "geekbenchVulkan": 37908,
+    "geekbenchOpenCL": 36158,
+    "passmarkG3D": 8832
   },
   {
     "id": "gpu-144",
     "name": "Intel Arc A770 8GB",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 178,
+    "relativePowerScore": 132,
     "vramGB": 8,
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
@@ -16413,14 +17128,19 @@
           "ultra": 57
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6408,
+    "portRoyalScore": 4486,
+    "geekbenchVulkan": 41652,
+    "geekbenchOpenCL": 39730,
+    "passmarkG3D": 9408
   },
   {
     "id": "gpu-145",
     "name": "Intel Arc A770 16GB",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 184,
+    "relativePowerScore": 136,
     "vramGB": 16,
     "architecture": "Alchemist",
     "recommendedPsuW": 600,
@@ -16527,14 +17247,19 @@
           "ultra": 81
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6624,
+    "portRoyalScore": 4637,
+    "geekbenchVulkan": 43056,
+    "geekbenchOpenCL": 41069,
+    "passmarkG3D": 9624
   },
   {
     "id": "gpu-146",
     "name": "Intel Arc B570",
     "manufacturer": "Intel",
     "releaseYear": 2025,
-    "relativePowerScore": 210,
+    "relativePowerScore": 155,
     "vramGB": 10,
     "architecture": "Battlemage",
     "recommendedPsuW": 550,
@@ -16641,14 +17366,19 @@
           "ultra": 93
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-147",
     "name": "Intel Arc B580",
     "manufacturer": "Intel",
     "releaseYear": 2024,
-    "relativePowerScore": 230,
+    "relativePowerScore": 170,
     "vramGB": 12,
     "architecture": "Battlemage",
     "recommendedPsuW": 600,
@@ -16755,14 +17485,19 @@
           "ultra": 101
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8280,
+    "portRoyalScore": 5796,
+    "geekbenchVulkan": 53820,
+    "geekbenchOpenCL": 51336,
+    "passmarkG3D": 11280
   },
   {
     "id": "gpu-148",
     "name": "Intel Arc B770",
     "manufacturer": "Intel",
     "releaseYear": 2025,
-    "relativePowerScore": 310,
+    "relativePowerScore": 229,
     "vramGB": 16,
     "architecture": "Battlemage",
     "recommendedPsuW": 650,
@@ -16869,14 +17604,19 @@
           "ultra": 137
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11160,
+    "portRoyalScore": 7812,
+    "geekbenchVulkan": 72540,
+    "geekbenchOpenCL": 69192,
+    "passmarkG3D": 14160
   },
   {
     "id": "gpu-149",
     "name": "GeForce 7600 GT",
     "manufacturer": "NVIDIA",
     "releaseYear": 2006,
-    "relativePowerScore": 6,
+    "relativePowerScore": 5,
     "vramGB": 0.256,
     "architecture": "RDNA 3",
     "recommendedPsuW": 300,
@@ -16983,14 +17723,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 216,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1404,
+    "geekbenchOpenCL": 1339,
+    "passmarkG3D": 3216
   },
   {
     "id": "gpu-150",
     "name": "GeForce 8600 GT",
     "manufacturer": "NVIDIA",
     "releaseYear": 2007,
-    "relativePowerScore": 9,
+    "relativePowerScore": 7,
     "vramGB": 0.256,
     "architecture": "Tesla",
     "recommendedPsuW": 300,
@@ -17097,14 +17842,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 324,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2106,
+    "geekbenchOpenCL": 2009,
+    "passmarkG3D": 3324
   },
   {
     "id": "gpu-151",
     "name": "GeForce 9500 GT",
     "manufacturer": "NVIDIA",
     "releaseYear": 2008,
-    "relativePowerScore": 8,
+    "relativePowerScore": 6,
     "vramGB": 0.512,
     "architecture": "Tesla",
     "recommendedPsuW": 300,
@@ -17211,14 +17961,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-152",
     "name": "GeForce GT 220",
     "manufacturer": "NVIDIA",
     "releaseYear": 2009,
-    "relativePowerScore": 7,
+    "relativePowerScore": 5,
     "vramGB": 1,
     "architecture": "Tesla",
     "recommendedPsuW": 300,
@@ -17325,14 +18080,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-153",
     "name": "GeForce GT 240",
     "manufacturer": "NVIDIA",
     "releaseYear": 2009,
-    "relativePowerScore": 12,
+    "relativePowerScore": 9,
     "vramGB": 1,
     "architecture": "Tesla",
     "recommendedPsuW": 300,
@@ -17439,14 +18199,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 432,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2808,
+    "geekbenchOpenCL": 2678,
+    "passmarkG3D": 3432
   },
   {
     "id": "gpu-154",
     "name": "GeForce GTX 465",
     "manufacturer": "NVIDIA",
     "releaseYear": 2010,
-    "relativePowerScore": 31,
+    "relativePowerScore": 23,
     "vramGB": 1,
     "architecture": "Fermi",
     "recommendedPsuW": 500,
@@ -17553,14 +18318,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-155",
     "name": "GeForce GTX 550 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2011,
-    "relativePowerScore": 30,
+    "relativePowerScore": 22,
     "vramGB": 1,
     "architecture": "Fermi 2.0",
     "recommendedPsuW": 400,
@@ -17667,14 +18437,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1080,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7020,
+    "geekbenchOpenCL": 6696,
+    "passmarkG3D": 4080
   },
   {
     "id": "gpu-156",
     "name": "GeForce GTX 650 Ti Boost",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 41,
+    "relativePowerScore": 30,
     "vramGB": 2,
     "architecture": "Kepler",
     "recommendedPsuW": 450,
@@ -17781,14 +18556,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1476,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9594,
+    "geekbenchOpenCL": 9151,
+    "passmarkG3D": 4476
   },
   {
     "id": "gpu-157",
     "name": "GeForce GTX 660 OEM",
     "manufacturer": "NVIDIA",
     "releaseYear": 2012,
-    "relativePowerScore": 40,
+    "relativePowerScore": 30,
     "vramGB": 1.5,
     "architecture": "Kepler",
     "recommendedPsuW": 450,
@@ -17895,14 +18675,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1440,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9360,
+    "geekbenchOpenCL": 8928,
+    "passmarkG3D": 4440
   },
   {
     "id": "gpu-158",
     "name": "GeForce GTX 760 Ti OEM",
     "manufacturer": "NVIDIA",
     "releaseYear": 2013,
-    "relativePowerScore": 62,
+    "relativePowerScore": 46,
     "vramGB": 2,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 500,
@@ -18009,14 +18794,19 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "id": "gpu-159",
     "name": "GeForce GTX 980M",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 78,
+    "relativePowerScore": 58,
     "vramGB": 4,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 180,
@@ -18123,14 +18913,19 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-160",
     "name": "GeForce GTX 970M",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 63,
+    "relativePowerScore": 47,
     "vramGB": 3,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 150,
@@ -18237,14 +19032,19 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2268,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14742,
+    "geekbenchOpenCL": 14062,
+    "passmarkG3D": 5268
   },
   {
     "id": "gpu-161",
     "name": "GeForce GTX 960M",
     "manufacturer": "NVIDIA",
     "releaseYear": 2015,
-    "relativePowerScore": 38,
+    "relativePowerScore": 28,
     "vramGB": 2,
     "architecture": "Maxwell 2.0",
     "recommendedPsuW": 100,
@@ -18351,14 +19151,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-162",
     "name": "GeForce GTX 1060 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 88,
+    "relativePowerScore": 50,
     "vramGB": 6,
     "architecture": "Pascal",
     "recommendedPsuW": 150,
@@ -18465,14 +19270,19 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-163",
     "name": "GeForce GTX 1070 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 122,
+    "relativePowerScore": 90,
     "vramGB": 8,
     "architecture": "Pascal",
     "recommendedPsuW": 180,
@@ -18579,14 +19389,19 @@
           "ultra": 39
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4392,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 28548,
+    "geekbenchOpenCL": 27230,
+    "passmarkG3D": 7392
   },
   {
     "id": "gpu-164",
     "name": "GeForce GTX 1080 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2016,
-    "relativePowerScore": 158,
+    "relativePowerScore": 117,
     "vramGB": 8,
     "architecture": "Pascal",
     "recommendedPsuW": 220,
@@ -18693,14 +19508,19 @@
           "ultra": 50
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5688,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 36972,
+    "geekbenchOpenCL": 35266,
+    "passmarkG3D": 8688
   },
   {
     "id": "gpu-165",
     "name": "GeForce GTX 1630",
     "manufacturer": "NVIDIA",
     "releaseYear": 2022,
-    "relativePowerScore": 45,
+    "relativePowerScore": 33,
     "vramGB": 4,
     "architecture": "Turing",
     "recommendedPsuW": 300,
@@ -18807,14 +19627,19 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 1134,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-166",
     "name": "GeForce RTX 2060 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 118,
+    "relativePowerScore": 87,
     "vramGB": 6,
     "architecture": "Turing",
     "recommendedPsuW": 150,
@@ -18921,14 +19746,19 @@
           "ultra": 28
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4248,
+    "portRoyalScore": 2974,
+    "geekbenchVulkan": 27612,
+    "geekbenchOpenCL": 26338,
+    "passmarkG3D": 7248
   },
   {
     "id": "gpu-167",
     "name": "GeForce RTX 2070 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 146,
+    "relativePowerScore": 108,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 180,
@@ -19035,14 +19865,19 @@
           "ultra": 46
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5256,
+    "portRoyalScore": 3679,
+    "geekbenchVulkan": 34164,
+    "geekbenchOpenCL": 32587,
+    "passmarkG3D": 8256
   },
   {
     "id": "gpu-168",
     "name": "GeForce RTX 2080 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2019,
-    "relativePowerScore": 188,
+    "relativePowerScore": 139,
     "vramGB": 8,
     "architecture": "Turing",
     "recommendedPsuW": 200,
@@ -19149,14 +19984,19 @@
           "ultra": 60
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6768,
+    "portRoyalScore": 4738,
+    "geekbenchVulkan": 43992,
+    "geekbenchOpenCL": 41962,
+    "passmarkG3D": 9768
   },
   {
     "id": "gpu-169",
     "name": "GeForce RTX 3050 Ti Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 102,
+    "relativePowerScore": 75,
     "vramGB": 4,
     "architecture": "Ampere",
     "recommendedPsuW": 120,
@@ -19263,14 +20103,19 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3672,
+    "portRoyalScore": 2570,
+    "geekbenchVulkan": 23868,
+    "geekbenchOpenCL": 22766,
+    "passmarkG3D": 6672
   },
   {
     "id": "gpu-170",
     "name": "GeForce RTX 3060 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 138,
+    "relativePowerScore": 102,
     "vramGB": 6,
     "architecture": "Ampere",
     "recommendedPsuW": 150,
@@ -19377,14 +20222,19 @@
           "ultra": 33
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4968,
+    "portRoyalScore": 3478,
+    "geekbenchVulkan": 32292,
+    "geekbenchOpenCL": 30802,
+    "passmarkG3D": 7968
   },
   {
     "id": "gpu-171",
     "name": "GeForce RTX 3070 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 184,
+    "relativePowerScore": 136,
     "vramGB": 8,
     "architecture": "Ampere",
     "recommendedPsuW": 180,
@@ -19491,14 +20341,19 @@
           "ultra": 58
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6624,
+    "portRoyalScore": 4637,
+    "geekbenchVulkan": 43056,
+    "geekbenchOpenCL": 41069,
+    "passmarkG3D": 9624
   },
   {
     "id": "gpu-172",
     "name": "GeForce RTX 3080 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2021,
-    "relativePowerScore": 218,
+    "relativePowerScore": 340,
     "vramGB": 16,
     "architecture": "Ampere",
     "recommendedPsuW": 200,
@@ -19605,14 +20460,19 @@
           "ultra": 96
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "id": "gpu-173",
     "name": "GeForce RTX 4050 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 145,
+    "relativePowerScore": 107,
     "vramGB": 6,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 120,
@@ -19719,14 +20579,19 @@
           "ultra": 35
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5220,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 33930,
+    "geekbenchOpenCL": 32364,
+    "passmarkG3D": 8220
   },
   {
     "id": "gpu-174",
     "name": "GeForce RTX 4060 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 185,
+    "relativePowerScore": 137,
     "vramGB": 8,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 140,
@@ -19833,14 +20698,19 @@
           "ultra": 59
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6660,
+    "portRoyalScore": 4662,
+    "geekbenchVulkan": 43290,
+    "geekbenchOpenCL": 41292,
+    "passmarkG3D": 9660
   },
   {
     "id": "gpu-175",
     "name": "GeForce RTX 4070 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 225,
+    "relativePowerScore": 270,
     "vramGB": 8,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 150,
@@ -19947,14 +20817,19 @@
           "ultra": 71
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11000,
+    "geekbenchVulkan": 150000,
+    "geekbenchOpenCL": 160000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-176",
     "name": "GeForce RTX 4080 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 330,
+    "relativePowerScore": 540,
     "vramGB": 12,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 180,
@@ -20061,14 +20936,19 @@
           "ultra": 146
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 27000,
+    "portRoyalScore": 17500,
+    "geekbenchVulkan": 200000,
+    "geekbenchOpenCL": 250000,
+    "passmarkG3D": 34000
   },
   {
     "id": "gpu-177",
     "name": "GeForce RTX 4090 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2023,
-    "relativePowerScore": 420,
+    "relativePowerScore": 740,
     "vramGB": 16,
     "architecture": "Ada Lovelace",
     "recommendedPsuW": 200,
@@ -20175,14 +21055,19 @@
           "ultra": 185
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 26000,
+    "geekbenchVulkan": 260000,
+    "geekbenchOpenCL": 320000,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-178",
     "name": "GeForce RTX 5050 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 210,
+    "relativePowerScore": 155,
     "vramGB": 8,
     "architecture": "Blackwell",
     "recommendedPsuW": 120,
@@ -20289,14 +21174,19 @@
           "ultra": 67
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-179",
     "name": "GeForce RTX 5060 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 275,
+    "relativePowerScore": 204,
     "vramGB": 8,
     "architecture": "Blackwell",
     "recommendedPsuW": 140,
@@ -20403,14 +21293,19 @@
           "ultra": 87
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9900,
+    "portRoyalScore": 6930,
+    "geekbenchVulkan": 64350,
+    "geekbenchOpenCL": 61380,
+    "passmarkG3D": 12900
   },
   {
     "id": "gpu-180",
     "name": "GeForce RTX 5070 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 360,
+    "relativePowerScore": 266,
     "vramGB": 12,
     "architecture": "Blackwell",
     "recommendedPsuW": 150,
@@ -20517,14 +21412,19 @@
           "ultra": 159
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12960,
+    "portRoyalScore": 9072,
+    "geekbenchVulkan": 84240,
+    "geekbenchOpenCL": 80352,
+    "passmarkG3D": 15960
   },
   {
     "id": "gpu-181",
     "name": "GeForce RTX 5080 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 495,
+    "relativePowerScore": 366,
     "vramGB": 16,
     "architecture": "Blackwell",
     "recommendedPsuW": 180,
@@ -20631,14 +21531,19 @@
           "ultra": 218
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17820,
+    "portRoyalScore": 12474,
+    "geekbenchVulkan": 115830,
+    "geekbenchOpenCL": 110484,
+    "passmarkG3D": 20820
   },
   {
     "id": "gpu-182",
     "name": "GeForce RTX 5090 Mobile",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 650,
+    "relativePowerScore": 481,
     "vramGB": 16,
     "architecture": "Blackwell",
     "recommendedPsuW": 200,
@@ -20745,14 +21650,19 @@
           "ultra": 287
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 23400,
+    "portRoyalScore": 16380,
+    "geekbenchVulkan": 152100,
+    "geekbenchOpenCL": 145080,
+    "passmarkG3D": 26400
   },
   {
     "id": "gpu-183",
     "name": "Radeon HD 3850",
     "manufacturer": "AMD",
     "releaseYear": 2007,
-    "relativePowerScore": 11,
+    "relativePowerScore": 8,
     "vramGB": 0.256,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 350,
@@ -20859,14 +21769,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-184",
     "name": "Radeon HD 4670",
     "manufacturer": "AMD",
     "releaseYear": 2008,
-    "relativePowerScore": 13,
+    "relativePowerScore": 10,
     "vramGB": 0.512,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 300,
@@ -20973,14 +21888,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 468,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3042,
+    "geekbenchOpenCL": 2902,
+    "passmarkG3D": 3468
   },
   {
     "id": "gpu-185",
     "name": "Radeon HD 4770",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 17,
+    "relativePowerScore": 13,
     "vramGB": 0.512,
     "architecture": "TeraScale 1",
     "recommendedPsuW": 350,
@@ -21087,14 +22007,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 612,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3978,
+    "geekbenchOpenCL": 3794,
+    "passmarkG3D": 3612
   },
   {
     "id": "gpu-186",
     "name": "Radeon HD 5750",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 26,
+    "relativePowerScore": 19,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 400,
@@ -21201,14 +22126,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "id": "gpu-187",
     "name": "Radeon HD 5770",
     "manufacturer": "AMD",
     "releaseYear": 2009,
-    "relativePowerScore": 31,
+    "relativePowerScore": 23,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
@@ -21315,14 +22245,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-188",
     "name": "Radeon HD 6770",
     "manufacturer": "AMD",
     "releaseYear": 2011,
-    "relativePowerScore": 33,
+    "relativePowerScore": 24,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
@@ -21429,14 +22364,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1188,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7722,
+    "geekbenchOpenCL": 7366,
+    "passmarkG3D": 4188
   },
   {
     "id": "gpu-189",
     "name": "Radeon HD 6850",
     "manufacturer": "AMD",
     "releaseYear": 2010,
-    "relativePowerScore": 38,
+    "relativePowerScore": 28,
     "vramGB": 1,
     "architecture": "TeraScale 2",
     "recommendedPsuW": 450,
@@ -21543,14 +22483,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-190",
     "name": "Radeon HD 6950",
     "manufacturer": "AMD",
     "releaseYear": 2010,
-    "relativePowerScore": 45,
+    "relativePowerScore": 33,
     "vramGB": 2,
     "architecture": "TeraScale 3",
     "recommendedPsuW": 500,
@@ -21657,14 +22602,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-191",
     "name": "Radeon HD 7750",
     "manufacturer": "AMD",
     "releaseYear": 2012,
-    "relativePowerScore": 26,
+    "relativePowerScore": 19,
     "vramGB": 1,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 300,
@@ -21771,14 +22721,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "id": "gpu-192",
     "name": "Radeon HD 7770 GHz Edition",
     "manufacturer": "AMD",
     "releaseYear": 2012,
-    "relativePowerScore": 34,
+    "relativePowerScore": 25,
     "vramGB": 1,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 350,
@@ -21885,14 +22840,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "id": "gpu-193",
     "name": "Radeon HD 7850",
     "manufacturer": "AMD",
     "releaseYear": 2012,
-    "relativePowerScore": 48,
+    "relativePowerScore": 36,
     "vramGB": 2,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 450,
@@ -21999,14 +22959,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "id": "gpu-194",
     "name": "Radeon R7 250X",
     "manufacturer": "AMD",
     "releaseYear": 2014,
-    "relativePowerScore": 33,
+    "relativePowerScore": 24,
     "vramGB": 1,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 350,
@@ -22113,14 +23078,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1188,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7722,
+    "geekbenchOpenCL": 7366,
+    "passmarkG3D": 4188
   },
   {
     "id": "gpu-195",
     "name": "Radeon R7 260X",
     "manufacturer": "AMD",
     "releaseYear": 2013,
-    "relativePowerScore": 43,
+    "relativePowerScore": 32,
     "vramGB": 2,
     "architecture": "GCN 1.1",
     "recommendedPsuW": 400,
@@ -22227,14 +23197,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1548,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10062,
+    "geekbenchOpenCL": 9598,
+    "passmarkG3D": 4548
   },
   {
     "id": "gpu-196",
     "name": "Radeon R9 280",
     "manufacturer": "AMD",
     "releaseYear": 2014,
-    "relativePowerScore": 70,
+    "relativePowerScore": 52,
     "vramGB": 3,
     "architecture": "GCN 1.0",
     "recommendedPsuW": 550,
@@ -22341,14 +23316,19 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2520,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 16380,
+    "geekbenchOpenCL": 15624,
+    "passmarkG3D": 5520
   },
   {
     "id": "gpu-197",
     "name": "Radeon R9 290",
     "manufacturer": "AMD",
     "releaseYear": 2013,
-    "relativePowerScore": 86,
+    "relativePowerScore": 64,
     "vramGB": 4,
     "architecture": "GCN 2.0",
     "recommendedPsuW": 550,
@@ -22455,14 +23435,19 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-198",
     "name": "Radeon R9 Nano",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 106,
+    "relativePowerScore": 78,
     "vramGB": 4,
     "architecture": "GCN 3.0",
     "recommendedPsuW": 500,
@@ -22569,14 +23554,19 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3816,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 24804,
+    "geekbenchOpenCL": 23659,
+    "passmarkG3D": 6816
   },
   {
     "id": "gpu-199",
     "name": "Radeon RX 460 2GB",
     "manufacturer": "AMD",
     "releaseYear": 2016,
-    "relativePowerScore": 42,
+    "relativePowerScore": 31,
     "vramGB": 2,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
@@ -22683,14 +23673,19 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-200",
     "name": "Radeon RX 550",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 31,
+    "relativePowerScore": 23,
     "vramGB": 2,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 300,
@@ -22797,14 +23792,19 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-201",
     "name": "Radeon RX 560 2GB",
     "manufacturer": "AMD",
     "releaseYear": 2017,
-    "relativePowerScore": 45,
+    "relativePowerScore": 33,
     "vramGB": 2,
     "architecture": "GCN 4.0",
     "recommendedPsuW": 350,
@@ -22911,14 +23911,19 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-202",
     "name": "Radeon RX Vega 11 Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2018,
-    "relativePowerScore": 14,
+    "relativePowerScore": 10,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 100,
@@ -23025,14 +24030,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-203",
     "name": "Radeon RX Vega 8 Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2018,
-    "relativePowerScore": 11,
+    "relativePowerScore": 8,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 100,
@@ -23139,14 +24149,19 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-204",
     "name": "Radeon RX 5300",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 66,
+    "relativePowerScore": 49,
     "vramGB": 3,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 350,
@@ -23253,14 +24268,19 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2376,
+    "portRoyalScore": 832,
+    "geekbenchVulkan": 15444,
+    "geekbenchOpenCL": 14731,
+    "passmarkG3D": 5376
   },
   {
     "id": "gpu-205",
     "name": "Radeon RX 5500",
     "manufacturer": "AMD",
     "releaseYear": 2019,
-    "relativePowerScore": 78,
+    "relativePowerScore": 58,
     "vramGB": 4,
     "architecture": "RDNA 1.0",
     "recommendedPsuW": 400,
@@ -23367,14 +24387,19 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-206",
     "name": "Radeon RX 6600S Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 128,
+    "relativePowerScore": 95,
     "vramGB": 4,
     "architecture": "RDNA 2",
     "recommendedPsuW": 120,
@@ -23481,14 +24506,19 @@
           "ultra": 20
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 1613,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-207",
     "name": "Radeon RX 6700S Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 152,
+    "relativePowerScore": 112,
     "vramGB": 8,
     "architecture": "RDNA 2.0",
     "recommendedPsuW": 140,
@@ -23595,14 +24625,19 @@
           "ultra": 48
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5472,
+    "portRoyalScore": 1915,
+    "geekbenchVulkan": 35568,
+    "geekbenchOpenCL": 33926,
+    "passmarkG3D": 8472
   },
   {
     "id": "gpu-208",
     "name": "Radeon RX 6800S Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 188,
+    "relativePowerScore": 139,
     "vramGB": 8,
     "architecture": "RDNA 2",
     "recommendedPsuW": 150,
@@ -23709,14 +24744,19 @@
           "ultra": 60
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6768,
+    "portRoyalScore": 2369,
+    "geekbenchVulkan": 43992,
+    "geekbenchOpenCL": 41962,
+    "passmarkG3D": 9768
   },
   {
     "id": "gpu-209",
     "name": "Radeon RX 7600S Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 165,
+    "relativePowerScore": 122,
     "vramGB": 8,
     "architecture": "RDNA 3",
     "recommendedPsuW": 130,
@@ -23823,14 +24863,19 @@
           "ultra": 52
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5940,
+    "portRoyalScore": 2079,
+    "geekbenchVulkan": 38610,
+    "geekbenchOpenCL": 36828,
+    "passmarkG3D": 8940
   },
   {
     "id": "gpu-210",
     "name": "Radeon RX 7700S Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 205,
+    "relativePowerScore": 152,
     "vramGB": 8,
     "architecture": "RDNA 3.0",
     "recommendedPsuW": 150,
@@ -23937,14 +24982,19 @@
           "ultra": 65
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7380,
+    "portRoyalScore": 2583,
+    "geekbenchVulkan": 47970,
+    "geekbenchOpenCL": 45756,
+    "passmarkG3D": 10380
   },
   {
     "id": "gpu-211",
     "name": "Radeon RX 7600M XT Mobile",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 182,
+    "relativePowerScore": 135,
     "vramGB": 8,
     "architecture": "RDNA 3",
     "recommendedPsuW": 150,
@@ -24051,13 +25101,18 @@
           "ultra": 58
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6552,
+    "portRoyalScore": 2293,
+    "geekbenchVulkan": 42588,
+    "geekbenchOpenCL": 40622,
+    "passmarkG3D": 9552
   },
   {
     "name": "GeForce RTX 5070 Ti",
     "manufacturer": "NVIDIA",
     "releaseYear": 2025,
-    "relativePowerScore": 720,
+    "relativePowerScore": 533,
     "vramGB": 16,
     "architecture": "Blackwell",
     "recommendedPsuW": 750,
@@ -24165,13 +25220,18 @@
           "ultra": 318
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 25920,
+    "portRoyalScore": 18144,
+    "geekbenchVulkan": 168480,
+    "geekbenchOpenCL": 160704,
+    "passmarkG3D": 28920
   },
   {
     "name": "GeForce RTX 3080 12GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2022,
-    "relativePowerScore": 490,
+    "relativePowerScore": 340,
     "vramGB": 12,
     "architecture": "Ampere",
     "recommendedPsuW": 750,
@@ -24279,13 +25339,18 @@
           "ultra": 216
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "name": "GeForce RTX 3050 6GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2024,
-    "relativePowerScore": 135,
+    "relativePowerScore": 100,
     "vramGB": 6,
     "architecture": "Ampere",
     "recommendedPsuW": 300,
@@ -24393,13 +25458,18 @@
           "ultra": 32
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4860,
+    "portRoyalScore": 3402,
+    "geekbenchVulkan": 31590,
+    "geekbenchOpenCL": 30132,
+    "passmarkG3D": 7860
   },
   {
     "name": "GeForce GT 1030 2GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2017,
-    "relativePowerScore": 25,
+    "relativePowerScore": 19,
     "vramGB": 2,
     "architecture": "Pascal",
     "recommendedPsuW": 300,
@@ -24507,13 +25577,18 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 900,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5850,
+    "geekbenchOpenCL": 5580,
+    "passmarkG3D": 3900
   },
   {
     "name": "GeForce GTX 750 1GB",
     "manufacturer": "NVIDIA",
     "releaseYear": 2014,
-    "relativePowerScore": 35,
+    "relativePowerScore": 26,
     "vramGB": 1,
     "architecture": "Maxwell / Kepler",
     "recommendedPsuW": 300,
@@ -24621,13 +25696,18 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1260,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8190,
+    "geekbenchOpenCL": 7812,
+    "passmarkG3D": 4260
   },
   {
     "name": "Radeon RX 6750 XT",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 335,
+    "relativePowerScore": 248,
     "vramGB": 12,
     "architecture": "RDNA 2",
     "recommendedPsuW": 650,
@@ -24735,13 +25815,18 @@
           "ultra": 148
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12060,
+    "portRoyalScore": 4221,
+    "geekbenchVulkan": 78390,
+    "geekbenchOpenCL": 74772,
+    "passmarkG3D": 15060
   },
   {
     "name": "Radeon RX 6650 XT",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 265,
+    "relativePowerScore": 196,
     "vramGB": 8,
     "architecture": "RDNA 2",
     "recommendedPsuW": 500,
@@ -24849,13 +25934,18 @@
           "ultra": 84
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9540,
+    "portRoyalScore": 3339,
+    "geekbenchVulkan": 62010,
+    "geekbenchOpenCL": 59148,
+    "passmarkG3D": 12540
   },
   {
     "name": "Radeon RX 6700 10GB",
     "manufacturer": "AMD",
     "releaseYear": 2021,
-    "relativePowerScore": 290,
+    "relativePowerScore": 215,
     "vramGB": 10,
     "architecture": "RDNA 2",
     "recommendedPsuW": 600,
@@ -24963,13 +26053,18 @@
           "ultra": 128
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10440,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 67860,
+    "geekbenchOpenCL": 64728,
+    "passmarkG3D": 13440
   },
   {
     "name": "Radeon RX 580 2048SP",
     "manufacturer": "AMD",
     "releaseYear": 2018,
-    "relativePowerScore": 115,
+    "relativePowerScore": 50,
     "vramGB": 8,
     "architecture": "Polaris",
     "recommendedPsuW": 450,
@@ -25077,13 +26172,18 @@
           "ultra": 37
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "name": "Radeon R9 390 8GB",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 108,
+    "relativePowerScore": 80,
     "vramGB": 8,
     "architecture": "Grenada",
     "recommendedPsuW": 600,
@@ -25191,13 +26291,18 @@
           "ultra": 34
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3888,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 25272,
+    "geekbenchOpenCL": 24106,
+    "passmarkG3D": 6888
   },
   {
     "name": "Radeon R9 380X 4GB",
     "manufacturer": "AMD",
     "releaseYear": 2015,
-    "relativePowerScore": 82,
+    "relativePowerScore": 61,
     "vramGB": 4,
     "architecture": "Antigua",
     "recommendedPsuW": 500,
@@ -25305,13 +26410,18 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "name": "Intel Arc A370M",
     "manufacturer": "Intel",
     "releaseYear": 2022,
-    "relativePowerScore": 48,
+    "relativePowerScore": 36,
     "vramGB": 4,
     "architecture": "Alchemist",
     "recommendedPsuW": 250,
@@ -25419,13 +26529,18 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 1210,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "name": "Intel Arc Pro A60",
     "manufacturer": "Intel",
     "releaseYear": 2023,
-    "relativePowerScore": 140,
+    "relativePowerScore": 104,
     "vramGB": 12,
     "architecture": "Alchemist",
     "recommendedPsuW": 450,
@@ -25533,13 +26648,18 @@
           "ultra": 62
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5040,
+    "portRoyalScore": 3528,
+    "geekbenchVulkan": 32760,
+    "geekbenchOpenCL": 31248,
+    "passmarkG3D": 8040
   },
   {
     "name": "Intel Arc Graphics 140V (Lunar Lake)",
     "manufacturer": "Intel",
     "releaseYear": 2024,
-    "relativePowerScore": 95,
+    "relativePowerScore": 70,
     "vramGB": 16,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -25647,13 +26767,18 @@
           "ultra": 42
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3420,
+    "portRoyalScore": 2394,
+    "geekbenchVulkan": 22230,
+    "geekbenchOpenCL": 21204,
+    "passmarkG3D": 6420
   },
   {
     "name": "Apple M1 8-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2020,
-    "relativePowerScore": 65,
+    "relativePowerScore": 48,
     "vramGB": 16,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 150,
@@ -25761,13 +26886,18 @@
           "ultra": 29
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 1638,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "name": "Apple M1 Pro 16-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2021,
-    "relativePowerScore": 145,
+    "relativePowerScore": 107,
     "vramGB": 32,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 200,
@@ -25875,13 +27005,18 @@
           "ultra": 64
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5220,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 33930,
+    "geekbenchOpenCL": 32364,
+    "passmarkG3D": 8220
   },
   {
     "name": "Apple M1 Max 32-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2021,
-    "relativePowerScore": 280,
+    "relativePowerScore": 207,
     "vramGB": 64,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 250,
@@ -25989,13 +27124,18 @@
           "ultra": 123
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "name": "Apple M1 Ultra 64-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2022,
-    "relativePowerScore": 520,
+    "relativePowerScore": 385,
     "vramGB": 128,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 450,
@@ -26103,13 +27243,18 @@
           "ultra": 229
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18720,
+    "portRoyalScore": 13104,
+    "geekbenchVulkan": 121680,
+    "geekbenchOpenCL": 116064,
+    "passmarkG3D": 21720
   },
   {
     "name": "Apple M2 10-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2022,
-    "relativePowerScore": 85,
+    "relativePowerScore": 63,
     "vramGB": 24,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 150,
@@ -26217,13 +27362,18 @@
           "ultra": 37
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3060,
+    "portRoyalScore": 2142,
+    "geekbenchVulkan": 19890,
+    "geekbenchOpenCL": 18972,
+    "passmarkG3D": 6060
   },
   {
     "name": "Apple M2 Pro 19-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 175,
+    "relativePowerScore": 130,
     "vramGB": 32,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 200,
@@ -26331,13 +27481,18 @@
           "ultra": 77
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6300,
+    "portRoyalScore": 4410,
+    "geekbenchVulkan": 40950,
+    "geekbenchOpenCL": 39060,
+    "passmarkG3D": 9300
   },
   {
     "name": "Apple M2 Max 38-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 340,
+    "relativePowerScore": 252,
     "vramGB": 96,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 300,
@@ -26445,13 +27600,18 @@
           "ultra": 150
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12240,
+    "portRoyalScore": 8568,
+    "geekbenchVulkan": 79560,
+    "geekbenchOpenCL": 75888,
+    "passmarkG3D": 15240
   },
   {
     "name": "Apple M2 Ultra 76-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 620,
+    "relativePowerScore": 459,
     "vramGB": 192,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 500,
@@ -26559,13 +27719,18 @@
           "ultra": 273
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 22320,
+    "portRoyalScore": 15624,
+    "geekbenchVulkan": 145080,
+    "geekbenchOpenCL": 138384,
+    "passmarkG3D": 25320
   },
   {
     "name": "Apple M3 10-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 105,
+    "relativePowerScore": 78,
     "vramGB": 24,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 150,
@@ -26673,13 +27838,18 @@
           "ultra": 46
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3780,
+    "portRoyalScore": 2646,
+    "geekbenchVulkan": 24570,
+    "geekbenchOpenCL": 23436,
+    "passmarkG3D": 6780
   },
   {
     "name": "Apple M3 Pro 18-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 210,
+    "relativePowerScore": 155,
     "vramGB": 36,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 200,
@@ -26787,13 +27957,18 @@
           "ultra": 93
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "name": "Apple M3 Max 40-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2023,
-    "relativePowerScore": 460,
+    "relativePowerScore": 340,
     "vramGB": 128,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 350,
@@ -26901,13 +28076,18 @@
           "ultra": 203
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 16560,
+    "portRoyalScore": 11592,
+    "geekbenchVulkan": 107640,
+    "geekbenchOpenCL": 102672,
+    "passmarkG3D": 19560
   },
   {
     "name": "Apple M4 10-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2024,
-    "relativePowerScore": 130,
+    "relativePowerScore": 96,
     "vramGB": 32,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 180,
@@ -27015,13 +28195,18 @@
           "ultra": 57
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4680,
+    "portRoyalScore": 3276,
+    "geekbenchVulkan": 30420,
+    "geekbenchOpenCL": 29016,
+    "passmarkG3D": 7680
   },
   {
     "name": "Apple M4 Pro 20-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2024,
-    "relativePowerScore": 280,
+    "relativePowerScore": 207,
     "vramGB": 48,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 250,
@@ -27129,13 +28314,18 @@
           "ultra": 123
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "name": "Apple M4 Max 40-Core GPU",
     "manufacturer": "Apple",
     "releaseYear": 2024,
-    "relativePowerScore": 580,
+    "relativePowerScore": 429,
     "vramGB": 128,
     "architecture": "Apple Silicon Architecture",
     "recommendedPsuW": 400,
@@ -27243,13 +28433,18 @@
           "ultra": 256
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 20880,
+    "portRoyalScore": 14616,
+    "geekbenchVulkan": 135720,
+    "geekbenchOpenCL": 129456,
+    "passmarkG3D": 23880
   },
   {
     "name": "Radeon 890M (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2024,
-    "relativePowerScore": 115,
+    "relativePowerScore": 85,
     "vramGB": 16,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -27357,13 +28552,18 @@
           "ultra": 51
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4140,
+    "portRoyalScore": 1449,
+    "geekbenchVulkan": 26910,
+    "geekbenchOpenCL": 25668,
+    "passmarkG3D": 7140
   },
   {
     "name": "Radeon 780M (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 88,
+    "relativePowerScore": 65,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 200,
@@ -27471,13 +28671,18 @@
           "ultra": 28
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3168,
+    "portRoyalScore": 1109,
+    "geekbenchVulkan": 20592,
+    "geekbenchOpenCL": 19642,
+    "passmarkG3D": 6168
   },
   {
     "name": "Radeon 760M (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2023,
-    "relativePowerScore": 62,
+    "relativePowerScore": 46,
     "vramGB": 4,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 180,
@@ -27585,13 +28790,18 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 781,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "name": "Radeon 680M (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 72,
+    "relativePowerScore": 53,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 180,
@@ -27699,13 +28909,18 @@
           "ultra": 23
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2592,
+    "portRoyalScore": 907,
+    "geekbenchVulkan": 16848,
+    "geekbenchOpenCL": 16070,
+    "passmarkG3D": 5592
   },
   {
     "name": "Radeon 660M (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2022,
-    "relativePowerScore": 45,
+    "relativePowerScore": 33,
     "vramGB": 4,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 150,
@@ -27813,13 +29028,18 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 567,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "name": "Radeon RX Vega 8 (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2021,
-    "relativePowerScore": 32,
+    "relativePowerScore": 24,
     "vramGB": 3,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -27927,13 +29147,18 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1152,
+    "portRoyalScore": 403,
+    "geekbenchVulkan": 7488,
+    "geekbenchOpenCL": 7142,
+    "passmarkG3D": 4152
   },
   {
     "name": "Radeon RX Vega 7 (iGPU)",
     "manufacturer": "AMD",
     "releaseYear": 2020,
-    "relativePowerScore": 26,
+    "relativePowerScore": 19,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -28041,13 +29266,18 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 328,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "name": "Intel Arc Graphics 8 Xe (Meteor Lake iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2023,
-    "relativePowerScore": 82,
+    "relativePowerScore": 61,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 180,
@@ -28155,13 +29385,18 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 2066,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "name": "Intel Arc Graphics 7 Xe (Meteor Lake iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2023,
-    "relativePowerScore": 68,
+    "relativePowerScore": 50,
     "vramGB": 8,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 180,
@@ -28269,13 +29504,18 @@
           "ultra": 22
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 1714,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "name": "Intel Iris Xe Graphics 96EU (iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2021,
-    "relativePowerScore": 34,
+    "relativePowerScore": 25,
     "vramGB": 4,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -28383,13 +29623,18 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 857,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "name": "Intel Iris Xe Graphics 80EU (iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2021,
-    "relativePowerScore": 28,
+    "relativePowerScore": 21,
     "vramGB": 4,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -28497,13 +29742,18 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 706,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "name": "Intel UHD Graphics 770 (iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2021,
-    "relativePowerScore": 22,
+    "relativePowerScore": 16,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -28611,13 +29861,18 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 792,
+    "portRoyalScore": 554,
+    "geekbenchVulkan": 5148,
+    "geekbenchOpenCL": 4910,
+    "passmarkG3D": 3792
   },
   {
     "name": "Intel UHD Graphics 730 (iGPU)",
     "manufacturer": "Intel",
     "releaseYear": 2021,
-    "relativePowerScore": 16,
+    "relativePowerScore": 12,
     "vramGB": 2,
     "architecture": "Integrated Graphics (iGPU)",
     "recommendedPsuW": 120,
@@ -28725,6 +29980,11 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 576,
+    "portRoyalScore": 403,
+    "geekbenchVulkan": 3744,
+    "geekbenchOpenCL": 3571,
+    "passmarkG3D": 3576
   }
 ]

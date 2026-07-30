@@ -24,6 +24,11 @@ export interface GPU {
   manufacturer: "NVIDIA" | "AMD" | "Intel" | "Apple";
   releaseYear: number;
   relativePowerScore: number;
+  timeSpyGraphicsScore?: number;
+  portRoyalScore?: number;
+  geekbenchVulkan?: number;
+  geekbenchOpenCL?: number;
+  passmarkG3D?: number;
   vramGB: number;
   architecture: string;
   recommendedPsuW: number;
