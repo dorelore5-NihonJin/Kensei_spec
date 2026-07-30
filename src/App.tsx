@@ -445,10 +445,10 @@ export default function App() {
                 <div className="p-5 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
                   <div>
                     <h4 className="text-sm font-black flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#8A9A86]" /> Target Workload Selected: {selectedGame.title}
+                      <Sparkles className="w-4 h-4 text-[#8A9A86]" /> {t("floating.target_selected")} {selectedGame.title}
                     </h4>
                     <p className="text-xs text-gray-300 font-extrabold mt-0.5">
-                      Resolution: {selectedResolution} • Preset: {selectedPreset} • RT: {rayTracing}
+                      {t("floating.resolution")} {selectedResolution} • {t("floating.preset")} {selectedPreset} • {t("floating.rt")} {rayTracing}
                     </p>
                   </div>
 
@@ -458,14 +458,14 @@ export default function App() {
                         onClick={() => setIsBuyModalOpen(true)}
                         className="flex-1 sm:flex-initial px-4 py-3 rounded-2xl bg-white/10 text-white font-black text-xs hover:bg-white/20 transition shrink-0 flex items-center justify-center gap-1.5"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> Buy Build
+                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("wizard.buy_build")}
                       </button>
                     )}
                     <button
                       onClick={() => setCurrentStep(3)}
                       className="flex-1 sm:flex-initial px-6 py-3 rounded-2xl bg-[#8A9A86] text-white font-black text-xs hover:bg-[#8A9A86]/90 transition shadow-md shrink-0 flex items-center justify-center gap-1.5"
                     >
-                      View Benchmark Results <ArrowRight className="w-3.5 h-3.5" />
+                      {t("floating.view_results")}
                     </button>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import type { CPU, GPU, RAMProfile, Game, StorageType } from "../lib/types";
 import { calculatePerformance } from "../lib/calculator";
 import { ArrowUpRight, TrendingUp, Sparkles, HelpCircle, CheckCircle2, Zap } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface UpgradeAdvisorProps {
   selectedCpu: CPU | null;
@@ -34,6 +35,7 @@ export default function UpgradeAdvisor({
   cpus,
   gpus
 }: UpgradeAdvisorProps) {
+  const { t } = useLanguage();
   const isComplete = selectedCpu && selectedGpu && selectedRam;
 
   // Calculate current baseline performance
@@ -259,10 +261,10 @@ export default function UpgradeAdvisor({
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <TrendingUp className="w-5 h-5 text-[#E88D9F]" />
-          Smart Upgrade Advisor / アップグレード診断
+          {t("advisor.title")}
         </h3>
         <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] dark:bg-[#E88D9F]/25 font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
-          Optimization
+          {t("advisor.optimization")}
         </span>
       </div>
 
@@ -333,7 +335,7 @@ export default function UpgradeAdvisor({
         <div className="p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 rounded-2xl flex items-center gap-3">
           <HelpCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
           <div className="text-xs text-amber-900 dark:text-amber-200 font-extrabold">
-            We couldn't locate a single CPU/GPU of the same brand that delivers a +30% performance boost. You may already be at the pinnacle of this generation!
+            {t("advisor.pinnacle")}
           </div>
         </div>
       )}

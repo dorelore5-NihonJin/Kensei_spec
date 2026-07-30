@@ -59,7 +59,7 @@ export const translations: TranslationDictionary = {
   },
   "wizard.step_by_step": {
     en: "Step-by-Step",
-    ru: "Пошаговый режим",
+    ru: "Пошагово",
     ja: "ステップ別"
   },
   "wizard.full_overview": {
@@ -67,18 +67,25 @@ export const translations: TranslationDictionary = {
     ru: "Полный обзор",
     ja: "全体表示"
   },
-  "wizard.build_active": {
-    en: "BUILD ACTIVE",
-    ru: "СБОРКА АКТИВНА",
-    ja: "構成アクティブ"
+
+  // Step Headers
+  "step1.title": {
+    en: "1. Select Processor & Graphics (CPU / GPU)",
+    ru: "1. Выберите процессор и видеокарту (CPU / GPU)",
+    ja: "1. プロセッサーとグラフィックを選択 (CPU / GPU)"
   },
-  "wizard.reset_hardware": {
-    en: "Reset Hardware",
-    ru: "Сбросить железо",
-    ja: "構成リセット"
+  "step2.title": {
+    en: "2. Select Target Game & Graphics Settings",
+    ru: "2. Выберите игру и настройки графики",
+    ja: "2. ターゲットゲームと画質設定を選択"
+  },
+  "step3.title": {
+    en: "3. Target Game & Quality Settings",
+    ru: "3. Настройки игры и пресеты графики",
+    ja: "3. ターゲットゲームと画質設定"
   },
 
-  // Component Picker (Step 1)
+  // Component Picker Labels
   "picker.cpu_model": {
     en: "CPU MODEL",
     ru: "МОДЕЛЬ ПРОЦЕССОРА",
@@ -124,35 +131,38 @@ export const translations: TranslationDictionary = {
     ru: "ДВУХКАНАЛЬНЫЙ (DUAL)",
     ja: "デュアルチャネル"
   },
-  "picker.speed_factor": {
-    en: "speed factor",
-    ru: "множитель скорости",
-    ja: "速度係数"
-  },
   "picker.storage_section": {
     en: "STORAGE INTERFACE (OS & GAMES)",
     ru: "ТИП НАКОПИТЕЛЯ (ОС И ИГРЫ)",
     ja: "ストレージ 規格 (OS & ゲーム)"
   },
+  "picker.ray_tracing_power": {
+    en: "RAY TRACING POWER",
+    ru: "МОЩНОСТЬ ТРАССИРОВКИ ЛУЧЕЙ",
+    ja: "レイトレーシング性能"
+  },
+  "picker.vram": {
+    en: "VRAM:",
+    ru: "ВИДЕОПАМЯТЬ:",
+    ja: "VRAM:"
+  },
+  "picker.severe_stutter": {
+    en: "Severe stutter",
+    ru: "Сильные фризы",
+    ja: "重いスタッター"
+  },
+  "picker.standard_l3": {
+    en: "STANDARD L3",
+    ru: "СТАНДАРТНЫЙ L3",
+    ja: "標準 L3 キャッシュ"
+  },
+  "picker.reset_hardware": {
+    en: "Reset Hardware",
+    ru: "Сбросить комплектующие",
+    ja: "構成リセット"
+  },
 
-  // Bottom Floating Bar
-  "floating.step1_complete": {
-    en: "Step 1 Complete!",
-    ru: "Шаг 1 завершён!",
-    ja: "ステップ1 完了!"
-  },
-  "floating.step1_desc": {
-    en: "CPU, GPU, and RAM selected. Ready for target game benchmarking.",
-    ru: "Процессор, видеокарта и ОЗУ выбраны. Готово к тестированию игр.",
-    ja: "CPU、GPU、RAMを選択完了。ターゲットゲームのテストが可能です。"
-  },
-  "floating.proceed_step2": {
-    en: "Proceed to Step 2 →",
-    ru: "Перейти к Шагу 2 →",
-    ja: "ステップ2へ進む →"
-  },
-
-  // Game Selector (Step 2)
+  // Game Selector Labels
   "game.target_resolution": {
     en: "TARGET RESOLUTION",
     ru: "ЦЕЛЕВОЕ РАЗРЕШЕНИЕ",
@@ -213,6 +223,16 @@ export const translations: TranslationDictionary = {
     ru: "Динамическая ИИ-интерполяция кадров",
     ja: "AI動的フレーム補間"
   },
+  "game.min_ram": {
+    en: "Min RAM:",
+    ru: "Мин. ОЗУ:",
+    ja: "最小 RAM:"
+  },
+  "game.rt_capable": {
+    en: "RT Capable",
+    ru: "Поддержка RT",
+    ja: "RT 対応"
+  },
 
   // Game Reliance & Load
   "reliance.cpu": {
@@ -236,7 +256,34 @@ export const translations: TranslationDictionary = {
     ja: "シェーダー・レンダー限界"
   },
 
-  // Quick Game Switcher Bar
+  // Floating Bottom Workload Bar (Screenshot 3)
+  "floating.target_selected": {
+    en: "Target Workload Selected:",
+    ru: "Выбранная целевая игра:",
+    ja: "選択されたターゲット:"
+  },
+  "floating.resolution": {
+    en: "Resolution:",
+    ru: "Разрешение:",
+    ja: "解像度:"
+  },
+  "floating.preset": {
+    en: "Preset:",
+    ru: "Пресет:",
+    ja: "プリセット:"
+  },
+  "floating.rt": {
+    en: "RT:",
+    ru: "Трассировка:",
+    ja: "RT:"
+  },
+  "floating.view_results": {
+    en: "View Benchmark Results →",
+    ru: "Смотреть результаты бенчмарка →",
+    ja: "ベンチマーク結果を見る →"
+  },
+
+  // Quick Game Switcher Bar (Screenshot 3)
   "switcher.title": {
     en: "Quick Game & Workload Switcher",
     ru: "Быстрое переключение игр",
@@ -248,7 +295,7 @@ export const translations: TranslationDictionary = {
     ja: "リアルタイム再計算"
   },
 
-  // FPS Gauge Card
+  // FPS Gauge Card (Screenshot 3)
   "fps.share_build": {
     en: "Share Build",
     ru: "Поделиться сборкой",
@@ -256,7 +303,7 @@ export const translations: TranslationDictionary = {
   },
   "fps.real_time": {
     en: "REAL-TIME",
-    ru: "РЕАЛЬНЫЙ ВРЕМЯ",
+    ru: "РЕАЛЬНОЕ ВРЕМЯ",
     ja: "リアルタイム"
   },
   "fps.avg_fps": {
@@ -266,7 +313,7 @@ export const translations: TranslationDictionary = {
   },
   "fps.high_refresh": {
     en: "High Refresh / Smooth",
-    ru: "Высокая плавнось",
+    ru: "Высокая плавность",
     ja: "超快適"
   },
   "fps.one_percent_low": {
@@ -295,7 +342,7 @@ export const translations: TranslationDictionary = {
     ja: "GPU 負荷"
   },
 
-  // Smart Upgrade Advisor
+  // Smart Upgrade Advisor (Screenshot 3)
   "advisor.title": {
     en: "Smart Upgrade Advisor",
     ru: "Умный советник апгрейда",
@@ -312,7 +359,7 @@ export const translations: TranslationDictionary = {
     ja: "同ブランドで+30%の性能向上を提供するCPU/GPUは見つかりませんでした。すでにこの世代の頂点に達しています！"
   },
 
-  // Hardware Die Diagnostics & Power
+  // Hardware Die Diagnostics & Power (Screenshot 4)
   "diag.header": {
     en: "HARDWARE DIE DIAGNOSTICS",
     ru: "ДИАГНОСТИКА КРИСТАЛЛА ЖЕЛЕЗА",
@@ -358,8 +405,38 @@ export const translations: TranslationDictionary = {
     ru: "Показать расширенную телеметрию и характеристики",
     ja: "詳細スペック・拡張テレメトリを表示"
   },
+  "diag.hide_advanced": {
+    en: "Hide Advanced Telemetry",
+    ru: "Скрыть расширенную телеметрию",
+    ja: "拡張テレメトリを非表示"
+  },
+  "diag.l3_cache_subsystem": {
+    en: "L3 CACHE SUBSYSTEM",
+    ru: "ПОДСИСТЕМА L3 КЭША",
+    ja: "L3 キャッシュ サブシステム"
+  },
+  "diag.thermal_peak_load": {
+    en: "THERMAL PEAK LOAD",
+    ru: "ПИКОВАЯ ТЕМПЕРАТУРА",
+    ja: "サーマル ピーク 負荷"
+  },
+  "diag.pcie_bandwidth": {
+    en: "PCIE BUS BANDWIDTH",
+    ru: "ПРОПУСКНАЯ СПОСОБНОСТЬ PCIE",
+    ja: "PCIE バス 帯域幅"
+  },
+  "diag.memory_throughput": {
+    en: "MEMORY THROUGHPUT",
+    ru: "ПРОПУСКНАЯ СПОСОБНОСТЬ ОЗУ",
+    ja: "メモリ スループット"
+  },
+  "diag.gaming_load": {
+    en: "under 100% Gaming Load",
+    ru: "при 100% игровой нагрузке",
+    ja: "100% ゲーム負荷時"
+  },
 
-  // Bottom CTA Order Bar
+  // Bottom CTA Order Bar (Screenshot 4)
   "cta.ready_title": {
     en: "Ready to build this setup?",
     ru: "Готовы собрать эту конфигурацию?",
@@ -376,198 +453,6 @@ export const translations: TranslationDictionary = {
     ja: "構成を購入する"
   },
 
-  // Header Actions
-  "header.reset": {
-    en: "Reset Build",
-    ru: "Сбросить сборку",
-    ja: "構成リセット"
-  },
-  "header.about": {
-    en: "About Engine",
-    ru: "О движке",
-    ja: "エンジン概要"
-  },
-
-  // Hero Banners
-  "hero.simulator.badge1": {
-    en: "NEO-TOKYO ENGINE V2.6",
-    ru: "НЕО-ТОКИО ДВИЖОК V2.6",
-    ja: "ネオ東京エンジン V2.6"
-  },
-  "hero.simulator.badge2": {
-    en: "REAL-TIME PHYSICS SIMULATOR",
-    ru: "ФИЗИЧЕСКИЙ СИМУЛЯТОР В РЕАЛЬНОМ ВРЕМЕНИ",
-    ja: "リアルタイム物理シミュレーター"
-  },
-  "hero.simulator.title": {
-    en: "KENSEI SPEC HARDWARE SIMULATOR",
-    ru: "СИМУЛЯТОР КОМПЛЕКТУЮЩИХ KENSEI SPEC",
-    ja: "剣聖スペック ハードウェアシミュレーター"
-  },
-  "hero.simulator.desc": {
-    en: "Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism.",
-    ru: "Высокоточная телеметрия кремния, расчёт латентности 3D V-Cache и штрафов VRAM в стиле японского минимализма.",
-    ja: "精密なシリコンテレメトリ、3D V-Cacheスケーリング、VRAMボトルネック予測を統合した日本美学シミュレーター。"
-  },
-
-  "hero.catalog.badge1": {
-    en: "250 VERIFIED BUILDS",
-    ru: "250 ПРОВЕРЕННЫХ СБОРК",
-    ja: "250の検証済み構成"
-  },
-  "hero.catalog.badge2": {
-    en: "LIVE CATALOG SHOWROOM",
-    ru: "КАТАЛОГ СБОРНЫХ ПК",
-    ja: "ライブ カタログ ショールーム"
-  },
-  "hero.catalog.title": {
-    en: "KENSEI GAME BUILDS CATALOG",
-    ru: "КАТАЛОГ ИГРОВЫХ ПК KENSEI SPEC",
-    ja: "KENSEI GAME BUILDS カタログ"
-  },
-  "hero.catalog.desc": {
-    en: "Browse 250 verified PC configurations across Esports Gaming, AI LLM Inference, 3D Rendering & Workstations.",
-    ru: "Исследуйте 250 протестированных конфигураций ПК для киберспорта, ИИ-моделей, 3D-рендеринга и рабочих станций.",
-    ja: "eスポーツ、AI推論、3Dレンダリング、ワークステーション向けに検証された250のPC構成を閲覧。"
-  },
-
-  "hero.compare.badge1": {
-    en: "VERSUS BENCHMARK LAB",
-    ru: "ЛАБОРАТОРИЯ СРАВНЕНИЯ",
-    ja: "バーサス ベンチマーク ラボ"
-  },
-  "hero.compare.badge2": {
-    en: "DEEP SILICON MATRIX COMPARISON",
-    ru: "МАТРИЦА СРАВНЕНИЯ КРЕМНИЯ",
-    ja: "ディープ シリコン マトリックス 比較"
-  },
-  "hero.compare.title": {
-    en: "KENSEI VERSUS HARDWARE STUDIO",
-    ru: "СТУДИЯ СРАВНЕНИЯ ЖЕЛЕЗА KENSEI",
-    ja: "KENSEI VERSUS ハードウェア スタジオ"
-  },
-  "hero.compare.desc": {
-    en: "Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics, architectural specs, and hierarchy ranking.",
-    ru: "Сравнивайте процессоры и видеокарты бок о бок на единой мировой шкале производительности с чистыми метриками и характеристиками.",
-    ja: "CPUとGPUを標準化されたテレメトリ性能指標、アーキテクチャ仕様、階層ランキングで横並び比較。"
-  },
-
-  "hero.rankings.badge1": {
-    en: "GLOBAL HIERARCHY LEADERBOARD",
-    ru: "МИРОВОЙ РЕЙТИНГ ПРОИЗВОДИТЕЛЬНОСТИ",
-    ja: "グローバル 階層 リーダーボード"
-  },
-  "hero.rankings.badge2": {
-    en: "100% VERIFIED HARDWARE INDEX",
-    ru: "100% ПРОВЕРЕННЫЙ ИНДЕКС ЖЕЛЕЗА",
-    ja: "100% 検証済み ハードウェア インデックス"
-  },
-  "hero.rankings.title": {
-    en: "GLOBAL SILICON HIERARCHY RANKINGS",
-    ru: "МИРОВОЙ ТОП КОМПЛЕКТУЮЩИХ",
-    ja: "グローバル シリコン 階層 ランキング"
-  },
-  "hero.rankings.desc": {
-    en: "Explore complete global hierarchy leaderboards for all CPUs and GPUs sorted by normalized aggregate performance throughput.",
-    ru: "Полное мировое первенство всех процессоров и видеокарт, отсортированное по абсолютной производительности.",
-    ja: "正規化された総合パフォーマンスでソートされたすべてのCPUおよびGPUの完全な世界階層リーダーボード。"
-  },
-
-  // Rankings Page
-  "rankings.title": {
-    en: "Global Hardware Hierarchy Rankings",
-    ru: "Мировой топ производительности комплектующих",
-    ja: "グローバル ハードウェア 階層 ランキング"
-  },
-  "rankings.subtitle": {
-    en: "Explore complete hierarchy rankings for all CPUs and GPUs sorted by normalized aggregate benchmark scores.",
-    ru: "Исследуйте полное мировое первенство всех процессоров и видеокарт по мировому агрегированному баллу.",
-    ja: "正規化されたベンチマークスコアでソートされたすべてのCPUとGPUの階層ランキング。"
-  },
-  "rankings.tab.cpu": {
-    en: "Processors (CPUs)",
-    ru: "Процессоры (CPU)",
-    ja: "プロセッサー (CPU)"
-  },
-  "rankings.tab.gpu": {
-    en: "Graphics Cards (GPUs)",
-    ru: "Видеокарты (GPU)",
-    ja: "グラフィックボード (GPU)"
-  },
-
-  // Compare Page
-  "compare.title": {
-    en: "Hardware Benchmark Comparison",
-    ru: "Сравнение бенчмарков железа",
-    ja: "ハードウェア ベンチマーク 比較"
-  },
-
-  // Catalog Page
-  "catalog.title": {
-    en: "Verified PC Builds Catalog",
-    ru: "Каталог проверенных игровых ПК",
-    ja: "検証済みPC構成 カタログ"
-  },
-
-  // Telemetry Output Cards
-  "fps.estimated": {
-    en: "ESTIMATED AVERAGE FPS",
-    ru: "РАСЧЁТНЫЙ СРЕДНИЙ FPS",
-    ja: "予測平均 FPS"
-  },
-  "bottleneck.title": {
-    en: "SYSTEM BOTTLENECK ANALYSIS",
-    ru: "АНАЛИЗ БОТТЛНЕКА СИСТЕМЫ",
-    ja: "システム ボトルネック 分析"
-  },
-  "vram.buffer": {
-    en: "VRAM BUFFER LOAD",
-    ru: "ЗАГРУЗКА ВИДЕОПАМЯТИ VRAM",
-    ja: "VRAM バッファ 使用量"
-  },
-  "vcache.boost": {
-    en: "3D V-CACHE LATENCY BOOST",
-    ru: "БОНУС ЛАТЕНТНОСТИ 3D V-CACHE",
-    ja: "3D V-CACHE レイテンシ ブースト"
-  },
-  "psu.headroom": {
-    en: "ESTIMATED SYSTEM POWER CONSUMPTION",
-    ru: "ОЦЕНКА ЭНЕРГОПОТРЕБЛЕНИЯ СИСТЕМЫ",
-    ja: "推定システム消費電力"
-  },
-  "upgrade.advisor": {
-    en: "OPTIMAL HARDWARE UPGRADE ADVISOR",
-    ru: "РЕКОМЕНДАТЕЛЬ ОПТИМАЛЬНОГО АПГРЕЙДА",
-    ja: "最適ハードウェア アップグレード アドバイザー"
-  },
-
-  // Buttons & Controls
-  "btn.compare": {
-    en: "Compare",
-    ru: "Сравнить",
-    ja: "比較する"
-  },
-  "btn.select": {
-    en: "Select",
-    ru: "Выбрать",
-    ja: "選択する"
-  },
-  "btn.selected": {
-    en: "Selected",
-    ru: "Выбрано",
-    ja: "選択中"
-  },
-  "btn.buy_pc": {
-    en: "Buy Configured PC",
-    ru: "Купить этот ПК",
-    ja: "この構成でPCを購入"
-  },
-  "btn.apply_build": {
-    en: "Apply to Calculator Build",
-    ru: "Применить к сборке",
-    ja: "シミュレーターに適用"
-  },
-
   // Search & Filter
   "search.placeholder": {
     en: "Search hardware model or manufacturer...",
@@ -579,41 +464,11 @@ export const translations: TranslationDictionary = {
     ru: "Все производители",
     ja: "すべてのメーカー"
   },
-  "sort.score_desc": {
-    en: "Sort: Highest Score",
-    ru: "Сортировка: Высокий балл",
-    ja: "ソート: 最高スコア順"
-  },
-  "sort.year_desc": {
-    en: "Sort: Release Year",
-    ru: "Сортировка: Год выпуска",
-    ja: "ソート: 発売年順"
-  },
 
   // Footer & Legal
   "footer.brand": {
     en: "Built to deliver authentic hardware benchmark predictions. Features 3D V-Cache latency math, VRAM buffer thrashing penalties, and socket-matched PC build recommendations.",
     ru: "Создан для точного прогнозирования бенчмарков. Учитывает 3D V-Cache, штрафы нехватки VRAM и совместимость сокетов.",
     ja: "本物のハードウェアベンチマーク予測を提供。3D V-Cacheレイテンシ計算、VRAM不足ペナルティ、ソケット整合済みのPC構成提案を搭載。"
-  },
-  "footer.quick_nav": {
-    en: "Quick Navigation",
-    ru: "Быстрая навигация",
-    ja: "クイック ナビゲーション"
-  },
-  "footer.featured_hw": {
-    en: "Featured Hardware",
-    ru: "Популярные комплектующие",
-    ja: "注目のハードウェア"
-  },
-  "footer.supported_games": {
-    en: "Supported Games",
-    ru: "Поддерживаемые игры",
-    ja: "対応ゲームタイトル"
-  },
-  "footer.rights": {
-    en: "All rights reserved.",
-    ru: "Все права защищены.",
-    ja: "All rights reserved."
   }
 };

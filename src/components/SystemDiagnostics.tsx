@@ -50,11 +50,11 @@ export default function SystemDiagnostics({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-black/30 flex items-center justify-between px-5">
           <div>
-            <h4 className="text-xs font-black text-[#E88D9F] uppercase tracking-widest">Hardware Die Diagnostics</h4>
-            <p className="text-[11px] text-white/90 font-bold mt-0.5">Silicon Architecture Integrity & Power Load Verification</p>
+            <h4 className="text-xs font-black text-[#E88D9F] uppercase tracking-widest">{t("diag.header")}</h4>
+            <p className="text-[11px] text-white/90 font-bold mt-0.5">{t("diag.subtitle")}</p>
           </div>
           <span className="text-[10px] font-black bg-[#8A9A86] text-white px-2.5 py-1 rounded-full uppercase tracking-wider">
-            Active
+            {t("diag.active")}
           </span>
         </div>
       </div>
@@ -79,9 +79,9 @@ export default function SystemDiagnostics({
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-start gap-3">
           <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div>
-            <div className="text-xs font-black text-emerald-900 dark:text-emerald-300 uppercase tracking-wider">Perfect Hardware Match</div>
+            <div className="text-xs font-black text-emerald-900 dark:text-emerald-300 uppercase tracking-wider">{t("diag.perfect_match")}</div>
             <p className="text-xs text-emerald-800 dark:text-emerald-200 font-bold mt-0.5">
-              Silicon structures are perfectly balanced. Memory speed, storage bus, and power targets align.
+              {t("diag.perfect_match_desc")}
             </p>
           </div>
         </div>
@@ -107,8 +107,8 @@ export default function SystemDiagnostics({
         <div className="border-t border-black/10 dark:border-white/10 pt-4 flex flex-col gap-3">
           <div className="flex justify-between items-center">
             <div>
-              <span className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider">PSU Power & Efficiency Gauge</span>
-              <p className="text-xs text-gray-600 dark:text-gray-400 font-bold mt-0.5">Recommended PSU: <span className="font-black text-[#1E2022] dark:text-white">{recommendedPsu}W</span></p>
+              <span className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider">{t("diag.psu_title")}</span>
+              <p className="text-xs text-gray-600 dark:text-gray-400 font-bold mt-0.5">{t("diag.recommended_psu")} <span className="font-black text-[#1E2022] dark:text-white">{recommendedPsu}W</span></p>
             </div>
             <span className="text-xs font-black bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white px-3 py-1 rounded-full">
               TDP: {systemTdp}W
@@ -138,7 +138,7 @@ export default function SystemDiagnostics({
                   </>
                 ) : (
                   <>
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500" /> {headroomPct}% Safety Headroom
+                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500" /> {headroomPct}% {t("diag.safety_headroom")}
                   </>
                 )}
               </span>
@@ -153,7 +153,7 @@ export default function SystemDiagnostics({
             >
               <span className="flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-[#E88D9F]" />
-                {showProMode ? "Hide Advanced Telemetry" : "Show Advanced Telemetry & Deep Specs / 詳しいスペック"}
+                {showProMode ? t("diag.hide_advanced") : t("diag.show_advanced")}
               </span>
               {showProMode ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </button>
@@ -163,7 +163,7 @@ export default function SystemDiagnostics({
                 <div className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-[#8A9A86] shrink-0" />
                   <div>
-                    <span className="text-[10px] text-gray-500 block uppercase">L3 Cache Subsystem</span>
+                    <span className="text-[10px] text-gray-500 block uppercase">{t("diag.l3_cache_subsystem")}</span>
                     <span className="text-[#1E2022] dark:text-white">{l3CacheText}</span>
                   </div>
                 </div>
@@ -171,15 +171,15 @@ export default function SystemDiagnostics({
                 <div className="flex items-center gap-2">
                   <Activity className="w-4 h-4 text-rose-500 shrink-0" />
                   <div>
-                    <span className="text-[10px] text-gray-500 block uppercase">Thermal Peak Load</span>
-                    <span className="text-[#1E2022] dark:text-white">~{estCpuTempC}°C under 100% Gaming Load</span>
+                    <span className="text-[10px] text-gray-500 block uppercase">{t("diag.thermal_peak_load")}</span>
+                    <span className="text-[#1E2022] dark:text-white">~{estCpuTempC}°C {t("diag.gaming_load")}</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <HardDrive className="w-4 h-4 text-indigo-500 shrink-0" />
                   <div>
-                    <span className="text-[10px] text-gray-500 block uppercase">PCIe Bus Bandwidth</span>
+                    <span className="text-[10px] text-gray-500 block uppercase">{t("diag.pcie_bandwidth")}</span>
                     <span className="text-[#1E2022] dark:text-white">{pcieBandwidth}</span>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function SystemDiagnostics({
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-500 shrink-0" />
                   <div>
-                    <span className="text-[10px] text-gray-500 block uppercase">Memory Throughput</span>
+                    <span className="text-[10px] text-gray-500 block uppercase">{t("diag.memory_throughput")}</span>
                     <span className="text-[#1E2022] dark:text-white">Dual Channel • {selectedRam?.speedMhz || 6000} MT/s</span>
                   </div>
                 </div>

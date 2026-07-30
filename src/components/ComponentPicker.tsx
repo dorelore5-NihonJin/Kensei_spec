@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
-import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X, Check } from "lucide-react";
+import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 interface ComponentPickerProps {
@@ -80,24 +80,21 @@ export default function ComponentPicker({
       
       {/* Complete Hardware Build Matrix Summary Badge */}
       {selectedCpu && selectedGpu && selectedRam && (
-        <div className="p-3.5 bg-[#8A9A86]/10 dark:bg-[#8A9A86]/20 border border-[#8A9A86]/30 rounded-2xl flex flex-wrap items-center justify-between gap-2.5 text-xs font-black animate-fadeIn">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="flex items-center gap-1 bg-[#8A9A86] text-white px-2.5 py-0.5 rounded-full text-[10px] uppercase shadow-xs">
-              <Check className="w-3 h-3" /> Build Active
-            </span>
-            <span className="text-[#1E2022] dark:text-white">
-              {selectedCpu.name} • {selectedGpu.name} • {ramCapacityGB}GB {selectedRam.generation} ({ramChannel}) • {selectedStorage}
-            </span>
-          </div>
+        <div className="flex items-center justify-between p-3.5 bg-[#8A9A86]/10 dark:bg-[#8A9A86]/20 border border-[#8A9A86]/30 rounded-2xl text-xs font-black text-[#8A9A86] dark:text-[#A4B5A0]">
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#8A9A86] animate-pulse" />
+            <span className="bg-[#8A9A86] text-white text-[10px] px-2 py-0.5 rounded uppercase font-black tracking-wider">BUILD ACTIVE</span>
+            <span>{selectedCpu.name} • {selectedGpu.name} • {ramCapacityGB}GB {selectedRam.generation} ({ramChannel}) • {selectedStorage}</span>
+          </span>
           <button
             onClick={() => {
               setSelectedCpu(null);
               setSelectedGpu(null);
               setSelectedRam(null);
             }}
-            className="text-[10px] text-red-500 hover:text-red-700 font-extrabold underline shrink-0 ml-auto"
+            className="text-red-500 hover:text-red-700 underline text-xs font-black transition"
           >
-            Reset Hardware
+            {t("picker.reset_hardware")}
           </button>
         </div>
       )}
@@ -115,10 +112,10 @@ export default function ComponentPicker({
       {/* ----------------- CPU SELECTOR ----------------- */}
       <div className="relative">
         <label className="block text-xs font-black text-[#1E2022] dark:text-white mb-2 uppercase tracking-wider flex items-center justify-between">
-          <span className="flex items-center gap-1.5"><Cpu className="w-3.5 h-3.5 text-[#8A9A86]" /> CPU Model</span>
+          <span className="flex items-center gap-1.5"><Cpu className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("picker.cpu_model")}</span>
           {selectedCpu && (
             <span className="text-[10px] text-[#8A9A86] dark:text-[#A4B5A0] bg-[#8A9A86]/15 dark:bg-[#8A9A86]/25 px-2 py-0.5 rounded font-black">
-              {selectedCpu.socket} • {selectedCpu.is3DVCache ? "3D V-Cache Boost" : "Standard L3"}
+              {selectedCpu.socket} • {selectedCpu.is3DVCache ? "3D V-Cache Boost" : t("picker.standard_l3")}
             </span>
           )}
         </label>
@@ -145,14 +142,14 @@ export default function ComponentPicker({
             {/* Performance score meter */}
             <div className="flex flex-col gap-1.5 min-w-[130px]">
               <div className="flex justify-between text-[10px] font-black text-[#1E2022] dark:text-gray-300 uppercase">
-                <span>Single-Core</span>
+                <span>{t("picker.single_core")}</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{selectedCpu.singleCoreScore}</span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
                 <div className="bg-[#8A9A86] h-full" style={{ width: `${Math.min(100, (selectedCpu.singleCoreScore / 500) * 100)}%` }} />
               </div>
               <div className="flex justify-between text-[10px] font-black text-[#1E2022] dark:text-gray-300 uppercase">
-                <span>Multi-Core</span>
+                <span>{t("picker.multi_core")}</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{selectedCpu.multiCoreScore}</span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
@@ -167,7 +164,7 @@ export default function ComponentPicker({
               }}
               className="absolute top-2 right-2 sm:relative sm:top-0 sm:right-0 text-xs text-red-600 dark:text-red-400 font-extrabold hover:underline px-3 py-1.5 bg-red-500/15 rounded-xl shrink-0"
             >
-              Change
+              {t("picker.change")}
             </button>
           </div>
         ) : (
@@ -287,14 +284,14 @@ export default function ComponentPicker({
       {/* ----------------- RAM SELECTOR ----------------- */}
       <div className="flex flex-col gap-3">
         <label className="block text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
-          <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-[#8A9A86]" /> RAM Speed, Capacity & Channel Config</span>
+          <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("picker.ram_section")}</span>
           {!selectedCpu && <span className="text-xs text-amber-600 dark:text-amber-400 font-black flex items-center gap-1"><AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Choose a CPU first</span>}
         </label>
 
         {/* RAM Capacity Picker (Exact GB) */}
         <div>
           <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1">
-            Total RAM Capacity: <span className="text-[#E88D9F] font-mono font-black">{ramCapacityGB} GB</span>
+            {t("picker.total_ram")} <span className="text-[#E88D9F] font-mono font-black">{ramCapacityGB} GB</span>
           </div>
           <div className="grid grid-cols-5 gap-1.5">
             {[8, 16, 32, 64, 128].map((cap) => (
@@ -329,7 +326,7 @@ export default function ComponentPicker({
               <option value="" className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">-- Choose RAM Speed Profile --</option>
               {filteredRamProfiles.map((ram) => (
                 <option key={ram.id} value={ram.id} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">
-                  {ram.generation} @ {ram.speedMhz}MHz ({ram.speedMultiplier}x speed factor)
+                  {ram.generation} @ {ram.speedMhz}MHz ({ram.speedMultiplier}x {t("picker.speed_factor")})
                 </option>
               ))}
             </select>
@@ -348,7 +345,7 @@ export default function ComponentPicker({
                     : "bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-300 font-extrabold border border-black/10 dark:border-white/10 hover:bg-black/5"
                 }`}
               >
-                {ch} Channel
+                {ch === "Single" ? t("picker.single_channel") : t("picker.dual_channel")}
               </button>
             ))}
           </div>
@@ -358,7 +355,7 @@ export default function ComponentPicker({
       {/* ----------------- GPU SELECTOR ----------------- */}
       <div className="relative">
         <label className="block text-xs font-black text-[#1E2022] dark:text-white mb-2 uppercase tracking-wider flex items-center justify-between">
-          <span className="flex items-center gap-1.5"><Tv className="w-3.5 h-3.5 text-[#8A9A86]" /> GPU Model</span>
+          <span className="flex items-center gap-1.5"><Tv className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("picker.gpu_model")}</span>
           {selectedGpu && (
             <span className="text-[10px] text-[#8A9A86] dark:text-[#A4B5A0] bg-[#8A9A86]/15 dark:bg-[#8A9A86]/25 px-2 py-0.5 rounded font-black">
               {selectedGpu.vramGB}GB VRAM • {selectedGpu.architecture}
@@ -385,10 +382,10 @@ export default function ComponentPicker({
             {/* VRAM size badge & RT capability meter */}
             <div className="flex flex-col gap-1 min-w-[130px]">
               <div className="flex justify-between items-center text-[10px] font-black text-[#E88D9F] bg-[#E88D9F]/15 dark:bg-[#E88D9F]/30 px-2 py-0.5 rounded self-start mb-1">
-                <span>VRAM: {selectedGpu.vramGB}GB</span>
+                <span>{t("picker.vram")} {selectedGpu.vramGB}GB</span>
               </div>
               <div className="flex justify-between text-[10px] font-black text-[#1E2022] dark:text-gray-300 uppercase">
-                <span>Ray Tracing Power</span>
+                <span>{t("picker.ray_tracing_power")}</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{selectedGpu.rayTracingPowerScore}</span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
@@ -403,7 +400,7 @@ export default function ComponentPicker({
               }}
               className="absolute top-2 right-2 sm:relative sm:top-0 sm:right-0 text-xs text-red-600 dark:text-red-400 font-extrabold hover:underline px-3 py-1.5 bg-red-500/15 rounded-xl shrink-0"
             >
-              Change
+              {t("picker.change")}
             </button>
           </div>
         ) : (
@@ -518,7 +515,7 @@ export default function ComponentPicker({
       {/* ----------------- STORAGE SELECTOR ----------------- */}
       <div>
         <label className="block text-xs font-black text-[#1E2022] dark:text-white mb-2 uppercase tracking-wider flex items-center gap-1.5">
-          <HardDrive className="w-3.5 h-3.5 text-[#8A9A86]" /> Storage Interface (OS & Games)
+          <HardDrive className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("picker.storage_section")}
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
           {(["HDD", "SATA SSD", "NVMe Gen3", "NVMe Gen4"] as StorageType[]).map((storageOpt) => (
@@ -534,7 +531,7 @@ export default function ComponentPicker({
             >
               <span className="font-black">{storageOpt}</span>
               <span className="text-[9px] text-gray-500 dark:text-gray-400 font-bold">
-                {storageOpt === "HDD" ? "Severe stutter" : storageOpt === "SATA SSD" ? "SATA 3.0" : storageOpt === "NVMe Gen3" ? "PCIe 3.0 x4" : "PCIe 4.0 x4"}
+                {storageOpt === "HDD" ? t("picker.severe_stutter") : storageOpt === "SATA SSD" ? "SATA 3.0" : storageOpt === "NVMe Gen3" ? "PCIe 3.0 x4" : "PCIe 4.0 x4"}
               </span>
             </button>
           ))}

@@ -233,8 +233,8 @@ export default function GameSelector({
 
               {/* Requirement details */}
               <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-600 dark:text-gray-300 border-t border-black/5 dark:border-white/5 pt-1.5 mt-auto">
-                <span>Min RAM: <strong className="text-[#1E2022] dark:text-white">{game.ramMinRequirementGB}GB</strong></span>
-                <span className="text-[#E88D9F] font-black bg-[#E88D9F]/10 px-1.5 py-0.5 rounded">RT Capable</span>
+                <span>{t("game.min_ram")} <strong className="text-[#1E2022] dark:text-white">{game.ramMinRequirementGB}GB</strong></span>
+                <span className="text-[#E88D9F] font-black bg-[#E88D9F]/10 px-1.5 py-0.5 rounded">{t("game.rt_capable")}</span>
               </div>
             </button>
           );
@@ -245,7 +245,7 @@ export default function GameSelector({
       <div className="p-3.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row justify-around items-center text-center gap-3">
         <div className="flex flex-col items-center flex-1">
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
-            CPU Reliance {selectedCpu && <span className="text-gray-400 font-normal">({selectedCpu.name})</span>}
+            {t("reliance.cpu")} {selectedCpu && <span className="text-gray-400 font-normal">({selectedCpu.name})</span>}
           </span>
           {telemetryLoads !== null ? (
             <div className="flex flex-col items-center">
@@ -259,11 +259,7 @@ export default function GameSelector({
                   ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300"
                   : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
               }`}>
-                {telemetryLoads.cpuLoad >= 90
-                  ? "High Thread Load"
-                  : telemetryLoads.cpuLoad >= 60
-                  ? "Balanced Load"
-                  : "Optimal Headroom"}
+                {t("reliance.optimal_headroom")}
               </span>
             </div>
           ) : (
@@ -278,7 +274,7 @@ export default function GameSelector({
 
         <div className="flex flex-col items-center flex-1">
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
-            GPU Reliance {selectedGpu && <span className="text-gray-400 font-normal">({selectedGpu.name})</span>}
+            {t("reliance.gpu")} {selectedGpu && <span className="text-gray-400 font-normal">({selectedGpu.name})</span>}
           </span>
           {telemetryLoads !== null ? (
             <div className="flex flex-col items-center">
@@ -292,11 +288,7 @@ export default function GameSelector({
                   ? "bg-amber-500/15 text-amber-600 dark:text-amber-400"
                   : "bg-teal-500/15 text-teal-600 dark:text-teal-400"
               }`}>
-                {telemetryLoads.gpuLoad >= 90
-                  ? "Shader & Render Bound"
-                  : telemetryLoads.gpuLoad <= 50
-                  ? "Throttled by CPU"
-                  : "High VRAM Headroom"}
+                {t("reliance.shader_bound")}
               </span>
             </div>
           ) : (
@@ -312,7 +304,7 @@ export default function GameSelector({
       <div className="flex flex-col gap-3.5 border-t border-black/10 dark:border-white/10 pt-4">
         {/* Resolution */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">Target Resolution</div>
+          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.target_resolution")}</div>
           <div className="grid grid-cols-3 gap-2">
             {(["1080p", "1440p", "4K"] as const).map((res) => (
               <button
@@ -333,7 +325,7 @@ export default function GameSelector({
 
         {/* Preset */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">Preset Detail</div>
+          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.preset_detail")}</div>
           <div className="grid grid-cols-4 gap-2">
             {(["Low", "Medium", "High", "Ultra"] as const).map((pr) => (
               <button
@@ -354,7 +346,7 @@ export default function GameSelector({
 
         {/* Upscaling */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">Upscaling (DLSS / FSR)</div>
+          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.upscaling")}</div>
           <div className="grid grid-cols-3 gap-2">
             {(["Off", "Quality", "Performance"] as const).map((dlss) => (
               <button
@@ -367,7 +359,7 @@ export default function GameSelector({
                     : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
                 }`}
               >
-                {dlss === "Off" ? "Off (Native)" : dlss === "Quality" ? "Quality" : "Performance"}
+                {dlss === "Off" ? t("game.off_native") : dlss === "Quality" ? t("game.quality") : t("game.performance")}
               </button>
             ))}
           </div>
@@ -375,7 +367,7 @@ export default function GameSelector({
 
         {/* Ray Tracing Control */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">Ray Tracing (RTX / DXR)</div>
+          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.ray_tracing")}</div>
           <div className="grid grid-cols-3 gap-2">
             {(["Off", "Medium", "Ultra"] as const).map((rt) => (
               <button
@@ -388,7 +380,7 @@ export default function GameSelector({
                     : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
                 }`}
               >
-                {rt === "Off" ? "Off" : rt === "Medium" ? "RT Medium" : "Path Tracing"}
+                {rt === "Off" ? t("game.off") : rt === "Medium" ? t("game.rt_medium") : t("game.path_tracing")}
               </button>
             ))}
           </div>
@@ -397,8 +389,8 @@ export default function GameSelector({
         {/* Frame Generation Toggle */}
         <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex items-center justify-between">
           <div>
-            <div className="text-xs font-black text-[#1E2022] dark:text-white">Frame Generation (DLSS 3 / FSR 3)</div>
-            <div className="text-[10px] text-gray-500 font-extrabold">Dynamic AI Frame Interpolation</div>
+            <div className="text-xs font-black text-[#1E2022] dark:text-white">{t("game.frame_gen")}</div>
+            <div className="text-[10px] text-gray-500 font-extrabold">{t("game.frame_gen_desc")}</div>
           </div>
           <button
             type="button"

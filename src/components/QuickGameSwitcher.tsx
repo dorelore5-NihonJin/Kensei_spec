@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import type { Game } from "../lib/types";
 import { Gamepad2, Monitor, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface QuickGameSwitcherProps {
   games: Game[];
@@ -29,6 +30,7 @@ export default function QuickGameSwitcher({
   selectedPreset,
   onSelectPreset
 }: QuickGameSwitcherProps) {
+  const { t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -45,10 +47,10 @@ export default function QuickGameSwitcher({
         <div className="flex items-center gap-2 flex-wrap">
           <Gamepad2 className="w-5 h-5 text-[#E88D9F] shrink-0" />
           <h3 className="text-sm font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-            Quick Game & Workload Switcher / 迅速ゲーム切替
+            {t("switcher.title")}
           </h3>
           <span className="text-[10px] font-black bg-[#E88D9F]/15 text-[#E88D9F] px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">
-            Live Instant Recalculation
+            {t("switcher.live_recalc")}
           </span>
         </div>
 
