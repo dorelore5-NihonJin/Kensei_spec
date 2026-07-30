@@ -24,7 +24,7 @@ export default function Header({
   const { t } = useLanguage();
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-6">
+    <div className="w-full mx-auto flex flex-col gap-6">
       {/* 1. STICKY TOP PROMINENT HEADER NAVBAR */}
       <header className="sticky top-3 z-40 w-full bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-3 sm:p-3.5 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4 transition-all duration-300">
         
@@ -51,7 +51,7 @@ export default function Header({
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
-        <div className="flex items-center gap-1.5 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-center shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-start sm:justify-center flex-1 min-w-0">
           
           {/* TAB 1: SIMULATOR */}
           <button

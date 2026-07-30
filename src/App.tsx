@@ -164,7 +164,7 @@ export default function App() {
         互換
       </div>
 
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-6 w-full">
+      <div className="max-w-[1536px] mx-auto flex flex-col gap-6 w-full">
         {/* Header Component with Navigation */}
         <Header
           darkMode={darkMode}
