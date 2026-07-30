@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHardware } from "./context/HardwareContext";
+import { useLanguage } from "./context/LanguageContext";
 
 import Header from "./components/Header";
 import ComponentPicker from "./components/ComponentPicker";
@@ -77,6 +78,7 @@ export default function App() {
   } = useHardware();
 
   // --- PARALLAX EFFECT STATE ---
+  const { t } = useLanguage();
   const [scrollY, setScrollY] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -208,7 +210,7 @@ export default function App() {
               }`}>
                 {isHardwareSelected ? <Check className="w-3 h-3 text-white" /> : "1"}
               </span>
-              <span>1. Pick Components / 構成選択</span>
+              <span>{t("wizard.step1")}</span>
             </button>
 
             <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
@@ -225,7 +227,7 @@ export default function App() {
               <span className="w-5 h-5 rounded-full text-[10px] bg-[#8A9A86] text-white flex items-center justify-center font-black">
                 2
               </span>
-              <span>2. Select Game / ゲーム選択</span>
+              <span>{t("wizard.step2")}</span>
             </button>
 
             <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
@@ -242,7 +244,7 @@ export default function App() {
               <span className="w-5 h-5 rounded-full text-[10px] bg-[#E88D9F] text-white flex items-center justify-center font-black">
                 3
               </span>
-              <span>3. Benchmark & Diagnostics / 性能・診断</span>
+              <span>{t("wizard.step3")}</span>
             </button>
           </div>
 
@@ -252,7 +254,7 @@ export default function App() {
               onClick={() => setIsBuyModalOpen(true)}
               className="px-4 py-2 rounded-xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1.5 shrink-0"
             >
-              <ShoppingCart className="w-3.5 h-3.5" /> Buy Build / 買います
+              <ShoppingCart className="w-3.5 h-3.5" /> {t("wizard.buy_build")}
             </button>
 
             {/* View Mode Switch (Wizard vs Full Overview) */}
@@ -265,7 +267,7 @@ export default function App() {
                     : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
                 }`}
               >
-                Step-by-Step
+                {t("wizard.step_by_step")}
               </button>
               <button
                 onClick={() => setViewMode("overview")}
@@ -275,7 +277,7 @@ export default function App() {
                     : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
                 }`}
               >
-                Full Overview
+                {t("wizard.full_overview")}
               </button>
             </div>
           </div>
@@ -552,17 +554,17 @@ export default function App() {
                     <div className="p-6 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
                       <div>
                         <h4 className="text-base font-black flex items-center gap-2">
-                          Ready to build this setup? / 構成を注文する
+                          {t("cta.ready_title")}
                         </h4>
                         <p className="text-xs text-gray-300 font-extrabold mt-0.5">
-                          View auto-matched motherboards, coolers, PSU wattage, and price comparisons across stores.
+                          {t("cta.ready_desc")}
                         </p>
                       </div>
                       <button
                         onClick={() => setIsBuyModalOpen(true)}
                         className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#E88D9F] text-white font-black text-sm hover:bg-[#E88D9F]/90 transition shadow-lg flex items-center justify-center gap-2 shrink-0"
                       >
-                        <ShoppingCart className="w-4 h-4" /> Buy Complete Build / 買います
+                        <ShoppingCart className="w-4 h-4" /> {t("cta.buy_complete")}
                       </button>
                     </div>
                   </div>

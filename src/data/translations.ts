@@ -36,6 +36,346 @@ export const translations: TranslationDictionary = {
     ja: "5. PCストア購入"
   },
 
+  // Top Wizard Breadcrumbs
+  "wizard.step1": {
+    en: "1. Pick Components",
+    ru: "1. Выбор комплектующих",
+    ja: "1. 構成の選択"
+  },
+  "wizard.step2": {
+    en: "2. Select Game & Quality",
+    ru: "2. Выбор игры и настроек",
+    ja: "2. ゲームと画質の選択"
+  },
+  "wizard.step3": {
+    en: "3. Telemetry & Benchmark",
+    ru: "3. Телеметрия и бенчмарк",
+    ja: "3. 性能・診断"
+  },
+  "wizard.buy_build": {
+    en: "Buy Configured Build",
+    ru: "Купить эту сборку",
+    ja: "この構成を購入"
+  },
+  "wizard.step_by_step": {
+    en: "Step-by-Step",
+    ru: "Пошаговый режим",
+    ja: "ステップ別"
+  },
+  "wizard.full_overview": {
+    en: "Full Overview",
+    ru: "Полный обзор",
+    ja: "全体表示"
+  },
+  "wizard.build_active": {
+    en: "BUILD ACTIVE",
+    ru: "СБОРКА АКТИВНА",
+    ja: "構成アクティブ"
+  },
+  "wizard.reset_hardware": {
+    en: "Reset Hardware",
+    ru: "Сбросить железо",
+    ja: "構成リセット"
+  },
+
+  // Component Picker (Step 1)
+  "picker.cpu_model": {
+    en: "CPU MODEL",
+    ru: "МОДЕЛЬ ПРОЦЕССОРА",
+    ja: "CPU モデル"
+  },
+  "picker.gpu_model": {
+    en: "GPU MODEL",
+    ru: "МОДЕЛЬ ВИДЕОКАРТЫ",
+    ja: "GPU モデル"
+  },
+  "picker.single_core": {
+    en: "SINGLE-CORE",
+    ru: "ОДНОЯДЕРНЫЙ",
+    ja: "シングルコア"
+  },
+  "picker.multi_core": {
+    en: "MULTI-CORE",
+    ru: "МНОГОЯДЕРНЫЙ",
+    ja: "マルチコア"
+  },
+  "picker.change": {
+    en: "Change",
+    ru: "Изменить",
+    ja: "変更"
+  },
+  "picker.ram_section": {
+    en: "RAM SPEED, CAPACITY & CHANNEL CONFIG",
+    ru: "СКОРОСТЬ ОЗУ, ОБЪЁМ И РЕЖИМ КАНАЛОВ",
+    ja: "RAM 速度・容量・チャネル構成"
+  },
+  "picker.total_ram": {
+    en: "TOTAL RAM CAPACITY:",
+    ru: "ОБЩИЙ ОБЪЁМ ОЗУ:",
+    ja: "RAM 総容量:"
+  },
+  "picker.single_channel": {
+    en: "SINGLE CHANNEL",
+    ru: "ОДНОКАНАЛЬНЫЙ (SINGLE)",
+    ja: "シングルチャネル"
+  },
+  "picker.dual_channel": {
+    en: "DUAL CHANNEL",
+    ru: "ДВУХКАНАЛЬНЫЙ (DUAL)",
+    ja: "デュアルチャネル"
+  },
+  "picker.speed_factor": {
+    en: "speed factor",
+    ru: "множитель скорости",
+    ja: "速度係数"
+  },
+  "picker.storage_section": {
+    en: "STORAGE INTERFACE (OS & GAMES)",
+    ru: "ТИП НАКОПИТЕЛЯ (ОС И ИГРЫ)",
+    ja: "ストレージ 規格 (OS & ゲーム)"
+  },
+
+  // Bottom Floating Bar
+  "floating.step1_complete": {
+    en: "Step 1 Complete!",
+    ru: "Шаг 1 завершён!",
+    ja: "ステップ1 完了!"
+  },
+  "floating.step1_desc": {
+    en: "CPU, GPU, and RAM selected. Ready for target game benchmarking.",
+    ru: "Процессор, видеокарта и ОЗУ выбраны. Готово к тестированию игр.",
+    ja: "CPU、GPU、RAMを選択完了。ターゲットゲームのテストが可能です。"
+  },
+  "floating.proceed_step2": {
+    en: "Proceed to Step 2 →",
+    ru: "Перейти к Шагу 2 →",
+    ja: "ステップ2へ進む →"
+  },
+
+  // Game Selector (Step 2)
+  "game.target_resolution": {
+    en: "TARGET RESOLUTION",
+    ru: "ЦЕЛЕВОЕ РАЗРЕШЕНИЕ",
+    ja: "ターゲット解像度"
+  },
+  "game.preset_detail": {
+    en: "PRESET DETAIL",
+    ru: "ПРЕСЕТ КАЧЕСТВА",
+    ja: "画質プリセット"
+  },
+  "game.upscaling": {
+    en: "UPSCALING (DLSS / FSR)",
+    ru: "МАСШТАБИРОВАНИЕ (DLSS / FSR)",
+    ja: "アップスケーリング (DLSS / FSR)"
+  },
+  "game.off_native": {
+    en: "Off (Native)",
+    ru: "Выкл (Нативное)",
+    ja: "オフ (ネイティブ)"
+  },
+  "game.quality": {
+    en: "Quality",
+    ru: "Качество",
+    ja: "クオリティ"
+  },
+  "game.performance": {
+    en: "Performance",
+    ru: "Производительность",
+    ja: "パフォーマンス"
+  },
+  "game.ray_tracing": {
+    en: "RAY TRACING (RTX / DXR)",
+    ru: "ТРАССИРОВКА ЛУЧЕЙ (RTX / DXR)",
+    ja: "レイトレーシング (RTX / DXR)"
+  },
+  "game.off": {
+    en: "Off",
+    ru: "Выкл",
+    ja: "オフ"
+  },
+  "game.rt_medium": {
+    en: "RT Medium",
+    ru: "RT Средняя",
+    ja: "RT ミディアム"
+  },
+  "game.path_tracing": {
+    en: "Path Tracing / Ultra",
+    ru: "Трассировка путей / Ультра",
+    ja: "パストレーシング / ウルトラ"
+  },
+  "game.frame_gen": {
+    en: "Frame Generation (DLSS 3 / FSR 3)",
+    ru: "Генерация кадров (DLSS 3 / FSR 3)",
+    ja: "フレーム生成 (DLSS 3 / FSR 3)"
+  },
+  "game.frame_gen_desc": {
+    en: "Dynamic AI Frame Interpolation",
+    ru: "Динамическая ИИ-интерполяция кадров",
+    ja: "AI動的フレーム補間"
+  },
+
+  // Game Reliance & Load
+  "reliance.cpu": {
+    en: "CPU RELIANCE",
+    ru: "НАГРУЗКА НА ПРОЦЕССОР",
+    ja: "CPU 依存度"
+  },
+  "reliance.gpu": {
+    en: "GPU RELIANCE",
+    ru: "НАГРУЗКА НА ВИДЕОКАРТУ",
+    ja: "GPU 依存度"
+  },
+  "reliance.optimal_headroom": {
+    en: "OPTIMAL HEADROOM",
+    ru: "ОПТИМАЛЬНЫЙ ЗАПАС",
+    ja: "最適ヘッドルーム"
+  },
+  "reliance.shader_bound": {
+    en: "SHADER & RENDER BOUND",
+    ru: "УПЁРСЛОСЬ В ШЕЙДЕРЫ И РЕНДЕР",
+    ja: "シェーダー・レンダー限界"
+  },
+
+  // Quick Game Switcher Bar
+  "switcher.title": {
+    en: "Quick Game & Workload Switcher",
+    ru: "Быстрое переключение игр",
+    ja: "迅速ゲーム切替"
+  },
+  "switcher.live_recalc": {
+    en: "LIVE INSTANT RECALCULATION",
+    ru: "МГНОВЕННЫЙ ПЕРЕРАСЧЁТ",
+    ja: "リアルタイム再計算"
+  },
+
+  // FPS Gauge Card
+  "fps.share_build": {
+    en: "Share Build",
+    ru: "Поделиться сборкой",
+    ja: "構成を共有"
+  },
+  "fps.real_time": {
+    en: "REAL-TIME",
+    ru: "РЕАЛЬНЫЙ ВРЕМЯ",
+    ja: "リアルタイム"
+  },
+  "fps.avg_fps": {
+    en: "AVG FPS",
+    ru: "СРЕДНИЙ FPS",
+    ja: "平均 FPS"
+  },
+  "fps.high_refresh": {
+    en: "High Refresh / Smooth",
+    ru: "Высокая плавнось",
+    ja: "超快適"
+  },
+  "fps.one_percent_low": {
+    en: "1% LOW (STUTTER)",
+    ru: "1% МИНИМАЛЬНЫЙ FPS",
+    ja: "1% LOW (スタッター)"
+  },
+  "fps.bottleneck_factor": {
+    en: "BOTTLENECK FACTOR",
+    ru: "ФАКТОР БОТТЛНЕКА",
+    ja: "ボトルネック要因"
+  },
+  "fps.workload_balance": {
+    en: "WORKLOAD BALANCE (CPU VS GPU LOAD)",
+    ru: "БАЛАНС НАГРУЗКИ (CPU ПРОТИВ GPU)",
+    ja: "ワークロード バランス (CPU vs GPU)"
+  },
+  "fps.cpu_load": {
+    en: "CPU Load",
+    ru: "Загрузка CPU",
+    ja: "CPU 負荷"
+  },
+  "fps.gpu_load": {
+    en: "GPU Load",
+    ru: "Загрузка GPU",
+    ja: "GPU 負荷"
+  },
+
+  // Smart Upgrade Advisor
+  "advisor.title": {
+    en: "Smart Upgrade Advisor",
+    ru: "Умный советник апгрейда",
+    ja: "アップグレード診断"
+  },
+  "advisor.optimization": {
+    en: "OPTIMIZATION",
+    ru: "ОПТИМИЗАЦИЯ",
+    ja: "最適化"
+  },
+  "advisor.pinnacle": {
+    en: "We couldn't locate a single CPU/GPU of the same brand that delivers a +30% performance boost. You may already be at the pinnacle of this generation!",
+    ru: "Не найдено процессоров/видеокарт того же бренда, дающих +30% прироста. Ваша система уже на пике текущего поколения!",
+    ja: "同ブランドで+30%の性能向上を提供するCPU/GPUは見つかりませんでした。すでにこの世代の頂点に達しています！"
+  },
+
+  // Hardware Die Diagnostics & Power
+  "diag.header": {
+    en: "HARDWARE DIE DIAGNOSTICS",
+    ru: "ДИАГНОСТИКА КРИСТАЛЛА ЖЕЛЕЗА",
+    ja: "ハードウェア ダイ 診断"
+  },
+  "diag.subtitle": {
+    en: "Silicon Architecture Integrity & Power Load Verification",
+    ru: "Проверка архитектуры кремния и энергопотребления",
+    ja: "シリコンアーキテクチャの整合性と電力検証"
+  },
+  "diag.active": {
+    en: "ACTIVE",
+    ru: "АКТИВНО",
+    ja: "アクティブ"
+  },
+  "diag.perfect_match": {
+    en: "PERFECT HARDWARE MATCH",
+    ru: "ИДЕАЛЬНОЕ СОВПАДЕНИЕ ЖЕЛЕЗА",
+    ja: "完璧なハードウェア構成"
+  },
+  "diag.perfect_match_desc": {
+    en: "Silicon structures are perfectly balanced. Memory speed, storage bus, and power targets align.",
+    ru: "Кремниевые структуры идеально сбалансированы. Скорость памяти и энергопотребление согласованы.",
+    ja: "シリコン構造が完全にバランスをとっています。メモリ速度と消費電力ターゲットが一致しています。"
+  },
+  "diag.psu_title": {
+    en: "PSU POWER & EFFICIENCY GAUGE",
+    ru: "ОЦЕНКА ЭНЕРГОПОТРЕБЛЕНИЯ БП",
+    ja: "PSU 電力 & 効率 ゲージ"
+  },
+  "diag.recommended_psu": {
+    en: "Recommended PSU:",
+    ru: "Рекомендуемый БП:",
+    ja: "推奨 PSU:"
+  },
+  "diag.safety_headroom": {
+    en: "Safety Headroom",
+    ru: "Запас безопасности",
+    ja: "セーフティ ヘッドルーム"
+  },
+  "diag.show_advanced": {
+    en: "Show Advanced Telemetry & Deep Specs",
+    ru: "Показать расширенную телеметрию и характеристики",
+    ja: "詳細スペック・拡張テレメトリを表示"
+  },
+
+  // Bottom CTA Order Bar
+  "cta.ready_title": {
+    en: "Ready to build this setup?",
+    ru: "Готовы собрать эту конфигурацию?",
+    ja: "この構成を注文しますか？"
+  },
+  "cta.ready_desc": {
+    en: "View auto-matched motherboards, coolers, PSU wattage, and price comparisons across stores.",
+    ru: "Смотрите автоматический подбор материнских плат, кулеров, БП и цены во всех магазинах.",
+    ja: "マザーボード、クーラー、PSU容量、価格比較を自動マッチングで確認。"
+  },
+  "cta.buy_complete": {
+    en: "Buy Complete Build",
+    ru: "Купить готовую сборку",
+    ja: "構成を購入する"
+  },
+
   // Header Actions
   "header.reset": {
     en: "Reset Build",
@@ -133,33 +473,6 @@ export const translations: TranslationDictionary = {
     ja: "正規化された総合パフォーマンスでソートされたすべてのCPUおよびGPUの完全な世界階層リーダーボード。"
   },
 
-  // Calculator Wizard Steps
-  "step1.title": {
-    en: "1. Select Processor (CPU)",
-    ru: "1. Выберите процессор (CPU)",
-    ja: "1. プロセッサー (CPU) を選択"
-  },
-  "step2.title": {
-    en: "2. Select Graphics Card (GPU)",
-    ru: "2. Выберите видеокарту (GPU)",
-    ja: "2. グラフィックボード (GPU) を選択"
-  },
-  "step3.title": {
-    en: "3. Target Game & Quality Settings",
-    ru: "3. Целевая игра и настройки графики",
-    ja: "3. ターゲットゲームと画質設定"
-  },
-  "preset.quality": {
-    en: "QUALITY PRESET",
-    ru: "ПРЕСЕТ ГРАФИКИ",
-    ja: "画質プリセット"
-  },
-  "resolution.label": {
-    en: "RESOLUTION",
-    ru: "РАЗРЕШЕНИЕ",
-    ja: "解像度"
-  },
-
   // Rankings Page
   "rankings.title": {
     en: "Global Hardware Hierarchy Rankings",
@@ -168,7 +481,7 @@ export const translations: TranslationDictionary = {
   },
   "rankings.subtitle": {
     en: "Explore complete hierarchy rankings for all CPUs and GPUs sorted by normalized aggregate benchmark scores.",
-    ru: "Исследуйте полный мировое первенство всех процессоров и видеокарт по мировому агрегированному баллу.",
+    ru: "Исследуйте полное мировое первенство всех процессоров и видеокарт по мировому агрегированному баллу.",
     ja: "正規化されたベンチマークスコアでソートされたすべてのCPUとGPUの階層ランキング。"
   },
   "rankings.tab.cpu": {
@@ -181,16 +494,6 @@ export const translations: TranslationDictionary = {
     ru: "Видеокарты (GPU)",
     ja: "グラフィックボード (GPU)"
   },
-  "rankings.search": {
-    en: "Search silicon by model or brand...",
-    ru: "Поиск модели или бренда...",
-    ja: "モデル名またはブランドを検索..."
-  },
-  "rankings.reset_filters": {
-    en: "Reset Filters",
-    ru: "Сбросить фильтры",
-    ja: "フィルターリセット"
-  },
 
   // Compare Page
   "compare.title": {
@@ -198,57 +501,12 @@ export const translations: TranslationDictionary = {
     ru: "Сравнение бенчмарков железа",
     ja: "ハードウェア ベンチマーク 比較"
   },
-  "compare.subtitle": {
-    en: "Compare two CPUs or GPUs side-by-side on the global hierarchy scale.",
-    ru: "Сравнивайте два процессора или видеокарты бок о бок на единой мировой шкале.",
-    ja: "グローバル階層スケールで2つのCPUまたはGPUを横並び比較。"
-  },
-  "compare.select_first": {
-    en: "Select First Component...",
-    ru: "Выберите первое комплектующее...",
-    ja: "1つ目のコンポーネントを選択..."
-  },
-  "compare.select_second": {
-    en: "Select Second Component...",
-    ru: "Выберите второе комплектующее...",
-    ja: "2つ目のコンポーネントを選択..."
-  },
-  "compare.performance_diff": {
-    en: "Performance Difference",
-    ru: "Разница в производительности",
-    ja: "パフォーマンスの差"
-  },
-  "compare.faster_by": {
-    en: "faster overall",
-    ru: "быстрее в среднем",
-    ja: "全体で高速"
-  },
 
   // Catalog Page
   "catalog.title": {
     en: "Verified PC Builds Catalog",
     ru: "Каталог проверенных игровых ПК",
     ja: "検証済みPC構成 カタログ"
-  },
-  "catalog.filter.all": {
-    en: "All Categories",
-    ru: "Все категории",
-    ja: "すべてのカテゴリー"
-  },
-  "catalog.filter.esports": {
-    en: "Esports Gaming",
-    ru: "Киберспорт",
-    ja: "eスポーツ"
-  },
-  "catalog.filter.aaa": {
-    en: "AAA Ultra 4K",
-    ru: "AAA Ультра 4K",
-    ja: "AAA ウルトラ 4K"
-  },
-  "catalog.filter.workstation": {
-    en: "Workstation & AI",
-    ru: "Рабочие станции и ИИ",
-    ja: "ワークステーション & AI"
   },
 
   // Telemetry Output Cards
