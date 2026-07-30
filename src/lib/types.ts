@@ -72,6 +72,11 @@ export interface GPU {
   openCL?: string;
   vulkan?: string;
   cuda?: string;
+  timeSpyGraphicsScore?: number;
+  portRoyalScore?: number;
+  geekbenchVulkan?: number;
+  geekbenchOpenCL?: number;
+  passmarkG3D?: number;
   gamingBenchmarks?: GPUGamingBenchmarks;
 }
 
@@ -85,6 +90,9 @@ export interface CPU {
   supportedDdr: string[];
   singleCoreScore: number;
   multiCoreScore: number;
+  cinebenchR23Single?: number;
+  cinebenchR23Multi?: number;
+  passmarkScore?: number;
   tdpW: number;
   socket: string;
   l3CacheMB: number;

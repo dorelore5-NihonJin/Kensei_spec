@@ -171,7 +171,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-002",
@@ -345,7 +350,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-003",
@@ -519,7 +529,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 468,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3042,
+    "geekbenchOpenCL": 2902,
+    "passmarkG3D": 3468
   },
   {
     "id": "gpu-004",
@@ -693,7 +708,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 540,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3510,
+    "geekbenchOpenCL": 3348,
+    "passmarkG3D": 3540
   },
   {
     "id": "gpu-005",
@@ -867,7 +887,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 648,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4212,
+    "geekbenchOpenCL": 4018,
+    "passmarkG3D": 3648
   },
   {
     "id": "gpu-006",
@@ -1041,7 +1066,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-007",
@@ -1215,7 +1245,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 684,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4446,
+    "geekbenchOpenCL": 4241,
+    "passmarkG3D": 3684
   },
   {
     "id": "gpu-008",
@@ -1389,7 +1424,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 864,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5616,
+    "geekbenchOpenCL": 5357,
+    "passmarkG3D": 3864
   },
   {
     "id": "gpu-009",
@@ -1563,7 +1603,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "id": "gpu-010",
@@ -1737,7 +1782,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-011",
@@ -1911,7 +1961,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "id": "gpu-012",
@@ -2085,7 +2140,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-013",
@@ -2259,7 +2319,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1548,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10062,
+    "geekbenchOpenCL": 9598,
+    "passmarkG3D": 4548
   },
   {
     "id": "gpu-014",
@@ -2433,7 +2498,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1404,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9126,
+    "geekbenchOpenCL": 8705,
+    "passmarkG3D": 4404
   },
   {
     "id": "gpu-015",
@@ -2607,7 +2677,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-016",
@@ -2781,7 +2856,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "id": "gpu-017",
@@ -2955,7 +3035,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1944,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12636,
+    "geekbenchOpenCL": 12053,
+    "passmarkG3D": 4944
   },
   {
     "id": "gpu-018",
@@ -3129,7 +3214,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "id": "gpu-019",
@@ -3303,7 +3393,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1260,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8190,
+    "geekbenchOpenCL": 7812,
+    "passmarkG3D": 4260
   },
   {
     "id": "gpu-020",
@@ -3477,7 +3572,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1656,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10764,
+    "geekbenchOpenCL": 10267,
+    "passmarkG3D": 4656
   },
   {
     "id": "gpu-021",
@@ -3651,7 +3751,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-022",
@@ -3825,7 +3930,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2124,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13806,
+    "geekbenchOpenCL": 13169,
+    "passmarkG3D": 5124
   },
   {
     "id": "gpu-023",
@@ -3999,7 +4109,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "id": "gpu-024",
@@ -4173,7 +4288,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-025",
@@ -4347,7 +4467,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1200,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10000,
+    "geekbenchOpenCL": 11000,
+    "passmarkG3D": 3800
   },
   {
     "id": "gpu-026",
@@ -4521,7 +4646,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2016,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13104,
+    "geekbenchOpenCL": 12499,
+    "passmarkG3D": 5016
   },
   {
     "id": "gpu-027",
@@ -4695,7 +4825,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "id": "gpu-028",
@@ -4869,7 +5004,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-029",
@@ -5043,7 +5183,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3168,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20592,
+    "geekbenchOpenCL": 19642,
+    "passmarkG3D": 6168
   },
   {
     "id": "gpu-030",
@@ -5217,7 +5362,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3312,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21528,
+    "geekbenchOpenCL": 20534,
+    "passmarkG3D": 6312
   },
   {
     "id": "gpu-031",
@@ -5391,7 +5541,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1980,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12870,
+    "geekbenchOpenCL": 12276,
+    "passmarkG3D": 4980
   },
   {
     "id": "gpu-032",
@@ -5565,7 +5720,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "id": "gpu-033",
@@ -5739,7 +5899,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3384,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21996,
+    "geekbenchOpenCL": 20981,
+    "passmarkG3D": 6384
   },
   {
     "id": "gpu-034",
@@ -5913,7 +6078,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4032,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 26208,
+    "geekbenchOpenCL": 24998,
+    "passmarkG3D": 7032
   },
   {
     "id": "gpu-035",
@@ -6087,7 +6257,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4860,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 31590,
+    "geekbenchOpenCL": 30132,
+    "passmarkG3D": 7860
   },
   {
     "id": "gpu-036",
@@ -6261,7 +6436,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5040,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 32760,
+    "geekbenchOpenCL": 31248,
+    "passmarkG3D": 8040
   },
   {
     "id": "gpu-037",
@@ -6435,7 +6615,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "id": "gpu-038",
@@ -6609,7 +6794,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2664,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 17316,
+    "geekbenchOpenCL": 16517,
+    "passmarkG3D": 5664
   },
   {
     "id": "gpu-039",
@@ -6783,7 +6973,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-040",
@@ -6957,7 +7152,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-041",
@@ -7131,7 +7331,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4968,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 32292,
+    "geekbenchOpenCL": 30802,
+    "passmarkG3D": 7968
   },
   {
     "id": "gpu-042",
@@ -7305,7 +7510,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5544,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 36036,
+    "geekbenchOpenCL": 34373,
+    "passmarkG3D": 8544
   },
   {
     "id": "gpu-043",
@@ -7479,7 +7689,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6192,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 40248,
+    "geekbenchOpenCL": 38390,
+    "passmarkG3D": 9192
   },
   {
     "id": "gpu-044",
@@ -7653,7 +7868,12 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8280,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 53820,
+    "geekbenchOpenCL": 51336,
+    "passmarkG3D": 11280
   },
   {
     "id": "gpu-045",
@@ -7827,7 +8047,12 @@
           "ultra": 18
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8712,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 56628,
+    "geekbenchOpenCL": 54014,
+    "passmarkG3D": 11712
   },
   {
     "id": "gpu-046",
@@ -8001,7 +8226,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 1966,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-047",
@@ -8175,7 +8405,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3456,
+    "portRoyalScore": 2419,
+    "geekbenchVulkan": 22464,
+    "geekbenchOpenCL": 21427,
+    "passmarkG3D": 6456
   },
   {
     "id": "gpu-048",
@@ -8349,7 +8584,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4140,
+    "portRoyalScore": 2898,
+    "geekbenchVulkan": 26910,
+    "geekbenchOpenCL": 25668,
+    "passmarkG3D": 7140
   },
   {
     "id": "gpu-049",
@@ -8523,7 +8763,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4464,
+    "portRoyalScore": 3125,
+    "geekbenchVulkan": 29016,
+    "geekbenchOpenCL": 27677,
+    "passmarkG3D": 7464
   },
   {
     "id": "gpu-050",
@@ -8697,7 +8942,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 3226,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-051",
@@ -8871,7 +9121,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5112,
+    "portRoyalScore": 3578,
+    "geekbenchVulkan": 33228,
+    "geekbenchOpenCL": 31694,
+    "passmarkG3D": 8112
   },
   {
     "id": "gpu-052",
@@ -9045,7 +9300,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6048,
+    "portRoyalScore": 4234,
+    "geekbenchVulkan": 39312,
+    "geekbenchOpenCL": 37498,
+    "passmarkG3D": 9048
   },
   {
     "id": "gpu-053",
@@ -9219,7 +9479,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6408,
+    "portRoyalScore": 4486,
+    "geekbenchVulkan": 41652,
+    "geekbenchOpenCL": 39730,
+    "passmarkG3D": 9408
   },
   {
     "id": "gpu-054",
@@ -9393,7 +9658,12 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7128,
+    "portRoyalScore": 4990,
+    "geekbenchVulkan": 46332,
+    "geekbenchOpenCL": 44194,
+    "passmarkG3D": 10128
   },
   {
     "id": "gpu-055",
@@ -9567,7 +9837,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7848,
+    "portRoyalScore": 5494,
+    "geekbenchVulkan": 51012,
+    "geekbenchOpenCL": 48658,
+    "passmarkG3D": 10848
   },
   {
     "id": "gpu-056",
@@ -9741,7 +10016,12 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8352,
+    "portRoyalScore": 5846,
+    "geekbenchVulkan": 54288,
+    "geekbenchOpenCL": 51782,
+    "passmarkG3D": 11352
   },
   {
     "id": "gpu-057",
@@ -9915,7 +10195,12 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "id": "gpu-058",
@@ -10089,7 +10374,12 @@
           "ultra": 23
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10800,
+    "portRoyalScore": 7560,
+    "geekbenchVulkan": 70200,
+    "geekbenchOpenCL": 66960,
+    "passmarkG3D": 13800
   },
   {
     "id": "gpu-059",
@@ -10263,7 +10553,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4392,
+    "portRoyalScore": 3074,
+    "geekbenchVulkan": 28548,
+    "geekbenchOpenCL": 27230,
+    "passmarkG3D": 7392
   },
   {
     "id": "gpu-060",
@@ -10437,7 +10732,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5940,
+    "portRoyalScore": 4158,
+    "geekbenchVulkan": 38610,
+    "geekbenchOpenCL": 36828,
+    "passmarkG3D": 8940
   },
   {
     "id": "gpu-061",
@@ -10611,7 +10911,12 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7380,
+    "portRoyalScore": 5166,
+    "geekbenchVulkan": 47970,
+    "geekbenchOpenCL": 45756,
+    "passmarkG3D": 10380
   },
   {
     "id": "gpu-062",
@@ -10785,7 +11090,12 @@
           "ultra": 18
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8460,
+    "portRoyalScore": 5922,
+    "geekbenchVulkan": 54990,
+    "geekbenchOpenCL": 52452,
+    "passmarkG3D": 11460
   },
   {
     "id": "gpu-063",
@@ -10959,7 +11269,12 @@
           "ultra": 19
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9180,
+    "portRoyalScore": 6426,
+    "geekbenchVulkan": 59670,
+    "geekbenchOpenCL": 56916,
+    "passmarkG3D": 12180
   },
   {
     "id": "gpu-064",
@@ -11133,7 +11448,12 @@
           "ultra": 23
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "id": "gpu-065",
@@ -11307,7 +11627,12 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19000,
+    "portRoyalScore": 12500,
+    "geekbenchVulkan": 135000,
+    "geekbenchOpenCL": 205000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-066",
@@ -11481,7 +11806,12 @@
           "ultra": 29
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19500,
+    "portRoyalScore": 13000,
+    "geekbenchVulkan": 140000,
+    "geekbenchOpenCL": 210000,
+    "passmarkG3D": 26500
   },
   {
     "id": "gpu-067",
@@ -11655,7 +11985,12 @@
           "ultra": 31
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21500,
+    "portRoyalScore": 14500,
+    "geekbenchVulkan": 155000,
+    "geekbenchOpenCL": 230000,
+    "passmarkG3D": 29000
   },
   {
     "id": "gpu-068",
@@ -11829,7 +12164,12 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7920,
+    "portRoyalScore": 5544,
+    "geekbenchVulkan": 51480,
+    "geekbenchOpenCL": 49104,
+    "passmarkG3D": 10920
   },
   {
     "id": "gpu-069",
@@ -12003,7 +12343,12 @@
           "ultra": 19
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9000,
+    "portRoyalScore": 6300,
+    "geekbenchVulkan": 58500,
+    "geekbenchOpenCL": 55800,
+    "passmarkG3D": 12000
   },
   {
     "id": "gpu-070",
@@ -12177,7 +12522,12 @@
           "ultra": 19
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9180,
+    "portRoyalScore": 6426,
+    "geekbenchVulkan": 59670,
+    "geekbenchOpenCL": 56916,
+    "passmarkG3D": 12180
   },
   {
     "id": "gpu-071",
@@ -12351,7 +12701,12 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11000,
+    "geekbenchVulkan": 150000,
+    "geekbenchOpenCL": 160000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-072",
@@ -12525,7 +12880,12 @@
           "ultra": 31
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18000,
+    "portRoyalScore": 13000,
+    "geekbenchVulkan": 160000,
+    "geekbenchOpenCL": 170000,
+    "passmarkG3D": 28000
   },
   {
     "id": "gpu-073",
@@ -12699,7 +13059,12 @@
           "ultra": 32
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 22500,
+    "portRoyalScore": 14000,
+    "geekbenchVulkan": 170000,
+    "geekbenchOpenCL": 200000,
+    "passmarkG3D": 31000
   },
   {
     "id": "gpu-074",
@@ -12873,7 +13238,12 @@
           "ultra": 34
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 24000,
+    "portRoyalScore": 15000,
+    "geekbenchVulkan": 180000,
+    "geekbenchOpenCL": 210000,
+    "passmarkG3D": 32000
   },
   {
     "id": "gpu-075",
@@ -13047,7 +13417,12 @@
           "ultra": 41
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 27000,
+    "portRoyalScore": 17500,
+    "geekbenchVulkan": 200000,
+    "geekbenchOpenCL": 250000,
+    "passmarkG3D": 34000
   },
   {
     "id": "gpu-076",
@@ -13221,7 +13596,12 @@
           "ultra": 42
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 28000,
+    "portRoyalScore": 18000,
+    "geekbenchVulkan": 210000,
+    "geekbenchOpenCL": 260000,
+    "passmarkG3D": 35000
   },
   {
     "id": "gpu-077",
@@ -13395,7 +13775,12 @@
           "ultra": 56
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 26000,
+    "geekbenchVulkan": 260000,
+    "geekbenchOpenCL": 320000,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-078",
@@ -13569,7 +13954,12 @@
           "ultra": 25
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11880,
+    "portRoyalScore": 8316,
+    "geekbenchVulkan": 77220,
+    "geekbenchOpenCL": 73656,
+    "passmarkG3D": 14880
   },
   {
     "id": "gpu-079",
@@ -13743,7 +14133,12 @@
           "ultra": 39
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18720,
+    "portRoyalScore": 13104,
+    "geekbenchVulkan": 121680,
+    "geekbenchOpenCL": 116064,
+    "passmarkG3D": 21720
   },
   {
     "id": "gpu-080",
@@ -13917,7 +14312,12 @@
           "ultra": 59
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 28080,
+    "portRoyalScore": 19656,
+    "geekbenchVulkan": 182520,
+    "geekbenchOpenCL": 174096,
+    "passmarkG3D": 31080
   },
   {
     "id": "gpu-081",
@@ -14091,7 +14491,12 @@
           "ultra": 75
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 25200,
+    "geekbenchVulkan": 234000,
+    "geekbenchOpenCL": 223200,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-082",
@@ -14265,7 +14670,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-083",
@@ -14439,7 +14849,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 360,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2340,
+    "geekbenchOpenCL": 2232,
+    "passmarkG3D": 3360
   },
   {
     "id": "gpu-084",
@@ -14613,7 +15028,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 432,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2808,
+    "geekbenchOpenCL": 2678,
+    "passmarkG3D": 3432
   },
   {
     "id": "gpu-085",
@@ -14787,7 +15207,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-086",
@@ -14961,7 +15386,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 720,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 4680,
+    "geekbenchOpenCL": 4464,
+    "passmarkG3D": 3720
   },
   {
     "id": "gpu-087",
@@ -15135,7 +15565,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 864,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5616,
+    "geekbenchOpenCL": 5357,
+    "passmarkG3D": 3864
   },
   {
     "id": "gpu-088",
@@ -15309,7 +15744,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1296,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8424,
+    "geekbenchOpenCL": 8035,
+    "passmarkG3D": 4296
   },
   {
     "id": "gpu-089",
@@ -15483,7 +15923,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-090",
@@ -15657,7 +16102,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1944,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12636,
+    "geekbenchOpenCL": 12053,
+    "passmarkG3D": 4944
   },
   {
     "id": "gpu-091",
@@ -15831,7 +16281,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1584,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10296,
+    "geekbenchOpenCL": 9821,
+    "passmarkG3D": 4584
   },
   {
     "id": "gpu-092",
@@ -16005,7 +16460,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-093",
@@ -16179,7 +16639,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2160,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14040,
+    "geekbenchOpenCL": 13392,
+    "passmarkG3D": 5160
   },
   {
     "id": "gpu-094",
@@ -16353,7 +16818,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2736,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 17784,
+    "geekbenchOpenCL": 16963,
+    "passmarkG3D": 5736
   },
   {
     "id": "gpu-095",
@@ -16527,7 +16997,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "id": "gpu-096",
@@ -16701,7 +17176,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2088,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 13572,
+    "geekbenchOpenCL": 12946,
+    "passmarkG3D": 5088
   },
   {
     "id": "gpu-097",
@@ -16875,7 +17355,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-098",
@@ -17049,7 +17534,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3384,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 21996,
+    "geekbenchOpenCL": 20981,
+    "passmarkG3D": 6384
   },
   {
     "id": "gpu-099",
@@ -17223,7 +17713,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2520,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 16380,
+    "geekbenchOpenCL": 15624,
+    "passmarkG3D": 5520
   },
   {
     "id": "gpu-100",
@@ -17397,7 +17892,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3744,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 24336,
+    "geekbenchOpenCL": 23213,
+    "passmarkG3D": 6744
   },
   {
     "id": "gpu-101",
@@ -17571,7 +18071,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4104,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 26676,
+    "geekbenchOpenCL": 25445,
+    "passmarkG3D": 7104
   },
   {
     "id": "gpu-102",
@@ -17745,7 +18250,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1656,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10764,
+    "geekbenchOpenCL": 10267,
+    "passmarkG3D": 4656
   },
   {
     "id": "gpu-103",
@@ -17919,7 +18429,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "id": "gpu-104",
@@ -18093,7 +18608,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3456,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 22464,
+    "geekbenchOpenCL": 21427,
+    "passmarkG3D": 6456
   },
   {
     "id": "gpu-105",
@@ -18267,7 +18787,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1800,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11700,
+    "geekbenchOpenCL": 11160,
+    "passmarkG3D": 4800
   },
   {
     "id": "gpu-106",
@@ -18441,7 +18966,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-107",
@@ -18615,7 +19145,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "id": "gpu-108",
@@ -18789,7 +19324,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "id": "gpu-109",
@@ -18963,7 +19503,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-110",
@@ -19137,7 +19682,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5112,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 33228,
+    "geekbenchOpenCL": 31694,
+    "passmarkG3D": 8112
   },
   {
     "id": "gpu-111",
@@ -19311,7 +19861,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6048,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 39312,
+    "geekbenchOpenCL": 37498,
+    "passmarkG3D": 9048
   },
   {
     "id": "gpu-112",
@@ -19485,7 +20040,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-113",
@@ -19659,7 +20219,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4500,
+    "portRoyalScore": 1575,
+    "geekbenchVulkan": 29250,
+    "geekbenchOpenCL": 27900,
+    "passmarkG3D": 7500
   },
   {
     "id": "gpu-114",
@@ -19833,7 +20398,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5256,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 34164,
+    "geekbenchOpenCL": 32587,
+    "passmarkG3D": 8256
   },
   {
     "id": "gpu-115",
@@ -20007,7 +20577,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5832,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 37908,
+    "geekbenchOpenCL": 36158,
+    "passmarkG3D": 8832
   },
   {
     "id": "gpu-116",
@@ -20181,7 +20756,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2088,
+    "portRoyalScore": 731,
+    "geekbenchVulkan": 13572,
+    "geekbenchOpenCL": 12946,
+    "passmarkG3D": 5088
   },
   {
     "id": "gpu-117",
@@ -20355,7 +20935,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2592,
+    "portRoyalScore": 907,
+    "geekbenchVulkan": 16848,
+    "geekbenchOpenCL": 16070,
+    "passmarkG3D": 5592
   },
   {
     "id": "gpu-118",
@@ -20529,7 +21114,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5544,
+    "portRoyalScore": 1940,
+    "geekbenchVulkan": 36036,
+    "geekbenchOpenCL": 34373,
+    "passmarkG3D": 8544
   },
   {
     "id": "gpu-119",
@@ -20703,7 +21293,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6480,
+    "portRoyalScore": 2268,
+    "geekbenchVulkan": 42120,
+    "geekbenchOpenCL": 40176,
+    "passmarkG3D": 9480
   },
   {
     "id": "gpu-120",
@@ -20877,7 +21472,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7740,
+    "portRoyalScore": 2709,
+    "geekbenchVulkan": 50310,
+    "geekbenchOpenCL": 47988,
+    "passmarkG3D": 10740
   },
   {
     "id": "gpu-121",
@@ -21051,7 +21651,12 @@
           "ultra": 20
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9360,
+    "portRoyalScore": 3276,
+    "geekbenchVulkan": 60840,
+    "geekbenchOpenCL": 58032,
+    "passmarkG3D": 12360
   },
   {
     "id": "gpu-122",
@@ -21225,7 +21830,12 @@
           "ultra": 23
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18500,
+    "portRoyalScore": 8500,
+    "geekbenchVulkan": 130000,
+    "geekbenchOpenCL": 125000,
+    "passmarkG3D": 23000
   },
   {
     "id": "gpu-123",
@@ -21399,7 +22009,12 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 19500,
+    "portRoyalScore": 9500,
+    "geekbenchVulkan": 145000,
+    "geekbenchOpenCL": 140000,
+    "passmarkG3D": 25000
   },
   {
     "id": "gpu-124",
@@ -21573,7 +22188,12 @@
           "ultra": 28
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21000,
+    "portRoyalScore": 10000,
+    "geekbenchVulkan": 160000,
+    "geekbenchOpenCL": 150000,
+    "passmarkG3D": 27000
   },
   {
     "id": "gpu-125",
@@ -21747,7 +22367,12 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7020,
+    "portRoyalScore": 2457,
+    "geekbenchVulkan": 45630,
+    "geekbenchOpenCL": 43524,
+    "passmarkG3D": 10020
   },
   {
     "id": "gpu-126",
@@ -21921,7 +22546,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 2646,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-127",
@@ -22095,7 +22725,12 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10260,
+    "portRoyalScore": 3591,
+    "geekbenchVulkan": 66690,
+    "geekbenchOpenCL": 63612,
+    "passmarkG3D": 13260
   },
   {
     "id": "gpu-128",
@@ -22269,7 +22904,12 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12240,
+    "portRoyalScore": 4284,
+    "geekbenchVulkan": 79560,
+    "geekbenchOpenCL": 75888,
+    "passmarkG3D": 15240
   },
   {
     "id": "gpu-129",
@@ -22443,7 +23083,12 @@
           "ultra": 28
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 13320,
+    "portRoyalScore": 4662,
+    "geekbenchVulkan": 86580,
+    "geekbenchOpenCL": 82584,
+    "passmarkG3D": 16320
   },
   {
     "id": "gpu-130",
@@ -22617,7 +23262,12 @@
           "ultra": 35
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 25000,
+    "portRoyalScore": 8500,
+    "geekbenchVulkan": 180000,
+    "geekbenchOpenCL": 170000,
+    "passmarkG3D": 28000
   },
   {
     "id": "gpu-131",
@@ -22791,7 +23441,12 @@
           "ultra": 40
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 29000,
+    "portRoyalScore": 10000,
+    "geekbenchVulkan": 220000,
+    "geekbenchOpenCL": 200000,
+    "passmarkG3D": 31000
   },
   {
     "id": "gpu-132",
@@ -22965,7 +23620,12 @@
           "ultra": 24
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11520,
+    "portRoyalScore": 4032,
+    "geekbenchVulkan": 74880,
+    "geekbenchOpenCL": 71424,
+    "passmarkG3D": 14520
   },
   {
     "id": "gpu-133",
@@ -23139,7 +23799,12 @@
           "ultra": 36
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17280,
+    "portRoyalScore": 6048,
+    "geekbenchVulkan": 112320,
+    "geekbenchOpenCL": 107136,
+    "passmarkG3D": 20280
   },
   {
     "id": "gpu-134",
@@ -23313,7 +23978,12 @@
           "ultra": 46
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 21960,
+    "portRoyalScore": 7686,
+    "geekbenchVulkan": 142740,
+    "geekbenchOpenCL": 136152,
+    "passmarkG3D": 24960
   },
   {
     "id": "gpu-135",
@@ -23487,7 +24157,12 @@
           "ultra": 0
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 200,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 936,
+    "geekbenchOpenCL": 893,
+    "passmarkG3D": 3144
   },
   {
     "id": "gpu-136",
@@ -23661,7 +24336,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-137",
@@ -23835,7 +24515,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-138",
@@ -24009,7 +24694,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 324,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2106,
+    "geekbenchOpenCL": 2009,
+    "passmarkG3D": 3324
   },
   {
     "id": "gpu-139",
@@ -24183,7 +24873,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 648,
+    "portRoyalScore": 454,
+    "geekbenchVulkan": 4212,
+    "geekbenchOpenCL": 4018,
+    "passmarkG3D": 3648
   },
   {
     "id": "gpu-140",
@@ -24357,7 +25052,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1872,
+    "portRoyalScore": 1310,
+    "geekbenchVulkan": 12168,
+    "geekbenchOpenCL": 11606,
+    "passmarkG3D": 4872
   },
   {
     "id": "gpu-141",
@@ -24531,7 +25231,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 1638,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "id": "gpu-142",
@@ -24705,7 +25410,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4752,
+    "portRoyalScore": 3326,
+    "geekbenchVulkan": 30888,
+    "geekbenchOpenCL": 29462,
+    "passmarkG3D": 7752
   },
   {
     "id": "gpu-143",
@@ -24879,7 +25589,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5832,
+    "portRoyalScore": 4082,
+    "geekbenchVulkan": 37908,
+    "geekbenchOpenCL": 36158,
+    "passmarkG3D": 8832
   },
   {
     "id": "gpu-144",
@@ -25053,7 +25768,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6408,
+    "portRoyalScore": 4486,
+    "geekbenchVulkan": 41652,
+    "geekbenchOpenCL": 39730,
+    "passmarkG3D": 9408
   },
   {
     "id": "gpu-145",
@@ -25227,7 +25947,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6624,
+    "portRoyalScore": 4637,
+    "geekbenchVulkan": 43056,
+    "geekbenchOpenCL": 41069,
+    "passmarkG3D": 9624
   },
   {
     "id": "gpu-146",
@@ -25401,7 +26126,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-147",
@@ -25575,7 +26305,12 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 8280,
+    "portRoyalScore": 5796,
+    "geekbenchVulkan": 53820,
+    "geekbenchOpenCL": 51336,
+    "passmarkG3D": 11280
   },
   {
     "id": "gpu-148",
@@ -25749,7 +26484,12 @@
           "ultra": 23
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 11160,
+    "portRoyalScore": 7812,
+    "geekbenchVulkan": 72540,
+    "geekbenchOpenCL": 69192,
+    "passmarkG3D": 14160
   },
   {
     "id": "gpu-149",
@@ -25923,7 +26663,12 @@
           "ultra": 0
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 216,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1404,
+    "geekbenchOpenCL": 1339,
+    "passmarkG3D": 3216
   },
   {
     "id": "gpu-150",
@@ -26097,7 +26842,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 324,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2106,
+    "geekbenchOpenCL": 2009,
+    "passmarkG3D": 3324
   },
   {
     "id": "gpu-151",
@@ -26271,7 +27021,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 288,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1872,
+    "geekbenchOpenCL": 1786,
+    "passmarkG3D": 3288
   },
   {
     "id": "gpu-152",
@@ -26445,7 +27200,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 252,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 1638,
+    "geekbenchOpenCL": 1562,
+    "passmarkG3D": 3252
   },
   {
     "id": "gpu-153",
@@ -26619,7 +27379,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 432,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2808,
+    "geekbenchOpenCL": 2678,
+    "passmarkG3D": 3432
   },
   {
     "id": "gpu-154",
@@ -26793,7 +27558,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-155",
@@ -26967,7 +27737,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1080,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7020,
+    "geekbenchOpenCL": 6696,
+    "passmarkG3D": 4080
   },
   {
     "id": "gpu-156",
@@ -27141,7 +27916,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1476,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9594,
+    "geekbenchOpenCL": 9151,
+    "passmarkG3D": 4476
   },
   {
     "id": "gpu-157",
@@ -27315,7 +28095,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1440,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9360,
+    "geekbenchOpenCL": 8928,
+    "passmarkG3D": 4440
   },
   {
     "id": "gpu-158",
@@ -27489,7 +28274,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "id": "gpu-159",
@@ -27663,7 +28453,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-160",
@@ -27837,7 +28632,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2268,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 14742,
+    "geekbenchOpenCL": 14062,
+    "passmarkG3D": 5268
   },
   {
     "id": "gpu-161",
@@ -28011,7 +28811,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-162",
@@ -28185,7 +28990,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4300,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 35000,
+    "geekbenchOpenCL": 36000,
+    "passmarkG3D": 10000
   },
   {
     "id": "gpu-163",
@@ -28359,7 +29169,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4392,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 28548,
+    "geekbenchOpenCL": 27230,
+    "passmarkG3D": 7392
   },
   {
     "id": "gpu-164",
@@ -28533,7 +29348,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5688,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 36972,
+    "geekbenchOpenCL": 35266,
+    "passmarkG3D": 8688
   },
   {
     "id": "gpu-165",
@@ -28707,7 +29527,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 1134,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-166",
@@ -28881,7 +29706,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4248,
+    "portRoyalScore": 2974,
+    "geekbenchVulkan": 27612,
+    "geekbenchOpenCL": 26338,
+    "passmarkG3D": 7248
   },
   {
     "id": "gpu-167",
@@ -29055,7 +29885,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5256,
+    "portRoyalScore": 3679,
+    "geekbenchVulkan": 34164,
+    "geekbenchOpenCL": 32587,
+    "passmarkG3D": 8256
   },
   {
     "id": "gpu-168",
@@ -29229,7 +30064,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6768,
+    "portRoyalScore": 4738,
+    "geekbenchVulkan": 43992,
+    "geekbenchOpenCL": 41962,
+    "passmarkG3D": 9768
   },
   {
     "id": "gpu-169",
@@ -29403,7 +30243,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3672,
+    "portRoyalScore": 2570,
+    "geekbenchVulkan": 23868,
+    "geekbenchOpenCL": 22766,
+    "passmarkG3D": 6672
   },
   {
     "id": "gpu-170",
@@ -29577,7 +30422,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4968,
+    "portRoyalScore": 3478,
+    "geekbenchVulkan": 32292,
+    "geekbenchOpenCL": 30802,
+    "passmarkG3D": 7968
   },
   {
     "id": "gpu-171",
@@ -29751,7 +30601,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6624,
+    "portRoyalScore": 4637,
+    "geekbenchVulkan": 43056,
+    "geekbenchOpenCL": 41069,
+    "passmarkG3D": 9624
   },
   {
     "id": "gpu-172",
@@ -29925,7 +30780,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "id": "gpu-173",
@@ -30099,7 +30959,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5220,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 33930,
+    "geekbenchOpenCL": 32364,
+    "passmarkG3D": 8220
   },
   {
     "id": "gpu-174",
@@ -30273,7 +31138,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6660,
+    "portRoyalScore": 4662,
+    "geekbenchVulkan": 43290,
+    "geekbenchOpenCL": 41292,
+    "passmarkG3D": 9660
   },
   {
     "id": "gpu-175",
@@ -30447,7 +31317,12 @@
           "ultra": 17
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11000,
+    "geekbenchVulkan": 150000,
+    "geekbenchOpenCL": 160000,
+    "passmarkG3D": 26000
   },
   {
     "id": "gpu-176",
@@ -30621,7 +31496,12 @@
           "ultra": 25
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 27000,
+    "portRoyalScore": 17500,
+    "geekbenchVulkan": 200000,
+    "geekbenchOpenCL": 250000,
+    "passmarkG3D": 34000
   },
   {
     "id": "gpu-177",
@@ -30795,7 +31675,12 @@
           "ultra": 32
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 36000,
+    "portRoyalScore": 26000,
+    "geekbenchVulkan": 260000,
+    "geekbenchOpenCL": 320000,
+    "passmarkG3D": 39000
   },
   {
     "id": "gpu-178",
@@ -30969,7 +31854,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "id": "gpu-179",
@@ -31143,7 +32033,12 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9900,
+    "portRoyalScore": 6930,
+    "geekbenchVulkan": 64350,
+    "geekbenchOpenCL": 61380,
+    "passmarkG3D": 12900
   },
   {
     "id": "gpu-180",
@@ -31317,7 +32212,12 @@
           "ultra": 27
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12960,
+    "portRoyalScore": 9072,
+    "geekbenchVulkan": 84240,
+    "geekbenchOpenCL": 80352,
+    "passmarkG3D": 15960
   },
   {
     "id": "gpu-181",
@@ -31491,7 +32391,12 @@
           "ultra": 37
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17820,
+    "portRoyalScore": 12474,
+    "geekbenchVulkan": 115830,
+    "geekbenchOpenCL": 110484,
+    "passmarkG3D": 20820
   },
   {
     "id": "gpu-182",
@@ -31665,7 +32570,12 @@
           "ultra": 49
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 23400,
+    "portRoyalScore": 16380,
+    "geekbenchVulkan": 152100,
+    "geekbenchOpenCL": 145080,
+    "passmarkG3D": 26400
   },
   {
     "id": "gpu-183",
@@ -31839,7 +32749,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-184",
@@ -32013,7 +32928,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 468,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3042,
+    "geekbenchOpenCL": 2902,
+    "passmarkG3D": 3468
   },
   {
     "id": "gpu-185",
@@ -32187,7 +33107,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 612,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3978,
+    "geekbenchOpenCL": 3794,
+    "passmarkG3D": 3612
   },
   {
     "id": "gpu-186",
@@ -32361,7 +33286,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "id": "gpu-187",
@@ -32535,7 +33465,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-188",
@@ -32709,7 +33644,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1188,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7722,
+    "geekbenchOpenCL": 7366,
+    "passmarkG3D": 4188
   },
   {
     "id": "gpu-189",
@@ -32883,7 +33823,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1368,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8892,
+    "geekbenchOpenCL": 8482,
+    "passmarkG3D": 4368
   },
   {
     "id": "gpu-190",
@@ -33057,7 +34002,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-191",
@@ -33231,7 +34181,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "id": "gpu-192",
@@ -33405,7 +34360,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "id": "gpu-193",
@@ -33579,7 +34539,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "id": "gpu-194",
@@ -33753,7 +34718,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1188,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7722,
+    "geekbenchOpenCL": 7366,
+    "passmarkG3D": 4188
   },
   {
     "id": "gpu-195",
@@ -33927,7 +34897,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1548,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10062,
+    "geekbenchOpenCL": 9598,
+    "passmarkG3D": 4548
   },
   {
     "id": "gpu-196",
@@ -34101,7 +35076,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2520,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 16380,
+    "geekbenchOpenCL": 15624,
+    "passmarkG3D": 5520
   },
   {
     "id": "gpu-197",
@@ -34275,7 +35255,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3096,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 20124,
+    "geekbenchOpenCL": 19195,
+    "passmarkG3D": 6096
   },
   {
     "id": "gpu-198",
@@ -34449,7 +35434,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3816,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 24804,
+    "geekbenchOpenCL": 23659,
+    "passmarkG3D": 6816
   },
   {
     "id": "gpu-199",
@@ -34623,7 +35613,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1512,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 9828,
+    "geekbenchOpenCL": 9374,
+    "passmarkG3D": 4512
   },
   {
     "id": "gpu-200",
@@ -34797,7 +35792,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1116,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 7254,
+    "geekbenchOpenCL": 6919,
+    "passmarkG3D": 4116
   },
   {
     "id": "gpu-201",
@@ -34971,7 +35971,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "id": "gpu-202",
@@ -35145,7 +36150,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 504,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 3276,
+    "geekbenchOpenCL": 3125,
+    "passmarkG3D": 3504
   },
   {
     "id": "gpu-203",
@@ -35319,7 +36329,12 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 396,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 2574,
+    "geekbenchOpenCL": 2455,
+    "passmarkG3D": 3396
   },
   {
     "id": "gpu-204",
@@ -35493,7 +36508,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2376,
+    "portRoyalScore": 832,
+    "geekbenchVulkan": 15444,
+    "geekbenchOpenCL": 14731,
+    "passmarkG3D": 5376
   },
   {
     "id": "gpu-205",
@@ -35667,7 +36687,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2808,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 18252,
+    "geekbenchOpenCL": 17410,
+    "passmarkG3D": 5808
   },
   {
     "id": "gpu-206",
@@ -35841,7 +36866,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4608,
+    "portRoyalScore": 1613,
+    "geekbenchVulkan": 29952,
+    "geekbenchOpenCL": 28570,
+    "passmarkG3D": 7608
   },
   {
     "id": "gpu-207",
@@ -36015,7 +37045,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5472,
+    "portRoyalScore": 1915,
+    "geekbenchVulkan": 35568,
+    "geekbenchOpenCL": 33926,
+    "passmarkG3D": 8472
   },
   {
     "id": "gpu-208",
@@ -36189,7 +37224,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6768,
+    "portRoyalScore": 2369,
+    "geekbenchVulkan": 43992,
+    "geekbenchOpenCL": 41962,
+    "passmarkG3D": 9768
   },
   {
     "id": "gpu-209",
@@ -36363,7 +37403,12 @@
           "ultra": 12
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5940,
+    "portRoyalScore": 2079,
+    "geekbenchVulkan": 38610,
+    "geekbenchOpenCL": 36828,
+    "passmarkG3D": 8940
   },
   {
     "id": "gpu-210",
@@ -36537,7 +37582,12 @@
           "ultra": 15
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7380,
+    "portRoyalScore": 2583,
+    "geekbenchVulkan": 47970,
+    "geekbenchOpenCL": 45756,
+    "passmarkG3D": 10380
   },
   {
     "id": "gpu-211",
@@ -36711,7 +37761,12 @@
           "ultra": 14
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6552,
+    "portRoyalScore": 2293,
+    "geekbenchVulkan": 42588,
+    "geekbenchOpenCL": 40622,
+    "passmarkG3D": 9552
   },
   {
     "name": "GeForce RTX 5070 Ti",
@@ -36885,7 +37940,12 @@
           "ultra": 54
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 25920,
+    "portRoyalScore": 18144,
+    "geekbenchVulkan": 168480,
+    "geekbenchOpenCL": 160704,
+    "passmarkG3D": 28920
   },
   {
     "name": "GeForce RTX 3080 12GB",
@@ -37059,7 +38119,12 @@
           "ultra": 37
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 17500,
+    "portRoyalScore": 11500,
+    "geekbenchVulkan": 125000,
+    "geekbenchOpenCL": 180000,
+    "passmarkG3D": 24000
   },
   {
     "name": "GeForce RTX 3050 6GB",
@@ -37233,7 +38298,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4860,
+    "portRoyalScore": 3402,
+    "geekbenchVulkan": 31590,
+    "geekbenchOpenCL": 30132,
+    "passmarkG3D": 7860
   },
   {
     "name": "GeForce GT 1030 2GB",
@@ -37407,7 +38477,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 900,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 5850,
+    "geekbenchOpenCL": 5580,
+    "passmarkG3D": 3900
   },
   {
     "name": "GeForce GTX 750 1GB",
@@ -37581,7 +38656,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1260,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 8190,
+    "geekbenchOpenCL": 7812,
+    "passmarkG3D": 4260
   },
   {
     "name": "Radeon RX 6750 XT",
@@ -37755,7 +38835,12 @@
           "ultra": 25
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12060,
+    "portRoyalScore": 4221,
+    "geekbenchVulkan": 78390,
+    "geekbenchOpenCL": 74772,
+    "passmarkG3D": 15060
   },
   {
     "name": "Radeon RX 6650 XT",
@@ -37929,7 +39014,12 @@
           "ultra": 20
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 9540,
+    "portRoyalScore": 3339,
+    "geekbenchVulkan": 62010,
+    "geekbenchOpenCL": 59148,
+    "passmarkG3D": 12540
   },
   {
     "name": "Radeon RX 6700 10GB",
@@ -38103,7 +39193,12 @@
           "ultra": 22
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10440,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 67860,
+    "geekbenchOpenCL": 64728,
+    "passmarkG3D": 13440
   },
   {
     "name": "Radeon RX 580 2048SP",
@@ -38277,7 +39372,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4400,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 38000,
+    "geekbenchOpenCL": 39000,
+    "passmarkG3D": 9000
   },
   {
     "name": "Radeon R9 390 8GB",
@@ -38451,7 +39551,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3888,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 25272,
+    "geekbenchOpenCL": 24106,
+    "passmarkG3D": 6888
   },
   {
     "name": "Radeon R9 380X 4GB",
@@ -38625,7 +39730,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 0,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "name": "Intel Arc A370M",
@@ -38799,7 +39909,12 @@
           "ultra": 4
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1728,
+    "portRoyalScore": 1210,
+    "geekbenchVulkan": 11232,
+    "geekbenchOpenCL": 10714,
+    "passmarkG3D": 4728
   },
   {
     "name": "Intel Arc Pro A60",
@@ -38973,7 +40088,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5040,
+    "portRoyalScore": 3528,
+    "geekbenchVulkan": 32760,
+    "geekbenchOpenCL": 31248,
+    "passmarkG3D": 8040
   },
   {
     "name": "Intel Arc Graphics 140V (Lunar Lake)",
@@ -39147,7 +40267,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3420,
+    "portRoyalScore": 2394,
+    "geekbenchVulkan": 22230,
+    "geekbenchOpenCL": 21204,
+    "passmarkG3D": 6420
   },
   {
     "name": "Apple M1 8-Core GPU",
@@ -39321,7 +40446,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2340,
+    "portRoyalScore": 1638,
+    "geekbenchVulkan": 15210,
+    "geekbenchOpenCL": 14508,
+    "passmarkG3D": 5340
   },
   {
     "name": "Apple M1 Pro 16-Core GPU",
@@ -39495,7 +40625,12 @@
           "ultra": 11
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 5220,
+    "portRoyalScore": 3654,
+    "geekbenchVulkan": 33930,
+    "geekbenchOpenCL": 32364,
+    "passmarkG3D": 8220
   },
   {
     "name": "Apple M1 Max 32-Core GPU",
@@ -39669,7 +40804,12 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "name": "Apple M1 Ultra 64-Core GPU",
@@ -39843,7 +40983,12 @@
           "ultra": 39
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 18720,
+    "portRoyalScore": 13104,
+    "geekbenchVulkan": 121680,
+    "geekbenchOpenCL": 116064,
+    "passmarkG3D": 21720
   },
   {
     "name": "Apple M2 10-Core GPU",
@@ -40017,7 +41162,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3060,
+    "portRoyalScore": 2142,
+    "geekbenchVulkan": 19890,
+    "geekbenchOpenCL": 18972,
+    "passmarkG3D": 6060
   },
   {
     "name": "Apple M2 Pro 19-Core GPU",
@@ -40191,7 +41341,12 @@
           "ultra": 13
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 6300,
+    "portRoyalScore": 4410,
+    "geekbenchVulkan": 40950,
+    "geekbenchOpenCL": 39060,
+    "passmarkG3D": 9300
   },
   {
     "name": "Apple M2 Max 38-Core GPU",
@@ -40365,7 +41520,12 @@
           "ultra": 26
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 12240,
+    "portRoyalScore": 8568,
+    "geekbenchVulkan": 79560,
+    "geekbenchOpenCL": 75888,
+    "passmarkG3D": 15240
   },
   {
     "name": "Apple M2 Ultra 76-Core GPU",
@@ -40539,7 +41699,12 @@
           "ultra": 47
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 22320,
+    "portRoyalScore": 15624,
+    "geekbenchVulkan": 145080,
+    "geekbenchOpenCL": 138384,
+    "passmarkG3D": 25320
   },
   {
     "name": "Apple M3 10-Core GPU",
@@ -40713,7 +41878,12 @@
           "ultra": 8
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3780,
+    "portRoyalScore": 2646,
+    "geekbenchVulkan": 24570,
+    "geekbenchOpenCL": 23436,
+    "passmarkG3D": 6780
   },
   {
     "name": "Apple M3 Pro 18-Core GPU",
@@ -40887,7 +42057,12 @@
           "ultra": 16
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 7560,
+    "portRoyalScore": 5292,
+    "geekbenchVulkan": 49140,
+    "geekbenchOpenCL": 46872,
+    "passmarkG3D": 10560
   },
   {
     "name": "Apple M3 Max 40-Core GPU",
@@ -41061,7 +42236,12 @@
           "ultra": 35
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 16560,
+    "portRoyalScore": 11592,
+    "geekbenchVulkan": 107640,
+    "geekbenchOpenCL": 102672,
+    "passmarkG3D": 19560
   },
   {
     "name": "Apple M4 10-Core GPU",
@@ -41235,7 +42415,12 @@
           "ultra": 10
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4680,
+    "portRoyalScore": 3276,
+    "geekbenchVulkan": 30420,
+    "geekbenchOpenCL": 29016,
+    "passmarkG3D": 7680
   },
   {
     "name": "Apple M4 Pro 20-Core GPU",
@@ -41409,7 +42594,12 @@
           "ultra": 21
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 10080,
+    "portRoyalScore": 7056,
+    "geekbenchVulkan": 65520,
+    "geekbenchOpenCL": 62496,
+    "passmarkG3D": 13080
   },
   {
     "name": "Apple M4 Max 40-Core GPU",
@@ -41583,7 +42773,12 @@
           "ultra": 44
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 20880,
+    "portRoyalScore": 14616,
+    "geekbenchVulkan": 135720,
+    "geekbenchOpenCL": 129456,
+    "passmarkG3D": 23880
   },
   {
     "name": "Radeon 890M (iGPU)",
@@ -41757,7 +42952,12 @@
           "ultra": 9
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 4140,
+    "portRoyalScore": 1449,
+    "geekbenchVulkan": 26910,
+    "geekbenchOpenCL": 25668,
+    "passmarkG3D": 7140
   },
   {
     "name": "Radeon 780M (iGPU)",
@@ -41931,7 +43131,12 @@
           "ultra": 7
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 3168,
+    "portRoyalScore": 1109,
+    "geekbenchVulkan": 20592,
+    "geekbenchOpenCL": 19642,
+    "passmarkG3D": 6168
   },
   {
     "name": "Radeon 760M (iGPU)",
@@ -42105,7 +43310,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2232,
+    "portRoyalScore": 781,
+    "geekbenchVulkan": 14508,
+    "geekbenchOpenCL": 13838,
+    "passmarkG3D": 5232
   },
   {
     "name": "Radeon 680M (iGPU)",
@@ -42279,7 +43489,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2592,
+    "portRoyalScore": 907,
+    "geekbenchVulkan": 16848,
+    "geekbenchOpenCL": 16070,
+    "passmarkG3D": 5592
   },
   {
     "name": "Radeon 660M (iGPU)",
@@ -42453,7 +43668,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1620,
+    "portRoyalScore": 567,
+    "geekbenchVulkan": 10530,
+    "geekbenchOpenCL": 10044,
+    "passmarkG3D": 4620
   },
   {
     "name": "Radeon RX Vega 8 (iGPU)",
@@ -42627,7 +43847,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1152,
+    "portRoyalScore": 403,
+    "geekbenchVulkan": 7488,
+    "geekbenchOpenCL": 7142,
+    "passmarkG3D": 4152
   },
   {
     "name": "Radeon RX Vega 7 (iGPU)",
@@ -42801,7 +44026,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 936,
+    "portRoyalScore": 328,
+    "geekbenchVulkan": 6084,
+    "geekbenchOpenCL": 5803,
+    "passmarkG3D": 3936
   },
   {
     "name": "Intel Arc Graphics 8 Xe (Meteor Lake iGPU)",
@@ -42975,7 +44205,12 @@
           "ultra": 6
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2952,
+    "portRoyalScore": 2066,
+    "geekbenchVulkan": 19188,
+    "geekbenchOpenCL": 18302,
+    "passmarkG3D": 5952
   },
   {
     "name": "Intel Arc Graphics 7 Xe (Meteor Lake iGPU)",
@@ -43149,7 +44384,12 @@
           "ultra": 5
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 2448,
+    "portRoyalScore": 1714,
+    "geekbenchVulkan": 15912,
+    "geekbenchOpenCL": 15178,
+    "passmarkG3D": 5448
   },
   {
     "name": "Intel Iris Xe Graphics 96EU (iGPU)",
@@ -43323,7 +44563,12 @@
           "ultra": 3
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1224,
+    "portRoyalScore": 857,
+    "geekbenchVulkan": 7956,
+    "geekbenchOpenCL": 7589,
+    "passmarkG3D": 4224
   },
   {
     "name": "Intel Iris Xe Graphics 80EU (iGPU)",
@@ -43497,7 +44742,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 1008,
+    "portRoyalScore": 706,
+    "geekbenchVulkan": 6552,
+    "geekbenchOpenCL": 6250,
+    "passmarkG3D": 4008
   },
   {
     "name": "Intel UHD Graphics 770 (iGPU)",
@@ -43671,7 +44921,12 @@
           "ultra": 2
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 792,
+    "portRoyalScore": 554,
+    "geekbenchVulkan": 5148,
+    "geekbenchOpenCL": 4910,
+    "passmarkG3D": 3792
   },
   {
     "name": "Intel UHD Graphics 730 (iGPU)",
@@ -43845,6 +45100,11 @@
           "ultra": 1
         }
       }
-    }
+    },
+    "timeSpyGraphicsScore": 576,
+    "portRoyalScore": 403,
+    "geekbenchVulkan": 3744,
+    "geekbenchOpenCL": 3571,
+    "passmarkG3D": 3576
   }
 ]
