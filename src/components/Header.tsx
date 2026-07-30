@@ -152,8 +152,8 @@ export default function Header({
         </div>
       </header>
 
-      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Smooth Seamless Crossfade Stack) */}
-      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group bg-black/90">
+      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Smooth Seamless Crossfade Stack with Premium Hover Motion) */}
+      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group bg-black/90 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30 dark:hover:border-cyan-400/40 cursor-pointer">
         {(["simulator", "catalog", "compare", "rankings"] as const).map((page) => {
           const videoSrc =
             page === "rankings"
@@ -172,7 +172,7 @@ export default function Header({
               loop
               muted
               playsInline
-              className={`absolute inset-0 w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-opacity duration-500 ease-in-out pointer-events-none ${
+              className={`absolute inset-0 w-full h-full object-cover brightness-95 dark:brightness-80 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out pointer-events-none ${
                 isActive ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
@@ -181,17 +181,17 @@ export default function Header({
           );
         })}
 
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/90 via-black/60 to-transparent group-hover:from-black/95 group-hover:via-black/65 transition-all duration-500 flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
-            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs">
+            <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs group-hover:scale-105 transition-transform duration-300">
               {activePage === "rankings" ? t("hero.rankings.badge1") : activePage === "compare" ? t("hero.compare.badge1") : activePage === "catalog" ? t("hero.catalog.badge1") : t("hero.simulator.badge1")}
             </span>
-            <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
+            <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
               {activePage === "rankings" ? t("hero.rankings.badge2") : activePage === "compare" ? t("hero.compare.badge2") : activePage === "catalog" ? t("hero.catalog.badge2") : t("hero.simulator.badge2")}
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3 group-hover:translate-x-1.5 transition-transform duration-500 ease-out">
             {activePage === "rankings"
               ? t("hero.rankings.title")
               : activePage === "compare"
@@ -201,7 +201,7 @@ export default function Header({
               : t("hero.simulator.title")}
           </h1>
 
-          <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
+          <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow group-hover:translate-x-1.5 transition-transform duration-500 ease-out delay-75">
             {activePage === "rankings"
               ? t("hero.rankings.desc")
               : activePage === "compare"
