@@ -146,30 +146,34 @@ export default function Header({
         </div>
       </header>
 
-      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Differs per Page) */}
-      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group">
-        <video
-          key={activePage}
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="./kensei_hero_banner.jpg"
-          className="w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-all duration-700 ease-out pointer-events-none"
-        >
-          <source
-            src={
-              activePage === "rankings"
-                ? "./gif_banner_rankings.mp4"
-                : activePage === "compare"
-                ? "./gif_banner_vs.mp4"
-                : activePage === "catalog"
-                ? "./gif_banner_catalog.mp4"
-                : "./gif_banner_calculator.mp4"
-            }
-            type="video/mp4"
-          />
-        </video>
+      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Smooth Seamless Crossfade Stack) */}
+      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group bg-black/90">
+        {(["simulator", "catalog", "compare", "rankings"] as const).map((page) => {
+          const videoSrc =
+            page === "rankings"
+              ? "./gif_banner_rankings.mp4"
+              : page === "compare"
+              ? "./gif_banner_vs.mp4"
+              : page === "catalog"
+              ? "./gif_banner_catalog.mp4"
+              : "./gif_banner_calculator.mp4";
+          const isActive = activePage === page;
+
+          return (
+            <video
+              key={page}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover brightness-95 dark:brightness-75 group-hover:scale-102 transition-opacity duration-500 ease-in-out pointer-events-none ${
+                isActive ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          );
+        })}
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
