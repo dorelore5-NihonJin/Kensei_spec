@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import type { CPU, GPU, Game, RAMProfile } from "../lib/types";
 import { calculatePerformance } from "../lib/calculator";
 import { Gamepad2, Search, AlertTriangle } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface GameSelectorProps {
   games: Game[];
@@ -64,6 +65,7 @@ export default function GameSelector({
   selectedCpu,
   selectedGpu
 }: GameSelectorProps) {
+  const { t } = useLanguage();
   const [searchGameQuery, setSearchGameQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<"All" | "Esports" | "AAA" | "Simulation">("All");
 
@@ -147,10 +149,10 @@ export default function GameSelector({
       <div className="flex items-center justify-between">
         <h3 className="text-base font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <Gamepad2 className="w-4 h-4 text-[#E88D9F]" />
-          2. Select Target / ゲーム選択
+          {t("step3.title")}
         </h3>
         <span className="text-[10px] bg-[#8A9A86]/15 text-[#8A9A86] dark:bg-[#8A9A86]/25 font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
-          Environment
+          {t("preset.quality")}
         </span>
       </div>
 
@@ -160,7 +162,7 @@ export default function GameSelector({
           <Search className="w-4 h-4 text-gray-500" />
           <input
             type="text"
-            placeholder="Search games..."
+            placeholder={t("search.placeholder")}
             className="w-full text-xs font-semibold outline-none bg-transparent text-[#1E2022] dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
             value={searchGameQuery}
             onChange={(e) => setSearchGameQuery(e.target.value)}

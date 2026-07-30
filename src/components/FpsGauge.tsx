@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { CalculationResult } from "../lib/types";
 import { Sparkles, Share2, Check, Info } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
+import { useLanguage } from "../context/LanguageContext";
 
 interface FpsGaugeProps {
   report: CalculationResult;
@@ -46,6 +47,7 @@ function useAnimatedNumber(target: number, duration: number = 300) {
 
 export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam, frameGen }: FpsGaugeProps) {
   const { handleShareBuild } = useHardware();
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const onShareClick = () => {
@@ -89,7 +91,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
       <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
         <h3 className="text-base font-black tracking-tight flex items-center gap-2 text-white">
           <Sparkles className="w-5 h-5 text-[#E88D9F]" />
-          3. Estimated Performance / 性能予測
+          {t("fps.estimated")}
         </h3>
         <div className="flex items-center gap-2">
           {isComplete && (

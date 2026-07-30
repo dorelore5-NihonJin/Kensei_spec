@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
 import { Cpu, Tv, Database, HardDrive, Search, Filter, AlertTriangle, X, Check } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface ComponentPickerProps {
   cpus: CPU[];
@@ -37,6 +38,7 @@ export default function ComponentPicker({
   ramChannel,
   setRamChannel
 }: ComponentPickerProps) {
+  const { t } = useLanguage();
   // CPU state
   const [cpuQuery, setCpuQuery] = useState("");
   const [cpuMfgFilter, setCpuMfgFilter] = useState<"All" | "Intel" | "AMD">("All");
@@ -103,10 +105,10 @@ export default function ComponentPicker({
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-xl font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <Cpu className="w-5 h-5 text-[#E88D9F]" />
-          1. Pick Components / 構成の選択
+          {t("step1.title")}
         </h3>
         <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] dark:bg-[#E88D9F]/25 font-black px-3 py-1 rounded-full uppercase tracking-wider">
-          Specification
+          {t("nav.simulator")}
         </span>
       </div>
 

@@ -13,6 +13,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [lang, setLangState] = useState<Language>(() => {
     if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get("lang") as Language;
+      if (urlLang === "en" || urlLang === "ru" || urlLang === "ja") {
+        localStorage.setItem("kensei_lang", urlLang);
+        return urlLang;
+      }
       const saved = localStorage.getItem("kensei_lang") as Language;
       if (saved === "en" || saved === "ru" || saved === "ja") return saved;
     }
@@ -23,6 +29,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLangState(newLang);
     if (typeof window !== "undefined") {
       localStorage.setItem("kensei_lang", newLang);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", newLang);
+      window.history.replaceState({}, "", url.toString());
     }
   };
 

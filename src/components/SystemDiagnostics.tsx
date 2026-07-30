@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { CPU, GPU, RAMProfile, CompatibilityReport } from "../lib/types";
 import { AlertTriangle, CheckCircle, Zap, ShieldAlert, ChevronDown, ChevronUp, Cpu, Activity, HardDrive } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface SystemDiagnosticsProps {
   selectedCpu: CPU | null;
@@ -15,6 +16,7 @@ export default function SystemDiagnostics({
   selectedRam,
   compatibilityReport
 }: SystemDiagnosticsProps) {
+  const { t } = useLanguage();
   const [showProMode, setShowProMode] = useState(false);
   const isComplete = selectedCpu && selectedGpu && selectedRam;
 
@@ -60,10 +62,10 @@ export default function SystemDiagnostics({
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <Zap className="w-5 h-5 text-[#E88D9F] animate-bounce" />
-          System Diagnostics / 互換性診断
+          {t("bottleneck.title")}
         </h3>
         <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] dark:bg-[#E88D9F]/25 font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
-          Telemetry
+          {t("hero.simulator.badge2")}
         </span>
       </div>
 
@@ -71,7 +73,7 @@ export default function SystemDiagnostics({
       {!isComplete ? (
         <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-6 flex items-center justify-center gap-2">
           <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
-          <span>Select CPU, GPU, and RAM to activate telemetry report.</span>
+          <span>{t("step1.title")} + {t("step2.title")}</span>
         </div>
       ) : compatibilityReport.warnings.length === 0 && compatibilityReport.mismatches.length === 0 ? (
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-start gap-3">
