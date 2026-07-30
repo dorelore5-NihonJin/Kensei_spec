@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import type { ReactNode } from "react";
 import type { CPU, GPU, RAMProfile, Game, StorageType } from "../lib/types";
+import { translations, type Language } from "../data/translations";
 
 import cpuData from "../data/cpus.json";
 import gpuData from "../data/gpus.json";
@@ -357,7 +358,22 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     }
     const cpuName = selectedCpu ? selectedCpu.name : "System";
     const gpuName = selectedGpu ? selectedGpu.name : "Build";
-    showToast("Build Link Copied to Clipboard! 🔗", `${cpuName} + ${gpuName}`);
+
+    // Read current lang from URL or localStorage
+    let currentLang: Language = "en";
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get("lang") as Language;
+      if (urlLang === "en" || urlLang === "ru" || urlLang === "ja") {
+        currentLang = urlLang;
+      } else {
+        const saved = localStorage.getItem("kensei_lang") as Language;
+        if (saved === "en" || saved === "ru" || saved === "ja") currentLang = saved;
+      }
+    }
+
+    const toastTitle = translations["toast.copied"]?.[currentLang] || translations["toast.copied"]?.["en"] || "Build Link Copied to Clipboard! 🔗";
+    showToast(toastTitle, `${cpuName} + ${gpuName}`);
     return url;
   };
 

@@ -184,10 +184,8 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
 
         {/* Verdict Badge */}
         {isComplete ? (
-          <div className={`px-4 py-1 rounded-full text-xs font-black border flex items-center gap-2 mt-4 ${report.verdict.colorClass}`}>
-            <span>{report.verdict.badge}</span>
-            <span className="opacity-70">/</span>
-            <span>{report.verdict.japaneseBadge}</span>
+          <div className={`px-4 py-1 rounded-full text-xs font-black border flex items-center justify-center gap-2 mt-4 ${report.verdict.colorClass}`}>
+            <span>{t(`verdict.${(report.verdict as any).key || "playable"}`)}</span>
           </div>
         ) : (
           <div className="px-4 py-1.5 rounded-full text-xs font-black border border-white/15 text-gray-300 bg-white/5 mt-4">

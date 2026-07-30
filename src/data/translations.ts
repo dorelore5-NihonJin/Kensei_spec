@@ -194,6 +194,35 @@ export const translations: TranslationDictionary = {
     ja: "ステップ2へ進む →"
   },
 
+  // Toast Notifications
+  "toast.copied": {
+    en: "Build Link Copied to Clipboard! 🔗",
+    ru: "Ссылка на сборку скопирована в буфер обмена! 🔗",
+    ja: "構成リンクをクリップボードにコピーしました！ 🔗"
+  },
+
+  // FPS Verdict Badges
+  "verdict.high_refresh": {
+    en: "High Refresh",
+    ru: "Высокая плавность",
+    ja: "超快適"
+  },
+  "verdict.smooth": {
+    en: "Smooth 60+ FPS",
+    ru: "Плавная игра 60+ FPS",
+    ja: "快適 60+ FPS"
+  },
+  "verdict.playable": {
+    en: "Playable 30+ FPS",
+    ru: "Играбельно 30+ FPS",
+    ja: "プレイ可能 30+ FPS"
+  },
+  "verdict.heavy": {
+    en: "Below 30 FPS",
+    ru: "Низкий FPS (меньше 30)",
+    ja: "動作重い"
+  },
+
   // Game Selector Labels
   "game.target_resolution": {
     en: "TARGET RESOLUTION",
@@ -371,7 +400,7 @@ export const translations: TranslationDictionary = {
   "fps.workload_balance": {
     en: "WORKLOAD BALANCE (CPU VS GPU LOAD)",
     ru: "БАЛАНС НАГРУЗКИ (CPU ПРОТИВ GPU)",
-    ja: "ワークロード バランス (CPU vs GPU)"
+    ja: "WORKLOAD バランス (CPU vs GPU)"
   },
   "fps.cpu_load": {
     en: "CPU Load",

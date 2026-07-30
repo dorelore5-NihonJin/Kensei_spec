@@ -412,15 +412,15 @@ export function calculatePerformance(
   }
 
   // --- 7. Verdict Badges ---
-  let verdict = { badge: "Playable", japaneseBadge: "プレイ可能", colorClass: "text-yellow-700 bg-yellow-50 border-yellow-200" };
+  let verdict = { key: "playable", badge: "Playable", japaneseBadge: "プレイ可能", colorClass: "text-yellow-700 bg-yellow-50 border-yellow-200" };
   if (averageFps < 30) {
-    verdict = { badge: "Unplayable", japaneseBadge: "厳しい", colorClass: "text-red-700 bg-red-50 border-red-200 animate-pulse" };
+    verdict = { key: "heavy", badge: "Unplayable", japaneseBadge: "厳しい", colorClass: "text-red-700 bg-red-50 border-red-200 animate-pulse" };
   } else if (averageFps < 60) {
-    verdict = { badge: "Playable", japaneseBadge: "プレイ可能", colorClass: "text-orange-700 bg-orange-50 border-orange-200" };
+    verdict = { key: "playable", badge: "Playable", japaneseBadge: "プレイ可能", colorClass: "text-orange-700 bg-orange-50 border-orange-200" };
   } else if (averageFps < 120) {
-    verdict = { badge: "Smooth", japaneseBadge: "快適", colorClass: "text-green-700 bg-green-50 border-green-200 font-medium" };
+    verdict = { key: "smooth", badge: "Smooth", japaneseBadge: "快適", colorClass: "text-green-700 bg-green-50 border-green-200 font-medium" };
   } else {
-    verdict = { badge: "High Refresh", japaneseBadge: "超快適", colorClass: "text-teal-700 bg-teal-50 border-teal-200 font-bold" };
+    verdict = { key: "high_refresh", badge: "High Refresh", japaneseBadge: "超快適", colorClass: "text-teal-700 bg-teal-50 border-teal-200 font-bold" };
   }
 
   return {
