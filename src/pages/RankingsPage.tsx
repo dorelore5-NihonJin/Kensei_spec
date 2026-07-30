@@ -36,7 +36,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
   const rankedCpus = useMemo(() => {
     const list = [...cpus]
       .map((c) => {
-        const score = Math.round(c.singleCoreScore * 0.6 + (c.multiCoreScore / 10) * 0.4 * 10);
+        const score = c.overallPerformanceScore || Math.round(c.singleCoreScore * 0.7 + c.multiCoreScore / 2.5);
         return { ...c, computedScore: score };
       })
       .sort((a, b) => b.computedScore - a.computedScore);
