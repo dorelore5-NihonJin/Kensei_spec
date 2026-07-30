@@ -26,11 +26,11 @@ export default function Header({
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
       {/* 1. STICKY TOP PROMINENT HEADER NAVBAR */}
-      <header className="sticky top-3 z-40 w-full bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-2.5 sm:p-3 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-3 transition-all duration-300">
+      <header className="sticky top-3 z-40 w-full bg-white/95 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-2 sm:p-3 shadow-xl flex flex-col xl:flex-row items-center justify-between gap-2.5 sm:gap-3 transition-all duration-300">
         
         {/* Left: Brand Logo & Title */}
-        <div className="flex items-center gap-2.5 cursor-pointer shrink-0" onClick={() => setActivePage("simulator")}>
-          <div className="w-10 h-10 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022] hover:scale-105 transition duration-200">
+        <div className="flex items-center gap-2 cursor-pointer shrink-0" onClick={() => setActivePage("simulator")}>
+          <div className="w-9 h-9 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022] hover:scale-105 transition duration-200">
             <img
               src="./kensei_logo.png"
               alt="KENSEI SPEC CORPORATE LOGO"
@@ -38,7 +38,7 @@ export default function Header({
             />
           </div>
           <div>
-            <h2 className="text-sm sm:text-base font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-1.5">
+            <h2 className="text-sm font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-1.5">
               KENSEI SPEC
               <span className="text-[9px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
                 剣圣スペック
@@ -51,12 +51,12 @@ export default function Header({
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
-        <div className="flex items-center gap-1 sm:gap-1.5 bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-start sm:justify-center shrink-0">
+        <div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-center flex-1 min-w-0">
           
           {/* TAB 1: SIMULATOR */}
           <button
             onClick={() => setActivePage("simulator")}
-            className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "simulator"
                 ? "bg-cyan-600 dark:bg-cyan-500 text-white shadow-md shadow-cyan-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -69,7 +69,7 @@ export default function Header({
           {/* TAB 2: GAME BUILDS CATALOG */}
           <button
             onClick={() => setActivePage("catalog")}
-            className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "catalog"
                 ? "bg-[#8A9A86] text-white shadow-md shadow-[#8A9A86]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -82,7 +82,7 @@ export default function Header({
           {/* TAB 3: HARDWARE COMPARE */}
           <button
             onClick={() => setActivePage("compare")}
-            className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "compare"
                 ? "bg-[#E88D9F] text-white shadow-md shadow-[#E88D9F]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -95,7 +95,7 @@ export default function Header({
           {/* TAB 4: GLOBAL RANKINGS */}
           <button
             onClick={() => setActivePage("rankings")}
-            className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "rankings"
                 ? "bg-amber-500 text-white shadow-md shadow-amber-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -108,7 +108,7 @@ export default function Header({
           {/* TAB 5: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
-            className="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30 whitespace-nowrap"
+            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30 whitespace-nowrap"
           >
             <ShoppingCart className="w-3.5 h-3.5 text-white" />
             <span>{t("nav.store")}</span>
@@ -116,24 +116,24 @@ export default function Header({
         </div>
 
         {/* Right: Quick Action Controls & Language Selector */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
           {/* Language Selector Dropdown */}
           <LanguageSelector />
 
           {/* About Modal */}
           <button
             onClick={() => setShowAboutModal(true)}
-            className="p-2.5 sm:px-3.5 sm:py-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-xl transition flex items-center gap-1.5"
-            title="About Engine"
+            className="p-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-xl transition flex items-center gap-1.5"
+            title={t("header.about")}
           >
             <Info className="w-4 h-4 text-[#E88D9F]" />
-            <span className="hidden sm:inline">{t("header.about")}</span>
+            <span className="hidden 2xl:inline">{t("header.about")}</span>
           </button>
 
           {/* Light / Dark Mode Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition"
+            className="p-2 rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[#1E2022] dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition"
             aria-label="Toggle Dark Mode"
             title="Toggle Light/Dark Theme"
           >
@@ -143,11 +143,11 @@ export default function Header({
           {/* Reset Build */}
           <button
             onClick={onReset}
-            className="p-2.5 sm:px-3 sm:py-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 rounded-xl transition flex items-center gap-1.5"
-            title="Reset All Selections"
+            className="p-2 text-xs font-black bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 rounded-xl transition flex items-center gap-1.5"
+            title={t("header.reset")}
           >
             <RotateCcw className="w-4 h-4" />
-            <span className="hidden md:inline">{t("header.reset")}</span>
+            <span className="hidden 2xl:inline">{t("header.reset")}</span>
           </button>
         </div>
       </header>
