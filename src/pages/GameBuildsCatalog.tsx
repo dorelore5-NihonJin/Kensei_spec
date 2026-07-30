@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import type { Game, CPU, GPU, RAMProfile } from "../lib/types";
 import { Search, Filter, ShoppingCart, Zap, CheckCircle2, Package, Loader2, ArrowDown, ArrowUpDown, Award, Sparkles, Code2, Copy, Check, Gamepad2, Palette, Video, Volume2, Building2 } from "lucide-react";
 import CustomSelect from "../components/CustomSelect";
+import { useLanguage } from "../context/LanguageContext";
 
 interface GameBuildsCatalogProps {
   games: Game[];
@@ -61,6 +62,7 @@ export default function GameBuildsCatalog({
   onSelectBuild,
   onOpenBuyModal
 }: GameBuildsCatalogProps) {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGameFilter, setSelectedGameFilter] = useState<string>("All");
   const [selectedTierFilter, setSelectedTierFilter] = useState<string>("All");
@@ -481,10 +483,10 @@ export default function GameBuildsCatalog({
       <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h2 className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-            <Package className="w-6 h-6 text-[#8A9A86]" /> 250 Verified PC Builds Catalog / 用途別・ゲーム別250選推奨構成
+            <Package className="w-6 h-6 text-[#8A9A86]" /> {t("catalog.title")}
           </h2>
           <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-1">
-            250 curated, 100% verified PC builds tailored for Gaming, 3D Rendering, AI ML Development, Audio DAW, and Live Streaming.
+            {t("hero.catalog.desc")}
           </p>
         </div>
         <div className="flex items-center gap-2">

@@ -129,7 +129,7 @@ export const translations: TranslationDictionary = {
   },
   "hero.rankings.desc": {
     en: "Explore complete global hierarchy leaderboards for all CPUs and GPUs sorted by normalized aggregate performance throughput.",
-    ru: "Полная мировое первенство всех процессоров и видеокарт, отсортированное по абсолютной производительности.",
+    ru: "Полное мировое первенство всех процессоров и видеокарт, отсортированное по абсолютной производительности.",
     ja: "正規化された総合パフォーマンスでソートされたすべてのCPUおよびGPUの完全な世界階層リーダーボード。"
   },
 
@@ -158,6 +158,97 @@ export const translations: TranslationDictionary = {
     en: "RESOLUTION",
     ru: "РАЗРЕШЕНИЕ",
     ja: "解像度"
+  },
+
+  // Rankings Page
+  "rankings.title": {
+    en: "Global Hardware Hierarchy Rankings",
+    ru: "Мировой топ производительности комплектующих",
+    ja: "グローバル ハードウェア 階層 ランキング"
+  },
+  "rankings.subtitle": {
+    en: "Explore complete hierarchy rankings for all CPUs and GPUs sorted by normalized aggregate benchmark scores.",
+    ru: "Исследуйте полный мировое первенство всех процессоров и видеокарт по мировому агрегированному баллу.",
+    ja: "正規化されたベンチマークスコアでソートされたすべてのCPUとGPUの階層ランキング。"
+  },
+  "rankings.tab.cpu": {
+    en: "Processors (CPUs)",
+    ru: "Процессоры (CPU)",
+    ja: "プロセッサー (CPU)"
+  },
+  "rankings.tab.gpu": {
+    en: "Graphics Cards (GPUs)",
+    ru: "Видеокарты (GPU)",
+    ja: "グラフィックボード (GPU)"
+  },
+  "rankings.search": {
+    en: "Search silicon by model or brand...",
+    ru: "Поиск модели или бренда...",
+    ja: "モデル名またはブランドを検索..."
+  },
+  "rankings.reset_filters": {
+    en: "Reset Filters",
+    ru: "Сбросить фильтры",
+    ja: "フィルターリセット"
+  },
+
+  // Compare Page
+  "compare.title": {
+    en: "Hardware Benchmark Comparison",
+    ru: "Сравнение бенчмарков железа",
+    ja: "ハードウェア ベンチマーク 比較"
+  },
+  "compare.subtitle": {
+    en: "Compare two CPUs or GPUs side-by-side on the global hierarchy scale.",
+    ru: "Сравнивайте два процессора или видеокарты бок о бок на единой мировой шкале.",
+    ja: "グローバル階層スケールで2つのCPUまたはGPUを横並び比較。"
+  },
+  "compare.select_first": {
+    en: "Select First Component...",
+    ru: "Выберите первое комплектующее...",
+    ja: "1つ目のコンポーネントを選択..."
+  },
+  "compare.select_second": {
+    en: "Select Second Component...",
+    ru: "Выберите второе комплектующее...",
+    ja: "2つ目のコンポーネントを選択..."
+  },
+  "compare.performance_diff": {
+    en: "Performance Difference",
+    ru: "Разница в производительности",
+    ja: "パフォーマンスの差"
+  },
+  "compare.faster_by": {
+    en: "faster overall",
+    ru: "быстрее в среднем",
+    ja: "全体で高速"
+  },
+
+  // Catalog Page
+  "catalog.title": {
+    en: "Verified PC Builds Catalog",
+    ru: "Каталог проверенных игровых ПК",
+    ja: "検証済みPC構成 カタログ"
+  },
+  "catalog.filter.all": {
+    en: "All Categories",
+    ru: "Все категории",
+    ja: "すべてのカテゴリー"
+  },
+  "catalog.filter.esports": {
+    en: "Esports Gaming",
+    ru: "Киберспорт",
+    ja: "eスポーツ"
+  },
+  "catalog.filter.aaa": {
+    en: "AAA Ultra 4K",
+    ru: "AAA Ультра 4K",
+    ja: "AAA ウルトラ 4K"
+  },
+  "catalog.filter.workstation": {
+    en: "Workstation & AI",
+    ru: "Рабочие станции и ИИ",
+    ja: "ワークステーション & AI"
   },
 
   // Telemetry Output Cards

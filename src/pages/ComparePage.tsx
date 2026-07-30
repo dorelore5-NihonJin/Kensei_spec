@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor, Gamepad2 } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
+import { useLanguage } from "../context/LanguageContext";
 import SearchableSelect, { type SelectOption } from "../components/SearchableSelect";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
 import GpuGamingBenchmarkChart from "../components/GpuGamingBenchmarkChart";
@@ -14,6 +15,7 @@ interface ComparePageProps {
 
 export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
+  const { t } = useLanguage();
 
   const [mode, setMode] = useState<"cpu" | "gpu">(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -377,12 +379,12 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-[#E88D9F]/15 text-[#E88D9F] border border-[#E88D9F]/30 tracking-wider">
-                Telemetry Laboratory
+                {t("hero.compare.badge1")}
               </span>
-              <span className="text-xs text-gray-400 font-bold hidden sm:inline">• Technical City Matrix</span>
+              <span className="text-xs text-gray-400 font-bold hidden sm:inline">• {t("hero.compare.badge2")}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white mt-1">
-              Hardware Comparison Studio / ハードウェア比較
+              {t("compare.title")}
             </h2>
           </div>
         </div>
@@ -398,7 +400,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             }`}
           >
             <Cpu className="w-4 h-4" />
-            <span>CPUs Comparison</span>
+            <span>{t("rankings.tab.cpu")}</span>
           </button>
           <button
             onClick={() => handleModeChange("gpu")}
@@ -409,7 +411,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             }`}
           >
             <Zap className="w-4 h-4" />
-            <span>GPUs Comparison</span>
+            <span>{t("rankings.tab.gpu")}</span>
           </button>
         </div>
       </div>

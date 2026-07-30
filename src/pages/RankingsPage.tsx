@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import type { CPU, GPU } from "../lib/types";
 import { Trophy, Cpu, Zap, Search, Layers, Scale, ChevronLeft, ChevronRight, ArrowUpDown, RotateCcw } from "lucide-react";
 import { useHardware } from "../context/HardwareContext";
+import { useLanguage } from "../context/LanguageContext";
 import CustomSelect from "../components/CustomSelect";
 
 interface RankingsPageProps {
@@ -11,6 +12,7 @@ interface RankingsPageProps {
 
 export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
+  const { t } = useLanguage();
 
   // Read initial type and highlight parameter from URL search params
   const [type, setType] = useState<"cpu" | "gpu">(() => {
@@ -178,13 +180,13 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
         <div className="relative z-10">
           <div className="flex items-center gap-2 text-[#E88D9F] font-extrabold text-xs uppercase tracking-wider">
             <Trophy className="w-4 h-4" />
-            <span>Global Silicon Leaderboard & Hierarchy / 性能ランキング</span>
+            <span>{t("hero.rankings.badge1")}</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#1E2022] dark:text-white mt-1">
-            Global Hardware Hierarchy Rankings
+            {t("rankings.title")}
           </h1>
           <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
-            Explore complete hierarchy rankings for all CPUs and GPUs sorted by normalized aggregate benchmark scores.
+            {t("rankings.subtitle")}
           </p>
         </div>
 
@@ -199,7 +201,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
             }`}
           >
             <Cpu className="w-4 h-4" />
-            <span>CPU Leaderboard ({rankedCpus.length})</span>
+            <span>{t("rankings.tab.cpu")} ({rankedCpus.length})</span>
           </button>
           <button
             onClick={() => handleTypeChange("gpu")}
@@ -210,7 +212,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
             }`}
           >
             <Zap className="w-4 h-4" />
-            <span>GPU Leaderboard ({rankedGpus.length})</span>
+            <span>{t("rankings.tab.gpu")} ({rankedGpus.length})</span>
           </button>
         </div>
       </div>
