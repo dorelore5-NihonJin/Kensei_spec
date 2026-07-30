@@ -111,11 +111,17 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   const [toastMessage, setToastMessage] = useState<string>("");
   const [toastSubMessage, setToastSubMessage] = useState<string>("");
   const [isToastOpen, setIsToastOpen] = useState<boolean>(false);
+  const [toastTimer, setToastTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   const showToast = (message: string, subMessage?: string) => {
+    if (toastTimer) clearTimeout(toastTimer);
     setToastMessage(message);
     setToastSubMessage(subMessage || "");
     setIsToastOpen(true);
+    const timer = setTimeout(() => {
+      setIsToastOpen(false);
+    }, 3500);
+    setToastTimer(timer);
   };
 
   // Dark Mode State

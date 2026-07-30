@@ -196,9 +196,9 @@ export const translations: TranslationDictionary = {
 
   // Toast Notifications
   "toast.copied": {
-    en: "Build Link Copied to Clipboard! 🔗",
-    ru: "Ссылка на сборку скопирована в буфер обмена! 🔗",
-    ja: "構成リンクをクリップボードにコピーしました！ 🔗"
+    en: "Build Link Copied to Clipboard!",
+    ru: "Ссылка на сборку скопирована в буфер обмена!",
+    ja: "構成リンクをクリップボードにコピーしました！"
   },
 
   // FPS Verdict Badges

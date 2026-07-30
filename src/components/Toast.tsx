@@ -1,4 +1,4 @@
-import { Link, Sparkles, X } from "lucide-react";
+import { Sparkles, X } from "lucide-react";
 
 interface ToastProps {
   message: string;
@@ -13,8 +13,8 @@ export default function Toast({ message, subMessage, isOpen, onClose }: ToastPro
   return (
     <div className="fixed top-6 right-6 z-[120] animate-in fade-in slide-in-from-top-6 duration-300">
       <div className="bg-[#18191B]/95 text-white backdrop-blur-2xl border border-emerald-500/30 rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex items-center gap-3.5 max-w-md">
-        <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
-          <Link className="w-5 h-5 text-emerald-400" />
+        <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+          <img src="/favicon.svg" alt="Kensei Logo" className="w-full h-full object-contain filter drop-shadow" />
         </div>
 
         <div className="flex-1 min-w-0">

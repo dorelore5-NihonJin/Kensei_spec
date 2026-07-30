@@ -97,17 +97,17 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
           {isComplete && (
             <button
               onClick={onShareClick}
-              className="text-xs font-extrabold px-3 py-1 rounded-full bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 hover:bg-[#E88D9F]/30 transition flex items-center gap-1.5 shadow-xs"
+              className="text-xs font-extrabold px-3.5 h-7 rounded-full bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 hover:bg-[#E88D9F]/30 transition-all duration-200 inline-flex items-center justify-center gap-1.5 shadow-xs min-w-[155px] shrink-0 whitespace-nowrap leading-none select-none"
             >
               {copied ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{t("fps.link_copied")}</span>
+                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">{t("fps.link_copied")}</span>
                 </>
               ) : (
                 <>
-                  <Share2 className="w-3.5 h-3.5 text-[#E88D9F]" />
-                  <span>{t("fps.share_build")}</span>
+                  <Share2 className="w-3.5 h-3.5 text-[#E88D9F] shrink-0" />
+                  <span className="truncate">{t("fps.share_build")}</span>
                 </>
               )}
             </button>
