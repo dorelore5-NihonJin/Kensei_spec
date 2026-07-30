@@ -26,11 +26,11 @@ export default function Header({
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
       {/* 1. STICKY TOP PROMINENT HEADER NAVBAR */}
-      <header className="sticky top-3 z-40 w-full bg-white/90 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 transition-all duration-300">
+      <header className="sticky top-3 z-40 w-full bg-white/90 dark:bg-[#1A1C1E]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-2.5 sm:p-3.5 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-3 overflow-hidden transition-all duration-300">
         
         {/* Left: Brand Logo & Title */}
-        <div className="flex items-center gap-3 cursor-pointer shrink-0" onClick={() => setActivePage("simulator")}>
-          <div className="w-11 h-11 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022] hover:scale-105 transition duration-200">
+        <div className="flex items-center gap-2.5 cursor-pointer shrink-0" onClick={() => setActivePage("simulator")}>
+          <div className="w-10 h-10 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-md shrink-0 bg-[#1E2022] hover:scale-105 transition duration-200">
             <img
               src="./kensei_logo.png"
               alt="KENSEI SPEC CORPORATE LOGO"
@@ -38,20 +38,20 @@ export default function Header({
             />
           </div>
           <div>
-            <h2 className="text-base sm:text-lg font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-2">
+            <h2 className="text-sm sm:text-base font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-1.5">
               KENSEI SPEC
-              <span className="text-[10px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
+              <span className="text-[9px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
                 剣圣スペック
               </span>
             </h2>
-            <p className="text-[11px] text-gray-500 dark:text-gray-400 font-extrabold hidden sm:block">
+            <p className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold hidden sm:block">
               Hardware Physics & Telemetry Simulator
             </p>
           </div>
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
-        <div className="flex items-center gap-1 sm:gap-1.5 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-center shrink-0">
+        <div className="flex items-center gap-1 sm:gap-1.5 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-center flex-1 min-w-0">
           
           {/* TAB 1: SIMULATOR */}
           <button
