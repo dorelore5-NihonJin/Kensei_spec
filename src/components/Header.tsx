@@ -51,66 +51,66 @@ export default function Header({
         </div>
 
         {/* Center: PROMINENT PRIMARY SITE NAVIGATION TABS */}
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner w-full lg:w-auto justify-center">
+        <div className="flex items-center gap-1 sm:gap-1.5 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-inner max-w-full overflow-x-auto no-scrollbar whitespace-nowrap justify-center shrink-0">
           
           {/* TAB 1: SIMULATOR */}
           <button
             onClick={() => setActivePage("simulator")}
-            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3 py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "simulator"
                 ? "bg-cyan-600 dark:bg-cyan-500 text-white shadow-md shadow-cyan-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Layers className={`w-4 h-4 ${activePage === "simulator" ? "text-white" : "text-cyan-500"}`} />
+            <Layers className={`w-3.5 h-3.5 ${activePage === "simulator" ? "text-white" : "text-cyan-500"}`} />
             <span>{t("nav.simulator")}</span>
           </button>
 
           {/* TAB 2: GAME BUILDS CATALOG */}
           <button
             onClick={() => setActivePage("catalog")}
-            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3 py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "catalog"
                 ? "bg-[#8A9A86] text-white shadow-md shadow-[#8A9A86]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <LayoutGrid className={`w-4 h-4 ${activePage === "catalog" ? "text-white" : "text-[#8A9A86]"}`} />
+            <LayoutGrid className={`w-3.5 h-3.5 ${activePage === "catalog" ? "text-white" : "text-[#8A9A86]"}`} />
             <span>{t("nav.catalog")}</span>
           </button>
 
           {/* TAB 3: HARDWARE COMPARE */}
           <button
             onClick={() => setActivePage("compare")}
-            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3 py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "compare"
                 ? "bg-[#E88D9F] text-white shadow-md shadow-[#E88D9F]/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Scale className={`w-4 h-4 ${activePage === "compare" ? "text-white" : "text-[#E88D9F]"}`} />
+            <Scale className={`w-3.5 h-3.5 ${activePage === "compare" ? "text-white" : "text-[#E88D9F]"}`} />
             <span>{t("nav.compare")}</span>
           </button>
 
           {/* TAB 4: GLOBAL RANKINGS */}
           <button
             onClick={() => setActivePage("rankings")}
-            className={`px-3.5 py-2.5 rounded-xl text-xs font-black flex items-center gap-2 transition-all duration-200 shrink-0 ${
+            className={`px-3 py-2 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition-all duration-200 shrink-0 whitespace-nowrap ${
               activePage === "rankings"
                 ? "bg-amber-500 text-white shadow-md shadow-amber-500/25 scale-102"
                 : "text-gray-600 dark:text-gray-300 hover:text-[#1E2022] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
             }`}
           >
-            <Trophy className={`w-4 h-4 ${activePage === "rankings" ? "text-white" : "text-amber-500"}`} />
+            <Trophy className={`w-3.5 h-3.5 ${activePage === "rankings" ? "text-white" : "text-amber-500"}`} />
             <span>{t("nav.rankings")}</span>
           </button>
 
           {/* TAB 5: PC CONFIGURATOR STORE */}
           <button
             onClick={onOpenBuyModal}
-            className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30"
+            className="px-3 py-2 rounded-xl text-[11px] sm:text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30 whitespace-nowrap"
           >
-            <ShoppingCart className="w-4 h-4 text-white" />
+            <ShoppingCart className="w-3.5 h-3.5 text-white" />
             <span>{t("nav.store")}</span>
           </button>
         </div>

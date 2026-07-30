@@ -34,8 +34,7 @@ export default function LanguageSelector() {
         aria-label="Select Language"
       >
         <Globe className="w-3.5 h-3.5 text-[#E88D9F]" />
-        <span className="text-sm leading-none">{currentLangObj.flag}</span>
-        <span className="font-mono text-[11px] font-bold">{currentLangObj.label}</span>
+        <span className="font-mono text-xs font-black uppercase tracking-wider">{currentLangObj.code}</span>
         <ChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 

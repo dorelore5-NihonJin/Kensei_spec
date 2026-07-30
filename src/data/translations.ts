@@ -13,12 +13,12 @@ export const translations: TranslationDictionary = {
   "nav.simulator": {
     en: "1. Hardware Simulator",
     ru: "1. Симулятор ПК",
-    ja: "1. ハードウェアシミュレーター"
+    ja: "1. シミュレーター"
   },
   "nav.catalog": {
-    en: "2. Game Builds Catalog",
-    ru: "2. Каталог игровых ПК",
-    ja: "2. ゲームPCカタログ"
+    en: "2. Builds Catalog",
+    ru: "2. Каталог ПК",
+    ja: "2. PCカタログ"
   },
   "nav.compare": {
     en: "3. Hardware Compare",
@@ -34,6 +34,16 @@ export const translations: TranslationDictionary = {
     en: "5. Buy PC Store",
     ru: "5. Магазин ПК",
     ja: "5. PCストア購入"
+  },
+  "header.about": {
+    en: "About",
+    ru: "О сервисе",
+    ja: "概要"
+  },
+  "header.reset": {
+    en: "Reset",
+    ru: "Сбросить",
+    ja: "リセット"
   },
 
   // Top Wizard Breadcrumbs
