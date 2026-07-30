@@ -120,7 +120,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     setIsToastOpen(true);
     const timer = setTimeout(() => {
       setIsToastOpen(false);
-    }, 3500);
+    }, 6000);
     setToastTimer(timer);
   };
 
