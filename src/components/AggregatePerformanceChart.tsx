@@ -42,31 +42,29 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const rawMilestones = type === "gpu" ? GPU_MILESTONE_DEFINITIONS : CPU_MILESTONE_DEFINITIONS;
   const dbItems = type === "gpu" ? (gpus as any[]) : (cpus as any[]);
 
+  // Absolute Global Hardware Hierarchy Max Scale (Static Anchor Reference)
+  // GPU: RTX 5090 = 1000 pts (100%), RTX 4090 = 740 pts (74%)
+  // CPU: Threadripper 7995WX = 4341 pts (100%), 9950X3D = 2350 pts (54%)
+  const globalScaleMax = type === "gpu" ? 1000 : 4341;
+
   const milestones = rawMilestones
-    .map((ms) => {
-      const match = dbItems.find((d) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
+    .map((ms: any) => {
+      const match = dbItems.find((d: any) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
       let score = ms.defaultScore;
       if (match) {
         if (type === "gpu") {
           score = match.relativePowerScore || ms.defaultScore;
         } else {
-          if (match.singleCoreScore !== undefined && match.multiCoreScore !== undefined) {
-            score = Math.round(match.singleCoreScore * 0.7 + (match.multiCoreScore / 2.5));
-          } else {
-            score = match.relativePowerScore || ms.defaultScore;
-          }
+          score = match.overallPerformanceScore || match.relativePowerScore || ms.defaultScore;
         }
       }
-      return { name: ms.name, score, row: (ms as any).row || "top" };
+      return { name: ms.name, score, row: ms.row || "top" };
     })
-    .sort((a, b) => a.score - b.score);
+    .sort((a: any, b: any) => a.score - b.score);
 
-  // Winner candidate score defines 100% bar scale reference
-  const winnerScore = Math.max(itemA?.score || 0, itemB?.score || 0, 1);
-
-  // Exact percentage calculation relative to winner candidate (winner always fills 100%)
-  const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / winnerScore) * 100));
-  const pctB = Math.min(100, Math.max(3, ((itemB?.score || 0) / winnerScore) * 100));
+  // Exact percentage calculation relative to Global Hardware Scale
+  const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / globalScaleMax) * 100));
+  const pctB = Math.min(100, Math.max(3, ((itemB?.score || 0) / globalScaleMax) * 100));
 
   const winner = itemA.score > itemB.score ? "A" : itemB.score > itemA.score ? "B" : "Tie";
   const winnerName = winner === "A" ? itemA.name : itemB.name;
@@ -76,16 +74,14 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const maxCompScore = Math.max(itemA.score, itemB.score);
   const deltaPct = minScore > 0 ? Math.round(((maxCompScore - minScore) / minScore) * 100) : 0;
 
-  // Filter milestone ticks to those within range of winnerScore to prevent cluster clipping
-  const activeMilestones = milestones
-    .filter((ms) => ms.score <= winnerScore * 1.05)
-    .map((ms) => ({
-      ...ms,
-      msPct: Math.min(96, Math.max(3, (ms.score / winnerScore) * 100))
-    }));
+  // Active milestones mapped cleanly across the static global ruler
+  const activeMilestones = milestones.map((ms: any) => ({
+    ...ms,
+    msPct: Math.min(96, Math.max(3, (ms.score / globalScaleMax) * 100))
+  }));
 
-  const topMilestones = activeMilestones.filter((ms, idx) => type === "gpu" ? idx % 2 === 0 : ms.row === "top");
-  const bottomMilestones = activeMilestones.filter((ms, idx) => type === "gpu" ? idx % 2 === 1 : ms.row === "bottom");
+  const topMilestones = activeMilestones.filter((ms: any, idx: number) => type === "gpu" ? idx % 2 === 0 : ms.row === "top");
+  const bottomMilestones = activeMilestones.filter((ms: any, idx: number) => type === "gpu" ? idx % 2 === 1 : ms.row === "bottom");
 
   return (
     <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between gap-6 w-full min-h-[420px]">

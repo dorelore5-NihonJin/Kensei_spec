@@ -47,7 +47,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 156,
     "cinebenchR23Multi": 265,
-    "passmarkScore": 1087
+    "passmarkScore": 1087,
+    "overallPerformanceScore": 59
   },
   {
     "id": "cpu-002",
@@ -97,7 +98,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 156,
     "cinebenchR23Multi": 265,
-    "passmarkScore": 1087
+    "passmarkScore": 1087,
+    "overallPerformanceScore": 94
   },
   {
     "id": "cpu-003",
@@ -147,7 +149,8 @@
     "powerEfficiencyScore": "1.20 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-004",
@@ -197,7 +200,8 @@
     "powerEfficiencyScore": "1.36 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-005",
@@ -247,7 +251,8 @@
     "powerEfficiencyScore": "1.76 / 5.00",
     "cinebenchR23Single": 197,
     "cinebenchR23Multi": 670,
-    "passmarkScore": 2189
+    "passmarkScore": 2189,
+    "overallPerformanceScore": 223
   },
   {
     "id": "cpu-006",
@@ -298,7 +303,8 @@
     "powerEfficiencyScore": "1.88 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 265
   },
   {
     "id": "cpu-007",
@@ -349,7 +355,8 @@
     "powerEfficiencyScore": "1.80 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-008",
@@ -400,7 +407,8 @@
     "powerEfficiencyScore": "2.76 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-009",
@@ -450,7 +458,8 @@
     "powerEfficiencyScore": "1.65 / 5.00",
     "cinebenchR23Single": 418,
     "cinebenchR23Multi": 2842,
-    "passmarkScore": 8187
+    "passmarkScore": 8187,
+    "overallPerformanceScore": 409
   },
   {
     "id": "cpu-010",
@@ -500,7 +509,8 @@
     "powerEfficiencyScore": "1.99 / 5.00",
     "cinebenchR23Single": 525,
     "cinebenchR23Multi": 3570,
-    "passmarkScore": 10288
+    "passmarkScore": 10288,
+    "overallPerformanceScore": 476
   },
   {
     "id": "cpu-011",
@@ -550,7 +560,8 @@
     "powerEfficiencyScore": "2.58 / 5.00",
     "cinebenchR23Single": 559,
     "cinebenchR23Multi": 1901,
-    "passmarkScore": 6242
+    "passmarkScore": 6242,
+    "overallPerformanceScore": 404
   },
   {
     "id": "cpu-012",
@@ -600,7 +611,8 @@
     "powerEfficiencyScore": "3.68 / 5.00",
     "cinebenchR23Single": 500,
     "cinebenchR23Multi": 1800,
-    "passmarkScore": 4000
+    "passmarkScore": 4000,
+    "overallPerformanceScore": 141
   },
   {
     "id": "cpu-013",
@@ -650,7 +662,8 @@
     "powerEfficiencyScore": "2.73 / 5.00",
     "cinebenchR23Single": 950,
     "cinebenchR23Multi": 8000,
-    "passmarkScore": 13000
+    "passmarkScore": 13000,
+    "overallPerformanceScore": 706
   },
   {
     "id": "cpu-014",
@@ -700,7 +713,8 @@
     "powerEfficiencyScore": "3.55 / 5.00",
     "cinebenchR23Single": 744,
     "cinebenchR23Multi": 7589,
-    "passmarkScore": 20996
+    "passmarkScore": 20996,
+    "overallPerformanceScore": 730
   },
   {
     "id": "cpu-015",
@@ -750,7 +764,8 @@
     "powerEfficiencyScore": "4.26 / 5.00",
     "cinebenchR23Single": 770,
     "cinebenchR23Multi": 2618,
-    "passmarkScore": 8628
+    "passmarkScore": 8628,
+    "overallPerformanceScore": 592
   },
   {
     "id": "cpu-016",
@@ -800,7 +815,8 @@
     "powerEfficiencyScore": "3.17 / 5.00",
     "cinebenchR23Single": 853,
     "cinebenchR23Multi": 5800,
-    "passmarkScore": 16800
+    "passmarkScore": 16800,
+    "overallPerformanceScore": 680
   },
   {
     "id": "cpu-017",
@@ -850,7 +866,8 @@
     "powerEfficiencyScore": "3.44 / 5.00",
     "cinebenchR23Single": 727,
     "cinebenchR23Multi": 2472,
-    "passmarkScore": 8123
+    "passmarkScore": 8123,
+    "overallPerformanceScore": 516
   },
   {
     "id": "cpu-018",
@@ -900,7 +917,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 873,
     "cinebenchR23Multi": 2968,
-    "passmarkScore": 9797
+    "passmarkScore": 9797,
+    "overallPerformanceScore": 657
   },
   {
     "id": "cpu-019",
@@ -950,7 +968,8 @@
     "powerEfficiencyScore": "3.69 / 5.00",
     "cinebenchR23Single": 800,
     "cinebenchR23Multi": 4000,
-    "passmarkScore": 8000
+    "passmarkScore": 8000,
+    "overallPerformanceScore": 683
   },
   {
     "id": "cpu-020",
@@ -1000,7 +1019,8 @@
     "powerEfficiencyScore": "4.15 / 5.00",
     "cinebenchR23Single": 800,
     "cinebenchR23Multi": 4000,
-    "passmarkScore": 8000
+    "passmarkScore": 8000,
+    "overallPerformanceScore": 698
   },
   {
     "id": "cpu-021",
@@ -1050,7 +1070,8 @@
     "powerEfficiencyScore": "4.61 / 5.00",
     "cinebenchR23Single": 1076,
     "cinebenchR23Multi": 10975,
-    "passmarkScore": 30508
+    "passmarkScore": 30508,
+    "overallPerformanceScore": 936
   },
   {
     "id": "cpu-022",
@@ -1100,7 +1121,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1077,
     "cinebenchR23Multi": 14647,
-    "passmarkScore": 39940
+    "passmarkScore": 39940,
+    "overallPerformanceScore": 1055
   },
   {
     "id": "cpu-023",
@@ -1151,7 +1173,8 @@
     "powerEfficiencyScore": "4.72 / 5.00",
     "cinebenchR23Single": 899,
     "cinebenchR23Multi": 3057,
-    "passmarkScore": 10059
+    "passmarkScore": 10059,
+    "overallPerformanceScore": 629
   },
   {
     "id": "cpu-024",
@@ -1201,7 +1224,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1077,
     "cinebenchR23Multi": 3662,
-    "passmarkScore": 12130
+    "passmarkScore": 12130,
+    "overallPerformanceScore": 786
   },
   {
     "id": "cpu-025",
@@ -1251,7 +1275,8 @@
     "powerEfficiencyScore": "4.92 / 5.00",
     "cinebenchR23Single": 1000,
     "cinebenchR23Multi": 5500,
-    "passmarkScore": 10000
+    "passmarkScore": 10000,
+    "overallPerformanceScore": 836
   },
   {
     "id": "cpu-026",
@@ -1301,7 +1326,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1066,
     "cinebenchR23Multi": 3624,
-    "passmarkScore": 11945
+    "passmarkScore": 11945,
+    "overallPerformanceScore": 741
   },
   {
     "id": "cpu-027",
@@ -1351,7 +1377,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1282,
     "cinebenchR23Multi": 4359,
-    "passmarkScore": 14458
+    "passmarkScore": 14458,
+    "overallPerformanceScore": 916
   },
   {
     "id": "cpu-028",
@@ -1401,7 +1428,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1000,
     "cinebenchR23Multi": 5500,
-    "passmarkScore": 10000
+    "passmarkScore": 10000,
+    "overallPerformanceScore": 866
   },
   {
     "id": "cpu-029",
@@ -1451,7 +1479,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1068,
     "cinebenchR23Multi": 3631,
-    "passmarkScore": 12018
+    "passmarkScore": 12018,
+    "overallPerformanceScore": 812
   },
   {
     "id": "cpu-030",
@@ -1501,7 +1530,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1276,
     "cinebenchR23Multi": 6508,
-    "passmarkScore": 19894
+    "passmarkScore": 19894,
+    "overallPerformanceScore": 1007
   },
   {
     "id": "cpu-031",
@@ -1551,7 +1581,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1286,
     "cinebenchR23Multi": 6559,
-    "passmarkScore": 20097
+    "passmarkScore": 20097,
+    "overallPerformanceScore": 1012
   },
   {
     "id": "cpu-032",
@@ -1601,7 +1632,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1150,
     "cinebenchR23Multi": 10000,
-    "passmarkScore": 13500
+    "passmarkScore": 13500,
+    "overallPerformanceScore": 1071
   },
   {
     "id": "cpu-033",
@@ -1651,7 +1683,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 7000,
-    "passmarkScore": 10500
+    "passmarkScore": 10500,
+    "overallPerformanceScore": 1032
   },
   {
     "id": "cpu-034",
@@ -1701,7 +1734,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1250,
     "cinebenchR23Multi": 9500,
-    "passmarkScore": 14000
+    "passmarkScore": 14000,
+    "overallPerformanceScore": 1143
   },
   {
     "id": "cpu-035",
@@ -1751,7 +1785,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1300,
     "cinebenchR23Multi": 12500,
-    "passmarkScore": 18000
+    "passmarkScore": 18000,
+    "overallPerformanceScore": 1257
   },
   {
     "id": "cpu-036",
@@ -1801,7 +1836,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1329,
     "cinebenchR23Multi": 9037,
-    "passmarkScore": 26382
+    "passmarkScore": 26382,
+    "overallPerformanceScore": 1032
   },
   {
     "id": "cpu-037",
@@ -1851,7 +1887,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1150,
     "cinebenchR23Multi": 8500,
-    "passmarkScore": 12000
+    "passmarkScore": 12000,
+    "overallPerformanceScore": 440
   },
   {
     "id": "cpu-038",
@@ -1901,7 +1938,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1400,
     "cinebenchR23Multi": 13500,
-    "passmarkScore": 19000
+    "passmarkScore": 19000,
+    "overallPerformanceScore": 1339
   },
   {
     "id": "cpu-039",
@@ -1951,7 +1989,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 16500,
-    "passmarkScore": 24000
+    "passmarkScore": 24000,
+    "overallPerformanceScore": 1475
   },
   {
     "id": "cpu-040",
@@ -2001,7 +2040,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1400,
     "cinebenchR23Multi": 10000,
-    "passmarkScore": 17000
+    "passmarkScore": 17000,
+    "overallPerformanceScore": 1236
   },
   {
     "id": "cpu-041",
@@ -2051,7 +2091,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1500,
     "cinebenchR23Multi": 11000,
-    "passmarkScore": 20000
+    "passmarkScore": 20000,
+    "overallPerformanceScore": 1289
   },
   {
     "id": "cpu-042",
@@ -2101,7 +2142,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1550,
     "cinebenchR23Multi": 15000,
-    "passmarkScore": 24000
+    "passmarkScore": 24000,
+    "overallPerformanceScore": 1424
   },
   {
     "id": "cpu-043",
@@ -2151,7 +2193,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1600,
     "cinebenchR23Multi": 16000,
-    "passmarkScore": 25000
+    "passmarkScore": 25000,
+    "overallPerformanceScore": 1442
   },
   {
     "id": "cpu-044",
@@ -2202,7 +2245,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1546,
     "cinebenchR23Multi": 10513,
-    "passmarkScore": 30942
+    "passmarkScore": 30942,
+    "overallPerformanceScore": 1167
   },
   {
     "id": "cpu-045",
@@ -2253,7 +2297,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1700,
     "cinebenchR23Multi": 12000,
-    "passmarkScore": 19000
+    "passmarkScore": 19000,
+    "overallPerformanceScore": 1339
   },
   {
     "id": "cpu-046",
@@ -2304,7 +2349,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1850,
     "cinebenchR23Multi": 17500,
-    "passmarkScore": 27000
+    "passmarkScore": 27000,
+    "overallPerformanceScore": 1020
   },
   {
     "id": "cpu-047",
@@ -2355,7 +2401,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1900,
     "cinebenchR23Multi": 23000,
-    "passmarkScore": 34000
+    "passmarkScore": 34000,
+    "overallPerformanceScore": 1250
   },
   {
     "id": "cpu-048",
@@ -2406,7 +2453,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 27000,
-    "passmarkScore": 41000
+    "passmarkScore": 41000,
+    "overallPerformanceScore": 1958
   },
   {
     "id": "cpu-049",
@@ -2457,7 +2505,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1642,
     "cinebenchR23Multi": 11166,
-    "passmarkScore": 32950
+    "passmarkScore": 32950,
+    "overallPerformanceScore": 1229
   },
   {
     "id": "cpu-050",
@@ -2508,7 +2557,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1957,
     "cinebenchR23Multi": 26615,
-    "passmarkScore": 74954
+    "passmarkScore": 74954,
+    "overallPerformanceScore": 1688
   },
   {
     "id": "cpu-051",
@@ -2559,7 +2609,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 24000,
-    "passmarkScore": 40000
+    "passmarkScore": 40000,
+    "overallPerformanceScore": 1320
   },
   {
     "id": "cpu-052",
@@ -2610,7 +2661,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2100,
     "cinebenchR23Multi": 35000,
-    "passmarkScore": 50000
+    "passmarkScore": 50000,
+    "overallPerformanceScore": 1480
   },
   {
     "id": "cpu-053",
@@ -2661,7 +2713,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2200,
     "cinebenchR23Multi": 38000,
-    "passmarkScore": 58000
+    "passmarkScore": 58000,
+    "overallPerformanceScore": 1950
   },
   {
     "id": "cpu-054",
@@ -2712,7 +2765,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 24000,
-    "passmarkScore": 40000
+    "passmarkScore": 40000,
+    "overallPerformanceScore": 1420
   },
   {
     "id": "cpu-055",
@@ -2763,7 +2817,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2100,
     "cinebenchR23Multi": 35000,
-    "passmarkScore": 50000
+    "passmarkScore": 50000,
+    "overallPerformanceScore": 1720
   },
   {
     "id": "cpu-056",
@@ -2814,7 +2869,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2250,
     "cinebenchR23Multi": 40000,
-    "passmarkScore": 60000
+    "passmarkScore": 60000,
+    "overallPerformanceScore": 2100
   },
   {
     "id": "cpu-057",
@@ -2864,7 +2920,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2277,
     "cinebenchR23Multi": 27096,
-    "passmarkScore": 81107
+    "passmarkScore": 81107,
+    "overallPerformanceScore": 1974
   },
   {
     "id": "cpu-058",
@@ -2914,7 +2971,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2307,
     "cinebenchR23Multi": 39219,
-    "passmarkScore": 118778
+    "passmarkScore": 118778,
+    "overallPerformanceScore": 2271
   },
   {
     "id": "cpu-059",
@@ -2964,7 +3022,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2333,
     "cinebenchR23Multi": 47593,
-    "passmarkScore": 146448
+    "passmarkScore": 146448,
+    "overallPerformanceScore": 2080
   },
   {
     "id": "cpu-060",
@@ -3014,7 +3073,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2404,
     "cinebenchR23Multi": 28608,
-    "passmarkScore": 86146
+    "passmarkScore": 86146,
+    "overallPerformanceScore": 2051
   },
   {
     "id": "cpu-061",
@@ -3064,7 +3124,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2440,
     "cinebenchR23Multi": 41480,
-    "passmarkScore": 126846
+    "passmarkScore": 126846,
+    "overallPerformanceScore": 2351
   },
   {
     "id": "cpu-062",
@@ -3114,7 +3175,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2614,
     "cinebenchR23Multi": 53326,
-    "passmarkScore": 167188
+    "passmarkScore": 167188,
+    "overallPerformanceScore": 2638
   },
   {
     "id": "cpu-063",
@@ -3164,7 +3226,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 195,
     "cinebenchR23Multi": 332,
-    "passmarkScore": 1355
+    "passmarkScore": 1355,
+    "overallPerformanceScore": 113
   },
   {
     "id": "cpu-064",
@@ -3214,7 +3277,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 196,
     "cinebenchR23Multi": 333,
-    "passmarkScore": 1362
+    "passmarkScore": 1362,
+    "overallPerformanceScore": 129
   },
   {
     "id": "cpu-065",
@@ -3264,7 +3328,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 294,
     "cinebenchR23Multi": 500,
-    "passmarkScore": 2041
+    "passmarkScore": 2041,
+    "overallPerformanceScore": 191
   },
   {
     "id": "cpu-066",
@@ -3314,7 +3379,8 @@
     "powerEfficiencyScore": "1.44 / 5.00",
     "cinebenchR23Single": 392,
     "cinebenchR23Multi": 1333,
-    "passmarkScore": 4370
+    "passmarkScore": 4370,
+    "overallPerformanceScore": 348
   },
   {
     "id": "cpu-067",
@@ -3365,7 +3431,8 @@
     "powerEfficiencyScore": "2.48 / 5.00",
     "cinebenchR23Single": 494,
     "cinebenchR23Multi": 1680,
-    "passmarkScore": 5507
+    "passmarkScore": 5507,
+    "overallPerformanceScore": 413
   },
   {
     "id": "cpu-068",
@@ -3416,7 +3483,8 @@
     "powerEfficiencyScore": "3.84 / 5.00",
     "cinebenchR23Single": 595,
     "cinebenchR23Multi": 3035,
-    "passmarkScore": 9147
+    "passmarkScore": 9147,
+    "overallPerformanceScore": 571
   },
   {
     "id": "cpu-069",
@@ -3466,7 +3534,8 @@
     "powerEfficiencyScore": "2.76 / 5.00",
     "cinebenchR23Single": 693,
     "cinebenchR23Multi": 2356,
-    "passmarkScore": 7727
+    "passmarkScore": 7727,
+    "overallPerformanceScore": 539
   },
   {
     "id": "cpu-070",
@@ -3516,7 +3585,8 @@
     "powerEfficiencyScore": "4.12 / 5.00",
     "cinebenchR23Single": 794,
     "cinebenchR23Multi": 4049,
-    "passmarkScore": 12221
+    "passmarkScore": 12221,
+    "overallPerformanceScore": 698
   },
   {
     "id": "cpu-071",
@@ -3566,7 +3636,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 450,
     "cinebenchR23Multi": 2500,
-    "passmarkScore": 5500
+    "passmarkScore": 5500,
+    "overallPerformanceScore": 633
   },
   {
     "id": "cpu-072",
@@ -3616,7 +3687,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 901,
     "cinebenchR23Multi": 6127,
-    "passmarkScore": 17772
+    "passmarkScore": 17772,
+    "overallPerformanceScore": 859
   },
   {
     "id": "cpu-073",
@@ -3666,7 +3738,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1057,
     "cinebenchR23Multi": 3594,
-    "passmarkScore": 11866
+    "passmarkScore": 11866,
+    "overallPerformanceScore": 806
   },
   {
     "id": "cpu-074",
@@ -3716,7 +3789,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 850,
     "cinebenchR23Multi": 7000,
-    "passmarkScore": 12000
+    "passmarkScore": 12000,
+    "overallPerformanceScore": 861
   },
   {
     "id": "cpu-075",
@@ -3766,7 +3840,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 850,
     "cinebenchR23Multi": 7000,
-    "passmarkScore": 12000
+    "passmarkScore": 12000,
+    "overallPerformanceScore": 861
   },
   {
     "id": "cpu-076",
@@ -3816,7 +3891,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1395,
     "cinebenchR23Multi": 18972,
-    "passmarkScore": 52089
+    "passmarkScore": 52089,
+    "overallPerformanceScore": 1254
   },
   {
     "id": "cpu-077",
@@ -3866,7 +3942,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 900,
     "cinebenchR23Multi": 9000,
-    "passmarkScore": 15000
+    "passmarkScore": 15000,
+    "overallPerformanceScore": 1014
   },
   {
     "id": "cpu-078",
@@ -3916,7 +3993,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1142,
     "cinebenchR23Multi": 3883,
-    "passmarkScore": 12830
+    "passmarkScore": 12830,
+    "overallPerformanceScore": 863
   },
   {
     "id": "cpu-079",
@@ -3966,7 +4044,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 950,
     "cinebenchR23Multi": 8000,
-    "passmarkScore": 13000
+    "passmarkScore": 13000,
+    "overallPerformanceScore": 929
   },
   {
     "id": "cpu-080",
@@ -4016,7 +4095,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 950,
     "cinebenchR23Multi": 8000,
-    "passmarkScore": 13000
+    "passmarkScore": 13000,
+    "overallPerformanceScore": 929
   },
   {
     "id": "cpu-081",
@@ -4066,7 +4146,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1000,
     "cinebenchR23Multi": 10000,
-    "passmarkScore": 17000
+    "passmarkScore": 17000,
+    "overallPerformanceScore": 1082
   },
   {
     "id": "cpu-082",
@@ -4116,7 +4197,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1317,
     "cinebenchR23Multi": 8956,
-    "passmarkScore": 26138
+    "passmarkScore": 26138,
+    "overallPerformanceScore": 1026
   },
   {
     "id": "cpu-083",
@@ -4166,7 +4248,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1325,
     "cinebenchR23Multi": 9010,
-    "passmarkScore": 26380
+    "passmarkScore": 26380,
+    "overallPerformanceScore": 1030
   },
   {
     "id": "cpu-084",
@@ -4216,7 +4299,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1150,
     "cinebenchR23Multi": 9500,
-    "passmarkScore": 17500
+    "passmarkScore": 17500,
+    "overallPerformanceScore": 1066
   },
   {
     "id": "cpu-085",
@@ -4266,7 +4350,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1150,
     "cinebenchR23Multi": 9500,
-    "passmarkScore": 17500
+    "passmarkScore": 17500,
+    "overallPerformanceScore": 1066
   },
   {
     "id": "cpu-086",
@@ -4316,7 +4401,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 13000,
-    "passmarkScore": 22000
+    "passmarkScore": 22000,
+    "overallPerformanceScore": 1202
   },
   {
     "id": "cpu-087",
@@ -4366,7 +4452,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 13000,
-    "passmarkScore": 22000
+    "passmarkScore": 22000,
+    "overallPerformanceScore": 1202
   },
   {
     "id": "cpu-088",
@@ -4416,7 +4503,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1250,
     "cinebenchR23Multi": 18500,
-    "passmarkScore": 32000
+    "passmarkScore": 32000,
+    "overallPerformanceScore": 1455
   },
   {
     "id": "cpu-089",
@@ -4466,7 +4554,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1300,
     "cinebenchR23Multi": 24000,
-    "passmarkScore": 39000
+    "passmarkScore": 39000,
+    "overallPerformanceScore": 1709
   },
   {
     "id": "cpu-090",
@@ -4516,7 +4605,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1704,
     "cinebenchR23Multi": 17381,
-    "passmarkScore": 49450
+    "passmarkScore": 49450,
+    "overallPerformanceScore": 555
   },
   {
     "id": "cpu-091",
@@ -4566,7 +4656,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1809,
     "cinebenchR23Multi": 18452,
-    "passmarkScore": 52609
+    "passmarkScore": 52609,
+    "overallPerformanceScore": 555
   },
   {
     "id": "cpu-092",
@@ -4616,7 +4707,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 11000,
-    "passmarkScore": 22000
+    "passmarkScore": 22000,
+    "overallPerformanceScore": 555
   },
   {
     "id": "cpu-093",
@@ -4666,7 +4758,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2012,
     "cinebenchR23Multi": 27363,
-    "passmarkScore": 77590
+    "passmarkScore": 77590,
+    "overallPerformanceScore": 1630
   },
   {
     "id": "cpu-094",
@@ -4716,7 +4809,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1500,
     "cinebenchR23Multi": 15000,
-    "passmarkScore": 28000
+    "passmarkScore": 28000,
+    "overallPerformanceScore": 1357
   },
   {
     "id": "cpu-095",
@@ -4766,7 +4860,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 14500,
-    "passmarkScore": 28000
+    "passmarkScore": 28000,
+    "overallPerformanceScore": 1387
   },
   {
     "id": "cpu-096",
@@ -4816,7 +4911,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1550,
     "cinebenchR23Multi": 21000,
-    "passmarkScore": 39000
+    "passmarkScore": 39000,
+    "overallPerformanceScore": 1610
   },
   {
     "id": "cpu-097",
@@ -4866,7 +4962,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1600,
     "cinebenchR23Multi": 25000,
-    "passmarkScore": 45000
+    "passmarkScore": 45000,
+    "overallPerformanceScore": 1864
   },
   {
     "id": "cpu-098",
@@ -4916,7 +5013,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1976,
     "cinebenchR23Multi": 20155,
-    "passmarkScore": 58618
+    "passmarkScore": 58618,
+    "overallPerformanceScore": 1509
   },
   {
     "id": "cpu-099",
@@ -4966,7 +5064,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1900,
     "cinebenchR23Multi": 15000,
-    "passmarkScore": 33000
+    "passmarkScore": 33000,
+    "overallPerformanceScore": 920
   },
   {
     "id": "cpu-100",
@@ -5016,7 +5115,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1950,
     "cinebenchR23Multi": 19000,
-    "passmarkScore": 43000
+    "passmarkScore": 43000,
+    "overallPerformanceScore": 1632
   },
   {
     "id": "cpu-101",
@@ -5066,7 +5166,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2050,
     "cinebenchR23Multi": 18500,
-    "passmarkScore": 47000
+    "passmarkScore": 47000,
+    "overallPerformanceScore": 1350
   },
   {
     "id": "cpu-102",
@@ -5116,7 +5217,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 29000,
-    "passmarkScore": 51000
+    "passmarkScore": 51000,
+    "overallPerformanceScore": 1885
   },
   {
     "id": "cpu-103",
@@ -5166,7 +5268,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2050,
     "cinebenchR23Multi": 38000,
-    "passmarkScore": 63000
+    "passmarkScore": 63000,
+    "overallPerformanceScore": 1980
   },
   {
     "id": "cpu-104",
@@ -5216,7 +5319,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2350,
     "cinebenchR23Multi": 42000,
-    "passmarkScore": 65000
+    "passmarkScore": 65000,
+    "overallPerformanceScore": 2020
   },
   {
     "id": "cpu-105",
@@ -5266,7 +5370,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1900,
     "cinebenchR23Multi": 15000,
-    "passmarkScore": 33000
+    "passmarkScore": 33000,
+    "overallPerformanceScore": 1509
   },
   {
     "id": "cpu-106",
@@ -5316,7 +5421,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1950,
     "cinebenchR23Multi": 19000,
-    "passmarkScore": 43000
+    "passmarkScore": 43000,
+    "overallPerformanceScore": 1662
   },
   {
     "id": "cpu-107",
@@ -5366,7 +5472,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2300,
     "cinebenchR23Multi": 22000,
-    "passmarkScore": 52000
+    "passmarkScore": 52000,
+    "overallPerformanceScore": 1850
   },
   {
     "id": "cpu-108",
@@ -5416,7 +5523,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 29000,
-    "passmarkScore": 51000
+    "passmarkScore": 51000,
+    "overallPerformanceScore": 1915
   },
   {
     "id": "cpu-109",
@@ -5466,7 +5574,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2350,
     "cinebenchR23Multi": 42000,
-    "passmarkScore": 65000
+    "passmarkScore": 65000,
+    "overallPerformanceScore": 2240
   },
   {
     "id": "cpu-110",
@@ -5516,7 +5625,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2258,
     "cinebenchR23Multi": 23032,
-    "passmarkScore": 68365
+    "passmarkScore": 68365,
+    "overallPerformanceScore": 1676
   },
   {
     "id": "cpu-111",
@@ -5566,7 +5676,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2524,
     "cinebenchR23Multi": 34326,
-    "passmarkScore": 102777
+    "passmarkScore": 102777,
+    "overallPerformanceScore": 1924
   },
   {
     "id": "cpu-112",
@@ -5616,7 +5727,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2350,
     "cinebenchR23Multi": 42000,
-    "passmarkScore": 65000
+    "passmarkScore": 65000,
+    "overallPerformanceScore": 2350
   },
   {
     "id": "cpu-113",
@@ -5666,7 +5778,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-114",
@@ -5716,7 +5829,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-115",
@@ -5766,7 +5880,8 @@
     "powerEfficiencyScore": "1.00 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-116",
@@ -5816,7 +5931,8 @@
     "powerEfficiencyScore": "1.04 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-117",
@@ -5866,7 +5982,8 @@
     "powerEfficiencyScore": "1.16 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-118",
@@ -5917,7 +6034,8 @@
     "powerEfficiencyScore": "1.36 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-119",
@@ -5968,7 +6086,8 @@
     "powerEfficiencyScore": "1.48 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-120",
@@ -6019,7 +6138,8 @@
     "powerEfficiencyScore": "1.56 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-121",
@@ -6070,7 +6190,8 @@
     "powerEfficiencyScore": "1.68 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-122",
@@ -6121,7 +6242,8 @@
     "powerEfficiencyScore": "1.92 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-123",
@@ -6172,7 +6294,8 @@
     "powerEfficiencyScore": "2.00 / 5.00",
     "cinebenchR23Single": 150,
     "cinebenchR23Multi": 300,
-    "passmarkScore": 1200
+    "passmarkScore": 1200,
+    "overallPerformanceScore": 55
   },
   {
     "id": "cpu-124",
@@ -6223,7 +6346,8 @@
     "powerEfficiencyScore": "2.00 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 265
   },
   {
     "id": "cpu-125",
@@ -6274,7 +6398,8 @@
     "powerEfficiencyScore": "2.04 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-126",
@@ -6325,7 +6450,8 @@
     "powerEfficiencyScore": "2.16 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-127",
@@ -6376,7 +6502,8 @@
     "powerEfficiencyScore": "2.28 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 295
   },
   {
     "id": "cpu-128",
@@ -6427,7 +6554,8 @@
     "powerEfficiencyScore": "2.52 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-129",
@@ -6478,7 +6606,8 @@
     "powerEfficiencyScore": "2.64 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-130",
@@ -6529,7 +6658,8 @@
     "powerEfficiencyScore": "2.72 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-131",
@@ -6580,7 +6710,8 @@
     "powerEfficiencyScore": "3.00 / 5.00",
     "cinebenchR23Single": 180,
     "cinebenchR23Multi": 700,
-    "passmarkScore": 2500
+    "passmarkScore": 2500,
+    "overallPerformanceScore": 280
   },
   {
     "id": "cpu-132",
@@ -6631,7 +6762,8 @@
     "powerEfficiencyScore": "1.20 / 5.00",
     "cinebenchR23Single": 491,
     "cinebenchR23Multi": 835,
-    "passmarkScore": 3414
+    "passmarkScore": 3414,
+    "overallPerformanceScore": 317
   },
   {
     "id": "cpu-133",
@@ -6682,7 +6814,8 @@
     "powerEfficiencyScore": "1.60 / 5.00",
     "cinebenchR23Single": 590,
     "cinebenchR23Multi": 1505,
-    "passmarkScore": 5336
+    "passmarkScore": 5336,
+    "overallPerformanceScore": 427
   },
   {
     "id": "cpu-134",
@@ -6733,7 +6866,8 @@
     "powerEfficiencyScore": "2.04 / 5.00",
     "cinebenchR23Single": 590,
     "cinebenchR23Multi": 2006,
-    "passmarkScore": 6580
+    "passmarkScore": 6580,
+    "overallPerformanceScore": 475
   },
   {
     "id": "cpu-135",
@@ -6784,7 +6918,8 @@
     "powerEfficiencyScore": "1.64 / 5.00",
     "cinebenchR23Single": 592,
     "cinebenchR23Multi": 1006,
-    "passmarkScore": 4117
+    "passmarkScore": 4117,
+    "overallPerformanceScore": 381
   },
   {
     "id": "cpu-136",
@@ -6835,7 +6970,8 @@
     "powerEfficiencyScore": "1.92 / 5.00",
     "cinebenchR23Single": 493,
     "cinebenchR23Multi": 1257,
-    "passmarkScore": 4463
+    "passmarkScore": 4463,
+    "overallPerformanceScore": 365
   },
   {
     "id": "cpu-137",
@@ -6886,7 +7022,8 @@
     "powerEfficiencyScore": "2.24 / 5.00",
     "cinebenchR23Single": 493,
     "cinebenchR23Multi": 1676,
-    "passmarkScore": 5498
+    "passmarkScore": 5498,
+    "overallPerformanceScore": 412
   },
   {
     "id": "cpu-138",
@@ -6937,7 +7074,8 @@
     "powerEfficiencyScore": "2.36 / 5.00",
     "cinebenchR23Single": 494,
     "cinebenchR23Multi": 1680,
-    "passmarkScore": 5507
+    "passmarkScore": 5507,
+    "overallPerformanceScore": 413
   },
   {
     "id": "cpu-139",
@@ -6988,7 +7126,8 @@
     "powerEfficiencyScore": "2.60 / 5.00",
     "cinebenchR23Single": 495,
     "cinebenchR23Multi": 1683,
-    "passmarkScore": 5517
+    "passmarkScore": 5517,
+    "overallPerformanceScore": 413
   },
   {
     "id": "cpu-140",
@@ -7039,7 +7178,8 @@
     "powerEfficiencyScore": "2.68 / 5.00",
     "cinebenchR23Single": 594,
     "cinebenchR23Multi": 2020,
-    "passmarkScore": 6625
+    "passmarkScore": 6625,
+    "overallPerformanceScore": 476
   },
   {
     "id": "cpu-141",
@@ -7090,7 +7230,8 @@
     "powerEfficiencyScore": "2.80 / 5.00",
     "cinebenchR23Single": 693,
     "cinebenchR23Multi": 2356,
-    "passmarkScore": 7734
+    "passmarkScore": 7734,
+    "overallPerformanceScore": 540
   },
   {
     "id": "cpu-142",
@@ -7141,7 +7282,8 @@
     "powerEfficiencyScore": "3.32 / 5.00",
     "cinebenchR23Single": 593,
     "cinebenchR23Multi": 3024,
-    "passmarkScore": 9118
+    "passmarkScore": 9118,
+    "overallPerformanceScore": 570
   },
   {
     "id": "cpu-143",
@@ -7192,7 +7334,8 @@
     "powerEfficiencyScore": "3.56 / 5.00",
     "cinebenchR23Single": 594,
     "cinebenchR23Multi": 3029,
-    "passmarkScore": 9133
+    "passmarkScore": 9133,
+    "overallPerformanceScore": 570
   },
   {
     "id": "cpu-144",
@@ -7243,7 +7386,8 @@
     "powerEfficiencyScore": "3.96 / 5.00",
     "cinebenchR23Single": 694,
     "cinebenchR23Multi": 3539,
-    "passmarkScore": 10678
+    "passmarkScore": 10678,
+    "overallPerformanceScore": 634
   },
   {
     "id": "cpu-145",
@@ -7293,7 +7437,8 @@
     "powerEfficiencyScore": "2.96 / 5.00",
     "cinebenchR23Single": 793,
     "cinebenchR23Multi": 2696,
-    "passmarkScore": 8845
+    "passmarkScore": 8845,
+    "overallPerformanceScore": 603
   },
   {
     "id": "cpu-146",
@@ -7343,7 +7488,8 @@
     "powerEfficiencyScore": "3.52 / 5.00",
     "cinebenchR23Single": 693,
     "cinebenchR23Multi": 3534,
-    "passmarkScore": 10649
+    "passmarkScore": 10649,
+    "overallPerformanceScore": 633
   },
   {
     "id": "cpu-147",
@@ -7393,7 +7539,8 @@
     "powerEfficiencyScore": "4.68 / 5.00",
     "cinebenchR23Single": 693,
     "cinebenchR23Multi": 4712,
-    "passmarkScore": 13609
+    "passmarkScore": 13609,
+    "overallPerformanceScore": 728
   },
   {
     "id": "cpu-148",
@@ -7443,7 +7590,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 694,
     "cinebenchR23Multi": 4719,
-    "passmarkScore": 13633
+    "passmarkScore": 13633,
+    "overallPerformanceScore": 728
   },
   {
     "id": "cpu-149",
@@ -7493,7 +7641,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 795,
     "cinebenchR23Multi": 5406,
-    "passmarkScore": 15626
+    "passmarkScore": 15626,
+    "overallPerformanceScore": 792
   },
   {
     "id": "cpu-150",
@@ -7543,7 +7692,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 997,
     "cinebenchR23Multi": 6780,
-    "passmarkScore": 19633
+    "passmarkScore": 19633,
+    "overallPerformanceScore": 920
   },
   {
     "id": "cpu-151",
@@ -7593,7 +7743,8 @@
     "powerEfficiencyScore": "3.07 / 5.00",
     "cinebenchR23Single": 644,
     "cinebenchR23Multi": 2190,
-    "passmarkScore": 7186
+    "passmarkScore": 7186,
+    "overallPerformanceScore": 460
   },
   {
     "id": "cpu-152",
@@ -7643,7 +7794,8 @@
     "powerEfficiencyScore": "3.77 / 5.00",
     "cinebenchR23Single": 766,
     "cinebenchR23Multi": 2604,
-    "passmarkScore": 8578
+    "passmarkScore": 8578,
+    "overallPerformanceScore": 590
   },
   {
     "id": "cpu-153",
@@ -7693,7 +7845,8 @@
     "powerEfficiencyScore": "4.04 / 5.00",
     "cinebenchR23Single": 768,
     "cinebenchR23Multi": 2611,
-    "passmarkScore": 8607
+    "passmarkScore": 8607,
+    "overallPerformanceScore": 591
   },
   {
     "id": "cpu-154",
@@ -7743,7 +7896,8 @@
     "powerEfficiencyScore": "3.03 / 5.00",
     "cinebenchR23Single": 852,
     "cinebenchR23Multi": 5794,
-    "passmarkScore": 16761
+    "passmarkScore": 16761,
+    "overallPerformanceScore": 680
   },
   {
     "id": "cpu-155",
@@ -7793,7 +7947,8 @@
     "powerEfficiencyScore": "4.46 / 5.00",
     "cinebenchR23Single": 963,
     "cinebenchR23Multi": 3274,
-    "passmarkScore": 10801
+    "passmarkScore": 10801,
+    "overallPerformanceScore": 716
   },
   {
     "id": "cpu-156",
@@ -7843,7 +7998,8 @@
     "powerEfficiencyScore": "4.76 / 5.00",
     "cinebenchR23Single": 966,
     "cinebenchR23Multi": 3284,
-    "passmarkScore": 10842
+    "passmarkScore": 10842,
+    "overallPerformanceScore": 717
   },
   {
     "id": "cpu-157",
@@ -7893,7 +8049,8 @@
     "powerEfficiencyScore": "3.79 / 5.00",
     "cinebenchR23Single": 1074,
     "cinebenchR23Multi": 7303,
-    "passmarkScore": 21207
+    "passmarkScore": 21207,
+    "overallPerformanceScore": 818
   },
   {
     "id": "cpu-158",
@@ -7943,7 +8100,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1069,
     "cinebenchR23Multi": 3635,
-    "passmarkScore": 12013
+    "passmarkScore": 12013,
+    "overallPerformanceScore": 782
   },
   {
     "id": "cpu-159",
@@ -7993,7 +8151,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1072,
     "cinebenchR23Multi": 3645,
-    "passmarkScore": 12056
+    "passmarkScore": 12056,
+    "overallPerformanceScore": 784
   },
   {
     "id": "cpu-160",
@@ -8043,7 +8202,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1270,
     "cinebenchR23Multi": 4318,
-    "passmarkScore": 14293
+    "passmarkScore": 14293,
+    "overallPerformanceScore": 910
   },
   {
     "id": "cpu-161",
@@ -8093,7 +8253,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1274,
     "cinebenchR23Multi": 4332,
-    "passmarkScore": 14360
+    "passmarkScore": 14360,
+    "overallPerformanceScore": 912
   },
   {
     "id": "cpu-162",
@@ -8143,7 +8304,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1418,
     "cinebenchR23Multi": 9642,
-    "passmarkScore": 28141
+    "passmarkScore": 28141,
+    "overallPerformanceScore": 1030
   },
   {
     "id": "cpu-163",
@@ -8193,7 +8355,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1378,
     "cinebenchR23Multi": 7028,
-    "passmarkScore": 21513
+    "passmarkScore": 21513,
+    "overallPerformanceScore": 1071
   },
   {
     "id": "cpu-164",
@@ -8243,7 +8406,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1424,
     "cinebenchR23Multi": 14525,
-    "passmarkScore": 40799
+    "passmarkScore": 40799,
+    "overallPerformanceScore": 1151
   },
   {
     "id": "cpu-165",
@@ -8293,7 +8457,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1475,
     "cinebenchR23Multi": 7523,
-    "passmarkScore": 23013
+    "passmarkScore": 23013,
+    "overallPerformanceScore": 1134
   },
   {
     "id": "cpu-166",
@@ -8343,7 +8508,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1652,
     "cinebenchR23Multi": 11234,
-    "passmarkScore": 33126
+    "passmarkScore": 33126,
+    "overallPerformanceScore": 1313
   },
   {
     "name": "Apple M1",
@@ -8393,7 +8559,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1676,
     "cinebenchR23Multi": 11397,
-    "passmarkScore": 33604
+    "passmarkScore": 33604,
+    "overallPerformanceScore": 520
   },
   {
     "name": "Apple M1 Pro",
@@ -8443,7 +8610,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1783,
     "cinebenchR23Multi": 15156,
-    "passmarkScore": 43914
+    "passmarkScore": 43914,
+    "overallPerformanceScore": 520
   },
   {
     "name": "Apple M1 Max",
@@ -8493,7 +8661,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1785,
     "cinebenchR23Multi": 15173,
-    "passmarkScore": 44003
+    "passmarkScore": 44003,
+    "overallPerformanceScore": 520
   },
   {
     "name": "Apple M1 Ultra",
@@ -8543,7 +8712,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1891,
     "cinebenchR23Multi": 32147,
-    "passmarkScore": 91944
+    "passmarkScore": 91944,
+    "overallPerformanceScore": 520
   },
   {
     "name": "Apple M2",
@@ -8593,7 +8763,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1902,
     "cinebenchR23Multi": 12934,
-    "passmarkScore": 38302
+    "passmarkScore": 38302,
+    "overallPerformanceScore": 1480
   },
   {
     "name": "Apple M2 Pro",
@@ -8643,7 +8814,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2010,
     "cinebenchR23Multi": 20502,
-    "passmarkScore": 58810
+    "passmarkScore": 58810,
+    "overallPerformanceScore": 1050
   },
   {
     "name": "Apple M2 Max",
@@ -8693,7 +8865,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2011,
     "cinebenchR23Multi": 20512,
-    "passmarkScore": 58924
+    "passmarkScore": 58924,
+    "overallPerformanceScore": 1200
   },
   {
     "name": "Apple M2 Ultra",
@@ -8743,7 +8916,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2012,
     "cinebenchR23Multi": 41045,
-    "passmarkScore": 118428
+    "passmarkScore": 118428,
+    "overallPerformanceScore": 2301
   },
   {
     "name": "Apple M3",
@@ -8793,7 +8967,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2028,
     "cinebenchR23Multi": 13790,
-    "passmarkScore": 41002
+    "passmarkScore": 41002,
+    "overallPerformanceScore": 1556
   },
   {
     "name": "Apple M3 Pro",
@@ -8843,7 +9018,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2032,
     "cinebenchR23Multi": 20726,
-    "passmarkScore": 59779
+    "passmarkScore": 59779,
+    "overallPerformanceScore": 1746
   },
   {
     "name": "Apple M3 Max",
@@ -8893,7 +9069,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2035,
     "cinebenchR23Multi": 27676,
-    "passmarkScore": 79382
+    "passmarkScore": 79382,
+    "overallPerformanceScore": 1550
   },
   {
     "name": "Apple M4",
@@ -8943,7 +9120,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2169,
     "cinebenchR23Multi": 18437,
-    "passmarkScore": 54109
+    "passmarkScore": 54109,
+    "overallPerformanceScore": 1734
   },
   {
     "name": "Apple M4 Pro",
@@ -8993,7 +9171,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2173,
     "cinebenchR23Multi": 25859,
-    "passmarkScore": 75389
+    "passmarkScore": 75389,
+    "overallPerformanceScore": 1924
   },
   {
     "name": "Apple M4 Max",
@@ -9043,7 +9222,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2177,
     "cinebenchR23Multi": 29607,
-    "passmarkScore": 87091
+    "passmarkScore": 87091,
+    "overallPerformanceScore": 1850
   },
   {
     "name": "Core i5-14400",
@@ -9094,7 +9274,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1996,
     "cinebenchR23Multi": 27146,
-    "passmarkScore": 76032
+    "passmarkScore": 76032,
+    "overallPerformanceScore": 1722
   },
   {
     "name": "Core i5-14500",
@@ -9145,7 +9326,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2001,
     "cinebenchR23Multi": 34017,
-    "passmarkScore": 95201
+    "passmarkScore": 95201,
+    "overallPerformanceScore": 1912
   },
   {
     "name": "Core i7-14700",
@@ -9196,7 +9378,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2239,
     "cinebenchR23Multi": 53288,
-    "passmarkScore": 150525
+    "passmarkScore": 150525,
+    "overallPerformanceScore": 2334
   },
   {
     "name": "Core i9-14900KS",
@@ -9247,7 +9430,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2250,
     "cinebenchR23Multi": 40000,
-    "passmarkScore": 60000
+    "passmarkScore": 60000,
+    "overallPerformanceScore": 2150
   },
   {
     "name": "Core i5-13500",
@@ -9298,7 +9482,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1895,
     "cinebenchR23Multi": 32215,
-    "passmarkScore": 89939
+    "passmarkScore": 89939,
+    "overallPerformanceScore": 1846
   },
   {
     "name": "Core i9-13900KS",
@@ -9349,7 +9534,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2250,
     "cinebenchR23Multi": 40000,
-    "passmarkScore": 60000
+    "passmarkScore": 60000,
+    "overallPerformanceScore": 1950
   },
   {
     "name": "Core i9-12900KS",
@@ -9400,7 +9586,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 27000,
-    "passmarkScore": 41000
+    "passmarkScore": 41000,
+    "overallPerformanceScore": 1973
   },
   {
     "name": "Core i7-10700",
@@ -9450,7 +9637,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1733,
     "cinebenchR23Multi": 23569,
-    "passmarkScore": 65114
+    "passmarkScore": 65114,
+    "overallPerformanceScore": 1464
   },
   {
     "name": "Core i9-10980XE",
@@ -9500,7 +9688,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1705,
     "cinebenchR23Multi": 52173,
-    "passmarkScore": 143446
+    "passmarkScore": 143446,
+    "overallPerformanceScore": 2025
   },
   {
     "name": "Core Ultra 7 155H",
@@ -9551,7 +9740,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2007,
     "cinebenchR23Multi": 37531,
-    "passmarkScore": 104027
+    "passmarkScore": 104027,
+    "overallPerformanceScore": 1994
   },
   {
     "name": "Core Ultra 9 185H",
@@ -9602,7 +9792,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2017,
     "cinebenchR23Multi": 37718,
-    "passmarkScore": 105204
+    "passmarkScore": 105204,
+    "overallPerformanceScore": 1999
   },
   {
     "name": "Core i7-13700HX",
@@ -9652,7 +9843,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2116,
     "cinebenchR23Multi": 43166,
-    "passmarkScore": 121003
+    "passmarkScore": 121003,
+    "overallPerformanceScore": 2071
   },
   {
     "name": "Core i9-13900HX",
@@ -9702,7 +9894,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2232,
     "cinebenchR23Multi": 60710,
-    "passmarkScore": 171653
+    "passmarkScore": 171653,
+    "overallPerformanceScore": 2504
   },
   {
     "name": "Core i9-14900HX",
@@ -9752,7 +9945,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2359,
     "cinebenchR23Multi": 64165,
-    "passmarkScore": 182670
+    "passmarkScore": 182670,
+    "overallPerformanceScore": 1620
   },
   {
     "name": "Ryzen 5 7500F",
@@ -9802,7 +9996,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1899,
     "cinebenchR23Multi": 19370,
-    "passmarkScore": 55859
+    "passmarkScore": 55859,
+    "overallPerformanceScore": 1471
   },
   {
     "name": "Ryzen 7 7700",
@@ -9852,7 +10047,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2107,
     "cinebenchR23Multi": 28655,
-    "passmarkScore": 81857
+    "passmarkScore": 81857,
+    "overallPerformanceScore": 1691
   },
   {
     "name": "Ryzen 9 7900",
@@ -9902,7 +10098,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2212,
     "cinebenchR23Multi": 45125,
-    "passmarkScore": 128059
+    "passmarkScore": 128059,
+    "overallPerformanceScore": 1978
   },
   {
     "name": "Ryzen 9 7900X3D",
@@ -9952,7 +10149,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2000,
     "cinebenchR23Multi": 29000,
-    "passmarkScore": 51000
+    "passmarkScore": 51000,
+    "overallPerformanceScore": 1900
   },
   {
     "name": "Ryzen 5 8500G",
@@ -10002,7 +10200,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1996,
     "cinebenchR23Multi": 20359,
-    "passmarkScore": 58482
+    "passmarkScore": 58482,
+    "overallPerformanceScore": 1534
   },
   {
     "name": "Ryzen 5 8600G",
@@ -10052,7 +10251,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2003,
     "cinebenchR23Multi": 20431,
-    "passmarkScore": 58932
+    "passmarkScore": 58932,
+    "overallPerformanceScore": 1537
   },
   {
     "name": "Ryzen 7 8700G",
@@ -10102,7 +10302,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2225,
     "cinebenchR23Multi": 30260,
-    "passmarkScore": 86520
+    "passmarkScore": 86520,
+    "overallPerformanceScore": 1763
   },
   {
     "name": "Ryzen 5 5500",
@@ -10152,7 +10353,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1767,
     "cinebenchR23Multi": 18023,
-    "passmarkScore": 51141
+    "passmarkScore": 51141,
+    "overallPerformanceScore": 1392
   },
   {
     "name": "Ryzen 5 5600X3D",
@@ -10202,7 +10404,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 11000,
-    "passmarkScore": 22000
+    "passmarkScore": 22000,
+    "overallPerformanceScore": 555
   },
   {
     "name": "Ryzen 7 5700X3D",
@@ -10252,7 +10455,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2197,
     "cinebenchR23Multi": 29879,
-    "passmarkScore": 84444
+    "passmarkScore": 84444,
+    "overallPerformanceScore": 820
   },
   {
     "name": "Ryzen 7 5700G",
@@ -10302,7 +10506,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1858,
     "cinebenchR23Multi": 25269,
-    "passmarkScore": 71177
+    "passmarkScore": 71177,
+    "overallPerformanceScore": 1540
   },
   {
     "name": "Ryzen 5 4600G",
@@ -10352,7 +10557,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1563,
     "cinebenchR23Multi": 15943,
-    "passmarkScore": 45020
+    "passmarkScore": 45020,
+    "overallPerformanceScore": 1263
   },
   {
     "name": "Ryzen Threadripper 3960X",
@@ -10402,7 +10608,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 34000,
-    "passmarkScore": 48800
+    "passmarkScore": 48800,
+    "overallPerformanceScore": 2181
   },
   {
     "name": "Ryzen Threadripper 3970X",
@@ -10452,7 +10659,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 42000,
-    "passmarkScore": 58400
+    "passmarkScore": 58400,
+    "overallPerformanceScore": 2653
   },
   {
     "name": "Ryzen Threadripper 3990X",
@@ -10502,7 +10710,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1250,
     "cinebenchR23Multi": 75000,
-    "passmarkScore": 80000
+    "passmarkScore": 80000,
+    "overallPerformanceScore": 3500
   },
   {
     "name": "Ryzen Threadripper 7960X",
@@ -10552,7 +10761,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 34000,
-    "passmarkScore": 48800
+    "passmarkScore": 48800,
+    "overallPerformanceScore": 2241
   },
   {
     "name": "Ryzen Threadripper 7970X",
@@ -10602,7 +10812,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 42000,
-    "passmarkScore": 58400
+    "passmarkScore": 58400,
+    "overallPerformanceScore": 3100
   },
   {
     "name": "Ryzen Threadripper 7980X",
@@ -10652,7 +10863,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 74000,
-    "passmarkScore": 96800
+    "passmarkScore": 96800,
+    "overallPerformanceScore": 3600
   },
   {
     "name": "Ryzen Threadripper PRO 7995WX",
@@ -10702,7 +10914,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1200,
     "cinebenchR23Multi": 80000,
-    "passmarkScore": 100000
+    "passmarkScore": 100000,
+    "overallPerformanceScore": 4341
   },
   {
     "name": "Core Ultra 7 258V",
@@ -10752,7 +10965,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2147,
     "cinebenchR23Multi": 14600,
-    "passmarkScore": 44167
+    "passmarkScore": 44167,
+    "overallPerformanceScore": 1629
   },
   {
     "name": "Core Ultra 5 226V",
@@ -10802,7 +11016,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2130,
     "cinebenchR23Multi": 14484,
-    "passmarkScore": 43576
+    "passmarkScore": 43576,
+    "overallPerformanceScore": 1621
   },
   {
     "name": "Core Ultra 5 125H",
@@ -10853,7 +11068,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1996,
     "cinebenchR23Multi": 30539,
-    "passmarkScore": 85092
+    "passmarkScore": 85092,
+    "overallPerformanceScore": 1871
   },
   {
     "name": "Core i7-1360P",
@@ -10904,7 +11120,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2099,
     "cinebenchR23Multi": 28546,
-    "passmarkScore": 79855
+    "passmarkScore": 79855,
+    "overallPerformanceScore": 1827
   },
   {
     "name": "Core i5-1340P",
@@ -10955,7 +11172,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1889,
     "cinebenchR23Multi": 25690,
-    "passmarkScore": 71436
+    "passmarkScore": 71436,
+    "overallPerformanceScore": 1725
   },
   {
     "name": "Core i7-1260P",
@@ -11006,7 +11224,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1976,
     "cinebenchR23Multi": 26874,
-    "passmarkScore": 74856
+    "passmarkScore": 74856,
+    "overallPerformanceScore": 1752
   },
   {
     "name": "Core i5-1240P",
@@ -11057,7 +11276,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1781,
     "cinebenchR23Multi": 24222,
-    "passmarkScore": 67069
+    "passmarkScore": 67069,
+    "overallPerformanceScore": 1657
   },
   {
     "name": "Ryzen AI 9 HX 370",
@@ -11107,7 +11327,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2151,
     "cinebenchR23Multi": 43880,
-    "passmarkScore": 124301
+    "passmarkScore": 124301,
+    "overallPerformanceScore": 1963
   },
   {
     "name": "Ryzen AI 9 365",
@@ -11157,7 +11378,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2143,
     "cinebenchR23Multi": 36431,
-    "passmarkScore": 102970
+    "passmarkScore": 102970,
+    "overallPerformanceScore": 1841
   },
   {
     "name": "Ryzen 7 8845HS",
@@ -11208,7 +11430,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2227,
     "cinebenchR23Multi": 30287,
-    "passmarkScore": 86356
+    "passmarkScore": 86356,
+    "overallPerformanceScore": 1764
   },
   {
     "name": "Ryzen 7 7840HS",
@@ -11259,7 +11482,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2112,
     "cinebenchR23Multi": 28723,
-    "passmarkScore": 81756
+    "passmarkScore": 81756,
+    "overallPerformanceScore": 1693
   },
   {
     "name": "Ryzen 9 7940HS",
@@ -11310,7 +11534,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2221,
     "cinebenchR23Multi": 30206,
-    "passmarkScore": 86275
+    "passmarkScore": 86275,
+    "overallPerformanceScore": 1746
   },
   {
     "name": "Ryzen 7 6800U",
@@ -11360,7 +11585,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1972,
     "cinebenchR23Multi": 26819,
-    "passmarkScore": 75346
+    "passmarkScore": 75346,
+    "overallPerformanceScore": 1610
   },
   {
     "name": "Ryzen 7 5800U",
@@ -11411,7 +11637,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1853,
     "cinebenchR23Multi": 25201,
-    "passmarkScore": 70574
+    "passmarkScore": 70574,
+    "overallPerformanceScore": 1537
   },
   {
     "name": "Ryzen 5 5600U",
@@ -11462,7 +11689,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1669,
     "cinebenchR23Multi": 17024,
-    "passmarkScore": 48249
+    "passmarkScore": 48249,
+    "overallPerformanceScore": 555
   },
   {
     "name": "Ryzen 7 4700U",
@@ -11513,7 +11741,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1724,
     "cinebenchR23Multi": 11723,
-    "passmarkScore": 34583
+    "passmarkScore": 34583,
+    "overallPerformanceScore": 1363
   },
   {
     "name": "Ryzen 5 4500U",
@@ -11564,7 +11793,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1553,
     "cinebenchR23Multi": 7920,
-    "passmarkScore": 24299
+    "passmarkScore": 24299,
+    "overallPerformanceScore": 1186
   },
   {
     "name": "Ryzen 5 3500U",
@@ -11614,7 +11844,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1441,
     "cinebenchR23Multi": 9799,
-    "passmarkScore": 28562
+    "passmarkScore": 28562,
+    "overallPerformanceScore": 1071
   },
   {
     "name": "Ryzen 5 5500U",
@@ -11665,7 +11896,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1666,
     "cinebenchR23Multi": 16993,
-    "passmarkScore": 48026
+    "passmarkScore": 48026,
+    "overallPerformanceScore": 1328
   },
   {
     "name": "Ryzen 3 5300U",
@@ -11716,7 +11948,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1395,
     "cinebenchR23Multi": 9486,
-    "passmarkScore": 27819
+    "passmarkScore": 27819,
+    "overallPerformanceScore": 1079
   },
   {
     "name": "Ryzen 7 5700U",
@@ -11767,7 +12000,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1847,
     "cinebenchR23Multi": 25119,
-    "passmarkScore": 70060
+    "passmarkScore": 70060,
+    "overallPerformanceScore": 1534
   },
   {
     "name": "Ryzen 5 5600H",
@@ -11817,7 +12051,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1675,
     "cinebenchR23Multi": 17085,
-    "passmarkScore": 48615
+    "passmarkScore": 48615,
+    "overallPerformanceScore": 555
   },
   {
     "name": "Ryzen 7 5800H",
@@ -11867,7 +12102,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1857,
     "cinebenchR23Multi": 25255,
-    "passmarkScore": 71121
+    "passmarkScore": 71121,
+    "overallPerformanceScore": 1539
   },
   {
     "name": "Ryzen 9 5900HX",
@@ -11917,7 +12153,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1951,
     "cinebenchR23Multi": 26534,
-    "passmarkScore": 74950
+    "passmarkScore": 74950,
+    "overallPerformanceScore": 1585
   },
   {
     "name": "Ryzen 5 6600U",
@@ -11967,7 +12204,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1777,
     "cinebenchR23Multi": 18125,
-    "passmarkScore": 51644
+    "passmarkScore": 51644,
+    "overallPerformanceScore": 1397
   },
   {
     "name": "Ryzen 5 6600H",
@@ -12017,7 +12255,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1782,
     "cinebenchR23Multi": 18176,
-    "passmarkScore": 52003
+    "passmarkScore": 52003,
+    "overallPerformanceScore": 1400
   },
   {
     "name": "Ryzen 7 6800H",
@@ -12067,7 +12306,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1978,
     "cinebenchR23Multi": 26901,
-    "passmarkScore": 76069
+    "passmarkScore": 76069,
+    "overallPerformanceScore": 1613
   },
   {
     "name": "Ryzen 9 6900HX",
@@ -12117,7 +12357,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2076,
     "cinebenchR23Multi": 28234,
-    "passmarkScore": 80093
+    "passmarkScore": 80093,
+    "overallPerformanceScore": 1661
   },
   {
     "name": "Ryzen 3 7320U",
@@ -12167,7 +12408,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1556,
     "cinebenchR23Multi": 10581,
-    "passmarkScore": 30970
+    "passmarkScore": 30970,
+    "overallPerformanceScore": 1187
   },
   {
     "name": "Ryzen 5 7530U",
@@ -12218,7 +12460,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1868,
     "cinebenchR23Multi": 19054,
-    "passmarkScore": 53993
+    "passmarkScore": 53993,
+    "overallPerformanceScore": 1456
   },
   {
     "name": "Ryzen 5 7640HS",
@@ -12269,7 +12512,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1904,
     "cinebenchR23Multi": 19421,
-    "passmarkScore": 56120
+    "passmarkScore": 56120,
+    "overallPerformanceScore": 1474
   },
   {
     "name": "Ryzen 7 7730U",
@@ -12320,7 +12564,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2070,
     "cinebenchR23Multi": 28152,
-    "passmarkScore": 78758
+    "passmarkScore": 78758,
+    "overallPerformanceScore": 1673
   },
   {
     "name": "Ryzen 7 7735HS",
@@ -12371,7 +12616,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2090,
     "cinebenchR23Multi": 28424,
-    "passmarkScore": 80521
+    "passmarkScore": 80521,
+    "overallPerformanceScore": 1683
   },
   {
     "name": "Ryzen 9 7845HX",
@@ -12421,7 +12667,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2219,
     "cinebenchR23Multi": 45268,
-    "passmarkScore": 129004
+    "passmarkScore": 129004,
+    "overallPerformanceScore": 1981
   },
   {
     "name": "Ryzen 9 7945HX",
@@ -12471,7 +12718,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2226,
     "cinebenchR23Multi": 60547,
-    "passmarkScore": 174685
+    "passmarkScore": 174685,
+    "overallPerformanceScore": 2220
   },
   {
     "name": "Ryzen 9 7945HX3D",
@@ -12521,7 +12769,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2230,
     "cinebenchR23Multi": 60656,
-    "passmarkScore": 175522
+    "passmarkScore": 175522,
+    "overallPerformanceScore": 2222
   },
   {
     "name": "Ryzen 5 8645HS",
@@ -12572,7 +12821,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2007,
     "cinebenchR23Multi": 20471,
-    "passmarkScore": 59227
+    "passmarkScore": 59227,
+    "overallPerformanceScore": 1539
   },
   {
     "name": "Ryzen 9 8945HS",
@@ -12623,7 +12873,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2340,
     "cinebenchR23Multi": 31824,
-    "passmarkScore": 91038
+    "passmarkScore": 91038,
+    "overallPerformanceScore": 1819
   },
   {
     "name": "Ryzen 7 4800H",
@@ -12673,7 +12924,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1729,
     "cinebenchR23Multi": 23514,
-    "passmarkScore": 65307
+    "passmarkScore": 65307,
+    "overallPerformanceScore": 1462
   },
   {
     "name": "Ryzen 5 4600H",
@@ -12723,7 +12975,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1557,
     "cinebenchR23Multi": 15881,
-    "passmarkScore": 44781
+    "passmarkScore": 44781,
+    "overallPerformanceScore": 1261
   },
   {
     "name": "Ryzen 7 3700U",
@@ -12773,7 +13026,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1596,
     "cinebenchR23Multi": 10853,
-    "passmarkScore": 31682
+    "passmarkScore": 31682,
+    "overallPerformanceScore": 1146
   },
   {
     "name": "Core i9-13980HX",
@@ -12823,7 +13077,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2237,
     "cinebenchR23Multi": 60846,
-    "passmarkScore": 172962
+    "passmarkScore": 172962,
+    "overallPerformanceScore": 2506
   },
   {
     "name": "Core i9-13900H",
@@ -12874,7 +13129,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2217,
     "cinebenchR23Multi": 37689,
-    "passmarkScore": 106093
+    "passmarkScore": 106093,
+    "overallPerformanceScore": 2002
   },
   {
     "name": "Core i7-13700H",
@@ -12925,7 +13181,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2107,
     "cinebenchR23Multi": 35819,
-    "passmarkScore": 100439
+    "passmarkScore": 100439,
+    "overallPerformanceScore": 1949
   },
   {
     "name": "Core i5-13500H",
@@ -12976,7 +13233,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1896,
     "cinebenchR23Multi": 25786,
-    "passmarkScore": 72548
+    "passmarkScore": 72548,
+    "overallPerformanceScore": 1728
   },
   {
     "name": "Core i7-1355U",
@@ -13027,7 +13285,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2090,
     "cinebenchR23Multi": 21318,
-    "passmarkScore": 60499
+    "passmarkScore": 60499,
+    "overallPerformanceScore": 1705
   },
   {
     "name": "Core i5-1335U",
@@ -13078,7 +13337,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1883,
     "cinebenchR23Multi": 19207,
-    "passmarkScore": 54273
+    "passmarkScore": 54273,
+    "overallPerformanceScore": 1604
   },
   {
     "name": "Core i3-1315U",
@@ -13129,7 +13389,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1576,
     "cinebenchR23Multi": 10717,
-    "passmarkScore": 31458
+    "passmarkScore": 31458,
+    "overallPerformanceScore": 1267
   },
   {
     "name": "Core i9-12900HK",
@@ -13180,7 +13441,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 2092,
     "cinebenchR23Multi": 35564,
-    "passmarkScore": 99808
+    "passmarkScore": 99808,
+    "overallPerformanceScore": 1926
   },
   {
     "name": "Core i7-12700H",
@@ -13231,7 +13493,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1986,
     "cinebenchR23Multi": 33762,
-    "passmarkScore": 94246
+    "passmarkScore": 94246,
+    "overallPerformanceScore": 1875
   },
   {
     "name": "Core i5-12500H",
@@ -13282,7 +13545,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1786,
     "cinebenchR23Multi": 24290,
-    "passmarkScore": 68050
+    "passmarkScore": 68050,
+    "overallPerformanceScore": 1660
   },
   {
     "name": "Core i7-1255U",
@@ -13333,7 +13597,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1969,
     "cinebenchR23Multi": 20084,
-    "passmarkScore": 56788
+    "passmarkScore": 56788,
+    "overallPerformanceScore": 1631
   },
   {
     "name": "Core i5-1235U",
@@ -13384,7 +13649,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1774,
     "cinebenchR23Multi": 18095,
-    "passmarkScore": 50948
+    "passmarkScore": 50948,
+    "overallPerformanceScore": 1536
   },
   {
     "name": "Core i3-1215U",
@@ -13435,7 +13701,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1487,
     "cinebenchR23Multi": 10112,
-    "passmarkScore": 29595
+    "passmarkScore": 29595,
+    "overallPerformanceScore": 1208
   },
   {
     "name": "Core i9-11980HK",
@@ -13485,7 +13752,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1948,
     "cinebenchR23Multi": 26493,
-    "passmarkScore": 74315
+    "passmarkScore": 74315,
+    "overallPerformanceScore": 1584
   },
   {
     "name": "Core i7-11800H",
@@ -13535,7 +13803,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1855,
     "cinebenchR23Multi": 25228,
-    "passmarkScore": 70510
+    "passmarkScore": 70510,
+    "overallPerformanceScore": 1538
   },
   {
     "name": "Core i5-11400H",
@@ -13585,7 +13854,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1400,
     "cinebenchR23Multi": 10000,
-    "passmarkScore": 17000
+    "passmarkScore": 17000,
+    "overallPerformanceScore": 1236
   },
   {
     "name": "Core i7-1165G7",
@@ -13636,7 +13906,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1734,
     "cinebenchR23Multi": 11791,
-    "passmarkScore": 34621
+    "passmarkScore": 34621,
+    "overallPerformanceScore": 1229
   },
   {
     "name": "Core i5-1135G7",
@@ -13687,7 +13958,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1563,
     "cinebenchR23Multi": 10628,
-    "passmarkScore": 31090
+    "passmarkScore": 31090,
+    "overallPerformanceScore": 1145
   },
   {
     "name": "Core i3-1115G4",
@@ -13738,7 +14010,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1308,
     "cinebenchR23Multi": 4447,
-    "passmarkScore": 14725
+    "passmarkScore": 14725,
+    "overallPerformanceScore": 903
   },
   {
     "name": "Core i7-10875H",
@@ -13788,7 +14061,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1731,
     "cinebenchR23Multi": 23542,
-    "passmarkScore": 65306
+    "passmarkScore": 65306,
+    "overallPerformanceScore": 1463
   },
   {
     "name": "Core i7-10750H",
@@ -13838,7 +14112,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1726,
     "cinebenchR23Multi": 17605,
-    "passmarkScore": 49624
+    "passmarkScore": 49624,
+    "overallPerformanceScore": 1342
   },
   {
     "name": "Core i5-10300H",
@@ -13888,7 +14163,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1553,
     "cinebenchR23Multi": 10560,
-    "passmarkScore": 30839
+    "passmarkScore": 30839,
+    "overallPerformanceScore": 1140
   },
   {
     "name": "Core i7-1065G7",
@@ -13939,7 +14215,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1611,
     "cinebenchR23Multi": 10955,
-    "passmarkScore": 31984
+    "passmarkScore": 31984,
+    "overallPerformanceScore": 1154
   },
   {
     "name": "Core i5-1035G1",
@@ -13990,7 +14267,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 9860,
-    "passmarkScore": 28713
+    "passmarkScore": 28713,
+    "overallPerformanceScore": 1075
   },
   {
     "name": "Core i7-10510U",
@@ -14041,7 +14319,8 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1609,
     "cinebenchR23Multi": 10941,
-    "passmarkScore": 31903
+    "passmarkScore": 31903,
+    "overallPerformanceScore": 1153
   },
   {
     "name": "Core i5-10210U",
@@ -14092,6 +14371,7 @@
     "powerEfficiencyScore": "5.00 / 5.00",
     "cinebenchR23Single": 1450,
     "cinebenchR23Multi": 9860,
-    "passmarkScore": 28681
+    "passmarkScore": 28681,
+    "overallPerformanceScore": 1075
   }
 ]

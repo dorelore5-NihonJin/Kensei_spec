@@ -253,8 +253,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     : rankOptions(gpuOptions.filter((opt) => opt.id !== selectedGpuA?.id), selectedGpuA, gpus);
 
   // Calculate scores if items exist
-  const cpuScoreA = selectedCpuA ? Math.round(selectedCpuA.singleCoreScore * 0.6 + (selectedCpuA.multiCoreScore / 10) * 0.4 * 10) : 0;
-  const cpuScoreB = selectedCpuB ? Math.round(selectedCpuB.singleCoreScore * 0.6 + (selectedCpuB.multiCoreScore / 10) * 0.4 * 10) : 0;
+  const cpuScoreA = selectedCpuA ? (selectedCpuA.overallPerformanceScore || Math.round(selectedCpuA.singleCoreScore * 0.7 + selectedCpuA.multiCoreScore / 2.5)) : 0;
+  const cpuScoreB = selectedCpuB ? (selectedCpuB.overallPerformanceScore || Math.round(selectedCpuB.singleCoreScore * 0.7 + selectedCpuB.multiCoreScore / 2.5)) : 0;
 
   const gpuScoreA = selectedGpuA ? selectedGpuA.relativePowerScore : 0;
   const gpuScoreB = selectedGpuB ? selectedGpuB.relativePowerScore : 0;

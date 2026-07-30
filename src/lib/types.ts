@@ -90,6 +90,7 @@ export interface CPU {
   supportedDdr: string[];
   singleCoreScore: number;
   multiCoreScore: number;
+  overallPerformanceScore?: number;
   cinebenchR23Single?: number;
   cinebenchR23Multi?: number;
   passmarkScore?: number;
