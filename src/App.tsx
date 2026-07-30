@@ -9,7 +9,7 @@ import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
-import { ShoppingCart, ArrowRight, Sparkles, Cpu, Zap, Check } from "lucide-react";
+import { ShoppingCart, Sparkles, Cpu, Zap, Check } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import ComparePage from "./pages/ComparePage";
@@ -385,19 +385,19 @@ export default function App() {
                       {isHardwareSelected ? (
                         <>
                           <Sparkles className="w-4 h-4 text-emerald-400" />
-                          <span>Step 1 Complete!</span>
+                          <span>{t("floating.step1_complete")}</span>
                         </>
                       ) : (
                         <>
                           <Cpu className="w-4 h-4 text-[#E88D9F]" />
-                          <span>Step 1: Select Hardware</span>
+                          <span>{t("floating.step1_incomplete")}</span>
                         </>
                       )}
                     </h4>
                     <p className="text-xs text-gray-300 font-extrabold mt-0.5">
                       {isHardwareSelected
-                        ? "CPU, GPU, and RAM selected. Ready for target game benchmarking."
-                        : "Please select a CPU, GPU, and RAM to enable full performance testing."}
+                        ? t("floating.step1_desc")
+                        : t("floating.step1_desc_incomplete")}
                     </p>
                   </div>
 
@@ -407,14 +407,14 @@ export default function App() {
                         onClick={() => setIsBuyModalOpen(true)}
                         className="flex-1 sm:flex-initial px-4 py-3 rounded-2xl bg-white/10 text-white font-black text-xs hover:bg-white/20 transition shrink-0 flex items-center justify-center gap-1.5"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> Buy Build
+                        <ShoppingCart className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("wizard.buy_build")}
                       </button>
                     )}
                     <button
                       onClick={() => setCurrentStep(2)}
                       className="flex-1 sm:flex-initial px-6 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md shrink-0 flex items-center justify-center gap-1.5"
                     >
-                      Proceed to Step 2 <ArrowRight className="w-3.5 h-3.5" />
+                      {t("floating.proceed_step2")}
                     </button>
                   </div>
                 </div>

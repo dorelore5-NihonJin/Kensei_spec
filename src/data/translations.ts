@@ -131,6 +131,11 @@ export const translations: TranslationDictionary = {
     ru: "ДВУХКАНАЛЬНЫЙ (DUAL)",
     ja: "デュアルチャネル"
   },
+  "picker.speed_factor": {
+    en: "speed factor",
+    ru: "множитель скорости",
+    ja: "速度係数"
+  },
   "picker.storage_section": {
     en: "STORAGE INTERFACE (OS & GAMES)",
     ru: "ТИП НАКОПИТЕЛЯ (ОС И ИГРЫ)",
@@ -160,6 +165,33 @@ export const translations: TranslationDictionary = {
     en: "Reset Hardware",
     ru: "Сбросить комплектующие",
     ja: "構成リセット"
+  },
+
+  // Floating Bottom Step 1 Bar
+  "floating.step1_complete": {
+    en: "Step 1 Complete!",
+    ru: "Шаг 1 завершён!",
+    ja: "ステップ1 完了!"
+  },
+  "floating.step1_incomplete": {
+    en: "Step 1: Select Hardware",
+    ru: "Шаг 1: Выберите комплектующие",
+    ja: "ステップ1: パーツ選択"
+  },
+  "floating.step1_desc": {
+    en: "CPU, GPU, and RAM selected. Ready for target game benchmarking.",
+    ru: "Процессор, видеокарта и ОЗУ выбраны. Готово к тестированию игр.",
+    ja: "CPU、GPU、RAMを選択完了。ターゲットゲームのテストが可能です。"
+  },
+  "floating.step1_desc_incomplete": {
+    en: "Please select a CPU, GPU, and RAM to enable full performance testing.",
+    ru: "Пожалуйста, выберите процессор, видеокарту и ОЗУ для запуска тестирования.",
+    ja: "完全なパフォーマンス測定のためにCPU、GPU、RAMを選択してください。"
+  },
+  "floating.proceed_step2": {
+    en: "Proceed to Step 2 →",
+    ru: "Перейти к Шагу 2 →",
+    ja: "ステップ2へ進む →"
   },
 
   // Game Selector Labels
@@ -256,7 +288,7 @@ export const translations: TranslationDictionary = {
     ja: "シェーダー・レンダー限界"
   },
 
-  // Floating Bottom Workload Bar (Screenshot 3)
+  // Floating Bottom Workload Bar
   "floating.target_selected": {
     en: "Target Workload Selected:",
     ru: "Выбранная целевая игра:",
@@ -283,7 +315,7 @@ export const translations: TranslationDictionary = {
     ja: "ベンチマーク結果を見る →"
   },
 
-  // Quick Game Switcher Bar (Screenshot 3)
+  // Quick Game Switcher Bar
   "switcher.title": {
     en: "Quick Game & Workload Switcher",
     ru: "Быстрое переключение игр",
@@ -295,11 +327,21 @@ export const translations: TranslationDictionary = {
     ja: "リアルタイム再計算"
   },
 
-  // FPS Gauge Card (Screenshot 3)
+  // FPS Gauge Card
+  "fps.estimated": {
+    en: "ESTIMATED AVERAGE FPS",
+    ru: "РАСЧЁТНЫЙ СРЕДНИЙ FPS",
+    ja: "予測平均 FPS"
+  },
   "fps.share_build": {
     en: "Share Build",
     ru: "Поделиться сборкой",
     ja: "構成を共有"
+  },
+  "fps.link_copied": {
+    en: "Link Copied!",
+    ru: "Ссылка скопирована!",
+    ja: "リンクをコピーしました！"
   },
   "fps.real_time": {
     en: "REAL-TIME",
@@ -312,7 +354,7 @@ export const translations: TranslationDictionary = {
     ja: "平均 FPS"
   },
   "fps.high_refresh": {
-    en: "High Refresh / Smooth",
+    en: "High Refresh",
     ru: "Высокая плавность",
     ja: "超快適"
   },
@@ -341,8 +383,13 @@ export const translations: TranslationDictionary = {
     ru: "Загрузка GPU",
     ja: "GPU 負荷"
   },
+  "fps.awaiting": {
+    en: "Awaiting Component Selection",
+    ru: "Ожидание выбора комплектующих",
+    ja: "パーツ選択待ち"
+  },
 
-  // Smart Upgrade Advisor (Screenshot 3)
+  // Smart Upgrade Advisor
   "advisor.title": {
     en: "Smart Upgrade Advisor",
     ru: "Умный советник апгрейда",
@@ -359,7 +406,17 @@ export const translations: TranslationDictionary = {
     ja: "同ブランドで+30%の性能向上を提供するCPU/GPUは見つかりませんでした。すでにこの世代の頂点に達しています！"
   },
 
-  // Hardware Die Diagnostics & Power (Screenshot 4)
+  // Hardware Die Diagnostics & Power
+  "bottleneck.title": {
+    en: "SYSTEM BOTTLENECK ANALYSIS",
+    ru: "АНАЛИЗ БОТТЛНЕКА СИСТЕМЫ",
+    ja: "システム ボトルネック 分析"
+  },
+  "hero.simulator.badge2": {
+    en: "REAL-TIME PHYSICS SIMULATOR",
+    ru: "ФИЗИЧЕСКИЙ СИМУЛЯТОР В РЕАЛЬНОМ ВРЕМЕНИ",
+    ja: "リアルタイム物理シミュレーター"
+  },
   "diag.header": {
     en: "HARDWARE DIE DIAGNOSTICS",
     ru: "ДИАГНОСТИКА КРИСТАЛЛА ЖЕЛЕЗА",
@@ -436,7 +493,7 @@ export const translations: TranslationDictionary = {
     ja: "100% ゲーム負荷時"
   },
 
-  // Bottom CTA Order Bar (Screenshot 4)
+  // Bottom CTA Order Bar
   "cta.ready_title": {
     en: "Ready to build this setup?",
     ru: "Готовы собрать эту конфигурацию?",

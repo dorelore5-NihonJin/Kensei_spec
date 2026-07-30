@@ -98,23 +98,22 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
             <button
               onClick={onShareClick}
               className="text-xs font-extrabold px-3 py-1 rounded-full bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 hover:bg-[#E88D9F]/30 transition flex items-center gap-1.5 shadow-xs"
-              title="Share Build Configuration / 構成を共有"
             >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Link Copied!</span>
+                  <span>{t("fps.link_copied")}</span>
                 </>
               ) : (
                 <>
                   <Share2 className="w-3.5 h-3.5 text-[#E88D9F]" />
-                  <span>Share Build / 共有</span>
+                  <span>{t("fps.share_build")}</span>
                 </>
               )}
             </button>
           )}
           <span className="text-[10px] bg-white/10 text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">
-            Real-Time
+            {t("fps.real_time")}
           </span>
         </div>
       </div>
@@ -179,7 +178,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
             <span className="text-5xl font-black tracking-tight text-white select-all">
               {isComplete ? animatedAvgFps : "--"}
             </span>
-            <span className="text-[10px] uppercase tracking-widest text-white/60 font-black mt-0.5">AVG FPS</span>
+            <span className="text-[10px] uppercase tracking-widest text-white/60 font-black mt-0.5">{t("fps.avg_fps")}</span>
           </div>
         </div>
 
@@ -192,7 +191,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
           </div>
         ) : (
           <div className="px-4 py-1.5 rounded-full text-xs font-black border border-white/15 text-gray-300 bg-white/5 mt-4">
-            Awaiting Component Selection
+            {t("fps.awaiting")}
           </div>
         )}
       </div>
@@ -200,13 +199,13 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
       {/* FPS Details Grid */}
       <div className="grid grid-cols-2 gap-4 border-y border-white/10 py-4 text-center text-xs">
         <div className="border-r border-white/10 pr-2">
-          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">1% Low (Stutter)</span>
+          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">{t("fps.one_percent_low")}</span>
           <span className="text-lg font-black text-rose-300">
             {isComplete ? `${animatedLowFps} FPS` : "--"}
           </span>
         </div>
         <div className="pl-2">
-          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">Bottleneck Factor</span>
+          <span className="text-gray-400 block font-black uppercase tracking-wider text-[10px] mb-1">{t("fps.bottleneck_factor")}</span>
           <span className="text-lg font-black text-amber-300 uppercase tracking-wide">
             {isComplete ? (report.bottleneckType === "None" ? "Balanced" : report.bottleneckType) : "--"}
           </span>
@@ -216,14 +215,14 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
       {/* Workload balancing meter */}
       <div>
         <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-          <Info className="w-3.5 h-3.5 text-[#8A9A86]" /> Workload Balance (CPU vs GPU Load)
+          <Info className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("fps.workload_balance")}
         </h4>
 
         <div className="flex flex-col gap-3">
           {/* CPU Load */}
           <div>
             <div className="flex justify-between text-xs font-black text-gray-300 mb-1">
-              <span>CPU Load</span>
+              <span>{t("fps.cpu_load")}</span>
               <span className="font-mono">{isComplete ? `${report.cpuLoadPercentage}%` : "0%"}</span>
             </div>
             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
@@ -237,7 +236,7 @@ export default function FpsGauge({ report, selectedCpu, selectedGpu, selectedRam
           {/* GPU Load */}
           <div>
             <div className="flex justify-between text-xs font-black text-gray-300 mb-1">
-              <span>GPU Load</span>
+              <span>{t("fps.gpu_load")}</span>
               <span className="font-mono">{isComplete ? `${report.gpuLoadPercentage}%` : "0%"}</span>
             </div>
             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
