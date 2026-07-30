@@ -46,6 +46,91 @@ export const translations: TranslationDictionary = {
     ja: "リセット"
   },
 
+  // Hero Banners
+  "hero.simulator.badge1": {
+    en: "PHYSICS ENGINE",
+    ru: "ФИЗИЧЕСКИЙ ДВИЖОК",
+    ja: "物理エンジン"
+  },
+  "hero.simulator.badge2": {
+    en: "REAL-TIME TELEMETRY",
+    ru: "ТЕЛЕМЕТРИЯ В РЕАЛЬНОМ ВРЕМЕНИ",
+    ja: "リアルタイムテレメトリ"
+  },
+  "hero.simulator.title": {
+    en: "Hardware Physics & Benchmark Simulator",
+    ru: "Симулятор комплектующих и бенчмарков",
+    ja: "パーツ物理・ベンチマークシミュレーター"
+  },
+  "hero.simulator.desc": {
+    en: "Predict real-time FPS, bottleneck ratios, and PSU wattage for any CPU & GPU configuration.",
+    ru: "Рассчитывайте реальный FPS, боттлнек и энергопотребление для любых связок процессоров и видеокарт.",
+    ja: "CPUとGPUの任意の組み合わせでリアルタイムFPS、ボトルネック率、PSUワット数を予測します。"
+  },
+
+  "hero.catalog.badge1": {
+    en: "PRE-CONFIGURED BUILDS",
+    ru: "ГОТОВЫЕ СБОРКИ",
+    ja: "事前構成ビルド"
+  },
+  "hero.catalog.badge2": {
+    en: "TESTED BENCHMARKS",
+    ru: "ПРОВЕРЕННЫЕ БЕНЧМАРКИ",
+    ja: "検証済みベンチマーク"
+  },
+  "hero.catalog.title": {
+    en: "Curated Game PC Builds Catalog",
+    ru: "Каталог готовых игровых конфигураций",
+    ja: "厳選ゲームPCビルドカタログ"
+  },
+  "hero.catalog.desc": {
+    en: "Explore optimized PC builds tailored for Budget eSports, 1440p Ultra, and 4K Path Tracing.",
+    ru: "Исследуйте сбалансированные ПК для киберспорта, 1440p Ультра и 4K Трассировки путей.",
+    ja: "予算向けeスポーツ、1440pウルトラ、4Kパストレーシングに最適化されたPCビルドを検索。"
+  },
+
+  "hero.compare.badge1": {
+    en: "SILICON VS SILICON",
+    ru: "КРЕМНИЙ ПРОТИВ КРЕМНИЯ",
+    ja: "シリコン 対 シリコン"
+  },
+  "hero.compare.badge2": {
+    en: "HEAD-TO-HEAD BATTLE",
+    ru: "ПРЯМОЕ СРАВНЕНИЕ",
+    ja: "直接対決"
+  },
+  "hero.compare.title": {
+    en: "Hardware Head-to-Head Comparison",
+    ru: "Сравнение процессоров и видеокарт",
+    ja: "ハードウェア直接比較"
+  },
+  "hero.compare.desc": {
+    en: "Compare two CPUs or GPUs side-by-side: arch specs, cache bandwidth, TDP, and gaming deltas.",
+    ru: "Сравнивайте два процессора или видеокарты бок о бок: архитектуру, кэш, TDP и разницу FPS.",
+    ja: "2つのCPUまたはGPUを並べて比較：アーキテクチャ、キャッシュ帯域、TDP、ゲーム性能差。"
+  },
+
+  "hero.rankings.badge1": {
+    en: "GLOBAL LEADERBOARD",
+    ru: "ГЛОБАЛЬНЫЙ РЕЙТИНГ",
+    ja: "グローバルリーダーボード"
+  },
+  "hero.rankings.badge2": {
+    en: "2026 HARDWARE TIER LIST",
+    ru: "ТОП ЖЕЛЕЗА 2026",
+    ja: "2026年ハードウェアティア"
+  },
+  "hero.rankings.title": {
+    en: "Silicon Architecture Performance Rankings",
+    ru: "Рейтинг производительности комплектующих",
+    ja: "シリコンアーキテクチャ性能ランキング"
+  },
+  "hero.rankings.desc": {
+    en: "Comprehensive tier lists for all CPUs and GPUs ranked by single-core, multi-core, and raw 3D rasterization score.",
+    ru: "Полный рейтинг процессоров и видеокарт по одноядерной, многоядерной и 3D производительности.",
+    ja: "シングルコア、マルチコア、3Dラスタライズスコアで順位付けされた全CPU・GPUのティアリスト。"
+  },
+
   // Top Wizard Breadcrumbs
   "wizard.step1": {
     en: "1. Pick Components",
@@ -450,11 +535,6 @@ export const translations: TranslationDictionary = {
     en: "SYSTEM BOTTLENECK ANALYSIS",
     ru: "АНАЛИЗ БОТТЛНЕКА СИСТЕМЫ",
     ja: "システム ボトルネック 分析"
-  },
-  "hero.simulator.badge2": {
-    en: "REAL-TIME PHYSICS SIMULATOR",
-    ru: "ФИЗИЧЕСКИЙ СИМУЛЯТОР В РЕАЛЬНОМ ВРЕМЕНИ",
-    ja: "リアルタイム物理シミュレーター"
   },
   "diag.header": {
     en: "HARDWARE DIE DIAGNOSTICS",
