@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ShoppingCart, X, ExternalLink, ShieldCheck, Fan, Flame, Sparkles, Award, Copy, Check } from "lucide-react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
+import { useLanguage } from "../context/LanguageContext";
 
 interface BuildBuyModalProps {
   isOpen: boolean;
@@ -142,6 +143,7 @@ export default function BuildBuyModal({
   selectedStorage,
   psuRecommendationW
 }: BuildBuyModalProps) {
+  const { formatPrice } = useLanguage();
   const [tier, setTier] = useState<BuildTier>("premium");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -494,9 +496,8 @@ export default function BuildBuyModal({
         <div className="border-t border-black/10 dark:border-white/10 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <span className="text-[10px] text-gray-500 uppercase tracking-wider font-black block">Estimated Build Total</span>
-            <div className="text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-3">
-              <span>${totalPriceUSD.toLocaleString()} USD</span>
-              <span className="text-xs font-bold text-gray-500">({totalPriceRUB.toLocaleString()} ₽)</span>
+            <div className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-3">
+              <span>{formatPrice(totalPriceUSD)}</span>
             </div>
           </div>
 

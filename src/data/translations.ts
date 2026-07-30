@@ -78,6 +78,11 @@ export const translations: TranslationDictionary = {
     ru: "ПРОВЕРЕННЫЕ БЕНЧМАРКИ",
     ja: "検証済みベンチマーク"
   },
+  "hero.catalog.title": {
+    en: "Curated Game PC Builds Catalog",
+    ru: "Каталог готовых игровых конфигураций",
+    ja: "厳選ゲームPCビルドカタログ"
+  },
   // Section 2: Game Builds Catalog
   "catalog.title": {
     en: "Curated Game PC Builds Catalog",

@@ -62,7 +62,7 @@ export default function GameBuildsCatalog({
   onSelectBuild,
   onOpenBuyModal
 }: GameBuildsCatalogProps) {
-  const { t } = useLanguage();
+  const { t, formatPrice } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGameFilter, setSelectedGameFilter] = useState<string>("All");
   const [selectedTierFilter, setSelectedTierFilter] = useState<string>("All");
@@ -601,8 +601,8 @@ export default function GameBuildsCatalog({
                     {isGodTier ? <Award className="w-3 h-3 text-amber-400 shrink-0" /> : isHighEnd ? <Sparkles className="w-3 h-3 text-[#E88D9F] shrink-0" /> : renderCategoryIcon(build.category)}
                     {build.categoryBadge}
                   </span>
-                  <span className="text-xs font-mono font-black text-[#8A9A86]">
-                    ${build.totalPriceUSD.toLocaleString()} USD
+                  <span className="text-xs font-mono font-black text-[#8A9A86] bg-[#8A9A86]/10 px-2.5 py-1 rounded-xl border border-[#8A9A86]/20">
+                    {formatPrice(build.totalPriceUSD)}
                   </span>
                 </div>
 
