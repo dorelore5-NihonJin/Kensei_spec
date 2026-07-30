@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Sun, Moon, RotateCcw, Info, Sparkles, X, ShieldCheck, Cpu, Zap, Activity, ShoppingCart, Layers, LayoutGrid, Scale, Trophy } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "../context/LanguageContext";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -19,6 +21,7 @@ export default function Header({
   onOpenBuyModal
 }: HeaderProps) {
   const [showAboutModal, setShowAboutModal] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
@@ -38,7 +41,7 @@ export default function Header({
             <h2 className="text-base sm:text-lg font-black tracking-tight text-[#1E2022] dark:text-white flex items-center gap-2">
               KENSEI SPEC
               <span className="text-[10px] text-white bg-[#E88D9F] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
-                剣聖スペック
+                剣圣スペック
               </span>
             </h2>
             <p className="text-[11px] text-gray-500 dark:text-gray-400 font-extrabold hidden sm:block">
@@ -60,7 +63,7 @@ export default function Header({
             }`}
           >
             <Layers className={`w-4 h-4 ${activePage === "simulator" ? "text-white" : "text-cyan-500"}`} />
-            <span>1. Simulator & Calculator</span>
+            <span>{t("nav.simulator")}</span>
           </button>
 
           {/* TAB 2: GAME BUILDS CATALOG */}
@@ -73,7 +76,7 @@ export default function Header({
             }`}
           >
             <LayoutGrid className={`w-4 h-4 ${activePage === "catalog" ? "text-white" : "text-[#8A9A86]"}`} />
-            <span>2. Game Builds Catalog</span>
+            <span>{t("nav.catalog")}</span>
           </button>
 
           {/* TAB 3: HARDWARE COMPARE */}
@@ -86,7 +89,7 @@ export default function Header({
             }`}
           >
             <Scale className={`w-4 h-4 ${activePage === "compare" ? "text-white" : "text-[#E88D9F]"}`} />
-            <span>3. Hardware Compare</span>
+            <span>{t("nav.compare")}</span>
           </button>
 
           {/* TAB 4: GLOBAL RANKINGS */}
@@ -99,7 +102,7 @@ export default function Header({
             }`}
           >
             <Trophy className={`w-4 h-4 ${activePage === "rankings" ? "text-white" : "text-amber-500"}`} />
-            <span>4. Silicon Rankings</span>
+            <span>{t("nav.rankings")}</span>
           </button>
 
           {/* TAB 5: PC CONFIGURATOR STORE */}
@@ -108,12 +111,15 @@ export default function Header({
             className="px-3.5 py-2.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-200 shadow-md shadow-emerald-600/25 flex items-center gap-1.5 shrink-0 hover:scale-102 border border-emerald-400/30"
           >
             <ShoppingCart className="w-4 h-4 text-white" />
-            <span>5. Buy PC Store</span>
+            <span>{t("nav.store")}</span>
           </button>
         </div>
 
-        {/* Right: Quick Action Controls */}
+        {/* Right: Quick Action Controls & Language Selector */}
         <div className="flex items-center gap-2 shrink-0">
+          {/* Language Selector Dropdown */}
+          <LanguageSelector />
+
           {/* About Modal */}
           <button
             onClick={() => setShowAboutModal(true)}
@@ -121,7 +127,7 @@ export default function Header({
             title="About Engine"
           >
             <Info className="w-4 h-4 text-[#E88D9F]" />
-            <span className="hidden sm:inline">About</span>
+            <span className="hidden sm:inline">{t("header.about")}</span>
           </button>
 
           {/* Light / Dark Mode Toggle */}
@@ -141,7 +147,7 @@ export default function Header({
             title="Reset All Selections"
           >
             <RotateCcw className="w-4 h-4" />
-            <span className="hidden md:inline">Reset</span>
+            <span className="hidden md:inline">{t("header.reset")}</span>
           </button>
         </div>
       </header>
@@ -178,31 +184,31 @@ export default function Header({
         <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className="bg-[#E88D9F] text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest shadow-xs">
-              {activePage === "rankings" ? "GLOBAL HIERARCHY LEADERBOARD" : activePage === "compare" ? "VERSUS BENCHMARK LAB" : activePage === "catalog" ? "250 VERIFIED BUILDS" : "NEO-TOKYO ENGINE V2.6"}
+              {activePage === "rankings" ? t("hero.rankings.badge1") : activePage === "compare" ? t("hero.compare.badge1") : activePage === "catalog" ? t("hero.catalog.badge1") : t("hero.simulator.badge1")}
             </span>
             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-widest flex items-center gap-1.5">
-              {activePage === "rankings" ? "100% VERIFIED HARDWARE INDEX" : activePage === "compare" ? "DEEP SILICON MATRIX COMPARISON" : activePage === "catalog" ? "LIVE CATALOG SHOWROOM" : "REAL-TIME PHYSICS SIMULATOR"}
+              {activePage === "rankings" ? t("hero.rankings.badge2") : activePage === "compare" ? t("hero.compare.badge2") : activePage === "catalog" ? t("hero.catalog.badge2") : t("hero.simulator.badge2")}
             </span>
           </div>
 
           <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-none drop-shadow-lg flex items-center gap-3">
             {activePage === "rankings"
-              ? "GLOBAL SILICON HIERARCHY RANKINGS"
+              ? t("hero.rankings.title")
               : activePage === "compare"
-              ? "KENSEI VERSUS HARDWARE STUDIO"
+              ? t("hero.compare.title")
               : activePage === "catalog"
-              ? "KENSEI GAME BUILDS CATALOG"
-              : "KENSEI SPEC HARDWARE SIMULATOR"}
+              ? t("hero.catalog.title")
+              : t("hero.simulator.title")}
           </h1>
 
           <p className="text-xs sm:text-sm text-gray-200 font-extrabold mt-2 max-w-xl leading-relaxed drop-shadow">
             {activePage === "rankings"
-              ? "Explore complete global hierarchy leaderboards for all CPUs and GPUs sorted by normalized aggregate performance throughput."
+              ? t("hero.rankings.desc")
               : activePage === "compare"
-              ? "Compare CPUs and GPUs side-by-side with normalized aggregate telemetry performance metrics, architectural specs, and hierarchy ranking."
+              ? t("hero.compare.desc")
               : activePage === "catalog"
-              ? "Browse 250 verified PC configurations across Esports Gaming, AI LLM Inference, 3D Rendering & Workstations."
-              : "Precision silicon telemetry, 3D V-Cache scaling, and VRAM thrashing benchmark estimator designed with Soft Japanese Minimalism."}
+              ? t("hero.catalog.desc")
+              : t("hero.simulator.desc")}
           </p>
         </div>
       </div>

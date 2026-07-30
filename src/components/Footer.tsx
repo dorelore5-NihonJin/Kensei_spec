@@ -1,4 +1,5 @@
 import { Cpu, Gamepad2, ShoppingCart, Zap, ShieldCheck, Cookie } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface FooterProps {
   setActivePage: (page: "simulator" | "catalog") => void;
@@ -9,6 +10,8 @@ interface FooterProps {
 }
 
 export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal, onOpenCookieSettings }: FooterProps) {
+  const { t } = useLanguage();
+
   return (
     <footer className="mt-24 border-t border-black/10 dark:border-white/10 bg-white/50 dark:bg-[#151719]/80 backdrop-blur-lg rounded-t-3xl pt-12 pb-8 px-6 sm:px-10 text-xs font-extrabold text-gray-600 dark:text-gray-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -33,7 +36,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
           </div>
 
           <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400 font-bold max-w-md">
-            Built to deliver authentic hardware benchmark predictions. Features 3D V-Cache latency math, VRAM buffer thrashing penalties, and socket-matched PC build recommendations.
+            {t("footer.brand")}
           </p>
 
           <div className="flex items-center gap-2 mt-1 flex-wrap">
