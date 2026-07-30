@@ -95,6 +95,7 @@ export default function GameBuildsCatalog({
 
     // --- 1. GAME-SPECIFIC BUILDS (18 Games x 8 Variations = 144 Builds) ---
     games.forEach((game) => {
+      const isCompetitiveFPS = game.id === "cs2" || game.id === "valorant";
       const isEsports = ["cs2", "valorant", "fortnite", "apex"].includes(game.id);
       const isHeavyAAA = ["cyberpunk", "wukong", "gtavi", "stalker2", "alanwake2"].includes(game.id);
       const baseFps1080 = game.baseFpsScaling["1080p"]?.Medium || 100;
@@ -107,19 +108,19 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "Esports 1080p",
+        categoryBadge: isCompetitiveFPS ? "eSports 240+ FPS" : "Esports 1080p",
         tierName: "Budget ($500-$800)",
-        buildTitle: `${game.title} 1080p Value Champion`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 240+ FPS Value Rig` : `${game.title} 1080p Value Champion`,
         cpuName: isEsports ? "Ryzen 5 5600" : "Core i3-13100F",
         gpuName: isEsports ? "GeForce RTX 3060 12GB" : "GeForce RTX 4060 8GB",
         ramText: "16GB DDR4-3200 Dual Channel",
         storageText: "1TB NVMe M.2 SSD",
         targetResolution: "1080p",
-        estimatedFps: Math.round(baseFps1080 * 0.9),
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 260 : 320) : Math.round(baseFps1080 * 0.9),
         totalPriceUSD: isHeavyAAA ? 790 : 620,
         badgeTag: "Value Champion / 1080p Verified",
         accentBorderClass: "border-2 border-emerald-500/40 hover:border-emerald-500/80 shadow-xs",
-        highlightFeature: "1080p 60+ FPS • Low TDP Air Cooling"
+        highlightFeature: isCompetitiveFPS ? "1080p 240+ FPS • Low Latency" : "1080p 60+ FPS • Low TDP Air Cooling"
       });
 
       // 2. Budget 1080p Pure AMD Edition
@@ -128,145 +129,145 @@ export default function GameBuildsCatalog({
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "Pure AMD Budget",
+        categoryBadge: isCompetitiveFPS ? "Pure AMD 240+ FPS" : "Pure AMD Budget",
         tierName: "Budget ($500-$800)",
-        buildTitle: `${game.title} Radeon RX 6600 Budget Rig`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 240+ FPS Radeon Edition` : `${game.title} Radeon RX 6600 Budget Rig`,
         cpuName: "Ryzen 5 5500",
         gpuName: "Radeon RX 6600 8GB",
         ramText: "16GB DDR4-3200 Dual Channel",
         storageText: "500GB NVMe M.2 SSD",
         targetResolution: "1080p",
-        estimatedFps: Math.round(baseFps1080 * 0.82),
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 240 : 300) : Math.round(baseFps1080 * 0.82),
         totalPriceUSD: 540,
         badgeTag: "Super Budget / Best Dollar-per-FPS",
         accentBorderClass: "border-2 border-emerald-500/40 hover:border-emerald-500/80 shadow-xs",
-        highlightFeature: "Smart Access Memory (SAM) Boost"
+        highlightFeature: isCompetitiveFPS ? "Radeon Anti-Lag+ • 240+ FPS" : "Smart Access Memory (SAM) Boost"
       });
 
-      // 3. Sweetspot 1440p Dominator
+      // 3. Sweetspot 1440p Dominator (or 360+ FPS eSports)
       builds.push({
         id: `${game.id}-s1`,
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "1440p Sweetspot",
+        categoryBadge: isCompetitiveFPS ? "360+ FPS Competitive" : "1440p Sweetspot",
         tierName: "Sweetspot ($1,000-$1,500)",
-        buildTitle: `${game.title} 1440p Ultra Dominator`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 360+ FPS High Refresh Rig` : `${game.title} 1440p Ultra Dominator`,
         cpuName: isEsports ? "Ryzen 7 5700X3D" : "Ryzen 5 7600X",
         gpuName: "GeForce RTX 4070 Super 12GB",
         ramText: "32GB DDR5-6000 Low-Latency",
         storageText: "2TB NVMe Gen4 SSD",
-        targetResolution: "1440p",
-        estimatedFps: Math.round(baseFps1440 * 1.3),
+        targetResolution: isCompetitiveFPS ? "1080p" : "1440p",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 380 : 460) : Math.round(baseFps1440 * 1.3),
         totalPriceUSD: 1380,
         badgeTag: "Most Popular / 1440p Sweetspot",
         accentBorderClass: "border-2 border-[#8A9A86]/60 hover:border-[#8A9A86] shadow-sm",
-        highlightFeature: "DLSS 3 Frame Gen • 12GB GDDR6X VRAM"
+        highlightFeature: isCompetitiveFPS ? "360Hz Display Ready • Low Latency" : "DLSS 3 Frame Gen • 12GB GDDR6X VRAM"
       });
 
-      // 4. Sweetspot AMD Advantage Rig
+      // 4. Sweetspot AMD Advantage Rig (or 500+ FPS 3D V-Cache)
       builds.push({
         id: `${game.id}-s2`,
         gameId: game.id,
         gameTitle: game.title,
         category: "Gaming",
-        categoryBadge: "Pure AMD 1440p",
+        categoryBadge: isCompetitiveFPS ? "500+ FPS 3D V-Cache" : "Pure AMD 1440p",
         tierName: "Sweetspot ($1,000-$1,500)",
-        buildTitle: `${game.title} RX 7800 XT 16GB Monster`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 500+ FPS 3D V-Cache Monster` : `${game.title} RX 7800 XT 16GB Monster`,
         cpuName: "Ryzen 5 7600X",
         gpuName: "Radeon RX 7800 XT 16GB",
         ramText: "32GB DDR5-6000 EXPO Kit",
         storageText: "2TB PCIe 4.0 NVMe SSD",
-        targetResolution: "1440p",
-        estimatedFps: Math.round(baseFps1440 * 1.22),
+        targetResolution: isCompetitiveFPS ? "1080p" : "1440p",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 520 : 580) : Math.round(baseFps1440 * 1.22),
         totalPriceUSD: 1290,
         badgeTag: "16GB VRAM Champion",
         accentBorderClass: "border-2 border-[#8A9A86]/60 hover:border-[#8A9A86] shadow-sm",
-        highlightFeature: "16GB VRAM Buffer • HYPR-RX FSR3"
+        highlightFeature: isCompetitiveFPS ? "AMD 3D V-Cache • 500+ FPS 1% Lows" : "16GB VRAM Buffer • HYPR-RX FSR3"
       });
 
-      // 5. High-End 4K Ray Tracing Beast
+      // 5. High-End (or 600+ FPS eSports Rig)
       builds.push({
         id: `${game.id}-h1`,
         gameId: game.id,
         gameTitle: game.title,
         category: "3D Render",
-        categoryBadge: "4K Ray Tracing & 3D",
+        categoryBadge: isCompetitiveFPS ? "600+ FPS eSports Rig" : "4K Ray Tracing & 3D",
         tierName: "High-End ($1,800-$2,500)",
-        buildTitle: `${game.title} 4K Ray Tracing Beast`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 600+ FPS Tournament Beast` : `${game.title} 4K Ray Tracing Beast`,
         cpuName: "Ryzen 7 7800X3D",
         gpuName: "GeForce RTX 4080 Super 16GB",
         ramText: "32GB DDR5-6000 3D V-Cache Kit",
         storageText: "2TB PCIe 4.0 NVMe SSD",
-        targetResolution: isEsports ? "1440p" : "4K",
-        estimatedFps: Math.round(baseFps4K * 1.6),
+        targetResolution: isCompetitiveFPS ? "1080p" : "4K",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 620 : 680) : Math.round(baseFps4K * 1.6),
         totalPriceUSD: 2190,
         badgeTag: "4K Ultra + Ray Tracing",
         accentBorderClass: "border-2 border-[#E88D9F]/70 shadow-[0_0_18px_rgba(232,141,159,0.18)] hover:border-[#E88D9F]",
-        highlightFeature: "AMD 3D V-Cache • 16GB GDDR6X VRAM"
+        highlightFeature: isCompetitiveFPS ? "600+ FPS • 540Hz eSports Certified" : "AMD 3D V-Cache • 16GB GDDR6X VRAM"
       });
 
-      // 6. High-End Intel Ultra Workstation
+      // 6. High-End Intel (or Pro Tournament Streamer)
       builds.push({
         id: `${game.id}-h2`,
         gameId: game.id,
         gameTitle: game.title,
         category: "Streaming",
-        categoryBadge: "4K Streamer Workstation",
+        categoryBadge: isCompetitiveFPS ? "Pro Tournament Rig" : "4K Streamer Workstation",
         tierName: "High-End ($1,800-$2,500)",
-        buildTitle: `${game.title} Core Ultra 7 265K Streamer`,
+        buildTitle: isCompetitiveFPS ? `${game.title} Pro League Streamer & Gaming Rig` : `${game.title} Core Ultra 7 265K Streamer`,
         cpuName: "Core Ultra 7 265K",
         gpuName: "GeForce RTX 4070 Ti Super 16GB",
         ramText: "64GB DDR5-6400 Dual Channel",
         storageText: "2TB NVMe Gen4 SSD",
-        targetResolution: "1440p",
-        estimatedFps: Math.round(baseFps1440 * 1.45),
+        targetResolution: isCompetitiveFPS ? "1080p" : "1440p",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 650 : 720) : Math.round(baseFps1440 * 1.45),
         totalPriceUSD: 1980,
         badgeTag: "Content Creator Edition",
         accentBorderClass: "border-2 border-[#E88D9F]/70 shadow-[0_0_18px_rgba(232,141,159,0.18)] hover:border-[#E88D9F]",
-        highlightFeature: "20 Cores NPU Acceleration • 16GB VRAM"
+        highlightFeature: isCompetitiveFPS ? "Dual PC NVENC Streamer • 600+ FPS" : "20 Cores NPU Acceleration • 16GB VRAM"
       });
 
-      // 7. God Tier Absolute Flagship
+      // 7. God Tier (or 800+ FPS Uncapped Apex God)
       builds.push({
         id: `${game.id}-g1`,
         gameId: game.id,
         gameTitle: game.title,
         category: "AI & Dev",
-        categoryBadge: "AI LLM Dev & Flagship",
+        categoryBadge: isCompetitiveFPS ? "Uncapped Apex Rig" : "AI LLM Dev & Flagship",
         tierName: "God Tier ($3,000+)",
-        buildTitle: `${game.title} Absolute Flagship King`,
+        buildTitle: isCompetitiveFPS ? `${game.title} 800+ FPS Uncapped Apex God` : `${game.title} Absolute Flagship King`,
         cpuName: "Ryzen 7 9800X3D",
         gpuName: "GeForce RTX 4090 24GB",
         ramText: "64GB DDR5-6400 Low-Latency",
         storageText: "4TB Gen4 NVMe M.2 SSD",
-        targetResolution: "4K",
-        estimatedFps: Math.round(baseFps4K * 2.2),
+        targetResolution: isCompetitiveFPS ? "1080p" : "4K",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 780 : 850) : Math.round(baseFps4K * 2.2),
         totalPriceUSD: 3680,
         badgeTag: "Maximum Performance / No Compromise",
         accentBorderClass: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)] hover:border-amber-400",
-        highlightFeature: "24GB VRAM CUDA Workstation • 64GB DDR5"
+        highlightFeature: isCompetitiveFPS ? "Apex Uncapped FPS • 9800X3D + RTX 4090" : "24GB VRAM CUDA Workstation • 64GB DDR5"
       });
 
-      // 8. God Tier Intel Extreme Edition
+      // 8. God Tier Intel (or Uncapped i9 eSports Master)
       builds.push({
         id: `${game.id}-g2`,
         gameId: game.id,
         gameTitle: game.title,
         category: "3D Render",
-        categoryBadge: "Core i9 Flagship",
+        categoryBadge: isCompetitiveFPS ? "Uncapped i9 eSports" : "Core i9 Flagship",
         tierName: "God Tier ($3,000+)",
-        buildTitle: `${game.title} i9-14900K Liquid Master`,
+        buildTitle: isCompetitiveFPS ? `${game.title} Uncapped i9 eSports Master` : `${game.title} i9-14900K Liquid Master`,
         cpuName: "Core i9-14900K",
         gpuName: "GeForce RTX 4090 24GB",
         ramText: "64GB DDR5-7200 Extreme OC",
         storageText: "4TB NVMe Gen4 SSD",
-        targetResolution: "4K",
-        estimatedFps: Math.round(baseFps4K * 2.15),
+        targetResolution: isCompetitiveFPS ? "1080p" : "4K",
+        estimatedFps: isCompetitiveFPS ? (game.id === "cs2" ? 760 : 830) : Math.round(baseFps4K * 2.15),
         totalPriceUSD: 3820,
         badgeTag: "Extreme Overclocking Edition",
         accentBorderClass: "border-2 border-amber-400/80 shadow-[0_0_25px_rgba(251,191,36,0.22)] hover:border-amber-400",
-        highlightFeature: "24 Cores / 32 Threads • 360mm AIO Liquid"
+        highlightFeature: isCompetitiveFPS ? "Uncapped FPS • 540Hz eSports Monitor" : "24 Cores / 32 Threads • 360mm AIO Liquid"
       });
     });
 
