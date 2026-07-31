@@ -15,7 +15,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1999",
+    "launchMsrp": 1999,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "2.59 Efficiency",
     "cudaCores": "22000 CUDA Cores",
@@ -176,7 +176,8 @@
     "portRoyalScore": 25200,
     "geekbenchVulkan": 234000,
     "geekbenchOpenCL": 223200,
-    "passmarkG3D": 39000
+    "passmarkG3D": 39000,
+    "passmarkScore": 38951
   },
   {
     "id": "gpu-080",
@@ -194,7 +195,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1999",
+    "launchMsrp": 1999,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "2.86 Efficiency",
     "cudaCores": "17160 CUDA Cores",
@@ -355,7 +356,8 @@
     "portRoyalScore": 19656,
     "geekbenchVulkan": 182520,
     "geekbenchOpenCL": 174096,
-    "passmarkG3D": 31080
+    "passmarkG3D": 31080,
+    "passmarkScore": 35631
   },
   {
     "id": "gpu-077",
@@ -534,7 +536,8 @@
     "portRoyalScore": 26000,
     "geekbenchVulkan": 260000,
     "geekbenchOpenCL": 320000,
-    "passmarkG3D": 39000
+    "passmarkG3D": 39000,
+    "passmarkScore": 38044
   },
   {
     "name": "GeForce RTX 5070 Ti",
@@ -552,7 +555,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1999",
+    "launchMsrp": 1999,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "15840 CUDA Cores",
@@ -713,7 +716,8 @@
     "portRoyalScore": 18144,
     "geekbenchVulkan": 168480,
     "geekbenchOpenCL": 160704,
-    "passmarkG3D": 28920
+    "passmarkG3D": 28920,
+    "passmarkScore": 32354
   },
   {
     "name": "Apple M2 Ultra 76-Core GPU",
@@ -731,7 +735,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$1736",
+    "launchMsrp": 1736,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "13640 Stream Processors",
@@ -910,7 +914,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$784",
+    "launchMsrp": 784,
     "costEffectivenessScore": "8.22 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "6160 Stream Processors",
@@ -1089,7 +1093,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1820",
+    "launchMsrp": 1820,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "14300 CUDA Cores",
@@ -1268,7 +1272,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$1624",
+    "launchMsrp": 1624,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "12760 Stream Processors",
@@ -1608,7 +1612,8 @@
     "portRoyalScore": 18000,
     "geekbenchVulkan": 210000,
     "geekbenchOpenCL": 260000,
-    "passmarkG3D": 35000
+    "passmarkG3D": 35000,
+    "passmarkScore": 34226
   },
   {
     "id": "gpu-079",
@@ -1626,7 +1631,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1456",
+    "launchMsrp": 1456,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "2.29 Efficiency",
     "cudaCores": "11440 CUDA Cores",
@@ -1787,7 +1792,8 @@
     "portRoyalScore": 13104,
     "geekbenchVulkan": 121680,
     "geekbenchOpenCL": 116064,
-    "passmarkG3D": 21720
+    "passmarkG3D": 21720,
+    "passmarkScore": 28660
   },
   {
     "id": "gpu-075",
@@ -1966,7 +1972,8 @@
     "portRoyalScore": 17500,
     "geekbenchVulkan": 200000,
     "geekbenchOpenCL": 250000,
-    "passmarkG3D": 34000
+    "passmarkG3D": 34000,
+    "passmarkScore": 34448
   },
   {
     "id": "gpu-058",
@@ -1984,7 +1991,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$840",
+    "launchMsrp": 840,
     "costEffectivenessScore": "8.67 / 10.0",
     "powerEfficiencyScore": "1.32 Efficiency",
     "cudaCores": "6600 CUDA Cores",
@@ -2145,7 +2152,8 @@
     "portRoyalScore": 7560,
     "geekbenchVulkan": 70200,
     "geekbenchOpenCL": 66960,
-    "passmarkG3D": 13800
+    "passmarkG3D": 13800,
+    "passmarkScore": 19892
   },
   {
     "id": "gpu-131",
@@ -2324,7 +2332,8 @@
     "portRoyalScore": 10000,
     "geekbenchVulkan": 220000,
     "geekbenchOpenCL": 200000,
-    "passmarkG3D": 31000
+    "passmarkG3D": 31000,
+    "passmarkScore": 31437
   },
   {
     "name": "Apple M3 Pro 18-Core GPU",
@@ -2342,7 +2351,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$588",
+    "launchMsrp": 588,
     "costEffectivenessScore": "6.67 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "4620 Stream Processors",
@@ -2682,7 +2691,8 @@
     "portRoyalScore": 15000,
     "geekbenchVulkan": 180000,
     "geekbenchOpenCL": 210000,
-    "passmarkG3D": 32000
+    "passmarkG3D": 32000,
+    "passmarkScore": 31831
   },
   {
     "id": "gpu-181",
@@ -2700,7 +2710,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1386",
+    "launchMsrp": 1386,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "10890 CUDA Cores",
@@ -2879,7 +2889,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1344",
+    "launchMsrp": 1344,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "1.92 Efficiency",
     "cudaCores": "10560 Stream Processors",
@@ -3058,7 +3068,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1708",
+    "launchMsrp": 1708,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "2.24 Efficiency",
     "cudaCores": "13420 Stream Processors",
@@ -3237,7 +3247,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$868",
+    "launchMsrp": 868,
     "costEffectivenessScore": "8.89 / 10.0",
     "powerEfficiencyScore": "1.36 Efficiency",
     "cudaCores": "6820 Stream Processors",
@@ -3577,7 +3587,8 @@
     "portRoyalScore": 8500,
     "geekbenchVulkan": 180000,
     "geekbenchOpenCL": 170000,
-    "passmarkG3D": 28000
+    "passmarkG3D": 28000,
+    "passmarkScore": 29073
   },
   {
     "name": "Apple M1 Ultra 64-Core GPU",
@@ -3595,7 +3606,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$1456",
+    "launchMsrp": 1456,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "11440 Stream Processors",
@@ -3774,7 +3785,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$364",
+    "launchMsrp": 364,
     "costEffectivenessScore": "4.89 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "2860 Stream Processors",
@@ -4114,7 +4125,8 @@
     "portRoyalScore": 13000,
     "geekbenchVulkan": 160000,
     "geekbenchOpenCL": 170000,
-    "passmarkG3D": 28000
+    "passmarkG3D": 28000,
+    "passmarkScore": 29940
   },
   {
     "id": "gpu-124",
@@ -4132,7 +4144,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 21 KXTX",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$1050",
+    "launchMsrp": 1050,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "1.18 Efficiency",
     "cudaCores": "5120 Stream Processors",
@@ -4293,7 +4305,8 @@
     "portRoyalScore": 10000,
     "geekbenchVulkan": 160000,
     "geekbenchOpenCL": 150000,
-    "passmarkG3D": 27000
+    "passmarkG3D": 27000,
+    "passmarkScore": 28080
   },
   {
     "id": "gpu-145",
@@ -4311,7 +4324,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$515",
+    "launchMsrp": 515,
     "costEffectivenessScore": "6.09 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "4048 Stream Processors",
@@ -4651,7 +4664,8 @@
     "portRoyalScore": 14000,
     "geekbenchVulkan": 170000,
     "geekbenchOpenCL": 200000,
-    "passmarkG3D": 31000
+    "passmarkG3D": 31000,
+    "passmarkScore": 31539
   },
   {
     "id": "gpu-177",
@@ -5009,7 +5023,8 @@
     "portRoyalScore": 14500,
     "geekbenchVulkan": 155000,
     "geekbenchOpenCL": 230000,
-    "passmarkG3D": 29000
+    "passmarkG3D": 29000,
+    "passmarkScore": 29256
   },
   {
     "name": "Apple M3 Max 40-Core GPU",
@@ -5027,7 +5042,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$1288",
+    "launchMsrp": 1288,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "10120 Stream Processors",
@@ -5367,7 +5382,8 @@
     "portRoyalScore": 4662,
     "geekbenchVulkan": 86580,
     "geekbenchOpenCL": 82584,
-    "passmarkG3D": 16320
+    "passmarkG3D": 16320,
+    "passmarkScore": 27436
   },
   {
     "id": "gpu-121",
@@ -5385,7 +5401,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 21 XL",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$728",
+    "launchMsrp": 728,
     "costEffectivenessScore": "7.78 / 10.0",
     "powerEfficiencyScore": "1.14 Efficiency",
     "cudaCores": "3840 Stream Processors",
@@ -5546,7 +5562,8 @@
     "portRoyalScore": 3276,
     "geekbenchVulkan": 60840,
     "geekbenchOpenCL": 58032,
-    "passmarkG3D": 12360
+    "passmarkG3D": 12360,
+    "passmarkScore": 22057
   },
   {
     "id": "gpu-122",
@@ -5564,7 +5581,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 21 XT",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$868",
+    "launchMsrp": 868,
     "costEffectivenessScore": "8.89 / 10.0",
     "powerEfficiencyScore": "1.14 Efficiency",
     "cudaCores": "4608 Stream Processors",
@@ -5725,7 +5742,8 @@
     "portRoyalScore": 8500,
     "geekbenchVulkan": 130000,
     "geekbenchOpenCL": 125000,
-    "passmarkG3D": 23000
+    "passmarkG3D": 23000,
+    "passmarkScore": 25071
   },
   {
     "id": "gpu-123",
@@ -5743,7 +5761,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 21 XTX",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$966",
+    "launchMsrp": 966,
     "costEffectivenessScore": "9.67 / 10.0",
     "powerEfficiencyScore": "1.08 Efficiency",
     "cudaCores": "5120 Stream Processors",
@@ -5904,7 +5922,8 @@
     "portRoyalScore": 9500,
     "geekbenchVulkan": 145000,
     "geekbenchOpenCL": 140000,
-    "passmarkG3D": 25000
+    "passmarkG3D": 25000,
+    "passmarkScore": 26642
   },
   {
     "id": "gpu-111",
@@ -5922,7 +5941,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$470",
+    "launchMsrp": 470,
     "costEffectivenessScore": "5.73 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3696 Stream Processors",
@@ -6083,7 +6102,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 39312,
     "geekbenchOpenCL": 37498,
-    "passmarkG3D": 9048
+    "passmarkG3D": 9048,
+    "passmarkScore": 16226
   },
   {
     "id": "gpu-132",
@@ -6101,7 +6121,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$896",
+    "launchMsrp": 896,
     "costEffectivenessScore": "9.11 / 10.0",
     "powerEfficiencyScore": "1.56 Efficiency",
     "cudaCores": "7040 Stream Processors",
@@ -6441,7 +6461,8 @@
     "portRoyalScore": 13000,
     "geekbenchVulkan": 140000,
     "geekbenchOpenCL": 210000,
-    "passmarkG3D": 26500
+    "passmarkG3D": 26500,
+    "passmarkScore": 26507
   },
   {
     "id": "gpu-147",
@@ -6459,7 +6480,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$644",
+    "launchMsrp": 644,
     "costEffectivenessScore": "7.11 / 10.0",
     "powerEfficiencyScore": "1.12 Efficiency",
     "cudaCores": "5060 Stream Processors",
@@ -6620,7 +6641,8 @@
     "portRoyalScore": 5796,
     "geekbenchVulkan": 53820,
     "geekbenchOpenCL": 51336,
-    "passmarkG3D": 11280
+    "passmarkG3D": 11280,
+    "passmarkScore": 16034
   },
   {
     "id": "gpu-180",
@@ -6638,7 +6660,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$1008",
+    "launchMsrp": 1008,
     "costEffectivenessScore": "9.90 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "7920 CUDA Cores",
@@ -6817,7 +6839,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$392",
+    "launchMsrp": 392,
     "costEffectivenessScore": "5.11 / 10.0",
     "powerEfficiencyScore": "2.37 Efficiency",
     "cudaCores": "3080 Stream Processors",
@@ -6978,7 +7000,8 @@
     "portRoyalScore": 3528,
     "geekbenchVulkan": 32760,
     "geekbenchOpenCL": 31248,
-    "passmarkG3D": 8040
+    "passmarkG3D": 8040,
+    "passmarkScore": 9797
   },
   {
     "id": "gpu-071",
@@ -7157,7 +7180,8 @@
     "portRoyalScore": 11000,
     "geekbenchVulkan": 150000,
     "geekbenchOpenCL": 160000,
-    "passmarkG3D": 26000
+    "passmarkG3D": 26000,
+    "passmarkScore": 26873
   },
   {
     "id": "gpu-176",
@@ -7515,7 +7539,8 @@
     "portRoyalScore": 12500,
     "geekbenchVulkan": 135000,
     "geekbenchOpenCL": 205000,
-    "passmarkG3D": 26000
+    "passmarkG3D": 26000,
+    "passmarkScore": 26751
   },
   {
     "id": "gpu-128",
@@ -7694,7 +7719,8 @@
     "portRoyalScore": 4284,
     "geekbenchVulkan": 79560,
     "geekbenchOpenCL": 75888,
-    "passmarkG3D": 15240
+    "passmarkG3D": 15240,
+    "passmarkScore": 24425
   },
   {
     "id": "gpu-146",
@@ -7712,7 +7738,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$588",
+    "launchMsrp": 588,
     "costEffectivenessScore": "6.67 / 10.0",
     "powerEfficiencyScore": "1.16 Efficiency",
     "cudaCores": "4620 Stream Processors",
@@ -7873,7 +7899,8 @@
     "portRoyalScore": 5292,
     "geekbenchVulkan": 49140,
     "geekbenchOpenCL": 46872,
-    "passmarkG3D": 10560
+    "passmarkG3D": 10560,
+    "passmarkScore": 14104
   },
   {
     "name": "Radeon RX 6750 XT",
@@ -7891,7 +7918,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 22 KXT",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$938",
+    "launchMsrp": 938,
     "costEffectivenessScore": "9.44 / 10.0",
     "powerEfficiencyScore": "2.95 Efficiency",
     "cudaCores": "2560 Stream Processors",
@@ -8052,7 +8079,8 @@
     "portRoyalScore": 4221,
     "geekbenchVulkan": 78390,
     "geekbenchOpenCL": 74772,
-    "passmarkG3D": 15060
+    "passmarkG3D": 15060,
+    "passmarkScore": 20701
   },
   {
     "name": "Apple M3 10-Core GPU",
@@ -8070,7 +8098,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$294",
+    "launchMsrp": 294,
     "costEffectivenessScore": "4.33 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "2310 Stream Processors",
@@ -8249,7 +8277,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 22 XT",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$602",
+    "launchMsrp": 602,
     "costEffectivenessScore": "6.78 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2560 Stream Processors",
@@ -8410,7 +8438,8 @@
     "portRoyalScore": 2709,
     "geekbenchVulkan": 50310,
     "geekbenchOpenCL": 47988,
-    "passmarkG3D": 10740
+    "passmarkG3D": 10740,
+    "passmarkScore": 19726
   },
   {
     "name": "Apple M2 10-Core GPU",
@@ -8428,7 +8457,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$238",
+    "launchMsrp": 238,
     "costEffectivenessScore": "3.89 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1870 Stream Processors",
@@ -8607,7 +8636,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$924",
+    "launchMsrp": 924,
     "costEffectivenessScore": "9.33 / 10.0",
     "powerEfficiencyScore": "1.61 Efficiency",
     "cudaCores": "7260 CUDA Cores",
@@ -8768,7 +8797,8 @@
     "portRoyalScore": 8316,
     "geekbenchVulkan": 77220,
     "geekbenchOpenCL": 73656,
-    "passmarkG3D": 14880
+    "passmarkG3D": 14880,
+    "passmarkScore": 20669
   },
   {
     "id": "gpu-064",
@@ -8947,7 +8977,8 @@
     "portRoyalScore": 11500,
     "geekbenchVulkan": 125000,
     "geekbenchOpenCL": 180000,
-    "passmarkG3D": 24000
+    "passmarkG3D": 24000,
+    "passmarkScore": 24996
   },
   {
     "name": "GeForce RTX 3080 12GB",
@@ -9126,7 +9157,8 @@
     "portRoyalScore": 11500,
     "geekbenchVulkan": 125000,
     "geekbenchOpenCL": 180000,
-    "passmarkG3D": 24000
+    "passmarkG3D": 24000,
+    "passmarkScore": 26558
   },
   {
     "name": "Apple M2 Max 38-Core GPU",
@@ -9144,7 +9176,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$952",
+    "launchMsrp": 952,
     "costEffectivenessScore": "9.56 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "7480 Stream Processors",
@@ -9323,7 +9355,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$812",
+    "launchMsrp": 812,
     "costEffectivenessScore": "8.44 / 10.0",
     "powerEfficiencyScore": "3.65 Efficiency",
     "cudaCores": "6380 Stream Processors",
@@ -9502,7 +9534,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$678",
+    "launchMsrp": 678,
     "costEffectivenessScore": "7.38 / 10.0",
     "powerEfficiencyScore": "1.18 Efficiency",
     "cudaCores": "5324 CUDA Cores",
@@ -9663,7 +9695,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 56628,
     "geekbenchOpenCL": 54014,
-    "passmarkG3D": 11712
+    "passmarkG3D": 11712,
+    "passmarkScore": 18753
   },
   {
     "id": "gpu-127",
@@ -9842,7 +9875,8 @@
     "portRoyalScore": 3591,
     "geekbenchVulkan": 66690,
     "geekbenchOpenCL": 63612,
-    "passmarkG3D": 13260
+    "passmarkG3D": 13260,
+    "passmarkScore": 22711
   },
   {
     "id": "gpu-142",
@@ -9860,7 +9894,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$370",
+    "launchMsrp": 370,
     "costEffectivenessScore": "4.93 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2904 Stream Processors",
@@ -10021,7 +10055,8 @@
     "portRoyalScore": 3326,
     "geekbenchVulkan": 30888,
     "geekbenchOpenCL": 29462,
-    "passmarkG3D": 7752
+    "passmarkG3D": 7752,
+    "passmarkScore": 12036
   },
   {
     "id": "gpu-179",
@@ -10039,7 +10074,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$770",
+    "launchMsrp": 770,
     "costEffectivenessScore": "8.11 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "6050 CUDA Cores",
@@ -10218,7 +10253,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GA106-150-A1",
     "processNode": "8nm Samsung",
-    "launchMsrp": "$342",
+    "launchMsrp": 342,
     "costEffectivenessScore": "4.71 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2560 CUDA Cores",
@@ -10397,7 +10432,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$454",
+    "launchMsrp": 454,
     "costEffectivenessScore": "5.60 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3564 Stream Processors",
@@ -10558,7 +10593,8 @@
     "portRoyalScore": 4082,
     "geekbenchVulkan": 37908,
     "geekbenchOpenCL": 36158,
-    "passmarkG3D": 8832
+    "passmarkG3D": 8832,
+    "passmarkScore": 12638
   },
   {
     "id": "gpu-144",
@@ -10576,7 +10612,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$498",
+    "launchMsrp": 498,
     "costEffectivenessScore": "5.96 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3916 Stream Processors",
@@ -10755,7 +10791,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 23 KXT",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$742",
+    "launchMsrp": 742,
     "costEffectivenessScore": "7.89 / 10.0",
     "powerEfficiencyScore": "3.24 Efficiency",
     "cudaCores": "2048 Stream Processors",
@@ -10916,7 +10952,8 @@
     "portRoyalScore": 3339,
     "geekbenchVulkan": 62010,
     "geekbenchOpenCL": 59148,
-    "passmarkG3D": 12540
+    "passmarkG3D": 12540,
+    "passmarkScore": 17108
   },
   {
     "id": "gpu-057",
@@ -11095,7 +11132,8 @@
     "portRoyalScore": 7056,
     "geekbenchVulkan": 65520,
     "geekbenchOpenCL": 62496,
-    "passmarkG3D": 13080
+    "passmarkG3D": 13080,
+    "passmarkScore": 21426
   },
   {
     "id": "gpu-063",
@@ -11274,7 +11312,8 @@
     "portRoyalScore": 6426,
     "geekbenchVulkan": 59670,
     "geekbenchOpenCL": 56916,
-    "passmarkG3D": 12180
+    "passmarkG3D": 12180,
+    "passmarkScore": 23181
   },
   {
     "id": "gpu-036",
@@ -11292,7 +11331,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$392",
+    "launchMsrp": 392,
     "costEffectivenessScore": "5.11 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3080 CUDA Cores",
@@ -11453,7 +11492,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 32760,
     "geekbenchOpenCL": 31248,
-    "passmarkG3D": 8040
+    "passmarkG3D": 8040,
+    "passmarkScore": 12541
   },
   {
     "id": "gpu-118",
@@ -11471,7 +11511,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 23 XL",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$431",
+    "launchMsrp": 431,
     "costEffectivenessScore": "5.42 / 10.0",
     "powerEfficiencyScore": "1.13 Efficiency",
     "cudaCores": "1792 Stream Processors",
@@ -11632,7 +11672,8 @@
     "portRoyalScore": 1940,
     "geekbenchVulkan": 36036,
     "geekbenchOpenCL": 34373,
-    "passmarkG3D": 8544
+    "passmarkG3D": 8544,
+    "passmarkScore": 15053
   },
   {
     "id": "gpu-119",
@@ -11650,7 +11691,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 23 XT",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$504",
+    "launchMsrp": 504,
     "costEffectivenessScore": "6.00 / 10.0",
     "powerEfficiencyScore": "1.13 Efficiency",
     "cudaCores": "2048 Stream Processors",
@@ -11811,7 +11852,8 @@
     "portRoyalScore": 2268,
     "geekbenchVulkan": 42120,
     "geekbenchOpenCL": 40176,
-    "passmarkG3D": 9480
+    "passmarkG3D": 9480,
+    "passmarkScore": 16439
   },
   {
     "name": "GeForce RTX 3050 6GB",
@@ -11829,7 +11871,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GA106-150-A1",
     "processNode": "8nm Samsung",
-    "launchMsrp": "$378",
+    "launchMsrp": 378,
     "costEffectivenessScore": "5.00 / 10.0",
     "powerEfficiencyScore": "4.24 Efficiency",
     "cudaCores": "2560 CUDA Cores",
@@ -11990,7 +12032,8 @@
     "portRoyalScore": 3402,
     "geekbenchVulkan": 31590,
     "geekbenchOpenCL": 30132,
-    "passmarkG3D": 7860
+    "passmarkG3D": 7860,
+    "passmarkScore": 10741
   },
   {
     "name": "Intel Arc Graphics 140V (Lunar Lake)",
@@ -12008,7 +12051,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$266",
+    "launchMsrp": 266,
     "costEffectivenessScore": "4.11 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "2090 Stream Processors",
@@ -12187,7 +12230,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$322",
+    "launchMsrp": 322,
     "costEffectivenessScore": "4.56 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "2530 Stream Processors",
@@ -12706,7 +12749,8 @@
     "portRoyalScore": 6426,
     "geekbenchVulkan": 59670,
     "geekbenchOpenCL": 56916,
-    "passmarkG3D": 12180
+    "passmarkG3D": 12180,
+    "passmarkScore": 22584
   },
   {
     "id": "gpu-172",
@@ -13064,7 +13108,8 @@
     "portRoyalScore": 5922,
     "geekbenchVulkan": 54990,
     "geekbenchOpenCL": 52452,
-    "passmarkG3D": 11460
+    "passmarkG3D": 11460,
+    "passmarkScore": 22091
   },
   {
     "name": "Apple M1 Max 32-Core GPU",
@@ -13082,7 +13127,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$784",
+    "launchMsrp": 784,
     "costEffectivenessScore": "8.22 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "6160 Stream Processors",
@@ -13261,7 +13306,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$241",
+    "launchMsrp": 241,
     "costEffectivenessScore": "3.91 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1892 Stream Processors",
@@ -13422,7 +13467,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 20124,
     "geekbenchOpenCL": 19195,
-    "passmarkG3D": 6096
+    "passmarkG3D": 6096,
+    "passmarkScore": 9056
   },
   {
     "id": "gpu-141",
@@ -13440,7 +13486,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$182",
+    "launchMsrp": 182,
     "costEffectivenessScore": "3.44 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1430 Stream Processors",
@@ -13601,7 +13647,8 @@
     "portRoyalScore": 1638,
     "geekbenchVulkan": 15210,
     "geekbenchOpenCL": 14508,
-    "passmarkG3D": 5340
+    "passmarkG3D": 5340,
+    "passmarkScore": 6312
   },
   {
     "id": "gpu-108",
@@ -13619,7 +13666,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$308",
+    "launchMsrp": 308,
     "costEffectivenessScore": "4.44 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2420 Stream Processors",
@@ -13780,7 +13827,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 38000,
     "geekbenchOpenCL": 39000,
-    "passmarkG3D": 9000
+    "passmarkG3D": 9000,
+    "passmarkScore": 9279
   },
   {
     "id": "gpu-175",
@@ -13977,7 +14025,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$490",
+    "launchMsrp": 490,
     "costEffectivenessScore": "5.89 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "3850 Stream Processors",
@@ -14156,7 +14204,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$358",
+    "launchMsrp": 358,
     "costEffectivenessScore": "4.84 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2816 Stream Processors",
@@ -14317,7 +14365,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 29952,
     "geekbenchOpenCL": 28570,
-    "passmarkG3D": 7608
+    "passmarkG3D": 7608,
+    "passmarkScore": 12942
   },
   {
     "id": "gpu-056",
@@ -14496,7 +14545,8 @@
     "portRoyalScore": 5846,
     "geekbenchVulkan": 54288,
     "geekbenchOpenCL": 51782,
-    "passmarkG3D": 11352
+    "passmarkG3D": 11352,
+    "passmarkScore": 19418
   },
   {
     "id": "gpu-061",
@@ -14675,7 +14725,8 @@
     "portRoyalScore": 5166,
     "geekbenchVulkan": 47970,
     "geekbenchOpenCL": 45756,
-    "passmarkG3D": 10380
+    "passmarkG3D": 10380,
+    "passmarkScore": 20236
   },
   {
     "id": "gpu-068",
@@ -14854,7 +14905,8 @@
     "portRoyalScore": 5544,
     "geekbenchVulkan": 51480,
     "geekbenchOpenCL": 49104,
-    "passmarkG3D": 10920
+    "passmarkG3D": 10920,
+    "passmarkScore": 19494
   },
   {
     "id": "gpu-104",
@@ -14872,7 +14924,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$269",
+    "launchMsrp": 269,
     "costEffectivenessScore": "4.13 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2112 Stream Processors",
@@ -15033,7 +15085,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 22464,
     "geekbenchOpenCL": 21427,
-    "passmarkG3D": 6456
+    "passmarkG3D": 6456,
+    "passmarkScore": 8527
   },
   {
     "id": "gpu-116",
@@ -15051,7 +15104,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$162",
+    "launchMsrp": 162,
     "costEffectivenessScore": "3.29 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1276 Stream Processors",
@@ -15212,7 +15265,8 @@
     "portRoyalScore": 731,
     "geekbenchVulkan": 13572,
     "geekbenchOpenCL": 12946,
-    "passmarkG3D": 5088
+    "passmarkG3D": 5088,
+    "passmarkScore": 7742
   },
   {
     "id": "gpu-117",
@@ -15230,7 +15284,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$202",
+    "launchMsrp": 202,
     "costEffectivenessScore": "3.60 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1584 Stream Processors",
@@ -15391,7 +15445,8 @@
     "portRoyalScore": 907,
     "geekbenchVulkan": 16848,
     "geekbenchOpenCL": 16070,
-    "passmarkG3D": 5592
+    "passmarkG3D": 5592,
+    "passmarkScore": 9624
   },
   {
     "id": "gpu-140",
@@ -15409,7 +15464,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$146",
+    "launchMsrp": 146,
     "costEffectivenessScore": "3.16 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1144 Stream Processors",
@@ -15570,7 +15625,8 @@
     "portRoyalScore": 1310,
     "geekbenchVulkan": 12168,
     "geekbenchOpenCL": 11606,
-    "passmarkG3D": 4872
+    "passmarkG3D": 4872,
+    "passmarkScore": 5459
   },
   {
     "id": "gpu-165",
@@ -15588,7 +15644,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$126",
+    "launchMsrp": 126,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "990 CUDA Cores",
@@ -15749,7 +15805,8 @@
     "portRoyalScore": 1134,
     "geekbenchVulkan": 10530,
     "geekbenchOpenCL": 10044,
-    "passmarkG3D": 4620
+    "passmarkG3D": 4620,
+    "passmarkScore": 4973
   },
   {
     "name": "Intel Arc A370M",
@@ -15767,7 +15824,7 @@
     "designer": "Intel",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$134",
+    "launchMsrp": 134,
     "costEffectivenessScore": "3.07 / 10.0",
     "powerEfficiencyScore": "2.11 Efficiency",
     "cudaCores": "1056 Stream Processors",
@@ -15928,7 +15985,8 @@
     "portRoyalScore": 1210,
     "geekbenchVulkan": 11232,
     "geekbenchOpenCL": 10714,
-    "passmarkG3D": 4728
+    "passmarkG3D": 4728,
+    "passmarkScore": 5115
   },
   {
     "id": "gpu-126",
@@ -16107,7 +16165,8 @@
     "portRoyalScore": 2646,
     "geekbenchVulkan": 49140,
     "geekbenchOpenCL": 46872,
-    "passmarkG3D": 10560
+    "passmarkG3D": 10560,
+    "passmarkScore": 17339
   },
   {
     "id": "gpu-171",
@@ -16304,7 +16363,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$291",
+    "launchMsrp": 291,
     "costEffectivenessScore": "4.31 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2288 Stream Processors",
@@ -16465,7 +16524,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 24336,
     "geekbenchOpenCL": 23213,
-    "passmarkG3D": 6744
+    "passmarkG3D": 6744,
+    "passmarkScore": 9184
   },
   {
     "name": "Radeon R9 390 8GB",
@@ -16483,7 +16543,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$302",
+    "launchMsrp": 302,
     "costEffectivenessScore": "4.40 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2376 Stream Processors",
@@ -16823,7 +16883,8 @@
     "portRoyalScore": 5494,
     "geekbenchVulkan": 51012,
     "geekbenchOpenCL": 48658,
-    "passmarkG3D": 10848
+    "passmarkG3D": 10848,
+    "passmarkScore": 18565
   },
   {
     "id": "gpu-168",
@@ -17020,7 +17081,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$588",
+    "launchMsrp": 588,
     "costEffectivenessScore": "6.67 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "4620 CUDA Cores",
@@ -17360,7 +17421,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 53820,
     "geekbenchOpenCL": 51336,
-    "passmarkG3D": 11280
+    "passmarkG3D": 11280,
+    "passmarkScore": 18592
   },
   {
     "id": "gpu-125",
@@ -17539,7 +17601,8 @@
     "portRoyalScore": 2457,
     "geekbenchVulkan": 45630,
     "geekbenchOpenCL": 43524,
-    "passmarkG3D": 10020
+    "passmarkG3D": 10020,
+    "passmarkScore": 16456
   },
   {
     "id": "gpu-209",
@@ -17915,7 +17978,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$218",
+    "launchMsrp": 218,
     "costEffectivenessScore": "3.73 / 10.0",
     "powerEfficiencyScore": "1.14 Efficiency",
     "cudaCores": "1716 CUDA Cores",
@@ -18076,7 +18139,8 @@
     "portRoyalScore": 1966,
     "geekbenchVulkan": 18252,
     "geekbenchOpenCL": 17410,
-    "passmarkG3D": 5808
+    "passmarkG3D": 5808,
+    "passmarkScore": 7869
   },
   {
     "id": "gpu-047",
@@ -18094,7 +18158,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$269",
+    "launchMsrp": 269,
     "costEffectivenessScore": "4.13 / 10.0",
     "powerEfficiencyScore": "1.06 Efficiency",
     "cudaCores": "2112 CUDA Cores",
@@ -18255,7 +18319,8 @@
     "portRoyalScore": 2419,
     "geekbenchVulkan": 22464,
     "geekbenchOpenCL": 21427,
-    "passmarkG3D": 6456
+    "passmarkG3D": 6456,
+    "passmarkScore": 10194
   },
   {
     "id": "gpu-054",
@@ -18434,7 +18499,8 @@
     "portRoyalScore": 4990,
     "geekbenchVulkan": 46332,
     "geekbenchOpenCL": 44194,
-    "passmarkG3D": 10128
+    "passmarkG3D": 10128,
+    "passmarkScore": 18123
   },
   {
     "id": "gpu-174",
@@ -18631,7 +18697,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$218",
+    "launchMsrp": 218,
     "costEffectivenessScore": "3.73 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1716 Stream Processors",
@@ -18792,7 +18858,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 18252,
     "geekbenchOpenCL": 17410,
-    "passmarkG3D": 5808
+    "passmarkG3D": 5808,
+    "passmarkScore": 8847
   },
   {
     "id": "gpu-210",
@@ -18810,7 +18877,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$574",
+    "launchMsrp": 574,
     "costEffectivenessScore": "6.56 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "4510 Stream Processors",
@@ -18989,7 +19056,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$246",
+    "launchMsrp": 246,
     "costEffectivenessScore": "3.96 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1936 Stream Processors",
@@ -19168,7 +19235,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$230",
+    "launchMsrp": 230,
     "costEffectivenessScore": "3.82 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1804 Stream Processors",
@@ -19347,7 +19414,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$190",
+    "launchMsrp": 190,
     "costEffectivenessScore": "3.51 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1496 Stream Processors",
@@ -19526,7 +19593,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$185",
+    "launchMsrp": 185,
     "costEffectivenessScore": "3.47 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1452 Stream Processors",
@@ -19687,7 +19754,8 @@
     "portRoyalScore": 832,
     "geekbenchVulkan": 15444,
     "geekbenchOpenCL": 14731,
-    "passmarkG3D": 5376
+    "passmarkG3D": 5376,
+    "passmarkScore": 7602
   },
   {
     "id": "gpu-207",
@@ -19705,7 +19773,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$426",
+    "launchMsrp": 426,
     "costEffectivenessScore": "5.38 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "3344 Stream Processors",
@@ -19884,7 +19952,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 21 XL",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$526",
+    "launchMsrp": 526,
     "costEffectivenessScore": "6.18 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "3840 Stream Processors",
@@ -20063,7 +20131,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$202",
+    "launchMsrp": 202,
     "costEffectivenessScore": "3.60 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1584 Stream Processors",
@@ -20403,7 +20471,8 @@
     "portRoyalScore": 4158,
     "geekbenchVulkan": 38610,
     "geekbenchOpenCL": 36828,
-    "passmarkG3D": 8940
+    "passmarkG3D": 8940,
+    "passmarkScore": 16881
   },
   {
     "id": "gpu-115",
@@ -20421,7 +20490,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$454",
+    "launchMsrp": 454,
     "costEffectivenessScore": "5.60 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3564 Stream Processors",
@@ -20582,7 +20651,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 37908,
     "geekbenchOpenCL": 36158,
-    "passmarkG3D": 8832
+    "passmarkG3D": 8832,
+    "passmarkScore": 16053
   },
   {
     "id": "gpu-035",
@@ -20600,7 +20670,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$378",
+    "launchMsrp": 378,
     "costEffectivenessScore": "5.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2970 CUDA Cores",
@@ -20761,7 +20831,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 31590,
     "geekbenchOpenCL": 30132,
-    "passmarkG3D": 7860
+    "passmarkG3D": 7860,
+    "passmarkScore": 13618
   },
   {
     "id": "gpu-053",
@@ -20940,7 +21011,8 @@
     "portRoyalScore": 4486,
     "geekbenchVulkan": 41652,
     "geekbenchOpenCL": 39730,
-    "passmarkG3D": 9408
+    "passmarkG3D": 9408,
+    "passmarkScore": 16061
   },
   {
     "id": "gpu-167",
@@ -21137,7 +21209,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$406",
+    "launchMsrp": 406,
     "costEffectivenessScore": "5.22 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "3190 Stream Processors",
@@ -21316,7 +21388,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$258",
+    "launchMsrp": 258,
     "costEffectivenessScore": "4.04 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2024 CUDA Cores",
@@ -21477,7 +21549,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 21528,
     "geekbenchOpenCL": 20534,
-    "passmarkG3D": 6312
+    "passmarkG3D": 6312,
+    "passmarkScore": 9183
   },
   {
     "id": "gpu-105",
@@ -21495,7 +21568,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$140",
+    "launchMsrp": 140,
     "costEffectivenessScore": "3.11 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1100 Stream Processors",
@@ -21656,7 +21729,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 11700,
     "geekbenchOpenCL": 11160,
-    "passmarkG3D": 4800
+    "passmarkG3D": 4800,
+    "passmarkScore": 3685
   },
   {
     "id": "gpu-052",
@@ -21835,7 +21909,8 @@
     "portRoyalScore": 4234,
     "geekbenchVulkan": 39312,
     "geekbenchOpenCL": 37498,
-    "passmarkG3D": 9048
+    "passmarkG3D": 9048,
+    "passmarkScore": 16463
   },
   {
     "id": "gpu-170",
@@ -22032,7 +22107,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GP107",
     "processNode": "14nm Samsung",
-    "launchMsrp": "$207",
+    "launchMsrp": 207,
     "costEffectivenessScore": "3.64 / 10.0",
     "powerEfficiencyScore": "1.09 Efficiency",
     "cudaCores": "768 CUDA Cores",
@@ -22193,7 +22268,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 17316,
     "geekbenchOpenCL": 16517,
-    "passmarkG3D": 5664
+    "passmarkG3D": 5664,
+    "passmarkScore": 6364
   },
   {
     "id": "gpu-102",
@@ -22211,7 +22287,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$129",
+    "launchMsrp": 129,
     "costEffectivenessScore": "3.02 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1012 Stream Processors",
@@ -22372,7 +22448,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10764,
     "geekbenchOpenCL": 10267,
-    "passmarkG3D": 4656
+    "passmarkG3D": 4656,
+    "passmarkScore": 4097
   },
   {
     "id": "gpu-103",
@@ -22390,7 +22467,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$230",
+    "launchMsrp": 230,
     "costEffectivenessScore": "3.82 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1804 Stream Processors",
@@ -22730,7 +22807,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 40248,
     "geekbenchOpenCL": 38390,
-    "passmarkG3D": 9192
+    "passmarkG3D": 9192,
+    "passmarkScore": 15604
   },
   {
     "id": "gpu-051",
@@ -22909,7 +22987,8 @@
     "portRoyalScore": 3578,
     "geekbenchVulkan": 33228,
     "geekbenchOpenCL": 31694,
-    "passmarkG3D": 8112
+    "passmarkG3D": 8112,
+    "passmarkScore": 14082
   },
   {
     "id": "gpu-164",
@@ -23285,7 +23364,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$398",
+    "launchMsrp": 398,
     "costEffectivenessScore": "5.16 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3124 Stream Processors",
@@ -23446,7 +23525,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 33228,
     "geekbenchOpenCL": 31694,
-    "passmarkG3D": 8112
+    "passmarkG3D": 8112,
+    "passmarkScore": 13851
   },
   {
     "name": "Radeon 760M (iGPU)",
@@ -23464,7 +23544,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$174",
+    "launchMsrp": 174,
     "costEffectivenessScore": "3.38 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1364 Stream Processors",
@@ -23643,7 +23723,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$190",
+    "launchMsrp": 190,
     "costEffectivenessScore": "3.51 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1496 CUDA Cores",
@@ -23804,7 +23884,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 15912,
     "geekbenchOpenCL": 15178,
-    "passmarkG3D": 5448
+    "passmarkG3D": 5448,
+    "passmarkScore": 6146
   },
   {
     "id": "gpu-099",
@@ -23822,7 +23903,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$196",
+    "launchMsrp": 196,
     "costEffectivenessScore": "3.56 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1540 Stream Processors",
@@ -23983,7 +24064,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 16380,
     "geekbenchOpenCL": 15624,
-    "passmarkG3D": 5520
+    "passmarkG3D": 5520,
+    "passmarkScore": 5956
   },
   {
     "id": "gpu-101",
@@ -24001,7 +24083,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$319",
+    "launchMsrp": 319,
     "costEffectivenessScore": "4.53 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2508 Stream Processors",
@@ -24162,7 +24244,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 26676,
     "geekbenchOpenCL": 25445,
-    "passmarkG3D": 7104
+    "passmarkG3D": 7104,
+    "passmarkScore": 9368
   },
   {
     "id": "gpu-198",
@@ -24180,7 +24263,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$297",
+    "launchMsrp": 297,
     "costEffectivenessScore": "4.36 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2332 Stream Processors",
@@ -24359,7 +24442,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$230",
+    "launchMsrp": 230,
     "costEffectivenessScore": "3.82 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1804 Stream Processors",
@@ -24538,7 +24621,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$350",
+    "launchMsrp": 350,
     "costEffectivenessScore": "4.78 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2750 Stream Processors",
@@ -24699,7 +24782,8 @@
     "portRoyalScore": 1575,
     "geekbenchVulkan": 29250,
     "geekbenchOpenCL": 27900,
-    "passmarkG3D": 7500
+    "passmarkG3D": 7500,
+    "passmarkScore": 13387
   },
   {
     "id": "gpu-173",
@@ -24717,7 +24801,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$406",
+    "launchMsrp": 406,
     "costEffectivenessScore": "5.22 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "3190 CUDA Cores",
@@ -24896,7 +24980,7 @@
     "designer": "AMD",
     "gpuCodeName": "Navi 23 XL",
     "processNode": "TSMC 7nm",
-    "launchMsrp": "$358",
+    "launchMsrp": 358,
     "costEffectivenessScore": "4.84 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1792 Stream Processors",
@@ -25075,7 +25159,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$126",
+    "launchMsrp": 126,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "4.95 Efficiency",
     "cudaCores": "990 Stream Processors",
@@ -25254,7 +25338,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "2.67 Efficiency",
     "cudaCores": "748 Stream Processors",
@@ -25433,7 +25517,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "2.20 Efficiency",
     "cudaCores": "616 Stream Processors",
@@ -25612,7 +25696,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$263",
+    "launchMsrp": 263,
     "costEffectivenessScore": "4.09 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2068 CUDA Cores",
@@ -25773,7 +25857,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 21996,
     "geekbenchOpenCL": 20981,
-    "passmarkG3D": 6384
+    "passmarkG3D": 6384,
+    "passmarkScore": 9637
   },
   {
     "id": "gpu-034",
@@ -25791,7 +25876,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$314",
+    "launchMsrp": 314,
     "costEffectivenessScore": "4.49 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2464 CUDA Cores",
@@ -25952,7 +26037,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 26208,
     "geekbenchOpenCL": 24998,
-    "passmarkG3D": 7032
+    "passmarkG3D": 7032,
+    "passmarkScore": 11073
   },
   {
     "id": "gpu-159",
@@ -25970,7 +26056,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$218",
+    "launchMsrp": 218,
     "costEffectivenessScore": "3.73 / 10.0",
     "powerEfficiencyScore": "3.43 Efficiency",
     "cudaCores": "1716 CUDA Cores",
@@ -26131,7 +26217,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 18252,
     "geekbenchOpenCL": 17410,
-    "passmarkG3D": 5808
+    "passmarkG3D": 5808,
+    "passmarkScore": 7392
   },
   {
     "id": "gpu-200",
@@ -26149,7 +26236,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "682 Stream Processors",
@@ -26310,7 +26397,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7254,
     "geekbenchOpenCL": 6919,
-    "passmarkG3D": 4116
+    "passmarkG3D": 4116,
+    "passmarkScore": 2698
   },
   {
     "id": "gpu-201",
@@ -26328,7 +26416,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$126",
+    "launchMsrp": 126,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "990 Stream Processors",
@@ -26507,7 +26595,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.83 Efficiency",
     "cudaCores": "550 CUDA Cores",
@@ -26686,7 +26774,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "396 Stream Processors",
@@ -26865,7 +26953,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "4.69 Efficiency",
     "cudaCores": "704 Stream Processors",
@@ -27205,7 +27293,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 32292,
     "geekbenchOpenCL": 30802,
-    "passmarkG3D": 7968
+    "passmarkG3D": 7968,
+    "passmarkScore": 13514
   },
   {
     "id": "gpu-042",
@@ -27384,7 +27473,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 36036,
     "geekbenchOpenCL": 34373,
-    "passmarkG3D": 8544
+    "passmarkG3D": 8544,
+    "passmarkScore": 14670
   },
   {
     "id": "gpu-163",
@@ -27581,7 +27671,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$174",
+    "launchMsrp": 174,
     "costEffectivenessScore": "3.38 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1364 CUDA Cores",
@@ -27742,7 +27832,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 14508,
     "geekbenchOpenCL": 13838,
-    "passmarkG3D": 5232
+    "passmarkG3D": 5232,
+    "passmarkScore": 5050
   },
   {
     "id": "gpu-098",
@@ -27760,7 +27851,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$263",
+    "launchMsrp": 263,
     "costEffectivenessScore": "4.09 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2068 Stream Processors",
@@ -27921,7 +28012,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 21996,
     "geekbenchOpenCL": 20981,
-    "passmarkG3D": 6384
+    "passmarkG3D": 6384,
+    "passmarkScore": 8437
   },
   {
     "id": "gpu-197",
@@ -27939,7 +28031,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$241",
+    "launchMsrp": 241,
     "costEffectivenessScore": "3.91 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1892 Stream Processors",
@@ -28100,7 +28192,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 20124,
     "geekbenchOpenCL": 19195,
-    "passmarkG3D": 6096
+    "passmarkG3D": 6096,
+    "passmarkScore": 8141
   },
   {
     "id": "gpu-199",
@@ -28118,7 +28211,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "924 Stream Processors",
@@ -28297,7 +28390,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "TU116",
     "processNode": "12nm FFN",
-    "launchMsrp": "$347",
+    "launchMsrp": 347,
     "costEffectivenessScore": "4.76 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1408 CUDA Cores",
@@ -28458,7 +28551,8 @@
     "portRoyalScore": 3125,
     "geekbenchVulkan": 29016,
     "geekbenchOpenCL": 27677,
-    "passmarkG3D": 7464
+    "passmarkG3D": 7464,
+    "passmarkScore": 12666
   },
   {
     "id": "gpu-160",
@@ -28476,7 +28570,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$176",
+    "launchMsrp": 176,
     "costEffectivenessScore": "3.40 / 10.0",
     "powerEfficiencyScore": "2.77 Efficiency",
     "cudaCores": "1386 CUDA Cores",
@@ -28637,7 +28731,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 14742,
     "geekbenchOpenCL": 14062,
-    "passmarkG3D": 5268
+    "passmarkG3D": 5268,
+    "passmarkScore": 5724
   },
   {
     "id": "gpu-196",
@@ -28655,7 +28750,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$196",
+    "launchMsrp": 196,
     "costEffectivenessScore": "3.56 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1540 Stream Processors",
@@ -28816,7 +28911,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 16380,
     "geekbenchOpenCL": 15624,
-    "passmarkG3D": 5520
+    "passmarkG3D": 5520,
+    "passmarkScore": 5523
   },
   {
     "name": "Intel UHD Graphics 770 (iGPU)",
@@ -28834,7 +28930,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "3.23 Efficiency",
     "cudaCores": "484 Stream Processors",
@@ -29013,7 +29109,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "2.35 Efficiency",
     "cudaCores": "352 Stream Processors",
@@ -29192,7 +29288,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$154",
+    "launchMsrp": 154,
     "costEffectivenessScore": "3.22 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1210 CUDA Cores",
@@ -29353,7 +29449,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 12870,
     "geekbenchOpenCL": 12276,
-    "passmarkG3D": 4980
+    "passmarkG3D": 4980,
+    "passmarkScore": 5352
   },
   {
     "id": "gpu-161",
@@ -29371,7 +29468,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GM206 / GM204",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.67 Efficiency",
     "cudaCores": "836 CUDA Cores",
@@ -29532,7 +29629,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8892,
     "geekbenchOpenCL": 8482,
-    "passmarkG3D": 4368
+    "passmarkG3D": 4368,
+    "passmarkScore": 3374
   },
   {
     "id": "gpu-048",
@@ -29550,7 +29648,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "TU116",
     "processNode": "12nm FFN",
-    "launchMsrp": "$322",
+    "launchMsrp": 322,
     "costEffectivenessScore": "4.56 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1408 CUDA Cores",
@@ -29711,7 +29809,8 @@
     "portRoyalScore": 2898,
     "geekbenchVulkan": 26910,
     "geekbenchOpenCL": 25668,
-    "passmarkG3D": 7140
+    "passmarkG3D": 7140,
+    "passmarkScore": 11613
   },
   {
     "id": "gpu-050",
@@ -29729,7 +29828,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "TU116",
     "processNode": "12nm FFN",
-    "launchMsrp": "$358",
+    "launchMsrp": 358,
     "costEffectivenessScore": "4.84 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1408 CUDA Cores",
@@ -29890,7 +29989,8 @@
     "portRoyalScore": 3226,
     "geekbenchVulkan": 29952,
     "geekbenchOpenCL": 28570,
-    "passmarkG3D": 7608
+    "passmarkG3D": 7608,
+    "passmarkScore": 12583
   },
   {
     "id": "gpu-169",
@@ -29908,7 +30008,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GA106-150-A1",
     "processNode": "8nm Samsung",
-    "launchMsrp": "$286",
+    "launchMsrp": 286,
     "costEffectivenessScore": "4.27 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "2560 CUDA Cores",
@@ -30087,7 +30187,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "3.81 Efficiency",
     "cudaCores": "572 Stream Processors",
@@ -30266,7 +30366,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$218",
+    "launchMsrp": 218,
     "costEffectivenessScore": "3.73 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1716 CUDA Cores",
@@ -30427,7 +30527,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 18252,
     "geekbenchOpenCL": 17410,
-    "passmarkG3D": 5808
+    "passmarkG3D": 5808,
+    "passmarkScore": 7971
   },
   {
     "id": "gpu-029",
@@ -30445,7 +30546,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$246",
+    "launchMsrp": 246,
     "costEffectivenessScore": "3.96 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1936 CUDA Cores",
@@ -30606,7 +30707,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 20592,
     "geekbenchOpenCL": 19642,
-    "passmarkG3D": 6168
+    "passmarkG3D": 6168,
+    "passmarkScore": 9462
   },
   {
     "id": "gpu-097",
@@ -30624,7 +30726,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$218",
+    "launchMsrp": 218,
     "costEffectivenessScore": "3.73 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1716 Stream Processors",
@@ -30785,7 +30887,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 18252,
     "geekbenchOpenCL": 17410,
-    "passmarkG3D": 5808
+    "passmarkG3D": 5808,
+    "passmarkScore": 6069
   },
   {
     "id": "gpu-039",
@@ -30964,7 +31067,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 35000,
     "geekbenchOpenCL": 36000,
-    "passmarkG3D": 10000
+    "passmarkG3D": 10000,
+    "passmarkScore": 9846
   },
   {
     "id": "gpu-040",
@@ -31340,7 +31444,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.54 Efficiency",
     "cudaCores": "308 Stream Processors",
@@ -31519,7 +31623,7 @@
     "designer": "AMD",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.21 Efficiency",
     "cudaCores": "242 Stream Processors",
@@ -31698,7 +31802,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$230",
+    "launchMsrp": 230,
     "costEffectivenessScore": "3.82 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1804 Stream Processors",
@@ -31877,7 +31981,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$280",
+    "launchMsrp": 280,
     "costEffectivenessScore": "4.22 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "2200 Stream Processors",
@@ -32038,7 +32142,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 38000,
     "geekbenchOpenCL": 39000,
-    "passmarkG3D": 9000
+    "passmarkG3D": 9000,
+    "passmarkScore": 8785
   },
   {
     "name": "Radeon RX 580 2048SP",
@@ -32056,7 +32161,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$322",
+    "launchMsrp": 322,
     "costEffectivenessScore": "4.56 / 10.0",
     "powerEfficiencyScore": "1.69 Efficiency",
     "cudaCores": "2530 Stream Processors",
@@ -32217,7 +32322,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 38000,
     "geekbenchOpenCL": 39000,
-    "passmarkG3D": 9000
+    "passmarkG3D": 9000,
+    "passmarkScore": 7612
   },
   {
     "id": "gpu-026",
@@ -32235,7 +32341,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$157",
+    "launchMsrp": 157,
     "costEffectivenessScore": "3.24 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1232 CUDA Cores",
@@ -32396,7 +32502,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 13104,
     "geekbenchOpenCL": 12499,
-    "passmarkG3D": 5016
+    "passmarkG3D": 5016,
+    "passmarkScore": 4825
   },
   {
     "id": "gpu-027",
@@ -32414,7 +32521,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$190",
+    "launchMsrp": 190,
     "costEffectivenessScore": "3.51 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1496 CUDA Cores",
@@ -32575,7 +32682,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 15912,
     "geekbenchOpenCL": 15178,
-    "passmarkG3D": 5448
+    "passmarkG3D": 5448,
+    "passmarkScore": 5961
   },
   {
     "id": "gpu-096",
@@ -32593,7 +32701,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$162",
+    "launchMsrp": 162,
     "costEffectivenessScore": "3.29 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1276 Stream Processors",
@@ -32754,7 +32862,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 13572,
     "geekbenchOpenCL": 12946,
-    "passmarkG3D": 5088
+    "passmarkG3D": 5088,
+    "passmarkScore": 4871
   },
   {
     "id": "gpu-138",
@@ -32772,7 +32881,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "198 Stream Processors",
@@ -32933,7 +33042,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2106,
     "geekbenchOpenCL": 2009,
-    "passmarkG3D": 3324
+    "passmarkG3D": 3324,
+    "passmarkScore": 1225
   },
   {
     "id": "gpu-156",
@@ -32951,7 +33061,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "902 CUDA Cores",
@@ -33112,7 +33222,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 9594,
     "geekbenchOpenCL": 9151,
-    "passmarkG3D": 4476
+    "passmarkG3D": 4476,
+    "passmarkScore": 3416
   },
   {
     "id": "gpu-158",
@@ -33130,7 +33241,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$174",
+    "launchMsrp": 174,
     "costEffectivenessScore": "3.38 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1364 CUDA Cores",
@@ -33291,7 +33402,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 14508,
     "geekbenchOpenCL": 13838,
-    "passmarkG3D": 5232
+    "passmarkG3D": 5232,
+    "passmarkScore": 5474
   },
   {
     "id": "gpu-195",
@@ -33309,7 +33421,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "946 Stream Processors",
@@ -33470,7 +33582,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10062,
     "geekbenchOpenCL": 9598,
-    "passmarkG3D": 4548
+    "passmarkG3D": 4548,
+    "passmarkScore": 3200
   },
   {
     "id": "gpu-024",
@@ -33488,7 +33601,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "836 CUDA Cores",
@@ -33649,7 +33762,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8892,
     "geekbenchOpenCL": 8482,
-    "passmarkG3D": 4368
+    "passmarkG3D": 4368,
+    "passmarkScore": 3291
   },
   {
     "id": "gpu-094",
@@ -33667,7 +33781,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$213",
+    "launchMsrp": 213,
     "costEffectivenessScore": "3.69 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1672 Stream Processors",
@@ -33846,7 +33960,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "726 Stream Processors",
@@ -34007,7 +34121,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7722,
     "geekbenchOpenCL": 7366,
-    "passmarkG3D": 4188
+    "passmarkG3D": 4188,
+    "passmarkScore": 2268
   },
   {
     "name": "GeForce GTX 750 1GB",
@@ -34025,7 +34140,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.40 Efficiency",
     "cudaCores": "770 CUDA Cores",
@@ -34204,7 +34319,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$241",
+    "launchMsrp": 241,
     "costEffectivenessScore": "3.91 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1892 Stream Processors",
@@ -34383,7 +34498,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$409",
+    "launchMsrp": 409,
     "costEffectivenessScore": "5.24 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "3212 Stream Processors",
@@ -34544,7 +34659,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 34164,
     "geekbenchOpenCL": 32587,
-    "passmarkG3D": 8256
+    "passmarkG3D": 8256,
+    "passmarkScore": 14211
   },
   {
     "name": "Apple M1 8-Core GPU",
@@ -34562,7 +34678,7 @@
     "designer": "Apple",
     "gpuCodeName": "Apple iGPU",
     "processNode": "TSMC 3nm / 5nm",
-    "launchMsrp": "$182",
+    "launchMsrp": 182,
     "costEffectivenessScore": "3.44 / 10.0",
     "powerEfficiencyScore": "5.00 Efficiency",
     "cudaCores": "1430 Stream Processors",
@@ -34741,7 +34857,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK106 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$129",
+    "launchMsrp": 129,
     "costEffectivenessScore": "3.02 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1012 CUDA Cores",
@@ -34902,7 +35018,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10764,
     "geekbenchOpenCL": 10267,
-    "passmarkG3D": 4656
+    "passmarkG3D": 4656,
+    "passmarkScore": 4049
   },
   {
     "id": "gpu-021",
@@ -34920,7 +35037,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK106 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$146",
+    "launchMsrp": 146,
     "costEffectivenessScore": "3.16 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1144 CUDA Cores",
@@ -35081,7 +35198,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 12168,
     "geekbenchOpenCL": 11606,
-    "passmarkG3D": 4872
+    "passmarkG3D": 4872,
+    "passmarkScore": 4413
   },
   {
     "id": "gpu-022",
@@ -35099,7 +35217,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK106 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$165",
+    "launchMsrp": 165,
     "costEffectivenessScore": "3.31 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1298 CUDA Cores",
@@ -35260,7 +35378,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 13806,
     "geekbenchOpenCL": 13169,
-    "passmarkG3D": 5124
+    "passmarkG3D": 5124,
+    "passmarkScore": 5373
   },
   {
     "id": "gpu-023",
@@ -35278,7 +35397,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK106 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$182",
+    "launchMsrp": 182,
     "costEffectivenessScore": "3.44 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1430 CUDA Cores",
@@ -35439,7 +35558,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 15210,
     "geekbenchOpenCL": 14508,
-    "passmarkG3D": 5340
+    "passmarkG3D": 5340,
+    "passmarkScore": 5609
   },
   {
     "id": "gpu-093",
@@ -35457,7 +35577,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$168",
+    "launchMsrp": 168,
     "costEffectivenessScore": "3.33 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1320 Stream Processors",
@@ -35618,7 +35738,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 14040,
     "geekbenchOpenCL": 13392,
-    "passmarkG3D": 5160
+    "passmarkG3D": 5160,
+    "passmarkScore": 4558
   },
   {
     "id": "gpu-193",
@@ -35636,7 +35757,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$134",
+    "launchMsrp": 134,
     "costEffectivenessScore": "3.07 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1056 Stream Processors",
@@ -35797,7 +35918,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 11232,
     "geekbenchOpenCL": 10714,
-    "passmarkG3D": 4728
+    "passmarkG3D": 4728,
+    "passmarkScore": 3902
   },
   {
     "id": "gpu-137",
@@ -35815,7 +35937,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "154 Stream Processors",
@@ -35994,7 +36116,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK106 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "880 CUDA Cores",
@@ -36173,7 +36295,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "616 CUDA Cores",
@@ -36334,7 +36456,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 6552,
     "geekbenchOpenCL": 6250,
-    "passmarkG3D": 4008
+    "passmarkG3D": 4008,
+    "passmarkScore": 1757
   },
   {
     "id": "gpu-019",
@@ -36352,7 +36475,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "770 CUDA Cores",
@@ -36513,7 +36636,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8190,
     "geekbenchOpenCL": 7812,
-    "passmarkG3D": 4260
+    "passmarkG3D": 4260,
+    "passmarkScore": 2535
   },
   {
     "id": "gpu-191",
@@ -36531,7 +36655,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "572 Stream Processors",
@@ -36692,7 +36816,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 6084,
     "geekbenchOpenCL": 5803,
-    "passmarkG3D": 3936
+    "passmarkG3D": 3936,
+    "passmarkScore": 1703
   },
   {
     "id": "gpu-192",
@@ -36710,7 +36835,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "748 Stream Processors",
@@ -36889,7 +37014,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "176 Stream Processors",
@@ -37068,7 +37193,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$146",
+    "launchMsrp": 146,
     "costEffectivenessScore": "3.16 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1144 Stream Processors",
@@ -37229,7 +37354,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 12168,
     "geekbenchOpenCL": 11606,
-    "passmarkG3D": 4872
+    "passmarkG3D": 4872,
+    "passmarkScore": 2829
   },
   {
     "id": "gpu-190",
@@ -37247,7 +37373,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$126",
+    "launchMsrp": 126,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "990 Stream Processors",
@@ -37408,7 +37534,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10530,
     "geekbenchOpenCL": 10044,
-    "passmarkG3D": 4620
+    "passmarkG3D": 4620,
+    "passmarkScore": 2593
   },
   {
     "id": "gpu-014",
@@ -37426,7 +37553,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF116 / GF114 / GF110",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "858 CUDA Cores",
@@ -37587,7 +37714,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 9126,
     "geekbenchOpenCL": 8705,
-    "passmarkG3D": 4404
+    "passmarkG3D": 4404,
+    "passmarkScore": 2771
   },
   {
     "id": "gpu-015",
@@ -37605,7 +37733,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF116 / GF114 / GF110",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "924 CUDA Cores",
@@ -37766,7 +37894,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 9828,
     "geekbenchOpenCL": 9374,
-    "passmarkG3D": 4512
+    "passmarkG3D": 4512,
+    "passmarkScore": 3080
   },
   {
     "id": "gpu-155",
@@ -37784,7 +37913,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF116 / GF114 / GF110",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "660 CUDA Cores",
@@ -37945,7 +38074,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7020,
     "geekbenchOpenCL": 6696,
-    "passmarkG3D": 4080
+    "passmarkG3D": 4080,
+    "passmarkScore": 1558
   },
   {
     "id": "gpu-188",
@@ -37963,7 +38093,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "726 Stream Processors",
@@ -38124,7 +38254,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7722,
     "geekbenchOpenCL": 7366,
-    "passmarkG3D": 4188
+    "passmarkG3D": 4188,
+    "passmarkScore": 1273
   },
   {
     "id": "gpu-013",
@@ -38142,7 +38273,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF104 / GF100",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "946 CUDA Cores",
@@ -38303,7 +38434,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10062,
     "geekbenchOpenCL": 9598,
-    "passmarkG3D": 4548
+    "passmarkG3D": 4548,
+    "passmarkScore": 4078
   },
   {
     "id": "gpu-017",
@@ -38321,7 +38453,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF116 / GF114 / GF110",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$151",
+    "launchMsrp": 151,
     "costEffectivenessScore": "3.20 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1188 CUDA Cores",
@@ -38482,7 +38614,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 12636,
     "geekbenchOpenCL": 12053,
-    "passmarkG3D": 4944
+    "passmarkG3D": 4944,
+    "passmarkScore": 4630
   },
   {
     "id": "gpu-025",
@@ -38500,7 +38633,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GK208 / GM107 / GK104",
     "processNode": "28nm TSMC",
-    "launchMsrp": "$123",
+    "launchMsrp": 123,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "968 CUDA Cores",
@@ -38661,7 +38794,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10000,
     "geekbenchOpenCL": 11000,
-    "passmarkG3D": 3800
+    "passmarkG3D": 3800,
+    "passmarkScore": 3899
   },
   {
     "id": "gpu-135",
@@ -38679,7 +38813,7 @@
     "designer": "Intel",
     "gpuCodeName": "Integrated SoC",
     "processNode": "7nm / 10nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "88 Stream Processors",
@@ -38858,7 +38992,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$810",
+    "launchMsrp": 810,
     "costEffectivenessScore": "3.20 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1188 Stream Processors",
@@ -39019,7 +39153,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 12636,
     "geekbenchOpenCL": 12053,
-    "passmarkG3D": 4944
+    "passmarkG3D": 4944,
+    "passmarkScore": 2290
   },
   {
     "id": "gpu-012",
@@ -39037,7 +39172,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF104 / GF100",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "836 CUDA Cores",
@@ -39198,7 +39333,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8892,
     "geekbenchOpenCL": 8482,
-    "passmarkG3D": 4368
+    "passmarkG3D": 4368,
+    "passmarkScore": 3165
   },
   {
     "id": "gpu-016",
@@ -39216,7 +39352,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$134",
+    "launchMsrp": 134,
     "costEffectivenessScore": "3.07 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "1056 CUDA Cores",
@@ -39377,7 +39513,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 11232,
     "geekbenchOpenCL": 10714,
-    "passmarkG3D": 4728
+    "passmarkG3D": 4728,
+    "passmarkScore": 3951
   },
   {
     "id": "gpu-001",
@@ -39395,7 +39532,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "G70",
     "processNode": "110nm TSMC",
-    "launchMsrp": "$599",
+    "launchMsrp": 599,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "24 Pixel / 8 Vertex Pipelines",
@@ -39556,7 +39693,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 1872,
     "geekbenchOpenCL": 1786,
-    "passmarkG3D": 3288
+    "passmarkG3D": 3288,
+    "passmarkScore": 268
   },
   {
     "id": "gpu-002",
@@ -39574,7 +39712,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "G71",
     "processNode": "90nm TSMC",
-    "launchMsrp": "$499",
+    "launchMsrp": 499,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "24 Pixel / 8 Vertex Pipelines",
@@ -39735,7 +39873,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2574,
     "geekbenchOpenCL": 2455,
-    "passmarkG3D": 3396
+    "passmarkG3D": 3396,
+    "passmarkScore": 387
   },
   {
     "id": "gpu-003",
@@ -39753,7 +39892,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "G92-270-A2",
     "processNode": "65nm TSMC",
-    "launchMsrp": "$249",
+    "launchMsrp": 249,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "112 Stream Processors",
@@ -39914,7 +40053,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3042,
     "geekbenchOpenCL": 2902,
-    "passmarkG3D": 3468
+    "passmarkG3D": 3468,
+    "passmarkScore": 398
   },
   {
     "id": "gpu-004",
@@ -39932,7 +40072,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "G92-270-A2",
     "processNode": "65nm TSMC",
-    "launchMsrp": "$249",
+    "launchMsrp": 249,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "112 Stream Processors",
@@ -40093,7 +40233,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3510,
     "geekbenchOpenCL": 3348,
-    "passmarkG3D": 3540
+    "passmarkG3D": 3540,
+    "passmarkScore": 452
   },
   {
     "id": "gpu-005",
@@ -40111,7 +40252,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "G80-300-A2",
     "processNode": "90nm TSMC",
-    "launchMsrp": "$599",
+    "launchMsrp": 599,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "128 Stream Processors",
@@ -40272,7 +40413,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 4212,
     "geekbenchOpenCL": 4018,
-    "passmarkG3D": 3648
+    "passmarkG3D": 3648,
+    "passmarkScore": 555
   },
   {
     "id": "gpu-006",
@@ -40290,7 +40432,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$210",
+    "launchMsrp": 210,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "308 CUDA Cores",
@@ -40451,7 +40593,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3276,
     "geekbenchOpenCL": 3125,
-    "passmarkG3D": 3504
+    "passmarkG3D": 3504,
+    "passmarkScore": 469
   },
   {
     "id": "gpu-007",
@@ -40469,7 +40612,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$285",
+    "launchMsrp": 285,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "418 CUDA Cores",
@@ -40630,7 +40773,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 4446,
     "geekbenchOpenCL": 4241,
-    "passmarkG3D": 3684
+    "passmarkG3D": 3684,
+    "passmarkScore": 769
   },
   {
     "id": "gpu-008",
@@ -40648,7 +40792,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$360",
+    "launchMsrp": 360,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "528 CUDA Cores",
@@ -40809,7 +40953,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 5616,
     "geekbenchOpenCL": 5357,
-    "passmarkG3D": 3864
+    "passmarkG3D": 3864,
+    "passmarkScore": 1198
   },
   {
     "id": "gpu-009",
@@ -40827,7 +40972,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GT200-300-A2",
     "processNode": "65nm TSMC",
-    "launchMsrp": "$649",
+    "launchMsrp": 649,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "240 Stream Processors",
@@ -40988,7 +41133,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 6552,
     "geekbenchOpenCL": 6250,
-    "passmarkG3D": 4008
+    "passmarkG3D": 4008,
+    "passmarkScore": 1293
   },
   {
     "id": "gpu-010",
@@ -41006,7 +41152,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GT200-300-A2",
     "processNode": "65nm TSMC",
-    "launchMsrp": "$649",
+    "launchMsrp": 649,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "240 Stream Processors",
@@ -41167,7 +41313,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7254,
     "geekbenchOpenCL": 6919,
-    "passmarkG3D": 4116
+    "passmarkG3D": 4116,
+    "passmarkScore": 1452
   },
   {
     "id": "gpu-011",
@@ -41185,7 +41332,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "GF104 / GF100",
     "processNode": "40nm TSMC",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "748 CUDA Cores",
@@ -41346,7 +41493,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7956,
     "geekbenchOpenCL": 7589,
-    "passmarkG3D": 4224
+    "passmarkG3D": 4224,
+    "passmarkScore": 2268
   },
   {
     "id": "gpu-082",
@@ -41364,7 +41512,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$105",
+    "launchMsrp": 105,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "154 Stream Processors",
@@ -41543,7 +41691,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$150",
+    "launchMsrp": 150,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "220 Stream Processors",
@@ -41722,7 +41870,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$180",
+    "launchMsrp": 180,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "264 Stream Processors",
@@ -41883,7 +42031,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2808,
     "geekbenchOpenCL": 2678,
-    "passmarkG3D": 3432
+    "passmarkG3D": 3432,
+    "passmarkScore": 659
   },
   {
     "id": "gpu-085",
@@ -41901,7 +42050,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$210",
+    "launchMsrp": 210,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "308 Stream Processors",
@@ -42062,7 +42211,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3276,
     "geekbenchOpenCL": 3125,
-    "passmarkG3D": 3504
+    "passmarkG3D": 3504,
+    "passmarkScore": 551
   },
   {
     "id": "gpu-086",
@@ -42080,7 +42230,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$300",
+    "launchMsrp": 300,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "440 Stream Processors",
@@ -42241,7 +42391,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 4680,
     "geekbenchOpenCL": 4464,
-    "passmarkG3D": 3720
+    "passmarkG3D": 3720,
+    "passmarkScore": 947
   },
   {
     "id": "gpu-087",
@@ -42259,7 +42410,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$360",
+    "launchMsrp": 360,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "528 Stream Processors",
@@ -42420,7 +42571,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 5616,
     "geekbenchOpenCL": 5357,
-    "passmarkG3D": 3864
+    "passmarkG3D": 3864,
+    "passmarkScore": 1386
   },
   {
     "id": "gpu-088",
@@ -42438,7 +42590,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$540",
+    "launchMsrp": 540,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "792 Stream Processors",
@@ -42599,7 +42751,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8424,
     "geekbenchOpenCL": 8035,
-    "passmarkG3D": 4296
+    "passmarkG3D": 4296,
+    "passmarkScore": 1942
   },
   {
     "id": "gpu-089",
@@ -42617,7 +42770,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$630",
+    "launchMsrp": 630,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "924 Stream Processors",
@@ -42778,7 +42931,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 9828,
     "geekbenchOpenCL": 9374,
-    "passmarkG3D": 4512
+    "passmarkG3D": 4512,
+    "passmarkScore": 2181
   },
   {
     "id": "gpu-091",
@@ -42796,7 +42950,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$123",
+    "launchMsrp": 123,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "968 Stream Processors",
@@ -42957,7 +43111,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 10296,
     "geekbenchOpenCL": 9821,
-    "passmarkG3D": 4584
+    "passmarkG3D": 4584,
+    "passmarkScore": 2194
   },
   {
     "id": "gpu-149",
@@ -43136,7 +43291,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 1404,
     "geekbenchOpenCL": 1339,
-    "passmarkG3D": 3216
+    "passmarkG3D": 3216,
+    "passmarkScore": 234
   },
   {
     "id": "gpu-150",
@@ -43154,7 +43310,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$135",
+    "launchMsrp": 135,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "198 CUDA Cores",
@@ -43315,7 +43471,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2106,
     "geekbenchOpenCL": 2009,
-    "passmarkG3D": 3324
+    "passmarkG3D": 3324,
+    "passmarkScore": 150
   },
   {
     "id": "gpu-151",
@@ -43333,7 +43490,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "176 CUDA Cores",
@@ -43494,7 +43651,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 1872,
     "geekbenchOpenCL": 1786,
-    "passmarkG3D": 3288
+    "passmarkG3D": 3288,
+    "passmarkScore": 192
   },
   {
     "id": "gpu-152",
@@ -43512,7 +43670,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$105",
+    "launchMsrp": 105,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "154 CUDA Cores",
@@ -43673,7 +43831,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 1638,
     "geekbenchOpenCL": 1562,
-    "passmarkG3D": 3252
+    "passmarkG3D": 3252,
+    "passmarkScore": 222
   },
   {
     "id": "gpu-153",
@@ -43691,7 +43850,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$180",
+    "launchMsrp": 180,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "264 CUDA Cores",
@@ -43852,7 +44011,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2808,
     "geekbenchOpenCL": 2678,
-    "passmarkG3D": 3432
+    "passmarkG3D": 3432,
+    "passmarkScore": 474
   },
   {
     "id": "gpu-154",
@@ -43870,7 +44030,7 @@
     "designer": "NVIDIA",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "682 CUDA Cores",
@@ -44031,7 +44191,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7254,
     "geekbenchOpenCL": 6919,
-    "passmarkG3D": 4116
+    "passmarkG3D": 4116,
+    "passmarkScore": 2645
   },
   {
     "id": "gpu-183",
@@ -44049,7 +44210,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$165",
+    "launchMsrp": 165,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "242 Stream Processors",
@@ -44210,7 +44371,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 2574,
     "geekbenchOpenCL": 2455,
-    "passmarkG3D": 3396
+    "passmarkG3D": 3396,
+    "passmarkScore": 401
   },
   {
     "id": "gpu-184",
@@ -44228,7 +44390,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$195",
+    "launchMsrp": 195,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "286 Stream Processors",
@@ -44389,7 +44551,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3042,
     "geekbenchOpenCL": 2902,
-    "passmarkG3D": 3468
+    "passmarkG3D": 3468,
+    "passmarkScore": 381
   },
   {
     "id": "gpu-185",
@@ -44407,7 +44570,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$255",
+    "launchMsrp": 255,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "374 Stream Processors",
@@ -44568,7 +44731,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 3978,
     "geekbenchOpenCL": 3794,
-    "passmarkG3D": 3612
+    "passmarkG3D": 3612,
+    "passmarkScore": 908
   },
   {
     "id": "gpu-186",
@@ -44586,7 +44750,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$390",
+    "launchMsrp": 390,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "572 Stream Processors",
@@ -44747,7 +44911,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 6084,
     "geekbenchOpenCL": 5803,
-    "passmarkG3D": 3936
+    "passmarkG3D": 3936,
+    "passmarkScore": 1174
   },
   {
     "id": "gpu-187",
@@ -44765,7 +44930,7 @@
     "designer": "AMD",
     "gpuCodeName": "Legacy GPU",
     "processNode": "90nm / 65nm",
-    "launchMsrp": "$465",
+    "launchMsrp": 465,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "682 Stream Processors",
@@ -44926,7 +45091,8 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 7254,
     "geekbenchOpenCL": 6919,
-    "passmarkG3D": 4116
+    "passmarkG3D": 4116,
+    "passmarkScore": 1347
   },
   {
     "id": "gpu-189",
@@ -44944,7 +45110,7 @@
     "designer": "AMD",
     "gpuCodeName": "AD102",
     "processNode": "12nm FFN",
-    "launchMsrp": "$120",
+    "launchMsrp": 120,
     "costEffectivenessScore": "3.00 / 10.0",
     "powerEfficiencyScore": "1.00 Efficiency",
     "cudaCores": "836 Stream Processors",
@@ -45105,6 +45271,7 @@
     "portRoyalScore": 0,
     "geekbenchVulkan": 8892,
     "geekbenchOpenCL": 8482,
-    "passmarkG3D": 4368
+    "passmarkG3D": 4368,
+    "passmarkScore": 1928
   }
 ]

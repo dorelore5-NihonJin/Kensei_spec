@@ -8,7 +8,7 @@ export interface CpuTechnicalDetails {
   designer: string;
   architectureCodename: string;
   releaseDate: string;
-  launchMsrp: string;
+  launchMsrp: number;
   powerEfficiencyScore: string;
   costEffectivenessScore: string;
 
@@ -60,7 +60,7 @@ export interface GpuTechnicalDetails {
   architectureCodename: string;
   gpuCodeName: string;
   releaseDate: string;
-  launchMsrp: string;
+  launchMsrp: number;
   powerEfficiencyScore: string;
   costEffectivenessScore: string;
 
@@ -136,7 +136,7 @@ export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDe
     designer: cpu.designer || cpu.manufacturer,
     architectureCodename: cpu.architectureCodename || "Unknown Architecture",
     releaseDate: `${cpu.releaseYear}`,
-    launchMsrp: cpu.launchMsrp || "$0",
+    launchMsrp: cpu.launchMsrp || 0,
     powerEfficiencyScore: cpu.powerEfficiencyScore || "0.00 / 5.00",
     costEffectivenessScore: cpu.costEffectivenessScore || "0.00 / 10.0",
 
@@ -203,7 +203,7 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDe
     if (count4K > 0) avg4K = Math.round(t4K / count4K);
   }
 
-  const msrpVal = gpu.launchMsrp ? parseFloat(gpu.launchMsrp.replace(/[^0-9.]/g, "")) : 0;
+  const msrpVal = gpu.launchMsrp || 0;
   const cpf1080 = (msrpVal > 0 && avg1080 > 0) ? `${(msrpVal / avg1080).toFixed(2)}` : "N/A";
   const cpf1440 = (msrpVal > 0 && avg1440 > 0) ? `${(msrpVal / avg1440).toFixed(2)}` : "N/A";
   const cpf4K = (msrpVal > 0 && avg4K > 0) ? `${(msrpVal / avg4K).toFixed(2)}` : "N/A";
@@ -217,7 +217,7 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDe
     architectureCodename: gpu.architecture || "Unknown",
     gpuCodeName: gpu.gpuCodeName || "Unknown",
     releaseDate: `${gpu.releaseYear}`,
-    launchMsrp: gpu.launchMsrp || "$0",
+    launchMsrp: gpu.launchMsrp || 0,
     powerEfficiencyScore: gpu.powerEfficiencyScore || "0.00 Efficiency",
     costEffectivenessScore: gpu.costEffectivenessScore || "0.00 Rating",
 

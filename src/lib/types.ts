@@ -37,7 +37,7 @@ export interface GPU {
   marketSegment?: string;
   designer?: string;
   processNode?: string;
-  launchMsrp?: string;
+  launchMsrp?: number;
   costEffectivenessScore?: string;
   powerEfficiencyScore?: string;
   cudaCores?: string;
@@ -125,7 +125,7 @@ export interface CPU {
   iGpuModel?: string;
   pcieVersion?: string;
   pcieLanes?: string;
-  launchMsrp?: string;
+  launchMsrp?: number;
   costEffectivenessScore?: string;
   powerEfficiencyScore?: string;
 }
