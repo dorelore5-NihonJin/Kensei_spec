@@ -293,9 +293,6 @@ export function calculatePerformance(
   }
 
   // --- 6. Real-Time Telemetry Load & Bottleneck Calculations ---
-  const cpuMetric = (cpu.singleCoreScore * 0.7) + (cpu.multiCoreScore * 0.3);
-  const gpuMetric = gpu.relativePowerScore;
-
   let bottleneckType: "None" | "CPU" | "GPU" | "RAM" | "Storage" = "None";
   let bottleneckPercentage = 0;
 
