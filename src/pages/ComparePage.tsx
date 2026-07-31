@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
 import type { CPU, GPU } from "../lib/types";
-import { Scale, Zap, Sparkles, MousePointerClick, Trophy, Flame, HardDrive, Cpu, Check, ShieldCheck, Monitor, Gamepad2 } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
 import { useHardware } from "../context/HardwareContext";
 import { useLanguage } from "../context/LanguageContext";
-import SearchableSelect, { type SelectOption } from "../components/SearchableSelect";
+import type { CPU, GPU } from "../lib/types";
+import { getCpuTechnicalDetails, getGpuTechnicalDetails } from "../lib/hardwareSpecs";
+import { getHardwareSlug, findCpuBySlugOrId, findGpuBySlugOrId } from "../lib/slugs";
 import AggregatePerformanceChart from "../components/AggregatePerformanceChart";
 import GpuGamingBenchmarkChart from "../components/GpuGamingBenchmarkChart";
-import { getCpuTechnicalDetails, getGpuTechnicalDetails } from "../lib/hardwareSpecs";
+import SearchableSelect, { type SelectOption } from "../components/SearchableSelect";
+import {
+  Trophy,
+  ArrowRightLeft,
+  Sparkles,
+  Zap,
+  Cpu,
+  Flame,
+  CheckCircle2,
+  MousePointerClick,
+  Layers,
+  Scale,
+  Activity,
+  HardDrive
+} from "lucide-react";
 
 interface ComparePageProps {
   cpus: CPU[];
@@ -27,6 +43,9 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
   const [mode, setMode] = useState<"cpu" | "gpu">(() => {
     const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get("page");
+    if (pageParam === "compare-gpu") return "gpu";
+    if (pageParam === "compare-cpu") return "cpu";
     const modeParam = urlParams.get("mode");
     if (modeParam === "gpu" || modeParam === "cpu") return modeParam;
     return "cpu";
@@ -34,54 +53,46 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
   const [selectedCpuA, setSelectedCpuA] = useState<CPU | null>(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modeParam = urlParams.get("mode") || "cpu";
+    const pageParam = urlParams.get("page");
+    const modeParam = urlParams.get("mode") || (pageParam === "compare-gpu" ? "gpu" : "cpu");
     const aParam = urlParams.get("a");
     const cpuAParam = urlParams.get("cpuA");
-    const targetId = (modeParam === "cpu" ? aParam : null) || cpuAParam || localStorage.getItem("kensei_compare_cpu_a");
-    if (targetId) {
-      const match = cpus.find((c) => c.id === targetId);
-      if (match) return match;
-    }
-    return cpus[0] || null;
+    const target = (modeParam === "cpu" || pageParam === "compare-cpu" ? aParam : null) || cpuAParam || localStorage.getItem("kensei_compare_cpu_a");
+    const match = findCpuBySlugOrId(cpus, target);
+    return match || cpus[0] || null;
   });
 
   const [selectedCpuB, setSelectedCpuB] = useState<CPU | null>(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modeParam = urlParams.get("mode") || "cpu";
+    const pageParam = urlParams.get("page");
+    const modeParam = urlParams.get("mode") || (pageParam === "compare-gpu" ? "gpu" : "cpu");
     const bParam = urlParams.get("b");
     const cpuBParam = urlParams.get("cpuB");
-    const targetId = (modeParam === "cpu" ? bParam : null) || cpuBParam || localStorage.getItem("kensei_compare_cpu_b");
-    if (targetId) {
-      const match = cpus.find((c) => c.id === targetId);
-      if (match) return match;
-    }
-    return cpus[1] || cpus[0] || null;
+    const target = (modeParam === "cpu" || pageParam === "compare-cpu" ? bParam : null) || cpuBParam || localStorage.getItem("kensei_compare_cpu_b");
+    const match = findCpuBySlugOrId(cpus, target);
+    return match || cpus[1] || cpus[0] || null;
   });
 
   const [selectedGpuA, setSelectedGpuA] = useState<GPU | null>(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modeParam = urlParams.get("mode") || "cpu";
+    const pageParam = urlParams.get("page");
+    const modeParam = urlParams.get("mode") || (pageParam === "compare-gpu" ? "gpu" : "cpu");
     const aParam = urlParams.get("a");
     const gpuAParam = urlParams.get("gpuA");
-    const targetId = (modeParam === "gpu" ? aParam : null) || gpuAParam || localStorage.getItem("kensei_compare_gpu_a");
-    if (targetId) {
-      const match = gpus.find((g) => g.id === targetId);
-      if (match) return match;
-    }
-    return gpus[0] || null;
+    const target = (modeParam === "gpu" || pageParam === "compare-gpu" ? aParam : null) || gpuAParam || localStorage.getItem("kensei_compare_gpu_a");
+    const match = findGpuBySlugOrId(gpus, target);
+    return match || gpus[0] || null;
   });
 
   const [selectedGpuB, setSelectedGpuB] = useState<GPU | null>(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modeParam = urlParams.get("mode") || "cpu";
+    const pageParam = urlParams.get("page");
+    const modeParam = urlParams.get("mode") || (pageParam === "compare-gpu" ? "gpu" : "cpu");
     const bParam = urlParams.get("b");
     const gpuBParam = urlParams.get("gpuB");
-    const targetId = (modeParam === "gpu" ? bParam : null) || gpuBParam || localStorage.getItem("kensei_compare_gpu_b");
-    if (targetId) {
-      const match = gpus.find((g) => g.id === targetId);
-      if (match) return match;
-    }
-    return gpus[1] || gpus[0] || null;
+    const target = (modeParam === "gpu" || pageParam === "compare-gpu" ? bParam : null) || gpuBParam || localStorage.getItem("kensei_compare_gpu_b");
+    const match = findGpuBySlugOrId(gpus, target);
+    return match || gpus[1] || gpus[0] || null;
   });
 
   // Ensure default fallback selections if cpus/gpus load asynchronously or initial state is null
@@ -106,7 +117,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     if (selectedGpuB) localStorage.setItem("kensei_compare_gpu_b", selectedGpuB.id);
   }, [selectedGpuA, selectedGpuB]);
 
-  // Helper to sync state directly into URL parameters with pushState navigation history
+  // Helper to sync clean human-readable URLs with pushState navigation history
   const syncUrlParams = (
     currentMode: "cpu" | "gpu",
     cpuA: CPU | null,
@@ -116,18 +127,18 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   ) => {
     try {
       const url = new URL(window.location.href);
-      url.searchParams.set("page", "compare");
-      url.searchParams.set("mode", currentMode);
+      // Clean dedicated sub-route page parameter
+      url.searchParams.set("page", currentMode === "cpu" ? "compare-cpu" : "compare-gpu");
+      url.searchParams.delete("mode");
+      url.searchParams.delete("cpuA");
+      url.searchParams.delete("cpuB");
+      url.searchParams.delete("gpuA");
+      url.searchParams.delete("gpuB");
 
       const activeA = currentMode === "cpu" ? cpuA : gpuA;
       const activeB = currentMode === "cpu" ? cpuB : gpuB;
-      if (activeA) url.searchParams.set("a", activeA.id);
-      if (activeB) url.searchParams.set("b", activeB.id);
-
-      if (cpuA) url.searchParams.set("cpuA", cpuA.id);
-      if (cpuB) url.searchParams.set("cpuB", cpuB.id);
-      if (gpuA) url.searchParams.set("gpuA", gpuA.id);
-      if (gpuB) url.searchParams.set("gpuB", gpuB.id);
+      if (activeA) url.searchParams.set("a", getHardwareSlug(activeA));
+      if (activeB) url.searchParams.set("b", getHardwareSlug(activeB));
 
       window.history.pushState({}, "", url.toString());
     } catch {
@@ -139,35 +150,43 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   useEffect(() => {
     const handlePopStateSync = () => {
       const urlParams = new URLSearchParams(window.location.search);
+      const pageParam = urlParams.get("page");
       const modeParam = urlParams.get("mode");
-      if (modeParam === "cpu" || modeParam === "gpu") {
-        setMode(modeParam);
+      
+      let activeMode: "cpu" | "gpu" = mode;
+      if (pageParam === "compare-gpu" || modeParam === "gpu") {
+        activeMode = "gpu";
+        setMode("gpu");
+      } else if (pageParam === "compare-cpu" || modeParam === "cpu") {
+        activeMode = "cpu";
+        setMode("cpu");
       }
 
-      const activeMode = modeParam || mode;
       const aParam = urlParams.get("a");
       const bParam = urlParams.get("b");
 
-      const targetCpuA = (activeMode === "cpu" ? aParam : null) || urlParams.get("cpuA");
-      const targetCpuB = (activeMode === "cpu" ? bParam : null) || urlParams.get("cpuB");
-      const targetGpuA = (activeMode === "gpu" ? aParam : null) || urlParams.get("gpuA");
-      const targetGpuB = (activeMode === "gpu" ? bParam : null) || urlParams.get("gpuB");
-
-      if (targetCpuA) {
-        const found = cpus.find((c) => c.id === targetCpuA);
-        if (found) setSelectedCpuA(found);
-      }
-      if (targetCpuB) {
-        const found = cpus.find((c) => c.id === targetCpuB);
-        if (found) setSelectedCpuB(found);
-      }
-      if (targetGpuA) {
-        const found = gpus.find((g) => g.id === targetGpuA);
-        if (found) setSelectedGpuA(found);
-      }
-      if (targetGpuB) {
-        const found = gpus.find((g) => g.id === targetGpuB);
-        if (found) setSelectedGpuB(found);
+      if (activeMode === "cpu") {
+        const targetA = aParam || urlParams.get("cpuA");
+        const targetB = bParam || urlParams.get("cpuB");
+        if (targetA) {
+          const matchA = findCpuBySlugOrId(cpus, targetA);
+          if (matchA) setSelectedCpuA(matchA);
+        }
+        if (targetB) {
+          const matchB = findCpuBySlugOrId(cpus, targetB);
+          if (matchB) setSelectedCpuB(matchB);
+        }
+      } else {
+        const targetA = aParam || urlParams.get("gpuA");
+        const targetB = bParam || urlParams.get("gpuB");
+        if (targetA) {
+          const matchA = findGpuBySlugOrId(gpus, targetA);
+          if (matchA) setSelectedGpuA(matchA);
+        }
+        if (targetB) {
+          const matchB = findGpuBySlugOrId(gpus, targetB);
+          if (matchB) setSelectedGpuB(matchB);
+        }
       }
     };
 

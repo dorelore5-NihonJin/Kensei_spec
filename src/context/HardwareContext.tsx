@@ -131,8 +131,8 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   const [activePage, setActivePage] = useState<"simulator" | "catalog" | "compare" | "rankings">(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const pageParam = urlParams.get("page");
-    if (pageParam === "rankings" || pageParam === "compare" || pageParam === "catalog" || pageParam === "simulator") {
-      return pageParam as any;
+    if (pageParam === "rankings" || pageParam === "compare" || pageParam === "compare-cpu" || pageParam === "compare-gpu" || pageParam === "catalog" || pageParam === "simulator") {
+      return (pageParam.startsWith("compare") ? "compare" : pageParam) as any;
     }
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
@@ -142,8 +142,8 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     const handlePopState = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const pageParam = urlParams.get("page");
-      if (pageParam === "rankings" || pageParam === "compare" || pageParam === "catalog" || pageParam === "simulator") {
-        setActivePage(pageParam as any);
+      if (pageParam === "rankings" || pageParam === "compare" || pageParam === "compare-cpu" || pageParam === "compare-gpu" || pageParam === "catalog" || pageParam === "simulator") {
+        setActivePage((pageParam.startsWith("compare") ? "compare" : pageParam) as any);
       }
     };
 
@@ -156,7 +156,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     try {
       const url = new URL(window.location.href);
       const currentParam = url.searchParams.get("page");
-      if (currentParam !== activePage) {
+      if (currentParam !== activePage && !(activePage === "compare" && (currentParam === "compare-cpu" || currentParam === "compare-gpu"))) {
         url.searchParams.set("page", activePage);
         window.history.pushState({}, "", url.toString());
       }
