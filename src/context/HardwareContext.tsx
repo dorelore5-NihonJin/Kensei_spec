@@ -151,14 +151,30 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // Sync activePage into URL history
+  // Sync activePage into URL history and clean up page-specific parameters
   useEffect(() => {
     try {
       const url = new URL(window.location.href);
       const currentParam = url.searchParams.get("page");
+      const isComparePage = activePage === "compare" || currentParam === "compare-cpu" || currentParam === "compare-gpu";
+
+      if (!isComparePage) {
+        // Clean up Compare-specific parameters when on simulator, catalog, or rankings
+        url.searchParams.delete("mode");
+        url.searchParams.delete("a");
+        url.searchParams.delete("b");
+        url.searchParams.delete("cpuA");
+        url.searchParams.delete("cpuB");
+        url.searchParams.delete("gpuA");
+        url.searchParams.delete("gpuB");
+      }
+
       if (currentParam !== activePage && !(activePage === "compare" && (currentParam === "compare-cpu" || currentParam === "compare-gpu"))) {
         url.searchParams.set("page", activePage);
         window.history.pushState({}, "", url.toString());
+      } else if (!isComparePage) {
+        // Update URL to reflect cleaned parameters
+        window.history.replaceState({}, "", url.toString());
       }
     } catch {
       // Ignore URL replace errors
