@@ -145,41 +145,45 @@ export default function GameSelector({
   }, [games, searchGameQuery, activeCategory]);
 
   return (
-    <div className="glass-card rounded-3xl p-6 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col gap-5">
-      <div className="flex items-center justify-between">
-        <h3 className="text-base font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
-          <Gamepad2 className="w-4 h-4 text-[#E88D9F]" />
-          {t("step3.title")}
+    <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
+      
+      {/* Step Title Header */}
+      <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
+        <h3 className="text-xl font-black flex items-center gap-2.5 text-[#1E2022] dark:text-white tracking-tight">
+          <div className="w-9 h-9 rounded-xl bg-[#8A9A86]/15 text-[#8A9A86] flex items-center justify-center font-black shrink-0">
+            <Gamepad2 className="w-5 h-5" />
+          </div>
+          {t("step2.title")}
         </h3>
-        <span className="text-[10px] bg-[#8A9A86]/15 text-[#8A9A86] dark:bg-[#8A9A86]/25 font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+        <span className="text-[10px] bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300 font-black px-3 py-1 rounded-full uppercase tracking-wider">
           {t("preset.quality")}
         </span>
       </div>
 
       {/* Search game & category filter */}
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2 border border-black/15 dark:border-white/15 bg-gray-50 dark:bg-[#121315] rounded-2xl px-3.5 py-2 shadow-xs">
-          <Search className="w-4 h-4 text-gray-500" />
+      <div className="flex flex-col gap-2.5">
+        <div className="flex items-center gap-2.5 border border-black/15 dark:border-white/15 bg-gray-50 dark:bg-[#121315] rounded-2xl px-4 py-3 shadow-xs focus-within:ring-2 focus-within:ring-[#8A9A86]/40 transition">
+          <Search className="w-4 h-4 text-gray-400 shrink-0" />
           <input
             type="text"
             placeholder={t("search.placeholder")}
-            className="w-full text-xs font-semibold outline-none bg-transparent text-[#1E2022] dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+            className="w-full text-xs font-semibold outline-none bg-transparent text-[#1E2022] dark:text-white placeholder:text-gray-400"
             value={searchGameQuery}
             onChange={(e) => setSearchGameQuery(e.target.value)}
           />
         </div>
 
         {/* Category Tabs */}
-        <div className="flex bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-0.5 text-[10px] font-black uppercase tracking-wider">
+        <div className="flex bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-1 text-[10px] font-black uppercase tracking-wider">
           {(["All", "Esports", "AAA", "Simulation"] as const).map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`flex-1 py-1.5 rounded-lg text-center transition duration-150 font-black ${
+              className={`flex-1 py-2 rounded-xl text-center transition duration-150 active:scale-95 font-black ${
                 activeCategory === cat
-                  ? "bg-[#8A9A86] text-white shadow-xs"
-                  : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
+                  ? "bg-[#8A9A86] text-white shadow-md"
+                  : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022] dark:hover:text-white"
               }`}
             >
               {cat === "AAA" ? "AAA Next-Gen" : cat}
@@ -188,8 +192,8 @@ export default function GameSelector({
         </div>
       </div>
 
-      {/* Game selector cards grid - smooth scroll without jitter */}
-      <div className="grid grid-cols-2 gap-3 max-h-[260px] overflow-y-auto pr-1">
+      {/* Game Selector Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-h-[280px] overflow-y-auto pr-1">
         {filteredGames.map((game) => {
           const isSelected = selectedGame.id === game.id;
           const hasImageError = failedImages[game.id];
@@ -204,10 +208,10 @@ export default function GameSelector({
               key={game.id}
               type="button"
               onClick={() => setSelectedGame(game)}
-              className={`overflow-hidden rounded-2xl border text-left p-3 transition flex flex-col justify-between h-[105px] box-border ${
+              className={`overflow-hidden rounded-2xl border text-left p-3.5 transition duration-150 active:scale-[0.98] flex flex-col justify-between min-h-[108px] box-border relative group ${
                 isSelected
-                  ? "border-[#E88D9F] bg-[#E88D9F]/10 ring-2 ring-[#E88D9F]/30"
-                  : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] hover:border-black/20"
+                  ? "border-[#E88D9F] bg-[#E88D9F]/10 shadow-sm ring-2 ring-[#E88D9F]/30"
+                  : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] hover:border-black/25 dark:hover:border-white/25 hover:shadow-xs"
               }`}
             >
               <div className="flex items-center gap-3">
@@ -215,44 +219,48 @@ export default function GameSelector({
                   <img
                     src={resolveCoverUrl(game.coverImage)}
                     alt={game.title}
-                    className="w-11 h-11 object-cover rounded-xl shrink-0 border border-black/10 dark:border-white/10 shadow-xs bg-gray-100 dark:bg-neutral-800"
+                    className="w-12 h-12 object-cover rounded-xl shrink-0 border border-black/10 dark:border-white/10 shadow-xs bg-gray-100 dark:bg-neutral-800"
                     onError={() => handleImageError(game.id)}
                   />
                 ) : (
-                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${customTheme.gradient} text-white font-black text-[9px] flex items-center justify-center shrink-0 shadow-xs text-center p-1 leading-none uppercase`}>
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${customTheme.gradient} text-white font-black text-[10px] flex items-center justify-center shrink-0 shadow-xs text-center p-1 leading-none uppercase`}>
                     {customTheme.label}
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs font-black truncate text-[#1E2022] dark:text-white leading-tight">{game.title}</div>
+                  <div className="text-xs font-black truncate text-[#1E2022] dark:text-white leading-tight">
+                    {game.title}
+                  </div>
                   <div className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold uppercase tracking-wide mt-0.5">
                     {getGameCategory(game.id)}
                   </div>
                 </div>
               </div>
 
-              {/* Requirement details */}
-              <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-600 dark:text-gray-300 border-t border-black/5 dark:border-white/5 pt-1.5 mt-auto">
-                <span>{t("game.min_ram")} <strong className="text-[#1E2022] dark:text-white">{game.ramMinRequirementGB}GB</strong></span>
-                <span className="text-[#E88D9F] font-black bg-[#E88D9F]/10 px-1.5 py-0.5 rounded">{t("game.rt_capable")}</span>
+              {/* Requirement Details */}
+              <div className="flex justify-between items-center text-[10px] font-extrabold text-gray-500 dark:text-gray-400 border-t border-black/5 dark:border-white/5 pt-2 mt-2">
+                <span>{t("game.min_ram")} <strong className="text-[#1E2022] dark:text-white font-black">{game.ramMinRequirementGB}GB</strong></span>
+                <span className="text-[#E88D9F] font-black bg-[#E88D9F]/15 dark:bg-[#E88D9F]/25 px-2 py-0.5 rounded-full">
+                  {t("game.rt_capable")}
+                </span>
               </div>
             </button>
           );
         })}
       </div>
 
-      {/* Dynamic Hardware-Aware Telemetry Reliance Metrics */}
-      <div className="p-3.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row justify-around items-center text-center gap-3">
-        <div className="flex flex-col items-center flex-1">
+      {/* Hardware Telemetry Load Status Cards */}
+      <div className="p-4 bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row justify-around items-center text-center gap-4">
+        <div className="flex flex-col items-center flex-1 w-full sm:w-auto">
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
-            {t("reliance.cpu")} {selectedCpu && <span className="text-gray-400 font-normal">({selectedCpu.name})</span>}
+            {t("reliance.cpu")} {selectedCpu && <span className="text-[#1E2022] dark:text-gray-300 font-extrabold">({selectedCpu.name})</span>}
           </span>
           {telemetryLoads !== null ? (
-            <div className="flex flex-col items-center">
-              <span className="font-black text-indigo-600 dark:text-indigo-400 text-base transition-all duration-300">
+            <div className="flex flex-col items-center mt-1">
+              <span className="font-black text-indigo-600 dark:text-indigo-400 text-lg leading-none font-mono">
                 {telemetryLoads.cpuLoad}%
               </span>
-              <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 ${
+              <span className={`text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full mt-1.5 ${
                 telemetryLoads.cpuLoad >= 90
                   ? "bg-purple-500/15 text-purple-600 dark:text-purple-400"
                   : telemetryLoads.cpuLoad >= 60
@@ -263,7 +271,7 @@ export default function GameSelector({
               </span>
             </div>
           ) : (
-            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1.5">
               <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
               {!selectedCpu && !selectedGpu ? "Select Hardware in Step 1" : !selectedCpu ? "Select CPU in Step 1" : "Select GPU in Step 1"}
             </span>
@@ -272,16 +280,16 @@ export default function GameSelector({
 
         <div className="hidden sm:block border-r border-black/10 dark:border-white/10 h-10" />
 
-        <div className="flex flex-col items-center flex-1">
+        <div className="flex flex-col items-center flex-1 w-full sm:w-auto border-t sm:border-t-0 border-black/10 dark:border-white/10 pt-3 sm:pt-0">
           <span className="text-[10px] text-gray-500 dark:text-gray-400 block font-black uppercase tracking-wider">
-            {t("reliance.gpu")} {selectedGpu && <span className="text-gray-400 font-normal">({selectedGpu.name})</span>}
+            {t("reliance.gpu")} {selectedGpu && <span className="text-[#1E2022] dark:text-gray-300 font-extrabold">({selectedGpu.name})</span>}
           </span>
           {telemetryLoads !== null ? (
-            <div className="flex flex-col items-center">
-              <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] text-base transition-all duration-300">
+            <div className="flex flex-col items-center mt-1">
+              <span className="font-black text-[#E88D9F] dark:text-[#E88D9F] text-lg leading-none font-mono">
                 {telemetryLoads.gpuLoad}%
               </span>
-              <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full mt-0.5 ${
+              <span className={`text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full mt-1.5 ${
                 telemetryLoads.gpuLoad >= 90
                   ? "bg-rose-500/15 text-rose-600 dark:text-rose-400"
                   : telemetryLoads.gpuLoad <= 50
@@ -292,7 +300,7 @@ export default function GameSelector({
               </span>
             </div>
           ) : (
-            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1">
+            <span className="font-extrabold text-[11px] text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1 mt-1.5">
               <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
               {!selectedCpu && !selectedGpu ? "Select Hardware in Step 1" : !selectedGpu ? "Select GPU in Step 1" : "Select CPU in Step 1"}
             </span>
@@ -300,21 +308,23 @@ export default function GameSelector({
         </div>
       </div>
 
-      {/* Advanced Resolution / Presets / Scaling Controls */}
-      <div className="flex flex-col gap-3.5 border-t border-black/10 dark:border-white/10 pt-4">
+      {/* Target Resolution, Presets, Upscaling & Ray Tracing Controls */}
+      <div className="flex flex-col gap-4 border-t border-black/10 dark:border-white/10 pt-4">
         {/* Resolution */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.target_resolution")}</div>
+          <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">
+            {t("game.target_resolution")}
+          </div>
           <div className="grid grid-cols-3 gap-2">
             {(["1080p", "1440p", "4K"] as const).map((res) => (
               <button
                 key={res}
                 type="button"
                 onClick={() => setSelectedResolution(res)}
-                className={`py-1.5 text-xs font-black rounded-xl border transition ${
+                className={`py-2.5 text-xs font-black rounded-xl border transition duration-150 active:scale-95 ${
                   selectedResolution === res
-                    ? "border-[#8A9A86] bg-[#8A9A86] text-white shadow-xs"
-                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
+                    ? "border-[#8A9A86] bg-[#8A9A86] text-white shadow-md"
+                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {res === "1080p" ? "1080p FHD" : res === "1440p" ? "1440p QHD" : "4K UHD"}
@@ -325,17 +335,19 @@ export default function GameSelector({
 
         {/* Preset */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.preset_detail")}</div>
+          <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">
+            {t("game.preset_detail")}
+          </div>
           <div className="grid grid-cols-4 gap-2">
             {(["Low", "Medium", "High", "Ultra"] as const).map((pr) => (
               <button
                 key={pr}
                 type="button"
                 onClick={() => setSelectedPreset(pr)}
-                className={`py-1.5 text-xs font-black rounded-xl border transition ${
+                className={`py-2.5 text-xs font-black rounded-xl border transition duration-150 active:scale-95 ${
                   selectedPreset === pr
-                    ? "border-[#E88D9F] bg-[#E88D9F] text-white shadow-xs"
-                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
+                    ? "border-[#E88D9F] bg-[#E88D9F] text-white shadow-md"
+                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {pr}
@@ -346,17 +358,19 @@ export default function GameSelector({
 
         {/* Upscaling */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.upscaling")}</div>
+          <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">
+            {t("game.upscaling")}
+          </div>
           <div className="grid grid-cols-3 gap-2">
             {(["Off", "Quality", "Performance"] as const).map((dlss) => (
               <button
                 key={dlss}
                 type="button"
                 onClick={() => setSelectedDlss(dlss)}
-                className={`py-1.5 text-xs font-black rounded-xl border transition ${
+                className={`py-2.5 text-xs font-black rounded-xl border transition duration-150 active:scale-95 ${
                   selectedDlss === dlss
-                    ? "border-amber-500 bg-amber-500 text-white shadow-xs"
-                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
+                    ? "border-amber-500 bg-amber-500 text-white shadow-md"
+                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {dlss === "Off" ? t("game.off_native") : dlss === "Quality" ? t("game.quality") : t("game.performance")}
@@ -367,17 +381,19 @@ export default function GameSelector({
 
         {/* Ray Tracing Control */}
         <div>
-          <div className="text-[10px] text-gray-600 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">{t("game.ray_tracing")}</div>
+          <div className="text-[10px] text-gray-500 dark:text-gray-400 font-black uppercase tracking-wider mb-1.5">
+            {t("game.ray_tracing")}
+          </div>
           <div className="grid grid-cols-3 gap-2">
             {(["Off", "Medium", "Ultra"] as const).map((rt) => (
               <button
                 key={rt}
                 type="button"
                 onClick={() => setRayTracing(rt)}
-                className={`py-1.5 text-xs font-black rounded-xl border transition ${
+                className={`py-2.5 text-xs font-black rounded-xl border transition duration-150 active:scale-95 ${
                   rayTracing === rt
-                    ? "border-rose-600 bg-rose-600 text-white shadow-xs"
-                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5"
+                    ? "border-rose-600 bg-rose-600 text-white shadow-md"
+                    : "border-black/10 dark:border-white/10 bg-white dark:bg-[#121315] text-[#1E2022] dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {rt === "Off" ? t("game.off") : rt === "Medium" ? t("game.rt_medium") : t("game.path_tracing")}
@@ -387,15 +403,15 @@ export default function GameSelector({
         </div>
 
         {/* Frame Generation Toggle */}
-        <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl flex items-center justify-between">
+        <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 rounded-2xl flex items-center justify-between">
           <div>
             <div className="text-xs font-black text-[#1E2022] dark:text-white">{t("game.frame_gen")}</div>
-            <div className="text-[10px] text-gray-500 font-extrabold">{t("game.frame_gen_desc")}</div>
+            <div className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">{t("game.frame_gen_desc")}</div>
           </div>
           <button
             type="button"
             onClick={() => setFrameGen(!frameGen)}
-            className={`w-12 h-6 rounded-full transition p-1 flex items-center ${
+            className={`w-12 h-6 rounded-full transition duration-200 p-1 flex items-center ${
               frameGen ? "bg-[#8A9A86] justify-end" : "bg-gray-300 dark:bg-gray-700 justify-start"
             }`}
           >
