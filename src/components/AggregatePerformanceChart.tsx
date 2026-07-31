@@ -17,25 +17,25 @@ interface AggregatePerformanceChartProps {
   itemB: ComponentInfo;
 }
 
-// Milestone card definitions with exact query strings for database lookup
+// Milestone card definitions with exact query strings & exact names for authentic database lookup
 const GPU_MILESTONE_DEFINITIONS = [
-  { name: "GTX 750 Ti", query: "GTX 750 Ti", defaultScore: 55 },
-  { name: "GTX 1060", query: "GTX 1060", defaultScore: 110 },
-  { name: "RTX 2060", query: "RTX 2060", defaultScore: 142 },
-  { name: "RTX 3070", query: "RTX 3070", defaultScore: 310 },
-  { name: "RTX 4070S", query: "RTX 4070 Super", defaultScore: 440 },
-  { name: "RTX 4080", query: "RTX 4080", defaultScore: 520 },
-  { name: "RTX 4090", query: "RTX 4090", defaultScore: 740 },
+  { name: "GTX 750 Ti", exactName: "GeForce GTX 750 Ti", query: "GTX 750 Ti", defaultScore: 55 },
+  { name: "GTX 1060", exactName: "GeForce GTX 1060", query: "GTX 1060", defaultScore: 110 },
+  { name: "RTX 2060", exactName: "GeForce RTX 2060", query: "RTX 2060", defaultScore: 142 },
+  { name: "RTX 3070", exactName: "GeForce RTX 3070", query: "RTX 3070", defaultScore: 310 },
+  { name: "RTX 4070S", exactName: "GeForce RTX 4070 Super", query: "RTX 4070 Super", defaultScore: 440 },
+  { name: "RTX 4080", exactName: "GeForce RTX 4080", query: "RTX 4080", defaultScore: 520 },
+  { name: "RTX 4090", exactName: "GeForce RTX 4090", query: "RTX 4090", defaultScore: 740 },
 ];
 
 const CPU_MILESTONE_DEFINITIONS = [
-  { name: "i5-2500K", query: "2500K", defaultScore: 141, row: "top" },
-  { name: "i5-10400", query: "10400", defaultScore: 440, row: "bottom" },
-  { name: "R5 5600", query: "5600", defaultScore: 555, row: "top" },
-  { name: "i7-12700K", query: "12700K", defaultScore: 957, row: "bottom" },
-  { name: "7800X3D", query: "7800X3D", defaultScore: 1012, row: "top" },
-  { name: "i7-14700K", query: "14700K", defaultScore: 1226, row: "bottom" },
-  { name: "i9-14900K", query: "14900K", defaultScore: 1527, row: "top" },
+  { name: "i5-2500K", exactName: "Core i5-2500K", query: "2500K", defaultScore: 141, row: "top" },
+  { name: "i5-10400", exactName: "Core i5-10400", query: "10400", defaultScore: 440, row: "bottom" },
+  { name: "R5 5600", exactName: "Ryzen 5 5600", query: "5600", defaultScore: 555, row: "top" },
+  { name: "i7-12700K", exactName: "Core i7-12700K", query: "12700K", defaultScore: 1250, row: "bottom" },
+  { name: "7800X3D", exactName: "Ryzen 7 7800X3D", query: "7800X3D", defaultScore: 1350, row: "top" },
+  { name: "i7-14700K", exactName: "Core i7-14700K", query: "14700K", defaultScore: 1720, row: "bottom" },
+  { name: "i9-14900K", exactName: "Core i9-14900K", query: "14900K", defaultScore: 2100, row: "top" },
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
@@ -45,14 +45,22 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   const rawMilestones = type === "gpu" ? GPU_MILESTONE_DEFINITIONS : CPU_MILESTONE_DEFINITIONS;
   const dbItems = type === "gpu" ? (gpus as any[]) : (cpus as any[]);
 
-  // Absolute Global Hardware Hierarchy Max Scale (Static Anchor Reference)
+  // Absolute Global Consumer Hardware Hierarchy Max Scale (Static Anchor Reference)
   // GPU: RTX 5090 = 1000 pts (100%), RTX 4090 = 740 pts (74%)
-  // CPU: Threadripper 7995WX = 4341 pts (100%), 9950X3D = 2350 pts (54%)
-  const globalScaleMax = type === "gpu" ? 1000 : 4341;
+  // CPU: Flagship Consumer Desktop Max Anchor = 2400 pts (100%), i9-14900K = 2100 pts (87.5%)
+  const globalScaleMax = type === "gpu" ? 1000 : 2400;
 
   const milestones = rawMilestones
     .map((ms: any) => {
-      const match = dbItems.find((d: any) => d.name.toLowerCase().includes(ms.query.toLowerCase()));
+      const match = dbItems.find((d: any) => {
+        if (ms.exactName) {
+          return d.name.toLowerCase() === ms.exactName.toLowerCase();
+        }
+        return (
+          d.name.toLowerCase() === ms.query.toLowerCase() ||
+          d.name.toLowerCase().includes(ms.query.toLowerCase())
+        );
+      });
       let score = ms.defaultScore;
       if (match) {
         if (type === "gpu") {
@@ -66,8 +74,8 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
     .sort((a: any, b: any) => a.score - b.score);
 
   // Exact percentage calculation relative to Global Hardware Scale
-  const pctA = Math.min(100, Math.max(3, ((itemA?.score || 0) / globalScaleMax) * 100));
-  const pctB = Math.min(100, Math.max(3, ((itemB?.score || 0) / globalScaleMax) * 100));
+  const pctA = Math.min(98, Math.max(3, ((itemA?.score || 0) / globalScaleMax) * 100));
+  const pctB = Math.min(98, Math.max(3, ((itemB?.score || 0) / globalScaleMax) * 100));
 
   const winner = itemA.score > itemB.score ? "A" : itemB.score > itemA.score ? "B" : "Tie";
   const winnerName = winner === "A" ? itemA.name : itemB.name;
@@ -80,7 +88,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
   // Active milestones mapped cleanly across the static global ruler
   const activeMilestones = milestones.map((ms: any) => ({
     ...ms,
-    msPct: Math.min(96, Math.max(3, (ms.score / globalScaleMax) * 100))
+    msPct: Math.min(98, Math.max(3, (ms.score / globalScaleMax) * 100))
   }));
 
   const topMilestones = activeMilestones.filter((ms: any, idx: number) => type === "gpu" ? idx % 2 === 0 : ms.row === "top");
