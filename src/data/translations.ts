@@ -250,7 +250,7 @@ export const translations: TranslationDictionary = {
     ru: "Загрузить больше сборок",
     ja: "さらに構成を表示"
   },
-  // Section 3: Compare Page
+  // Section 3: Compare Page & Charts
   "compare.title": {
     en: "Hardware Head-to-Head Comparison",
     ru: "Прямое сравнение комплектующих",
@@ -265,6 +265,136 @@ export const translations: TranslationDictionary = {
     en: "GPUs",
     ru: "Видеокарты",
     ja: "グラフィック (GPU)"
+  },
+  "rankings.title": {
+    en: "Silicon Leaderboard & Telemetry Benchmarks",
+    ru: "Рейтинг производительности и бенчмарки комплектующих",
+    ja: "シリコン性能ランキング＆ベンチマーク"
+  },
+  "rankings.subtitle": {
+    en: "Ranked by synthetic compute algorithms and real-world 1080p, 1440p & 4K gaming benchmarks.",
+    ru: "Ранжирование по алгоритмам производительности и реальным бенчмаркам в 1080p, 1440p и 4K.",
+    ja: "合成演算アルゴリズムおよびリアルタイム1080p/1440p/4Kゲームベンチマークによる総合順位。"
+  },
+  "rankings.search_cpu_placeholder": {
+    en: "Search CPU (e.g. 7800X3D, i5)...",
+    ru: "Поиск процессора (напр. 7800X3D, i5)...",
+    ja: "CPUを検索 (例: 7800X3D, i5)..."
+  },
+  "rankings.search_gpu_placeholder": {
+    en: "Search GPU (e.g. RTX 4070, RX)...",
+    ru: "Поиск видеокарты (напр. RTX 4070, RX)...",
+    ja: "GPUを検索 (例: RTX 4070, RX)..."
+  },
+  "rankings.sort.score_desc": {
+    en: "Highest to Lowest Score",
+    ru: "По убыванию очков",
+    ja: "スコア順 (高→低)"
+  },
+  "rankings.sort.score_asc": {
+    en: "Lowest to Highest Score",
+    ru: "По возрастанию очков",
+    ja: "スコア順 (低→高)"
+  },
+  "rankings.sort.year_desc": {
+    en: "Newest Release Year",
+    ru: "Сначала новые",
+    ja: "リリース年 (新しい順)"
+  },
+  "rankings.sort.year_asc": {
+    en: "Oldest Release Year",
+    ru: "Сначала старые",
+    ja: "リリース年 (古い順)"
+  },
+  "rankings.sort.name_asc": {
+    en: "Alphabetical (A-Z)",
+    ru: "По алфавиту (А-Я)",
+    ja: "名前順 (A-Z)"
+  },
+  "rankings.sort.cores_desc": {
+    en: "Max Cores First",
+    ru: "По количеству ядер",
+    ja: "コア数順"
+  },
+  "rankings.sort.vram_desc": {
+    en: "Max VRAM First",
+    ru: "По объему видеопамяти",
+    ja: "VRAM容量順"
+  },
+  "rankings.vendor_label": {
+    en: "Vendor:",
+    ru: "Производитель:",
+    ja: "ベンダー:"
+  },
+  "rankings.reset_btn": {
+    en: "Reset",
+    ru: "Сбросить",
+    ja: "リセット"
+  },
+  "rankings.no_results": {
+    en: "No hardware components match your search filter",
+    ru: "Компоненты по заданному фильтру не найдены",
+    ja: "検索条件に一致するハードウェアが見つかりません"
+  },
+  "rankings.cores": {
+    en: "Cores",
+    ru: "ядер",
+    ja: "コア"
+  },
+  "rankings.threads": {
+    en: "Threads",
+    ru: "потоков",
+    ja: "スレッド"
+  },
+  "rankings.unified_ram": {
+    en: "Unified RAM",
+    ru: "объединенной памяти",
+    ja: "ユニファイドメモリ"
+  },
+  "rankings.shared_ram": {
+    en: "Shared RAM (iGPU)",
+    ru: "общей памяти (iGPU)",
+    ja: "共有メモリ (iGPU)"
+  },
+  "rankings.vram": {
+    en: "VRAM",
+    ru: "видеопамяти",
+    ja: "VRAM"
+  },
+  "rankings.of_apex": {
+    en: "of apex",
+    ru: "от максимума",
+    ja: "最高性能比"
+  },
+  "rankings.pts": {
+    en: "pts",
+    ru: "баллов",
+    ja: "pts"
+  },
+  "rankings.compare_btn": {
+    en: "Compare",
+    ru: "Сравнить",
+    ja: "比較"
+  },
+  "rankings.select_btn": {
+    en: "Select",
+    ru: "Выбрать",
+    ja: "選択"
+  },
+  "rankings.showing": {
+    en: "Showing",
+    ru: "Показано",
+    ja: "表示中"
+  },
+  "rankings.of": {
+    en: "of",
+    ru: "из",
+    ja: "全"
+  },
+  "rankings.components": {
+    en: "components",
+    ru: "комплектующих",
+    ja: "件のコンポーネント"
   },
   "compare.candidate_a": {
     en: "Candidate A",
@@ -326,6 +456,103 @@ export const translations: TranslationDictionary = {
     ru: "Снарядить победителя в симулятор",
     ja: "勝者をシミュレーターに適用"
   },
+
+  // Table Block Titles
+  "compare.block.cpu_primary": { en: "Primary Details & Market Evaluation", ru: "Основные характеристики и рыночная оценка", ja: "CPU基本情報・市場評価" },
+  "compare.block.cpu_detailed": { en: "Detailed CPU Specifications", ru: "Подробные спецификации процессора", ja: "コア構成・詳細クロック仕様" },
+  "compare.block.cpu_socket": { en: "Compatibility, Socket & Power", ru: "Совместимость, сокет и энергопотребление", ja: "ソケット規格・TDP消費電力" },
+  "compare.block.cpu_memory": { en: "Memory Specifications", ru: "Характеристики оперативной памяти", ja: "メモリ対応規格・帯域幅" },
+  "compare.block.gpu_primary": { en: "Primary Details & Market Evaluation", ru: "Основные характеристики видеокарты", ja: "ビデオカード基本概要・市場評価" },
+  "compare.block.gpu_detailed": { en: "Detailed GPU Specifications", ru: "Подробные спецификации видеокарты", ja: "シェーダーコア・演算能力" },
+  "compare.block.gpu_form_factor": { en: "Form Factor & Compatibility", ru: "Форм-фактор и питание", ja: "サイズ・電源端子・スロット" },
+  "compare.block.gpu_vram": { en: "VRAM Capacity & Memory Subsystem", ru: "Объём и подсистема видеопамяти", ja: "VRAMメモリ仕様・バス幅" },
+  "compare.block.gpu_gaming": { en: "Average Gaming Performance & Value", ru: "Средняя производительность в играх и ценность", ja: "平均ゲーミング性能・コスパ" },
+  "compare.block.gpu_outputs": { en: "Connectivity & Outputs", ru: "Интерфейсы подключения и мониторы", ja: "映像出力端子・同期技術" },
+  "compare.block.gpu_api": { en: "API & SDK Support", ru: "Поддержка графических API", ja: "3DグラフィックスAPI対応" },
+
+  // Table Metric Labels
+  "compare.metric_col": { en: "Specification Metric", ru: "Характеристика", ja: "スペック項目" },
+  "compare.global_rank": { en: "Place in Global Ranking", ru: "Место в мировом рейтинге", ja: "総合世界ランキング順位" },
+  "compare.popularity_rank": { en: "Place by Popularity", ru: "Популярность в сборках", ja: "ビルド採用人気順位" },
+  "compare.in_builds": { en: "in builds", ru: "в сборках", ja: "構成で採用" },
+  "compare.cost_effectiveness": { en: "Cost-Effectiveness Evaluation", ru: "Соотношение цена / производительность", ja: "コストパフォーマンス評価" },
+  "compare.power_efficiency": { en: "Power Efficiency", ru: "Энергоэффективность", ja: "ワットパフォーマンス" },
+  "compare.market_segment": { en: "Market Segment", ru: "Сегмент рынка", ja: "ターゲット市場" },
+  "compare.manufacturer": { en: "Designer / Manufacturer", ru: "Разработчик / Производитель", ja: "設計・製造メーカー" },
+  "compare.arch_codename": { en: "Architecture Codename", ru: "Кодовое название архитектуры", ja: "アーキテクチャ名" },
+  "compare.better": { en: "Better", ru: "Лучше", ja: "優位" },
+
+  // CPU Specific Metrics
+  "compare.cores_threads": { en: "Physical Cores / Threads", ru: "Ядра / Потоки", ja: "物理コア / スレッド数" },
+  "compare.base_clock": { en: "Base Clock Speed", ru: "Базовая частота", ja: "ベースクロック" },
+  "compare.boost_clock": { en: "Boost / Turbo Clock Speed", ru: "Максимальная частота (Boost)", ja: "ブーストクロック" },
+  "compare.bus_rate": { en: "Bus Rate", ru: "Частота шины", ja: "バスレート" },
+  "compare.l1_cache": { en: "L1 Cache", ru: "Кэш L1", ja: "L1 キャッシュ" },
+  "compare.l2_cache": { en: "L2 Cache", ru: "Кэш L2", ja: "L2 キャッシュ" },
+  "compare.l3_cache": { en: "L3 Cache Memory", ru: "Кэш L3", ja: "L3 キャッシュ" },
+  "compare.process_node": { en: "Process Node Lithography", ru: "Техпроцесс", ja: "製造プロセス" },
+  "compare.die_size": { en: "Die Size", ru: "Площадь кристалла", ja: "ダイサイズ" },
+  "compare.max_temp": { en: "Maximum Core Temperature (TjMax)", ru: "Максимальная температура (TjMax)", ja: "最大動作温度 (TjMax)" },
+  "compare.arch_64bit": { en: "64-bit Architecture Support", ru: "Поддержка 64-битной архитектуры", ja: "64ビット アーキテクチャ" },
+  "compare.win11_support": { en: "Windows 11 Official Support", ru: "Официальная поддержка Windows 11", ja: "Windows 11 公式サポート" },
+  "compare.supported": { en: "Supported", ru: "Поддерживается", ja: "対応" },
+  "compare.compatible": { en: "Compatible", ru: "Совместим", ja: "互換" },
+  "compare.legacy": { en: "Legacy", ru: "Устарел", ja: "レガシー" },
+  "compare.socket_interface": { en: "Socket / Platform Interface", ru: "Сокет / Разъём", ja: "ソケット / プラットフォーム" },
+  "compare.tdp": { en: "Thermal Design Power (TDP)", ru: "Тепловыделение (TDP)", ja: "熱設計電力 (TDP)" },
+  "compare.rec_psu": { en: "Recommended PSU Capacity", ru: "Рекомендуемый блок питания", ja: "推奨電源ユニット容量" },
+  "compare.memory_types": { en: "Supported Memory Types", ru: "Тип поддерживаемой памяти", ja: "対応メモリ規格" },
+  "compare.max_memory": { en: "Maximum Memory Capacity", ru: "Максимальный объём памяти", ja: "最大メモリ容量" },
+  "compare.memory_channels": { en: "Max Memory Channels", ru: "Каналы памяти", ja: "メモリチャンネル数" },
+  "compare.memory_bandwidth": { en: "Maximum Memory Bandwidth", ru: "Пропускная способность памяти", ja: "最大メモリ帯域幅" },
+
+  // GPU Specific Metrics
+  "compare.gpu_arch": { en: "GPU Architecture", ru: "Архитектура GPU", ja: "GPU アーキテクチャ" },
+  "compare.gpu_codename": { en: "GPU Code Name", ru: "Кодовое имя чипа", ja: "GPU コードネーム" },
+  "compare.cuda_cores": { en: "Pipelines / CUDA Cores / Shaders", ru: "Шейдерные блоки / CUDA ядра", ja: "CUDAコア / シェーダー数" },
+  "compare.transistors": { en: "Number of Transistors", ru: "Количество транзисторов", ja: "トランジスタ数" },
+  "compare.texture_rate": { en: "Texture Fill Rate", ru: "Скорость текстурирования", ja: "テクスチャフィルレート" },
+  "compare.tflops": { en: "Floating-Point Processing Power", ru: "Вычислительная мощность (TFLOPS)", ja: "単精度浮動小数点演算性能" },
+  "compare.rops": { en: "ROPs Count", ru: "Блоки ROP", ja: "ROP数" },
+  "compare.tmus": { en: "TMUs Count", ru: "Блоки TMU", ja: "TMU数" },
+  "compare.bus_interface": { en: "Bus Interface", ru: "Интерфейс подключения", ja: "バスインターフェース" },
+  "compare.card_length": { en: "Card Length", ru: "Длина видеокарты", ja: "カード長" },
+  "compare.slot_width": { en: "Slot Width", ru: "Толщина (слоты)", ja: "スロット占用幅" },
+  "compare.power_connectors": { en: "Supplementary Power Connectors", ru: "Разъёмы дополнительного питания", ja: "補助電源コネクタ" },
+  "compare.vram_type": { en: "Memory Type", ru: "Тип видеопамяти", ja: "VRAMメモリ規格" },
+  "compare.vram_max": { en: "Maximum RAM Amount", ru: "Объём видеопамяти", ja: "VRAM容量" },
+  "compare.vram_bus": { en: "Memory Bus Width", ru: "Разрядность шины памяти", ja: "メモリバス幅" },
+  "compare.vram_clock": { en: "Memory Clock Speed", ru: "Частота памяти", ja: "メモリクロック" },
+  "compare.vram_bw": { en: "Memory Bandwidth", ru: "Пропускная способность VRAM", ja: "VRAMメモリ帯域幅" },
+  "compare.shared_memory": { en: "Shared System Memory Status", ru: "Выделение из ОЗУ", ja: "共有システムメモリ" },
+  "compare.avg_fps_1080p": { en: "Avg. 1080p FPS", ru: "Средний FPS в 1080p", ja: "1080p 平均FPS" },
+  "compare.cost_fps_1080p": { en: "Cost per Frame (1080p)", ru: "Цена за кадр (1080p)", ja: "フレーム単価 (1080p)" },
+  "compare.avg_fps_1440p": { en: "Avg. 1440p FPS", ru: "Средний FPS в 1440p", ja: "1440p 平均FPS" },
+  "compare.cost_fps_1440p": { en: "Cost per Frame (1440p)", ru: "Цена за кадр (1440p)", ja: "フレーム単価 (1440p)" },
+  "compare.avg_fps_4k": { en: "Avg. 4K FPS", ru: "Средний FPS в 4K", ja: "4K 平均FPS" },
+  "compare.cost_fps_4k": { en: "Cost per Frame (4K)", ru: "Цена за кадр (4K)", ja: "フレーム単価 (4K)" },
+  "compare.display_connectors": { en: "Display Connectors", ru: "Разъёмы вывода изображения", ja: "映像出力端子" },
+  "compare.hdmi_21": { en: "HDMI 2.1 Standard", ru: "Стандарт HDMI 2.1", ja: "HDMI 2.1 規格" },
+  "compare.gsync_support": { en: "G-SYNC / FreeSync Display Support", ru: "Поддержка G-SYNC / FreeSync", ja: "G-SYNC / FreeSync 対応" },
+  "compare.directx": { en: "DirectX API Revision", ru: "Версия DirectX API", ja: "DirectX バージョン" },
+  "compare.shader_model": { en: "Shader Model Version", ru: "Версия Shader Model", ja: "シェーダーモデル" },
+  "compare.opengl": { en: "OpenGL Version", ru: "Версия OpenGL", ja: "OpenGL バージョン" },
+  "compare.opencl": { en: "OpenCL Version", ru: "Версия OpenCL", ja: "OpenCL バージョン" },
+  "compare.vulkan": { en: "Vulkan API Version", ru: "Версия Vulkan API", ja: "Vulkan バージョン" },
+  "compare.cuda_gpgpu": { en: "CUDA / GPGPU Acceleration", ru: "Ускорение CUDA / GPGPU", ja: "CUDA / GPGPU アクセラレーション" },
+  "compare.empty_state_title": { en: "Select 2 components to compare performance", ru: "Выберите 2 компонента для сравнения производительности", ja: "2つのコンポーネントを選択して比較" },
+  "compare.empty_state_desc": { en: "Choose both Candidate A and Candidate B from the dropdown menus above to generate the telemetry benchmark matrix and relative advantage score.", ru: "Выберите Кандидата A и Кандидата B из выпадающих списков выше, чтобы построить матрицу бенчмарков и рассчитать преимущество.", ja: "上のドロップダウンメニューから候補Aと候補Bを選択して、テレメトリベンチマークと相乗効果スコアを生成します。" },
+
+  // Chart and FPS Benchmarks Keys
+  "chart.telemetry_title": { en: "Aggregate Telemetry Performance Matrix", ru: "Матрица итоговой производительности", ja: "総合性能比較チャート" },
+  "chart.telemetry_subtitle": { en: "Normalized throughput benchmark scale relative to historical silicon milestones.", ru: "Нормализованная шкала производительности относительно исторических комплектующих.", ja: "歴史的プロセッサの節目に対する正規化ベンチマークスケール。" },
+  "chart.outperforms_text": { en: "outperforms {loser} by an impressive +{delta}% based on aggregate telemetry benchmarks.", ru: "превосходит {loser} на рекордные +{delta}% по результатам агрегированного тестирования.", ja: "は総合ベンチマークで {loser} を +{delta}% 上回るパフォーマンスを発揮します。" },
+  "chart.identical_text": { en: "Both components deliver identical aggregate performance scores across our telemetry workload suite.", ru: "Оба компонента показывают идентичную итоговую производительность во всех тестах.", ja: "両コンポーネントはテレメトリテスト全体で同等の総合パフォーマンスを発揮します。" },
+  "chart.gaming_title": { en: "Gaming FPS Benchmarks", ru: "Игровые тесты FPS", ja: "実ゲームFPS性能比較" },
+  "chart.gaming_subtitle": { en: "Empirical FPS telemetry across 1080p, 1440p, and 4K graphics presets.", ru: "Результаты тестов FPS в разрешениях 1080p, 1440p и 4K.", ja: "1080p、1440p、4K画質設定での実測FPSテレメトリ。" },
+  "chart.smooth_fps": { en: "Smooth (60+ FPS)", ru: "Плавно (60+ FPS)", ja: "快適 (60+ FPS)" },
+  "chart.playable_fps": { en: "Playable (30-59 FPS)", ru: "Играбельно (30-59 FPS)", ja: "プレイ可能 (30-59 FPS)" },
+  "chart.demanding_fps": { en: "Demanding (<30 FPS)", ru: "Требовательно (<30 FPS)", ja: "負荷高 (<30 FPS)" },
 
   "hero.compare.badge1": {
     en: "SILICON VS SILICON",

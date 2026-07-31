@@ -1,6 +1,7 @@
 import { Sparkles, Trophy } from "lucide-react";
 import gpus from "../data/gpus.json";
 import cpus from "../data/cpus.json";
+import { useLanguage } from "../context/LanguageContext";
 
 interface ComponentInfo {
   name: string;
@@ -38,6 +39,8 @@ const CPU_MILESTONE_DEFINITIONS = [
 ];
 
 export default function AggregatePerformanceChart({ type, itemA, itemB }: AggregatePerformanceChartProps) {
+  const { t } = useLanguage();
+
   // Dynamically resolve milestone scores from authentic JSON databases
   const rawMilestones = type === "gpu" ? GPU_MILESTONE_DEFINITIONS : CPU_MILESTONE_DEFINITIONS;
   const dbItems = type === "gpu" ? (gpus as any[]) : (cpus as any[]);
@@ -89,10 +92,10 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
       <div className="flex flex-col items-center justify-center text-center gap-1 border-b border-black/10 dark:border-white/10 pb-5 shrink-0">
         <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-[#E88D9F]" />
-          Aggregate Telemetry Performance Matrix / 総合性能比較チャート
+          {t("chart.telemetry_title")}
         </h3>
         <p className="text-xs text-gray-500 dark:text-gray-400 font-bold">
-          Normalized throughput benchmark scale relative to historical silicon milestones.
+          {t("chart.telemetry_subtitle")}
         </p>
       </div>
 
@@ -155,54 +158,41 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
             ))}
           </div>
 
-          {/* 2. DUAL PROGRESS TRACKS (Optimal Height: h-9 sm:h-10, smooth Sakura/Sage gradient fills) */}
-          <div className="flex flex-col gap-5 w-full z-10 my-3">
-            {/* Track Capsule A */}
-            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-hidden">
-              {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
+          {/* 2. CENTER BARS CONTAINER */}
+          <div className="relative w-full h-24 flex flex-col justify-around my-auto">
+            {/* Bar A */}
+            <div className="w-full h-8 bg-black/10 dark:bg-white/10 rounded-2xl p-1 relative flex items-center overflow-hidden">
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative z-10 ${
+                className={`h-full rounded-xl transition-all duration-700 ease-out relative z-10 ${
                   winner === "A"
                     ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctA}%` }}
               />
-
-              {/* Confined Dashed Vertical Lines ON TOP of Track A Fills */}
-              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {activeMilestones.map((ms, idx) => (
-                  <div
-                    key={idx}
-                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
-                    style={{ left: `${ms.msPct}%` }}
-                  />
-                ))}
-              </div>
             </div>
 
-            {/* Track Capsule B */}
-            <div className="w-full h-9 sm:h-10 bg-black/5 dark:bg-white/5 rounded-full p-1 border border-black/10 dark:border-white/10 relative shadow-inner flex items-center overflow-hidden">
-              {/* Smooth Clean Sakura/Sage Gradient Filled Capsule */}
+            {/* Bar B */}
+            <div className="w-full h-8 bg-black/10 dark:bg-white/10 rounded-2xl p-1 relative flex items-center overflow-hidden">
               <div
-                className={`h-full rounded-full transition-all duration-700 ease-out relative z-10 ${
+                className={`h-full rounded-xl transition-all duration-700 ease-out relative z-10 ${
                   winner === "B"
                     ? "bg-gradient-to-r from-[#E88D9F] via-[#8A9A86] to-emerald-400 shadow-md"
                     : "bg-gradient-to-r from-gray-400 to-gray-500 opacity-70"
                 }`}
                 style={{ width: `${pctB}%` }}
               />
+            </div>
 
-              {/* Confined Dashed Vertical Lines ON TOP of Track B Fills */}
-              <div className="absolute inset-0 pointer-events-none rounded-full overflow-hidden z-20">
-                {activeMilestones.map((ms, idx) => (
-                  <div
-                    key={idx}
-                    className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
-                    style={{ left: `${ms.msPct}%` }}
-                  />
-                ))}
-              </div>
+            {/* Vertical Milestone Guide Lines Overlay */}
+            <div className="absolute inset-0 pointer-events-none">
+              {activeMilestones.map((ms: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="absolute top-0 bottom-0 w-px border-r border-dashed border-black/30 dark:border-white/60"
+                  style={{ left: `${ms.msPct}%` }}
+                />
+              ))}
             </div>
           </div>
 
@@ -230,12 +220,13 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
         <div className="text-xs font-extrabold leading-relaxed">
           {winner !== "Tie" ? (
             <>
-              <strong className="text-[#E88D9F] font-black">{winnerName}</strong> outperforms{" "}
-              <span className="text-gray-600 dark:text-gray-400">{loserName}</span> by an impressive{" "}
-              <span className="text-emerald-500 font-black">+{deltaPct}%</span> based on our aggregate telemetry benchmark results.
+              <strong className="text-[#E88D9F] font-black">{winnerName}</strong>{" "}
+              {t("chart.outperforms_text")
+                .replace("{loser}", loserName)
+                .replace("{delta}", String(deltaPct))}
             </>
           ) : (
-            <>Both components deliver identical aggregate performance scores across our telemetry workload suite.</>
+            <>{t("chart.identical_text")}</>
           )}
         </div>
       </div>

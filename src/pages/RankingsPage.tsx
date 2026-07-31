@@ -231,7 +231,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              placeholder={type === "cpu" ? "Search CPU (e.g. 7800X3D, i5)..." : "Search GPU (e.g. RTX 4070, RX)..."}
+              placeholder={type === "cpu" ? t("rankings.search_cpu_placeholder") : t("rankings.search_gpu_placeholder")}
               className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl pl-10 pr-4 py-2.5 text-xs font-extrabold text-[#1E2022] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E88D9F]/30 transition"
             />
           </div>
@@ -239,14 +239,14 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
           {/* Sort Order Selector Dropdown */}
           <CustomSelect
             options={[
-              { value: "score-desc", label: "Highest to Lowest Score / 高→低" },
-              { value: "score-asc", label: "Lowest to Highest Score / 低→高" },
-              { value: "year-desc", label: "Newest Release Year / 新しい順" },
-              { value: "year-asc", label: "Oldest Release Year / 古い順" },
-              { value: "name-asc", label: "Alphabetical / 名前順 (A-Z)" },
+              { value: "score-desc", label: t("rankings.sort.score_desc") },
+              { value: "score-asc", label: t("rankings.sort.score_asc") },
+              { value: "year-desc", label: t("rankings.sort.year_desc") },
+              { value: "year-asc", label: t("rankings.sort.year_asc") },
+              { value: "name-asc", label: t("rankings.sort.name_asc") },
               {
                 value: "specs-desc",
-                label: type === "cpu" ? "Max Cores First / コア数順" : "Max VRAM First / VRAM容量順"
+                label: type === "cpu" ? t("rankings.sort.cores_desc") : t("rankings.sort.vram_desc")
               }
             ]}
             value={sortBy}
@@ -262,7 +262,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
         {/* Right Group: Manufacturer Filter Badges + Reset Filter */}
         <div className="flex items-center gap-2 overflow-x-auto w-full lg:w-auto justify-start sm:justify-end">
           <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider hidden sm:inline mr-1">
-            Vendor:
+            {t("rankings.vendor_label")}
           </span>
           {(type === "cpu" ? ["All", "AMD", "Intel", "Apple"] : ["All", "NVIDIA", "AMD", "Intel", "Apple"]).map((mfr) => {
             const isActive = manufacturerFilter === mfr;
@@ -305,7 +305,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
               title="Reset search and sort filters"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset</span>
+              <span>{t("rankings.reset_btn")}</span>
             </button>
           )}
         </div>
@@ -316,12 +316,12 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
         {paginatedList.length === 0 ? (
           <div className="py-12 text-center text-xs font-extrabold text-gray-400 flex flex-col items-center gap-2">
             <Search className="w-8 h-8 opacity-40" />
-            <span>No hardware components match your search filter "{searchQuery}"</span>
+            <span>{t("rankings.no_results")} "{searchQuery}"</span>
             <button
               onClick={handleResetFilters}
               className="mt-2 px-4 py-2 rounded-xl bg-[#E88D9F] text-white text-xs font-black shadow-md hover:bg-[#E88D9F]/90 transition"
             >
-              Reset Filters
+              {t("rankings.reset_btn")}
             </button>
           </div>
         ) : (
@@ -379,12 +379,12 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       </div>
                       <p className="text-xs font-bold text-gray-500 dark:text-gray-400 mt-0.5 truncate">
                         {type === "cpu"
-                          ? `${(item as CPU).cores} Cores / ${(item as CPU).threads} Threads • Socket ${(item as CPU).socket} • ${item.releaseYear}`
+                          ? `${(item as CPU).cores} ${t("rankings.cores")} / ${(item as CPU).threads} ${t("rankings.threads")} • Socket ${(item as CPU).socket} • ${item.releaseYear}`
                           : (item as GPU).manufacturer === "Apple"
-                          ? `${(item as GPU).vramGB}GB Unified RAM • ${(item as GPU).architecture} • ${item.releaseYear}`
+                          ? `${(item as GPU).vramGB}GB ${t("rankings.unified_ram")} • ${(item as GPU).architecture} • ${item.releaseYear}`
                           : (item as GPU).isIntegrated
-                          ? `${(item as GPU).vramGB}GB Shared RAM (iGPU) • ${(item as GPU).architecture} • ${item.releaseYear}`
-                          : `${(item as GPU).vramGB}GB VRAM • ${(item as GPU).architecture} • ${item.releaseYear}`}
+                          ? `${(item as GPU).vramGB}GB ${t("rankings.shared_ram")} • ${(item as GPU).architecture} • ${item.releaseYear}`
+                          : `${(item as GPU).vramGB}GB ${t("rankings.vram")} • ${(item as GPU).architecture} • ${item.releaseYear}`}
                       </p>
                     </div>
                   </div>
@@ -399,13 +399,13 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                         />
                       </div>
                       <span className="text-[10px] font-bold text-gray-400 text-right">
-                        {pct.toFixed(0)}% of apex
+                        {pct.toFixed(0)}% {t("rankings.of_apex")}
                       </span>
                     </div>
 
                     <div className="text-right shrink-0 w-24">
                       <span className="text-base font-black text-[#E88D9F] font-mono whitespace-nowrap">
-                        {item.computedScore} pts
+                        {item.computedScore} {t("rankings.pts")}
                       </span>
                     </div>
                   </div>
@@ -417,7 +417,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       className="px-3.5 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30 text-xs font-extrabold transition flex items-center gap-1.5 shrink-0"
                     >
                       <Scale className="w-3.5 h-3.5" />
-                      <span>Compare</span>
+                      <span>{t("rankings.compare_btn")}</span>
                     </button>
 
                     <button
@@ -425,7 +425,7 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                       className="px-3.5 py-2 rounded-xl bg-[#E88D9F]/10 hover:bg-[#E88D9F]/20 text-[#E88D9F] border border-[#E88D9F]/30 text-xs font-extrabold transition flex items-center gap-1.5 shrink-0"
                     >
                       <Layers className="w-3.5 h-3.5" />
-                      <span>Select</span>
+                      <span>{t("rankings.select_btn")}</span>
                     </button>
                   </div>
                 </div>
@@ -438,8 +438,8 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
         {totalPages > 1 && (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-black/10 dark:border-white/10 mt-2">
             <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
-              Showing {(currentPage - 1) * itemsPerPage + 1}–
-              {Math.min(currentPage * itemsPerPage, filteredList.length)} of {filteredList.length} components
+              {t("rankings.showing")} {(currentPage - 1) * itemsPerPage + 1}–
+              {Math.min(currentPage * itemsPerPage, filteredList.length)} {t("rankings.of")} {filteredList.length} {t("rankings.components")}
             </span>
 
             {/* Pagination Button Row */}

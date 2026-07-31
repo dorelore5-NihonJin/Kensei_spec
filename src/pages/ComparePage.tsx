@@ -15,7 +15,13 @@ interface ComparePageProps {
 
 export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
-  const { t } = useLanguage();
+  const { t, formatPrice } = useLanguage();
+
+  const renderMsrp = (msrpStr: string) => {
+    const val = parseFloat(msrpStr.replace(/[^0-9.]/g, ""));
+    if (isNaN(val) || val === 0) return msrpStr;
+    return formatPrice(val);
+  };
 
   const [mode, setMode] = useState<"cpu" | "gpu">(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -360,7 +366,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
           <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
           <span>{valText}</span>
           <span className="text-[9px] font-black uppercase bg-emerald-500 text-white dark:text-black px-1.5 py-0.2 rounded ml-1 tracking-wider">
-            Better
+            {t("compare.better")}
           </span>
         </span>
       );
@@ -560,63 +566,63 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Trophy className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Primary Details & Market Evaluation / CPU基本情報
+                    {t("compare.block.cpu_primary")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
                       <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px]">
-                        <th className="py-3 px-4 w-2/5">Specification Metric</th>
+                        <th className="py-3 px-4 w-2/5">{t("compare.metric_col")}</th>
                         <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
                         <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Place in Global Ranking</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.global_rank")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.rank, cpuTechB.rank, true), "A", `#${cpuTechA.rank}`)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.rank, cpuTechB.rank, true), "B", `#${cpuTechB.rank}`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Place by Popularity</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.popularityRank, cpuTechB.popularityRank, true), "A", `#${cpuTechA.popularityRank} in builds`)}</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.popularityRank, cpuTechB.popularityRank, true), "B", `#${cpuTechB.popularityRank} in builds`)}</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.popularity_rank")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.popularityRank, cpuTechB.popularityRank, true), "A", `#${cpuTechA.popularityRank} ${t("compare.in_builds")}`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.popularityRank, cpuTechB.popularityRank, true), "B", `#${cpuTechB.popularityRank} ${t("compare.in_builds")}`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Cost-Effectiveness Evaluation</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cost_effectiveness")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.costEffectivenessScore, cpuTechB.costEffectivenessScore), "A", cpuTechA.costEffectivenessScore)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.costEffectivenessScore, cpuTechB.costEffectivenessScore), "B", cpuTechB.costEffectivenessScore)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Power Efficiency</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.power_efficiency")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.powerEfficiencyScore, cpuTechB.powerEfficiencyScore), "A", cpuTechA.powerEfficiencyScore)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.powerEfficiencyScore, cpuTechB.powerEfficiencyScore), "B", cpuTechB.powerEfficiencyScore)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Market Segment</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.market_segment")}</td>
                         <td className="py-3.5 px-4">{cpuTechA.marketSegment}</td>
                         <td className="py-3.5 px-4">{cpuTechB.marketSegment}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Designer / Manufacturer</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.manufacturer")}</td>
                         <td className="py-3.5 px-4 font-black">{cpuTechA.designer}</td>
                         <td className="py-3.5 px-4 font-black">{cpuTechB.designer}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Architecture Codename</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.arch_codename")}</td>
                         <td className="py-3.5 px-4 font-black text-[#E88D9F]">{cpuTechA.architectureCodename}</td>
                         <td className="py-3.5 px-4 font-black text-[#E88D9F]">{cpuTechB.architectureCodename}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Release Date</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.released")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.releaseDate, cpuTechB.releaseDate), "A", cpuTechA.releaseDate)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.releaseDate, cpuTechB.releaseDate), "B", cpuTechB.releaseDate)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Launch Price (MSRP)</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.launchMsrp, cpuTechB.launchMsrp, true), "A", cpuTechA.launchMsrp)}</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.launchMsrp, cpuTechB.launchMsrp, true), "B", cpuTechB.launchMsrp)}</td>
+                        <td className="py-3.5 px-4 text-gray-500">MSRP</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.launchMsrp, cpuTechB.launchMsrp, true), "A", renderMsrp(cpuTechA.launchMsrp))}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.launchMsrp, cpuTechB.launchMsrp, true), "B", renderMsrp(cpuTechB.launchMsrp))}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -628,71 +634,71 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Cpu className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Detailed CPU Specifications / コア構成・クロック
+                    {t("compare.block.cpu_detailed")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Physical Cores / Threads</td>
-                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.cores, cpuTechB.cores), "A", `${cpuTechA.cores} Cores / ${cpuTechA.threads} Threads`)}</td>
-                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.cores, cpuTechB.cores), "B", `${cpuTechB.cores} Cores / ${cpuTechB.threads} Threads`)}</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.cores_threads")}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.cores, cpuTechB.cores), "A", `${cpuTechA.cores} / ${cpuTechA.threads}`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.cores, cpuTechB.cores), "B", `${cpuTechB.cores} / ${cpuTechB.threads}`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Base Clock Speed</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.base_clock")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.baseClock, cpuTechB.baseClock), "A", cpuTechA.baseClock)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.baseClock, cpuTechB.baseClock), "B", cpuTechB.baseClock)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Boost / Turbo Clock Speed</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.boost_clock")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.boostClock, cpuTechB.boostClock), "A", cpuTechA.boostClock)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.boostClock, cpuTechB.boostClock), "B", cpuTechB.boostClock)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Bus Rate (GT/s)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bus_rate")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.busRate, cpuTechB.busRate), "A", cpuTechA.busRate)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.busRate, cpuTechB.busRate), "B", cpuTechB.busRate)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">L1 Cache</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.l1_cache")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l1Cache, cpuTechB.l1Cache), "A", cpuTechA.l1Cache)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l1Cache, cpuTechB.l1Cache), "B", cpuTechB.l1Cache)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">L2 Cache</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.l2_cache")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l2Cache, cpuTechB.l2Cache), "A", cpuTechA.l2Cache)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l2Cache, cpuTechB.l2Cache), "B", cpuTechB.l2Cache)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">L3 Cache Memory</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.l3_cache")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l3Cache, cpuTechB.l3Cache), "A", cpuTechA.l3Cache)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.l3Cache, cpuTechB.l3Cache), "B", cpuTechB.l3Cache)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Process Node Lithography</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.process_node")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.processNode, cpuTechB.processNode, true), "A", cpuTechA.processNode)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.processNode, cpuTechB.processNode, true), "B", cpuTechB.processNode)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Die Size (mm²)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.die_size")}</td>
                         <td className="py-3.5 px-4 font-mono">{cpuTechA.dieSize}</td>
                         <td className="py-3.5 px-4 font-mono">{cpuTechB.dieSize}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Maximum Core Temperature (TjMax)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.max_temp")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.maxTemp, cpuTechB.maxTemp, true), "A", cpuTechA.maxTemp)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.maxTemp, cpuTechB.maxTemp, true), "B", cpuTechB.maxTemp)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">64-bit Architecture Support</td>
-                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
-                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.arch_64bit")}</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ ({t("compare.supported")})</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ ({t("compare.supported")})</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Windows 11 Official Support</td>
-                        <td className="py-3.5 px-4">{cpuTechA.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
-                        <td className="py-3.5 px-4">{cpuTechB.win11Compat ? <span className="text-emerald-500 font-black">+ (Compatible)</span> : <span className="text-red-400 font-bold">- (Legacy)</span>}</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.win11_support")}</td>
+                        <td className="py-3.5 px-4">{cpuTechA.win11Compat ? <span className="text-emerald-500 font-black">+ ({t("compare.compatible")})</span> : <span className="text-red-400 font-bold">- ({t("compare.legacy")})</span>}</td>
+                        <td className="py-3.5 px-4">{cpuTechB.win11Compat ? <span className="text-emerald-500 font-black">+ ({t("compare.compatible")})</span> : <span className="text-red-400 font-bold">- ({t("compare.legacy")})</span>}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -704,24 +710,24 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Flame className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Compatibility, Socket & Power / ソケット・TDP
+                    {t("compare.block.cpu_socket")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Socket / Platform Interface</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.socket_interface")}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechA.socket}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono font-black">{cpuTechB.socket}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Thermal Design Power (TDP)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.tdp")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.powerDrawTdp, cpuTechB.powerDrawTdp, true), "A", cpuTechA.powerDrawTdp)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.powerDrawTdp, cpuTechB.powerDrawTdp, true), "B", cpuTechB.powerDrawTdp)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Recommended PSU Capacity</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.rec_psu")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.recommendedPsu, cpuTechB.recommendedPsu, true), "A", cpuTechA.recommendedPsu)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.recommendedPsu, cpuTechB.recommendedPsu, true), "B", cpuTechB.recommendedPsu)}</td>
                       </tr>
@@ -735,29 +741,29 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <HardDrive className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Memory Specifications / メモリ対応規格
+                    {t("compare.block.cpu_memory")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Supported Memory Types</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.memory_types")}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.memorySupport, cpuTechB.memorySupport), "A", cpuTechA.memorySupport)}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(cpuTechA.memorySupport, cpuTechB.memorySupport), "B", cpuTechB.memorySupport)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Maximum Memory Capacity</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.max_memory")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.maxMemorySize, cpuTechB.maxMemorySize), "A", cpuTechA.maxMemorySize)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.maxMemorySize, cpuTechB.maxMemorySize), "B", cpuTechB.maxMemorySize)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Max Memory Channels</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.memory_channels")}</td>
                         <td className="py-3.5 px-4 font-mono">{cpuTechA.memoryChannels}</td>
                         <td className="py-3.5 px-4 font-mono">{cpuTechB.memoryChannels}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Maximum Memory Bandwidth</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.memory_bandwidth")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.memoryBandwidth, cpuTechB.memoryBandwidth), "A", cpuTechA.memoryBandwidth)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(cpuTechA.memoryBandwidth, cpuTechB.memoryBandwidth), "B", cpuTechB.memoryBandwidth)}</td>
                       </tr>
@@ -778,63 +784,63 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Trophy className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Primary Details & Market Evaluation / ビデオカード基本概要
+                    {t("compare.block.gpu_primary")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
                       <tr className="border-b border-black/10 dark:border-white/10 text-gray-400 font-extrabold uppercase text-[10px]">
-                        <th className="py-3 px-4 w-2/5">Specification Metric</th>
+                        <th className="py-3 px-4 w-2/5">{t("compare.metric_col")}</th>
                         <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemAInfo.name}</th>
                         <th className="py-3 px-4 w-3/10 text-[#E88D9F] font-black text-sm">{itemBInfo.name}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Place in Global Ranking</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.global_rank")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.rank, gpuTechB.rank, true), "A", `#${gpuTechA.rank}`)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.rank, gpuTechB.rank, true), "B", `#${gpuTechB.rank}`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Place by Popularity</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.popularityRank, gpuTechB.popularityRank, true), "A", `#${gpuTechA.popularityRank} in builds`)}</td>
-                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.popularityRank, gpuTechB.popularityRank, true), "B", `#${gpuTechB.popularityRank} in builds`)}</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.popularity_rank")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.popularityRank, gpuTechB.popularityRank, true), "A", `#${gpuTechA.popularityRank} ${t("compare.in_builds")}`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.popularityRank, gpuTechB.popularityRank, true), "B", `#${gpuTechB.popularityRank} ${t("compare.in_builds")}`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Cost-Effectiveness Evaluation</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cost_effectiveness")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costEffectivenessScore, gpuTechB.costEffectivenessScore), "A", gpuTechA.costEffectivenessScore)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costEffectivenessScore, gpuTechB.costEffectivenessScore), "B", gpuTechB.costEffectivenessScore)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Power Efficiency Score</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.power_efficiency")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.powerEfficiencyScore, gpuTechB.powerEfficiencyScore), "A", gpuTechA.powerEfficiencyScore)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.powerEfficiencyScore, gpuTechB.powerEfficiencyScore), "B", gpuTechB.powerEfficiencyScore)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">GPU Architecture</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.gpu_arch")}</td>
                         <td className="py-3.5 px-4 font-black text-[#E88D9F]">{gpuTechA.architectureCodename}</td>
                         <td className="py-3.5 px-4 font-black text-[#E88D9F]">{gpuTechB.architectureCodename}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">GPU Code Name</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.gpu_codename")}</td>
                         <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.gpuCodeName}</td>
                         <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.gpuCodeName}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Market Segment</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.market_segment")}</td>
                         <td className="py-3.5 px-4">{gpuTechA.marketSegment}</td>
                         <td className="py-3.5 px-4">{gpuTechB.marketSegment}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Release Date</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.released")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.releaseDate, gpuTechB.releaseDate), "A", gpuTechA.releaseDate)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.releaseDate, gpuTechB.releaseDate), "B", gpuTechB.releaseDate)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Launch Price (MSRP)</td>
-                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechA.launchMsrp}</td>
-                        <td className="py-3.5 px-4 font-mono font-black">{gpuTechB.launchMsrp}</td>
+                        <td className="py-3.5 px-4 text-gray-500">MSRP</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{renderMsrp(gpuTechA.launchMsrp)}</td>
+                        <td className="py-3.5 px-4 font-mono font-black">{renderMsrp(gpuTechB.launchMsrp)}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -846,74 +852,74 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Zap className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Detailed GPU Specifications / シェーダーコア・演算能力
+                    {t("compare.block.gpu_detailed")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Pipelines / CUDA Cores / Shaders</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.cuda_cores")}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.cudaCores, gpuTechB.cudaCores), "A", gpuTechA.cudaCores)}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.cudaCores, gpuTechB.cudaCores), "B", gpuTechB.cudaCores)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Core Clock Speed</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.base_clock")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.baseClock, gpuTechB.baseClock), "A", gpuTechA.baseClock)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.baseClock, gpuTechB.baseClock), "B", gpuTechB.baseClock)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Boost Clock Speed</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.boost_clock")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.boostClock, gpuTechB.boostClock), "A", gpuTechA.boostClock)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.boostClock, gpuTechB.boostClock), "B", gpuTechB.boostClock)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Number of Transistors</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.transistors")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.transistors, gpuTechB.transistors), "A", gpuTechA.transistors)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.transistors, gpuTechB.transistors), "B", gpuTechB.transistors)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Manufacturing Process Technology</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.process_node")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.processNode, gpuTechB.processNode, true), "A", gpuTechA.processNode)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.processNode, gpuTechB.processNode, true), "B", gpuTechB.processNode)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Power Consumption (TDP)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.tdp")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.powerDrawTdp, gpuTechB.powerDrawTdp, true), "A", gpuTechA.powerDrawTdp)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.powerDrawTdp, gpuTechB.powerDrawTdp, true), "B", gpuTechB.powerDrawTdp)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Maximum GPU Temperature</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.max_temp")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.maxTemp}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.maxTemp}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Texture Fill Rate</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.texture_rate")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.textureFillRate, gpuTechB.textureFillRate), "A", gpuTechA.textureFillRate)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.textureFillRate, gpuTechB.textureFillRate), "B", gpuTechB.textureFillRate)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Floating-Point Processing Power (TFLOPS)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.tflops")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tflops, gpuTechB.tflops), "A", gpuTechA.tflops)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tflops, gpuTechB.tflops), "B", gpuTechB.tflops)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">ROPs Count</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.rops")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.rops, gpuTechB.rops), "A", gpuTechA.rops)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.rops, gpuTechB.rops), "B", gpuTechB.rops)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">TMUs Count</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.tmus")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tmus, gpuTechB.tmus), "A", gpuTechA.tmus)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tmus, gpuTechB.tmus), "B", gpuTechB.tmus)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">L1 Cache Memory</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.l1_cache")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.l1Cache, gpuTechB.l1Cache), "A", gpuTechA.l1Cache)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.l1Cache, gpuTechB.l1Cache), "B", gpuTechB.l1Cache)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">L2 Cache Memory</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.l2_cache")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.l2Cache, gpuTechB.l2Cache), "A", gpuTechA.l2Cache)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.l2Cache, gpuTechB.l2Cache), "B", gpuTechB.l2Cache)}</td>
                       </tr>
@@ -927,29 +933,29 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Flame className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Form Factor & Compatibility / サイズ・電源端子
+                    {t("compare.block.gpu_form_factor")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Bus Interface</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.bus_interface")}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.interface, gpuTechB.interface), "A", gpuTechA.interface)}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.interface, gpuTechB.interface), "B", gpuTechB.interface)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Card Length (mm)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.card_length")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.length}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.length}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Slot Width</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.slot_width")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.slotWidth}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.slotWidth}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Supplementary Power Connectors</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.power_connectors")}</td>
                         <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechA.powerConnectors}</td>
                         <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechB.powerConnectors}</td>
                       </tr>
@@ -963,39 +969,39 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <HardDrive className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    VRAM Capacity & Memory Subsystem / VRAMメモリ仕様
+                    {t("compare.block.gpu_vram")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Memory Type</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.vram_type")}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechA.memoryType}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono font-black">{gpuTechB.memoryType}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Maximum RAM Amount</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.vram_max")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.maxVramAmount, gpuTechB.maxVramAmount), "A", gpuTechA.maxVramAmount)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.maxVramAmount, gpuTechB.maxVramAmount), "B", gpuTechB.maxVramAmount)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Memory Bus Width</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.vram_bus")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryBusWidth, gpuTechB.memoryBusWidth), "A", gpuTechA.memoryBusWidth)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryBusWidth, gpuTechB.memoryBusWidth), "B", gpuTechB.memoryBusWidth)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Memory Clock Speed</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.vram_clock")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryClockSpeed, gpuTechB.memoryClockSpeed), "A", gpuTechA.memoryClockSpeed)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryClockSpeed, gpuTechB.memoryClockSpeed), "B", gpuTechB.memoryClockSpeed)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Memory Bandwidth</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.vram_bw")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryBandwidth, gpuTechB.memoryBandwidth), "A", gpuTechA.memoryBandwidth)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.memoryBandwidth, gpuTechB.memoryBandwidth), "B", gpuTechB.memoryBandwidth)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Shared System Memory Status</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.shared_memory")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.sharedMemory}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.sharedMemory}</td>
                       </tr>
@@ -1009,39 +1015,39 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Gamepad2 className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Average Gaming Performance & Value / 平均ゲーミング性能・コスパ
+                    {t("compare.block.gpu_gaming")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Avg. 1080p FPS</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.avg_fps_1080p")}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.avgFps1080p, gpuTechB.avgFps1080p), "A", `${gpuTechA.avgFps1080p || 0} FPS`)}</td>
                         <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(gpuTechA.avgFps1080p, gpuTechB.avgFps1080p), "B", `${gpuTechB.avgFps1080p || 0} FPS`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1080p)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cost_fps_1080p")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1080p, gpuTechB.costPerFrame1080p, true), "A", gpuTechA.costPerFrame1080p && gpuTechA.costPerFrame1080p !== "N/A" ? `$${gpuTechA.costPerFrame1080p} / FPS` : "N/A")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1080p, gpuTechB.costPerFrame1080p, true), "B", gpuTechB.costPerFrame1080p && gpuTechB.costPerFrame1080p !== "N/A" ? `$${gpuTechB.costPerFrame1080p} / FPS` : "N/A")}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Avg. 1440p FPS</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.avg_fps_1440p")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps1440p, gpuTechB.avgFps1440p), "A", `${gpuTechA.avgFps1440p || 0} FPS`)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps1440p, gpuTechB.avgFps1440p), "B", `${gpuTechB.avgFps1440p || 0} FPS`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (1440p)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cost_fps_1440p")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1440p, gpuTechB.costPerFrame1440p, true), "A", gpuTechA.costPerFrame1440p && gpuTechA.costPerFrame1440p !== "N/A" ? `$${gpuTechA.costPerFrame1440p} / FPS` : "N/A")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame1440p, gpuTechB.costPerFrame1440p, true), "B", gpuTechB.costPerFrame1440p && gpuTechB.costPerFrame1440p !== "N/A" ? `$${gpuTechB.costPerFrame1440p} / FPS` : "N/A")}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Avg. 4K FPS</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.avg_fps_4k")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps4K, gpuTechB.avgFps4K), "A", `${gpuTechA.avgFps4K || 0} FPS`)}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.avgFps4K, gpuTechB.avgFps4K), "B", `${gpuTechB.avgFps4K || 0} FPS`)}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Cost per Frame (4K)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cost_fps_4k")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame4K, gpuTechB.costPerFrame4K, true), "A", gpuTechA.costPerFrame4K && gpuTechA.costPerFrame4K !== "N/A" ? `$${gpuTechA.costPerFrame4K} / FPS` : "N/A")}</td>
                         <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.costPerFrame4K, gpuTechB.costPerFrame4K, true), "B", gpuTechB.costPerFrame4K && gpuTechB.costPerFrame4K !== "N/A" ? `$${gpuTechB.costPerFrame4K} / FPS` : "N/A")}</td>
                       </tr>
@@ -1055,24 +1061,24 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <Monitor className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    Connectivity & Outputs / 映像出力端子・同期技術
+                    {t("compare.block.gpu_outputs")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">Display Connectors</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.display_connectors")}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono">{gpuTechA.displayConnectors}</td>
                         <td className="py-3.5 px-4 w-3/10 font-mono">{gpuTechB.displayConnectors}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">HDMI 2.1 Standard</td>
-                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
-                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ (Supported)</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.hdmi_21")}</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ ({t("compare.supported")})</td>
+                        <td className="py-3.5 px-4 text-emerald-500 font-black">+ ({t("compare.supported")})</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">G-SYNC / FreeSync Display Support</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.gsync_support")}</td>
                         <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechA.gsyncSupport}</td>
                         <td className="py-3.5 px-4 font-mono font-black text-emerald-500">{gpuTechB.gsyncSupport}</td>
                       </tr>
@@ -1086,39 +1092,39 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
                   <ShieldCheck className="w-5 h-5 text-[#E88D9F]" />
                   <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-                    API & SDK Support / 3DグラフィックスAPI
+                    {t("compare.block.gpu_api")}
                   </h3>
                 </div>
                 <div className="w-full overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500 w-2/5">DirectX API Revision</td>
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.directx")}</td>
                         <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechA.directX}</td>
                         <td className="py-3.5 px-4 font-mono text-[#E88D9F] font-black">{gpuTechB.directX}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Shader Model Version</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.shader_model")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.shaderModel}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.shaderModel}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">OpenGL Version</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.opengl")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.openGL}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.openGL}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">OpenCL Version</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.opencl")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.openCL}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.openCL}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">Vulkan API Version</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.vulkan")}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechA.vulkan}</td>
                         <td className="py-3.5 px-4 font-mono">{gpuTechB.vulkan}</td>
                       </tr>
                       <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-gray-500">CUDA / GPGPU Acceleration</td>
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.cuda_gpgpu")}</td>
                         <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechA.cuda}</td>
                         <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechB.cuda}</td>
                       </tr>
@@ -1140,10 +1146,10 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             <Sparkles className="w-7 h-7 text-[#E88D9F] animate-pulse" />
           </div>
           <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
-            Select 2 {isCpuMode ? "CPUs" : "GPUs"} to compare performance / {isCpuMode ? "CPU" : "GPU"}を2つ選択してください
+            {t("compare.empty_state_title")}
           </h3>
           <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-md">
-            Choose both Candidate A and Candidate B from the dropdown menus above to generate the telemetry benchmark matrix and relative advantage score.
+            {t("compare.empty_state_desc")}
           </p>
         </div>
       )}

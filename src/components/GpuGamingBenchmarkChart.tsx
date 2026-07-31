@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { GPU } from "../lib/types";
 import { Gamepad2, Tv, Flame, CheckCircle2, AlertTriangle, XCircle, Zap } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface GpuGamingBenchmarkChartProps {
   gpuA: GPU;
@@ -27,13 +28,14 @@ const RESOLUTIONS: { key: ResKey; label: string; desc: string }[] = [
 ];
 
 const PRESETS: { key: PresetKey; label: string }[] = [
-  { key: "low", label: "Low" },
-  { key: "medium", label: "Medium" },
-  { key: "high", label: "High" },
-  { key: "ultra", label: "Ultra" }
+  { key: "low", label: "Low Settings" },
+  { key: "medium", label: "Medium Settings" },
+  { key: "high", label: "High Settings" },
+  { key: "ultra", label: "Ultra Settings" }
 ];
 
 export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchmarkChartProps) {
+  const { t } = useLanguage();
   const [selectedGame, setSelectedGame] = useState<GameKey>("Cyberpunk 2077");
   const [selectedRes, setSelectedRes] = useState<ResKey>("1080p");
   const [selectedPreset, setSelectedPreset] = useState<PresetKey>("high");
@@ -62,20 +64,20 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
     if (fps >= 60) {
       return (
         <span className="inline-flex items-center gap-1 text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-          <CheckCircle2 className="w-3 h-3" /> Smooth (60+ FPS)
+          <CheckCircle2 className="w-3 h-3" /> {t("chart.smooth_fps")}
         </span>
       );
     }
     if (fps >= 30) {
       return (
         <span className="inline-flex items-center gap-1 text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded-full">
-          <AlertTriangle className="w-3 h-3" /> Playable (30-59 FPS)
+          <AlertTriangle className="w-3 h-3" /> {t("chart.playable_fps")}
         </span>
       );
     }
     return (
       <span className="inline-flex items-center gap-1 text-[10px] font-black text-rose-600 dark:text-rose-400 bg-rose-500/15 border border-rose-500/30 px-2 py-0.5 rounded-full">
-        <XCircle className="w-3 h-3" /> Demanding (&lt;30 FPS)
+        <XCircle className="w-3 h-3" /> {t("chart.demanding_fps")}
       </span>
     );
   };
@@ -90,10 +92,10 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
           </div>
           <div>
             <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white flex items-center gap-2">
-              Gaming FPS Benchmarks / 実ゲームFPS性能比較
+              {t("chart.gaming_title")}
             </h3>
             <p className="text-xs text-gray-500 font-bold mt-0.5">
-              Empirical FPS telemetry across 1080p, 1440p, and 4K graphics presets.
+              {t("chart.gaming_subtitle")}
             </p>
           </div>
         </div>
