@@ -285,75 +285,82 @@ export default function App() {
 
         {/* MAIN DISPLAY AREA */}
         {viewMode === "overview" ? (
-          /* FULL OVERVIEW MODE (All Cards Visible) */
-          <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <section className="lg:col-span-7 flex flex-col gap-6">
-              <ComponentPicker
-                cpus={cpus}
-                gpus={gpus}
-                ramProfiles={ramProfiles}
-                selectedCpu={selectedCpu}
-                setSelectedCpu={setSelectedCpu}
-                selectedGpu={selectedGpu}
-                setSelectedGpu={setSelectedGpu}
-                selectedRam={selectedRam}
-                setSelectedRam={setSelectedRam}
-                ramCapacityGB={ramCapacityGB}
-                setRamCapacityGB={setRamCapacityGB}
-                selectedStorage={selectedStorage}
-                setSelectedStorage={setSelectedStorage}
-                ramChannel={ramChannel}
-                setRamChannel={setRamChannel}
-              />
-              <SystemDiagnostics
-                selectedCpu={selectedCpu}
-                selectedGpu={selectedGpu}
-                selectedRam={selectedRam}
-                compatibilityReport={compatibilityReport}
-              />
-            </section>
+          /* FULL OVERVIEW DASHBOARD MODE (Logical Input vs Live Output Separation) */
+          <main className="flex flex-col gap-8 max-w-7xl mx-auto w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Input Hardware & Target Game Selection */}
+              <section className="lg:col-span-7 flex flex-col gap-6">
+                <ComponentPicker
+                  cpus={cpus}
+                  gpus={gpus}
+                  ramProfiles={ramProfiles}
+                  selectedCpu={selectedCpu}
+                  setSelectedCpu={setSelectedCpu}
+                  selectedGpu={selectedGpu}
+                  setSelectedGpu={setSelectedGpu}
+                  selectedRam={selectedRam}
+                  setSelectedRam={setSelectedRam}
+                  ramCapacityGB={ramCapacityGB}
+                  setRamCapacityGB={setRamCapacityGB}
+                  selectedStorage={selectedStorage}
+                  setSelectedStorage={setSelectedStorage}
+                  ramChannel={ramChannel}
+                  setRamChannel={setRamChannel}
+                />
 
-            <section className="lg:col-span-5 flex flex-col gap-6">
-              <GameSelector
-                games={games}
-                selectedGame={selectedGame}
-                setSelectedGame={setSelectedGame}
-                selectedResolution={selectedResolution}
-                setSelectedResolution={setSelectedResolution}
-                selectedPreset={selectedPreset}
-                setSelectedPreset={setSelectedPreset}
-                selectedDlss={selectedDlss}
-                setSelectedDlss={setSelectedDlss}
-                rayTracing={rayTracing}
-                setRayTracing={setRayTracing}
-                frameGen={frameGen}
-                setFrameGen={setFrameGen}
-                selectedCpu={selectedCpu}
-                selectedGpu={selectedGpu}
-              />
-              <FpsGauge
-                report={performanceReport}
-                selectedCpu={!!selectedCpu}
-                selectedGpu={!!selectedGpu}
-                selectedRam={!!selectedRam}
-                frameGen={frameGen}
-              />
-              <UpgradeAdvisor
-                selectedCpu={selectedCpu}
-                selectedGpu={selectedGpu}
-                selectedRam={selectedRam}
-                selectedStorage={selectedStorage}
-                selectedGame={selectedGame}
-                selectedResolution={selectedResolution}
-                selectedPreset={selectedPreset}
-                selectedDlss={selectedDlss}
-                rayTracing={rayTracing}
-                frameGen={frameGen}
-                ramChannel={ramChannel}
-                cpus={cpus}
-                gpus={gpus}
-              />
-            </section>
+                <GameSelector
+                  games={games}
+                  selectedGame={selectedGame}
+                  setSelectedGame={setSelectedGame}
+                  selectedResolution={selectedResolution}
+                  setSelectedResolution={setSelectedResolution}
+                  selectedPreset={selectedPreset}
+                  setSelectedPreset={setSelectedPreset}
+                  selectedDlss={selectedDlss}
+                  setSelectedDlss={setSelectedDlss}
+                  rayTracing={rayTracing}
+                  setRayTracing={setRayTracing}
+                  frameGen={frameGen}
+                  setFrameGen={setFrameGen}
+                  selectedCpu={selectedCpu}
+                  selectedGpu={selectedGpu}
+                />
+              </section>
+
+              {/* Right Column: Live Benchmark Telemetry & Upgrade Advisor */}
+              <section className="lg:col-span-5 flex flex-col gap-6 sticky top-24">
+                <FpsGauge
+                  report={performanceReport}
+                  selectedCpu={!!selectedCpu}
+                  selectedGpu={!!selectedGpu}
+                  selectedRam={!!selectedRam}
+                  frameGen={frameGen}
+                />
+                <UpgradeAdvisor
+                  selectedCpu={selectedCpu}
+                  selectedGpu={selectedGpu}
+                  selectedRam={selectedRam}
+                  selectedStorage={selectedStorage}
+                  selectedGame={selectedGame}
+                  selectedResolution={selectedResolution}
+                  selectedPreset={selectedPreset}
+                  selectedDlss={selectedDlss}
+                  rayTracing={rayTracing}
+                  frameGen={frameGen}
+                  ramChannel={ramChannel}
+                  cpus={cpus}
+                  gpus={gpus}
+                />
+              </section>
+            </div>
+
+            {/* Bottom Full-Width Section: Silicon Die Analysis & Hardware Compatibility */}
+            <SystemDiagnostics
+              selectedCpu={selectedCpu}
+              selectedGpu={selectedGpu}
+              selectedRam={selectedRam}
+              compatibilityReport={compatibilityReport}
+            />
           </main>
         ) : (
           /* STEP-BY-STEP WIZARD MODE */
