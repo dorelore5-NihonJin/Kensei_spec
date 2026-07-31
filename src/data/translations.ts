@@ -1191,5 +1191,202 @@ export const translations: TranslationDictionary = {
     en: "Buy Build",
     ru: "Купить сборку",
     ja: "構成の購入"
+  },
+
+  // Store & Buy Complete PC Build Modal
+  "store.modal_title": {
+    en: "Buy Complete PC Build",
+    ru: "Оформление и покупка ПК сборки",
+    ja: "PC構成の購入"
+  },
+  "store.modal_subtitle": {
+    en: "Auto-matched motherboard socket, cooling TDP, and price tier configurator",
+    ru: "Автоподбор материнской платы по сокету, охлаждения по TDP и класса компонентов",
+    ja: "マザーボードソケット、冷却TDP、価格帯の自動マッチングコンフィギュレーター"
+  },
+  "store.sync_active_title": {
+    en: "Active Calculator Configuration Loaded:",
+    ru: "Загружена конфигурация из калькулятора:",
+    ja: "アクティブな電卓構成がロードされました:"
+  },
+  "store.sync_active_badge": {
+    en: "✓ Calculator Synced",
+    ru: "✓ Синхронизировано",
+    ja: "✓ 電卓同期済み"
+  },
+  "store.sync_default_title": {
+    en: "No Custom Hardware Selected in Calculator Yet:",
+    ru: "Компоненты в калькуляторе еще не выбраны:",
+    ja: "電卓でカスタムハードウェアが未選択です:"
+  },
+  "store.sync_default_desc": {
+    en: "Showing default High-End Gaming Preset. Configure CPU/GPU in Step 1 or Catalog to sync your exact build!",
+    ru: "Показан пресет по умолчанию. Выберите CPU/GPU в Шаге 1 или Каталоге для синхронизации вашей сборки!",
+    ja: "デフォルトのハイエンド構成を表示中。ステップ1またはカタログでCPU/GPUを選択して同期してください！"
+  },
+  "store.sync_default_badge": {
+    en: "Default Preset",
+    ru: "Пресет по умолчанию",
+    ja: "デフォルト構成"
+  },
+  "store.tier_select_title": {
+    en: "Select Component Quality Tier",
+    ru: "Выберите уровень качества компонентов",
+    ja: "コンポーネントの品質ティアを選択"
+  },
+  "store.current_tier_label": {
+    en: "Current Tier:",
+    ru: "Текущий уровень:",
+    ja: "現在のティア:"
+  },
+  "store.tier_budget_title": {
+    en: "Value / Budget",
+    ru: "Оптимальный / Бюджетный",
+    ja: "バリュー / バジェット"
+  },
+  "store.tier_budget_sub": {
+    en: "Best FPS per Dollar",
+    ru: "Максимум FPS на рубль",
+    ja: "コストパフォーマンス重視"
+  },
+  "store.tier_premium_title": {
+    en: "High / Premium",
+    ru: "Премиум / Продвинутый",
+    ja: "ハイ / プレミアム"
+  },
+  "store.tier_premium_sub": {
+    en: "AIO Cooling & WiFi 6E",
+    ru: "СВО охлаждение и WiFi 6E",
+    ja: "水冷クーラー & WiFi 6E"
+  },
+  "store.tier_extreme_title": {
+    en: "Extreme / Max",
+    ru: "Максимальный / Экстрим",
+    ja: "エクストリーム / マックス"
+  },
+  "store.tier_extreme_sub": {
+    en: "LCD Screen & WiFi 7",
+    ru: "LCD дисплей и WiFi 7",
+    ja: "LCDスクリーン & WiFi 7"
+  },
+  "store.compat_verified_title": {
+    en: "100% Socket & Power Verified:",
+    ru: "100% Совместимость по сокету и питанию:",
+    ja: "100% ソケット・電源検証済み:"
+  },
+  "store.compat_verified_desc": {
+    en: "motherboard verified for",
+    ru: "материнская плата проверена для",
+    ja: "マザーボード動作確認済み:"
+  },
+  "store.copy_spec_btn": {
+    en: "Copy Spec Sheet",
+    ru: "Скопировать сборку",
+    ja: "構成をコピー"
+  },
+  "store.copied_spec_btn": {
+    en: "Copied Build!",
+    ru: "Скопировано!",
+    ja: "コピー完了！"
+  },
+  "store.comp_cpu": {
+    en: "CPU Processor",
+    ru: "Процессор",
+    ja: "プロセッサ (CPU)"
+  },
+  "store.comp_mobo": {
+    en: "Motherboard",
+    ru: "Материнская плата",
+    ja: "マザーボード"
+  },
+  "store.comp_gpu": {
+    en: "GPU Graphics Card",
+    ru: "Видеокарта",
+    ja: "グラフィックボード (GPU)"
+  },
+  "store.comp_cooler": {
+    en: "CPU Cooler",
+    ru: "Кулер / Охлаждение",
+    ja: "CPUクーラー"
+  },
+  "store.comp_ram": {
+    en: "System RAM Memory",
+    ru: "Оперативная память",
+    ja: "システムメモリ (RAM)"
+  },
+  "store.comp_ssd": {
+    en: "Solid State Drive",
+    ru: "Накопитель (SSD)",
+    ja: "ストレージ (SSD)"
+  },
+  "store.comp_psu": {
+    en: "Power Supply (PSU)",
+    ru: "Блок питания (БП)",
+    ja: "電源ユニット (PSU)"
+  },
+  "store.comp_case": {
+    en: "PC Gaming Chassis",
+    ru: "Корпус ПК",
+    ja: "PCケース"
+  },
+  "store.sub_thermal_system": {
+    en: "Thermal System",
+    ru: "Система охлаждения",
+    ja: "冷却システム"
+  },
+  "store.sub_ram_speed": {
+    en: "Speed:",
+    ru: "Частота:",
+    ja: "速度:"
+  },
+  "store.sub_dual_channel": {
+    en: "Dual Channel",
+    ru: "Двухканальный режим",
+    ja: "デュアルチャンネル"
+  },
+  "store.sub_nvme_storage": {
+    en: "High Speed NVMe Storage",
+    ru: "Высокоскоростной NVMe накопитель",
+    ja: "高速NVMeストレージ"
+  },
+  "store.sub_psu_compliant": {
+    en: "ATX 3.0 PCIe 5.0 Compliant",
+    ru: "Стандарт ATX 3.0 / PCIe 5.0",
+    ja: "ATX 3.0 / PCIe 5.0 準拠"
+  },
+  "store.sub_case_tower": {
+    en: "Tempered Glass Airflow Tower",
+    ru: "Корпус с закаленным стеклом и обдувом",
+    ja: "強化ガラスエアフローケース"
+  },
+  "store.cooler_extreme_note": {
+    en: "Extreme Tier: Features a 2.1\" IPS LCD display and iCUE LINK magnetic daisy-chain cables for ultimate cooling and zero noise.",
+    ru: "Экстрим уровень: Дисплей 2.1\" IPS LCD и магнитные кабели iCUE LINK для идеального охлаждения и тишины.",
+    ja: "エクストリームティア: 2.1インチIPS LCDディスプレイとiCUE LINK磁気デイジーチェーンケーブルを搭載。"
+  },
+  "store.cooler_liquid_note": {
+    en: "High CPU TDP (160W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling under load.",
+    ru: "Высокий TDP процессора (160Вт+) требует 360-мм СВО во избежание троттлинга под нагрузкой.",
+    ja: "高TDP (160W+) のCPUには熱スロットリングを防ぐため360mm水冷AIOが必要です。"
+  },
+  "store.cooler_air_note": {
+    en: "High-efficiency dual-tower air cooler offers maximum silence and zero pump leak risk for mid-TDP CPUs.",
+    ru: "Эффективный двухбашенный кулер обеспечивает тишину и надежность для среднемощных процессоров.",
+    ja: "高効率なデュアルタワー空冷クーラー。中間TDPのCPUに静音性と高い信頼性を提供します。"
+  },
+  "store.total_label": {
+    en: "Estimated Build Total",
+    ru: "Итоговая стоимость сборки",
+    ja: "構成の合計見積もり金額"
+  },
+  "store.order_amazon_btn": {
+    en: "Order Parts on Amazon",
+    ru: "Заказать детали на Amazon",
+    ja: "Amazonでパーツを注文"
+  },
+  "store.order_newegg_btn": {
+    en: "Newegg",
+    ru: "Newegg",
+    ja: "Newegg"
   }
 };

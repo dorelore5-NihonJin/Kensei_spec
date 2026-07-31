@@ -143,7 +143,7 @@ export default function BuildBuyModal({
   selectedStorage,
   psuRecommendationW
 }: BuildBuyModalProps) {
-  const { formatPrice } = useLanguage();
+  const { t, formatPrice } = useLanguage();
   const [tier, setTier] = useState<BuildTier>("premium");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -151,6 +151,12 @@ export default function BuildBuyModal({
 
   const mobo = getMotherboardForCpu(selectedCpu, tier);
   const cooler = getCoolingForCpu(selectedCpu, tier);
+
+  const coolerNote = tier === "extreme"
+    ? t("store.cooler_extreme_note")
+    : cooler.isLiquid
+    ? t("store.cooler_liquid_note")
+    : t("store.cooler_air_note");
 
   // Price calculations
   const cpuPrice = getCpuPrice(selectedCpu);
@@ -173,7 +179,6 @@ export default function BuildBuyModal({
   let caseName = tier === "extreme" ? "Lian Li O11 Dynamic EVO XL Full-Tower" : tier === "premium" ? "NZXT H7 Flow RGB Mid-Tower" : "Montech AIR 903 MAX Mesh Case";
 
   const totalPriceUSD = cpuPrice + gpuPrice + ramPrice + storagePrice + mobo.price + cooler.price + psuPrice + casePrice;
-  const totalPriceRUB = Math.round(totalPriceUSD * 92);
 
   // Copy Helper
   const handleCopyText = (text: string, id: string) => {
@@ -192,7 +197,7 @@ export default function BuildBuyModal({
       `6. SSD: 2TB ${selectedStorage}\n` +
       `7. PSU: ${psuRecommendationW}W 80+ Gold\n` +
       `8. Case: ${caseName}\n` +
-      `Est. Total Price: $${totalPriceUSD} USD (${totalPriceRUB.toLocaleString()} ₽)`;
+      `Est. Total Price: ${formatPrice(totalPriceUSD)}`;
     handleCopyText(text, "full-build");
   };
 
@@ -208,10 +213,10 @@ export default function BuildBuyModal({
             </div>
             <div>
               <h3 className="text-xl font-black flex items-center gap-2">
-                Buy Complete PC Build / 構成購入
+                {t("store.modal_title")}
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold">
-                Auto-matched motherboard socket, cooling TDP, and price tier configurator
+                {t("store.modal_subtitle")}
               </p>
             </div>
           </div>
@@ -230,7 +235,7 @@ export default function BuildBuyModal({
               <Check className="w-5 h-5 text-emerald-500 shrink-0" />
               <div>
                 <span className="text-xs font-black text-emerald-900 dark:text-emerald-300 block">
-                  Active Calculator Configuration Loaded:
+                  {t("store.sync_active_title")}
                 </span>
                 <span className="text-[11px] font-extrabold text-emerald-700 dark:text-emerald-400">
                   {selectedCpu.name} • {selectedGpu.name} • {ramCapacityGB}GB {selectedRam.generation}
@@ -238,7 +243,7 @@ export default function BuildBuyModal({
               </div>
             </div>
             <span className="text-[10px] font-black bg-emerald-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-              ✓ Calculator Synced
+              {t("store.sync_active_badge")}
             </span>
           </div>
         ) : (
@@ -247,15 +252,15 @@ export default function BuildBuyModal({
               <Sparkles className="w-5 h-5 text-amber-500 shrink-0" />
               <div>
                 <span className="text-xs font-black text-amber-900 dark:text-amber-300 block">
-                  No Custom Hardware Selected in Calculator Yet:
+                  {t("store.sync_default_title")}
                 </span>
                 <span className="text-[11px] font-extrabold text-amber-700 dark:text-amber-400">
-                  Showing default High-End Gaming Preset. Configure CPU/GPU in Step 1 or Catalog to sync your exact build!
+                  {t("store.sync_default_desc")}
                 </span>
               </div>
             </div>
             <span className="text-[10px] font-black bg-amber-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-              Default Preset
+              {t("store.sync_default_badge")}
             </span>
           </div>
         )}
@@ -263,9 +268,9 @@ export default function BuildBuyModal({
         {/* BUILD TIER SELECTOR (Value / Premium / Extreme) */}
         <div className="flex flex-col gap-2">
           <div className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
-            <span>Select Component Quality Tier</span>
+            <span>{t("store.tier_select_title")}</span>
             <span className="text-[10px] text-[#E88D9F] font-black uppercase">
-              Current Tier: {tier.toUpperCase()}
+              {t("store.current_tier_label")} {tier.toUpperCase()}
             </span>
           </div>
 
@@ -278,8 +283,8 @@ export default function BuildBuyModal({
                   : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
               }`}
             >
-              <span className="flex items-center gap-1">Value / Budget</span>
-              <span className="text-[9px] opacity-80">Best FPS per Dollar</span>
+              <span className="flex items-center gap-1">{t("store.tier_budget_title")}</span>
+              <span className="text-[9px] opacity-80">{t("store.tier_budget_sub")}</span>
             </button>
 
             <button
@@ -290,8 +295,8 @@ export default function BuildBuyModal({
                   : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
               }`}
             >
-              <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> High / Premium</span>
-              <span className="text-[9px] opacity-80">AIO Cooling & WiFi 6E</span>
+              <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> {t("store.tier_premium_title")}</span>
+              <span className="text-[9px] opacity-80">{t("store.tier_premium_sub")}</span>
             </button>
 
             <button
@@ -302,8 +307,8 @@ export default function BuildBuyModal({
                   : "text-gray-700 dark:text-gray-300 hover:text-[#1E2022]"
               }`}
             >
-              <span className="flex items-center gap-1"><Award className="w-3 h-3 text-amber-300" /> Extreme / Max</span>
-              <span className="text-[9px] opacity-80">LCD Screen & WiFi 7</span>
+              <span className="flex items-center gap-1"><Award className="w-3 h-3 text-amber-300" /> {t("store.tier_extreme_title")}</span>
+              <span className="text-[9px] opacity-80">{t("store.tier_extreme_sub")}</span>
             </button>
           </div>
         </div>
@@ -313,7 +318,7 @@ export default function BuildBuyModal({
           <div className="flex items-center gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <div className="text-xs text-emerald-900 dark:text-emerald-300 font-extrabold">
-              <strong>100% Socket & Power Verified:</strong> Socket <span className="underline">{mobo.socket}</span> motherboard verified for {selectedCpu?.name || "CPU"}.
+              <strong>{t("store.compat_verified_title")}</strong> Socket <span className="underline">{mobo.socket}</span> {t("store.compat_verified_desc")} {selectedCpu?.name || "CPU"}.
             </div>
           </div>
 
@@ -322,7 +327,7 @@ export default function BuildBuyModal({
             className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[11px] transition shrink-0 flex items-center gap-1 shadow-xs"
           >
             {copiedId === "full-build" ? <Check className="w-3.5 h-3.5 text-emerald-200" /> : <Copy className="w-3.5 h-3.5" />}
-            {copiedId === "full-build" ? "Copied Build!" : "Copy Spec Sheet"}
+            {copiedId === "full-build" ? t("store.copied_spec_btn") : t("store.copy_spec_btn")}
           </button>
         </div>
 
@@ -334,7 +339,7 @@ export default function BuildBuyModal({
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">1. CPU Processor</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">1. {t("store.comp_cpu")}</span>
                   <button
                     onClick={() => handleCopyText(selectedCpu?.name || "AMD Ryzen 7 7800X3D", "cpu")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -346,14 +351,14 @@ export default function BuildBuyModal({
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{selectedCpu?.name || "AMD Ryzen 7 7800X3D"}</span>
                 <span className="text-[10px] text-gray-500 dark:text-gray-400">Socket {selectedCpu?.socket || "AM5"} • TDP {selectedCpu?.tdpW || 120}W</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${cpuPrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(cpuPrice)}</span>
             </div>
 
             {/* 2. Motherboard (Exact Socket Matched) */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">2. Motherboard (Socket {mobo.socket})</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">2. {t("store.comp_mobo")} (Socket {mobo.socket})</span>
                   <button
                     onClick={() => handleCopyText(mobo.name, "mobo")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -365,14 +370,14 @@ export default function BuildBuyModal({
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{mobo.name}</span>
                 <span className="text-[10px] text-gray-500 dark:text-gray-400">Socket {mobo.socket} • {mobo.vendor}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${mobo.price}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(mobo.price)}</span>
             </div>
 
             {/* 3. GPU */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#E88D9F] uppercase tracking-wider font-black">3. GPU Graphics Card</span>
+                  <span className="text-[10px] text-[#E88D9F] uppercase tracking-wider font-black">3. {t("store.comp_gpu")}</span>
                   <button
                     onClick={() => handleCopyText(selectedGpu?.name || "GeForce RTX 4070 Super", "gpu")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -384,7 +389,7 @@ export default function BuildBuyModal({
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{selectedGpu?.name || "GeForce RTX 4070 Super"}</span>
                 <span className="text-[10px] text-gray-500 dark:text-gray-400">{selectedGpu?.vramGB || 12}GB VRAM • {selectedGpu?.architecture || "Ada Lovelace"}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${gpuPrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(gpuPrice)}</span>
             </div>
 
             {/* 4. CPU Cooling */}
@@ -393,7 +398,7 @@ export default function BuildBuyModal({
                 <div className="flex items-center gap-1.5">
                   <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black flex items-center gap-1">
                     {cooler.isLiquid ? <Flame className="w-3 h-3 text-rose-500" /> : <Fan className="w-3 h-3 text-blue-500" />}
-                    4. CPU Cooler ({cooler.type})
+                    4. {t("store.comp_cooler")} ({cooler.type})
                   </span>
                   <button
                     onClick={() => handleCopyText(cooler.name, "cooler")}
@@ -404,16 +409,16 @@ export default function BuildBuyModal({
                   </button>
                 </div>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{cooler.name}</span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400">{cooler.vendor} Thermal System</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{cooler.vendor} {t("store.sub_thermal_system")}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${cooler.price}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(cooler.price)}</span>
             </div>
 
             {/* 5. RAM */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">5. System RAM Memory</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">5. {t("store.comp_ram")}</span>
                   <button
                     onClick={() => handleCopyText(`${ramCapacityGB}GB ${selectedRam?.generation || "DDR5"} ${selectedRam?.speedMhz || 6000}MHz`, "ram")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -423,16 +428,16 @@ export default function BuildBuyModal({
                   </button>
                 </div>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{ramCapacityGB}GB {selectedRam?.generation || "DDR5"} Kit</span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400">Speed: {selectedRam?.speedMhz || 6000} MHz Dual Channel</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{t("store.sub_ram_speed")} {selectedRam?.speedMhz || 6000} MHz {t("store.sub_dual_channel")}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${ramPrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(ramPrice)}</span>
             </div>
 
             {/* 6. Storage */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">6. Solid State Drive</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">6. {t("store.comp_ssd")}</span>
                   <button
                     onClick={() => handleCopyText(`2TB ${selectedStorage} M.2 SSD`, "ssd")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -442,16 +447,16 @@ export default function BuildBuyModal({
                   </button>
                 </div>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">2TB {selectedStorage} M.2 SSD</span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400">High Speed NVMe Storage</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{t("store.sub_nvme_storage")}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${storagePrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(storagePrice)}</span>
             </div>
 
             {/* 7. PSU Power Supply */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">7. Power Supply (PSU)</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">7. {t("store.comp_psu")}</span>
                   <button
                     onClick={() => handleCopyText(`${psuRecommendationW}W 80+ Gold Modular PSU`, "psu")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -461,16 +466,16 @@ export default function BuildBuyModal({
                   </button>
                 </div>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{psuRecommendationW}W 80+ Gold Modular</span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400">ATX 3.0 PCIe 5.0 Compliant</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{t("store.sub_psu_compliant")}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${psuPrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(psuPrice)}</span>
             </div>
 
             {/* 8. Chassis */}
             <div className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">8. PC Gaming Chassis</span>
+                  <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">8. {t("store.comp_case")}</span>
                   <button
                     onClick={() => handleCopyText(caseName, "case")}
                     className="p-1 text-gray-400 hover:text-[#E88D9F] transition"
@@ -480,22 +485,22 @@ export default function BuildBuyModal({
                   </button>
                 </div>
                 <span className="font-black text-[#1E2022] dark:text-white block mt-0.5">{caseName}</span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400">Tempered Glass Airflow Tower</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-400">{t("store.sub_case_tower")}</span>
               </div>
-              <span className="font-mono text-xs font-black text-[#E88D9F]">${casePrice}</span>
+              <span className="font-mono text-xs font-black text-[#E88D9F]">{formatPrice(casePrice)}</span>
             </div>
           </div>
         </div>
 
         {/* Cooler & Thermal Advisory Banner */}
         <div className="p-3.5 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 rounded-2xl text-xs text-amber-900 dark:text-amber-300 font-extrabold leading-relaxed">
-          {cooler.recommendationNote}
+          {coolerNote}
         </div>
 
         {/* Total Price & Store Checkout Buttons */}
         <div className="border-t border-black/10 dark:border-white/10 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
-            <span className="text-[10px] text-gray-500 uppercase tracking-wider font-black block">Estimated Build Total</span>
+            <span className="text-[10px] text-gray-500 uppercase tracking-wider font-black block">{t("store.total_label")}</span>
             <div className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-3">
               <span>{formatPrice(totalPriceUSD)}</span>
             </div>
@@ -508,7 +513,7 @@ export default function BuildBuyModal({
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial px-5 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md flex items-center justify-center gap-2"
             >
-              <ShoppingCart className="w-4 h-4" /> Order Parts on Amazon <ExternalLink className="w-3.5 h-3.5" />
+              <ShoppingCart className="w-4 h-4" /> {t("store.order_amazon_btn")} <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <a
               href={`https://www.newegg.com/p/pl?d=${encodeURIComponent(`${selectedCpu?.name || 'Gaming CPU'} ${selectedGpu?.name || 'GPU'}`)}`}
@@ -516,7 +521,7 @@ export default function BuildBuyModal({
               rel="noopener noreferrer"
               className="px-4 py-3 rounded-2xl bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white font-black text-xs hover:bg-black/10 transition flex items-center justify-center gap-1.5"
             >
-              Newegg <ExternalLink className="w-3.5 h-3.5" />
+              {t("store.order_newegg_btn")} <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
