@@ -234,7 +234,7 @@ export default function Header({
                       KENSEI SPEC <span className="text-xs font-bold text-[#E88D9F] ml-1">(剣聖スペック)</span>
                     </h3>
                     <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E88D9F]/15 text-[#E88D9F] border border-[#E88D9F]/30">
-                      v2.5 Telemetry
+                      v2.6 Telemetry
                     </span>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
