@@ -69,18 +69,16 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
       name: "Corsair iCUE LINK H150i LCD 360mm Liquid AIO",
       price: 290,
       vendor: "Corsair iCUE LINK",
-      recommendationNote: "Extreme Tier: Features a 2.1\" IPS LCD display and iCUE LINK magnetic daisy-chain cables for ultimate cooling and zero noise.",
       isLiquid: true
     };
   }
 
-  if (tdp >= 160 || tier === "premium") {
+  if (tdp >= 160 || (tier === "premium" && tdp >= 120)) {
     return {
       type: "Liquid AIO 360mm",
       name: "DeepCool LT720 360mm ARGB Liquid AIO",
       price: 140,
       vendor: "DeepCool",
-      recommendationNote: "High CPU TDP (160W+) requires a 360mm Liquid AIO to prevent heavy thermal throttling under load.",
       isLiquid: true
     };
   }
@@ -90,7 +88,6 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
     name: "Thermalright Peerless Assassin 120 SE ARGB",
     price: 40,
     vendor: "Thermalright",
-    recommendationNote: "High-efficiency dual-tower air cooler offers maximum silence and zero pump leak risk for mid-TDP CPUs.",
     isLiquid: false
   };
 }
