@@ -119,9 +119,11 @@ export interface GpuTechnicalDetails {
 
 // Map CPU architecture codenames and process nodes based on model names
 export function getCpuTechnicalDetails(cpu: CPU, allCpus: CPU[]): CpuTechnicalDetails {
+  if (!cpu) return {} as CpuTechnicalDetails;
+
   const sortedCpus = [...allCpus].sort((a, b) => {
-    const scoreA = a.singleCoreScore * 0.6 + (a.multiCoreScore / 10) * 0.4 * 10;
-    const scoreB = b.singleCoreScore * 0.6 + (b.multiCoreScore / 10) * 0.4 * 10;
+    const scoreA = (a.singleCoreScore || 0) * 0.6 + ((a.multiCoreScore || 0) / 10) * 0.4 * 10;
+    const scoreB = (b.singleCoreScore || 0) * 0.6 + ((b.multiCoreScore || 0) / 10) * 0.4 * 10;
     return scoreB - scoreA;
   });
   const rank = sortedCpus.findIndex((c) => c.id === cpu.id) + 1;
@@ -178,19 +180,27 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDe
   const rank = sortedGpus.findIndex((g) => g.id === gpu.id) + 1;
 
   let avg1080 = 0; let avg1440 = 0; let avg4K = 0;
-  if (gpu.gamingBenchmarks) {
+  if (gpu && gpu.gamingBenchmarks) {
     const games = Object.values(gpu.gamingBenchmarks);
     let t1080 = 0, t1440 = 0, t4K = 0;
+    let count1080 = 0, count1440 = 0, count4K = 0;
     games.forEach((g: any) => {
-       t1080 += (g["1080p"].low + g["1080p"].medium + g["1080p"].high + g["1080p"].ultra) / 4;
-       t1440 += (g["1440p"].low + g["1440p"].medium + g["1440p"].high + g["1440p"].ultra) / 4;
-       t4K += (g["4K"].low + g["4K"].medium + g["4K"].high + g["4K"].ultra) / 4;
+      if (g && g["1080p"]) {
+        t1080 += ((g["1080p"].low || 0) + (g["1080p"].medium || 0) + (g["1080p"].high || 0) + (g["1080p"].ultra || 0)) / 4;
+        count1080++;
+      }
+      if (g && g["1440p"]) {
+        t1440 += ((g["1440p"].low || 0) + (g["1440p"].medium || 0) + (g["1440p"].high || 0) + (g["1440p"].ultra || 0)) / 4;
+        count1440++;
+      }
+      if (g && g["4K"]) {
+        t4K += ((g["4K"].low || 0) + (g["4K"].medium || 0) + (g["4K"].high || 0) + (g["4K"].ultra || 0)) / 4;
+        count4K++;
+      }
     });
-    if (games.length > 0) {
-      avg1080 = Math.round(t1080 / games.length);
-      avg1440 = Math.round(t1440 / games.length);
-      avg4K = Math.round(t4K / games.length);
-    }
+    if (count1080 > 0) avg1080 = Math.round(t1080 / count1080);
+    if (count1440 > 0) avg1440 = Math.round(t1440 / count1440);
+    if (count4K > 0) avg4K = Math.round(t4K / count4K);
   }
 
   const msrpVal = gpu.launchMsrp ? parseFloat(gpu.launchMsrp.replace(/[^0-9.]/g, "")) : 0;
