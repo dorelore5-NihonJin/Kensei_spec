@@ -82,6 +82,17 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     return gpus[1] || gpus[0] || null;
   });
 
+  // Ensure default fallback selections if cpus/gpus load asynchronously or initial state is null
+  useEffect(() => {
+    if (!selectedCpuA && cpus.length > 0) setSelectedCpuA(cpus[0]);
+    if (!selectedCpuB && cpus.length > 0) setSelectedCpuB(cpus[1] || cpus[0]);
+  }, [cpus, selectedCpuA, selectedCpuB]);
+
+  useEffect(() => {
+    if (!selectedGpuA && gpus.length > 0) setSelectedGpuA(gpus[0]);
+    if (!selectedGpuB && gpus.length > 0) setSelectedGpuB(gpus[1] || gpus[0]);
+  }, [gpus, selectedGpuA, selectedGpuB]);
+
   // Save selection states to localStorage
   useEffect(() => {
     if (selectedCpuA) localStorage.setItem("kensei_compare_cpu_a", selectedCpuA.id);
@@ -93,7 +104,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     if (selectedGpuB) localStorage.setItem("kensei_compare_gpu_b", selectedGpuB.id);
   }, [selectedGpuA, selectedGpuB]);
 
-  // Helper to sync state directly into URL parameters without reloading
+  // Helper to sync state directly into URL parameters with pushState navigation history
   const syncUrlParams = (
     currentMode: "cpu" | "gpu",
     cpuA: CPU | null,
@@ -101,22 +112,66 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     gpuA: GPU | null,
     gpuB: GPU | null
   ) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("page", "compare");
-    url.searchParams.set("mode", currentMode);
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("page", "compare");
+      url.searchParams.set("mode", currentMode);
 
-    const activeA = currentMode === "cpu" ? cpuA : gpuA;
-    const activeB = currentMode === "cpu" ? cpuB : gpuB;
-    if (activeA) url.searchParams.set("a", activeA.id);
-    if (activeB) url.searchParams.set("b", activeB.id);
+      const activeA = currentMode === "cpu" ? cpuA : gpuA;
+      const activeB = currentMode === "cpu" ? cpuB : gpuB;
+      if (activeA) url.searchParams.set("a", activeA.id);
+      if (activeB) url.searchParams.set("b", activeB.id);
 
-    if (cpuA) url.searchParams.set("cpuA", cpuA.id);
-    if (cpuB) url.searchParams.set("cpuB", cpuB.id);
-    if (gpuA) url.searchParams.set("gpuA", gpuA.id);
-    if (gpuB) url.searchParams.set("gpuB", gpuB.id);
+      if (cpuA) url.searchParams.set("cpuA", cpuA.id);
+      if (cpuB) url.searchParams.set("cpuB", cpuB.id);
+      if (gpuA) url.searchParams.set("gpuA", gpuA.id);
+      if (gpuB) url.searchParams.set("gpuB", gpuB.id);
 
-    window.history.replaceState({}, "", url.toString());
+      window.history.pushState({}, "", url.toString());
+    } catch {
+      // Ignore URL sync errors
+    }
   };
+
+  // Listen for browser Back/Forward (popstate) navigation to keep Compare state in sync
+  useEffect(() => {
+    const handlePopStateSync = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const modeParam = urlParams.get("mode");
+      if (modeParam === "cpu" || modeParam === "gpu") {
+        setMode(modeParam);
+      }
+
+      const activeMode = modeParam || mode;
+      const aParam = urlParams.get("a");
+      const bParam = urlParams.get("b");
+
+      const targetCpuA = (activeMode === "cpu" ? aParam : null) || urlParams.get("cpuA");
+      const targetCpuB = (activeMode === "cpu" ? bParam : null) || urlParams.get("cpuB");
+      const targetGpuA = (activeMode === "gpu" ? aParam : null) || urlParams.get("gpuA");
+      const targetGpuB = (activeMode === "gpu" ? bParam : null) || urlParams.get("gpuB");
+
+      if (targetCpuA) {
+        const found = cpus.find((c) => c.id === targetCpuA);
+        if (found) setSelectedCpuA(found);
+      }
+      if (targetCpuB) {
+        const found = cpus.find((c) => c.id === targetCpuB);
+        if (found) setSelectedCpuB(found);
+      }
+      if (targetGpuA) {
+        const found = gpus.find((g) => g.id === targetGpuA);
+        if (found) setSelectedGpuA(found);
+      }
+      if (targetGpuB) {
+        const found = gpus.find((g) => g.id === targetGpuB);
+        if (found) setSelectedGpuB(found);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopStateSync);
+    return () => window.removeEventListener("popstate", handlePopStateSync);
+  }, [cpus, gpus, mode]);
 
   const handleModeChange = (newMode: "cpu" | "gpu") => {
     setMode(newMode);
@@ -125,24 +180,24 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
 
   const handleSelectA = (id: string) => {
     if (mode === "cpu") {
-      const found = cpus.find((c) => c.id === id) || null;
-      setSelectedCpuA(found);
+      const found = cpus.find((c) => c.id === id) || selectedCpuA || cpus[0] || null;
+      if (found) setSelectedCpuA(found);
       syncUrlParams("cpu", found, selectedCpuB, selectedGpuA, selectedGpuB);
     } else {
-      const found = gpus.find((g) => g.id === id) || null;
-      setSelectedGpuA(found);
+      const found = gpus.find((g) => g.id === id) || selectedGpuA || gpus[0] || null;
+      if (found) setSelectedGpuA(found);
       syncUrlParams("gpu", selectedCpuA, selectedCpuB, found, selectedGpuB);
     }
   };
 
   const handleSelectB = (id: string) => {
     if (mode === "cpu") {
-      const found = cpus.find((c) => c.id === id) || null;
-      setSelectedCpuB(found);
+      const found = cpus.find((c) => c.id === id) || selectedCpuB || cpus[1] || cpus[0] || null;
+      if (found) setSelectedCpuB(found);
       syncUrlParams("cpu", selectedCpuA, found, selectedGpuA, selectedGpuB);
     } else {
-      const found = gpus.find((g) => g.id === id) || null;
-      setSelectedGpuB(found);
+      const found = gpus.find((g) => g.id === id) || selectedGpuB || gpus[1] || gpus[0] || null;
+      if (found) setSelectedGpuB(found);
       syncUrlParams("gpu", selectedCpuA, selectedCpuB, selectedGpuA, found);
     }
   };
@@ -433,11 +488,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             {itemA && (
               <span
                 className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md border ${
-                  itemA.manufacturer === "Intel"
+                  itemA?.manufacturer === "Intel"
                     ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                    : itemA.manufacturer === "AMD"
+                    : itemA?.manufacturer === "AMD"
                     ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
-                    : itemA.manufacturer === "NVIDIA"
+                    : itemA?.manufacturer === "NVIDIA"
                     ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                     : "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
                 }`}
@@ -479,11 +534,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             {itemB && (
               <span
                 className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md border ${
-                  itemB.manufacturer === "Intel"
+                  itemB?.manufacturer === "Intel"
                     ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                    : itemB.manufacturer === "AMD"
+                    : itemB?.manufacturer === "AMD"
                     ? "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30"
-                    : itemB.manufacturer === "NVIDIA"
+                    : itemB?.manufacturer === "NVIDIA"
                     ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                     : "bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-500/30"
                 }`}

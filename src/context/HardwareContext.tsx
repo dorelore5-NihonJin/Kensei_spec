@@ -137,11 +137,29 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
 
+  // Listen for browser Back/Forward navigation (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pageParam = urlParams.get("page");
+      if (pageParam === "rankings" || pageParam === "compare" || pageParam === "catalog" || pageParam === "simulator") {
+        setActivePage(pageParam as any);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // Sync activePage into URL history
   useEffect(() => {
     try {
       const url = new URL(window.location.href);
-      url.searchParams.set("page", activePage);
-      window.history.replaceState({}, "", url.toString());
+      const currentParam = url.searchParams.get("page");
+      if (currentParam !== activePage) {
+        url.searchParams.set("page", activePage);
+        window.history.pushState({}, "", url.toString());
+      }
     } catch {
       // Ignore URL replace errors
     }
