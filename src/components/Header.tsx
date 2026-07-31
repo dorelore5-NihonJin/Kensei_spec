@@ -230,7 +230,7 @@ export default function Header({
                     KENSEI SPEC (剣聖スペック)
                   </h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold">
-                    Precision Hardware Physics & Neo-Tokyo Telemetry Engine
+                    {t("about.subtitle")}
                   </p>
                 </div>
               </div>
@@ -247,47 +247,47 @@ export default function Header({
               <div className="p-4 rounded-2xl bg-[#E88D9F]/10 border border-[#E88D9F]/20 flex items-center gap-3">
                 <Sparkles className="w-5 h-5 text-[#E88D9F] shrink-0" />
                 <div className="text-xs text-[#1E2022] dark:text-white font-black">
-                  Built to eliminate fake online FPS calculators by running real-time silicon architecture equations!
+                  {t("about.banner")}
                 </div>
               </div>
 
               <h4 className="text-sm font-black text-[#1E2022] dark:text-white flex items-center gap-2 mt-2">
-                <Cpu className="w-4 h-4 text-[#8A9A86]" /> Physics & Calculation Engine Specs
+                <Cpu className="w-4 h-4 text-[#8A9A86]" /> {t("about.specs_title")}
               </h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
                   <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-amber-500" /> 3D V-Cache Scaling
+                    <Zap className="w-3.5 h-3.5 text-amber-500" /> {t("about.3d_vcache.title")}
                   </span>
                   <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    Accounts for AMD 3D V-Cache L3 latency reductions in CPU-bound games.
+                    {t("about.3d_vcache.desc")}
                   </span>
                 </li>
 
                 <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
                   <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5 text-rose-500" /> VRAM Thrashing Penalty
+                    <Activity className="w-3.5 h-3.5 text-rose-500" /> {t("about.vram_thrashing.title")}
                   </span>
                   <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    Simulates 35% framerate drops when VRAM capacity is exceeded at 4K & Ultra textures.
+                    {t("about.vram_thrashing.desc")}
                   </span>
                 </li>
 
                 <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
                   <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> Dual-Channel Memory Math
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> {t("about.dual_channel.title")}
                   </span>
                   <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    Applies single-channel RAM bandwidth bottleneck penalties on 1% low framerates.
+                    {t("about.dual_channel.desc")}
                   </span>
                 </li>
 
                 <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
                   <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-indigo-500" /> Smart Upgrade Advisor
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-500" /> {t("about.upgrade_advisor.title")}
                   </span>
                   <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    Dynamically scans hardware catalogs to suggest single-part upgrades unlocking +30% FPS.
+                    {t("about.upgrade_advisor.desc")}
                   </span>
                 </li>
               </ul>
@@ -296,13 +296,13 @@ export default function Header({
             {/* Modal Footer */}
             <div className="border-t border-black/10 dark:border-white/10 pt-4 flex justify-between items-center">
               <span className="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider">
-                KENSEI SPEC • Japanese Soft Minimalist Tech
+                {t("about.footer_tag")}
               </span>
               <button
                 onClick={() => setShowAboutModal(false)}
                 className="px-5 py-2 rounded-xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-sm"
               >
-                Close / 閉じる
+                {t("common.close") || "Close / 閉じる"}
               </button>
             </div>
           </div>

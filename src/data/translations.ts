@@ -1107,6 +1107,68 @@ export const translations: TranslationDictionary = {
     ja: "テクスチャ フィルレート"
   },
 
+  // About / Brand Story Modal Translations
+  "about.subtitle": {
+    en: "Precision Hardware Physics & Neo-Tokyo Telemetry Engine",
+    ru: "Точные физические формулы железа и телеметрия Neo-Tokyo",
+    ja: "精密ハードウェア物理＆ネオ東京テレメトリエンジン"
+  },
+  "about.banner": {
+    en: "Built to eliminate fake online FPS calculators by running real-time silicon architecture equations!",
+    ru: "Создан для ликвидации фейковых онлайн-калькуляторов FPS путем расчета настоящих уравнений кремниевой архитектуры в реальном времени!",
+    ja: "リアルタイムのシリコンアーキテクチャ方程式を実行し、偽のオンラインFPS計算機を排除するために構築されました！"
+  },
+  "about.specs_title": {
+    en: "Physics & Calculation Engine Specs",
+    ru: "Спецификации физического и вычислительного движка",
+    ja: "物理・計算エンジンの仕様"
+  },
+  "about.3d_vcache.title": {
+    en: "3D V-Cache Scaling",
+    ru: "Масштабирование 3D V-Cache",
+    ja: "3D V-Cache スケーリング"
+  },
+  "about.3d_vcache.desc": {
+    en: "Accounts for AMD 3D V-Cache L3 latency reductions in CPU-bound games.",
+    ru: "Учитывает снижение задержек L3-кэша AMD 3D V-Cache в играх с упором в процессор.",
+    ja: "CPUボトルネックのゲームにおいてAMD 3D V-CacheのL3レイテンシ削減を考慮します。"
+  },
+  "about.vram_thrashing.title": {
+    en: "VRAM Thrashing Penalty",
+    ru: "Штраф за нехватку видеопамяти (VRAM Thrashing)",
+    ja: "VRAM不足ペナルティ"
+  },
+  "about.vram_thrashing.desc": {
+    en: "Simulates 35% framerate drops when VRAM capacity is exceeded at 4K & Ultra textures.",
+    ru: "Симулирует падение FPS на 35% при превышении объёма VRAM на 4K и Ультра-текстурах.",
+    ja: "4KおよびUltraテクスチャでVRAM容量を超えた場合の35%のフレームレート低下をシミュレートします。"
+  },
+  "about.dual_channel.title": {
+    en: "Dual-Channel Memory Math",
+    ru: "Расчёт двухканальной памяти",
+    ja: "デュアルチャンネルメモリ計算"
+  },
+  "about.dual_channel.desc": {
+    en: "Applies single-channel RAM bandwidth bottleneck penalties on 1% low framerates.",
+    ru: "Применяет штрафы пропускной способности одноканальной ОЗУ к показателю 1% min FPS.",
+    ja: "シングルチャンネルRAMの帯域幅ボトルネックペナルティを1% Lowフレームレートに適用します。"
+  },
+  "about.upgrade_advisor.title": {
+    en: "Smart Upgrade Advisor",
+    ru: "Умный Советник по Апгрейду",
+    ja: "スマートアップグレードアドバイザー"
+  },
+  "about.upgrade_advisor.desc": {
+    en: "Dynamically scans hardware catalogs to suggest single-part upgrades unlocking +30% FPS.",
+    ru: "Динамически сканирует каталог железа для точечного апгрейда, дающего +30% к FPS.",
+    ja: "ハードウェアカタログを動的にスキャンし、+30%のFPSを解放する単一パーツのアップグレードを提案します。"
+  },
+  "about.footer_tag": {
+    en: "KENSEI SPEC • Japanese Soft Minimalist Tech",
+    ru: "KENSEI SPEC • Японский Софт-Минималистичный Технодизайн",
+    ja: "KENSEI SPEC • 日本のソフトミニマリストテック"
+  },
+
   // Hardware Die Diagnostics & Power
   "bottleneck.title": {
     en: "SYSTEM BOTTLENECK ANALYSIS",
