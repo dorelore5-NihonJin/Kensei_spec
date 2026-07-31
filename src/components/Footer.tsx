@@ -76,26 +76,26 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
             <Zap className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("footer.nav_title")}
           </h4>
           <ul className="flex flex-col gap-2 font-bold text-gray-500 dark:text-gray-400">
-            <li>
+            <li className="w-full">
               <button
                 onClick={() => setActivePage("simulator")}
-                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
+                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-start text-left gap-1.5 w-full"
               >
                 {t("footer.nav_simulator")}
               </button>
             </li>
-            <li>
+            <li className="w-full">
               <button
                 onClick={() => setActivePage("catalog")}
-                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
+                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-start text-left gap-1.5 w-full"
               >
                 {t("footer.nav_builds")}
               </button>
             </li>
-            <li>
+            <li className="w-full">
               <button
                 onClick={onOpenBuyModal}
-                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
+                className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-start text-left gap-1.5 w-full"
               >
                 {t("footer.nav_store")}
               </button>

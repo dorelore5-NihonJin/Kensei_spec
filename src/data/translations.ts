@@ -1144,7 +1144,7 @@ export const translations: TranslationDictionary = {
   },
   "footer.nav_builds": {
     en: "Recommended Game Builds ($500-$3,500)",
-    ru: "Готовые игровые сборки ($500–$3 500)",
+    ru: "Готовые игровые сборки ($500–$3500)",
     ja: "推奨ゲーム構成 ($500〜$3,500)"
   },
   "footer.nav_store": {
