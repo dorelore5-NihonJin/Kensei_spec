@@ -876,6 +876,21 @@ export const translations: TranslationDictionary = {
     ru: "УПЁРСЛОСЬ В ШЕЙДЕРЫ И РЕНДЕР",
     ja: "シェーダー・レンダー限界"
   },
+  "reliance.cpu_bound": {
+    en: "CPU / DRAW CALL BOUND",
+    ru: "УПЁРСЛОСЬ В ПРОЦЕССОР",
+    ja: "CPU・描画スレッド限界"
+  },
+  "reliance.gpu_headroom": {
+    en: "GPU HEADROOM AVAILABLE",
+    ru: "ЗАПАС ПО ВИДЕОКАРТЕ",
+    ja: "GPU ヘッドルームあり"
+  },
+  "reliance.high_load": {
+    en: "HIGH WORKLOAD",
+    ru: "ВЫСОКАЯ НАГРУЗКА",
+    ja: "高負荷"
+  },
 
   // Floating Bottom Workload Bar
   "floating.target_selected": {

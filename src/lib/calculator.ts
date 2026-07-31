@@ -108,8 +108,8 @@ export function calculatePerformance(
   if (cpu.is3DVCache) {
     rawCpuPower *= 1.16; // +16% effective throughput boost in gaming workloads from 3D V-Cache L3 pool
   }
-  const refCpuPower = 185.0;
-  const cpuFactor = Math.max(0.25, rawCpuPower / refCpuPower);
+  const refCpuPower = 3000.0;
+  const cpuFactor = Math.max(0.15, rawCpuPower / refCpuPower);
 
   // GPU Power Index (Normalized to RTX 4060 / RX 7600 baseline = 295)
   const gpuPower = gpu.relativePowerScore;
@@ -355,48 +355,54 @@ export function calculatePerformance(
     baseCpuLoad += 8;
   }
 
-  // Single-Core & Multi-Core Asymmetric Mismatch Evaluation
-  const singleCoreRatio = gpuMetric / (cpu.singleCoreScore * 1.5);
-  const totalPowerRatio = gpuMetric / Math.max(1.0, cpuMetric);
+  // Hardware Disparity & Bottleneck Ratio (Normalized CPU vs GPU index)
+  const cpuNormalizedIndex = cpuFactor;
+  const gpuNormalizedIndex = gpuFactor;
+  const hwPowerRatio = gpuNormalizedIndex / Math.max(0.1, cpuNormalizedIndex);
 
   let gpuLoadPercentage = 50;
   let cpuLoadPercentage = 50;
 
-  const is4KOrPathTracing = resolution === "4K" || rayTracing === "Ultra";
-
-  if (singleCoreRatio > 1.85 || totalPowerRatio > 2.0) {
-    // Severe CPU Bottleneck (Legacy CPU + Modern GPU)
-    const effectiveRatio = Math.max(singleCoreRatio, totalPowerRatio);
+  if (hwPowerRatio > 1.80) {
+    // Severe CPU Bottleneck (Weak/Budget CPU paired with Flagship GPU, e.g. i3-13100 + RTX 5090)
     bottleneckType = "CPU";
-    bottleneckPercentage = Math.min(85, Math.round((effectiveRatio - 1.8) * 20));
-    cpuLoadPercentage = Math.min(100, Math.max(95, Math.round(baseCpuLoad * 1.4)));
-    gpuLoadPercentage = is4KOrPathTracing ? 99 : Math.max(20, Math.min(82, Math.round(baseGpuLoad / (effectiveRatio * 0.70))));
+    bottleneckPercentage = Math.min(85, Math.round((hwPowerRatio - 1.5) * 22));
+    cpuLoadPercentage = Math.min(100, Math.max(92, Math.round(baseCpuLoad * 1.35)));
+    
+    // GPU load drops because CPU cannot dispatch draw calls fast enough
+    let calculatedGpuLoad = Math.round(baseGpuLoad / (hwPowerRatio * 0.75));
+    if (resolution === "4K" || rayTracing === "Ultra") {
+      calculatedGpuLoad = Math.round(calculatedGpuLoad * 1.3);
+    }
+    gpuLoadPercentage = Math.max(22, Math.min(88, calculatedGpuLoad));
+    
     warnings.push(
       `Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`
     );
-  } else if (totalPowerRatio < 0.38) {
-    // Severe GPU Bottleneck (Top CPU + Weak/Legacy GPU)
+  } else if (hwPowerRatio < 0.55) {
+    // Severe GPU Bottleneck (Top CPU paired with Weak/Entry GPU, e.g. 9800X3D + GTX 1650)
     bottleneckType = "GPU";
-    const ratioInv = 1.0 / totalPowerRatio;
-    bottleneckPercentage = Math.min(85, Math.round((ratioInv - 2.5) * 12));
+    const ratioInv = 1.0 / hwPowerRatio;
+    bottleneckPercentage = Math.min(85, Math.round((ratioInv - 1.5) * 18));
     gpuLoadPercentage = 99;
 
-    // Dynamic game-dependent CPU load profile based on game CPU reliance & resolution
     let dynamicCpuLoad = 16 + (game.cpuDependence * 22);
     if (resolution === "1080p") dynamicCpuLoad += 6;
     else if (resolution === "4K") dynamicCpuLoad -= 4;
 
-    if (cpu.multiCoreScore > 3500) dynamicCpuLoad *= 0.65;
-    else if (cpu.multiCoreScore > 2500) dynamicCpuLoad *= 0.80;
+    if (cpu.multiCoreScore > 20000) dynamicCpuLoad *= 0.65;
+    else if (cpu.multiCoreScore > 12000) dynamicCpuLoad *= 0.80;
 
-    cpuLoadPercentage = Math.min(55, Math.max(12, Math.round(dynamicCpuLoad)));
+    cpuLoadPercentage = Math.min(65, Math.max(12, Math.round(dynamicCpuLoad)));
     warnings.push(
       `Significant GPU Bottleneck: Your CPU (${cpu.name}) has plenty of headroom, but your GPU (${gpu.name}) is fully maxed out.`
     );
   } else {
-    // Balanced System: Load scales dynamically with settings
-    gpuLoadPercentage = Math.min(99, Math.max(20, Math.round(baseGpuLoad)));
-    cpuLoadPercentage = Math.min(98, Math.max(15, Math.round(baseCpuLoad)));
+    // Balanced System: Hardware is well matched for current resolution & preset
+    bottleneckType = "None";
+    bottleneckPercentage = Math.round(Math.abs(hwPowerRatio - 1.0) * 15);
+    gpuLoadPercentage = Math.min(99, Math.max(25, Math.round(baseGpuLoad)));
+    cpuLoadPercentage = Math.min(95, Math.max(15, Math.round(baseCpuLoad)));
   }
 
   if (ramProfile.capacityGB < game.ramMinRequirementGB) {

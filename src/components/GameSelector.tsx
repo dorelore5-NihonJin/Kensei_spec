@@ -267,7 +267,11 @@ export default function GameSelector({
                   ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300"
                   : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
               }`}>
-                {t("reliance.optimal_headroom")}
+                {telemetryLoads.cpuLoad >= 90
+                  ? t("reliance.cpu_bound")
+                  : telemetryLoads.cpuLoad >= 60
+                  ? t("reliance.high_load")
+                  : t("reliance.optimal_headroom")}
               </span>
             </div>
           ) : (
@@ -293,10 +297,14 @@ export default function GameSelector({
                 telemetryLoads.gpuLoad >= 90
                   ? "bg-rose-500/15 text-rose-600 dark:text-rose-400"
                   : telemetryLoads.gpuLoad <= 50
-                  ? "bg-amber-500/15 text-amber-600 dark:text-amber-400"
+                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
                   : "bg-teal-500/15 text-teal-600 dark:text-teal-400"
               }`}>
-                {t("reliance.shader_bound")}
+                {telemetryLoads.gpuLoad >= 90
+                  ? t("reliance.shader_bound")
+                  : telemetryLoads.gpuLoad <= 50
+                  ? t("reliance.gpu_headroom")
+                  : t("reliance.high_load")}
               </span>
             </div>
           ) : (
