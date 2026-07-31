@@ -154,7 +154,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   // Sync activePage into URL history and clean up page-specific parameters
   const changeActivePage = (newPage: "simulator" | "catalog" | "compare" | "rankings") => {
     setActivePage(newPage);
-    setStorageItem("kensei_active_page", newPage);
+    localStorage.setItem("kensei_active_page", newPage);
     try {
       const url = new URL(window.location.href);
       const isCompare = newPage === "compare";
