@@ -1168,6 +1168,16 @@ export const translations: TranslationDictionary = {
     ru: "KENSEI SPEC • Японский Софт-Минималистичный Технодизайн",
     ja: "KENSEI SPEC • 日本のソフトミニマリストテック"
   },
+  "about.close": {
+    en: "Close",
+    ru: "Закрыть",
+    ja: "閉じる"
+  },
+  "common.close": {
+    en: "Close",
+    ru: "Закрыть",
+    ja: "閉じる"
+  },
 
   // Hardware Die Diagnostics & Power
   "bottleneck.title": {

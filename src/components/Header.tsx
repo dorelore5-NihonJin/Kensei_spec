@@ -215,94 +215,118 @@ export default function Header({
 
       {/* BRAND STORY & ALGORITHM MODAL */}
       {showAboutModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-fadeIn">
-          <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-[32px] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative flex flex-col gap-6 max-h-[90vh] overflow-y-auto transform transition-all animate-in zoom-in-95 duration-200">
             {/* Modal Header */}
-            <div className="flex items-start justify-between border-b border-black/10 dark:border-white/10 pb-4">
-              <div className="flex items-center gap-3">
-                <img
-                  src="./kensei_logo.jpg"
-                  alt="KENSEI LOGO"
-                  className="w-12 h-12 rounded-2xl object-cover border border-black/10 dark:border-white/10 shadow-sm"
-                />
+            <div className="flex items-start justify-between border-b border-black/10 dark:border-white/10 pb-5">
+              <div className="flex items-center gap-3.5">
+                <div className="relative">
+                  <img
+                    src="./kensei_logo.jpg"
+                    alt="KENSEI LOGO"
+                    className="w-12 h-12 rounded-2xl object-cover border border-black/10 dark:border-white/10 shadow-md"
+                  />
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-[#1A1C1E] rounded-full" />
+                </div>
                 <div>
-                  <h3 className="text-xl font-black flex items-center gap-2">
-                    KENSEI SPEC (剣聖スペック)
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-black tracking-tight text-[#1E2022] dark:text-white">
+                      KENSEI SPEC <span className="text-xs font-bold text-[#E88D9F] ml-1">(剣聖スペック)</span>
+                    </h3>
+                    <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E88D9F]/15 text-[#E88D9F] border border-[#E88D9F]/30">
+                      v2.5 Telemetry
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
                     {t("about.subtitle")}
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setShowAboutModal(false)}
-                className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition"
+                className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/15 active:scale-95 transition-all text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
               >
-                <X className="w-5 h-5 text-gray-500" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Modal Body */}
-            <div className="flex flex-col gap-4 text-xs font-extrabold leading-relaxed text-gray-700 dark:text-gray-300">
-              <div className="p-4 rounded-2xl bg-[#E88D9F]/10 border border-[#E88D9F]/20 flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-[#E88D9F] shrink-0" />
-                <div className="text-xs text-[#1E2022] dark:text-white font-black">
+            <div className="flex flex-col gap-5 text-xs font-extrabold leading-relaxed text-gray-700 dark:text-gray-300">
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#E88D9F]/15 via-[#E88D9F]/5 to-transparent border border-[#E88D9F]/30 flex items-center gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-[#E88D9F]/20 text-[#E88D9F] flex items-center justify-center shrink-0 border border-[#E88D9F]/30">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div className="text-xs text-[#1E2022] dark:text-white font-black leading-snug">
                   {t("about.banner")}
                 </div>
               </div>
 
-              <h4 className="text-sm font-black text-[#1E2022] dark:text-white flex items-center gap-2 mt-2">
-                <Cpu className="w-4 h-4 text-[#8A9A86]" /> {t("about.specs_title")}
-              </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                  <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-amber-500" /> {t("about.3d_vcache.title")}
-                  </span>
-                  <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    {t("about.3d_vcache.desc")}
-                  </span>
-                </li>
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-400 flex items-center gap-2 mb-3">
+                  <Cpu className="w-4 h-4 text-[#8A9A86]" /> {t("about.specs_title")}
+                </h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <li className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-[#E88D9F]/30 hover:bg-[#E88D9F]/5 transition-all duration-200 flex flex-col gap-1.5 group">
+                    <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-2 text-xs">
+                      <div className="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-500 flex items-center justify-center shrink-0 border border-amber-500/30">
+                        <Zap className="w-3.5 h-3.5" />
+                      </div>
+                      {t("about.3d_vcache.title")}
+                    </span>
+                    <span className="text-[11px] text-gray-500 dark:text-gray-400 font-bold leading-normal pl-8">
+                      {t("about.3d_vcache.desc")}
+                    </span>
+                  </li>
 
-                <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                  <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5 text-rose-500" /> {t("about.vram_thrashing.title")}
-                  </span>
-                  <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    {t("about.vram_thrashing.desc")}
-                  </span>
-                </li>
+                  <li className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-[#E88D9F]/30 hover:bg-[#E88D9F]/5 transition-all duration-200 flex flex-col gap-1.5 group">
+                    <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-2 text-xs">
+                      <div className="w-6 h-6 rounded-lg bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 border border-rose-500/30">
+                        <Activity className="w-3.5 h-3.5" />
+                      </div>
+                      {t("about.vram_thrashing.title")}
+                    </span>
+                    <span className="text-[11px] text-gray-500 dark:text-gray-400 font-bold leading-normal pl-8">
+                      {t("about.vram_thrashing.desc")}
+                    </span>
+                  </li>
 
-                <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                  <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> {t("about.dual_channel.title")}
-                  </span>
-                  <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    {t("about.dual_channel.desc")}
-                  </span>
-                </li>
+                  <li className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-[#E88D9F]/30 hover:bg-[#E88D9F]/5 transition-all duration-200 flex flex-col gap-1.5 group">
+                    <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-2 text-xs">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-500 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                      </div>
+                      {t("about.dual_channel.title")}
+                    </span>
+                    <span className="text-[11px] text-gray-500 dark:text-gray-400 font-bold leading-normal pl-8">
+                      {t("about.dual_channel.desc")}
+                    </span>
+                  </li>
 
-                <li className="p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                  <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-indigo-500" /> {t("about.upgrade_advisor.title")}
-                  </span>
-                  <span className="text-[11px] text-gray-500 dark:text-gray-400">
-                    {t("about.upgrade_advisor.desc")}
-                  </span>
-                </li>
-              </ul>
+                  <li className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-[#E88D9F]/30 hover:bg-[#E88D9F]/5 transition-all duration-200 flex flex-col gap-1.5 group">
+                    <span className="font-black text-[#1E2022] dark:text-white flex items-center gap-2 text-xs">
+                      <div className="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-500 flex items-center justify-center shrink-0 border border-indigo-500/30">
+                        <Sparkles className="w-3.5 h-3.5" />
+                      </div>
+                      {t("about.upgrade_advisor.title")}
+                    </span>
+                    <span className="text-[11px] text-gray-500 dark:text-gray-400 font-bold leading-normal pl-8">
+                      {t("about.upgrade_advisor.desc")}
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Modal Footer */}
-            <div className="border-t border-black/10 dark:border-white/10 pt-4 flex justify-between items-center">
-              <span className="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider">
+            <div className="border-t border-black/10 dark:border-white/10 pt-4 flex flex-col sm:flex-row gap-3 justify-between items-center">
+              <span className="text-[10px] text-gray-400 dark:text-gray-400 font-extrabold uppercase tracking-wider">
                 {t("about.footer_tag")}
               </span>
               <button
                 onClick={() => setShowAboutModal(false)}
-                className="px-5 py-2 rounded-xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 transition shadow-sm"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] font-black text-xs hover:opacity-90 active:scale-95 transition-all shadow-md flex items-center justify-center gap-2"
               >
-                {t("common.close") || "Close / 閉じる"}
+                <span>{t("common.close")}</span>
               </button>
             </div>
           </div>
