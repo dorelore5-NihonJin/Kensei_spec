@@ -262,11 +262,11 @@ export default function GpuGamingBenchmarkChart({ gpuA, gpuB }: GpuGamingBenchma
 
                 <div className="flex flex-col gap-1.5 text-xs font-black mt-2">
                   <div className="flex items-center justify-between text-gray-700 dark:text-gray-300">
-                    <span className="truncate max-w-[90px] text-[11px] font-bold">{gpuA.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
+                    <span className="truncate max-w-[90px] text-[11px] font-bold">{String(gpuA.name || "").replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
                     <span className={`font-mono ${pWinner === "A" ? "text-[#E88D9F] font-black" : "text-gray-400"}`}>{fA} FPS</span>
                   </div>
                   <div className="flex items-center justify-between text-gray-700 dark:text-gray-300">
-                    <span className="truncate max-w-[90px] text-[11px] font-bold">{gpuB.name.replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
+                    <span className="truncate max-w-[90px] text-[11px] font-bold">{String(gpuB.name || "").replace(/GeForce|Radeon|Intel/g, "").trim()}</span>
                     <span className={`font-mono ${pWinner === "B" ? "text-emerald-400 font-black" : "text-gray-400"}`}>{fB} FPS</span>
                   </div>
                 </div>

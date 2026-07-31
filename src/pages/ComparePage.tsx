@@ -17,9 +17,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
   const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep } = useHardware();
   const { t, formatPrice } = useLanguage();
 
-  const renderMsrp = (msrpStr: string) => {
-    const val = parseFloat(msrpStr.replace(/[^0-9.]/g, ""));
-    if (isNaN(val) || val === 0) return msrpStr;
+  const renderMsrp = (msrpStr: any) => {
+    if (msrpStr === undefined || msrpStr === null) return "N/A";
+    const str = String(msrpStr);
+    const val = parseFloat(str.replace(/[^0-9.]/g, ""));
+    if (isNaN(val) || val === 0) return str;
     return formatPrice(val);
   };
 
@@ -588,7 +590,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white mt-0.5">
                   {winner === "Tie"
                     ? t("compare.tie_score")
-                    : `${winner === "A" ? itemAInfo.name : itemBInfo.name} ${t("compare.faster_text").replace("{delta}", String(deltaPct))}`}
+                    : `${winner === "A" ? itemAInfo.name : itemBInfo.name} ${String(t("compare.faster_text") || "is {delta}% faster").replace("{delta}", String(deltaPct))}`}
                 </h3>
               </div>
             </div>

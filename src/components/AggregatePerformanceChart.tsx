@@ -221,7 +221,7 @@ export default function AggregatePerformanceChart({ type, itemA, itemB }: Aggreg
           {winner !== "Tie" ? (
             <>
               <strong className="text-[#E88D9F] font-black">{winnerName}</strong>{" "}
-              {t("chart.outperforms_text")
+              {String(t("chart.outperforms_text") || "outperforms {loser} by {delta}%")
                 .replace("{loser}", loserName)
                 .replace("{delta}", String(deltaPct))}
             </>

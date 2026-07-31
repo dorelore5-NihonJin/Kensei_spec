@@ -283,7 +283,7 @@ export default function UpgradeAdvisor({
       ) : upgradeRecommendation ? (
         <div className="flex flex-col gap-4">
           <div className="text-xs text-[#1E2022] dark:text-gray-200 font-bold leading-relaxed">
-            {t("advisor.desc_bound").replace("{component}", upgradeRecommendation.type)}
+            {String(t("advisor.desc_bound") || "System bound by {component}").replace("{component}", upgradeRecommendation.type)}
           </div>
 
           <div className="p-4 bg-[#E88D9F]/10 dark:bg-[#E88D9F]/20 border border-[#E88D9F]/30 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
