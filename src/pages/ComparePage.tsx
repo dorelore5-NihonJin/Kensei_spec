@@ -121,7 +121,8 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
     cpuA: CPU | null,
     cpuB: CPU | null,
     gpuA: GPU | null,
-    gpuB: GPU | null
+    gpuB: GPU | null,
+    useReplace: boolean = false
   ) => {
     try {
       const url = new URL(window.location.href);
@@ -138,11 +139,20 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
       if (activeA) url.searchParams.set("a", getHardwareSlug(activeA));
       if (activeB) url.searchParams.set("b", getHardwareSlug(activeB));
 
-      window.history.pushState({}, "", url.toString());
+      if (useReplace) {
+        window.history.replaceState({}, "", url.toString());
+      } else {
+        window.history.pushState({}, "", url.toString());
+      }
     } catch {
       // Ignore URL sync errors
     }
   };
+
+  // Immediately sync active selections into URL bar on mount so user can share link instantly
+  useEffect(() => {
+    syncUrlParams(mode, selectedCpuA, selectedCpuB, selectedGpuA, selectedGpuB, true);
+  }, []);
 
   // Listen for browser Back/Forward (popstate) navigation to keep Compare state in sync
   useEffect(() => {

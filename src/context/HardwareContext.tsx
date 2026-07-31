@@ -152,14 +152,15 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // Sync activePage into URL history and clean up page-specific parameters
-  useEffect(() => {
+  const changeActivePage = (newPage: "simulator" | "catalog" | "compare" | "rankings") => {
+    setActivePage(newPage);
+    setStorageItem("kensei_active_page", newPage);
     try {
       const url = new URL(window.location.href);
-      const currentParam = url.searchParams.get("page");
-      const isComparePage = activePage === "compare" || currentParam === "compare-cpu" || currentParam === "compare-gpu";
-
-      if (!isComparePage) {
-        // Clean up Compare-specific parameters when on simulator, catalog, or rankings
+      const isCompare = newPage === "compare";
+      
+      if (!isCompare) {
+        url.searchParams.set("page", newPage);
         url.searchParams.delete("mode");
         url.searchParams.delete("a");
         url.searchParams.delete("b");
@@ -167,13 +168,30 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
         url.searchParams.delete("cpuB");
         url.searchParams.delete("gpuA");
         url.searchParams.delete("gpuB");
-      }
-
-      if (currentParam !== activePage && !(activePage === "compare" && (currentParam === "compare-cpu" || currentParam === "compare-gpu"))) {
-        url.searchParams.set("page", activePage);
         window.history.pushState({}, "", url.toString());
-      } else if (!isComparePage) {
-        // Update URL to reflect cleaned parameters
+      }
+    } catch {
+      // Ignore URL errors
+    }
+  };
+
+  useEffect(() => {
+    try {
+      const url = new URL(window.location.href);
+      const currentParam = url.searchParams.get("page");
+      const isComparePage = activePage === "compare" || currentParam === "compare-cpu" || currentParam === "compare-gpu";
+
+      if (!isComparePage) {
+        url.searchParams.delete("mode");
+        url.searchParams.delete("a");
+        url.searchParams.delete("b");
+        url.searchParams.delete("cpuA");
+        url.searchParams.delete("cpuB");
+        url.searchParams.delete("gpuA");
+        url.searchParams.delete("gpuB");
+        if (currentParam !== activePage) {
+          url.searchParams.set("page", activePage);
+        }
         window.history.replaceState({}, "", url.toString());
       }
     } catch {
@@ -423,7 +441,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     ramProfiles,
     games,
     activePage,
-    setActivePage,
+    setActivePage: changeActivePage,
     currentStep,
     setCurrentStep,
     viewMode,
