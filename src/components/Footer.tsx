@@ -41,7 +41,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
 
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             <span className="bg-[#8A9A86]/15 text-[#8A9A86] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-              Verified Telemetry v2.6
+              {t("footer.badge_verified")}
             </span>
             <button
               onClick={() => onOpenLegalModal("terms")}
@@ -54,8 +54,8 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
               <ShieldCheck className="w-3 h-3" />
               <span>
                 {typeof window !== "undefined" && localStorage.getItem("kensei_legal_accepted") === "true"
-                  ? "Legal Consent Active ✅"
-                  : "Legal & Terms"}
+                  ? t("footer.legal_consent_active")
+                  : t("footer.legal_terms_btn")}
               </span>
             </button>
 
@@ -64,7 +64,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
                 onClick={onOpenCookieSettings}
                 className="bg-[#E88D9F]/15 text-[#E88D9F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 hover:bg-[#E88D9F]/25 transition"
               >
-                <Cookie className="w-3 h-3 text-[#E88D9F]" /> Cookie Settings
+                <Cookie className="w-3 h-3 text-[#E88D9F]" /> {t("footer.cookie_settings")}
               </button>
             )}
           </div>
@@ -73,7 +73,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
         {/* Col 2: Navigation Links */}
         <div className="flex flex-col gap-3">
           <h4 className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-[#E88D9F]" /> Quick Navigation
+            <Zap className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("footer.nav_title")}
           </h4>
           <ul className="flex flex-col gap-2 font-bold text-gray-500 dark:text-gray-400">
             <li>
@@ -81,7 +81,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
                 onClick={() => setActivePage("simulator")}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                Hardware Simulator (3-Step Wizard)
+                {t("footer.nav_simulator")}
               </button>
             </li>
             <li>
@@ -89,7 +89,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
                 onClick={() => setActivePage("catalog")}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                Recommended Game Builds ($500-$3,500)
+                {t("footer.nav_builds")}
               </button>
             </li>
             <li>
@@ -97,7 +97,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
                 onClick={onOpenBuyModal}
                 className="hover:text-[#E88D9F] dark:hover:text-white transition flex items-center gap-1.5"
               >
-                PC Configurator Store & Checkout
+                {t("footer.nav_store")}
               </button>
             </li>
           </ul>
@@ -106,7 +106,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
         {/* Col 3: Popular Hardware Benchmarked */}
         <div className="flex flex-col gap-3">
           <h4 className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-            <Cpu className="w-3.5 h-3.5 text-[#8A9A86]" /> Featured Hardware
+            <Cpu className="w-3.5 h-3.5 text-[#8A9A86]" /> {t("footer.hardware_title")}
           </h4>
           <ul className="flex flex-col gap-1.5 text-[11px] font-extrabold text-gray-500 dark:text-gray-400">
             <li className="flex justify-between border-b border-black/5 dark:border-white/5 pb-1">
@@ -131,7 +131,7 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
         {/* Col 4: Top Games */}
         <div className="flex flex-col gap-3">
           <h4 className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-            <Gamepad2 className="w-3.5 h-3.5 text-[#E88D9F]" /> Supported Games
+            <Gamepad2 className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("footer.games_title")}
           </h4>
           <ul className="grid grid-cols-2 gap-1.5 text-[11px] font-extrabold text-gray-500 dark:text-gray-400">
             <li>• Cyberpunk 2077</li>
@@ -149,27 +149,27 @@ export default function Footer({ setActivePage, onOpenBuyModal, onOpenLegalModal
       {/* Bottom Legal & Copyright Bar */}
       <div className="max-w-7xl mx-auto border-t border-black/10 dark:border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500 font-extrabold flex-wrap">
         <div>
-          © 2026 <strong>KENSEI SPEC (剣聖スペック)</strong>. All rights reserved.
+          © 2026 <strong>KENSEI SPEC (剣聖スペック)</strong>. {t("footer.all_rights_reserved")}
         </div>
         <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
           <button onClick={() => onOpenLegalModal("terms")} className="hover:text-[#E88D9F] transition">
-            Terms of Service / 利用規約
+            {t("footer.terms")}
           </button>
           <span className="text-gray-300 dark:text-gray-700">•</span>
           <button onClick={() => onOpenLegalModal("privacy")} className="hover:text-emerald-400 transition">
-            Privacy Policy / プライバシー
+            {t("footer.privacy")}
           </button>
           <span className="text-gray-300 dark:text-gray-700">•</span>
           <button onClick={() => onOpenLegalModal("disclaimer")} className="hover:text-indigo-400 transition">
-            Telemetry Disclaimer / 免責事項
+            {t("footer.disclaimer")}
           </button>
           <span className="text-gray-300 dark:text-gray-700">•</span>
           <button onClick={() => onOpenLegalModal("affiliate")} className="hover:text-amber-400 transition">
-            Commercial & Affiliate / 商業開示
+            {t("footer.affiliate")}
           </button>
           <span className="text-gray-300 dark:text-gray-700">•</span>
           <button onClick={onOpenBuyModal} className="text-[#E88D9F] hover:underline flex items-center gap-1">
-            <ShoppingCart className="w-3 h-3" /> Buy Build
+            <ShoppingCart className="w-3 h-3" /> {t("footer.buy_build")}
           </button>
         </div>
       </div>

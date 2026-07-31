@@ -1111,5 +1111,85 @@ export const translations: TranslationDictionary = {
     en: "Built to deliver authentic hardware benchmark predictions. Features 3D V-Cache latency math, VRAM buffer thrashing penalties, and socket-matched PC build recommendations.",
     ru: "Создан для точного прогнозирования бенчмарков. Учитывает 3D V-Cache, штрафы нехватки VRAM и совместимость сокетов.",
     ja: "本物のハードウェアベンチマーク予測を提供。3D V-Cacheレイテンシ計算、VRAM不足ペナルティ、ソケット整合済みのPC構成提案を搭載。"
+  },
+  "footer.badge_verified": {
+    en: "Verified Telemetry v2.6",
+    ru: "Проверенная телеметрия v2.6",
+    ja: "検証済みテレメトリ v2.6"
+  },
+  "footer.legal_consent_active": {
+    en: "Legal Consent Active ✅",
+    ru: "Согласие принято ✅",
+    ja: "法的同意済み ✅"
+  },
+  "footer.legal_terms_btn": {
+    en: "Legal & Terms",
+    ru: "Условия и лицензия",
+    ja: "法的通知と利用規約"
+  },
+  "footer.cookie_settings": {
+    en: "Cookie Settings",
+    ru: "Настройки Cookie",
+    ja: "クッキー設定"
+  },
+  "footer.nav_title": {
+    en: "Quick Navigation",
+    ru: "Быстрая навигация",
+    ja: "クイックナビゲーション"
+  },
+  "footer.nav_simulator": {
+    en: "Hardware Simulator (3-Step Wizard)",
+    ru: "Симулятор сборки (3 шага)",
+    ja: "ハードウェアシミュレーター (3ステップ)"
+  },
+  "footer.nav_builds": {
+    en: "Recommended Game Builds ($500-$3,500)",
+    ru: "Готовые игровые сборки ($500–$3 500)",
+    ja: "推奨ゲーム構成 ($500〜$3,500)"
+  },
+  "footer.nav_store": {
+    en: "PC Configurator Store & Checkout",
+    ru: "Конфигуратор и оформление",
+    ja: "PC構成ストア＆チェックアウト"
+  },
+  "footer.hardware_title": {
+    en: "Featured Hardware",
+    ru: "Популярное железо",
+    ja: "注目ハードウェア"
+  },
+  "footer.games_title": {
+    en: "Supported Games",
+    ru: "Поддерживаемые игры",
+    ja: "対応ゲーム"
+  },
+  "footer.all_rights_reserved": {
+    en: "All rights reserved.",
+    ru: "Все права защищены.",
+    ja: "All rights reserved."
+  },
+  "footer.terms": {
+    en: "Terms of Service",
+    ru: "Условия использования",
+    ja: "利用規約"
+  },
+  "footer.privacy": {
+    en: "Privacy Policy",
+    ru: "Политика конфиденциальности",
+    ja: "プライバシー"
+  },
+  "footer.disclaimer": {
+    en: "Telemetry Disclaimer",
+    ru: "Отказ от ответственности",
+    ja: "免責事項"
+  },
+  "footer.affiliate": {
+    en: "Commercial & Affiliate",
+    ru: "Коммерческие условия",
+    ja: "商業開示"
+  },
+  "footer.buy_build": {
+    en: "Buy Build",
+    ru: "Купить сборку",
+    ja: "構成の購入"
   }
 };
