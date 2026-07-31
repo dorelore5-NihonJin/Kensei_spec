@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import type { CPU, GPU } from "../lib/types";
-import { useState, useMemo, useEffect } from "react";
 import { useHardware } from "../context/HardwareContext";
 import { useLanguage } from "../context/LanguageContext";
 import type { CPU, GPU } from "../lib/types";
@@ -11,17 +9,17 @@ import GpuGamingBenchmarkChart from "../components/GpuGamingBenchmarkChart";
 import SearchableSelect, { type SelectOption } from "../components/SearchableSelect";
 import {
   Trophy,
-  ArrowRightLeft,
   Sparkles,
   Zap,
   Cpu,
   Flame,
-  CheckCircle2,
   MousePointerClick,
-  Layers,
   Scale,
-  Activity,
-  HardDrive
+  HardDrive,
+  Check,
+  Gamepad2,
+  Monitor,
+  ShieldCheck
 } from "lucide-react";
 
 interface ComparePageProps {
