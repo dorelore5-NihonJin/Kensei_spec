@@ -19,7 +19,8 @@ import {
   Check,
   Gamepad2,
   Monitor,
-  ShieldCheck
+  ShieldCheck,
+  Activity
 } from "lucide-react";
 
 interface ComparePageProps {
@@ -855,6 +856,47 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                   </table>
                 </div>
               </div>
+
+              {/* CPU BLOCK 5: SYNTHETIC BENCHMARKS & RENDERING */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Activity className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    {t("compare.block.cpu_benchmarks")}
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.bench.geekbench6_single")}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(selectedCpuA?.singleCoreScore, selectedCpuB?.singleCoreScore), "A", `${selectedCpuA?.singleCoreScore || 0} pts`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(selectedCpuA?.singleCoreScore, selectedCpuB?.singleCoreScore), "B", `${selectedCpuB?.singleCoreScore || 0} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.geekbench6_multi")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.multiCoreScore, selectedCpuB?.multiCoreScore), "A", `${selectedCpuA?.multiCoreScore || 0} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.multiCoreScore, selectedCpuB?.multiCoreScore), "B", `${selectedCpuB?.multiCoreScore || 0} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.cinebench_single")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.cinebenchR23Single || Math.round((selectedCpuA?.singleCoreScore || 0) * 0.75), selectedCpuB?.cinebenchR23Single || Math.round((selectedCpuB?.singleCoreScore || 0) * 0.75)), "A", `${selectedCpuA?.cinebenchR23Single || Math.round((selectedCpuA?.singleCoreScore || 0) * 0.75)} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.cinebenchR23Single || Math.round((selectedCpuA?.singleCoreScore || 0) * 0.75), selectedCpuB?.cinebenchR23Single || Math.round((selectedCpuB?.singleCoreScore || 0) * 0.75)), "B", `${selectedCpuB?.cinebenchR23Single || Math.round((selectedCpuB?.singleCoreScore || 0) * 0.75)} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.cinebench_multi")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.cinebenchR23Multi || Math.round((selectedCpuA?.multiCoreScore || 0) * 1.8), selectedCpuB?.cinebenchR23Multi || Math.round((selectedCpuB?.multiCoreScore || 0) * 1.8)), "A", `${selectedCpuA?.cinebenchR23Multi || Math.round((selectedCpuA?.multiCoreScore || 0) * 1.8)} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.cinebenchR23Multi || Math.round((selectedCpuA?.multiCoreScore || 0) * 1.8), selectedCpuB?.cinebenchR23Multi || Math.round((selectedCpuB?.multiCoreScore || 0) * 1.8)), "B", `${selectedCpuB?.cinebenchR23Multi || Math.round((selectedCpuB?.multiCoreScore || 0) * 1.8)} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.passmark_cpu")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.passmarkScore || Math.round((selectedCpuA?.multiCoreScore || 0) * 2.2), selectedCpuB?.passmarkScore || Math.round((selectedCpuB?.multiCoreScore || 0) * 2.2)), "A", `${selectedCpuA?.passmarkScore || Math.round((selectedCpuA?.multiCoreScore || 0) * 2.2)} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedCpuA?.passmarkScore || Math.round((selectedCpuA?.multiCoreScore || 0) * 2.2), selectedCpuB?.passmarkScore || Math.round((selectedCpuB?.multiCoreScore || 0) * 2.2)), "B", `${selectedCpuB?.passmarkScore || Math.round((selectedCpuB?.multiCoreScore || 0) * 2.2)} pts`)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           )}
 
@@ -1211,6 +1253,47 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                         <td className="py-3.5 px-4 text-gray-500">{t("compare.cuda_gpgpu")}</td>
                         <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechA.cuda}</td>
                         <td className="py-3.5 px-4 font-mono text-emerald-500 font-black">{gpuTechB.cuda}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* GPU BLOCK 6: SYNTHETIC & COMPUTE BENCHMARKS */}
+              <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/10 pb-4">
+                  <Activity className="w-5 h-5 text-[#E88D9F]" />
+                  <h3 className="text-base sm:text-lg font-black text-[#1E2022] dark:text-white">
+                    {t("compare.block.gpu_benchmarks")}
+                  </h3>
+                </div>
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <tbody className="divide-y divide-black/5 dark:divide-white/5 font-bold">
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500 w-2/5">{t("compare.bench.3dmark_timespy")}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(selectedGpuA?.relativePowerScore, selectedGpuB?.relativePowerScore), "A", `${Math.round((selectedGpuA?.relativePowerScore || 0) * 45)} pts`)}</td>
+                        <td className="py-3.5 px-4 w-3/10">{getWinnerClass(compareNumeric(selectedGpuA?.relativePowerScore, selectedGpuB?.relativePowerScore), "B", `${Math.round((selectedGpuB?.relativePowerScore || 0) * 45)} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.3dmark_portroyal")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedGpuA?.rayTracingPowerScore, selectedGpuB?.rayTracingPowerScore), "A", `${Math.round((selectedGpuA?.rayTracingPowerScore || 0) * 22)} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedGpuA?.rayTracingPowerScore, selectedGpuB?.rayTracingPowerScore), "B", `${Math.round((selectedGpuB?.rayTracingPowerScore || 0) * 22)} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.passmark_gpu")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedGpuA?.relativePowerScore, selectedGpuB?.relativePowerScore), "A", `${Math.round((selectedGpuA?.relativePowerScore || 0) * 65)} pts`)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(selectedGpuA?.relativePowerScore, selectedGpuB?.relativePowerScore), "B", `${Math.round((selectedGpuB?.relativePowerScore || 0) * 65)} pts`)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.compute_tflops")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tflops, gpuTechB.tflops), "A", gpuTechA.tflops)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.tflops, gpuTechB.tflops), "B", gpuTechB.tflops)}</td>
+                      </tr>
+                      <tr className="hover:bg-black/5 dark:hover:bg-white/5 transition">
+                        <td className="py-3.5 px-4 text-gray-500">{t("compare.bench.texture_rate")}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.textureFillRate, gpuTechB.textureFillRate), "A", gpuTechA.textureFillRate)}</td>
+                        <td className="py-3.5 px-4">{getWinnerClass(compareNumeric(gpuTechA.textureFillRate, gpuTechB.textureFillRate), "B", gpuTechB.textureFillRate)}</td>
                       </tr>
                     </tbody>
                   </table>

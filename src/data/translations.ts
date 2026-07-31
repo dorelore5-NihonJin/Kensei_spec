@@ -1045,6 +1045,68 @@ export const translations: TranslationDictionary = {
     ja: "同ブランドで+30%の性能向上を提供するCPU/GPUは見つかりませんでした。すでにこの世代の頂点に達しています！"
   },
 
+  // Benchmark Comparison Blocks
+  "compare.block.cpu_benchmarks": {
+    en: "SYNTHETIC & RENDERING BENCHMARKS",
+    ru: "СИНТЕТИЧЕСКИЕ И РЕНДЕР ТЕСТЫ",
+    ja: "ベンチマークとレンダリングテスト"
+  },
+  "compare.block.gpu_benchmarks": {
+    en: "SYNTHETIC & COMPUTE BENCHMARKS",
+    ru: "СИНТЕТИЧЕСКИЕ И ВЫЧИСЛИТЕЛЬНЫЕ ТЕСТЫ",
+    ja: "シンセティック＆コンピューティングテスト"
+  },
+  "compare.bench.geekbench6_single": {
+    en: "Geekbench 6 (Single-Core)",
+    ru: "Geekbench 6 (Одноядерный)",
+    ja: "Geekbench 6 (シングルコア)"
+  },
+  "compare.bench.geekbench6_multi": {
+    en: "Geekbench 6 (Multi-Core)",
+    ru: "Geekbench 6 (Многоядерный)",
+    ja: "Geekbench 6 (マルチコア)"
+  },
+  "compare.bench.cinebench_single": {
+    en: "Cinebench R23 (Single-Core)",
+    ru: "Cinebench R23 (Одноядерный)",
+    ja: "Cinebench R23 (シングルコア)"
+  },
+  "compare.bench.cinebench_multi": {
+    en: "Cinebench R23 (Multi-Core)",
+    ru: "Cinebench R23 (Многоядерный)",
+    ja: "Cinebench R23 (マルチコア)"
+  },
+  "compare.bench.passmark_cpu": {
+    en: "PassMark CPU Mark",
+    ru: "PassMark CPU Mark",
+    ja: "PassMark CPU マーク"
+  },
+  "compare.bench.3dmark_timespy": {
+    en: "3DMark TimeSpy (Graphics Score)",
+    ru: "3DMark TimeSpy (Графика)",
+    ja: "3DMark TimeSpy (グラフィックス)"
+  },
+  "compare.bench.3dmark_portroyal": {
+    en: "3DMark Port Royal (Ray Tracing)",
+    ru: "3DMark Port Royal (Трассировка лучей)",
+    ja: "3DMark Port Royal (レイトレーシング)"
+  },
+  "compare.bench.passmark_gpu": {
+    en: "PassMark G3D Direct3D Score",
+    ru: "PassMark G3D Direct3D Баллы",
+    ja: "PassMark G3D スコア"
+  },
+  "compare.bench.compute_tflops": {
+    en: "Compute Rate (TFLOPS)",
+    ru: "Производительность вычислений (TFLOPS)",
+    ja: "演算性能 (TFLOPS)"
+  },
+  "compare.bench.texture_rate": {
+    en: "Texture Fill Rate",
+    ru: "Скорость текстурирования",
+    ja: "テクスチャ フィルレート"
+  },
+
   // Hardware Die Diagnostics & Power
   "bottleneck.title": {
     en: "SYSTEM BOTTLENECK ANALYSIS",
