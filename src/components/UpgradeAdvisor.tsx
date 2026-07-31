@@ -257,7 +257,7 @@ export default function UpgradeAdvisor({
   ]);
 
   return (
-    <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col gap-5">
+    <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-black flex items-center gap-2 text-[#1E2022] dark:text-white">
           <TrendingUp className="w-5 h-5 text-[#E88D9F]" />
@@ -271,25 +271,25 @@ export default function UpgradeAdvisor({
       {!isComplete ? (
         <div className="p-4 bg-gray-50 dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-2xl text-center text-xs text-gray-600 dark:text-gray-400 font-extrabold py-8 flex items-center justify-center gap-2">
           <Sparkles className="w-4 h-4 text-[#8A9A86]" />
-          <span>Setup your current hardware configuration to unlock upgrade predictions.</span>
+          <span>{t("advisor.setup_prompt")}</span>
         </div>
       ) : bottleneckType === "None" ? (
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-center gap-3">
           <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <div className="text-xs text-emerald-900 dark:text-emerald-300 font-extrabold">
-            All systems balanced! No CPU or GPU hardware bottlenecks detected. No upgrade is currently critical.
+            {t("advisor.all_balanced")}
           </div>
         </div>
       ) : upgradeRecommendation ? (
         <div className="flex flex-col gap-4">
           <div className="text-xs text-[#1E2022] dark:text-gray-200 font-bold leading-relaxed">
-            Your system is currently bound by the <span className="font-black text-[#E88D9F]">{upgradeRecommendation.type}</span>. Upgrading to the following target configuration will resolve the bottleneck and deliver a massive framerate leap:
+            {t("advisor.desc_bound").replace("{component}", upgradeRecommendation.type)}
           </div>
 
           <div className="p-4 bg-[#E88D9F]/10 dark:bg-[#E88D9F]/20 border border-[#E88D9F]/30 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider">Suggested Upgrade Tier</span>
+                <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-wider">{t("advisor.suggested_tier")}</span>
                 {upgradeRecommendation.socketBadge && (
                   <span className={`text-[9px] font-black px-2 py-0.5 rounded-md flex items-center gap-1 ${
                     upgradeRecommendation.isDropIn
@@ -313,7 +313,7 @@ export default function UpgradeAdvisor({
             </div>
 
             <div className="bg-[#E88D9F] px-4 py-2 rounded-xl text-center min-w-[90px] self-stretch sm:self-auto flex flex-col justify-center text-white shadow-xs">
-              <span className="text-[10px] font-black uppercase tracking-wider text-white/90">Unlock Boost</span>
+              <span className="text-[10px] font-black uppercase tracking-wider text-white/90">{t("advisor.unlock_boost")}</span>
               <span className="text-base font-black text-white">+{upgradeRecommendation.pctBoost}% FPS</span>
             </div>
           </div>
@@ -321,12 +321,12 @@ export default function UpgradeAdvisor({
           {/* Upgrade Framerate comparison bar */}
           <div className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-3.5 rounded-2xl flex justify-between items-center text-xs">
             <div>
-              <span className="text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider text-[9px]">Current Framerate</span>
+              <span className="text-gray-600 dark:text-gray-400 block font-black uppercase tracking-wider text-[9px]">{t("advisor.current_fps")}</span>
               <span className="text-sm font-black text-gray-600 dark:text-gray-300">{upgradeRecommendation.currentFps} FPS</span>
             </div>
             <div className="h-6 w-px bg-black/15 dark:bg-white/15" />
             <div className="text-right">
-              <span className="text-[#E88D9F] block font-black uppercase tracking-wider text-[9px]">Upgraded Framerate</span>
+              <span className="text-[#E88D9F] block font-black uppercase tracking-wider text-[9px]">{t("advisor.upgraded_fps")}</span>
               <span className="text-sm font-black text-[#E88D9F]">{upgradeRecommendation.newFps} FPS</span>
             </div>
           </div>

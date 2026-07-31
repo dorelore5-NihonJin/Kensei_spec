@@ -1004,6 +1004,41 @@ export const translations: TranslationDictionary = {
     ru: "ОПТИМИЗАЦИЯ",
     ja: "最適化"
   },
+  "advisor.desc_bound": {
+    en: "Your system is currently bound by the {component}. Upgrading to the following target configuration will resolve the bottleneck and deliver a massive framerate leap:",
+    ru: "Производительность системы упирается в {component}. Обновление до следующей конфигурации устранит узкое место и даст мощный прирост FPS:",
+    ja: "システムのボトルネックは {component} です。以下の構成にアップグレードするとボトルネックが解消し、FPSが大幅に向上します:"
+  },
+  "advisor.setup_prompt": {
+    en: "Setup your current hardware configuration in Step 1 to unlock upgrade predictions.",
+    ru: "Выберите комплектующие на Шаге 1 для расчёта потенциала апгрейда.",
+    ja: "アップグレード予測を有効にするには、ステップ1で現在のパーツを構成してください。"
+  },
+  "advisor.all_balanced": {
+    en: "All systems balanced! No CPU or GPU hardware bottlenecks detected. No upgrade is currently critical.",
+    ru: "Все системы сбалансированы! Узких мест CPU или GPU не обнаружено. Срочный апгрейд не требуется.",
+    ja: "すべてのシステムがバランスされています！CPUやGPUのボトルネックは検出されませんでした。"
+  },
+  "advisor.suggested_tier": {
+    en: "SUGGESTED UPGRADE TIER",
+    ru: "РЕКОМЕНДУЕМЫЙ АПГРЕЙД",
+    ja: "推奨アップグレード構成"
+  },
+  "advisor.unlock_boost": {
+    en: "UNLOCK BOOST",
+    ru: "ПРИРОСТ КАДРОВ",
+    ja: "ブースト獲得"
+  },
+  "advisor.current_fps": {
+    en: "CURRENT FRAMERATE",
+    ru: "ТЕКУЩИЙ FPS",
+    ja: "現在のフレームレート"
+  },
+  "advisor.upgraded_fps": {
+    en: "UPGRADED FRAMERATE",
+    ru: "FPS ПОСЛЕ АПГРЕЙДА",
+    ja: "アップグレード後のFPS"
+  },
   "advisor.pinnacle": {
     en: "We couldn't locate a single CPU/GPU of the same brand that delivers a +30% performance boost. You may already be at the pinnacle of this generation!",
     ru: "Не найдено процессоров/видеокарт того же бренда, дающих +30% прироста. Ваша система уже на пике текущего поколения!",

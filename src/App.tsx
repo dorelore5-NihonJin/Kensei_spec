@@ -514,41 +514,37 @@ export default function App() {
                       onSelectPreset={setSelectedPreset}
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="flex flex-col gap-6">
-                        <FpsGauge
-                          report={performanceReport}
-                          selectedCpu={!!selectedCpu}
-                          selectedGpu={!!selectedGpu}
-                          selectedRam={!!selectedRam}
-                          frameGen={frameGen}
-                        />
-                        <SystemDiagnostics
-                          selectedCpu={selectedCpu}
-                          selectedGpu={selectedGpu}
-                          selectedRam={selectedRam}
-                          compatibilityReport={compatibilityReport}
-                        />
-                      </div>
-
-                      <div className="flex flex-col gap-6">
-                        <UpgradeAdvisor
-                          selectedCpu={selectedCpu}
-                          selectedGpu={selectedGpu}
-                          selectedRam={selectedRam}
-                          selectedStorage={selectedStorage}
-                          selectedGame={selectedGame}
-                          selectedResolution={selectedResolution}
-                          selectedPreset={selectedPreset}
-                          selectedDlss={selectedDlss}
-                          rayTracing={rayTracing}
-                          frameGen={frameGen}
-                          ramChannel={ramChannel}
-                          cpus={cpus}
-                          gpus={gpus}
-                        />
-                      </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <FpsGauge
+                        report={performanceReport}
+                        selectedCpu={!!selectedCpu}
+                        selectedGpu={!!selectedGpu}
+                        selectedRam={!!selectedRam}
+                        frameGen={frameGen}
+                      />
+                      <UpgradeAdvisor
+                        selectedCpu={selectedCpu}
+                        selectedGpu={selectedGpu}
+                        selectedRam={selectedRam}
+                        selectedStorage={selectedStorage}
+                        selectedGame={selectedGame}
+                        selectedResolution={selectedResolution}
+                        selectedPreset={selectedPreset}
+                        selectedDlss={selectedDlss}
+                        rayTracing={rayTracing}
+                        frameGen={frameGen}
+                        ramChannel={ramChannel}
+                        cpus={cpus}
+                        gpus={gpus}
+                      />
                     </div>
+
+                    <SystemDiagnostics
+                      selectedCpu={selectedCpu}
+                      selectedGpu={selectedGpu}
+                      selectedRam={selectedRam}
+                      compatibilityReport={compatibilityReport}
+                    />
 
                     {/* Final Checkout Card */}
                     <div className="p-6 rounded-3xl bg-[#1E2022] text-white shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-white/10">
