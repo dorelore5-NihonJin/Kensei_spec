@@ -422,7 +422,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative z-20">
           <div className="flex items-center justify-between">
             <span className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-1.5">
-              <MousePointerClick className="w-3.5 h-3.5" /> Candidate A
+              <MousePointerClick className="w-3.5 h-3.5" /> {t("compare.candidate_a")}
             </span>
             {itemA && (
               <span
@@ -445,7 +445,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             options={filteredOptionsA}
             value={itemA?.id || ""}
             onChange={handleSelectA}
-            placeholder={`Select first ${isCpuMode ? "CPU" : "GPU"}...`}
+            placeholder={isCpuMode ? t("compare.select_cpu_a") : t("compare.select_gpu_a")}
           />
 
           {itemAInfo && (
@@ -453,11 +453,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
               <div>
                 <div className="text-xs text-gray-400 font-bold">{itemAInfo.details}</div>
                 <div className="text-xs font-black text-gray-700 dark:text-gray-300 mt-0.5">
-                  Released {itemAInfo.releaseYear}
+                  {t("compare.released")} {itemAInfo.releaseYear}
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-[10px] uppercase font-bold text-gray-400">Score</div>
+                <div className="text-[10px] uppercase font-bold text-gray-400">{t("compare.score")}</div>
                 <div className="text-xl font-black font-mono text-[#E88D9F]">{itemAInfo.score} PTS</div>
               </div>
             </div>
@@ -468,7 +468,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
         <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 relative z-10">
           <div className="flex items-center justify-between">
             <span className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-1.5">
-              <MousePointerClick className="w-3.5 h-3.5" /> Candidate B
+              <MousePointerClick className="w-3.5 h-3.5" /> {t("compare.candidate_b")}
             </span>
             {itemB && (
               <span
@@ -491,7 +491,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
             options={filteredOptionsB}
             value={itemB?.id || ""}
             onChange={handleSelectB}
-            placeholder={`Select second ${isCpuMode ? "CPU" : "GPU"}...`}
+            placeholder={isCpuMode ? t("compare.select_cpu_b") : t("compare.select_gpu_b")}
           />
 
           {itemBInfo && (
@@ -499,11 +499,11 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
               <div>
                 <div className="text-xs text-gray-400 font-bold">{itemBInfo.details}</div>
                 <div className="text-xs font-black text-gray-700 dark:text-gray-300 mt-0.5">
-                  Released {itemBInfo.releaseYear}
+                  {t("compare.released")} {itemBInfo.releaseYear}
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-[10px] uppercase font-bold text-gray-400">Score</div>
+                <div className="text-[10px] uppercase font-bold text-gray-400">{t("compare.score")}</div>
                 <div className="text-xl font-black font-mono text-[#E88D9F]">{itemBInfo.score} PTS</div>
               </div>
             </div>
@@ -522,12 +522,12 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
               </div>
               <div>
                 <span className="text-[10px] font-black uppercase tracking-wider text-amber-500">
-                  Performance Lead Analysis
+                  {t("compare.lead_analysis")}
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-[#1E2022] dark:text-white mt-0.5">
                   {winner === "Tie"
-                    ? "Identical Throughput Benchmark Score"
-                    : `${winner === "A" ? itemAInfo.name : itemBInfo.name} is ${deltaPct}% Faster`}
+                    ? t("compare.tie_score")
+                    : `${winner === "A" ? itemAInfo.name : itemBInfo.name} ${t("compare.faster_text").replace("{delta}", String(deltaPct))}`}
                 </h3>
               </div>
             </div>
@@ -538,7 +538,7 @@ export default function ComparePage({ cpus, gpus }: ComparePageProps) {
                 className="px-5 py-2.5 rounded-2xl bg-[#E88D9F] hover:bg-[#E88D9F]/90 text-white text-xs font-black transition shadow-md flex items-center gap-2"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Apply Winner to Simulator</span>
+                <span>{t("compare.apply_winner_btn")}</span>
               </button>
             </div>
           </div>

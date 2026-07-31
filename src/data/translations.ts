@@ -250,10 +250,81 @@ export const translations: TranslationDictionary = {
     ru: "Загрузить больше сборок",
     ja: "さらに構成を表示"
   },
-  "hero.catalog.desc": {
-    en: "Explore optimized PC builds tailored for Budget eSports, 1440p Ultra, and 4K Path Tracing.",
-    ru: "Исследуйте сбалансированные ПК для киберспорта, 1440p Ультра и 4K Трассировки путей.",
-    ja: "予算向けeスポーツ、1440pウルトラ、4Kパストレーシングに最適化されたPCビルドを検索。"
+  // Section 3: Compare Page
+  "compare.title": {
+    en: "Hardware Head-to-Head Comparison",
+    ru: "Прямое сравнение комплектующих",
+    ja: "ハードウェア直接比較"
+  },
+  "rankings.tab.cpu": {
+    en: "CPUs",
+    ru: "Процессоры",
+    ja: "プロセッサ (CPU)"
+  },
+  "rankings.tab.gpu": {
+    en: "GPUs",
+    ru: "Видеокарты",
+    ja: "グラフィック (GPU)"
+  },
+  "compare.candidate_a": {
+    en: "Candidate A",
+    ru: "Кандидат A",
+    ja: "候補 A"
+  },
+  "compare.candidate_b": {
+    en: "Candidate B",
+    ru: "Кандидат B",
+    ja: "候補 B"
+  },
+  "compare.select_cpu_a": {
+    en: "Select first CPU...",
+    ru: "Выберите первый процессор...",
+    ja: "最初のCPUを選択..."
+  },
+  "compare.select_cpu_b": {
+    en: "Select second CPU...",
+    ru: "Выберите второй процессор...",
+    ja: "2番目のCPUを選択..."
+  },
+  "compare.select_gpu_a": {
+    en: "Select first GPU...",
+    ru: "Выберите первую видеокарту...",
+    ja: "最初のGPUを選択..."
+  },
+  "compare.select_gpu_b": {
+    en: "Select second GPU...",
+    ru: "Выберите вторую видеокарту...",
+    ja: "2番目のGPUを選択..."
+  },
+  "compare.released": {
+    en: "Released",
+    ru: "Выпущен в",
+    ja: "発売"
+  },
+  "compare.score": {
+    en: "Score",
+    ru: "Баллы",
+    ja: "スコア"
+  },
+  "compare.lead_analysis": {
+    en: "PERFORMANCE LEAD ANALYSIS",
+    ru: "АНАЛИЗ ПРЕИМУЩЕСТВА ПРОИЗВОДИТЕЛЬНОСТИ",
+    ja: "性能リード分析"
+  },
+  "compare.tie_score": {
+    en: "Identical Throughput Benchmark Score",
+    ru: "Одинаковый результат в бенчмарках",
+    ja: "同等のベンチマークスコア"
+  },
+  "compare.faster_text": {
+    en: "is {delta}% Faster",
+    ru: "быстрее на {delta}%",
+    ja: "は {delta}% 高速"
+  },
+  "compare.apply_winner_btn": {
+    en: "Apply Winner to Simulator",
+    ru: "Снарядить победителя в симулятор",
+    ja: "勝者をシミュレーターに適用"
   },
 
   "hero.compare.badge1": {
