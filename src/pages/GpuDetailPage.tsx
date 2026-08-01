@@ -1,0 +1,647 @@
+import { useState, useMemo } from "react";
+import { useHardware } from "../context/HardwareContext";
+import { useLanguage } from "../context/LanguageContext";
+import { getGpuTechnicalDetails } from "../lib/hardwareSpecs";
+import { getHardwareSlug, findGpuBySlugOrId } from "../lib/slugs";
+import {
+  Zap,
+  Scale,
+  ShoppingCart,
+  Share2,
+  Check,
+  ArrowLeft,
+  Tv,
+  CheckCircle2,
+  XCircle,
+  Dna,
+  HardDrive,
+  ShieldCheck,
+  Flame,
+  Award,
+  Sparkles,
+  Layers,
+  Monitor
+} from "lucide-react";
+
+export default function GpuDetailPage() {
+  const {
+    gpus,
+    selectedGpuDetailId,
+    setSelectedGpu,
+    setActivePage,
+    setCurrentStep,
+    setIsBuyModalOpen,
+    handleOpenGpuDetail,
+    previousPage,
+    handleBackFromCpuDetail,
+    showToast
+  } = useHardware();
+  const { formatPrice } = useLanguage();
+
+  const [copied, setCopied] = useState(false);
+
+  const backLabel = useMemo(() => {
+    if (previousPage === "rankings") return "Назад в Рейтинг";
+    if (previousPage === "compare") return "Назад в Сравнение";
+    if (previousPage === "catalog") return "Назад в Каталог";
+    return "Назад в Симулятор";
+  }, [previousPage]);
+
+  // Resolve target GPU from selectedGpuDetailId or URL
+  const gpu = useMemo(() => {
+    if (selectedGpuDetailId) {
+      const match = findGpuBySlugOrId(gpus, selectedGpuDetailId);
+      if (match) return match;
+    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const idParam = urlParams.get("id") || urlParams.get("gpu");
+    if (idParam) {
+      const match = findGpuBySlugOrId(gpus, idParam);
+      if (match) return match;
+    }
+    return gpus[0] || null;
+  }, [gpus, selectedGpuDetailId]);
+
+  if (!gpu) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+        <h2 className="text-xl font-black text-gray-400">Видеокарта не найдена</h2>
+        <button
+          onClick={() => setActivePage("simulator")}
+          className="mt-4 px-6 py-2.5 bg-[#1E2022] text-white rounded-xl text-xs font-black"
+        >
+          Вернуться в Симулятор
+        </button>
+      </div>
+    );
+  }
+
+  const techDetails = getGpuTechnicalDetails(gpu, gpus);
+
+  // Compute rankings & percentiles among database GPUs
+  const { gpuRank, rtRank, powerMax, rtMax } = useMemo(() => {
+    if (!gpus || gpus.length === 0) {
+      return { gpuRank: 1, rtRank: 1, powerMax: 100, rtMax: 100 };
+    }
+    const sortedPower = [...gpus].sort((a, b) => b.relativePowerScore - a.relativePowerScore);
+    const sortedRt = [...gpus].sort((a, b) => b.rayTracingPowerScore - a.rayTracingPowerScore);
+
+    const gRank = sortedPower.findIndex((g) => g.id === gpu.id) + 1;
+    const rRank = sortedRt.findIndex((g) => g.id === gpu.id) + 1;
+
+    const pMax = sortedPower[0]?.relativePowerScore || 100;
+    const rMax = sortedRt[0]?.rayTracingPowerScore || 100;
+
+    return {
+      gpuRank: gRank > 0 ? gRank : 1,
+      rtRank: rRank > 0 ? rRank : 1,
+      powerMax: pMax,
+      rtMax: rMax
+    };
+  }, [gpus, gpu]);
+
+  // Find direct rival GPUs (same performance tier)
+  const rivalGpus = useMemo(() => {
+    return gpus
+      .filter((g) => g.id !== gpu.id)
+      .map((g) => ({
+        gpu: g,
+        diff: Math.abs(g.relativePowerScore - gpu.relativePowerScore) + Math.abs(g.vramGB - gpu.vramGB) * 2
+      }))
+      .sort((a, b) => a.diff - b.diff)
+      .slice(0, 4)
+      .map((item) => item.gpu);
+  }, [gpus, gpu]);
+
+  // Copy share link helper
+  const handleCopyLink = () => {
+    const slug = getHardwareSlug(gpu);
+    const url = `${window.location.origin}${window.location.pathname}?page=gpu&id=${slug}`;
+    try {
+      navigator.clipboard.writeText(url);
+      setCopied(true);
+      showToast("Ссылка на видеокарту скопирована!", gpu.name);
+      setTimeout(() => setCopied(false), 3000);
+    } catch {
+      showToast("Скопировано!", url);
+    }
+  };
+
+  const isNvidia = gpu.manufacturer === "NVIDIA";
+  const isAmd = gpu.manufacturer === "AMD";
+  const isIntel = gpu.manufacturer === "Intel";
+
+  const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex flex-col gap-8 text-[#1E2022] dark:text-white animate-fadeIn">
+      
+      {/* Dynamic Back Navigation Bar */}
+      <div className="flex items-center justify-between gap-4">
+        <button
+          onClick={handleBackFromCpuDetail}
+          className="group flex items-center gap-2 text-xs font-black text-gray-500 dark:text-gray-400 hover:text-[#1E2022] dark:hover:text-white transition active:scale-95"
+        >
+          <div className="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/10 flex items-center justify-center group-hover:bg-[#E88D9F] group-hover:text-white transition">
+            <ArrowLeft className="w-4 h-4" />
+          </div>
+          <span>{backLabel}</span>
+        </button>
+
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] font-black px-3.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+            <Sparkles className="w-3 h-3" />
+            База знаний KENSEI • Паспорт Видеокарты
+          </span>
+        </div>
+      </div>
+
+      {/* HERO BANNER CARD */}
+      <div className="glass-card relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-2xl flex flex-col gap-6">
+        
+        {/* Top Header Row */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="flex items-start gap-5">
+            {/* Brand Logo Box */}
+            <div
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center text-white font-black text-sm shadow-xl shrink-0 border border-white/20 transition-transform hover:scale-105 duration-200"
+              style={{ backgroundColor: brandColor, boxShadow: `0 10px 25px -5px ${brandColor}40` }}
+            >
+              <span className="text-[10px] opacity-80 uppercase tracking-widest">{gpu.manufacturer}</span>
+              <span className="text-sm sm:text-base font-mono leading-none mt-1">{gpu.vramGB} GB</span>
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md border" style={{ backgroundColor: `${brandColor}15`, color: brandColor, borderColor: `${brandColor}30` }}>
+                  {gpu.manufacturer}
+                </span>
+                <span className="text-[10px] bg-black/5 dark:bg-white/10 px-2.5 py-0.5 rounded-md font-extrabold text-gray-600 dark:text-gray-300">
+                  {gpu.vramGB} GB VRAM ({gpu.memoryType || "GDDR6"})
+                </span>
+                <span className="text-[10px] bg-black/5 dark:bg-white/10 px-2.5 py-0.5 rounded-md font-extrabold text-gray-600 dark:text-gray-300">
+                  {gpu.releaseYear} г.
+                </span>
+                {gpu.rayTracingPowerScore >= 60 && (
+                  <span className="text-[10px] bg-emerald-500 text-white px-2.5 py-0.5 rounded-md font-black tracking-wider uppercase shadow-xs flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 fill-current" /> Ray Tracing Pro
+                  </span>
+                )}
+              </div>
+
+              <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-[#1E2022] dark:text-white">
+                {gpu.name}
+              </h1>
+
+              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+                Видеокарта {gpu.manufacturer} {gpu.name} ({gpu.vramGB} GB {gpu.memoryType || "GDDR6"}) на архитектуре {techDetails.architectureCodename}. TDP {gpu.tdpW}W, интерфейс {techDetails.interface}.
+              </p>
+            </div>
+          </div>
+
+          {/* MSRP / Price Callout */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-2 border-t lg:border-t-0 border-black/10 dark:border-white/10 pt-4 lg:pt-0 shrink-0">
+            <div className="text-left lg:text-right">
+              <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">Рекомендованная цена (MSRP)</span>
+              <div className="text-2xl sm:text-3xl font-black text-[#E88D9F] font-mono mt-0.5">
+                {gpu.launchMsrp ? formatPrice(gpu.launchMsrp) : "Договорная"}
+              </div>
+            </div>
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+              <Check className="w-3 h-3" /> Калибровка телеметрии 2026
+            </span>
+          </div>
+        </div>
+
+        {/* UNIFIED ACTION TOOLBAR */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-black/10 dark:border-white/10 pt-5">
+          {/* Action 1: Test in Simulator */}
+          <button
+            onClick={() => {
+              setSelectedGpu(gpu);
+              setActivePage("simulator");
+              setCurrentStep(2);
+            }}
+            className="p-3 rounded-2xl bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 active:scale-97 transition-all duration-200 shadow-md font-black text-xs flex items-center justify-center gap-2"
+          >
+            <Zap className="w-4 h-4 fill-current" />
+            <span>Тестировать в Симуляторе</span>
+          </button>
+
+          {/* Action 2: Compare Page */}
+          <button
+            onClick={() => {
+              setActivePage("compare");
+            }}
+            className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
+          >
+            <Scale className="w-4 h-4 text-[#8A9A86]" />
+            <span>Сравнить в Таблице</span>
+          </button>
+
+          {/* Action 3: Buy Build */}
+          <button
+            onClick={() => {
+              setSelectedGpu(gpu);
+              setIsBuyModalOpen(true);
+            }}
+            className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
+          >
+            <ShoppingCart className="w-4 h-4 text-emerald-500" />
+            <span>Найти Предложения</span>
+          </button>
+
+          {/* Action 4: Copy Shareable Link */}
+          <button
+            onClick={handleCopyLink}
+            className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
+          >
+            {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4 text-[#E88D9F]" />}
+            <span>{copied ? "Ссылка Скопирована!" : "Поделиться"}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* TELEMETRY BENCHMARK DASHBOARD GRID */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* HERO TELEMETRY CARDS (lg:col-span-6) */}
+        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          {/* 3D Relative Power Card */}
+          <div className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col justify-between gap-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#8A9A86]/15 text-[#8A9A86] flex items-center justify-center font-black">
+                  <Tv className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-black uppercase text-gray-500">Индекс Производительности</span>
+              </div>
+              <span className="text-xs font-mono font-black bg-[#8A9A86]/15 text-[#8A9A86] px-2.5 py-0.5 rounded-lg">
+                Топ #{gpuRank}
+              </span>
+            </div>
+
+            <div>
+              <div className="text-2xl font-black text-[#1E2022] dark:text-white font-mono">{gpu.relativePowerScore} pts</div>
+              <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden mt-2">
+                <div
+                  className="bg-[#8A9A86] h-full rounded-full transition-all duration-500"
+                  style={{ width: `${Math.min(100, (gpu.relativePowerScore / powerMax) * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="text-[10px] font-bold text-gray-400">
+              Графический потенциал в 3D
+            </div>
+          </div>
+
+          {/* Ray Tracing Telemetry Card */}
+          <div className="glass-card rounded-3xl p-5 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-lg flex flex-col justify-between gap-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-black uppercase text-gray-500">Трассировка Лучей (RT)</span>
+              </div>
+              <span className="text-xs font-mono font-black bg-[#E88D9F]/15 text-[#E88D9F] px-2.5 py-0.5 rounded-lg">
+                Топ #{rtRank}
+              </span>
+            </div>
+
+            <div>
+              <div className="text-2xl font-black text-[#1E2022] dark:text-white font-mono">{gpu.rayTracingPowerScore} pts</div>
+              <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden mt-2">
+                <div
+                  className="bg-[#E88D9F] h-full rounded-full transition-all duration-500"
+                  style={{ width: `${Math.min(100, (gpu.rayTracingPowerScore / rtMax) * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="text-[10px] font-bold text-gray-400">
+              Аппаратный Ray Tracing & Патчевый рендер
+            </div>
+          </div>
+
+        </div>
+
+        {/* SECONDARY BENCHMARKS GRID (lg:col-span-6) */}
+        <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col justify-between gap-1">
+            <span className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" /> TimeSpy Graphics
+            </span>
+            <span className="text-lg font-black text-indigo-400 font-mono mt-1">
+              {gpu.timeSpyGraphicsScore ? `${gpu.timeSpyGraphicsScore}` : `${Math.round(gpu.relativePowerScore * 280)}`} pts
+            </span>
+            <span className="text-[10px] font-bold text-gray-400">DirectX 12 3DMark</span>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col justify-between gap-1">
+            <span className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E88D9F]" /> Port Royal (RT)
+            </span>
+            <span className="text-lg font-black text-[#E88D9F] font-mono mt-1">
+              {gpu.portRoyalScore ? `${gpu.portRoyalScore}` : `${Math.round(gpu.rayTracingPowerScore * 140)}`} pts
+            </span>
+            <span className="text-[10px] font-bold text-gray-400">Ray Tracing 3DMark</span>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col justify-between gap-1 col-span-2 sm:col-span-1">
+            <span className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> PassMark G3D
+            </span>
+            <span className="text-lg font-black text-emerald-500 font-mono mt-1">
+              {gpu.passmarkG3D ? `${gpu.passmarkG3D}` : `${Math.round(gpu.relativePowerScore * 310)}`} pts
+            </span>
+            <span className="text-[10px] font-bold text-gray-400">PassMark 3D Benchmark</span>
+          </div>
+        </div>
+
+      </div>
+
+      {/* STRUCTURED SPECIFICATIONS MASTER TABLE (4 CLEAN CATEGORIES) */}
+      <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
+        <div className="flex items-center gap-3 border-b border-black/10 dark:border-white/10 pb-4">
+          <div className="w-10 h-10 rounded-2xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black shrink-0">
+            <Award className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
+              Технические Спецификации Видеокарты
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
+              Полный паспорт графического процессора, видеопамяти VRAM и выходов
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          {/* CATEGORY 1: ЧИПСЕТ И ВЫЧИСЛЕНИЯ */}
+          <div className="p-5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-2">
+              <Dna className="w-4 h-4 text-[#E88D9F]" /> 1. Графический Чипсет и Вычисления
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Архитектура</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.architectureCodename}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Кодовое имя GPU</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.gpuCodeName}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Техпроцесс (Lithography)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.processNode}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Шейдерные процессоры (CUDA/Stream)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.cudaCores}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Производительность TFLOPS</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.tflops}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Частоты (Base / Boost)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.baseClock} / {techDetails.boostClock}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Блоки ROPs / TMUs</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.rops} ROPs / {techDetails.tmus} TMUs</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CATEGORY 2: ПАМЯТЬ VRAM И ШИНА */}
+          <div className="p-5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-[#8A9A86] tracking-wider flex items-center gap-2">
+              <HardDrive className="w-4 h-4 text-[#8A9A86]" /> 2. Память VRAM и Пропускная Способность
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Объем видеопамяти VRAM</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{gpu.vramGB} GB</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Тип видеопамяти</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryType}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Разрядность шины памяти</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryBusWidth}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Частота памяти</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryClockSpeed}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Пропускная способность (ПСП)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryBandwidth}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Кеш L2/L3</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.l2Cache}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CATEGORY 3: ИНТЕРФЕЙС И ГАБАРИТЫ */}
+          <div className="p-5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-indigo-400 tracking-wider flex items-center gap-2">
+              <Layers className="w-4 h-4 text-indigo-400" /> 3. Интерфейс, Габариты и Выходы
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Интерфейс подключения</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.interface}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Длина видеокарты</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.length}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Ширина слота</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.slotWidth}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Разъемы дополнительного питания</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.powerConnectors}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Видеовыходы</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.displayConnectors}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CATEGORY 4: ПИТАНИЕ И ИГРОВЫЕ ТЕХНОЛОГИИ */}
+          <div className="p-5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-amber-500 tracking-wider flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-amber-500" /> 4. Питание и Технологии
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Теплопакет (TDP)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.powerDrawTdp}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Рекомендуемый БП</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{gpu.recommendedPsuW} W</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Макс. температура (TjMax)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxTemp}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">Синхронизация кадров</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.gsyncSupport}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">DirectX / Vulkan API</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">DirectX {techDetails.directX} / Vulkan {techDetails.vulkan}</span>
+              </div>
+              <div className="py-2.5 flex justify-between">
+                <span className="text-gray-500">VR Ready / Ansel</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.vrReady ? "Да" : "Нет"}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* GAMING FPS TELEMETRY MATRIX */}
+      <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
+        <div className="flex items-center gap-3 border-b border-black/10 dark:border-white/10 pb-4">
+          <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center font-black shrink-0">
+            <Monitor className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
+              Игровая Телеметрия FPS (Средний Фреймрейт)
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
+              Усредненная частота кадров по современным AAA-играм и выгода за кадр
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-bold">
+          {/* 1080p */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-2">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
+              <span className="text-[#1E2022] dark:text-white font-black">1080p Full HD</span>
+              <span className="text-[10px] bg-emerald-500/15 text-emerald-500 px-2 py-0.5 rounded font-black">
+                {techDetails.avgFps1080p && techDetails.avgFps1080p > 120 ? "Киберспорт 144Hz+" : "Высокий FPS"}
+              </span>
+            </div>
+            <div className="text-2xl font-black font-mono text-emerald-500 mt-1">
+              {techDetails.avgFps1080p || Math.round(gpu.relativePowerScore * 1.8)} FPS
+            </div>
+            <div className="text-[10px] font-bold text-gray-400">
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame1080p}</strong>
+            </div>
+          </div>
+
+          {/* 1440p */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-2">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
+              <span className="text-[#1E2022] dark:text-white font-black">1440p Quad HD</span>
+              <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] px-2 py-0.5 rounded font-black">
+                {techDetails.avgFps1440p && techDetails.avgFps1440p >= 80 ? "Плавный QHD" : "Базовый QHD"}
+              </span>
+            </div>
+            <div className="text-2xl font-black font-mono text-[#E88D9F] mt-1">
+              {techDetails.avgFps1440p || Math.round(gpu.relativePowerScore * 1.35)} FPS
+            </div>
+            <div className="text-[10px] font-bold text-gray-400">
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame1440p}</strong>
+            </div>
+          </div>
+
+          {/* 4K */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-2">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
+              <span className="text-[#1E2022] dark:text-white font-black">4K Ultra HD</span>
+              <span className="text-[10px] bg-indigo-500/15 text-indigo-400 px-2 py-0.5 rounded font-black">
+                {techDetails.avgFps4K && techDetails.avgFps4K >= 60 ? "Стабильный 4K 60+" : "4K c DLSS/FSR"}
+              </span>
+            </div>
+            <div className="text-2xl font-black font-mono text-indigo-400 mt-1">
+              {techDetails.avgFps4K || Math.round(gpu.relativePowerScore * 0.85)} FPS
+            </div>
+            <div className="text-[10px] font-bold text-gray-400">
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame4K}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* DIRECT RIVALS & ALTERNATIVE GPUS GRID */}
+      {rivalGpus.length > 0 && (
+        <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
+          <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-[#8A9A86]/15 text-[#8A9A86] flex items-center justify-center font-black shrink-0">
+                <Scale className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
+                  Ближайшие Конкуренты и Альтернативы
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
+                  Похожие видеокарты в том же ценовом или производительном сегменте
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {rivalGpus.map((rival) => {
+              const rNvidia = rival.manufacturer === "NVIDIA";
+              const rAmd = rival.manufacturer === "AMD";
+              const rIntel = rival.manufacturer === "Intel";
+              const rColor = rNvidia ? "#76B900" : rAmd ? "#ED1C24" : rIntel ? "#0071C5" : "#555555";
+              return (
+                <button
+                  key={rival.id}
+                  onClick={() => handleOpenGpuDetail(rival)}
+                  className="group text-left p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#E88D9F]/50 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-3 active:scale-97 shadow-sm hover:shadow-lg"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded border" style={{ backgroundColor: `${rColor}15`, color: rColor, borderColor: `${rColor}30` }}>
+                      {rival.manufacturer}
+                    </span>
+                    <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 font-bold">
+                      {rival.vramGB} GB VRAM
+                    </span>
+                  </div>
+
+                  <div>
+                    <h5 className="font-black text-xs text-[#1E2022] dark:text-white group-hover:text-[#E88D9F] transition truncate">
+                      {rival.name}
+                    </h5>
+                    <p className="text-[10px] text-gray-500 font-extrabold mt-0.5">
+                      {rival.architecture} • {rival.releaseYear} г.
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t border-black/5 dark:border-white/5 pt-2 text-[10px] font-mono font-bold text-gray-500">
+                    <span>{rival.relativePowerScore} 3D</span>
+                    <span>{rival.rayTracingPowerScore} RT</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

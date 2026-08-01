@@ -11,7 +11,7 @@ interface RankingsPageProps {
 }
 
 export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
-  const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep, handleOpenCpuDetail } = useHardware();
+  const { setSelectedCpu, setSelectedGpu, setActivePage, setCurrentStep, handleOpenCpuDetail, handleOpenGpuDetail } = useHardware();
   const { t } = useLanguage();
 
   // Read initial type and highlight parameter from URL search params
@@ -360,20 +360,14 @@ export default function RankingsPage({ cpus, gpus }: RankingsPageProps) {
                     {/* Hardware Info Stack */}
                     <div className="flex flex-col min-w-0">
                       <div className="flex items-center gap-2">
-                        {type === "cpu" ? (
-                          <button
-                            type="button"
-                            onClick={() => handleOpenCpuDetail(item.id)}
-                            className="text-sm font-black text-[#1E2022] dark:text-white hover:text-[#E88D9F] dark:hover:text-[#E88D9F] hover:underline transition truncate text-left"
-                            title="Посмотреть полные характеристики процессора"
-                          >
-                            {item.name}
-                          </button>
-                        ) : (
-                          <h3 className="text-sm font-black text-[#1E2022] dark:text-white truncate">
-                            {item.name}
-                          </h3>
-                        )}
+                        <button
+                          type="button"
+                          onClick={() => type === "cpu" ? handleOpenCpuDetail(item.id) : handleOpenGpuDetail(item.id)}
+                          className="text-sm font-black text-[#1E2022] dark:text-white hover:text-[#E88D9F] dark:hover:text-[#E88D9F] hover:underline transition truncate text-left"
+                          title={type === "cpu" ? "Посмотреть полные характеристики процессора" : "Посмотреть полные характеристики видеокарты"}
+                        >
+                          {item.name}
+                        </button>
                         <span
                           className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md border shrink-0 ${
                             item.manufacturer === "Intel"

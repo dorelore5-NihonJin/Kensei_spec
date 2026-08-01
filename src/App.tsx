@@ -15,6 +15,7 @@ import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import ComparePage from "./pages/ComparePage";
 import RankingsPage from "./pages/RankingsPage";
 import CpuDetailPage from "./pages/CpuDetailPage";
+import GpuDetailPage from "./pages/GpuDetailPage";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
@@ -181,6 +182,8 @@ export default function App() {
           <ComparePage cpus={cpus} gpus={gpus} />
         ) : activePage === "cpu-detail" ? (
           <CpuDetailPage />
+        ) : activePage === "gpu-detail" ? (
+          <GpuDetailPage />
         ) : activePage === "rankings" ? (
           <RankingsPage cpus={cpus} gpus={gpus} />
         ) : activePage === "catalog" ? (
