@@ -192,96 +192,95 @@ export default function App() {
         ) : (
           <>
             {/* WORKFLOW STEPPER CONTROLLER */}
-        <div className="glass-card rounded-2xl p-3 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
-          
-          {/* Steps Indicator Buttons */}
-          <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
-            {/* STEP 1 */}
-            <button
-              onClick={() => setCurrentStep(1)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
-                currentStep === 1
-                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
-              }`}
-            >
-              <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
-                isHardwareSelected ? "bg-emerald-500 text-white" : "bg-[#E88D9F] text-white"
-              }`}>
-                {isHardwareSelected ? <Check className="w-3 h-3 text-white" /> : "1"}
-              </span>
-              <span>{t("wizard.step1")}</span>
-            </button>
+            <div className="glass-card rounded-2xl p-2.5 sm:p-3 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-md flex flex-col md:flex-row items-center justify-between gap-3 max-w-6xl mx-auto w-full">
+              {/* Steps Indicator Buttons */}
+              <div className="flex items-center gap-1.5 sm:gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                {/* STEP 1 */}
+                <button
+                  onClick={() => setCurrentStep(1)}
+                  className={`flex-1 md:flex-initial px-3.5 py-2 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
+                    currentStep === 1
+                      ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                      : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+                  }`}
+                >
+                  <span className={`w-4.5 h-4.5 rounded-full text-[10px] flex items-center justify-center font-black ${
+                    isHardwareSelected ? "bg-emerald-500 text-white" : "bg-[#E88D9F] text-white"
+                  }`}>
+                    {isHardwareSelected ? <Check className="w-3 h-3 text-white" /> : "1"}
+                  </span>
+                  <span>{t("wizard.step1")}</span>
+                </button>
 
-            <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
+                <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline text-xs">→</span>
 
-            {/* STEP 2 */}
-            <button
-              onClick={() => setCurrentStep(2)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
-                currentStep === 2
-                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
-              }`}
-            >
-              <span className="w-5 h-5 rounded-full text-[10px] bg-[#8A9A86] text-white flex items-center justify-center font-black">
-                2
-              </span>
-              <span>{t("wizard.step2")}</span>
-            </button>
+                {/* STEP 2 */}
+                <button
+                  onClick={() => setCurrentStep(2)}
+                  className={`flex-1 md:flex-initial px-3.5 py-2 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
+                    currentStep === 2
+                      ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                      : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+                  }`}
+                >
+                  <span className="w-4.5 h-4.5 rounded-full text-[10px] bg-[#8A9A86] text-white flex items-center justify-center font-black">
+                    2
+                  </span>
+                  <span>{t("wizard.step2")}</span>
+                </button>
 
-            <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline">→</span>
+                <span className="text-gray-300 dark:text-gray-600 font-bold hidden sm:inline text-xs">→</span>
 
-            {/* STEP 3 */}
-            <button
-              onClick={() => setCurrentStep(3)}
-              className={`flex-1 md:flex-initial px-4 py-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
-                currentStep === 3
-                  ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
-              }`}
-            >
-              <span className="w-5 h-5 rounded-full text-[10px] bg-[#E88D9F] text-white flex items-center justify-center font-black">
-                3
-              </span>
-              <span>{t("wizard.step3")}</span>
-            </button>
-          </div>
+                {/* STEP 3 */}
+                <button
+                  onClick={() => setCurrentStep(3)}
+                  className={`flex-1 md:flex-initial px-3.5 py-2 rounded-xl font-black text-xs flex items-center justify-center gap-2 transition duration-200 shrink-0 ${
+                    currentStep === 3
+                      ? "bg-[#1E2022] dark:bg-white text-white dark:text-[#1E2022] shadow-sm"
+                      : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
+                  }`}
+                >
+                  <span className="w-4.5 h-4.5 rounded-full text-[10px] bg-[#E88D9F] text-white flex items-center justify-center font-black">
+                    3
+                  </span>
+                  <span>{t("wizard.step3")}</span>
+                </button>
+              </div>
 
-          {/* Right Action Bar (Buy Modal Trigger & View Mode) */}
-          <div className="flex items-center gap-2 w-full md:w-auto justify-end">
-            <button
-              onClick={() => setIsBuyModalOpen(true)}
-              className="px-4 py-2 rounded-xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1.5 shrink-0"
-            >
-              <ShoppingCart className="w-3.5 h-3.5" /> {t("wizard.buy_build")}
-            </button>
+              {/* Right Action Bar (Buy Modal Trigger & View Mode) */}
+              <div className="flex items-center gap-2 w-full md:w-auto justify-end">
+                <button
+                  onClick={() => setIsBuyModalOpen(true)}
+                  className="px-3.5 py-2 rounded-xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-xs flex items-center gap-1.5 shrink-0 active:scale-95"
+                >
+                  <ShoppingCart className="w-3.5 h-3.5" /> {t("wizard.buy_build")}
+                </button>
 
-            {/* View Mode Switch (Wizard vs Full Overview) */}
-            <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/10 dark:border-white/10 text-[11px] font-black shrink-0">
-              <button
-                onClick={() => setViewMode("wizard")}
-                className={`px-3 py-1 rounded-lg transition ${
-                  viewMode === "wizard"
-                    ? "bg-[#8A9A86] text-white shadow-xs"
-                    : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
-                }`}
-              >
-                {t("wizard.step_by_step")}
-              </button>
-              <button
-                onClick={() => setViewMode("overview")}
-                className={`px-3 py-1 rounded-lg transition ${
-                  viewMode === "overview"
-                    ? "bg-[#8A9A86] text-white shadow-xs"
-                    : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
-                }`}
-              >
-                {t("wizard.full_overview")}
-              </button>
+                {/* View Mode Switch (Wizard vs Full Overview) */}
+                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/10 dark:border-white/10 text-[11px] font-black shrink-0">
+                  <button
+                    onClick={() => setViewMode("wizard")}
+                    className={`px-3 py-1 rounded-lg transition ${
+                      viewMode === "wizard"
+                        ? "bg-[#8A9A86] text-white shadow-xs"
+                        : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+                    }`}
+                  >
+                    {t("wizard.step_by_step")}
+                  </button>
+                  <button
+                    onClick={() => setViewMode("overview")}
+                    className={`px-3 py-1 rounded-lg transition ${
+                      viewMode === "overview"
+                        ? "bg-[#8A9A86] text-white shadow-xs"
+                        : "text-gray-600 dark:text-gray-400 hover:text-[#1E2022]"
+                    }`}
+                  >
+                    {t("wizard.full_overview")}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
         {/* MAIN DISPLAY AREA */}
         {viewMode === "overview" ? (
