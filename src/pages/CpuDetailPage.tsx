@@ -9,7 +9,6 @@ import {
   ShoppingCart,
   Share2,
   Check,
-  ChevronRight,
   ArrowLeft,
   Tv,
   CheckCircle2,
