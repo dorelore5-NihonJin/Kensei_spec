@@ -320,6 +320,7 @@ export default function BuildBuyModal({
   psuRecommendationW
 }: BuildBuyModalProps) {
   const { lang, formatPrice } = useLanguage();
+  const { activePage } = useHardware();
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -334,10 +335,16 @@ export default function BuildBuyModal({
   const [focusMode, setFocusMode] = useState<"focused" | "build">("focused");
 
   const singleItem = useMemo(() => {
+    if (activePage === "cpu-detail" && selectedCpu) {
+      return { item: selectedCpu, type: "cpu" as const, name: selectedCpu.name, mfg: selectedCpu.manufacturer };
+    }
+    if (activePage === "gpu-detail" && selectedGpu) {
+      return { item: selectedGpu, type: "gpu" as const, name: selectedGpu.name, mfg: selectedGpu.manufacturer };
+    }
     if (selectedGpu) return { item: selectedGpu, type: "gpu" as const, name: selectedGpu.name, mfg: selectedGpu.manufacturer };
     if (selectedCpu) return { item: selectedCpu, type: "cpu" as const, name: selectedCpu.name, mfg: selectedCpu.manufacturer };
     return null;
-  }, [selectedCpu, selectedGpu]);
+  }, [activePage, selectedCpu, selectedGpu]);
 
   const searchQuery = useMemo(() => {
     if (focusMode === "focused" && singleItem) {
@@ -430,7 +437,7 @@ export default function BuildBuyModal({
                     : "text-gray-500 hover:text-[#1E2022] dark:hover:text-white"
                 }`}
               >
-                Данный {singleItem.type === "cpu" ? "Процессор" : "Видеокарта"}
+                {singleItem.type === "cpu" ? "Данный Процессор" : "Данная Видеокарта"}
               </button>
             )}
             <button
