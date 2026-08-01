@@ -137,6 +137,33 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
 
+  const [viewMode, setViewModeState] = useState<"wizard" | "overview">(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const viewParam = urlParams.get("view") || urlParams.get("viewMode");
+    if (viewParam === "overview" || viewParam === "full") {
+      return "overview";
+    }
+    if (viewParam === "wizard" || viewParam === "step") {
+      return "wizard";
+    }
+    return (getStorageItem("kensei_view_mode", "wizard") as any) === "overview" ? "overview" : "wizard";
+  });
+
+  const setViewMode = (mode: "wizard" | "overview") => {
+    setViewModeState(mode);
+    localStorage.setItem("kensei_view_mode", mode);
+    try {
+      const url = new URL(window.location.href);
+      const isSimulator = activePage === "simulator" || url.searchParams.get("page") === "simulator" || !url.searchParams.get("page");
+      if (isSimulator) {
+        url.searchParams.set("view", mode === "overview" ? "full" : "step");
+        window.history.replaceState({}, "", url.toString());
+      }
+    } catch {
+      // Ignore URL replace errors
+    }
+  };
+
   // Listen for browser Back/Forward navigation (popstate)
   useEffect(() => {
     const handlePopState = () => {
@@ -221,33 +248,6 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     const step = parseInt(getStorageItem("kensei_current_step", "1"));
     return (step === 1 || step === 2 || step === 3) ? step : 1;
   });
-
-  const [viewMode, setViewModeState] = useState<"wizard" | "overview">(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const viewParam = urlParams.get("view") || urlParams.get("viewMode");
-    if (viewParam === "overview" || viewParam === "full") {
-      return "overview";
-    }
-    if (viewParam === "wizard" || viewParam === "step") {
-      return "wizard";
-    }
-    return (getStorageItem("kensei_view_mode", "wizard") as any) === "overview" ? "overview" : "wizard";
-  });
-
-  const setViewMode = (mode: "wizard" | "overview") => {
-    setViewModeState(mode);
-    setStorageItem("kensei_view_mode", mode);
-    try {
-      const url = new URL(window.location.href);
-      const isSimulator = activePage === "simulator" || url.searchParams.get("page") === "simulator" || !url.searchParams.get("page");
-      if (isSimulator) {
-        url.searchParams.set("view", mode === "overview" ? "full" : "step");
-        window.history.replaceState({}, "", url.toString());
-      }
-    } catch {
-      // Ignore URL replace errors
-    }
-  };
 
   // Buy Store & Legal Modals State
   const [isBuyModalOpen, setIsBuyModalOpen] = useState<boolean>(false);
