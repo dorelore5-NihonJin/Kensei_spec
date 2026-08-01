@@ -483,14 +483,15 @@ export function calculateGpuTelemetryApi(
       supportedDdr: ["DDR5"]
     } as CPU);
 
-  const refRam = allRam.find((r) => r.generation === "DDR5") || allRam[0] || ({
+  const refRam = (allRam.find((r) => r.generation === "DDR5") || allRam[0] || ({
     id: "ref-ram",
     name: "32GB DDR5-6000",
     generation: "DDR5",
     speedMhz: 6000,
     capacityGB: 32,
-    latencyCl: 30
-  } as RAMProfile);
+    latencyCl: 30,
+    speedMultiplier: 1.15
+  })) as RAMProfile;
 
   const computeForRes = (res: "1080p" | "1440p" | "4K") => {
     let totalFps = 0;
@@ -501,7 +502,7 @@ export function calculateGpuTelemetryApi(
         refCpu,
         gpu,
         refRam,
-        "NVMe PCIe 4.0 SSD",
+        "NVMe Gen4",
         game,
         res,
         "Ultra",
