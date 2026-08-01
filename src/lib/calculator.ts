@@ -366,14 +366,16 @@ export function calculatePerformance(
     // Severe CPU Bottleneck (Weak/Budget CPU paired with Flagship GPU, e.g. i3-13100 + RTX 5090)
     bottleneckType = "CPU";
     bottleneckPercentage = Math.min(85, Math.round((hwPowerRatio - 1.5) * 22));
-    cpuLoadPercentage = Math.min(99, Math.max(25, Math.round(baseCpuLoad * 1.15)));
+    
+    // CPU load is saturated at 95%-99% attempting to keep up with GPU draw calls
+    cpuLoadPercentage = Math.min(99, Math.max(94, Math.round(92 + (hwPowerRatio * 1.5))));
     
     // GPU load drops because CPU cannot dispatch draw calls fast enough
     let calculatedGpuLoad = Math.round(baseGpuLoad / (hwPowerRatio * 0.75));
     if (resolution === "4K" || rayTracing === "Ultra") {
       calculatedGpuLoad = Math.round(calculatedGpuLoad * 1.3);
     }
-    gpuLoadPercentage = Math.max(22, Math.min(88, calculatedGpuLoad));
+    gpuLoadPercentage = Math.max(18, Math.min(85, calculatedGpuLoad));
     
     warnings.push(
       `Significant CPU Bottleneck: Your GPU (${gpu.name}) will be heavily throttled in CPU-heavy scenarios because of a relatively weak CPU (${cpu.name}).`

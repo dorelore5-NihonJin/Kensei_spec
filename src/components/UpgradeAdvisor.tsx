@@ -74,23 +74,57 @@ export default function UpgradeAdvisor({
 
   // Find the smartest upgrade path
   const upgradeRecommendation = useMemo(() => {
-    if (!isComplete || !currentPerformance) return null;
+    if (!isComplete || !currentPerformance || !selectedCpu || !selectedGpu) return null;
 
-    if (bottleneckType === "CPU") {
-      const currentSocket = selectedCpu.socket;
-      const currentBrand = selectedCpu.manufacturer;
+    const currentSocket = selectedCpu.socket;
+    const currentCpuBrand = selectedCpu.manufacturer;
 
-      // 1. Try finding a drop-in CPU on the SAME socket first
-      const sameSocketCandidates = cpus.filter(
-        (c) => c.socket === currentSocket && c.id !== selectedCpu.id
+    // --- 1. EVALUATE CPU UPGRADES ---
+    let bestCpuUpgrade: CPU | null = null;
+    let lowestCpuScore = Infinity;
+    let bestCpuFps = 0;
+    let isCpuDropIn = true;
+
+    // Check same-socket CPUs first
+    const sameSocketCpus = cpus.filter(
+      (c) => c.socket === currentSocket && c.id !== selectedCpu.id
+    );
+
+    for (const candidate of sameSocketCpus) {
+      const res = calculatePerformance(
+        candidate,
+        selectedGpu,
+        selectedRam,
+        selectedStorage,
+        selectedGame,
+        selectedResolution,
+        selectedPreset,
+        selectedDlss,
+        rayTracing,
+        frameGen,
+        ramChannel
       );
 
-      let bestUpgrade: CPU | null = null;
-      let lowestEnrichingScore = Infinity;
-      let bestUpgradeFps = 0;
-      let isDropIn = true;
+      const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
+      if (pctIncrease >= 12) {
+        const scoreMetric = candidate.singleCoreScore * 0.7 + candidate.multiCoreScore * 0.3;
+        if (scoreMetric < lowestCpuScore) {
+          lowestCpuScore = scoreMetric;
+          bestCpuUpgrade = candidate;
+          bestCpuFps = res.averageFps;
+          isCpuDropIn = true;
+        }
+      }
+    }
 
-      for (const candidate of sameSocketCandidates) {
+    // Fallback: search all CPUs of same brand across sockets
+    if (!bestCpuUpgrade) {
+      const allBrandCpus = cpus.filter(
+        (c) => c.manufacturer === currentCpuBrand && c.id !== selectedCpu.id
+      );
+
+      let maxFps = 0;
+      for (const candidate of allBrandCpus) {
         const res = calculatePerformance(
           candidate,
           selectedGpu,
@@ -104,76 +138,53 @@ export default function UpgradeAdvisor({
           frameGen,
           ramChannel
         );
-
-        const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
-        if (pctIncrease >= 20) {
-          const scoreMetric = candidate.singleCoreScore * 0.7 + candidate.multiCoreScore * 0.3;
-          if (scoreMetric < lowestEnrichingScore) {
-            lowestEnrichingScore = scoreMetric;
-            bestUpgrade = candidate;
-            bestUpgradeFps = res.averageFps;
-          }
+        if (res.averageFps > maxFps && res.averageFps > currentFps) {
+          maxFps = res.averageFps;
+          bestCpuUpgrade = candidate;
+          bestCpuFps = res.averageFps;
+          isCpuDropIn = candidate.socket === currentSocket;
         }
-      }
-
-      // 2. Fallback: if no same-socket CPU yields +20%, search across all sockets of same manufacturer (Platform Upgrade required)
-      if (!bestUpgrade) {
-        const allBrandCandidates = cpus.filter(
-          (c) => c.manufacturer === currentBrand && c.id !== selectedCpu.id
-        );
-
-        let maxFps = 0;
-        for (const candidate of allBrandCandidates) {
-          const res = calculatePerformance(
-            candidate,
-            selectedGpu,
-            selectedRam,
-            selectedStorage,
-            selectedGame,
-            selectedResolution,
-            selectedPreset,
-            selectedDlss,
-            rayTracing,
-            frameGen,
-            ramChannel
-          );
-          if (res.averageFps > maxFps && res.averageFps > currentFps) {
-            maxFps = res.averageFps;
-            bestUpgrade = candidate;
-            bestUpgradeFps = res.averageFps;
-            isDropIn = candidate.socket === currentSocket;
-          }
-        }
-      }
-
-      if (bestUpgrade && bestUpgradeFps > currentFps) {
-        return {
-          type: "CPU",
-          currentName: selectedCpu.name,
-          suggestedName: bestUpgrade.name,
-          isDropIn,
-          socketBadge: isDropIn
-            ? `Drop-in Socket Compatible (${currentSocket})`
-            : `Platform Upgrade Required (${currentSocket} → ${bestUpgrade.socket} + Motherboard)`,
-          details: `${bestUpgrade.cores} Cores / ${bestUpgrade.threads} Threads • Socket ${bestUpgrade.socket} • L3 Cache ${bestUpgrade.l3CacheMB}MB`,
-          currentFps,
-          newFps: bestUpgradeFps,
-          pctBoost: Math.round(((bestUpgradeFps - currentFps) / currentFps) * 100)
-        };
       }
     }
 
-    if (bottleneckType === "GPU") {
-      const currentBrand = selectedGpu.manufacturer;
-      const candidates = gpus.filter(
-        (g) => g.manufacturer === currentBrand && g.id !== selectedGpu.id
+    // --- 2. EVALUATE GPU UPGRADES ---
+    const currentGpuBrand = selectedGpu.manufacturer;
+    const gpuCandidates = gpus.filter(
+      (g) => g.id !== selectedGpu.id && (g.manufacturer === currentGpuBrand || g.relativePowerScore > selectedGpu.relativePowerScore)
+    );
+
+    let bestGpuUpgrade: GPU | null = null;
+    let lowestGpuScore = Infinity;
+    let bestGpuFps = 0;
+
+    for (const candidate of gpuCandidates) {
+      const res = calculatePerformance(
+        selectedCpu,
+        candidate,
+        selectedRam,
+        selectedStorage,
+        selectedGame,
+        selectedResolution,
+        selectedPreset,
+        selectedDlss,
+        rayTracing,
+        frameGen,
+        ramChannel
       );
 
-      let bestUpgrade: GPU | null = null;
-      let lowestEnrichingScore = Infinity;
-      let bestUpgradeFps = 0;
+      const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
+      if (pctIncrease >= 15) {
+        if (candidate.relativePowerScore < lowestGpuScore) {
+          lowestGpuScore = candidate.relativePowerScore;
+          bestGpuUpgrade = candidate;
+          bestGpuFps = res.averageFps;
+        }
+      }
+    }
 
-      for (const candidate of candidates) {
+    if (!bestGpuUpgrade) {
+      let maxFps = 0;
+      for (const candidate of gpuCandidates) {
         const res = calculatePerformance(
           selectedCpu,
           candidate,
@@ -187,59 +198,50 @@ export default function UpgradeAdvisor({
           frameGen,
           ramChannel
         );
-
-        const pctIncrease = ((res.averageFps - currentFps) / currentFps) * 100;
-        if (pctIncrease >= 30) {
-          if (candidate.relativePowerScore < lowestEnrichingScore) {
-            lowestEnrichingScore = candidate.relativePowerScore;
-            bestUpgrade = candidate;
-            bestUpgradeFps = res.averageFps;
-          }
+        if (res.averageFps > maxFps && res.averageFps > currentFps) {
+          maxFps = res.averageFps;
+          bestGpuUpgrade = candidate;
+          bestGpuFps = res.averageFps;
         }
       }
+    }
 
-      if (!bestUpgrade) {
-        let maxFps = 0;
-        for (const candidate of candidates) {
-          const res = calculatePerformance(
-            selectedCpu,
-            candidate,
-            selectedRam,
-            selectedStorage,
-            selectedGame,
-            selectedResolution,
-            selectedPreset,
-            selectedDlss,
-            rayTracing,
-            frameGen,
-            ramChannel
-          );
-          if (res.averageFps > maxFps) {
-            maxFps = res.averageFps;
-            bestUpgrade = candidate;
-            bestUpgradeFps = res.averageFps;
-          }
-        }
-      }
+    const cpuPctBoost = bestCpuFps > currentFps ? Math.round(((bestCpuFps - currentFps) / currentFps) * 100) : 0;
+    const gpuPctBoost = bestGpuFps > currentFps ? Math.round(((bestGpuFps - currentFps) / currentFps) * 100) : 0;
 
-      if (bestUpgrade && bestUpgradeFps > currentFps) {
-        return {
-          type: "GPU",
-          currentName: selectedGpu.name,
-          suggestedName: bestUpgrade.name,
-          details: `${bestUpgrade.vramGB}GB VRAM • Architecture: ${bestUpgrade.architecture} • TDP: ${bestUpgrade.tdpW}W`,
-          currentFps,
-          newFps: bestUpgradeFps,
-          pctBoost: Math.round(((bestUpgradeFps - currentFps) / currentFps) * 100)
-        };
-      }
+    // Pick CPU upgrade if CPU boost is significantly higher or if CPU is bottleneck
+    if (bestCpuUpgrade && (cpuPctBoost >= gpuPctBoost || bottleneckType === "CPU")) {
+      return {
+        type: "CPU",
+        currentName: selectedCpu.name,
+        suggestedName: bestCpuUpgrade.name,
+        isDropIn: isCpuDropIn,
+        socketBadge: isCpuDropIn
+          ? `Drop-in Socket Compatible (${currentSocket})`
+          : `Platform Upgrade Required (${currentSocket} → ${bestCpuUpgrade.socket} + Motherboard)`,
+        details: `${bestCpuUpgrade.cores} Cores / ${bestCpuUpgrade.threads} Threads • Socket ${bestCpuUpgrade.socket} • L3 Cache ${bestCpuUpgrade.l3CacheMB}MB`,
+        currentFps,
+        newFps: bestCpuFps,
+        pctBoost: cpuPctBoost
+      };
+    }
+
+    if (bestGpuUpgrade && gpuPctBoost > 0) {
+      return {
+        type: "GPU",
+        currentName: selectedGpu.name,
+        suggestedName: bestGpuUpgrade.name,
+        details: `${bestGpuUpgrade.vramGB}GB VRAM • Architecture: ${bestGpuUpgrade.architecture} • TDP: ${bestGpuUpgrade.tdpW}W`,
+        currentFps,
+        newFps: bestGpuFps,
+        pctBoost: gpuPctBoost
+      };
     }
 
     return null;
   }, [
     isComplete,
     currentPerformance,
-    bottleneckType,
     currentFps,
     cpus,
     gpus,
@@ -253,7 +255,8 @@ export default function UpgradeAdvisor({
     selectedDlss,
     rayTracing,
     frameGen,
-    ramChannel
+    ramChannel,
+    bottleneckType
   ]);
 
   return (
@@ -273,7 +276,7 @@ export default function UpgradeAdvisor({
           <Sparkles className="w-4 h-4 text-[#8A9A86]" />
           <span>{t("advisor.setup_prompt")}</span>
         </div>
-      ) : bottleneckType === "None" ? (
+      ) : bottleneckType === "None" && !upgradeRecommendation ? (
         <div className="p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-2xl flex items-center gap-3">
           <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <div className="text-xs text-emerald-900 dark:text-emerald-300 font-extrabold">
