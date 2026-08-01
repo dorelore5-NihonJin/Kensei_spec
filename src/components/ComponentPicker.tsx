@@ -13,6 +13,7 @@ import {
   Edit3
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import CustomSelect, { type CustomSelectOption } from "./CustomSelect";
 
 interface ComponentPickerProps {
   cpus: CPU[];
@@ -31,6 +32,11 @@ interface ComponentPickerProps {
   ramChannel: "Single" | "Dual";
   setRamChannel: (val: "Single" | "Dual") => void;
 }
+
+const YEAR_OPTIONS: CustomSelectOption[] = [2005, 2010, 2015, 2018, 2020, 2022, 2024, 2025, 2026].map((y) => ({
+  value: String(y),
+  label: String(y)
+}));
 
 export default function ComponentPicker({
   cpus,
@@ -86,6 +92,14 @@ export default function ComponentPicker({
     if (!selectedCpu) return ramProfiles;
     return ramProfiles.filter((r) => selectedCpu.supportedDdr.includes(r.generation));
   }, [ramProfiles, selectedCpu]);
+
+  const ramSelectOptions: CustomSelectOption[] = useMemo(() => {
+    return filteredRamProfiles.map((ram) => ({
+      value: ram.id,
+      label: `${ram.generation} @ ${ram.speedMhz}MHz`,
+      subLabel: `Множитель скорости: ${ram.speedMultiplier}x`
+    }));
+  }, [filteredRamProfiles]);
 
   return (
     <div className="glass-card rounded-3xl p-5 sm:p-7 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
@@ -268,25 +282,19 @@ export default function ComponentPicker({
 
               <div className="flex items-center gap-1.5 text-[10px] text-[#1E2022] dark:text-gray-300 font-extrabold">
                 <span>Год:</span>
-                <select
-                  className="bg-white dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-lg px-2 py-1 font-bold text-[#1E2022] dark:text-white outline-none cursor-pointer text-xs"
-                  value={cpuYearRange[0]}
-                  onChange={(e) => setCpuYearRange([Number(e.target.value), cpuYearRange[1]])}
-                >
-                  {[2005, 2010, 2015, 2018, 2020, 2022, 2024, 2025, 2026].map((y) => (
-                    <option key={y} value={y} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">{y}</option>
-                  ))}
-                </select>
+                <CustomSelect
+                  options={YEAR_OPTIONS}
+                  value={String(cpuYearRange[0])}
+                  onChange={(val) => setCpuYearRange([Number(val), cpuYearRange[1]])}
+                  className="w-20"
+                />
                 <span>—</span>
-                <select
-                  className="bg-white dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-lg px-2 py-1 font-bold text-[#1E2022] dark:text-white outline-none cursor-pointer text-xs"
-                  value={cpuYearRange[1]}
-                  onChange={(e) => setCpuYearRange([cpuYearRange[0], Number(e.target.value)])}
-                >
-                  {[2005, 2010, 2015, 2018, 2020, 2022, 2024, 2025, 2026].map((y) => (
-                    <option key={y} value={y} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">{y}</option>
-                  ))}
-                </select>
+                <CustomSelect
+                  options={YEAR_OPTIONS}
+                  value={String(cpuYearRange[1])}
+                  onChange={(val) => setCpuYearRange([cpuYearRange[0], Number(val)])}
+                  className="w-20"
+                />
               </div>
             </div>
 
@@ -465,25 +473,19 @@ export default function ComponentPicker({
 
               <div className="flex items-center gap-1.5 text-[10px] text-[#1E2022] dark:text-gray-300 font-extrabold">
                 <span>Год:</span>
-                <select
-                  className="bg-white dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-lg px-2 py-1 font-bold text-[#1E2022] dark:text-white outline-none cursor-pointer text-xs"
-                  value={gpuYearRange[0]}
-                  onChange={(e) => setGpuYearRange([Number(e.target.value), gpuYearRange[1]])}
-                >
-                  {[2005, 2010, 2015, 2018, 2020, 2022, 2024, 2025, 2026].map((y) => (
-                    <option key={y} value={y} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">{y}</option>
-                  ))}
-                </select>
+                <CustomSelect
+                  options={YEAR_OPTIONS}
+                  value={String(gpuYearRange[0])}
+                  onChange={(val) => setGpuYearRange([Number(val), gpuYearRange[1]])}
+                  className="w-20"
+                />
                 <span>—</span>
-                <select
-                  className="bg-white dark:bg-[#121315] border border-black/10 dark:border-white/10 rounded-lg px-2 py-1 font-bold text-[#1E2022] dark:text-white outline-none cursor-pointer text-xs"
-                  value={gpuYearRange[1]}
-                  onChange={(e) => setGpuYearRange([gpuYearRange[0], Number(e.target.value)])}
-                >
-                  {[2005, 2010, 2015, 2018, 2020, 2022, 2024, 2025, 2026].map((y) => (
-                    <option key={y} value={y} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">{y}</option>
-                  ))}
-                </select>
+                <CustomSelect
+                  options={YEAR_OPTIONS}
+                  value={String(gpuYearRange[1])}
+                  onChange={(val) => setGpuYearRange([gpuYearRange[0], Number(val)])}
+                  className="w-20"
+                />
               </div>
             </div>
 
@@ -581,24 +583,18 @@ export default function ComponentPicker({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
-          {/* Frequency & Generation Profile Dropdown */}
+          {/* Frequency & Generation Profile Dropdown (CustomSelect) */}
           <div className="sm:col-span-7">
-            <select
-              disabled={!selectedCpu}
+            <CustomSelect
+              options={ramSelectOptions}
               value={selectedRam?.id || ""}
-              onChange={(e) => {
-                const profile = ramProfiles.find((p) => p.id === e.target.value);
+              onChange={(val) => {
+                const profile = ramProfiles.find((p) => p.id === val);
                 setSelectedRam(profile || null);
               }}
-              className="w-full text-xs font-bold outline-none bg-white dark:bg-[#121315] border border-black/15 dark:border-white/15 rounded-2xl px-4 py-3 shadow-xs disabled:opacity-50 text-[#1E2022] dark:text-white cursor-pointer hover:border-[#8A9A86]/40 transition"
-            >
-              <option value="" className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">-- Выберите частоту ОЗУ --</option>
-              {filteredRamProfiles.map((ram) => (
-                <option key={ram.id} value={ram.id} className="bg-white dark:bg-[#1A1C1E] text-[#1E2022] dark:text-white">
-                  {ram.generation} @ {ram.speedMhz}MHz (Множитель скорости: {ram.speedMultiplier}x)
-                </option>
-              ))}
-            </select>
+              placeholder="-- Выберите частоту ОЗУ --"
+              className="w-full text-xs font-bold"
+            />
           </div>
 
           {/* Channel Mode Segmented Control */}

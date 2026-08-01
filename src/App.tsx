@@ -204,10 +204,8 @@ export default function App() {
                       : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-black/10"
                   }`}
                 >
-                  <span className={`w-4.5 h-4.5 rounded-full text-[10px] flex items-center justify-center font-black ${
-                    isHardwareSelected ? "bg-emerald-500 text-white" : "bg-[#E88D9F] text-white"
-                  }`}>
-                    {isHardwareSelected ? <Check className="w-3 h-3 text-white" /> : "1"}
+                  <span className="w-4.5 h-4.5 rounded-full text-[10px] bg-[#E88D9F] text-white flex items-center justify-center font-black">
+                    1
                   </span>
                   <span>{t("wizard.step1")}</span>
                 </button>
