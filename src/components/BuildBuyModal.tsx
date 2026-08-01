@@ -1,5 +1,21 @@
-import { useState } from "react";
-import { ShoppingCart, X, ExternalLink, ShieldCheck, Fan, Flame, Sparkles, Award, Copy, Check } from "lucide-react";
+import { useState, useMemo } from "react";
+import {
+  ShoppingCart,
+  X,
+  ExternalLink,
+  ShieldCheck,
+  Fan,
+  Flame,
+  Sparkles,
+  Award,
+  Copy,
+  Check,
+  Search,
+  Store,
+  Globe,
+  Tag,
+  Info
+} from "lucide-react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -15,8 +31,217 @@ interface BuildBuyModalProps {
 }
 
 export type BuildTier = "budget" | "premium" | "extreme";
+export type StoreRegion = "ru" | "ja" | "en";
 
-// Accurate Socket Matcher
+interface StoreProvider {
+  id: string;
+  name: string;
+  badge: string;
+  badgeBg: string;
+  logoBg: string;
+  logoText: string;
+  region: StoreRegion;
+  buildUrl: (query: string) => string;
+  description: string;
+}
+
+// Global Store Marketplaces Database
+const STORE_PROVIDERS: StoreProvider[] = [
+  // CIS / RUSSIAN REGION
+  {
+    id: "ozon",
+    name: "OZON",
+    badge: "Маркетплейс",
+    badgeBg: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
+    logoBg: "bg-blue-600 text-white",
+    logoText: "OZON",
+    region: "ru",
+    buildUrl: (q) => `https://www.ozon.ru/search/?text=${encodeURIComponent(q)}`,
+    description: "Быстрая доставка в ПВЗ, кэшбэк Ozon Картой и гарантия продавцов"
+  },
+  {
+    id: "yandex",
+    name: "Яндекс Маркет",
+    badge: "Маркетплейс",
+    badgeBg: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
+    logoBg: "bg-[#FFCC00] text-black font-black",
+    logoText: "ЯМ",
+    region: "ru",
+    buildUrl: (q) => `https://market.yandex.ru/search?text=${encodeURIComponent(q)}`,
+    description: "Оплата Сплитом, баллы Плюса и удобная курьерская доставка"
+  },
+  {
+    id: "dns",
+    name: "DNS-Shop",
+    badge: "Официальный Ритейл",
+    badgeBg: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
+    logoBg: "bg-orange-500 text-white font-black",
+    logoText: "DNS",
+    region: "ru",
+    buildUrl: (q) => `https://www.dns-shop.ru/search/?q=${encodeURIComponent(q)}`,
+    description: "Официальная гарантия производителя и наличие в магазинах города"
+  },
+  {
+    id: "wb",
+    name: "Wildberries",
+    badge: "Маркетплейс",
+    badgeBg: "bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30",
+    logoBg: "bg-purple-600 text-white font-black",
+    logoText: "WB",
+    region: "ru",
+    buildUrl: (q) => `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(q)}`,
+    description: "Пункты выдачи у дома, скидки при оплате WB Кошельком"
+  },
+  {
+    id: "ali-ru",
+    name: "AliExpress СНГ",
+    badge: "Прямой Импорт",
+    badgeBg: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
+    logoBg: "bg-red-500 text-white font-black",
+    logoText: "ALI",
+    region: "ru",
+    buildUrl: (q) => `https://aliexpress.ru/wholesale?SearchText=${encodeURIComponent(q)}`,
+    description: "Прямые поставки железных новинок напрямую от азиатских фабрик"
+  },
+  {
+    id: "amazon-global",
+    name: "Amazon Global",
+    badge: "США / Европа",
+    badgeBg: "bg-slate-500/15 text-slate-600 dark:text-slate-300 border-slate-500/30",
+    logoBg: "bg-slate-800 text-amber-400 font-black",
+    logoText: "AMZ",
+    region: "ru",
+    buildUrl: (q) => `https://www.amazon.com/s?k=${encodeURIComponent(q)}`,
+    description: "Оригинальные партии с доставкой через сервис CDEK Forward"
+  },
+
+  // JAPAN REGION
+  {
+    id: "amazon-jp",
+    name: "Amazon.co.jp",
+    badge: "公式ショップ",
+    badgeBg: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
+    logoBg: "bg-[#FF9900] text-black font-black",
+    logoText: "AMZ",
+    region: "ja",
+    buildUrl: (q) => `https://www.amazon.co.jp/s?k=${encodeURIComponent(q)}`,
+    description: "翌日配送・Prime会員送料無料・正規代理店保証対応"
+  },
+  {
+    id: "rakuten",
+    name: "Rakuten (楽天市場)",
+    badge: "ポイント還元",
+    badgeBg: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
+    logoBg: "bg-[#BF0000] text-white font-black",
+    logoText: "楽天",
+    region: "ja",
+    buildUrl: (q) => `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(q)}/`,
+    description: "楽天ポイント最大10倍還元・お買い物マラソン対応"
+  },
+  {
+    id: "yahoo-jp",
+    name: "Yahoo! ショッピング",
+    badge: "PayPay対応",
+    badgeBg: "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30",
+    logoBg: "bg-[#FF0033] text-white font-black",
+    logoText: "Y!",
+    region: "ja",
+    buildUrl: (q) => `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(q)}`,
+    description: "PayPayポイントが毎日貯まる・5のつく日キャンペーン"
+  },
+  {
+    id: "dospara",
+    name: "Dospara (ドスパラ)",
+    badge: "PC専門店",
+    badgeBg: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
+    logoBg: "bg-blue-700 text-white font-black",
+    logoText: "DSP",
+    region: "ja",
+    buildUrl: (q) => `https://www.dospara.co.jp/5shopping/search.php?ft=${encodeURIComponent(q)}`,
+    description: "老舗PCパーツ専門店・自作パソコンパーツ保証充実"
+  },
+  {
+    id: "biccamera",
+    name: "BicCamera (ビックカメラ)",
+    badge: "家電量販店",
+    badgeBg: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
+    logoBg: "bg-[#E60012] text-white font-black",
+    logoText: "BIC",
+    region: "ja",
+    buildUrl: (q) => `https://www.biccamera.com/bc/category/?q=${encodeURIComponent(q)}`,
+    description: "基本10%ビックポイント還元・指定店舗受取対応"
+  },
+
+  // GLOBAL / EN REGION
+  {
+    id: "amazon-us",
+    name: "Amazon.com",
+    badge: "Global Retail",
+    badgeBg: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
+    logoBg: "bg-[#FF9900] text-black font-black",
+    logoText: "AMZ",
+    region: "en",
+    buildUrl: (q) => `https://www.amazon.com/s?k=${encodeURIComponent(q)}`,
+    description: "Prime 1-Day Shipping, Easy Hassle-Free Returns & Global Direct Export"
+  },
+  {
+    id: "newegg",
+    name: "Newegg",
+    badge: "Tech Specialist",
+    badgeBg: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
+    logoBg: "bg-[#F37021] text-white font-black",
+    logoText: "EGG",
+    region: "en",
+    buildUrl: (q) => `https://www.newegg.com/p/pl?d=${encodeURIComponent(q)}`,
+    description: "Hardware Combo Discounts, Daily Shell Shocker Deals & Trade-in Savings"
+  },
+  {
+    id: "bestbuy",
+    name: "Best Buy",
+    badge: "Authorized Dealer",
+    badgeBg: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
+    logoBg: "bg-[#0046BE] text-white font-black",
+    logoText: "BBY",
+    region: "en",
+    buildUrl: (q) => `https://www.bestbuy.com/site/searchpage.jsp?st=${encodeURIComponent(q)}`,
+    description: "Official Founder's Edition Stock & Same-Day In-Store Pickup"
+  },
+  {
+    id: "microcenter",
+    name: "Micro Center",
+    badge: "In-Store Bundles",
+    badgeBg: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
+    logoBg: "bg-red-700 text-white font-black",
+    logoText: "MC",
+    region: "en",
+    buildUrl: (q) => `https://www.microcenter.com/search/search_results.aspx?Ntt=${encodeURIComponent(q)}`,
+    description: "Unbeatable CPU + Motherboard + RAM In-Store Bundle Savings"
+  },
+  {
+    id: "bhphoto",
+    name: "B&H Photo Video",
+    badge: "Authorized Dealer",
+    badgeBg: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+    logoBg: "bg-emerald-700 text-white font-black",
+    logoText: "B&H",
+    region: "en",
+    buildUrl: (q) => `https://www.bhphotovideo.com/c/search?Ntt=${encodeURIComponent(q)}`,
+    description: "Save Sales Tax with Payboo Card & Fast Worldwide Shipping"
+  },
+  {
+    id: "ebay",
+    name: "eBay Marketplace",
+    badge: "Deals & Auctions",
+    badgeBg: "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30",
+    logoBg: "bg-[#E53238] text-white font-black",
+    logoText: "BAY",
+    region: "en",
+    buildUrl: (q) => `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(q)}`,
+    description: "Refurbished Hardware, Verified Seller Warranty & Buyer Protection"
+  }
+];
+
+// Socket matcher helper
 function getMotherboardForCpu(cpu: CPU | null, tier: BuildTier) {
   const socket = cpu?.socket || "AM5";
 
@@ -40,26 +265,10 @@ function getMotherboardForCpu(cpu: CPU | null, tier: BuildTier) {
     if (tier === "premium") return { name: "Gigabyte B550 AORUS Elite V2", socket: "AM4", price: 150, vendor: "Gigabyte AORUS" };
     return { name: "MSI B450M PRO-VDH MAX", socket: "AM4", price: 75, vendor: "MSI PRO" };
   }
-  if (socket === "LGA1200") {
-    if (tier === "extreme") return { name: "ASUS ROG Maximus XII Hero WiFi", socket: "LGA1200", price: 280, vendor: "ASUS ROG" };
-    return { name: "ASUS TUF Gaming Z590-Plus WiFi", socket: "LGA1200", price: 150, vendor: "ASUS TUF" };
-  }
-  if (socket === "LGA1151") {
-    return { name: "ASUS ROG Strix Z390-F Gaming", socket: "LGA1151", price: 130, vendor: "ASUS ROG" };
-  }
-  if (socket === "LGA1150" || socket === "LGA1155") {
-    return { name: "Gigabyte GA-Z97X-Gaming 5", socket, price: 80, vendor: "Gigabyte" };
-  }
-  if (socket === "LGA775") {
-    return { name: "ASUS P5Q Deluxe (LGA775 Legacy Chipset)", socket: "LGA775", price: 45, vendor: "ASUS Legacy" };
-  }
-  if (socket === "AM3+" || socket === "AM2+") {
-    return { name: "ASUS M5A97 R2.0 (AM3+ Legacy)", socket, price: 50, vendor: "ASUS Legacy" };
-  }
   return { name: `Gigabyte Ultra Durable ${socket} Motherboard`, socket, price: 90, vendor: "Gigabyte" };
 }
 
-// Accurate Cooler Matcher based on TDP and Tier
+// Cooler matcher helper
 function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
   const tdp = cpu?.tdpW || 105;
 
@@ -92,42 +301,20 @@ function getCoolingForCpu(cpu: CPU | null, tier: BuildTier) {
   };
 }
 
-// Realistic Price Estimators based on Hardware Year and MSRP
 function getCpuPrice(cpu: CPU | null): number {
   if (!cpu) return 300;
+  if (cpu.launchMsrp && cpu.launchMsrp > 0) return cpu.launchMsrp;
   if (cpu.releaseYear < 2015) return Math.min(40, Math.max(10, Math.round(cpu.multiCoreScore * 0.15)));
   if (cpu.releaseYear < 2020) return Math.min(120, Math.max(40, Math.round(cpu.multiCoreScore * 0.12)));
-
-  // Modern CPUs (2020+)
-  if (cpu.is3DVCache) return 440; // Ryzen 7 7800X3D / 9800X3D MSRP
-  if (cpu.multiCoreScore >= 3500) return 550; // Core i9 / Ryzen 9
-  if (cpu.multiCoreScore >= 2000) return 300; // Core i7 / Ryzen 7
-  if (cpu.multiCoreScore >= 1200) return 190; // Core i5 / Ryzen 5
-  return 120; // Core i3
+  return Math.min(750, Math.max(130, Math.round(cpu.singleCoreScore * 0.18 + cpu.multiCoreScore * 0.015)));
 }
 
 function getGpuPrice(gpu: GPU | null): number {
   if (!gpu) return 600;
-  if (gpu.releaseYear < 2015) return Math.min(50, Math.max(15, Math.round(gpu.relativePowerScore * 0.8)));
-  if (gpu.releaseYear < 2020) return Math.min(180, Math.max(60, Math.round(gpu.relativePowerScore * 0.9)));
-
-  // Modern GPUs (RTX 40 / RX 7000 / Arc)
-  const name = gpu.name.toLowerCase();
-  if (name.includes("4090")) return 1790;
-  if (name.includes("4080")) return 980;
-  if (name.includes("4070 ti")) return 760;
-  if (name.includes("4070 super")) return 590;
-  if (name.includes("4070")) return 530;
-  if (name.includes("4060 ti")) return 380;
-  if (name.includes("4060")) return 295;
-  if (name.includes("3050")) return 185; // Fixed RTX 3050 MSRP!
-  if (name.includes("7900 xtx")) return 940;
-  if (name.includes("7900 xt")) return 690;
-  if (name.includes("7800 xt")) return 490;
-  if (name.includes("7700 xt")) return 390;
-  if (name.includes("7600")) return 250;
-
-  return Math.min(1200, Math.max(150, Math.round(gpu.relativePowerScore * 1.4)));
+  if (gpu.launchMsrp && gpu.launchMsrp > 0) return gpu.launchMsrp;
+  if (gpu.releaseYear < 2015) return Math.min(60, Math.max(15, Math.round(gpu.relativePowerScore * 0.4)));
+  if (gpu.releaseYear < 2020) return Math.min(220, Math.max(50, Math.round(gpu.relativePowerScore * 0.6)));
+  return Math.min(2000, Math.max(250, Math.round(gpu.relativePowerScore * 1.5)));
 }
 
 export default function BuildBuyModal({
@@ -140,366 +327,303 @@ export default function BuildBuyModal({
   selectedStorage,
   psuRecommendationW
 }: BuildBuyModalProps) {
-  const { t, formatPrice } = useLanguage();
-  const [tier, setTier] = useState<BuildTier>("premium");
+  const { lang, formatPrice, t } = useLanguage();
+
+  const [activeTier, setActiveTier] = useState<BuildTier>("premium");
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Default region matches active site language (ru / ja / en)
+  const [selectedRegion, setSelectedRegion] = useState<StoreRegion>(() => {
+    if (lang === "ru") return "ru";
+    if (lang === "ja") return "ja";
+    return "en";
+  });
+
+  // Modal Focus Mode: Single Hardware (CPU/GPU) vs Full PC Build
+  const [focusMode, setFocusMode] = useState<"focused" | "build">("focused");
+
+  const singleItem = useMemo(() => {
+    if (selectedGpu) return { item: selectedGpu, type: "gpu" as const, name: selectedGpu.name, mfg: selectedGpu.manufacturer };
+    if (selectedCpu) return { item: selectedCpu, type: "cpu" as const, name: selectedCpu.name, mfg: selectedCpu.manufacturer };
+    return null;
+  }, [selectedCpu, selectedGpu]);
+
+  const searchQuery = useMemo(() => {
+    if (focusMode === "focused" && singleItem) {
+      return singleItem.name;
+    }
+    const cpuName = selectedCpu ? selectedCpu.name : "Gaming CPU";
+    const gpuName = selectedGpu ? selectedGpu.name : "GPU";
+    return `${cpuName} ${gpuName}`;
+  }, [focusMode, singleItem, selectedCpu, selectedGpu]);
+
+  const filteredStores = useMemo(() => {
+    return STORE_PROVIDERS.filter((s) => s.region === selectedRegion);
+  }, [selectedRegion]);
 
   if (!isOpen) return null;
 
-  const mobo = getMotherboardForCpu(selectedCpu, tier);
-  const cooler = getCoolingForCpu(selectedCpu, tier);
+  const mobo = getMotherboardForCpu(selectedCpu, activeTier);
+  const cooler = getCoolingForCpu(selectedCpu, activeTier);
 
-  const coolerNote = tier === "extreme"
-    ? t("store.cooler_extreme_note")
-    : cooler.isLiquid
-    ? t("store.cooler_liquid_note")
-    : t("store.cooler_air_note");
-
-  // Price calculations
   const cpuPrice = getCpuPrice(selectedCpu);
   const gpuPrice = getGpuPrice(selectedGpu);
+  const moboPrice = mobo.price;
+  const coolerPrice = cooler.price;
+  const ramPrice = Math.round(ramCapacityGB * 3.5);
+  const storagePrice = selectedStorage === "PCIe 5.0 NVMe SSD" ? 180 : 110;
+  const psuPrice = Math.round(psuRecommendationW * 0.16);
+  const casePrice = activeTier === "extreme" ? 190 : activeTier === "premium" ? 110 : 65;
 
-  // RAM Price
-  let ramPrice = Math.round(ramCapacityGB * 2.8 + (selectedRam?.speedMhz || 6000) * 0.012);
-  if (selectedRam?.generation === "DDR2" || selectedRam?.generation === "DDR3") {
-    ramPrice = Math.min(45, Math.round(ramCapacityGB * 1.5));
-  }
-  if (tier === "extreme") ramPrice += 60; // RGB Link premium
+  const caseName =
+    activeTier === "extreme"
+      ? "Lian Li O11 Dynamic EVO XL White"
+      : activeTier === "premium"
+      ? "NZXT H7 Flow ARGB Glass Tower"
+      : "Montech AIR 903 MAX Black";
 
-  // Storage Price
-  let storagePrice = selectedStorage === "NVMe Gen4" ? 130 : selectedStorage === "NVMe Gen3" ? 85 : selectedStorage === "SATA SSD" ? 55 : 35;
-  if (tier === "extreme") storagePrice += 70; // 4TB Upgrade
+  const totalPriceUSD = cpuPrice + gpuPrice + moboPrice + coolerPrice + ramPrice + storagePrice + psuPrice + casePrice;
 
-  // PSU Price & Case
-  let psuPrice = Math.round(psuRecommendationW * 0.16);
-  let casePrice = tier === "extreme" ? 220 : tier === "premium" ? 130 : 75;
-  let caseName = tier === "extreme" ? "Lian Li O11 Dynamic EVO XL Full-Tower" : tier === "premium" ? "NZXT H7 Flow RGB Mid-Tower" : "Montech AIR 903 MAX Mesh Case";
-
-  const totalPriceUSD = cpuPrice + gpuPrice + ramPrice + storagePrice + mobo.price + cooler.price + psuPrice + casePrice;
-
-  // Copy Helper
   const handleCopyText = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+    try {
+      navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2500);
+    } catch {
+      // Ignore clipboard errors
+    }
   };
 
-  const handleCopyFullBuild = () => {
-    const text = `KENSEI SPEC PC BUILD:\n` +
-      `1. CPU: ${selectedCpu?.name || "AMD Ryzen 7 7800X3D"}\n` +
-      `2. Motherboard: ${mobo.name}\n` +
-      `3. GPU: ${selectedGpu?.name || "GeForce RTX 4070 Super"}\n` +
-      `4. Cooler: ${cooler.name}\n` +
-      `5. RAM: ${ramCapacityGB}GB ${selectedRam?.generation || "DDR5"}-${selectedRam?.speedMhz || 6000}\n` +
-      `6. SSD: 2TB ${selectedStorage}\n` +
-      `7. PSU: ${psuRecommendationW}W 80+ Gold\n` +
-      `8. Case: ${caseName}\n` +
-      `Est. Total Price: ${formatPrice(totalPriceUSD)}`;
-    handleCopyText(text, "full-build");
-  };
+  const isNvidia = singleItem?.mfg === "NVIDIA";
+  const isAmd = singleItem?.mfg === "AMD";
+  const isIntel = singleItem?.mfg === "Intel";
+  const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative flex flex-col gap-6 max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-[32px] max-w-4xl w-full p-5 sm:p-7 shadow-2xl relative flex flex-col gap-5 max-h-[92vh] overflow-y-auto transform transition-all animate-in zoom-in-95 duration-200">
         
-        {/* Modal Header */}
+        {/* Modal Top Header Bar */}
         <div className="flex items-start justify-between border-b border-black/10 dark:border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#E88D9F] text-white flex items-center justify-center font-black text-xl shadow-md">
-              <ShoppingCart className="w-6 h-6 text-white" />
+            <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center font-black shrink-0">
+              <Store className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-xl font-black flex items-center gap-2">
-                {t("store.modal_title")}
-              </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold">
-                {t("store.modal_subtitle")}
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg sm:text-xl font-black tracking-tight text-[#1E2022] dark:text-white">
+                  Поиск Предложений и Где Купить
+                </h3>
+                <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
+                  Прямой Поиск 2026
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
+                Оригинальные магазины, официальные дистрибьюторы и маркетплейсы по выбранному региону
               </p>
             </div>
           </div>
+
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition"
+            className="p-2 rounded-2xl bg-black/5 dark:bg-white/10 text-gray-400 hover:text-[#1E2022] dark:hover:text-white transition active:scale-90"
           >
-            <X className="w-5 h-5 text-gray-500" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Unified Sync & Compatibility Status Bar */}
-        <div className="p-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 font-black">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs font-black text-[#1E2022] dark:text-white">
-                  {selectedCpu && selectedGpu ? t("store.sync_active_title") : t("store.sync_default_title")}
-                </span>
-                <span className="text-[10px] font-black bg-emerald-500 text-white px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  {selectedCpu && selectedGpu ? t("store.sync_active_badge") : t("store.sync_default_badge")}
-                </span>
-              </div>
-              <p className="text-[11px] font-extrabold text-gray-500 dark:text-gray-400 mt-0.5">
-                {selectedCpu && selectedGpu
-                  ? `${selectedCpu.name} • ${selectedGpu.name} • Socket ${mobo.socket}`
-                  : t("store.sync_default_desc")}
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={handleCopyFullBuild}
-            className="w-full sm:w-auto px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.97] text-white font-black text-xs transition flex items-center justify-center gap-1.5 shrink-0 shadow-xs"
-          >
-            {copiedId === "full-build" ? <Check className="w-3.5 h-3.5 text-emerald-200" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copiedId === "full-build" ? t("store.copied_spec_btn") : t("store.copy_spec_btn")}</span>
-          </button>
-        </div>
-
-        {/* BUILD TIER SELECTOR (Value / Premium / Extreme) */}
-        <div className="flex flex-col gap-2.5">
-          <div className="text-xs font-black text-[#1E2022] dark:text-white uppercase tracking-wider flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#E88D9F]" /> {t("store.tier_select_title")}
-            </span>
-            <span className="text-[10px] text-[#E88D9F] font-black uppercase tracking-widest bg-[#E88D9F]/10 px-2 py-0.5 rounded-md">
-              {t("store.current_tier_label")} {tier.toUpperCase()}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-3 gap-2 bg-black/5 dark:bg-white/5 p-1.5 rounded-2xl border border-black/10 dark:border-white/10">
-            <button
-              onClick={() => setTier("budget")}
-              className={`py-2.5 px-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition-all duration-150 active:scale-[0.98] ${
-                tier === "budget"
-                  ? "bg-emerald-600 text-white shadow-md"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
-              }`}
-            >
-              <span className="flex items-center gap-1">{t("store.tier_budget_title")}</span>
-              <span className="text-[9px] opacity-85 font-extrabold">{t("store.tier_budget_sub")}</span>
-            </button>
-
-            <button
-              onClick={() => setTier("premium")}
-              className={`py-2.5 px-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition-all duration-150 active:scale-[0.98] ${
-                tier === "premium"
-                  ? "bg-[#E88D9F] text-white shadow-md"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
-              }`}
-            >
-              <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> {t("store.tier_premium_title")}</span>
-              <span className="text-[9px] opacity-85 font-extrabold">{t("store.tier_premium_sub")}</span>
-            </button>
-
-            <button
-              onClick={() => setTier("extreme")}
-              className={`py-2.5 px-2 rounded-xl text-xs font-black flex flex-col items-center gap-0.5 transition-all duration-150 active:scale-[0.98] ${
-                tier === "extreme"
-                  ? "bg-purple-600 text-white shadow-md"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
-              }`}
-            >
-              <span className="flex items-center gap-1"><Award className="w-3 h-3 text-amber-300" /> {t("store.tier_extreme_title")}</span>
-              <span className="text-[9px] opacity-85 font-extrabold">{t("store.tier_extreme_sub")}</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Component Buying Breakdown with Clean Layout & Single Currency Pill */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-extrabold">
+        {/* MODAL CONTROL STRIP: Mode Switcher & Region Selector */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
           
-          {/* 1. CPU */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">1. {t("store.comp_cpu")}</span>
-                <button
-                  onClick={() => handleCopyText(selectedCpu?.name || "AMD Ryzen 7 7800X3D", "cpu")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy CPU Name"
-                >
-                  {copiedId === "cpu" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{selectedCpu?.name || "AMD Ryzen 7 7800X3D"}</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">Socket {selectedCpu?.socket || "AM5"} • TDP {selectedCpu?.tdpW || 120}W</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${cpuPrice}</span>
+          {/* Mode Switcher: Single Hardware vs Full Build */}
+          <div className="flex items-center p-1 bg-black/5 dark:bg-white/10 rounded-xl">
+            {singleItem && (
+              <button
+                onClick={() => setFocusMode("focused")}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
+                  focusMode === "focused"
+                    ? "bg-[#E88D9F] text-white shadow-md"
+                    : "text-gray-500 hover:text-[#1E2022] dark:hover:text-white"
+                }`}
+              >
+                Данный {singleItem.type === "cpu" ? "Процессор" : "Видеокарта"}
+              </button>
+            )}
+            <button
+              onClick={() => setFocusMode("build")}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
+                focusMode === "build" || !singleItem
+                  ? "bg-[#E88D9F] text-white shadow-md"
+                  : "text-gray-500 hover:text-[#1E2022] dark:hover:text-white"
+              }`}
+            >
+              Полная Сборка ПК
+            </button>
           </div>
 
-          {/* 2. Motherboard */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">2. {t("store.comp_mobo")} (Socket {mobo.socket})</span>
-                <button
-                  onClick={() => handleCopyText(mobo.name, "mobo")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy Motherboard Name"
-                >
-                  {copiedId === "mobo" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{mobo.name}</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">Socket {mobo.socket} • {mobo.vendor}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${mobo.price}</span>
-          </div>
+          {/* Region Switcher Tabs */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-[10px] font-black uppercase text-gray-400 mr-1 hidden md:inline">Регион:</span>
+            <button
+              onClick={() => setSelectedRegion("ru")}
+              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+                selectedRegion === "ru"
+                  ? "bg-blue-600 text-white border-blue-500 shadow-md"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
+              }`}
+            >
+              <span>🇷🇺</span>
+              <span>СНГ / Россия</span>
+            </button>
 
-          {/* 3. GPU */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#E88D9F] uppercase tracking-wider font-black">3. {t("store.comp_gpu")}</span>
-                <button
-                  onClick={() => handleCopyText(selectedGpu?.name || "GeForce RTX 4070 Super", "gpu")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy GPU Name"
-                >
-                  {copiedId === "gpu" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{selectedGpu?.name || "GeForce RTX 4070 Super"}</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{selectedGpu?.vramGB || 12}GB VRAM • {selectedGpu?.architecture || "Ada Lovelace"}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${gpuPrice}</span>
-          </div>
+            <button
+              onClick={() => setSelectedRegion("ja")}
+              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+                selectedRegion === "ja"
+                  ? "bg-red-600 text-white border-red-500 shadow-md"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
+              }`}
+            >
+              <span>🇯🇵</span>
+              <span>日本 (Japan)</span>
+            </button>
 
-          {/* 4. CPU Cooling */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black flex items-center gap-1">
-                  {cooler.isLiquid ? <Flame className="w-3 h-3 text-rose-500" /> : <Fan className="w-3 h-3 text-blue-500" />}
-                  4. {t("store.comp_cooler")} ({cooler.type})
+            <button
+              onClick={() => setSelectedRegion("en")}
+              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+                selectedRegion === "en"
+                  ? "bg-emerald-600 text-white border-emerald-500 shadow-md"
+                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
+              }`}
+            >
+              <span>🌎</span>
+              <span>Global / US</span>
+            </button>
+          </div>
+        </div>
+
+        {/* FOCUSED SINGLE ITEM BANNER OR FULL BUILD SUMMARY */}
+        {focusMode === "focused" && singleItem ? (
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-black/[0.03] to-black/[0.06] dark:from-white/[0.04] dark:to-white/[0.07] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-14 h-14 rounded-2xl flex flex-col items-center justify-center text-white font-black text-xs shadow-md shrink-0 border border-white/20"
+                style={{ backgroundColor: brandColor }}
+              >
+                <span className="text-[9px] opacity-80 uppercase">{singleItem.mfg}</span>
+                <span className="text-xs font-mono mt-0.5">{singleItem.type.toUpperCase()}</span>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded border" style={{ backgroundColor: `${brandColor}15`, color: brandColor, borderColor: `${brandColor}30` }}>
+                    {singleItem.mfg}
+                  </span>
+                  <span className="text-[10px] text-gray-400 font-extrabold">Целевой Запрос</span>
+                </div>
+                <h4 className="text-lg font-black text-[#1E2022] dark:text-white mt-0.5">
+                  {singleItem.name}
+                </h4>
+              </div>
+            </div>
+
+            {/* Copy Search Query Button */}
+            <button
+              onClick={() => handleCopyText(singleItem.name, "single_query")}
+              className="px-4 py-2.5 rounded-xl bg-black/5 dark:bg-white/10 text-xs font-black text-[#1E2022] dark:text-white hover:bg-[#E88D9F] hover:text-white transition flex items-center justify-center gap-2 border border-black/10 dark:border-white/10 shrink-0"
+            >
+              {copiedId === "single_query" ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-[#E88D9F]" />}
+              <span>{copiedId === "single_query" ? "Запрос Скопирован!" : "Скопировать Название"}</span>
+            </button>
+          </div>
+        ) : (
+          /* FULL PC BUILD SUMMARY CARD */
+          <div className="p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold">
+            <div className="flex items-center gap-3">
+              <Award className="w-5 h-5 text-[#E88D9F] shrink-0" />
+              <div>
+                <span className="font-black text-[#1E2022] dark:text-white block">
+                  Комплексная сборка: {selectedCpu?.name || "Gaming CPU"} + {selectedGpu?.name || "GPU"}
                 </span>
-                <button
-                  onClick={() => handleCopyText(cooler.name, "cooler")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy Cooler Name"
-                >
-                  {copiedId === "cooler" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
+                <span className="text-[10px] text-gray-400 font-extrabold">
+                  {ramCapacityGB}GB RAM • 2TB SSD • {psuRecommendationW}W PSU
+                </span>
               </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{cooler.name}</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{cooler.vendor} {t("store.sub_thermal_system")}</span>
             </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${cooler.price}</span>
+
+            <div className="flex items-center gap-3 border-t sm:border-t-0 border-black/10 dark:border-white/10 pt-2 sm:pt-0">
+              <div>
+                <span className="text-[9px] uppercase text-gray-400 font-black">Расчетная стоимость</span>
+                <div className="text-base font-black text-[#E88D9F] font-mono">{formatPrice(totalPriceUSD)}</div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* STORE MARKETPLACE PROVIDERS GRID */}
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-xs font-black uppercase text-gray-500 dark:text-gray-400 tracking-wider flex items-center gap-1.5">
+              <Globe className="w-4 h-4 text-[#E88D9F]" /> Магазины и Площадки ({selectedRegion.toUpperCase()})
+            </h4>
+            <span className="text-[10px] text-gray-400 font-extrabold">
+              Прямой поиск по «{searchQuery}»
+            </span>
           </div>
 
-          {/* 5. RAM */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">5. {t("store.comp_ram")}</span>
-                <button
-                  onClick={() => handleCopyText(`${ramCapacityGB}GB ${selectedRam?.generation || "DDR5"} ${selectedRam?.speedMhz || 6000}MHz`, "ram")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy RAM Spec"
-                >
-                  {copiedId === "ram" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{ramCapacityGB}GB {selectedRam?.generation || "DDR5"} Kit</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{t("store.sub_ram_speed")} {selectedRam?.speedMhz || 6000} MHz {t("store.sub_dual_channel")}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${ramPrice}</span>
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {filteredStores.map((store) => (
+              <a
+                key={store.id}
+                href={store.buildUrl(searchQuery)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#E88D9F]/50 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-3 active:scale-97 shadow-xs hover:shadow-md"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-8 h-8 rounded-xl ${store.logoBg} flex items-center justify-center text-xs shadow-xs shrink-0`}>
+                      {store.logoText}
+                    </div>
+                    <div>
+                      <h5 className="font-black text-sm text-[#1E2022] dark:text-white group-hover:text-[#E88D9F] transition">
+                        {store.name}
+                      </h5>
+                      <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded border inline-block mt-0.5 ${store.badgeBg}`}>
+                        {store.badge}
+                      </span>
+                    </div>
+                  </div>
 
-          {/* 6. Storage */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">6. {t("store.comp_ssd")}</span>
-                <button
-                  onClick={() => handleCopyText(`2TB ${selectedStorage} M.2 SSD`, "ssd")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy SSD Spec"
-                >
-                  {copiedId === "ssd" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">2TB {selectedStorage} M.2 SSD</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{t("store.sub_nvme_storage")}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${storagePrice}</span>
-          </div>
+                  <div className="w-7 h-7 rounded-xl bg-black/5 dark:bg-white/10 flex items-center justify-center text-gray-400 group-hover:bg-[#E88D9F] group-hover:text-white transition">
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
+                </div>
 
-          {/* 7. PSU Power Supply */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">7. {t("store.comp_psu")}</span>
-                <button
-                  onClick={() => handleCopyText(`${psuRecommendationW}W 80+ Gold Modular PSU`, "psu")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy PSU Spec"
-                >
-                  {copiedId === "psu" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{psuRecommendationW}W 80+ Gold Modular</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{t("store.sub_psu_compliant")}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${psuPrice}</span>
-          </div>
+                <p className="text-[11px] text-gray-500 dark:text-gray-400 font-bold leading-snug">
+                  {store.description}
+                </p>
 
-          {/* 8. Chassis */}
-          <div className="p-3.5 bg-black/[0.03] dark:bg-white/[0.04] rounded-2xl border border-black/10 dark:border-white/10 flex justify-between items-start hover:border-[#E88D9F]/40 transition-all duration-200 group">
-            <div className="min-w-0 pr-2">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[#8A9A86] uppercase tracking-wider font-black">8. {t("store.comp_case")}</span>
-                <button
-                  onClick={() => handleCopyText(caseName, "case")}
-                  className="p-1 text-gray-400 hover:text-[#E88D9F] active:scale-90 transition"
-                  title="Copy Case Name"
-                >
-                  {copiedId === "case" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <span className="font-black text-[#1E2022] dark:text-white block mt-0.5 truncate">{caseName}</span>
-              <span className="text-[10px] text-gray-500 dark:text-gray-400 font-extrabold">{t("store.sub_case_tower")}</span>
-            </div>
-            <span className="font-mono text-xs font-black text-[#E88D9F] bg-[#E88D9F]/10 px-2 py-1 rounded-lg shrink-0">${casePrice}</span>
+                <div className="flex items-center justify-between border-t border-black/5 dark:border-white/5 pt-2 text-[10px] font-black text-[#E88D9F] group-hover:underline">
+                  <span>Искать предложения</span>
+                  <span>→</span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Cooler & Thermal Advisory Banner */}
-        <div className="p-3.5 bg-amber-500/10 border border-amber-500/20 rounded-2xl text-xs text-amber-900 dark:text-amber-300 font-extrabold flex items-center gap-2.5">
-          <Flame className="w-4 h-4 text-amber-500 shrink-0" />
-          <span className="leading-relaxed">{coolerNote}</span>
-        </div>
-
-        {/* Total Price & Store Checkout Buttons */}
-        <div className="border-t border-black/10 dark:border-white/10 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div>
-            <span className="text-[10px] text-gray-500 uppercase tracking-wider font-black block">{t("store.total_label")}</span>
-            <div className="text-xl sm:text-2xl font-black text-[#1E2022] dark:text-white flex items-center gap-3">
-              <span>{formatPrice(totalPriceUSD)}</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <a
-              href={`https://www.amazon.com/s?k=${encodeURIComponent(`${selectedCpu?.name || 'Gaming CPU'} ${selectedGpu?.name || 'GPU'}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial px-5 py-3 rounded-2xl bg-[#E88D9F] text-white font-black text-xs hover:bg-[#E88D9F]/90 transition shadow-md flex items-center justify-center gap-2"
-            >
-              <ShoppingCart className="w-4 h-4" /> {t("store.order_amazon_btn")} <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-            <a
-              href={`https://www.newegg.com/p/pl?d=${encodeURIComponent(`${selectedCpu?.name || 'Gaming CPU'} ${selectedGpu?.name || 'GPU'}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-3 rounded-2xl bg-black/5 dark:bg-white/10 text-[#1E2022] dark:text-white font-black text-xs hover:bg-black/10 transition flex items-center justify-center gap-1.5"
-            >
-              {t("store.order_newegg_btn")} <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+        {/* BUYER PROTECTION & VERIFICATION TIP BANNER */}
+        <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-900 dark:text-emerald-300 font-extrabold flex items-start gap-3">
+          <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+          <div className="leading-relaxed">
+            <strong className="block font-black text-emerald-700 dark:text-emerald-400 mb-0.5">
+              Советы по безопасной покупке железа KENSEI:
+            </strong>
+            Перед оплатой проверяйте рейтинг продавца, наличие официального гарантийного талона, а также физическую совместимость сокета ({selectedCpu?.socket || "AM5"}) и необходимую мощность БП ({psuRecommendationW}W+).
           </div>
         </div>
+
       </div>
     </div>
   );
