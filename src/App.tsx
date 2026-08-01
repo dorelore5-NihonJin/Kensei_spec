@@ -14,6 +14,7 @@ import { ShoppingCart, Sparkles, Cpu, Zap } from "lucide-react";
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import ComparePage from "./pages/ComparePage";
 import RankingsPage from "./pages/RankingsPage";
+import CpuDetailPage from "./pages/CpuDetailPage";
 import Footer from "./components/Footer";
 import QuickGameSwitcher from "./components/QuickGameSwitcher";
 import LegalDocsModal from "./components/LegalDocsModal";
@@ -178,6 +179,8 @@ export default function App() {
         {/* PAGE SWITCH: COMPARE PAGE vs RANKINGS PAGE vs CATALOG PAGE vs SIMULATOR PAGE */}
         {activePage === "compare" ? (
           <ComparePage cpus={cpus} gpus={gpus} />
+        ) : activePage === "cpu-detail" ? (
+          <CpuDetailPage />
         ) : activePage === "rankings" ? (
           <RankingsPage cpus={cpus} gpus={gpus} />
         ) : activePage === "catalog" ? (

@@ -10,6 +10,7 @@ import gameData from "../data/games.json";
 
 import { calculatePerformance, getCompatibilityReport } from "../lib/calculator";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "../lib/urlSharing";
+import { getHardwareSlug, findCpuBySlugOrId } from "../lib/slugs";
 
 const cpus = cpuData as CPU[];
 const gpus = gpuData as GPU[];
@@ -24,8 +25,11 @@ interface HardwareContextType {
   games: Game[];
 
   // App Page & Navigation State
-  activePage: "simulator" | "catalog" | "compare" | "rankings";
-  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings") => void;
+  activePage: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail";
+  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail") => void;
+  selectedCpuDetailId: string | null;
+  setSelectedCpuDetailId: (id: string | null) => void;
+  handleOpenCpuDetail: (cpuOrId: CPU | string) => void;
   currentStep: 1 | 2 | 3;
   setCurrentStep: (step: 1 | 2 | 3) => void;
   viewMode: "wizard" | "overview";
@@ -127,15 +131,52 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   // Dark Mode State
   const [darkMode, setDarkMode] = useState<boolean>(() => getStorageItem("kensei_dark_mode", "false") === "true");
 
-  // App Page & Navigation State
-  const [activePage, setActivePage] = useState<"simulator" | "catalog" | "compare" | "rankings">(() => {
+  // CPU Detail Page State
+  const [selectedCpuDetailId, setSelectedCpuDetailId] = useState<string | null>(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const pageParam = urlParams.get("page");
+    const idParam = urlParams.get("id") || urlParams.get("cpu");
+    if ((pageParam === "cpu" || pageParam === "cpu-detail") && idParam) {
+      const match = findCpuBySlugOrId(cpus, idParam);
+      return match ? match.id : idParam;
+    }
+    return getStorageItem("kensei_active_cpu_detail", cpus[0]?.id || "amd-ryzen-5-7600");
+  });
+
+  // App Page & Navigation State
+  const [activePage, setActivePage] = useState<"simulator" | "catalog" | "compare" | "rankings" | "cpu-detail">(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get("page");
+    if (pageParam === "cpu" || pageParam === "cpu-detail") return "cpu-detail";
     if (pageParam === "rankings" || pageParam === "compare" || pageParam === "compare-cpu" || pageParam === "compare-gpu" || pageParam === "catalog" || pageParam === "simulator") {
       return (pageParam.startsWith("compare") ? "compare" : pageParam) as any;
     }
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
+
+  const handleOpenCpuDetail = (cpuOrId: CPU | string) => {
+    const targetQuery = typeof cpuOrId === "string" ? cpuOrId : cpuOrId.id;
+    const match = findCpuBySlugOrId(cpus, targetQuery);
+    const validId = match ? match.id : targetQuery;
+    setSelectedCpuDetailId(validId);
+    setActivePage("cpu-detail");
+    localStorage.setItem("kensei_active_cpu_detail", validId);
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("page", "cpu");
+      if (match) {
+        url.searchParams.set("id", getHardwareSlug(match));
+      } else {
+        url.searchParams.set("id", validId);
+      }
+      url.searchParams.delete("mode");
+      url.searchParams.delete("a");
+      url.searchParams.delete("b");
+      window.history.pushState({}, "", url.toString());
+    } catch {
+      // Ignore URL errors
+    }
+  };
 
   const [viewMode, setViewModeState] = useState<"wizard" | "overview">(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -169,7 +210,14 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     const handlePopState = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const pageParam = urlParams.get("page");
-      if (pageParam === "rankings" || pageParam === "compare" || pageParam === "compare-cpu" || pageParam === "compare-gpu" || pageParam === "catalog" || pageParam === "simulator") {
+      const idParam = urlParams.get("id") || urlParams.get("cpu");
+      if (pageParam === "cpu" || pageParam === "cpu-detail") {
+        setActivePage("cpu-detail");
+        if (idParam) {
+          const match = findCpuBySlugOrId(cpus, idParam);
+          if (match) setSelectedCpuDetailId(match.id);
+        }
+      } else if (pageParam === "rankings" || pageParam === "compare" || pageParam === "compare-cpu" || pageParam === "compare-gpu" || pageParam === "catalog" || pageParam === "simulator") {
         setActivePage((pageParam.startsWith("compare") ? "compare" : pageParam) as any);
       }
       const viewParam = urlParams.get("view") || urlParams.get("viewMode");
@@ -487,6 +535,9 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     games,
     activePage,
     setActivePage: changeActivePage,
+    selectedCpuDetailId,
+    setSelectedCpuDetailId,
+    handleOpenCpuDetail,
     currentStep,
     setCurrentStep,
     viewMode,

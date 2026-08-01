@@ -10,9 +10,11 @@ import {
   AlertTriangle,
   X,
   RotateCcw,
-  Edit3
+  Edit3,
+  Info
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { useHardware } from "../context/HardwareContext";
 import CustomSelect, { type CustomSelectOption } from "./CustomSelect";
 
 interface ComponentPickerProps {
@@ -56,6 +58,7 @@ export default function ComponentPicker({
   setRamChannel
 }: ComponentPickerProps) {
   const { t } = useLanguage();
+  const { handleOpenCpuDetail } = useHardware();
 
   // CPU state
   const [cpuQuery, setCpuQuery] = useState("");
@@ -221,16 +224,28 @@ export default function ComponentPicker({
                 </div>
               </div>
 
-              <button
-                onClick={() => {
-                  setSelectedCpu(null);
-                  setCpuQuery("");
-                }}
-                className="text-xs text-[#E88D9F] dark:text-[#E88D9F] font-black hover:bg-[#E88D9F]/10 active:scale-95 px-3 py-2 rounded-xl transition border border-[#E88D9F]/30 flex items-center gap-1.5 shrink-0"
-              >
-                <Edit3 className="w-3.5 h-3.5" />
-                <span>{t("picker.change")}</span>
-              </button>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => handleOpenCpuDetail(selectedCpu)}
+                  className="text-xs text-[#8A9A86] dark:text-[#A4B5A0] font-black hover:bg-[#8A9A86]/10 active:scale-95 px-3 py-2 rounded-xl transition border border-[#8A9A86]/30 flex items-center gap-1.5"
+                >
+                  <Info className="w-3.5 h-3.5" />
+                  <span>Подробнее</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedCpu(null);
+                    setCpuQuery("");
+                  }}
+                  className="text-xs text-[#E88D9F] dark:text-[#E88D9F] font-black hover:bg-[#E88D9F]/10 active:scale-95 px-3 py-2 rounded-xl transition border border-[#E88D9F]/30 flex items-center gap-1.5 shrink-0"
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                  <span>{t("picker.change")}</span>
+                </button>
+              </div>
             </div>
           </div>
         ) : (
