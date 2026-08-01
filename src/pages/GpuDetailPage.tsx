@@ -3,6 +3,7 @@ import { useHardware } from "../context/HardwareContext";
 import { useLanguage } from "../context/LanguageContext";
 import { getGpuTechnicalDetails } from "../lib/hardwareSpecs";
 import { getHardwareSlug, findGpuBySlugOrId } from "../lib/slugs";
+import { calculateGpuTelemetryApi } from "../lib/calculator";
 import {
   Zap,
   Scale,
@@ -25,7 +26,10 @@ import {
 
 export default function GpuDetailPage() {
   const {
+    cpus,
     gpus,
+    games,
+    ramProfiles,
     selectedGpuDetailId,
     setSelectedGpu,
     setActivePage,
@@ -134,20 +138,12 @@ export default function GpuDetailPage() {
 
   const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
 
-  // Estimated Game FPS Breakdown per Resolution
-  const gameFpsList = useMemo(() => {
-    const basePower = gpu.relativePowerScore;
-    const resMultiplier = selectedResolution === "1080p" ? 1.8 : selectedResolution === "1440p" ? 1.35 : 0.85;
+  // Official Physics Telemetry Engine API Data
+  const telemetryApiData = useMemo(() => {
+    return calculateGpuTelemetryApi(gpu, cpus, games, ramProfiles);
+  }, [gpu, cpus, games, ramProfiles]);
 
-    return [
-      { name: "Cyberpunk 2077 (Ultra RT)", fps: Math.round(basePower * resMultiplier * 0.42), genre: "RPG / Ray Tracing" },
-      { name: "Black Myth: Wukong", fps: Math.round(basePower * resMultiplier * 0.55), genre: "Action / Unreal Engine 5" },
-      { name: "Counter-Strike 2", fps: Math.round(basePower * resMultiplier * 3.2), genre: "Esports / High FPS" },
-      { name: "Grand Theft Auto V", fps: Math.round(basePower * resMultiplier * 1.85), genre: "Open World" },
-      { name: "Red Dead Redemption 2", fps: Math.round(basePower * resMultiplier * 0.72), genre: "AAA Open World" },
-      { name: "Hogwarts Legacy", fps: Math.round(basePower * resMultiplier * 0.65), genre: "Unreal Engine 4" }
-    ];
-  }, [gpu, selectedResolution]);
+  const currentResTelemetry = telemetryApiData[selectedResolution];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex flex-col gap-8 text-[#1E2022] dark:text-white animate-fadeIn">
@@ -640,14 +636,14 @@ export default function GpuDetailPage() {
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
               <span className="text-[#1E2022] dark:text-white font-black">1080p Full HD</span>
               <span className="text-[10px] bg-emerald-500/15 text-emerald-500 px-2 py-0.5 rounded font-black">
-                {techDetails.avgFps1080p && techDetails.avgFps1080p > 120 ? "Киберспорт 144Hz+" : "Высокий FPS"}
+                {telemetryApiData["1080p"].avgFps > 120 ? "Киберспорт 144Hz+" : "Высокий FPS"}
               </span>
             </div>
             <div className="text-2xl font-black font-mono text-emerald-500 mt-1">
-              {techDetails.avgFps1080p || Math.round(gpu.relativePowerScore * 1.8)} FPS
+              {telemetryApiData["1080p"].avgFps} FPS
             </div>
             <div className="text-[10px] font-bold text-gray-400">
-              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame1080p}</strong>
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${telemetryApiData["1080p"].costPerFrame}</strong>
             </div>
           </div>
 
@@ -656,14 +652,14 @@ export default function GpuDetailPage() {
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
               <span className="text-[#1E2022] dark:text-white font-black">1440p Quad HD</span>
               <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] px-2 py-0.5 rounded font-black">
-                {techDetails.avgFps1440p && techDetails.avgFps1440p >= 80 ? "Плавный QHD" : "Базовый QHD"}
+                {telemetryApiData["1440p"].avgFps >= 80 ? "Плавный QHD" : "Базовый QHD"}
               </span>
             </div>
             <div className="text-2xl font-black font-mono text-[#E88D9F] mt-1">
-              {techDetails.avgFps1440p || Math.round(gpu.relativePowerScore * 1.35)} FPS
+              {telemetryApiData["1440p"].avgFps} FPS
             </div>
             <div className="text-[10px] font-bold text-gray-400">
-              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame1440p}</strong>
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${telemetryApiData["1440p"].costPerFrame}</strong>
             </div>
           </div>
 
@@ -672,29 +668,29 @@ export default function GpuDetailPage() {
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2">
               <span className="text-[#1E2022] dark:text-white font-black">4K Ultra HD</span>
               <span className="text-[10px] bg-indigo-500/15 text-indigo-400 px-2 py-0.5 rounded font-black">
-                {techDetails.avgFps4K && techDetails.avgFps4K >= 60 ? "Стабильный 4K 60+" : "4K c DLSS/FSR"}
+                {telemetryApiData["4K"].avgFps >= 60 ? "Стабильный 4K 60+" : "4K c DLSS/FSR"}
               </span>
             </div>
             <div className="text-2xl font-black font-mono text-indigo-400 mt-1">
-              {techDetails.avgFps4K || Math.round(gpu.relativePowerScore * 0.85)} FPS
+              {telemetryApiData["4K"].avgFps} FPS
             </div>
             <div className="text-[10px] font-bold text-gray-400">
-              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${techDetails.costPerFrame4K}</strong>
+              Цена за 1 FPS: <strong className="text-[#1E2022] dark:text-white">${telemetryApiData["4K"].costPerFrame}</strong>
             </div>
           </div>
         </div>
 
         {/* Detailed Game Breakdown Table for Selected Resolution */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {gameFpsList.map((game, idx) => (
+          {currentResTelemetry.gameResults.map((game, idx) => (
             <div key={idx} className="p-3.5 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/10 flex items-center justify-center shrink-0">
                   <Gamepad2 className="w-4 h-4 text-gray-500" />
                 </div>
                 <div className="truncate">
-                  <h5 className="text-xs font-black text-[#1E2022] dark:text-white truncate">{game.name}</h5>
-                  <p className="text-[10px] text-gray-400 font-extrabold">{game.genre}</p>
+                  <h5 className="text-xs font-black text-[#1E2022] dark:text-white truncate">{game.title}</h5>
+                  <p className="text-[10px] text-gray-400 font-extrabold">Ultra Preset • 1% Low: {game.onePercentLow} FPS</p>
                 </div>
               </div>
               <div className="text-right shrink-0">
