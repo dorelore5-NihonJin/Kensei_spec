@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
 import { useLanguage } from "../context/LanguageContext";
+import { useHardware } from "../context/HardwareContext";
 
 interface BuildBuyModalProps {
   isOpen: boolean;
