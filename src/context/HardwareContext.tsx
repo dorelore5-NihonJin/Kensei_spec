@@ -156,12 +156,24 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
 
-  const [previousPage, setPreviousPage] = useState<"simulator" | "catalog" | "compare" | "rankings">("simulator");
+  const [previousPage, setPreviousPage] = useState<"simulator" | "catalog" | "compare" | "rankings">(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromParam = urlParams.get("from") || urlParams.get("origin");
+    if (fromParam === "rankings" || fromParam === "compare" || fromParam === "catalog" || fromParam === "simulator") {
+      return fromParam;
+    }
+    const saved = getStorageItem("kensei_previous_page", "simulator");
+    if (saved === "rankings" || saved === "compare" || saved === "catalog" || saved === "simulator") {
+      return saved;
+    }
+    return "simulator";
+  });
 
   const handleOpenCpuDetail = (cpuOrId: CPU | string) => {
-    if (activePage !== "cpu-detail") {
-      setPreviousPage(activePage as any);
-    }
+    const origin = activePage !== "cpu-detail" ? activePage : previousPage;
+    setPreviousPage(origin as any);
+    localStorage.setItem("kensei_previous_page", origin);
+
     const targetQuery = typeof cpuOrId === "string" ? cpuOrId : cpuOrId.id;
     const match = findCpuBySlugOrId(cpus, targetQuery);
     const validId = match ? match.id : targetQuery;
@@ -171,6 +183,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     try {
       const url = new URL(window.location.href);
       url.searchParams.set("page", "cpu");
+      url.searchParams.set("from", origin);
       if (match) {
         url.searchParams.set("id", getHardwareSlug(match));
       } else {
@@ -222,6 +235,10 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
       const urlParams = new URLSearchParams(window.location.search);
       const pageParam = urlParams.get("page");
       const idParam = urlParams.get("id") || urlParams.get("cpu");
+      const fromParam = urlParams.get("from") || urlParams.get("origin");
+      if (fromParam === "rankings" || fromParam === "compare" || fromParam === "catalog" || fromParam === "simulator") {
+        setPreviousPage(fromParam);
+      }
       if (pageParam === "cpu" || pageParam === "cpu-detail") {
         setActivePage("cpu-detail");
         if (idParam) {
