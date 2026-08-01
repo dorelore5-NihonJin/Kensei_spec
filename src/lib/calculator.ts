@@ -302,12 +302,14 @@ export function calculatePerformance(
   let baseCpuLoad = 34 + (game.cpuDependence * 28);
 
   // Multi-Core Core Count Thread Distribution (High-core CPUs show lower % total load)
-  if (cpu.multiCoreScore > 2800) {
+  if (cpu.multiCoreScore > 25000) {
+    baseCpuLoad *= 0.45;
+  } else if (cpu.multiCoreScore > 15000) {
     baseCpuLoad *= 0.62;
-  } else if (cpu.multiCoreScore > 1800) {
-    baseCpuLoad *= 0.76;
-  } else if (cpu.multiCoreScore < 1200) {
-    baseCpuLoad *= 1.45;
+  } else if (cpu.multiCoreScore > 8000) {
+    baseCpuLoad *= 0.78;
+  } else if (cpu.multiCoreScore < 4000) {
+    baseCpuLoad *= 1.30;
   }
 
   // Resolution Modifiers
@@ -364,7 +366,7 @@ export function calculatePerformance(
     // Severe CPU Bottleneck (Weak/Budget CPU paired with Flagship GPU, e.g. i3-13100 + RTX 5090)
     bottleneckType = "CPU";
     bottleneckPercentage = Math.min(85, Math.round((hwPowerRatio - 1.5) * 22));
-    cpuLoadPercentage = Math.min(100, Math.max(92, Math.round(baseCpuLoad * 1.35)));
+    cpuLoadPercentage = Math.min(99, Math.max(25, Math.round(baseCpuLoad * 1.15)));
     
     // GPU load drops because CPU cannot dispatch draw calls fast enough
     let calculatedGpuLoad = Math.round(baseGpuLoad / (hwPowerRatio * 0.75));
