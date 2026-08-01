@@ -62,7 +62,7 @@ export default function CpuDetailPage() {
     );
   }
 
-  const techDetails = getCpuTechnicalDetails(cpu, gpus);
+  const techDetails = getCpuTechnicalDetails(cpu, cpus);
 
   // Compute rankings & percentiles among database CPUs
   const { singleRank, multiRank, singleMax, multiMax } = useMemo(() => {
