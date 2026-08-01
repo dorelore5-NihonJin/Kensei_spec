@@ -10,7 +10,6 @@ import {
   Scale,
   ChevronRight,
   BookOpen,
-  ShieldAlert,
   AlertTriangle
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
@@ -22,12 +21,10 @@ interface LegalDocsModalProps {
 }
 
 export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }: LegalDocsModalProps) {
-  const { language, t } = useLanguage();
+  const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<"terms" | "privacy" | "disclaimer" | "affiliate">(initialTab);
 
   if (!isOpen) return null;
-
-  const lang = (language as "en" | "ru" | "ja") || "ru";
 
   // Modal localized strings
   const content = {
