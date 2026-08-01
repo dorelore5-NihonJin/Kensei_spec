@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useHardware } from "../context/HardwareContext";
 import { useLanguage } from "../context/LanguageContext";
-import { getGpuTechnicalDetails } from "../lib/hardwareSpecs";
+import { getGpuTechnicalDetails, getRecommendedCpusForGpu } from "../lib/hardwareSpecs";
 import { getHardwareSlug, findGpuBySlugOrId } from "../lib/slugs";
 import { calculateGpuTelemetryApi } from "../lib/calculator";
 import {
@@ -21,7 +21,8 @@ import {
   Monitor,
   Video,
   Flame,
-  Gamepad2
+  Gamepad2,
+  Cpu
 } from "lucide-react";
 
 export default function GpuDetailPage() {
@@ -35,6 +36,7 @@ export default function GpuDetailPage() {
     setActivePage,
     setCurrentStep,
     setIsBuyModalOpen,
+    handleOpenCpuDetail,
     handleOpenGpuDetail,
     previousPage,
     handleBackFromCpuDetail,
@@ -144,6 +146,11 @@ export default function GpuDetailPage() {
   }, [gpu, cpus, games, ramProfiles]);
 
   const currentResTelemetry = telemetryApiData[selectedResolution];
+
+  // Smart CPU Pairing Recommendations for Unlocking GPU Potential
+  const recommendedCpus = useMemo(() => {
+    return getRecommendedCpusForGpu(gpu, cpus);
+  }, [gpu, cpus]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex flex-col gap-8 text-[#1E2022] dark:text-white animate-fadeIn">
@@ -629,6 +636,19 @@ export default function GpuDetailPage() {
           </div>
         </div>
 
+        {/* Unthrottled Test Bench Notice */}
+        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 flex items-start gap-3 text-xs">
+          <Sparkles className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+          <div className="flex flex-col gap-1">
+            <span className="font-black text-amber-800 dark:text-amber-300">
+              Тестовый стенд KENSEI (Максимальный Графический Потенциал):
+            </span>
+            <p className="text-amber-700/90 dark:text-amber-200/80 leading-relaxed font-medium">
+              Расчёт FPS выполнен без ограничений со стороны CPU на базе эталонного процессора <strong className="font-bold underline">{telemetryApiData.refCpuName}</strong> и оперативной памяти DDR5. В связке с более старым или бюджетным процессором частота кадров может быть ниже из-за боттлнека (узкого места CPU).
+            </p>
+          </div>
+        </div>
+
         {/* Top 3 FPS Cards Header */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-bold">
           {/* 1080p */}
@@ -701,6 +721,79 @@ export default function GpuDetailPage() {
           ))}
         </div>
       </div>
+
+      {/* RECOMMENDED CPUS FOR UNLOCKING GPU POTENTIAL */}
+      {recommendedCpus.length > 0 && (
+        <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-blue-500/15 text-blue-500 flex items-center justify-center font-black shrink-0">
+                <Cpu className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
+                  Процессоры для Раскрытия Потенциала {gpu.name}
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
+                  Автоматический расчёт алгоритма KENSEI: оптимальные пары CPU для работы без боттлнека
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {recommendedCpus.map((rec, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col justify-between gap-4 hover:border-black/20 dark:hover:border-white/20 transition group"
+              >
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className={`px-2.5 py-1 rounded-xl text-[11px] font-black border ${rec.badgeColor}`}>
+                      {rec.tierLabel === "Optimum" ? "0% Боттлнека" : `~${rec.bottleneckPercentage}% Боттлнека`}
+                    </span>
+                    <span className="text-[10px] font-bold text-gray-400">
+                      {rec.cpu.manufacturer} {rec.cpu.releaseYear}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-black text-[#1E2022] dark:text-white group-hover:text-[#E88D9F] transition">
+                      {rec.cpu.name}
+                    </h4>
+                    <p className="text-[11px] font-extrabold text-[#E88D9F] mt-0.5">
+                      {rec.tierTitle}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-[10px] font-bold bg-black/5 dark:bg-white/5 p-2.5 rounded-xl border border-black/5 dark:border-white/5">
+                    <div>
+                      <span className="text-gray-400 block">Ядра / Потоки</span>
+                      <span className="text-[#1E2022] dark:text-white font-mono">{rec.cpu.cores}C / {rec.cpu.threads}T</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-400 block">Сокет</span>
+                      <span className="text-[#1E2022] dark:text-white font-mono">{rec.cpu.socket}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
+                    {rec.rationale}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleOpenCpuDetail(rec.cpu)}
+                  className="w-full py-2.5 px-4 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#E88D9F] hover:text-white font-black text-xs transition flex items-center justify-center gap-2 active:scale-97"
+                >
+                  <span>Подробнее о процессоре</span>
+                  <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* DIRECT RIVALS & ALTERNATIVE GPUS GRID */}
       {rivalGpus.length > 0 && (

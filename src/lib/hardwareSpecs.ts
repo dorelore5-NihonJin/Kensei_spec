@@ -359,3 +359,98 @@ export function getGpuTechnicalDetails(gpu: GPU, allGpus: GPU[]): GpuTechnicalDe
     costPerFrame4K: cpf4K
   };
 }
+
+export interface GpuPairingCpuRecommendation {
+  cpu: CPU;
+  tierLabel: "Optimum" | "Sweetspot" | "Minimum";
+  tierTitle: string;
+  bottleneckPercentage: number;
+  badgeColor: string;
+  rationale: string;
+}
+
+/**
+ * Intelligent CPU Pairing Algorithm.
+ * Evaluates CPU single-core & multi-core throughput vs target GPU power
+ * to determine recommended CPUs that fully unlock this GPU without throttling.
+ */
+export function getRecommendedCpusForGpu(gpu: GPU, allCpus: CPU[]): GpuPairingCpuRecommendation[] {
+  if (!gpu || !allCpus || allCpus.length === 0) return [];
+
+  const gpuPower = gpu.relativePowerScore || 295;
+  const targetCpuPower = gpuPower * 3.0;
+
+  const validCpus = allCpus.filter((c) => c.releaseYear >= 2017);
+
+  const scoredCpus = validCpus.map((cpu) => {
+    const isMultiThreaded = cpu.cores >= 6 || cpu.threads >= 12;
+    const singleWeight = isMultiThreaded ? 0.60 : 0.70;
+    const multiWeight = isMultiThreaded ? 0.40 : 0.30;
+    let cpuPower = (cpu.singleCoreScore * singleWeight) + ((cpu.multiCoreScore / 10) * multiWeight * 0.5 * 10);
+    if (cpu.is3DVCache) cpuPower *= 1.16;
+
+    const powerRatio = cpuPower / (targetCpuPower || 1);
+    let bottleneck = 0;
+    if (powerRatio < 1.0) {
+      bottleneck = Math.min(45, Math.round((1.0 - powerRatio) * 35));
+    }
+
+    return {
+      cpu,
+      cpuPower,
+      bottleneck
+    };
+  });
+
+  // 1. Optimum CPU: Low/zero bottleneck, highest single-core/3D Cache
+  const optimumItem = [...scoredCpus].sort((a, b) => {
+    if (a.cpu.is3DVCache && !b.cpu.is3DVCache) return -1;
+    if (!a.cpu.is3DVCache && b.cpu.is3DVCache) return 1;
+    return b.cpuPower - a.cpuPower;
+  })[0];
+
+  // 2. Sweetspot CPU: Bottleneck <= 8%, great price/performance ratio
+  const sweetspotCandidates = scoredCpus.filter((item) => item.cpu.id !== optimumItem?.cpu.id && item.bottleneck <= 10);
+  const sweetspotItem = [...sweetspotCandidates].sort((a, b) => a.bottleneck - b.bottleneck || b.cpu.releaseYear - a.cpu.releaseYear)[0] || scoredCpus[1];
+
+  // 3. Minimum CPU: Budget pairing
+  const minCandidates = scoredCpus.filter((item) => item.cpu.id !== optimumItem?.cpu.id && item.cpu.id !== sweetspotItem?.cpu.id);
+  const minimumItem = [...minCandidates].sort((a, b) => Math.abs(a.bottleneck - 14) - Math.abs(b.bottleneck - 14))[0] || scoredCpus[2];
+
+  const results: GpuPairingCpuRecommendation[] = [];
+
+  if (optimumItem) {
+    results.push({
+      cpu: optimumItem.cpu,
+      tierLabel: "Optimum",
+      tierTitle: "🏆 Флагманский Игровой Выбор (0% Боттлнека)",
+      bottleneckPercentage: optimumItem.bottleneck,
+      badgeColor: "bg-emerald-500/15 text-emerald-500 border-emerald-500/30",
+      rationale: `Максимальная частота кадров и 1% Low. Раскрывает графический чип ${gpu.name} на 100%.`
+    });
+  }
+
+  if (sweetspotItem) {
+    results.push({
+      cpu: sweetspotItem.cpu,
+      tierLabel: "Sweetspot",
+      tierTitle: "⚖️ Оптимальный Баланс (Цена / FPS)",
+      bottleneckPercentage: sweetspotItem.bottleneck,
+      badgeColor: "bg-[#E88D9F]/15 text-[#E88D9F] border-[#E88D9F]/30",
+      rationale: `Идеальное соотношение цены и мощности в играх. Потери производительности менее ${sweetspotItem.bottleneck}%.`
+    });
+  }
+
+  if (minimumItem) {
+    results.push({
+      cpu: minimumItem.cpu,
+      tierLabel: "Minimum",
+      tierTitle: "💡 Минимально Рекомендуемый Процессор",
+      bottleneckPercentage: minimumItem.bottleneck,
+      badgeColor: "bg-blue-500/15 text-blue-500 border-blue-500/30",
+      rationale: `Базовый порог для плавной игры без фризов. Допустим лёгкий боттлнек ~${minimumItem.bottleneck}%.`
+    });
+  }
+
+  return results;
+}

@@ -534,6 +534,7 @@ export function calculateGpuTelemetryApi(
   };
 
   return {
+    refCpuName: refCpu ? refCpu.name : "AMD Ryzen 7 7800X3D",
     "1080p": computeForRes("1080p"),
     "1440p": computeForRes("1440p"),
     "4K": computeForRes("4K")
