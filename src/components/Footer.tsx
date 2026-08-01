@@ -2,7 +2,7 @@ import { Cpu, Gamepad2, ShoppingCart, Zap, ShieldCheck, Cookie } from "lucide-re
 import { useLanguage } from "../context/LanguageContext";
 
 interface FooterProps {
-  setActivePage: (page: "simulator" | "catalog") => void;
+  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail") => void;
   onOpenBuyModal: () => void;
   onResetBuild: () => void;
   onOpenLegalModal: (tab?: "terms" | "privacy" | "disclaimer" | "affiliate") => void;

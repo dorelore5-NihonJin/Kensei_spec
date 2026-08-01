@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import { useHardware } from "../context/HardwareContext";
 import { useLanguage } from "../context/LanguageContext";
-import type { CPU } from "../lib/types";
 import { getCpuTechnicalDetails } from "../lib/hardwareSpecs";
 import { getHardwareSlug, findCpuBySlugOrId } from "../lib/slugs";
 import {
@@ -15,11 +14,7 @@ import {
   ChevronRight,
   ArrowLeft,
   Tv,
-  HardDrive,
-  ShieldCheck,
-  Award,
-  Activity,
-  Maximize2
+  Activity
 } from "lucide-react";
 
 export default function CpuDetailPage() {
@@ -33,7 +28,7 @@ export default function CpuDetailPage() {
     handleOpenCpuDetail,
     showToast
   } = useHardware();
-  const { t, formatPrice } = useLanguage();
+  const { formatPrice } = useLanguage();
 
   const [copied, setCopied] = useState(false);
 
@@ -69,9 +64,9 @@ export default function CpuDetailPage() {
   const techDetails = getCpuTechnicalDetails(cpu);
 
   // Compute rankings & percentiles among database CPUs
-  const { singleRank, multiRank, singleMax, multiMax, totalCpus } = useMemo(() => {
+  const { singleRank, multiRank, singleMax, multiMax } = useMemo(() => {
     if (!cpus || cpus.length === 0) {
-      return { singleRank: 1, multiRank: 1, singleMax: 2500, multiMax: 25000, totalCpus: 1 };
+      return { singleRank: 1, multiRank: 1, singleMax: 2500, multiMax: 25000 };
     }
     const sortedSingle = [...cpus].sort((a, b) => b.singleCoreScore - a.singleCoreScore);
     const sortedMulti = [...cpus].sort((a, b) => b.multiCoreScore - a.multiCoreScore);
@@ -86,8 +81,7 @@ export default function CpuDetailPage() {
       singleRank: sRank > 0 ? sRank : 1,
       multiRank: mRank > 0 ? mRank : 1,
       singleMax: sMax,
-      multiMax: mMax,
-      totalCpus: cpus.length
+      multiMax: mMax
     };
   }, [cpus, cpu]);
 
@@ -181,7 +175,7 @@ export default function CpuDetailPage() {
               </h1>
 
               <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-2xl">
-                Процессор {cpu.manufacturer} {cpu.name} ({cpu.cores} Ядер / {cpu.threads} Потоков) на архитектуре {techDetails.architecture}. TDP {cpu.tdpW}W, сокет {cpu.socket}.
+                Процессор {cpu.manufacturer} {cpu.name} ({cpu.cores} Ядер / {cpu.threads} Потоков) на архитектуре {techDetails.architectureCodename}. TDP {cpu.tdpW}W, сокет {cpu.socket}.
               </p>
             </div>
           </div>
@@ -322,17 +316,17 @@ export default function CpuDetailPage() {
                 <Zap className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-black uppercase text-gray-500">Энергопотребление (TDP)</h4>
+                <h4 className="text-xs font-black uppercase text-gray-500">Теплопакет (TDP)</h4>
                 <span className="text-lg font-black text-[#1E2022] dark:text-white font-mono">{cpu.tdpW}W</span>
               </div>
             </div>
             <span className="text-xs font-mono font-black bg-amber-500/15 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-lg">
-              {techDetails.recommendedCooler.type === "liquid" ? "СЖО 240/360mm" : "Воздушный кулер"}
+              {cpu.tdpW >= 125 ? "СЖО 240/360mm" : "Воздушный кулер"}
             </span>
           </div>
 
           <div className="text-[11px] font-bold text-gray-500 dark:text-gray-400 leading-relaxed">
-            Рекомендуемое охлаждение: <strong className="text-[#1E2022] dark:text-white">{techDetails.recommendedCooler.name}</strong>.
+            Рекомендуемый БП: <strong className="text-[#1E2022] dark:text-white">{techDetails.recommendedPsu}</strong>.
           </div>
         </div>
       </div>
@@ -362,7 +356,7 @@ export default function CpuDetailPage() {
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Микроархитектура</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.architecture}</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.architectureCodename}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Количество ядер</span>
@@ -373,12 +367,8 @@ export default function CpuDetailPage() {
                 <span className="text-[#1E2022] dark:text-white font-mono">{cpu.threads} Потоков</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Производительные ядра (P-Cores)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pCores}</span>
-              </div>
-              <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Энергоэффективные ядра (E-Cores)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.eCores}</span>
+                <span className="text-gray-500">Техпроцесс</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.processNode}</span>
               </div>
             </div>
           </div>
@@ -391,15 +381,15 @@ export default function CpuDetailPage() {
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Базовая частота</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.baseClockGhz} GHz</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.baseClock}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Максимальная частота (Boost)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.boostClockGhz} GHz</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.boostClock}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Объем L3 Кеша</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.l3CacheMb} MB</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.l3Cache}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Технология 3D V-Cache</span>
@@ -425,20 +415,20 @@ export default function CpuDetailPage() {
                 <span className="text-[#1E2022] dark:text-white font-mono">{cpu.supportedDdr.join(" / ")}</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Макс. частота ОЗУ без разгона</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxMemorySpeed}</span>
+                <span className="text-gray-500">Макс. объем ОЗУ</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxMemorySize}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Линии PCIe</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pcieLanes}</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pcieLanes} ({techDetails.pcieVersion})</span>
               </div>
             </div>
           </div>
 
-          {/* Spec Group 4: Platform & Chipset */}
+          {/* Spec Group 4: Platform & Power */}
           <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
             <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-              <ChevronRight className="w-4 h-4" /> Материнские Платы и Чипсеты
+              <ChevronRight className="w-4 h-4" /> Сокет и Питание
             </h4>
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
@@ -446,12 +436,12 @@ export default function CpuDetailPage() {
                 <span className="text-[#1E2022] dark:text-white font-mono">{cpu.socket}</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Рекомендуемые чипсеты</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.chipsets.join(", ")}</span>
+                <span className="text-gray-500">Теплопакет (TDP)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.tdpW}W</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Теплопакет (TDP)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.tdpW}W Base / {techDetails.maxPowerW}W Turbo</span>
+                <span className="text-gray-500">Рекомендуемый БП</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.recommendedPsu}</span>
               </div>
             </div>
           </div>
@@ -481,7 +471,7 @@ export default function CpuDetailPage() {
               <span className="text-[10px] bg-emerald-500/15 text-emerald-500 px-2 py-0.5 rounded font-black">Киберспорт</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-[11px] leading-relaxed">
-              Рекомендуемые видеокарты: <strong className="text-[#1E2022] dark:text-white">{techDetails.gpuPairings["1080p"]}</strong>. Выдает максимальную частоту кадров в киберспортивных играх (CS2, Valorant, Overwatch 2).
+              Рекомендуются видеокарты уровня RTX 4060 / RX 7600. Высокая частота кадров в CS2, Valorant, Overwatch 2.
             </p>
           </div>
 
@@ -491,7 +481,7 @@ export default function CpuDetailPage() {
               <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] px-2 py-0.5 rounded font-black">Баланс</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-[11px] leading-relaxed">
-              Рекомендуемые видеокарты: <strong className="text-[#1E2022] dark:text-white">{techDetails.gpuPairings["1440p"]}</strong>. Идеальный баланс графики и частоты кадров в AAA-играх на ультра-настройках.
+              Рекомендуются видеокарты уровня RTX 4070 Super / RX 7800 XT. Баланс графики в AAA-играх.
             </p>
           </div>
 
@@ -501,7 +491,7 @@ export default function CpuDetailPage() {
               <span className="text-[10px] bg-indigo-500/15 text-indigo-400 px-2 py-0.5 rounded font-black">Максимум</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-[11px] leading-relaxed">
-              Рекомендуемые видеокарты: <strong className="text-[#1E2022] dark:text-white">{techDetails.gpuPairings["4K"]}</strong>. В 4K процессор загружен на 35–65%, вся нагрузка переходит на шейдерные блоки видеокарты.
+              Рекомендуются видеокарты уровня RTX 4080 Super / RTX 5090. Нагрузка ложится на графические блоки.
             </p>
           </div>
         </div>

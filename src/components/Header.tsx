@@ -7,8 +7,8 @@ interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   onReset: () => void;
-  activePage: "simulator" | "catalog" | "compare" | "rankings";
-  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings") => void;
+  activePage: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail";
+  setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail") => void;
   onOpenBuyModal: () => void;
 }
 
