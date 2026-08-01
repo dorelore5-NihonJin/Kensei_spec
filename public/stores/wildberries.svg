@@ -1,0 +1,10 @@
+<svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wb-bg" x1="0" y1="0" x2="140" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CB11AB"/>
+      <stop offset="1" stop-color="#481173"/>
+    </linearGradient>
+  </defs>
+  <rect width="140" height="40" rx="8" fill="url(#wb-bg)"/>
+  <text x="70" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="14" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">WILDBERRIES</text>
+</svg>

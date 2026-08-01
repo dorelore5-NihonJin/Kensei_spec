@@ -1,0 +1,5 @@
+<svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="140" height="40" rx="8" fill="#FFCC00"/>
+  <path d="M26 11H18C13.5 11 10 14.5 10 19C10 23 12.5 25.5 16 27L9 36H15L21.5 27.5H23.5V36H28.5V11H26ZM23.5 23H18.5C15.5 23 14 21.5 14 19C14 16.5 16 15 18.5 15H23.5V23Z" fill="#000000"/>
+  <text x="36" y="27" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#000000" letter-spacing="-0.5">Маркет</text>
+</svg>
