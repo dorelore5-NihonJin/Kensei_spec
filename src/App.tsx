@@ -9,7 +9,7 @@ import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
-import { ShoppingCart, Sparkles, Cpu, Zap, Check } from "lucide-react";
+import { ShoppingCart, Sparkles, Cpu, Zap } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
 import ComparePage from "./pages/ComparePage";
