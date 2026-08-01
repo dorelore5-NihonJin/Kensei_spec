@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import type { ReactNode } from "react";
 import type { CPU, GPU, RAMProfile, Game, StorageType } from "../lib/types";
+import type { HardwareOffersItem } from "../components/HardwareOffersModal";
 import { translations, type Language } from "../data/translations";
 
 import cpuData from "../data/cpus.json";
@@ -32,6 +33,7 @@ interface HardwareContextType {
   selectedGpuDetailId: string | null;
   setSelectedGpuDetailId: (id: string | null) => void;
   previousPage: "simulator" | "catalog" | "compare" | "rankings";
+  setPreviousPage: (page: "simulator" | "catalog" | "compare" | "rankings") => void;
   handleOpenCpuDetail: (cpuOrId: CPU | string) => void;
   handleOpenGpuDetail: (gpuOrId: GPU | string) => void;
   handleBackFromCpuDetail: () => void;
@@ -80,6 +82,10 @@ interface HardwareContextType {
   // Modals State
   isBuyModalOpen: boolean;
   setIsBuyModalOpen: (open: boolean) => void;
+  isHardwareOffersModalOpen: boolean;
+  setIsHardwareOffersModalOpen: (open: boolean) => void;
+  hardwareOffersItem: HardwareOffersItem | null;
+  handleOpenHardwareOffersModal: (item: HardwareOffersItem) => void;
   isLegalModalOpen: boolean;
   setIsLegalModalOpen: (open: boolean) => void;
   legalModalTab: "terms" | "privacy" | "disclaimer" | "affiliate";
@@ -606,6 +612,15 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return url;
   };
 
+  // Single Hardware Offers Modal State
+  const [isHardwareOffersModalOpen, setIsHardwareOffersModalOpen] = useState<boolean>(false);
+  const [hardwareOffersItem, setHardwareOffersItem] = useState<HardwareOffersItem | null>(null);
+
+  const handleOpenHardwareOffersModal = (item: HardwareOffersItem) => {
+    setHardwareOffersItem(item);
+    setIsHardwareOffersModalOpen(true);
+  };
+
   const value = {
     cpus,
     gpus,
@@ -618,6 +633,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     selectedGpuDetailId,
     setSelectedGpuDetailId,
     previousPage,
+    setPreviousPage,
     handleOpenCpuDetail,
     handleOpenGpuDetail,
     handleBackFromCpuDetail,
@@ -658,6 +674,10 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     showToast,
     isBuyModalOpen,
     setIsBuyModalOpen,
+    isHardwareOffersModalOpen,
+    setIsHardwareOffersModalOpen,
+    hardwareOffersItem,
+    handleOpenHardwareOffersModal,
     isLegalModalOpen,
     setIsLegalModalOpen,
     legalModalTab,

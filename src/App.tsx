@@ -9,6 +9,7 @@ import FpsGauge from "./components/FpsGauge";
 import SystemDiagnostics from "./components/SystemDiagnostics";
 import UpgradeAdvisor from "./components/UpgradeAdvisor";
 import BuildBuyModal from "./components/BuildBuyModal";
+import HardwareOffersModal from "./components/HardwareOffersModal";
 import { ShoppingCart, Sparkles, Cpu, Zap } from "lucide-react";
 
 import GameBuildsCatalog from "./pages/GameBuildsCatalog";
@@ -69,6 +70,9 @@ export default function App() {
     toastSubMessage,
     isBuyModalOpen,
     setIsBuyModalOpen,
+    isHardwareOffersModalOpen,
+    setIsHardwareOffersModalOpen,
+    hardwareOffersItem,
     isLegalModalOpen,
     setIsLegalModalOpen,
     legalModalTab,
@@ -592,6 +596,13 @@ export default function App() {
           ramCapacityGB={ramCapacityGB}
           selectedStorage={selectedStorage}
           psuRecommendationW={compatibilityReport.psuRecommendationW}
+        />
+
+        {/* DEDICATED HARDWARE OFFERS MODAL */}
+        <HardwareOffersModal
+          isOpen={isHardwareOffersModalOpen}
+          onClose={() => setIsHardwareOffersModalOpen(false)}
+          item={hardwareOffersItem}
         />
 
         {/* LEGAL GOVERNANCE & POLICY MODAL */}

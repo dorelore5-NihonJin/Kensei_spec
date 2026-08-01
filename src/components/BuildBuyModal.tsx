@@ -321,7 +321,6 @@ export default function BuildBuyModal({
   psuRecommendationW
 }: BuildBuyModalProps) {
   const { lang, formatPrice } = useLanguage();
-  const { activePage } = useHardware();
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -332,29 +331,11 @@ export default function BuildBuyModal({
     return "en";
   });
 
-  // Modal Focus Mode: Single Hardware (CPU/GPU) vs Full PC Build
-  const [focusMode, setFocusMode] = useState<"focused" | "build">("focused");
-
-  const singleItem = useMemo(() => {
-    if (activePage === "cpu-detail" && selectedCpu) {
-      return { item: selectedCpu, type: "cpu" as const, name: selectedCpu.name, mfg: selectedCpu.manufacturer };
-    }
-    if (activePage === "gpu-detail" && selectedGpu) {
-      return { item: selectedGpu, type: "gpu" as const, name: selectedGpu.name, mfg: selectedGpu.manufacturer };
-    }
-    if (selectedGpu) return { item: selectedGpu, type: "gpu" as const, name: selectedGpu.name, mfg: selectedGpu.manufacturer };
-    if (selectedCpu) return { item: selectedCpu, type: "cpu" as const, name: selectedCpu.name, mfg: selectedCpu.manufacturer };
-    return null;
-  }, [activePage, selectedCpu, selectedGpu]);
-
   const searchQuery = useMemo(() => {
-    if (focusMode === "focused" && singleItem) {
-      return singleItem.name;
-    }
     const cpuName = selectedCpu ? selectedCpu.name : "Gaming CPU";
     const gpuName = selectedGpu ? selectedGpu.name : "GPU";
     return `${cpuName} ${gpuName}`;
-  }, [focusMode, singleItem, selectedCpu, selectedGpu]);
+  }, [selectedCpu, selectedGpu]);
 
   const filteredStores = useMemo(() => {
     return STORE_PROVIDERS.filter((s) => s.region === selectedRegion);
@@ -386,11 +367,6 @@ export default function BuildBuyModal({
     }
   };
 
-  const isNvidia = singleItem?.mfg === "NVIDIA";
-  const isAmd = singleItem?.mfg === "AMD";
-  const isIntel = singleItem?.mfg === "Intel";
-  const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
       <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-[32px] max-w-4xl w-full p-5 sm:p-7 shadow-2xl relative flex flex-col gap-5 max-h-[92vh] overflow-y-auto transform transition-all animate-in zoom-in-95 duration-200">
@@ -404,14 +380,14 @@ export default function BuildBuyModal({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg sm:text-xl font-black tracking-tight text-[#1E2022] dark:text-white">
-                  Поиск Предложений и Где Купить
+                  Где Купить Сборку ПК & Смета Комплектующих
                 </h3>
                 <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
-                  Прямой Поиск 2026
+                  Полная Сборка
                 </span>
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
-                Оригинальные магазины, официальные дистрибьюторы и маркетплейсы по выбранному региону
+                Рассчитанные цены комплектующих, корпуса, блока питания и прямого поиска готовой сборки в магазинах
               </p>
             </div>
           </div>
@@ -424,41 +400,18 @@ export default function BuildBuyModal({
           </button>
         </div>
 
-        {/* MODAL CONTROL STRIP: Mode Switcher & Region Selector */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-          
-          {/* Mode Switcher: Single Hardware vs Full Build */}
-          <div className="flex items-center p-1 bg-black/5 dark:bg-white/10 rounded-xl">
-            {singleItem && (
-              <button
-                onClick={() => setFocusMode("focused")}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
-                  focusMode === "focused"
-                    ? "bg-[#E88D9F] text-white shadow-md"
-                    : "text-gray-500 hover:text-[#1E2022] dark:hover:text-white"
-                }`}
-              >
-                {singleItem.type === "cpu" ? "Данный Процессор" : "Данная Видеокарта"}
-              </button>
-            )}
-            <button
-              onClick={() => setFocusMode("build")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
-                focusMode === "build" || !singleItem
-                  ? "bg-[#E88D9F] text-white shadow-md"
-                  : "text-gray-500 hover:text-[#1E2022] dark:hover:text-white"
-              }`}
-            >
-              Полная Сборка ПК
-            </button>
+        {/* MODAL CONTROL STRIP: Region Selector */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-black/5 dark:bg-white/5 p-2.5 rounded-2xl border border-black/5 dark:border-white/5">
+          <div className="flex items-center gap-2 px-2">
+            <Globe className="w-4 h-4 text-[#E88D9F]" />
+            <span className="text-xs font-black text-[#1E2022] dark:text-white">Выберите регион поиска сборки:</span>
           </div>
 
           {/* Region Switcher Tabs */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-black uppercase text-gray-400 mr-1 hidden md:inline">Регион:</span>
             <button
               onClick={() => setSelectedRegion("ru")}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
                 selectedRegion === "ru"
                   ? "bg-blue-600 text-white border-blue-500 shadow-md"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
@@ -470,7 +423,7 @@ export default function BuildBuyModal({
 
             <button
               onClick={() => setSelectedRegion("ja")}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
                 selectedRegion === "ja"
                   ? "bg-red-600 text-white border-red-500 shadow-md"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
@@ -482,7 +435,7 @@ export default function BuildBuyModal({
 
             <button
               onClick={() => setSelectedRegion("en")}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
                 selectedRegion === "en"
                   ? "bg-emerald-600 text-white border-emerald-500 shadow-md"
                   : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
@@ -494,54 +447,19 @@ export default function BuildBuyModal({
           </div>
         </div>
 
-        {/* FOCUSED SINGLE ITEM BANNER OR FULL BUILD SUMMARY */}
-        {focusMode === "focused" && singleItem ? (
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-black/[0.03] to-black/[0.06] dark:from-white/[0.04] dark:to-white/[0.07] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div
-                className="w-14 h-14 rounded-2xl flex flex-col items-center justify-center text-white font-black text-xs shadow-md shrink-0 border border-white/20"
-                style={{ backgroundColor: brandColor }}
-              >
-                <span className="text-[9px] opacity-80 uppercase">{singleItem.mfg}</span>
-                <span className="text-xs font-mono mt-0.5">{singleItem.type.toUpperCase()}</span>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded border" style={{ backgroundColor: `${brandColor}15`, color: brandColor, borderColor: `${brandColor}30` }}>
-                    {singleItem.mfg}
-                  </span>
-                  <span className="text-[10px] text-gray-400 font-extrabold">Целевой Запрос</span>
-                </div>
-                <h4 className="text-lg font-black text-[#1E2022] dark:text-white mt-0.5">
-                  {singleItem.name}
-                </h4>
-              </div>
+        {/* FULL PC BUILD SUMMARY CARD */}
+        <div className="p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold">
+          <div className="flex items-center gap-3">
+            <Award className="w-5 h-5 text-[#E88D9F] shrink-0" />
+            <div>
+              <span className="font-black text-[#1E2022] dark:text-white block">
+                Комплексная сборка: {selectedCpu?.name || "Gaming CPU"} + {selectedGpu?.name || "GPU"}
+              </span>
+              <span className="text-[10px] text-gray-400 font-extrabold">
+                {ramCapacityGB}GB RAM • 2TB SSD • {psuRecommendationW}W PSU
+              </span>
             </div>
-
-            {/* Copy Search Query Button */}
-            <button
-              onClick={() => handleCopyText(singleItem.name, "single_query")}
-              className="px-4 py-2.5 rounded-xl bg-black/5 dark:bg-white/10 text-xs font-black text-[#1E2022] dark:text-white hover:bg-[#E88D9F] hover:text-white transition flex items-center justify-center gap-2 border border-black/10 dark:border-white/10 shrink-0"
-            >
-              {copiedId === "single_query" ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-[#E88D9F]" />}
-              <span>{copiedId === "single_query" ? "Запрос Скопирован!" : "Скопировать Название"}</span>
-            </button>
           </div>
-        ) : (
-          /* FULL PC BUILD SUMMARY CARD */
-          <div className="p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold">
-            <div className="flex items-center gap-3">
-              <Award className="w-5 h-5 text-[#E88D9F] shrink-0" />
-              <div>
-                <span className="font-black text-[#1E2022] dark:text-white block">
-                  Комплексная сборка: {selectedCpu?.name || "Gaming CPU"} + {selectedGpu?.name || "GPU"}
-                </span>
-                <span className="text-[10px] text-gray-400 font-extrabold">
-                  {ramCapacityGB}GB RAM • 2TB SSD • {psuRecommendationW}W PSU
-                </span>
-              </div>
-            </div>
 
             <div className="flex items-center gap-3 border-t sm:border-t-0 border-black/10 dark:border-white/10 pt-2 sm:pt-0">
               <div>
@@ -550,7 +468,6 @@ export default function BuildBuyModal({
               </div>
             </div>
           </div>
-        )}
 
         {/* STORE MARKETPLACE PROVIDERS GRID */}
         <div>

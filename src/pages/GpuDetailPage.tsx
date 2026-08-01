@@ -36,6 +36,7 @@ export default function GpuDetailPage() {
     setActivePage,
     setCurrentStep,
     setIsBuyModalOpen,
+    handleOpenHardwareOffersModal,
     handleOpenCpuDetail,
     handleOpenGpuDetail,
     previousPage,
@@ -261,11 +262,16 @@ export default function GpuDetailPage() {
             <span>Сравнить в Таблице</span>
           </button>
 
-          {/* Action 3: Buy Build */}
+          {/* Action 3: Buy / Find Offers */}
           <button
             onClick={() => {
-              setSelectedGpu(gpu);
-              setIsBuyModalOpen(true);
+              handleOpenHardwareOffersModal({
+                name: gpu.name,
+                manufacturer: gpu.manufacturer,
+                type: "gpu",
+                launchMsrp: gpu.launchMsrp,
+                vramGB: gpu.vramGB
+              });
             }}
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
