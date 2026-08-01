@@ -228,6 +228,34 @@ export default function HardwareOffersModal({
 
   // Auto region derived from active site language
   const selectedRegion: StoreRegion = lang === "ru" ? "ru" : lang === "ja" ? "ja" : "en";
+  const regionLabel = lang === "ru" ? "СНГ / Россия" : lang === "ja" ? "日本 (Japan)" : "Global / US";
+
+  const t = useMemo(() => {
+    const isEn = lang === "en";
+    const isJa = lang === "ja";
+    const itemType = item?.type === "cpu" ? (isEn ? "CPU" : isJa ? "プロセッサ" : "процессора") : (isEn ? "GPU" : isJa ? "グラフィックボード" : "видеокарты");
+    return {
+      title: isEn ? `Where to Buy ${item?.name || ""}` : isJa ? `${item?.name || ""} の購入ストア` : `Где Купить ${item?.name || ""}`,
+      subtitle: isEn
+        ? `Official stores and verified platforms for ${itemType}`
+        : isJa
+        ? `${itemType} の正規取扱店と検証済みプラットフォーム`
+        : `Официальные магазины и проверенные площадки для ${itemType}`,
+      socket: isEn ? "Socket" : isJa ? "ソケット" : "Сокет",
+      msrp: isEn ? "Launch MSRP" : isJa ? "メーカー希望小売価格 (MSRP)" : "Рекомендованная цена (MSRP)",
+      btnCopy: isEn ? "Copy Name" : isJa ? "名称をコピー" : "Скопировать Название",
+      btnCopied: isEn ? "Query Copied!" : isJa ? "クエリをコピーしました！" : "Запрос Скопирован!",
+      storesHeader: isEn ? "Retailers & Marketplaces" : isJa ? "対応ストア・オンラインショップ" : "Магазины и Торговые Площадки",
+      directSearch: isEn ? `Direct search for «${item?.name || ""}»` : isJa ? `«${item?.name || ""}» の direct 検索` : `Прямой поиск по «${item?.name || ""}»`,
+      findOffers: isEn ? "Find Offers" : isJa ? "オファーを探す" : "Искать предложения",
+      adviceTitle: isEn ? "KENSEI Hardware Buyer Advice:" : isJa ? "KENSEIパーツ購入のアドバイス:" : "Советы по безопасной покупке железа KENSEI:",
+      adviceBody: isEn
+        ? `Before payment, verify seller rating, official warranty card, physical socket compatibility (${item?.socket || "sTR5/AM5/LGA1700"}) and power supply requirements.`
+        : isJa
+        ? `支払い前に、セラーの評価、正規保証書の有無、ソケットの物理的互換性（${item?.socket || "sTR5/AM5/LGA1700"}）、および電源容量を確認してください。`
+        : `Перед оплатой проверяйте рейтинг продавца, наличие официального гарантийного талона, а также физическую совместимость сокета (${item?.socket || "sTR5/AM5/LGA1700"}) и системного питания.`
+    };
+  }, [lang, item]);
 
   const filteredStores = useMemo(() => {
     return STORE_PROVIDERS.filter((s) => s.region === selectedRegion);
@@ -249,7 +277,6 @@ export default function HardwareOffersModal({
   const isAmd = item.manufacturer === "AMD";
   const isIntel = item.manufacturer === "Intel";
   const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
-  const regionLabel = lang === "ru" ? "СНГ / Россия" : lang === "ja" ? "日本 (Japan)" : "Global / US";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
@@ -264,14 +291,14 @@ export default function HardwareOffersModal({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg sm:text-xl font-black tracking-tight text-[#1E2022] dark:text-white">
-                  Где Купить {item.name}
+                  {t.title}
                 </h3>
                 <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
                   {regionLabel}
                 </span>
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
-                Официальные магазины и проверенные площадки для {item.type === "cpu" ? "процессора" : "видеокарты"}
+                {t.subtitle}
               </p>
             </div>
           </div>
@@ -302,7 +329,7 @@ export default function HardwareOffersModal({
                 </span>
                 {item.socket && (
                   <span className="text-[10px] bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded font-extrabold">
-                    Сокет {item.socket}
+                    {t.socket} {item.socket}
                   </span>
                 )}
                 {item.vramGB && (
@@ -320,7 +347,7 @@ export default function HardwareOffersModal({
           <div className="flex items-center gap-3 shrink-0">
             {item.launchMsrp ? (
               <div className="text-right hidden sm:block">
-                <span className="text-[10px] font-black uppercase text-gray-400">Рекомендованная цена (MSRP)</span>
+                <span className="text-[10px] font-black uppercase text-gray-400">{t.msrp}</span>
                 <div className="text-base font-black text-[#E88D9F] font-mono">
                   {formatPrice(item.launchMsrp)}
                 </div>
@@ -333,7 +360,7 @@ export default function HardwareOffersModal({
               className="px-4 py-2.5 rounded-xl bg-black/5 dark:bg-white/10 text-xs font-black text-[#1E2022] dark:text-white hover:bg-[#E88D9F] hover:text-white transition flex items-center justify-center gap-2 border border-black/10 dark:border-white/10 active:scale-97"
             >
               {copiedId === "offers_query" ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-[#E88D9F]" />}
-              <span>{copiedId === "offers_query" ? "Запрос Скопирован!" : "Скопировать Название"}</span>
+              <span>{copiedId === "offers_query" ? t.btnCopied : t.btnCopy}</span>
             </button>
           </div>
         </div>
@@ -342,9 +369,9 @@ export default function HardwareOffersModal({
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between px-1">
             <span className="text-xs font-black text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
-              <Globe className="w-4 h-4 text-[#E88D9F]" /> {lang === "ru" ? "Магазины и Торговые Площадки" : lang === "ja" ? "対応ストア・オンラインショップ" : "Retailers & Marketplaces"} ({regionLabel})
+              <Globe className="w-4 h-4 text-[#E88D9F]" /> {t.storesHeader} ({regionLabel})
             </span>
-            <span className="text-[10px] font-bold text-gray-400">Прямой поиск по «{item.name}»</span>
+            <span className="text-[10px] font-bold text-gray-400">{t.directSearch}</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -379,7 +406,7 @@ export default function HardwareOffersModal({
                 </p>
 
                 <div className="text-[11px] font-black text-[#E88D9F] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>Искать предложения</span>
+                  <span>{t.findOffers}</span>
                   <span>→</span>
                 </div>
               </a>
@@ -392,10 +419,10 @@ export default function HardwareOffersModal({
           <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
           <div className="flex flex-col gap-1">
             <span className="font-black text-emerald-800 dark:text-emerald-300">
-              Советы по безопасной покупке железа KENSEI:
+              {t.adviceTitle}
             </span>
             <p className="text-emerald-700/90 dark:text-emerald-200/80 leading-relaxed font-medium">
-              Перед оплатой проверяйте рейтинг продавца, наличие официального гарантийного талона, а также физическую совместимость сокета ({item.socket || "sTR5/AM5/LGA1700"}) и системного питания.
+              {t.adviceBody}
             </p>
           </div>
         </div>

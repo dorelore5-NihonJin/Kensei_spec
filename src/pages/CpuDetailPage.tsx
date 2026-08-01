@@ -35,16 +35,60 @@ export default function CpuDetailPage() {
     handleBackFromCpuDetail,
     showToast
   } = useHardware();
-  const { formatPrice } = useLanguage();
+  const { lang, formatPrice } = useLanguage();
 
   const [copied, setCopied] = useState(false);
 
+  const t = useMemo(() => {
+    const isEn = lang === "en";
+    const isJa = lang === "ja";
+    return {
+      backRankings: isEn ? "Back to Rankings" : isJa ? "ランキングに戻る" : "Назад в Рейтинг",
+      backCompare: isEn ? "Back to Comparison" : isJa ? "比較に戻る" : "Назад в Сравнение",
+      backCatalog: isEn ? "Back to Catalog" : isJa ? "カタログに戻る" : "Назад в Каталог",
+      backSimulator: isEn ? "Back to Simulator" : isJa ? "シミュレーターに戻る" : "Назад в Симулятор",
+      notFoundTitle: isEn ? "CPU Not Found" : isJa ? "プロセッサが見つかりません" : "Процессор не найден",
+      returnSimulator: isEn ? "Return to Simulator" : isJa ? "シミュレーターに戻る" : "Вернуться в Симулятор",
+      passportBadge: isEn ? "KENSEI Knowledge Base • CPU Passport" : isJa ? "KENSEI ナレッジベース • プロセッサパスポート" : "База знаний KENSEI • Паспорт Процессора",
+      socket: isEn ? "Socket" : isJa ? "ソケット" : "Сокет",
+      coresThreads: isEn ? "Cores / Threads" : isJa ? "コア / スレッド" : "Ядер / Потоков",
+      arch: isEn ? "Architecture" : isJa ? "アーキテクチャ" : "Архитектура",
+      msrp: isEn ? "Launch MSRP" : isJa ? "メーカー希望小売価格 (MSRP)" : "Рекомендованная цена (MSRP)",
+      negotiable: isEn ? "Market Price" : isJa ? "時価" : "Договорная",
+      calibNotice: isEn ? "2026 Telemetry Calibration" : isJa ? "2026年テレメトリキャリブレーション" : "Калибровка данных 2026",
+      btnTestSim: isEn ? "Select for Simulator" : isJa ? "シミュレーターで選択" : "Тестировать в Симуляторе",
+      btnCompare: isEn ? "Compare in Matrix" : isJa ? "マトリックスで比較" : "Сравнить в Таблице",
+      btnOffers: isEn ? "Find Offers" : isJa ? "オファーを探す" : "Найти Предложения",
+      btnShare: isEn ? "Share" : isJa ? "共有する" : "Поделиться",
+      btnShared: isEn ? "Link Copied!" : isJa ? "リンクがコピーされました！" : "Ссылка Скопирована!",
+      specTitle: isEn ? "Full Specifications & Silicon Profile" : isJa ? "詳細仕様＆シリコンプロファイル" : "Полные Спецификации & Кремниевый Профиль",
+      flagshipSpecs: isEn ? "Flagship Specs" : isJa ? "フラグシップ仕様" : "Флагманские Характеристики",
+      param: isEn ? "Parameter" : isJa ? "パラメータ" : "Параметр",
+      value: isEn ? "Value" : isJa ? "値" : "Значение",
+      insight: isEn ? "KENSEI Engine Insight" : isJa ? "KENSEIエンジンの解説" : "Пояснение KENSEI Engine",
+      memCache: isEn ? "Memory & Cache" : isJa ? "メモリ＆キャッシュ" : "Память & Кэш",
+      pros: isEn ? "Technical Advantages" : isJa ? "技術的メリット" : "Технические Плюсы",
+      cons: isEn ? "Technical Caveats" : isJa ? "技術的注意点" : "Технические Нюансы",
+      benchTitle: isEn ? "Gaming Performance Benchmarks (Ultra Preset)" : isJa ? "ゲーム性能ベンチマーク (Ultra)" : "Оценка Производительности в Играх (4K / 1440p / 1080p Ultra)",
+      benchNotice: isEn ? "Telemetry calculated on KENSEI reference bench with 32GB DDR5 RAM" : isJa ? "KENSEIリファレンスベンチ（32GB DDR5）で計算されたテレメトリ" : "Телеметрия рассчитана на эталонном стенде KENSEI с 32GB DDR5 и неразгоняемым охлаждением",
+      colGame: isEn ? "Game" : isJa ? "ゲーム" : "Игра",
+      colAvgFps: isEn ? "Avg FPS" : isJa ? "平均 FPS" : "Средний FPS",
+      colLowFps: isEn ? "1% Low FPS" : isJa ? "1% Low FPS" : "1% Low FPS",
+      colStability: isEn ? "Stability" : isJa ? "安定性" : "Стабильность",
+      colCostFps: isEn ? "Cost / FPS" : isJa ? "1 FPSあたりのコスト" : "Цена за 1 FPS",
+      overviewTitle: isEn ? "Architectural Overview & Gaming Potential" : isJa ? "アーキテクチャの概要とゲーム性能" : "Архитектурный Обзор & Игровой Потенциал",
+      socketLimits: isEn ? "Socket Limits & Compatibility" : isJa ? "ソケット制限と互換性" : "Ограничения Сокета & Совместимость",
+      rankOf: isEn ? "of" : isJa ? "/" : "из",
+      inDb: isEn ? "in KENSEI DB" : isJa ? "件中 (KENSEI DB)" : "в базе KENSEI"
+    };
+  }, [lang]);
+
   const backLabel = useMemo(() => {
-    if (previousPage === "rankings") return "Назад в Рейтинг";
-    if (previousPage === "compare") return "Назад в Сравнение";
-    if (previousPage === "catalog") return "Назад в Каталог";
-    return "Назад в Симулятор";
-  }, [previousPage]);
+    if (previousPage === "rankings") return t.backRankings;
+    if (previousPage === "compare") return t.backCompare;
+    if (previousPage === "catalog") return t.backCatalog;
+    return t.backSimulator;
+  }, [previousPage, t]);
 
   // Resolve target CPU from selectedCpuDetailId or URL
   const cpu = useMemo(() => {
@@ -180,7 +224,7 @@ export default function CpuDetailPage() {
         <div className="flex items-center gap-2">
           <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] font-black px-3.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
             <Sparkles className="w-3 h-3" />
-            База знаний KENSEI • Паспорт Процессора
+            {t.passportBadge}
           </span>
         </div>
       </div>
@@ -206,10 +250,10 @@ export default function CpuDetailPage() {
                   {cpu.manufacturer}
                 </span>
                 <span className="text-[10px] bg-black/5 dark:bg-white/10 px-2.5 py-0.5 rounded-md font-extrabold text-gray-600 dark:text-gray-300">
-                  Сокет {cpu.socket}
+                  {t.socket} {cpu.socket}
                 </span>
                 <span className="text-[10px] bg-black/5 dark:bg-white/10 px-2.5 py-0.5 rounded-md font-extrabold text-gray-600 dark:text-gray-300">
-                  {cpu.releaseYear} г.
+                  {cpu.releaseYear}
                 </span>
                 {cpu.is3DVCache && (
                   <span className="text-[10px] bg-[#E88D9F] text-white px-2.5 py-0.5 rounded-md font-black tracking-wider uppercase shadow-xs flex items-center gap-1">
@@ -223,7 +267,7 @@ export default function CpuDetailPage() {
               </h1>
 
               <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
-                Процессор {cpu.manufacturer} {cpu.name} ({cpu.cores} Ядер / {cpu.threads} Потоков) на микроархитектуре {techDetails.architectureCodename}. TDP {cpu.tdpW}W, сокет {cpu.socket}.
+                {cpu.manufacturer} {cpu.name} ({cpu.cores} / {cpu.threads}) • {techDetails.architectureCodename}. TDP {cpu.tdpW}W, {t.socket} {cpu.socket}.
               </p>
             </div>
           </div>
@@ -231,13 +275,13 @@ export default function CpuDetailPage() {
           {/* MSRP / Price Callout */}
           <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-2 border-t lg:border-t-0 border-black/10 dark:border-white/10 pt-4 lg:pt-0 shrink-0">
             <div className="text-left lg:text-right">
-              <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">Рекомендованная цена (MSRP)</span>
+              <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">{t.msrp}</span>
               <div className="text-2xl sm:text-3xl font-black text-[#E88D9F] font-mono mt-0.5">
-                {cpu.launchMsrp ? formatPrice(cpu.launchMsrp) : "Договорная"}
+                {cpu.launchMsrp ? formatPrice(cpu.launchMsrp) : t.negotiable}
               </div>
             </div>
             <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-              <Check className="w-3 h-3" /> Калибровка данных 2026
+              <Check className="w-3 h-3" /> {t.calibNotice}
             </span>
           </div>
         </div>
@@ -254,7 +298,7 @@ export default function CpuDetailPage() {
             className="p-3 rounded-2xl bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 active:scale-97 transition-all duration-200 shadow-md font-black text-xs flex items-center justify-center gap-2"
           >
             <Zap className="w-4 h-4 fill-current" />
-            <span>Тестировать в Симуляторе</span>
+            <span>{t.btnTestSim}</span>
           </button>
 
           {/* Action 2: Compare Page */}
@@ -265,7 +309,7 @@ export default function CpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             <Scale className="w-4 h-4 text-[#8A9A86]" />
-            <span>Сравнить в Таблице</span>
+            <span>{t.btnCompare}</span>
           </button>
 
           {/* Action 3: Buy / Find Offers */}
@@ -282,7 +326,7 @@ export default function CpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             <ShoppingCart className="w-4 h-4 text-emerald-500" />
-            <span>Найти Предложения</span>
+            <span>{t.btnOffers}</span>
           </button>
 
           {/* Action 4: Copy Shareable Link */}
@@ -291,7 +335,7 @@ export default function CpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4 text-[#E88D9F]" />}
-            <span>{copied ? "Ссылка Скопирована!" : "Поделиться"}</span>
+            <span>{copied ? t.btnShared : t.btnShare}</span>
           </button>
         </div>
       </div>

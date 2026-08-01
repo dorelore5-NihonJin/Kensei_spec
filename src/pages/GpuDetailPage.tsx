@@ -42,17 +42,59 @@ export default function GpuDetailPage() {
     handleBackFromCpuDetail,
     showToast
   } = useHardware();
-  const { formatPrice } = useLanguage();
+  const { lang, formatPrice } = useLanguage();
 
   const [copied, setCopied] = useState(false);
   const [selectedResolution, setSelectedResolution] = useState<"1080p" | "1440p" | "4K">("1440p");
 
+  const t = useMemo(() => {
+    const isEn = lang === "en";
+    const isJa = lang === "ja";
+    return {
+      backRankings: isEn ? "Back to Rankings" : isJa ? "ランキングに戻る" : "Назад в Рейтинг",
+      backCompare: isEn ? "Back to Comparison" : isJa ? "比較に戻る" : "Назад в Сравнение",
+      backCatalog: isEn ? "Back to Catalog" : isJa ? "カタログに戻る" : "Назад в Каталог",
+      backSimulator: isEn ? "Back to Simulator" : isJa ? "シミュレーターに戻る" : "Назад в Симулятор",
+      notFoundTitle: isEn ? "GPU Not Found" : isJa ? "グラフィックボードが見つかりません" : "Видеокарта не найдена",
+      returnSimulator: isEn ? "Return to Simulator" : isJa ? "シミュレーターに戻る" : "Вернуться в Симулятор",
+      passportBadge: isEn ? "KENSEI Knowledge Base • GPU Passport" : isJa ? "KENSEI ナレッジベース • グラフィックボードパスポート" : "База знаний KENSEI • Паспорт Видеокарты",
+      vram: isEn ? "VRAM" : isJa ? "VRAM メモリ" : "Видеопамять",
+      bus: isEn ? "Memory Bus" : isJa ? "メモリバス" : "Шина",
+      tdp: isEn ? "TDP" : isJa ? "TDP 消費電力" : "Теплопакет",
+      msrp: isEn ? "Launch MSRP" : isJa ? "メーカー希望小売価格 (MSRP)" : "Рекомендованная цена (MSRP)",
+      negotiable: isEn ? "Market Price" : isJa ? "時価" : "Договорная",
+      calibNotice: isEn ? "2026 Telemetry Calibration" : isJa ? "2026年テレメトリキャリブレーション" : "Калибровка данных 2026",
+      btnTestSim: isEn ? "Select for Simulator" : isJa ? "シミュレーターで選択" : "Тестировать в Симуляторе",
+      btnCompare: isEn ? "Compare in Matrix" : isJa ? "マトリックスで比較" : "Сравнить в Таблице",
+      btnOffers: isEn ? "Find Offers" : isJa ? "オファーを探す" : "Найти Предложения",
+      btnShare: isEn ? "Share" : isJa ? "共有する" : "Поделиться",
+      btnShared: isEn ? "Link Copied!" : isJa ? "リンクがコピーされました！" : "Ссылка Скопирована!",
+      noticeHeader: isEn ? "IMPORTANT KENSEI TELEMETRY NOTICE:" : isJa ? "KENSEI テレメトリに関する重要なお知らせ:" : "ВАЖНОЕ ПРИМЕЧАНИЕ О ТЕЛЕМЕТРИИ KENSEI ENGINE:",
+      noticeBody: isEn
+        ? "All FPS figures are calculated on an unthrottled KENSEI testbench (Ryzen 7 7800X3D / Core i7-14700K + 32GB DDR5). Older CPUs will bottleneck this GPU and lower real-world FPS."
+        : isJa
+        ? "すべてのFPS数値は、ボトルネックのないKENSEIリファレンスベンチ（Ryzen 7 7800X3D / Core i7-14700K + 32GB DDR5）で計算されています。古いCPUを使用する場合、プロセッサのボトルネックにより実際のFPSが低くなる可能性があります。"
+        : "Все показатели FPS рассчитаны на эталонном тестовом стенде KENSEI без процессора-боттлнека (Ryzen 7 7800X3D / Core i7-14700K + 32GB DDR5). При использовании более старых процессоров реальный FPS может быть ниже из-за процессорного боттлнека.",
+      cpuPairingTitle: isEn ? "Recommended CPUs to Pair with" : isJa ? "推奨ペアリングCPU:" : "Рекомендуемые Процессоры для",
+      cpuPairingDesc: isEn
+        ? "KENSEI Smart Algorithm analyzed GPU throughput to compute optimal bottleneck-free CPUs:"
+        : isJa
+        ? "KENSEIスマートアルゴリズムがGPUのスループットを分析し、最適なCPUを計算しました:"
+        : "Умный алгоритм KENSEI проанализировал пропускную способность видеокарты и рассчитал оптимальные CPU:",
+      catFlagship: isEn ? "🏆 Flagship Gaming Choice (0% Bottleneck)" : isJa ? "🏆 フラグシップゲーム推奨 (ボトルネック 0%)" : "🏆 Флагманский Игровой Выбор (0% Боттлнека)",
+      catOptimal: isEn ? "⚖️ Optimal Price/FPS Balance" : isJa ? "⚖️ 最適なコスパバランス" : "⚖️ Оптимальный Баланс (Цена / FPS)",
+      catMin: isEn ? "💡 Minimum Recommended CPU" : isJa ? "💡 最低推奨CPU" : "💡 Минимально Рекомендуемый CPU",
+      bottleneck: isEn ? "Bottleneck" : isJa ? "ボトルネック" : "Боттлнек",
+      viewCpu: isEn ? "Detailed CPU view →" : isJa ? "プロセッサの詳細を見る →" : "Подробнее о процессоре →"
+    };
+  }, [lang]);
+
   const backLabel = useMemo(() => {
-    if (previousPage === "rankings") return "Назад в Рейтинг";
-    if (previousPage === "compare") return "Назад в Сравнение";
-    if (previousPage === "catalog") return "Назад в Каталог";
-    return "Назад в Симулятор";
-  }, [previousPage]);
+    if (previousPage === "rankings") return t.backRankings;
+    if (previousPage === "compare") return t.backCompare;
+    if (previousPage === "catalog") return t.backCatalog;
+    return t.backSimulator;
+  }, [previousPage, t]);
 
   // Resolve target GPU from selectedGpuDetailId or URL
   const gpu = useMemo(() => {
@@ -224,13 +266,13 @@ export default function GpuDetailPage() {
           {/* MSRP / Price Callout */}
           <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-2 border-t lg:border-t-0 border-black/10 dark:border-white/10 pt-4 lg:pt-0 shrink-0">
             <div className="text-left lg:text-right">
-              <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">Рекомендованная цена (MSRP)</span>
+              <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">{t.msrp}</span>
               <div className="text-2xl sm:text-3xl font-black text-[#E88D9F] font-mono mt-0.5">
-                {gpu.launchMsrp ? formatPrice(gpu.launchMsrp) : "Договорная"}
+                {gpu.launchMsrp ? formatPrice(gpu.launchMsrp) : t.negotiable}
               </div>
             </div>
             <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-              <Check className="w-3 h-3" /> Калибровка телеметрии 2026
+              <Check className="w-3 h-3" /> {t.calibNotice}
             </span>
           </div>
         </div>
@@ -247,7 +289,7 @@ export default function GpuDetailPage() {
             className="p-3 rounded-2xl bg-[#E88D9F] text-white hover:bg-[#E88D9F]/90 active:scale-97 transition-all duration-200 shadow-md font-black text-xs flex items-center justify-center gap-2"
           >
             <Zap className="w-4 h-4 fill-current" />
-            <span>Тестировать в Симуляторе</span>
+            <span>{t.btnTestSim}</span>
           </button>
 
           {/* Action 2: Compare Page */}
@@ -258,7 +300,7 @@ export default function GpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             <Scale className="w-4 h-4 text-[#8A9A86]" />
-            <span>Сравнить в Таблице</span>
+            <span>{t.btnCompare}</span>
           </button>
 
           {/* Action 3: Buy / Find Offers */}
@@ -275,7 +317,7 @@ export default function GpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             <ShoppingCart className="w-4 h-4 text-emerald-500" />
-            <span>Найти Предложения</span>
+            <span>{t.btnOffers}</span>
           </button>
 
           {/* Action 4: Copy Shareable Link */}
@@ -284,7 +326,7 @@ export default function GpuDetailPage() {
             className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#1E2022] dark:text-white active:scale-97 transition-all duration-200 font-black text-xs flex items-center justify-center gap-2 border border-black/10 dark:border-white/10"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4 text-[#E88D9F]" />}
-            <span>{copied ? "Ссылка Скопирована!" : "Поделиться"}</span>
+            <span>{copied ? t.btnShared : t.btnShare}</span>
           </button>
         </div>
       </div>
@@ -737,10 +779,10 @@ export default function GpuDetailPage() {
               </div>
               <div>
                 <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
-                  Процессоры для Раскрытия Потенциала {gpu.name}
+                  {t.cpuPairingTitle} {gpu.name}
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
-                  Автоматический расчёт алгоритма KENSEI: оптимальные пары CPU для работы без боттлнека
+                  {t.cpuPairingDesc}
                 </p>
               </div>
             </div>
@@ -755,7 +797,7 @@ export default function GpuDetailPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between gap-2">
                     <span className={`px-2.5 py-1 rounded-xl text-[11px] font-black border ${rec.badgeColor}`}>
-                      {rec.tierLabel === "Optimum" ? "0% Боттлнека" : `~${rec.bottleneckPercentage}% Боттлнека`}
+                      {rec.tierLabel === "Optimum" ? (lang === "en" ? "0% Bottleneck" : lang === "ja" ? "ボトルネック 0%" : "0% Боттлнека") : `~${rec.bottleneckPercentage}% ${t.bottleneck}`}
                     </span>
                     <span className="text-[10px] font-bold text-gray-400">
                       {rec.cpu.manufacturer} {rec.cpu.releaseYear}
@@ -773,11 +815,11 @@ export default function GpuDetailPage() {
 
                   <div className="grid grid-cols-2 gap-2 text-[10px] font-bold bg-black/5 dark:bg-white/5 p-2.5 rounded-xl border border-black/5 dark:border-white/5">
                     <div>
-                      <span className="text-gray-400 block">Ядра / Потоки</span>
+                      <span className="text-gray-400 block">{lang === "en" ? "Cores / Threads" : lang === "ja" ? "コア / スレッド" : "Ядра / Потоки"}</span>
                       <span className="text-[#1E2022] dark:text-white font-mono">{rec.cpu.cores}C / {rec.cpu.threads}T</span>
                     </div>
                     <div>
-                      <span className="text-gray-400 block">Сокет</span>
+                      <span className="text-gray-400 block">{lang === "en" ? "Socket" : lang === "ja" ? "ソケット" : "Сокет"}</span>
                       <span className="text-[#1E2022] dark:text-white font-mono">{rec.cpu.socket}</span>
                     </div>
                   </div>
@@ -791,7 +833,7 @@ export default function GpuDetailPage() {
                   onClick={() => handleOpenCpuDetail(rec.cpu)}
                   className="w-full py-2.5 px-4 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#E88D9F] hover:text-white font-black text-xs transition flex items-center justify-center gap-2 active:scale-97"
                 >
-                  <span>Подробнее о процессоре</span>
+                  <span>{t.viewCpu}</span>
                   <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
                 </button>
               </div>

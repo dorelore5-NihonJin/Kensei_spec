@@ -351,6 +351,30 @@ export default function BuildBuyModal({
 
   const regionLabel = lang === "ru" ? "СНГ / Россия" : lang === "ja" ? "日本 (Japan)" : "Global / US";
 
+  const t = useMemo(() => {
+    const isEn = lang === "en";
+    const isJa = lang === "ja";
+    return {
+      title: isEn ? "Where to Buy PC Build & Component Estimate" : isJa ? "PCビルド購入 & パーツ見積もり" : "Где Купить Сборку ПК & Смета Комплектующих",
+      subtitle: isEn
+        ? "Calculated component prices, case, PSU, and direct ready-to-use PC build search"
+        : isJa
+        ? "パーツ、ケース、電源の概算価格とストアでのビルド直接検索"
+        : "Рассчитанные цены комплектующих, корпуса, блока питания и прямого поиска готовой сборки в магазинах",
+      buildLabel: isEn ? "Full PC Build:" : isJa ? "フルPCビルド:" : "Комплексная сборка:",
+      estCost: isEn ? "Estimated Cost" : isJa ? "概算見積もり価格" : "Расчетная стоимость",
+      storesHeader: isEn ? "Retailers & Marketplaces" : isJa ? "対応ストア・オンラインショップ" : "Магазины и Торговые Площадки",
+      directSearch: isEn ? `Direct search for «${searchQuery}»` : isJa ? `«${searchQuery}» の直接検索` : `Прямой поиск по «${searchQuery}»`,
+      findOffers: isEn ? "Find Offers" : isJa ? "オファーを探す" : "Искать предложения",
+      adviceTitle: isEn ? "KENSEI Hardware Buyer Advice:" : isJa ? "KENSEIパーツ購入のアドバイス:" : "Советы по безопасной покупке железа KENSEI:",
+      adviceBody: isEn
+        ? `Before payment, verify seller rating, official warranty card, physical socket compatibility (${selectedCpu?.socket || "AM5"}) and required PSU capacity (${psuRecommendationW}W+).`
+        : isJa
+        ? `支払い前に、セラーの評価、正規保証書の有無、ソケットの物理的互換性（${selectedCpu?.socket || "AM5"}）、および必要な電源容量（${psuRecommendationW}W+）を確認してください。`
+        : `Перед оплатой проверяйте рейтинг продавца, наличие официального гарантийного талона, а также физическую совместимость сокета (${selectedCpu?.socket || "AM5"}) и необходимую мощность БП (${psuRecommendationW}W+).`
+    };
+  }, [lang, searchQuery, selectedCpu, psuRecommendationW]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
       <div className="bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 text-[#1E2022] dark:text-white rounded-[32px] max-w-4xl w-full p-5 sm:p-7 shadow-2xl relative flex flex-col gap-5 max-h-[92vh] overflow-y-auto transform transition-all animate-in zoom-in-95 duration-200">
@@ -364,14 +388,14 @@ export default function BuildBuyModal({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg sm:text-xl font-black tracking-tight text-[#1E2022] dark:text-white">
-                  Где Купить Сборку ПК & Смета Комплектующих
+                  {t.title}
                 </h3>
                 <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
                   {regionLabel}
                 </span>
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
-                Рассчитанные цены комплектующих, корпуса, блока питания и прямого поиска готовой сборки в магазинах
+                {t.subtitle}
               </p>
             </div>
           </div>
@@ -390,7 +414,7 @@ export default function BuildBuyModal({
             <Award className="w-5 h-5 text-[#E88D9F] shrink-0" />
             <div>
               <span className="font-black text-[#1E2022] dark:text-white block">
-                Комплексная сборка: {selectedCpu?.name || "Gaming CPU"} + {selectedGpu?.name || "GPU"}
+                {t.buildLabel} {selectedCpu?.name || "Gaming CPU"} + {selectedGpu?.name || "GPU"}
               </span>
               <span className="text-[10px] text-gray-400 font-extrabold">
                 {ramCapacityGB}GB RAM • 2TB SSD • {psuRecommendationW}W PSU
@@ -400,7 +424,7 @@ export default function BuildBuyModal({
 
           <div className="flex items-center gap-3 border-t sm:border-t-0 border-black/10 dark:border-white/10 pt-2 sm:pt-0">
             <div>
-              <span className="text-[9px] uppercase text-gray-400 font-black">Расчетная стоимость</span>
+              <span className="text-[9px] uppercase text-gray-400 font-black">{t.estCost}</span>
               <div className="text-base font-black text-[#E88D9F] font-mono">{formatPrice(totalPriceUSD)}</div>
             </div>
           </div>
@@ -410,10 +434,10 @@ export default function BuildBuyModal({
         <div>
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-xs font-black uppercase text-gray-500 dark:text-gray-400 tracking-wider flex items-center gap-1.5">
-              <Globe className="w-4 h-4 text-[#E88D9F]" /> {lang === "ru" ? "Магазины и Торговые Площадки" : lang === "ja" ? "対応ストア・オンラインショップ" : "Retailers & Marketplaces"} ({regionLabel})
+              <Globe className="w-4 h-4 text-[#E88D9F]" /> {t.storesHeader} ({regionLabel})
             </h4>
             <span className="text-[10px] text-gray-400 font-extrabold">
-              Прямой поиск по «{searchQuery}»
+              {t.directSearch}
             </span>
           </div>
 
@@ -449,7 +473,7 @@ export default function BuildBuyModal({
                 </p>
 
                 <div className="flex items-center justify-between border-t border-black/5 dark:border-white/5 pt-2 text-[10px] font-black text-[#E88D9F] group-hover:underline">
-                  <span>Искать предложения</span>
+                  <span>{t.findOffers}</span>
                   <span>→</span>
                 </div>
               </a>
@@ -462,9 +486,9 @@ export default function BuildBuyModal({
           <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
           <div className="leading-relaxed">
             <strong className="block font-black text-emerald-700 dark:text-emerald-400 mb-0.5">
-              Советы по безопасной покупке железа KENSEI:
+              {t.adviceTitle}
             </strong>
-            Перед оплатой проверяйте рейтинг продавца, наличие официального гарантийного талона, а также физическую совместимость сокета ({selectedCpu?.socket || "AM5"}) и необходимую мощность БП ({psuRecommendationW}W+).
+            {t.adviceBody}
           </div>
         </div>
 
