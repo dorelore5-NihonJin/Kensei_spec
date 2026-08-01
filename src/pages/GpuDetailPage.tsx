@@ -19,9 +19,7 @@ import {
   Layers,
   Monitor,
   Video,
-  Cpu,
   Flame,
-  Radio,
   Gamepad2
 } from "lucide-react";
 
