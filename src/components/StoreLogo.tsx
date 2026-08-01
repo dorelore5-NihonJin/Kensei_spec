@@ -1,6 +1,6 @@
 interface StoreLogoProps {
   id: string;
-  name: string;
+  name?: string;
   size?: number;
 }
 
@@ -153,7 +153,7 @@ export default function StoreLogo({ id, size = 36 }: StoreLogoProps) {
           className="rounded-xl flex items-center justify-center text-white font-black text-xs shrink-0 shadow-xs"
           style={{ width: size, height: size, backgroundColor: "#555" }}
         >
-          {name.substring(0, 2).toUpperCase()}
+          {(name || "ST").substring(0, 2).toUpperCase()}
         </div>
       );
   }
