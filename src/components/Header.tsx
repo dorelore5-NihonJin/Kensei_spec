@@ -152,8 +152,9 @@ export default function Header({
         </div>
       </header>
 
-      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Smooth Seamless Crossfade Stack with Premium Hover Motion) */}
-      <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group bg-black/90 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30 dark:hover:border-cyan-400/40 cursor-pointer">
+      {/* 2. DYNAMIC LOOPING VIDEO HERO BANNER (Hidden on dedicated CPU/GPU detail pages for clean focus) */}
+      {activePage !== "cpu-detail" && activePage !== "gpu-detail" && (
+        <div className="relative w-full h-44 sm:h-56 md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-black/10 dark:border-white/10 group bg-black/90 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30 dark:hover:border-cyan-400/40 cursor-pointer">
         {(["simulator", "catalog", "compare", "rankings"] as const).map((page) => {
           const videoSrc =
             page === "rankings"
@@ -212,6 +213,7 @@ export default function Header({
           </p>
         </div>
       </div>
+      )}
 
       {/* BRAND STORY & ALGORITHM MODAL */}
       {showAboutModal && (
