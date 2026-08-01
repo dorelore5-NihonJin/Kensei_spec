@@ -9,6 +9,7 @@ import {
   Globe
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import StoreLogo from "./StoreLogo";
 
 export interface HardwareOffersItem {
   name: string;
@@ -225,12 +226,8 @@ export default function HardwareOffersModal({
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  // Default region matches active site language (ru / ja / en)
-  const [selectedRegion, setSelectedRegion] = useState<StoreRegion>(() => {
-    if (lang === "ru") return "ru";
-    if (lang === "ja") return "ja";
-    return "en";
-  });
+  // Auto region derived from active site language
+  const selectedRegion: StoreRegion = lang === "ru" ? "ru" : lang === "ja" ? "ja" : "en";
 
   const filteredStores = useMemo(() => {
     return STORE_PROVIDERS.filter((s) => s.region === selectedRegion);
@@ -252,6 +249,7 @@ export default function HardwareOffersModal({
   const isAmd = item.manufacturer === "AMD";
   const isIntel = item.manufacturer === "Intel";
   const brandColor = isNvidia ? "#76B900" : isAmd ? "#ED1C24" : isIntel ? "#0071C5" : "#555555";
+  const regionLabel = lang === "ru" ? "СНГ / Россия" : lang === "ja" ? "日本 (Japan)" : "Global / US";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
@@ -269,7 +267,7 @@ export default function HardwareOffersModal({
                   Где Купить {item.name}
                 </h3>
                 <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
-                  Прямой Поиск 2026
+                  {regionLabel}
                 </span>
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
@@ -284,52 +282,6 @@ export default function HardwareOffersModal({
           >
             <X className="w-5 h-5" />
           </button>
-        </div>
-
-        {/* REGION SELECTOR STRIP */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-          <div className="flex items-center gap-2 px-2">
-            <Globe className="w-4 h-4 text-[#E88D9F]" />
-            <span className="text-xs font-black text-[#1E2022] dark:text-white">Выберите регион поиска:</span>
-          </div>
-
-          <div className="flex items-center gap-1.5">
-            <button
-              onClick={() => setSelectedRegion("ru")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
-                selectedRegion === "ru"
-                  ? "bg-blue-600 text-white border-blue-500 shadow-md"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
-              }`}
-            >
-              <span>🇷🇺</span>
-              <span>СНГ / Россия</span>
-            </button>
-
-            <button
-              onClick={() => setSelectedRegion("ja")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
-                selectedRegion === "ja"
-                  ? "bg-red-600 text-white border-red-500 shadow-md"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
-              }`}
-            >
-              <span>🇯🇵</span>
-              <span>日本 (Japan)</span>
-            </button>
-
-            <button
-              onClick={() => setSelectedRegion("en")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border ${
-                selectedRegion === "en"
-                  ? "bg-emerald-600 text-white border-emerald-500 shadow-md"
-                  : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border-black/5 dark:border-white/5 hover:border-black/15"
-              }`}
-            >
-              <span>🌎</span>
-              <span>Global / US</span>
-            </button>
-          </div>
         </div>
 
         {/* FOCUSED ITEM BANNER */}
@@ -390,8 +342,7 @@ export default function HardwareOffersModal({
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between px-1">
             <span className="text-xs font-black text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
-              <span>🏪</span>
-              Магазины и Площадки ({selectedRegion.toUpperCase()})
+              <Globe className="w-4 h-4 text-[#E88D9F]" /> {lang === "ru" ? "Магазины и Торговые Площадки" : lang === "ja" ? "対応ストア・オンラインショップ" : "Retailers & Marketplaces"} ({regionLabel})
             </span>
             <span className="text-[10px] font-bold text-gray-400">Прямой поиск по «{item.name}»</span>
           </div>
@@ -407,12 +358,7 @@ export default function HardwareOffersModal({
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center text-white font-black text-xs shrink-0 shadow-xs"
-                      style={{ backgroundColor: store.logoColor }}
-                    >
-                      {store.name.substring(0, 2).toUpperCase()}
-                    </div>
+                    <StoreLogo id={store.id} name={store.name} size={36} />
                     <div>
                       <h4 className="text-xs font-black text-[#1E2022] dark:text-white group-hover:text-[#E88D9F] transition">
                         {store.name}
