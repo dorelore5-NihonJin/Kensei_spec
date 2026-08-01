@@ -4,9 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { getCpuTechnicalDetails } from "../lib/hardwareSpecs";
 import { getHardwareSlug, findCpuBySlugOrId } from "../lib/slugs";
 import {
-  Cpu,
   Zap,
-  Flame,
   Scale,
   ShoppingCart,
   Share2,
@@ -15,15 +13,8 @@ import {
   ArrowLeft,
   Tv,
   Activity,
-  Layers,
-  Database,
-  Shield,
-  Award,
-  Thermometer,
-  Cpu as MicrochipIcon,
   CheckCircle2,
-  XCircle,
-  BarChart3
+  XCircle
 } from "lucide-react";
 
 export default function CpuDetailPage() {
@@ -73,9 +64,9 @@ export default function CpuDetailPage() {
   const techDetails = getCpuTechnicalDetails(cpu, cpus);
 
   // Compute rankings & percentiles among database CPUs
-  const { singleRank, multiRank, singleMax, multiMax } = useMemo(() => {
+  const { singleRank, multiRank } = useMemo(() => {
     if (!cpus || cpus.length === 0) {
-      return { singleRank: 1, multiRank: 1, singleMax: 2500, multiMax: 25000 };
+      return { singleRank: 1, multiRank: 1 };
     }
     const sortedSingle = [...cpus].sort((a, b) => b.singleCoreScore - a.singleCoreScore);
     const sortedMulti = [...cpus].sort((a, b) => b.multiCoreScore - a.multiCoreScore);
@@ -83,14 +74,9 @@ export default function CpuDetailPage() {
     const sRank = sortedSingle.findIndex((c) => c.id === cpu.id) + 1;
     const mRank = sortedMulti.findIndex((c) => c.id === cpu.id) + 1;
 
-    const sMax = sortedSingle[0]?.singleCoreScore || 2500;
-    const mMax = sortedMulti[0]?.multiCoreScore || 25000;
-
     return {
       singleRank: sRank > 0 ? sRank : 1,
-      multiRank: mRank > 0 ? mRank : 1,
-      singleMax: sMax,
-      multiMax: mMax
+      multiRank: mRank > 0 ? mRank : 1
     };
   }, [cpus, cpu]);
 
