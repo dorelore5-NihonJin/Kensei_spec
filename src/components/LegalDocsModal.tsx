@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   X,
   ShieldCheck,
@@ -23,6 +23,13 @@ interface LegalDocsModalProps {
 export default function LegalDocsModal({ isOpen, onClose, initialTab = "terms" }: LegalDocsModalProps) {
   const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<"terms" | "privacy" | "disclaimer" | "affiliate">(initialTab);
+
+  // Sync activeTab when modal is opened with a specific initialTab
+  useEffect(() => {
+    if (isOpen && initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [isOpen, initialTab]);
 
   if (!isOpen) return null;
 
