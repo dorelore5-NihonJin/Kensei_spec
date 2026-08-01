@@ -1,20 +1,13 @@
 import { useState, useMemo } from "react";
 import {
-  ShoppingCart,
   X,
   ExternalLink,
   ShieldCheck,
-  Fan,
-  Flame,
-  Sparkles,
   Award,
   Copy,
   Check,
-  Search,
   Store,
-  Globe,
-  Tag,
-  Info
+  Globe
 } from "lucide-react";
 import type { CPU, GPU, RAMProfile, StorageType } from "../lib/types";
 import { useLanguage } from "../context/LanguageContext";
@@ -322,14 +315,12 @@ export default function BuildBuyModal({
   onClose,
   selectedCpu,
   selectedGpu,
-  selectedRam,
   ramCapacityGB,
   selectedStorage,
   psuRecommendationW
 }: BuildBuyModalProps) {
-  const { lang, formatPrice, t } = useLanguage();
+  const { lang, formatPrice } = useLanguage();
 
-  const [activeTier, setActiveTier] = useState<BuildTier>("premium");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   // Default region matches active site language (ru / ja / en)
@@ -363,24 +354,17 @@ export default function BuildBuyModal({
 
   if (!isOpen) return null;
 
-  const mobo = getMotherboardForCpu(selectedCpu, activeTier);
-  const cooler = getCoolingForCpu(selectedCpu, activeTier);
+  const mobo = getMotherboardForCpu(selectedCpu, "premium");
+  const cooler = getCoolingForCpu(selectedCpu, "premium");
 
   const cpuPrice = getCpuPrice(selectedCpu);
   const gpuPrice = getGpuPrice(selectedGpu);
   const moboPrice = mobo.price;
   const coolerPrice = cooler.price;
   const ramPrice = Math.round(ramCapacityGB * 3.5);
-  const storagePrice = selectedStorage === "PCIe 5.0 NVMe SSD" ? 180 : 110;
+  const storagePrice = typeof selectedStorage === "string" && selectedStorage.includes("5.0") ? 180 : 110;
   const psuPrice = Math.round(psuRecommendationW * 0.16);
-  const casePrice = activeTier === "extreme" ? 190 : activeTier === "premium" ? 110 : 65;
-
-  const caseName =
-    activeTier === "extreme"
-      ? "Lian Li O11 Dynamic EVO XL White"
-      : activeTier === "premium"
-      ? "NZXT H7 Flow ARGB Glass Tower"
-      : "Montech AIR 903 MAX Black";
+  const casePrice = 110;
 
   const totalPriceUSD = cpuPrice + gpuPrice + moboPrice + coolerPrice + ramPrice + storagePrice + psuPrice + casePrice;
 
