@@ -29,7 +29,9 @@ interface HardwareContextType {
   setActivePage: (page: "simulator" | "catalog" | "compare" | "rankings" | "cpu-detail") => void;
   selectedCpuDetailId: string | null;
   setSelectedCpuDetailId: (id: string | null) => void;
+  previousPage: "simulator" | "catalog" | "compare" | "rankings";
   handleOpenCpuDetail: (cpuOrId: CPU | string) => void;
+  handleBackFromCpuDetail: () => void;
   currentStep: 1 | 2 | 3;
   setCurrentStep: (step: 1 | 2 | 3) => void;
   viewMode: "wizard" | "overview";
@@ -154,7 +156,12 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     return getStorageItem("kensei_active_page", "simulator") as any;
   });
 
+  const [previousPage, setPreviousPage] = useState<"simulator" | "catalog" | "compare" | "rankings">("simulator");
+
   const handleOpenCpuDetail = (cpuOrId: CPU | string) => {
+    if (activePage !== "cpu-detail") {
+      setPreviousPage(activePage as any);
+    }
     const targetQuery = typeof cpuOrId === "string" ? cpuOrId : cpuOrId.id;
     const match = findCpuBySlugOrId(cpus, targetQuery);
     const validId = match ? match.id : targetQuery;
@@ -176,6 +183,10 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     } catch {
       // Ignore URL errors
     }
+  };
+
+  const handleBackFromCpuDetail = () => {
+    setActivePage(previousPage || "simulator");
   };
 
   const [viewMode, setViewModeState] = useState<"wizard" | "overview">(() => {
@@ -537,7 +548,9 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     setActivePage: changeActivePage,
     selectedCpuDetailId,
     setSelectedCpuDetailId,
+    previousPage,
     handleOpenCpuDetail,
+    handleBackFromCpuDetail,
     currentStep,
     setCurrentStep,
     viewMode,

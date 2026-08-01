@@ -26,11 +26,20 @@ export default function CpuDetailPage() {
     setCurrentStep,
     setIsBuyModalOpen,
     handleOpenCpuDetail,
+    previousPage,
+    handleBackFromCpuDetail,
     showToast
   } = useHardware();
   const { formatPrice } = useLanguage();
 
   const [copied, setCopied] = useState(false);
+
+  const backLabel = useMemo(() => {
+    if (previousPage === "rankings") return "Назад в Рейтинг";
+    if (previousPage === "compare") return "Назад в Сравнение";
+    if (previousPage === "catalog") return "Назад в Каталог";
+    return "Назад в Симулятор";
+  }, [previousPage]);
 
   // Resolve target CPU from selectedCpuDetailId or URL
   const cpu = useMemo(() => {
@@ -116,13 +125,13 @@ export default function CpuDetailPage() {
       {/* Back Navigation Bar */}
       <div className="flex items-center justify-between gap-4">
         <button
-          onClick={() => setActivePage("simulator")}
+          onClick={handleBackFromCpuDetail}
           className="group flex items-center gap-2 text-xs font-black text-gray-500 dark:text-gray-400 hover:text-[#1E2022] dark:hover:text-white transition active:scale-95"
         >
           <div className="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/10 flex items-center justify-center group-hover:bg-[#E88D9F] group-hover:text-white transition">
             <ArrowLeft className="w-4 h-4" />
           </div>
-          <span>Назад в Симулятор</span>
+          <span>{backLabel}</span>
         </button>
 
         <div className="flex items-center gap-2">
