@@ -20,7 +20,6 @@ import {
 export default function CpuDetailPage() {
   const {
     cpus,
-    gpus,
     selectedCpuDetailId,
     setSelectedCpu,
     setActivePage,
