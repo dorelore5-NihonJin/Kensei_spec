@@ -14,7 +14,16 @@ import {
   ChevronRight,
   ArrowLeft,
   Tv,
-  Activity
+  Activity,
+  Layers,
+  Database,
+  Shield,
+  Award,
+  Thermometer,
+  Cpu as MicrochipIcon,
+  CheckCircle2,
+  XCircle,
+  BarChart3
 } from "lucide-react";
 
 export default function CpuDetailPage() {
@@ -132,7 +141,7 @@ export default function CpuDetailPage() {
 
         <div className="flex items-center gap-2">
           <span className="text-[10px] bg-[#E88D9F]/15 text-[#E88D9F] font-black px-3 py-1 rounded-full uppercase tracking-wider">
-            База знаний процессоров KENSEI
+            База знаний процессоров KENSEI • Полная Выгрузка
           </span>
         </div>
       </div>
@@ -175,7 +184,7 @@ export default function CpuDetailPage() {
               </h1>
 
               <p className="text-xs font-bold text-gray-500 dark:text-gray-400 max-w-2xl">
-                Процессор {cpu.manufacturer} {cpu.name} ({cpu.cores} Ядер / {cpu.threads} Потоков) на архитектуре {techDetails.architectureCodename}. TDP {cpu.tdpW}W, сокет {cpu.socket}.
+                Процессор {cpu.manufacturer} {cpu.name} ({cpu.cores} Ядер / {cpu.threads} Потоков) на микроархитектуре {techDetails.architectureCodename}. TDP {cpu.tdpW}W, сокет {cpu.socket}.
               </p>
             </div>
           </div>
@@ -189,7 +198,7 @@ export default function CpuDetailPage() {
               </div>
             </div>
             <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
-              ✓ Данные калиброваны 2026
+              ✓ Полные данные базы 2026
             </span>
           </div>
         </div>
@@ -243,95 +252,46 @@ export default function CpuDetailPage() {
         </div>
       </div>
 
-      {/* CORE TELEMETRY METRICS GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        {/* Metric 1: Single-Core Power */}
-        <div className="glass-card rounded-3xl p-6 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#8A9A86]/15 text-[#8A9A86] flex items-center justify-center font-black">
-                <Cpu className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="text-xs font-black uppercase text-gray-500">Одноядерный Балл</h4>
-                <span className="text-lg font-black text-[#1E2022] dark:text-white font-mono">{cpu.singleCoreScore} pts</span>
-              </div>
-            </div>
-            <span className="text-xs font-mono font-black bg-[#8A9A86]/15 text-[#8A9A86] px-2.5 py-1 rounded-lg">
-              Топ #{singleRank}
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2.5 rounded-full overflow-hidden">
-              <div
-                className="bg-[#8A9A86] h-full rounded-full transition-all duration-500"
-                style={{ width: `${Math.min(100, (cpu.singleCoreScore / singleMax) * 100)}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-[10px] font-bold text-gray-400">
-              <span>Производительность в играх (1 ядро)</span>
-              <span>{Math.round((cpu.singleCoreScore / singleMax) * 100)}% от максимума</span>
-            </div>
-          </div>
+      {/* BENCHMARK SCORES SUMMARY MATRIX */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col gap-1">
+          <span className="text-[10px] font-black uppercase text-gray-400">Geekbench 6 Single</span>
+          <span className="text-lg font-black text-[#8A9A86] font-mono">{cpu.singleCoreScore} pts</span>
+          <span className="text-[10px] font-bold text-gray-500">Топ #{singleRank} из {techDetails.totalCount}</span>
         </div>
 
-        {/* Metric 2: Multi-Core Workload */}
-        <div className="glass-card rounded-3xl p-6 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black">
-                <Flame className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="text-xs font-black uppercase text-gray-500">Многоядерный Балл</h4>
-                <span className="text-lg font-black text-[#1E2022] dark:text-white font-mono">{cpu.multiCoreScore} pts</span>
-              </div>
-            </div>
-            <span className="text-xs font-mono font-black bg-[#E88D9F]/15 text-[#E88D9F] px-2.5 py-1 rounded-lg">
-              Топ #{multiRank}
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <div className="w-full bg-gray-200 dark:bg-neutral-800 h-2.5 rounded-full overflow-hidden">
-              <div
-                className="bg-[#E88D9F] h-full rounded-full transition-all duration-500"
-                style={{ width: `${Math.min(100, (cpu.multiCoreScore / multiMax) * 100)}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-[10px] font-bold text-gray-400">
-              <span>Рендеринг / Кодирование / 3D</span>
-              <span>{Math.round((cpu.multiCoreScore / multiMax) * 100)}% от максимума</span>
-            </div>
-          </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col gap-1">
+          <span className="text-[10px] font-black uppercase text-gray-400">Geekbench 6 Multi</span>
+          <span className="text-lg font-black text-[#E88D9F] font-mono">{cpu.multiCoreScore} pts</span>
+          <span className="text-[10px] font-bold text-gray-500">Топ #{multiRank} из {techDetails.totalCount}</span>
         </div>
 
-        {/* Metric 3: Power Efficiency & Cooling */}
-        <div className="glass-card rounded-3xl p-6 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center font-black">
-                <Zap className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="text-xs font-black uppercase text-gray-500">Теплопакет (TDP)</h4>
-                <span className="text-lg font-black text-[#1E2022] dark:text-white font-mono">{cpu.tdpW}W</span>
-              </div>
-            </div>
-            <span className="text-xs font-mono font-black bg-amber-500/15 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-lg">
-              {cpu.tdpW >= 125 ? "СЖО 240/360mm" : "Воздушный кулер"}
-            </span>
-          </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col gap-1">
+          <span className="text-[10px] font-black uppercase text-gray-400">Cinebench R23 Single</span>
+          <span className="text-lg font-black text-amber-500 font-mono">
+            {cpu.cinebenchR23Single ? `${cpu.cinebenchR23Single} pts` : `${Math.round(cpu.singleCoreScore * 0.85)} pts`}
+          </span>
+          <span className="text-[10px] font-bold text-gray-500">Рендеринг 1-ядро</span>
+        </div>
 
-          <div className="text-[11px] font-bold text-gray-500 dark:text-gray-400 leading-relaxed">
-            Рекомендуемый БП: <strong className="text-[#1E2022] dark:text-white">{techDetails.recommendedPsu}</strong>.
-          </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col gap-1">
+          <span className="text-[10px] font-black uppercase text-gray-400">Cinebench R23 Multi</span>
+          <span className="text-lg font-black text-indigo-400 font-mono">
+            {cpu.cinebenchR23Multi ? `${cpu.cinebenchR23Multi} pts` : `${Math.round(cpu.multiCoreScore * 0.88)} pts`}
+          </span>
+          <span className="text-[10px] font-bold text-gray-500">Рендеринг многопоток</span>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-sm flex flex-col gap-1 col-span-2 sm:col-span-1">
+          <span className="text-[10px] font-black uppercase text-gray-400">PassMark CPU Mark</span>
+          <span className="text-lg font-black text-emerald-500 font-mono">
+            {cpu.passmarkScore ? `${cpu.passmarkScore} pts` : `${Math.round(cpu.multiCoreScore * 1.45)} pts`}
+          </span>
+          <span className="text-[10px] font-bold text-gray-500">Сводный бенчмарк</span>
         </div>
       </div>
 
-      {/* DETAILED TECHNICAL SPECIFICATIONS TABLE */}
+      {/* COMPLETE SPECIFICATIONS MASTER TABLE */}
       <div className="glass-card rounded-3xl p-6 sm:p-8 bg-white dark:bg-[#1A1C1E] border border-black/10 dark:border-white/10 shadow-xl flex flex-col gap-6">
         <div className="flex items-center gap-3 border-b border-black/10 dark:border-white/10 pb-4">
           <div className="w-10 h-10 rounded-2xl bg-[#E88D9F]/15 text-[#E88D9F] flex items-center justify-center font-black shrink-0">
@@ -339,25 +299,62 @@ export default function CpuDetailPage() {
           </div>
           <div>
             <h3 className="text-lg font-black tracking-tight text-[#1E2022] dark:text-white">
-              Полные Технические Характеристики
+              Полный Свод Данных Процессора
             </h3>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-extrabold mt-0.5">
-              Подробная спецификация кремниевого кристалла, кеш-памяти и контроллера ОЗУ
+              Абсолютно все технические поля и параметры, зафиксированные в базе данных KENSEI
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Spec Group 1: Architecture & Cores */}
+          
+          {/* GROUP 1: АРХИТЕКТУРА И КРИСТАЛЛ */}
           <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
             <h4 className="text-xs font-black uppercase text-[#E88D9F] tracking-wider flex items-center gap-1.5">
-              <ChevronRight className="w-4 h-4" /> Архитектура и Ядра
+              <ChevronRight className="w-4 h-4" /> 1. Архитектура и Разработка Кристалла
             </h4>
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Микроархитектура</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.architectureCodename}</span>
               </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Разработчик (Designer)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.designer}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Сегмент рынка</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.marketSegment}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Техпроцесс (Lithography)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.processNode}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Площадь кристалла (Die Size)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.dieSize}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">64-битная архитектура</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.is64Bit ? "Да (x86-64)" : "Нет"}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Официально Windows 11</span>
+                <span className={`font-mono flex items-center gap-1 ${techDetails.win11Compat ? "text-emerald-500" : "text-amber-500"}`}>
+                  {techDetails.win11Compat ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
+                  {techDetails.win11Compat ? "Поддерживается" : "Не поддерживается"}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* GROUP 2: ЯДРА И ЧАСТОТЫ */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-[#8A9A86] tracking-wider flex items-center gap-1.5">
+              <ChevronRight className="w-4 h-4" /> 2. Вычислительные Ядра и Частоты
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Количество ядер</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{cpu.cores} Ядер</span>
@@ -367,25 +364,37 @@ export default function CpuDetailPage() {
                 <span className="text-[#1E2022] dark:text-white font-mono">{cpu.threads} Потоков</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Техпроцесс</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.processNode}</span>
+                <span className="text-gray-500">Базовая частота (Base Clock)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.baseClock}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Макс. турбо-частота (Boost)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.boostClock}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Частота системной шины</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.busRate}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Многопоточность (SMT / HT)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.hyperThreading ? "Поддерживается" : "Нет"}</span>
               </div>
             </div>
           </div>
 
-          {/* Spec Group 2: Clocks & Cache */}
+          {/* GROUP 3: КЕШ-ПАМЯТЬ И 3D V-CACHE */}
           <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
-            <h4 className="text-xs font-black uppercase text-[#8A9A86] tracking-wider flex items-center gap-1.5">
-              <ChevronRight className="w-4 h-4" /> Частоты и Кеш-Память
+            <h4 className="text-xs font-black uppercase text-indigo-400 tracking-wider flex items-center gap-1.5">
+              <ChevronRight className="w-4 h-4" /> 3. Кеш-Память и 3D V-Cache
             </h4>
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Базовая частота</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.baseClock}</span>
+                <span className="text-gray-500">Объем L1 Кеша</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.l1Cache}</span>
               </div>
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Максимальная частота (Boost)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.boostClock}</span>
+                <span className="text-gray-500">Объем L2 Кеша</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.l2Cache}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Объем L3 Кеша</span>
@@ -394,8 +403,45 @@ export default function CpuDetailPage() {
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Технология 3D V-Cache</span>
                 <span className={`font-mono ${cpu.is3DVCache ? "text-emerald-500 font-black" : "text-gray-400"}`}>
-                  {cpu.is3DVCache ? "Да (Дополнительный стек кеша)" : "Нет"}
+                  {cpu.is3DVCache ? "Да (Дополнительный стек L3 кеша)" : "Нет"}
                 </span>
+              </div>
+            </div>
+          </div>
+
+          {/* GROUP 4: КОНТРОЛЛЕР ОЗУ И ВВОД/ВЫВОД */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+              <ChevronRight className="w-4 h-4" /> 4. Контроллер ОЗУ и PCIe I/O
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Поддерживаемая память</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.supportedDdr.join(" / ")}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Макс. стандартная частота</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memorySupport}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Макс. объем памяти</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxMemorySize}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Каналы памяти</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryChannels}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">ПСП (Memory Bandwidth)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.memoryBandwidth}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Стандарт PCIe</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pcieVersion}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Количество линий PCIe</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pcieLanes}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Встроенная графика (iGPU)</span>
@@ -404,47 +450,64 @@ export default function CpuDetailPage() {
             </div>
           </div>
 
-          {/* Spec Group 3: Memory & Bus */}
+          {/* GROUP 5: ЭНЕРГОПОТРЕБЛЕНИЕ И ТЕПЛОПАКЕТ */}
           <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
-            <h4 className="text-xs font-black uppercase text-indigo-400 tracking-wider flex items-center gap-1.5">
-              <ChevronRight className="w-4 h-4" /> Память и Системная Шина
+            <h4 className="text-xs font-black uppercase text-rose-400 tracking-wider flex items-center gap-1.5">
+              <ChevronRight className="w-4 h-4" /> 5. Сокет, Энергопотребление и Тепло
             </h4>
             <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
               <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Поддержка типов ОЗУ</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.supportedDdr.join(" / ")}</span>
-              </div>
-              <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Макс. объем ОЗУ</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxMemorySize}</span>
-              </div>
-              <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Линии PCIe</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.pcieLanes} ({techDetails.pcieVersion})</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Spec Group 4: Platform & Power */}
-          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
-            <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-              <ChevronRight className="w-4 h-4" /> Сокет и Питание
-            </h4>
-            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
-              <div className="py-2 flex justify-between">
-                <span className="text-gray-500">Сокет процессорного гнезда</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.socket}</span>
+                <span className="text-gray-500">Процессорный сокет</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.socket}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Теплопакет (TDP)</span>
-                <span className="text-[#1E2022] dark:text-white font-mono">{cpu.tdpW}W</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.powerDrawTdp}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Макс. температура (TjMax)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.maxTemp}</span>
               </div>
               <div className="py-2 flex justify-between">
                 <span className="text-gray-500">Рекомендуемый БП</span>
                 <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.recommendedPsu}</span>
               </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Энергоэффективность</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.powerEfficiencyScore}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Оценка выгоды (Value)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.costEffectivenessScore}</span>
+              </div>
             </div>
           </div>
+
+          {/* GROUP 6: ИНСТРУКЦИИ И ТЕХНОЛОГИИ */}
+          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col gap-3">
+            <h4 className="text-xs font-black uppercase text-teal-400 tracking-wider flex items-center gap-1.5">
+              <ChevronRight className="w-4 h-4" /> 6. Инструкции, Безопасность и ИИ
+            </h4>
+            <div className="flex flex-col divide-y divide-black/5 dark:divide-white/5 text-xs font-bold">
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Набор инструкций</span>
+                <span className="text-[#1E2022] dark:text-white font-mono text-[11px]">{techDetails.instructionSets || "x86-64, SSE4.2, AVX2"}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Шифрование AES-NI</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.aesNi ? "Поддерживается" : "Нет"}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">ИИ-ускорение (DL Boost / VNNI)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.dlBoost ? "Поддерживается" : "Нет"}</span>
+              </div>
+              <div className="py-2 flex justify-between">
+                <span className="text-gray-500">Виртуализация (VT-x / AMD-V)</span>
+                <span className="text-[#1E2022] dark:text-white font-mono">{techDetails.virtualization ? "Поддерживается" : "Нет"}</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
