@@ -35,7 +35,6 @@ export default function GpuDetailPage() {
     setSelectedGpu,
     setActivePage,
     setCurrentStep,
-    setIsBuyModalOpen,
     handleOpenHardwareOffersModal,
     handleOpenCpuDetail,
     handleOpenGpuDetail,

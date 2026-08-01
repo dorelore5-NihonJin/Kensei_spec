@@ -3,7 +3,6 @@ import {
   X,
   ExternalLink,
   ShieldCheck,
-  Award,
   Copy,
   Check,
   Store,

@@ -29,7 +29,6 @@ export default function CpuDetailPage() {
     setSelectedCpu,
     setActivePage,
     setCurrentStep,
-    setIsBuyModalOpen,
     handleOpenHardwareOffersModal,
     handleOpenCpuDetail,
     previousPage,

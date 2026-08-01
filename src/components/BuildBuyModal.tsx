@@ -4,8 +4,6 @@ import {
   ExternalLink,
   ShieldCheck,
   Award,
-  Copy,
-  Check,
   Store,
   Globe
 } from "lucide-react";
@@ -322,8 +320,6 @@ export default function BuildBuyModal({
 }: BuildBuyModalProps) {
   const { lang, formatPrice } = useLanguage();
 
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-
   // Default region matches active site language (ru / ja / en)
   const [selectedRegion, setSelectedRegion] = useState<StoreRegion>(() => {
     if (lang === "ru") return "ru";
@@ -356,16 +352,6 @@ export default function BuildBuyModal({
   const casePrice = 110;
 
   const totalPriceUSD = cpuPrice + gpuPrice + moboPrice + coolerPrice + ramPrice + storagePrice + psuPrice + casePrice;
-
-  const handleCopyText = (text: string, id: string) => {
-    try {
-      navigator.clipboard.writeText(text);
-      setCopiedId(id);
-      setTimeout(() => setCopiedId(null), 2500);
-    } catch {
-      // Ignore clipboard errors
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xl animate-in fade-in duration-200">
