@@ -4,7 +4,7 @@ interface StoreLogoProps {
   size?: number;
 }
 
-export default function StoreLogo({ id, size = 36 }: StoreLogoProps) {
+export default function StoreLogo({ id, name = "", size = 36 }: StoreLogoProps) {
   switch (id) {
     case "ozon":
       return (
@@ -147,14 +147,16 @@ export default function StoreLogo({ id, size = 36 }: StoreLogoProps) {
         </svg>
       );
 
-    default:
+    default: {
+      const displayText = name ? name.substring(0, 2).toUpperCase() : "ST";
       return (
         <div
           className="rounded-xl flex items-center justify-center text-white font-black text-xs shrink-0 shadow-xs"
           style={{ width: size, height: size, backgroundColor: "#555" }}
         >
-          {(name || "ST").substring(0, 2).toUpperCase()}
+          {displayText}
         </div>
       );
+    }
   }
 }
