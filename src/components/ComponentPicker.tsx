@@ -10,11 +10,7 @@ import {
   AlertTriangle,
   X,
   RotateCcw,
-  Edit3,
-  Sparkles,
-  Check,
-  Zap,
-  Activity
+  Edit3
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
